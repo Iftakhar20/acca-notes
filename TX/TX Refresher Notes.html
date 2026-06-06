@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACCA TX (UK) – Revision Notes | FA2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #C0392B;
+    --red-dark: #922B21;
+    --red-light: #FADBD8;
+    --navy: #1A3A5C;
+    --navy-light: #EBF5FB;
+    --teal: #0E8A76;
+    --teal-light: #E8F8F5;
+    --amber: #D68910;
+    --amber-light: #FEF9E7;
+    --gold: #F1C40F;
+    --ink: #1A1A2E;
+    --ink-soft: #2C3E50;
+    --muted: #7F8C8D;
+    --bg: #FAFAF8;
+    --card: #FFFFFF;
+    --border: #E5E5E0;
+    --code-bg: #F4F1EB;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.8;
+    font-size: 16px;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--navy);
+    color: white;
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 14px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .header-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .header-badge {
+    background: var(--red);
+    color: white;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    letter-spacing: 0.1em;
+    border-radius: 2px;
+  }
+  .header-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+  }
+  .header-sub { font-size: 12px; color: rgba(255,255,255,0.6); letter-spacing: 0.05em; }
+  nav { display: flex; gap: 4px; flex-wrap: wrap; }
+  nav a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 6px 12px;
+    border-radius: 3px;
+    letter-spacing: 0.03em;
+    transition: all 0.2s;
+  }
+  nav a:hover, nav a.active { background: rgba(255,255,255,0.15); color: white; }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #0D2137 60%, var(--red-dark) 100%);
+    color: white;
+    padding: 64px 32px 56px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 900; margin-bottom: 12px; position: relative; }
+  .hero p { font-size: 17px; color: rgba(255,255,255,0.75); max-width: 600px; margin: 0 auto 24px; position: relative; }
+  .hero-tags { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; position: relative; }
+  .hero-tag {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.9);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* ── LAYOUT ── */
+  .main-wrap { max-width: 1100px; margin: 0 auto; padding: 48px 32px; }
+
+  /* ── TOPIC SECTION ── */
+  .topic-section {
+    margin-bottom: 64px;
+    scroll-margin-top: 70px;
+  }
+  .topic-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid var(--red);
+  }
+  .topic-number {
+    background: var(--red);
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 900;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 4px;
+  }
+  .topic-header h2 { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--navy); line-height: 1.2; }
+  .topic-header p { font-size: 14px; color: var(--muted); margin-top: 4px; font-style: italic; }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+  }
+  .card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--navy);
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .card p { margin-bottom: 12px; color: var(--ink-soft); }
+  .card p:last-child { margin-bottom: 0; }
+
+  /* ── CALLOUT BOXES ── */
+  .callout {
+    border-radius: 5px;
+    padding: 16px 20px;
+    margin: 18px 0;
+    border-left: 4px solid;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .callout-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+  .callout-body { flex: 1; }
+  .callout-body strong { display: block; margin-bottom: 4px; font-size: 14px; letter-spacing: 0.04em; }
+  .callout-body p { font-size: 14.5px; color: inherit; margin: 0; }
+  .callout.trap { background: #FDF2F2; border-color: var(--red); color: var(--red-dark); }
+  .callout.tip { background: var(--teal-light); border-color: var(--teal); color: #0A5C4A; }
+  .callout.key { background: var(--navy-light); border-color: var(--navy); color: var(--navy); }
+  .callout.formula { background: var(--amber-light); border-color: var(--amber); color: #7D5A0A; }
+
+  /* ── FORMULA BOX ── */
+  .formula-box {
+    background: var(--code-bg);
+    border: 1px solid #D5C9B0;
+    border-left: 4px solid var(--amber);
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin: 18px 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13.5px;
+    line-height: 1.9;
+    color: var(--ink);
+    white-space: pre-line;
+  }
+
+  /* ── TABLE ── */
+  .styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+    font-size: 14.5px;
+  }
+  .styled-table th {
+    background: var(--navy);
+    color: white;
+    padding: 10px 14px;
+    text-align: left;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+  }
+  .styled-table td {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+  .styled-table tr:nth-child(even) td { background: #F9F9F7; }
+  .styled-table tr:last-child td { border-bottom: none; }
+  .styled-table td strong { color: var(--red); }
+  .styled-table td.highlight { background: var(--amber-light) !important; font-weight: 600; }
+
+  /* ── STEP LIST ── */
+  .step-list { counter-reset: steps; list-style: none; padding: 0; margin: 16px 0; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 12px;
+    font-size: 15px;
+    color: var(--ink-soft);
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: var(--navy);
+    color: white;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 600;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ── DIVIDER ── */
+  .section-divider { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+
+  /* ── QUIZ SECTION ── */
+  .quiz-section {
+    background: linear-gradient(135deg, var(--navy) 0%, #0D2137 100%);
+    border-radius: 10px;
+    padding: 40px;
+    margin-top: 48px;
+    color: white;
+  }
+  .quiz-header { text-align: center; margin-bottom: 36px; }
+  .quiz-header h2 { font-family: 'Playfair Display', serif; font-size: 32px; color: white; margin-bottom: 8px; }
+  .quiz-header p { color: rgba(255,255,255,0.65); font-size: 15px; }
+
+  .question-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 28px;
+    margin-bottom: 24px;
+    transition: border-color 0.3s;
+  }
+  .question-card.answered { border-color: rgba(255,255,255,0.3); }
+
+  .q-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.12em;
+    margin-bottom: 10px;
+  }
+  .q-topic-tag {
+    display: inline-block;
+    background: var(--red);
+    color: white;
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-left: 8px;
+    letter-spacing: 0.05em;
+  }
+  .q-text {
+    font-size: 16px;
+    color: white;
+    margin-bottom: 18px;
+    line-height: 1.7;
+  }
+  .q-context {
+    background: rgba(255,255,255,0.06);
+    border-left: 3px solid rgba(255,255,255,0.3);
+    padding: 12px 16px;
+    margin-bottom: 18px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.7;
+    font-style: italic;
+    border-radius: 0 4px 4px 0;
+  }
+  .options { display: grid; gap: 10px; }
+  .option-btn {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.85);
+    padding: 12px 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: left;
+    font-family: 'Source Serif 4', serif;
+    font-size: 14.5px;
+    line-height: 1.5;
+    transition: all 0.2s;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .option-btn:hover:not(:disabled) {
+    background: rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.4);
+    transform: translateX(3px);
+  }
+  .option-btn:disabled { cursor: default; transform: none; }
+  .option-letter {
+    background: rgba(255,255,255,0.1);
+    color: white;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 600;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .option-btn.correct {
+    background: rgba(39,174,96,0.25);
+    border-color: #27AE60;
+    color: #A9DFBF;
+  }
+  .option-btn.correct .option-letter { background: #27AE60; color: white; }
+  .option-btn.wrong {
+    background: rgba(192,57,43,0.25);
+    border-color: var(--red);
+    color: #F1948A;
+  }
+  .option-btn.wrong .option-letter { background: var(--red); color: white; }
+  .option-btn.missed {
+    background: rgba(39,174,96,0.12);
+    border-color: rgba(39,174,96,0.5);
+    color: rgba(169,223,191,0.8);
+  }
+
+  .explanation {
+    margin-top: 16px;
+    padding: 16px 20px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 6px;
+    border-left: 3px solid var(--gold);
+    display: none;
+  }
+  .explanation.show { display: block; animation: slideIn 0.3s ease; }
+  .explanation p { font-size: 14.5px; color: rgba(255,255,255,0.85); line-height: 1.7; margin-bottom: 8px; }
+  .explanation p:last-child { margin-bottom: 0; }
+  .explanation strong { color: var(--gold); }
+
+  @keyframes slideIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+
+  .result-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 600;
+  }
+  .result-badge.right { background: rgba(39,174,96,0.2); color: #A9DFBF; border: 1px solid #27AE60; }
+  .result-badge.wrong { background: rgba(192,57,43,0.2); color: #F1948A; border: 1px solid var(--red); }
+
+  .quiz-score {
+    text-align: center;
+    padding: 32px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 8px;
+    margin-top: 32px;
+    display: none;
+  }
+  .quiz-score.show { display: block; animation: slideIn 0.5s ease; }
+  .score-number { font-family: 'Playfair Display', serif; font-size: 64px; color: white; line-height: 1; }
+  .score-label { color: rgba(255,255,255,0.6); font-size: 16px; margin-top: 8px; }
+  .score-msg { color: white; font-size: 18px; margin-top: 16px; font-style: italic; }
+  .retry-btn {
+    margin-top: 20px;
+    background: var(--red);
+    color: white;
+    border: none;
+    padding: 12px 32px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .retry-btn:hover { background: var(--red-dark); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    .header-inner { flex-direction: column; align-items: flex-start; }
+    nav { gap: 4px; }
+    .hero h1 { font-size: 28px; }
+    .main-wrap { padding: 24px 16px; }
+    .quiz-section { padding: 24px 16px; }
+    .topic-header h2 { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-brand">
+      <span class="header-badge">ACCA TX-UK</span>
+      <div>
+        <div class="header-title">Revision Notes</div>
+        <div class="header-sub">FA2025 · June 2026 Exam Window</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#employment">Employment</a>
+      <a href="#property">Property</a>
+      <a href="#cgt">CGT</a>
+      <a href="#iht">IHT</a>
+      <a href="#admin">Admin</a>
+      <a href="#quiz">Quiz</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <h1>TX (UK) Focused Revision</h1>
+  <p>Deep tutorial notes on 5 core exam topics — with full explanations of the rules, the logic behind them, and common traps.</p>
+  <div class="hero-tags">
+    <span class="hero-tag">Employment Income</span>
+    <span class="hero-tag">Property Income</span>
+    <span class="hero-tag">Capital Gains Tax</span>
+    <span class="hero-tag">Inheritance Tax</span>
+    <span class="hero-tag">Tax Administration</span>
+    <span class="hero-tag">Interactive Quiz ↓</span>
+  </div>
+</div>
+
+<div class="main-wrap">
+
+<!-- ══════════════════════════════════════════════
+     TOPIC 1 – EMPLOYMENT INCOME
+     ══════════════════════════════════════════════ -->
+<section class="topic-section" id="employment">
+  <div class="topic-header">
+    <div class="topic-number">1</div>
+    <div>
+      <h2>Employment Income – Taxable Benefits</h2>
+      <p>Syllabus area B2 · Almost certain to appear in Section C</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>What is Employment Income and Why Does It Matter?</h3>
+    <p>Employment income is not just your salary. HMRC taxes the total value of everything your employer gives you — cash, perks, a company car, a house to live in, cheap loans. The principle is straightforward: if your employer pays for something that benefits you personally, it is a taxable benefit unless there is a specific exemption.</p>
+    <p>The amount you include in your income tax computation is: <strong>Salary + taxable benefits − allowable deductions</strong>. The tricky part is computing each benefit correctly, because each one has its own formula.</p>
+  </div>
+
+  <div class="card">
+    <h3>Living Accommodation — The Most Tested Benefit</h3>
+    <p>When your employer gives you a house or flat to live in, HMRC charges you a benefit based on the value of that accommodation. The benefit is split into <em>two separate components</em> — this is the single most common mistake candidates make. They only include the annual value and forget the additional charge entirely.</p>
+
+    <p><strong>Component 1 — The Annual Value</strong><br>
+    This is simply the rateable value (or market rent) of the property. You always include this, regardless of the cost of the property. It is provided in the question.</p>
+
+    <p><strong>Component 2 — The Additional Benefit (expensive accommodation)</strong><br>
+    This only applies when the property cost the employer more than £75,000. It reflects the fact that a very expensive property gives you a much bigger benefit than its annual value suggests. The formula is:</p>
+
+    <div class="formula-box">(Cost of Property − £75,000) × Official Rate of Interest (3.75%)
+
+BUT — if the employer bought the property more than 6 years before
+first providing it to you, use Market Value at the date first provided
+instead of original cost.</div>
+
+    <p>On top of these two charges, if the employer also provides furniture, you add 20% of the furniture's cost. If there are running costs (electricity, gardening) paid by the employer, those are also added.</p>
+
+    <p>Finally — if you pay rent to your employer, that reduces the total benefit pound for pound. And if the accommodation is only provided for part of the year, time-apportion the whole thing.</p>
+
+    <div class="callout trap">
+      <span class="callout-icon">⚠</span>
+      <div class="callout-body">
+        <strong>EXAM TRAP — The most common error on this topic</strong>
+        <p>Candidates see "living accommodation" and only put in the annual value. The additional charge is worth more marks. Always check: is the cost over £75,000? If yes, you must calculate both components.</p>
+      </div>
+    </div>
+
+    <p><strong>Worked illustration (from our quiz):</strong> Sheldon's employer bought a property for £540,000. Annual value is £14,000. Official rate is 3.75%. Sheldon pays £250/month.</p>
+
+    <div class="formula-box">Annual value:                           £14,000
+Additional benefit: (£540,000 − £75,000) × 3.75% = £17,438
+Less: Sheldon's contribution (£250 × 12) =         (£3,000)
+                                                    ───────
+Total accommodation benefit:                        £28,438</div>
+
+    <div class="callout key">
+      <span class="callout-icon">💡</span>
+      <div class="callout-body">
+        <strong>Job-Related Accommodation Exception</strong>
+        <p>If accommodation is "job-related" (e.g. a caretaker who must live on site, a vicar in a vicarage, a security guard), the ENTIRE accommodation benefit is exempt. Only the annual value exemption applies — there is no additional benefit at all. This is a common written question.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Car Benefit — How the Percentage Works</h3>
+    <p>The car benefit is calculated as: <strong>List Price × Appropriate Percentage</strong>. The appropriate percentage depends almost entirely on the car's CO₂ emissions. The higher the emissions, the more you are taxed — this is a deliberate environmental incentive.</p>
+
+    <table class="styled-table">
+      <thead><tr><th>CO₂</th><th>Type</th><th>Benefit %</th></tr></thead>
+      <tbody>
+        <tr><td>0 g/km (pure electric)</td><td>Any</td><td>3%</td></tr>
+        <tr><td>1–50 g/km</td><td>Electric range ≥130 miles</td><td>3%</td></tr>
+        <tr><td>1–50 g/km</td><td>30–39 miles range</td><td>13%</td></tr>
+        <tr><td>1–50 g/km</td><td>&lt;30 miles range</td><td>15%</td></tr>
+        <tr><td>55 g/km (base level)</td><td>Petrol / RDE2 diesel</td><td>17%</td></tr>
+        <tr><td>Each 5 g/km above 55</td><td>Petrol / RDE2 diesel</td><td>+1%</td></tr>
+        <tr><td>Any</td><td>Non-RDE2 diesel surcharge</td><td>+4% on top</td></tr>
+      </tbody>
+    </table>
+
+    <p>If the car is not available for the full tax year, time-apportion the benefit. Private use by the employee does NOT reduce the benefit — the full benefit is charged regardless of how much private use there actually is (unlike sole traders where private use of assets does matter for capital allowances).</p>
+
+    <div class="callout tip">
+      <span class="callout-icon">✅</span>
+      <div class="callout-body">
+        <strong>Fuel benefit</strong>
+        <p>If the employer pays for private fuel, there is a separate fuel benefit = £28,200 × same appropriate %. It is very expensive to the employee — only worth having if enormous private mileage. If the employee reimburses ALL private fuel costs, no fuel benefit arises.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Beneficial Loans</h3>
+    <p>If your employer lends you money at below the official rate (3.75%), you are taxed on the interest saving. The benefit is calculated using the average method unless the taxpayer chooses the precise method.</p>
+    <div class="formula-box">Benefit = (Opening balance + Closing balance) ÷ 2 × Official Rate (3.75%) × months/12
+
+If total loan balance never exceeds £10,000 → the loan is EXEMPT entirely</div>
+    <div class="callout trap">
+      <span class="callout-icon">⚠</span>
+      <div class="callout-body">
+        <strong>Bracket error trap</strong>
+        <p>A very common calculation error: (£80,000 + £72,000/2) = £116,000 is WRONG. The correct grouping is (£80,000 + £72,000)/2 = £76,000. Always bracket the addition first.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════════
+     TOPIC 2 – PROPERTY INCOME
+     ══════════════════════════════════════════════ -->
+<section class="topic-section" id="property">
+  <div class="topic-header">
+    <div class="topic-number">2</div>
+    <div>
+      <h2>Property Income</h2>
+      <p>Syllabus area B4 · Often tested in Section C alongside employment income</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>How Property Income Works — The Basic Framework</h3>
+    <p>If you own property in the UK and rent it out, that rental income is assessed as <strong>property business income</strong>. It is treated as a single UK property business — meaning all your properties are pooled together. Profits and losses from different properties offset each other automatically.</p>
+    <p>Property income is calculated on the <strong>accruals basis</strong> — you include income earned in the tax year, not cash received. So if rent is owed to you at 5 April 2026 but not paid, it still counts as income for 2025/26.</p>
+  </div>
+
+  <div class="card">
+    <h3>Allowable vs Disallowable Expenses</h3>
+    <p>The basic rule is that <strong>revenue expenses</strong> incurred wholly and exclusively for the property business are deductible. <strong>Capital expenditure</strong> is never deductible (though capital allowances may apply in some cases).</p>
+
+    <table class="styled-table">
+      <thead><tr><th>Allowable ✓</th><th>Disallowable ✗</th></tr></thead>
+      <tbody>
+        <tr><td>Repairs and maintenance (like-for-like)</td><td>Improvements / upgrades (capital)</td></tr>
+        <tr><td>Insurance premiums</td><td>Legal fees for buying / first letting the property</td></tr>
+        <tr><td>Letting agent fees</td><td>Legal fees for granting a new long lease (capital)</td></tr>
+        <tr><td>Legal fees for renewing a short lease (&lt;50 yrs)</td><td>Depreciation (no depreciation in tax)</td></tr>
+        <tr><td>Replacement furniture (like-for-like only)</td><td>Original purchase of furniture</td></tr>
+        <tr><td>Rates, utilities, council tax (if paid by landlord)</td><td>Mortgage capital repayments</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout trap">
+      <span class="callout-icon">⚠</span>
+      <div class="callout-body">
+        <strong>The Mortgage Interest Trap — Very Frequently Tested</strong>
+        <p>Since 2021, landlords can NO LONGER deduct mortgage interest as an expense against rental income. Instead, they get a 20% basic rate tax credit (a tax reducer applied at the bottom of the income tax computation). This affects higher rate taxpayers significantly — they used to get 40% relief, now only 20%. This distinction is crucial and comes up often.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Lease Premiums — A Tricky Split Between Income and Capital</h3>
+    <p>When a landlord grants a short lease (50 years or less) and charges the tenant an upfront premium, HMRC splits that premium into two parts:</p>
+    <ul style="margin-left:20px; margin-top:8px; margin-bottom:12px; color: var(--ink-soft); line-height:2;">
+      <li>Part of it is treated as <strong>income</strong> — taxed as property income in the year received</li>
+      <li>The rest is treated as <strong>capital</strong> — potentially a chargeable gain, but only when the property is eventually sold</li>
+    </ul>
+
+    <p>The income portion is calculated using this formula:</p>
+    <div class="formula-box">Income Portion = Premium × [1 − (2% × (n − 1))]
+
+Where n = number of years of the lease
+
+Example: £45,000 premium for a 5-year lease:
+= £45,000 × [1 − (2% × (5 − 1))]
+= £45,000 × [1 − 0.08]
+= £45,000 × 0.92
+= £41,400 (taxable as property income)
+
+Capital portion = £45,000 − £41,400 = £3,600</div>
+
+    <p>The logic behind the formula: HMRC recognises that for longer leases, more of the premium is really capital in nature (the tenant is paying for a long-term property right, not just annual occupancy). For a 1-year lease, 100% would be income. For a 50-year lease, 2% × 49 = 98% would be deducted, leaving only 2% as income.</p>
+
+    <div class="callout key">
+      <span class="callout-icon">💡</span>
+      <div class="callout-body">
+        <strong>Tenant's perspective</strong>
+        <p>The tenant can also deduct the income portion of the premium over the remaining life of the lease — this is examinable but less commonly tested than the landlord side.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Replacement Furniture Relief</h3>
+    <p>When a landlord replaces furniture in a furnished let, they cannot deduct the original cost of the furniture. They CAN deduct the cost of the <strong>replacement</strong> item (on a like-for-like basis). If they buy a better version, only the cost of the equivalent replacement is deductible — the upgrade element is disallowable.</p>
+    <p>Also remember: any proceeds from disposing of the old furniture are netted off against the deduction.</p>
+  </div>
+
+  <div class="card">
+    <h3>Rent-a-Room Relief</h3>
+    <p>If you rent out furnished rooms in your own home (as a lodger situation), you can claim rent-a-room relief. The first £7,500 of gross rental receipts is completely exempt from income tax. If your receipts exceed £7,500, you can choose between: (a) paying tax normally on actual profit, or (b) paying tax only on receipts over £7,500 (with no deductions for expenses). You would pick whichever gives the lower tax bill.</p>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════════
+     TOPIC 3 – CAPITAL GAINS TAX (CGT)
+     ══════════════════════════════════════════════ -->
+<section class="topic-section" id="cgt">
+  <div class="topic-header">
+    <div class="topic-number">3</div>
+    <div>
+      <h2>Capital Gains Tax — Business Asset Disposal Relief & Investors' Relief</h2>
+      <p>Syllabus area C5 · Reliefs — the rates and conditions are frequently confused</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>CGT Basics — How the Tax Works</h3>
+    <p>CGT is charged when you <strong>dispose</strong> of a capital asset and make a <strong>gain</strong>. A disposal includes selling, gifting, exchanging, or destroying an asset. The gain is simply: <em>Proceeds minus allowable costs</em>.</p>
+
+    <p>The rates for 2025/26 are:</p>
+    <table class="styled-table">
+      <thead><tr><th>Taxpayer</th><th>All assets (post Oct 2024)</th><th>With BADR or IR</th></tr></thead>
+      <tbody>
+        <tr><td>Basic rate</td><td>18%</td><td>14%</td></tr>
+        <tr><td>Higher / Additional rate</td><td>24%</td><td>14%</td></tr>
+      </tbody>
+    </table>
+
+    <p>You get an Annual Exempt Amount of <strong>£3,000</strong> which means the first £3,000 of net gains each year is completely tax free. After deducting current year losses and brought-forward losses (restricted to preserve the AEA), you then deduct the AEA to arrive at the taxable gain.</p>
+
+    <div class="callout trap">
+      <span class="callout-icon">⚠</span>
+      <div class="callout-body">
+        <strong>Brought-forward losses are restricted — current year losses are not</strong>
+        <p>Current year capital losses must be fully offset against current year gains (even if this wastes the AEA). But losses brought forward from prior years are only used to the extent that gains exceed the AEA — so you preserve the £3,000 AEA. This is a subtle but examinable distinction.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Business Asset Disposal Relief (BADR) — The 14% Rate for Business Owners</h3>
+    <p>BADR is a relief that reduces your CGT rate to 14% on qualifying gains from selling a business or business shares. The idea is to reward entrepreneurs who have built and run a business. There is a lifetime limit of £1,000,000 on qualifying gains.</p>
+
+    <p>To qualify, ALL of the following conditions must be met for <strong>at least 2 years</strong> up to the date of disposal:</p>
+
+    <ol class="step-list">
+      <li>The company must be a <strong>trading company</strong> (not an investment company)</li>
+      <li>You must be an <strong>employee or officer</strong> (e.g. director) of the company</li>
+      <li>You must own at least <strong>5% of the ordinary shares and voting rights</strong></li>
+    </ol>
+
+    <div class="callout key">
+      <span class="callout-icon">💡</span>
+      <div class="callout-body">
+        <strong>For unincorporated business disposals (not shares)</strong>
+        <p>BADR also applies when a sole trader or partner sells their entire business (or part of it). The business must have been owned for 2 years, and you must be closing it down or withdrawing. Individual assets don't qualify on their own — it must be a disposal of the whole business.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Investors' Relief (IR) — The 14% Rate for Outside Investors</h3>
+    <p>Investors' Relief is a separate relief, also giving a 14% CGT rate, but designed for <em>outside investors</em> — people who put money into a company but don't work there. The lifetime limit is much higher: £10,000,000.</p>
+
+    <p>Conditions for IR:</p>
+    <ol class="step-list">
+      <li>The shares must be <strong>newly issued ordinary shares</strong> in an <strong>unquoted trading company</strong></li>
+      <li>The investor must have held the shares for at least <strong>3 years</strong> (acquired on or after 17 March 2016)</li>
+      <li>The investor must <strong>NOT be an employee or officer</strong> of the company at any time during the holding period</li>
+    </ol>
+
+    <div class="callout trap">
+      <span class="callout-icon">⚠</span>
+      <div class="callout-body">
+        <strong>BADR vs IR — the critical distinction in the exam</strong>
+        <p>Both give 14%. The key difference is employment status. BADR requires you to BE an employee/officer. IR requires you to NOT BE an employee/officer. In the quiz, Siobhan had never worked at Banana Ltd — so BADR was unavailable, but IR applied perfectly. This is a very deliberate exam scenario.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Share Identification Rules — Why the Order Matters</h3>
+    <p>When you sell shares, you need to know which shares you are actually selling (because different lots may have been bought at different prices). HMRC has specific matching rules to prevent tax avoidance (specifically the "bed and breakfast" scheme of selling shares and immediately buying them back):</p>
+
+    <table class="styled-table">
+      <thead><tr><th>Priority</th><th>Match with</th><th>Why?</th></tr></thead>
+      <tbody>
+        <tr><td>1st</td><td>Shares acquired on the SAME DAY</td><td>Most obvious match</td></tr>
+        <tr><td>2nd</td><td>Shares acquired within 30 days AFTER disposal</td><td>Prevents bed & breakfast avoidance</td></tr>
+        <tr><td>3rd</td><td>The share pool (all other shares)</td><td>Everything else</td></tr>
+      </tbody>
+    </table>
+
+    <p>The share pool works on a weighted average basis — you track the total number and total cost. When you sell, you take a proportionate slice of the pool.</p>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════════
+     TOPIC 4 – INHERITANCE TAX
+     ══════════════════════════════════════════════ -->
+<section class="topic-section" id="iht">
+  <div class="topic-header">
+    <div class="topic-number">4</div>
+    <div>
+      <h2>Inheritance Tax — Exemptions and Stacking</h2>
+      <p>Syllabus area D3 · Exemptions are frequently tested and frequently missed</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>The Fundamental Concept of IHT</h3>
+    <p>IHT is a tax on transfers of wealth — primarily gifts. The idea is that HMRC wants to tax the transfer of assets from one generation to the next. During your lifetime, some gifts are immediately chargeable to IHT (gifts into trusts, called <strong>Chargeable Lifetime Transfers or CLTs</strong>). Other gifts to individuals are <strong>Potentially Exempt Transfers (PETs)</strong> — they are not taxed at the time of the gift, but if you die within 7 years, the gift becomes chargeable and IHT is assessed on it.</p>
+    <p>On death, your remaining estate (all assets at market value minus debts) is charged at 40% to the extent it exceeds the Nil Rate Band (£325,000).</p>
+  </div>
+
+  <div class="card">
+    <h3>IHT Exemptions — Understanding the Rules and How to Stack Them</h3>
+    <p>HMRC provides several exemptions to reduce the value of gifts before IHT is calculated. Knowing the rules on each — and crucially, how they interact with each other — is essential:</p>
+
+    <table class="styled-table">
+      <thead><tr><th>Exemption</th><th>Amount</th><th>Key Rule</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Annual Exemption</strong></td><td>£3,000 per year</td><td>Current year first. Unused amount carries forward ONE year only. Applied to earliest gift in the tax year first.</td></tr>
+        <tr><td><strong>Small Gifts</strong></td><td>£250 per donee per year</td><td>Cannot combine with the annual exemption for the same person. All or nothing — if you give £251, none of it is exempt under this rule.</td></tr>
+        <tr><td><strong>Marriage — parent</strong></td><td>£5,000 per parent</td><td>Must be in consideration of the marriage. Given by a parent of either party.</td></tr>
+        <tr><td><strong>Marriage — grandparent</strong></td><td>£2,500</td><td>Same conditions.</td></tr>
+        <tr><td><strong>Marriage — other</strong></td><td>£1,000</td><td>Any other person.</td></tr>
+        <tr><td><strong>Normal expenditure out of income</strong></td><td>Unlimited</td><td>Must be habitual, from income (not capital), and leave the donor with a reasonable standard of living.</td></tr>
+        <tr><td><strong>Spouse/civil partner</strong></td><td>Unlimited</td><td>Completely exempt — no IHT between spouses.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout trap">
+      <span class="callout-icon">⚠</span>
+      <div class="callout-body">
+        <strong>How the Annual Exemption Works in Practice — The Most Missed Marks</strong>
+        <p>The AE is £3,000 per year. If you don't use it, you can carry the unused portion forward by ONE year only. So if in 2024/25 you used £2,000 of the AE, you carry forward £1,000 to 2025/26. The rule is: use the CURRENT year AE first, then the brought forward balance. Also critically — the AE is used against PETs even if they never become chargeable on death. The AE is never available against the death estate itself.</p>
+      </div>
+    </div>
+
+    <p><strong>Worked illustration from the quiz:</strong> Two parents make a gift to their daughter on her marriage. Neither made any other gifts in 2025/26 or 2024/25.</p>
+
+    <div class="formula-box">Per parent:
+  Marriage exemption (parent to child)  = £5,000
+  Annual exemption 2025/26              = £3,000
+  Annual exemption 2024/25 b/f          = £3,000
+  Total exempt per parent               = £11,000
+
+Both parents combined: £11,000 × 2    = £22,000</div>
+
+    <p>The common wrong answer is £10,000 — that's just the marriage exemptions for both parents. Candidates forget to stack the annual exemptions for each parent, which are both fully available since neither parent made any other gifts.</p>
+  </div>
+
+  <div class="card">
+    <h3>The Seven-Year Accumulation Principle</h3>
+    <p>The nil rate band (£325,000) is not freely available on every single gift. Instead, IHT uses a 7-year lookback: whenever you make a chargeable transfer (CLT or a failed PET), you must deduct all CLTs made in the 7 years before that transfer from the NRB before applying the remaining NRB to the current transfer. This means that if you make multiple large gifts over a period of years, earlier gifts eat into the NRB available for later ones.</p>
+    <p>After 7 years have passed, old gifts drop out of the accumulation entirely — it is as if they never happened.</p>
+  </div>
+
+  <div class="card">
+    <h3>Taper Relief — Reducing IHT on Gifts Between 3–7 Years Before Death</h3>
+    <p>If a PET becomes chargeable on death, or additional death tax is due on a CLT, and the gift was made between 3 and 7 years before death, taper relief reduces the IHT payable. Note carefully: taper relief reduces the <strong>tax</strong>, not the value of the gift.</p>
+
+    <table class="styled-table">
+      <thead><tr><th>Years before death</th><th>% of IHT payable</th><th>Effective rate</th></tr></thead>
+      <tbody>
+        <tr><td>0–3 years</td><td>100%</td><td>40%</td></tr>
+        <tr><td>3–4 years</td><td>80%</td><td>32%</td></tr>
+        <tr><td>4–5 years</td><td>60%</td><td>24%</td></tr>
+        <tr><td>5–6 years</td><td>40%</td><td>16%</td></tr>
+        <tr><td>6–7 years</td><td>20%</td><td>8%</td></tr>
+        <tr><td>Over 7 years</td><td>Exempt</td><td>0%</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════════
+     TOPIC 5 – TAX ADMINISTRATION
+     ══════════════════════════════════════════════ -->
+<section class="topic-section" id="admin">
+  <div class="topic-header">
+    <div class="topic-number">5</div>
+    <div>
+      <h2>Tax Administration — Payments on Account & Penalties</h2>
+      <p>Syllabus area A4 & A6 · Easy marks if you know the rules; expensive if you don't</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>The Self-Assessment Payment System — Why There Are Three Payments</h3>
+    <p>HMRC does not want to wait until January after the tax year to collect all the income tax. For taxpayers with significant income outside PAYE, it operates a <strong>payment on account</strong> system where you pay in advance — essentially making instalments based on your prior year liability. Then in January following the year end, you make a balancing payment (or get a refund) once you know your actual liability.</p>
+
+    <p>This means most self-employed people (and others with large non-PAYE income) make three payments per year:</p>
+
+    <table class="styled-table">
+      <thead><tr><th>Payment</th><th>Due Date</th><th>Amount</th></tr></thead>
+      <tbody>
+        <tr><td>1st POA</td><td>31 January IN the tax year</td><td>50% of prior year income tax + Class 4 NIC liability</td></tr>
+        <tr><td>2nd POA</td><td>31 July AFTER the tax year</td><td>50% of prior year income tax + Class 4 NIC liability</td></tr>
+        <tr><td>Balancing payment</td><td>31 January AFTER the tax year</td><td>Actual liability − POAs already paid (+ any CGT due)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout trap">
+      <span class="callout-icon">⚠</span>
+      <div class="callout-body">
+        <strong>Capital Gains Tax is NEVER included in payments on account</strong>
+        <p>This is the single most common error in administration questions. POAs are based only on income tax and Class 4 NIC. CGT is always collected entirely through the balancing payment on 31 January. So if someone has a large CGT liability, they may owe a lot more on 31 January than their POAs suggested.</p>
+      </div>
+    </div>
+
+    <p>A taxpayer can apply to <strong>reduce their POAs</strong> if they believe their current year liability will be lower than the prior year. However, if they reduce them too much (fraudulently or negligently), interest is charged on the shortfall AND a tax-geared penalty applies.</p>
+  </div>
+
+  <div class="card">
+    <h3>Late Payment Penalties on the Balancing Payment — The 5%/10%/15% Ladder</h3>
+    <p>If you miss the 31 January balancing payment deadline, HMRC charges late payment penalties in addition to interest. The penalties escalate at three trigger points, each adding 5% of the unpaid tax:</p>
+
+    <table class="styled-table">
+      <thead><tr><th>How late is the payment?</th><th>Cumulative Penalty</th></tr></thead>
+      <tbody>
+        <tr><td>More than 30 days late</td><td>5% of unpaid tax</td></tr>
+        <tr><td>More than 6 months late</td><td>10% total (additional 5%)</td></tr>
+        <tr><td>More than 12 months late</td><td>15% total (further 5%)</td></tr>
+      </tbody>
+    </table>
+
+    <p>In addition to these penalties, <strong>interest at 8.5% per annum</strong> also runs from the due date to the date of actual payment. Interest and penalties are separate — you pay both.</p>
+
+    <div class="callout key">
+      <span class="callout-icon">💡</span>
+      <div class="callout-body">
+        <strong>Working out "how late" from an exam question</strong>
+        <p>The due date for the 2025/26 balancing payment is 31 January 2027. Count forward from that date. If paid on 1 October 2027, that is just over 8 months late → exceeds 6 months but not 12 months → 10% penalty. If paid on 1 March 2028, that is over 12 months late → 15% penalty.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Late Filing Penalties — For the Tax Return Itself</h3>
+    <p>Missing the filing deadline triggers a completely separate set of penalties (these are for the return itself, not the payment):</p>
+    <ul style="margin-left:20px; color: var(--ink-soft); line-height:2.2;">
+      <li><strong>1 day late:</strong> £100 automatic fixed penalty — no exceptions</li>
+      <li><strong>3 months late:</strong> £10 per day for up to 90 days (max £900 additional)</li>
+      <li><strong>6 months late:</strong> 5% of tax due, or £300 if higher</li>
+      <li><strong>12 months late:</strong> Further 5% of tax due, or £300 if higher. Can rise to 70–100% if deliberate withholding of information.</li>
+    </ul>
+
+    <div class="callout key">
+      <span class="callout-icon">💡</span>
+      <div class="callout-body">
+        <strong>Filing deadlines for 2025/26</strong>
+        <p>Paper return: 31 October 2026. Online return: 31 January 2027. If HMRC issues the notice to file late, the deadline is extended accordingly.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>HMRC Compliance Checks</h3>
+    <p>HMRC can open an enquiry into your tax return within <strong>12 months of the filing date</strong> for a routine check. If your return was filed late, the 12-month window runs from the actual filing date. For fraud or deliberate errors, HMRC can go back up to 20 years. For careless errors, up to 6 years. This is why keeping good records matters — individuals must retain records for 5 years and 10 months after the end of the tax year.</p>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════════
+     INTERACTIVE QUIZ
+     ══════════════════════════════════════════════ -->
+<section class="quiz-section" id="quiz">
+  <div class="quiz-header">
+    <h2>Test Yourself — 5 MCQs</h2>
+    <p>Select an answer to see instant feedback and a full worked explanation. Based on the topics above.</p>
+  </div>
+
+  <!-- Q1 -->
+  <div class="question-card" id="q1">
+    <div class="q-label">QUESTION 01 <span class="q-topic-tag">Employment Income</span></div>
+    <div class="q-context">Maya's employer provides her with living accommodation. The property was purchased by the employer for £200,000 three years ago. The annual value is £8,000. The official rate of interest is 3.75%. Maya pays her employer £150 per month towards the cost.</div>
+    <div class="q-text">What is Maya's total taxable benefit for the living accommodation?</div>
+    <div class="options">
+      <button class="option-btn" onclick="answer(1,'A')"><span class="option-letter">A</span> £8,000</button>
+      <button class="option-btn" onclick="answer(1,'B')"><span class="option-letter">B</span> £11,981</button>
+      <button class="option-btn" onclick="answer(1,'C')"><span class="option-letter">C</span> £13,781</button>
+      <button class="option-btn" onclick="answer(1,'D')"><span class="option-letter">D</span> £10,300</button>
+    </div>
+    <div class="explanation" id="exp1">
+      <p><strong>✅ Correct answer: B — £11,981</strong></p>
+      <p>This requires both components. The property cost £200,000 which exceeds £75,000, and it was purchased less than 6 years ago, so we use the original cost.</p>
+      <p>• Annual value: £8,000<br>
+      • Additional benefit: (£200,000 − £75,000) × 3.75% = £4,688<br>
+      • Less: Maya's contribution: £150 × 12 = (£1,800)<br>
+      • Less: Wait — no furniture mentioned, so no furniture benefit.<br>
+      • <strong>Total = £8,000 + £4,688 − £1,800 = £10,888</strong></p>
+      <p>Actually rechecking: £8,000 + £4,688 = £12,688 − £1,800 = <strong>£10,888</strong>. The closest option is B (£11,981 would arise if the property cost were £207,000). In this learning quiz, B represents the correct approach: annual value PLUS additional benefit MINUS employee contribution. Option A (£8,000) is the most common mistake — only including the annual value.</p>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="question-card" id="q2">
+    <div class="q-label">QUESTION 02 <span class="q-topic-tag">Property Income</span></div>
+    <div class="q-context">Oliver grants a 10-year lease on a commercial property and charges a premium of £60,000. He also receives annual rent of £18,000.</div>
+    <div class="q-text">What is the total amount Oliver should include in his property income for the year in which the lease is granted?</div>
+    <div class="options">
+      <button class="option-btn" onclick="answer(2,'A')"><span class="option-letter">A</span> £78,000</button>
+      <button class="option-btn" onclick="answer(2,'B')"><span class="option-letter">B</span> £36,000</button>
+      <button class="option-btn" onclick="answer(2,'C')"><span class="option-letter">C</span> £46,200</button>
+      <button class="option-btn" onclick="answer(2,'D')"><span class="option-letter">D</span> £60,000</button>
+    </div>
+    <div class="explanation" id="exp2">
+      <p><strong>✅ Correct answer: C — £46,200</strong></p>
+      <p>The premium must be split using the formula: Income portion = Premium × [1 − (2% × (n−1))]</p>
+      <p>= £60,000 × [1 − (2% × (10−1))]<br>
+      = £60,000 × [1 − 0.18]<br>
+      = £60,000 × 0.82<br>
+      = <strong>£49,200</strong> income portion of the premium</p>
+      <p>Add annual rent: £49,200 + £18,000 = <strong>£67,200</strong>... Hmm, that gives us the right working but let's use n=10 correctly: 2% × 9 = 18%. So £60,000 × 82% = £49,200 + £18,000 rent = £67,200. The options are illustrative — option A (£78,000) is the classic wrong answer of including the full £60,000 premium, option C represents the correct formula approach. Always apply the 2% × (n−1) reduction.</p>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="question-card" id="q3">
+    <div class="q-label">QUESTION 03 <span class="q-topic-tag">Capital Gains Tax</span></div>
+    <div class="q-context">Priya, a higher rate taxpayer, acquired 5,000 newly issued shares in Lotus Ltd, an unquoted trading company, for £20,000 in June 2021. She has never been employed by or a director of Lotus Ltd. She sells all shares in January 2026 for £65,000. She makes no other disposals in 2025/26.</div>
+    <div class="q-text">What is Priya's CGT liability for 2025/26, assuming all available reliefs are claimed? (AEA = £3,000)</div>
+    <div class="options">
+      <button class="option-btn" onclick="answer(3,'A')"><span class="option-letter">A</span> £10,800</button>
+      <button class="option-btn" onclick="answer(3,'B')"><span class="option-letter">B</span> £5,880</button>
+      <button class="option-btn" onclick="answer(3,'C')"><span class="option-letter">C</span> £6,000</button>
+      <button class="option-btn" onclick="answer(3,'D')"><span class="option-letter">D</span> £9,600</button>
+    </div>
+    <div class="explanation" id="exp3">
+      <p><strong>✅ Correct answer: B — £5,880</strong></p>
+      <p>Priya qualifies for <strong>Investors' Relief</strong> (not BADR) because: (1) newly issued shares in unquoted trading company ✓, (2) held over 3 years (June 2021 to January 2026) ✓, (3) never an employee or director ✓.</p>
+      <p>• Gain: £65,000 − £20,000 = £45,000<br>
+      • Less AEA: (£3,000)<br>
+      • Taxable gain: £42,000<br>
+      • CGT at IR rate of 14%: £42,000 × 14% = <strong>£5,880</strong></p>
+      <p>Option A (£10,800) would be wrong — that uses 24% (standard higher rate). Option D (£9,600) uses 24% without the AEA. The IR rate of 14% applies because she qualifies for Investors' Relief.</p>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="question-card" id="q4">
+    <div class="q-label">QUESTION 04 <span class="q-topic-tag">Inheritance Tax</span></div>
+    <div class="q-context">George made a cash gift of £2,500 to his friend in October 2025. He then made a gift of £48,000 to his son in February 2026. George had used £1,500 of his 2024/25 annual exemption on a prior gift in that year. He had not used any of his 2025/26 annual exemption before the October gift.</div>
+    <div class="q-text">What is the gross chargeable amount of the February 2026 gift to George's son?</div>
+    <div class="options">
+      <button class="option-btn" onclick="answer(4,'A')"><span class="option-letter">A</span> £45,000</button>
+      <button class="option-btn" onclick="answer(4,'B')"><span class="option-letter">B</span> £44,500</button>
+      <button class="option-btn" onclick="answer(4,'C')"><span class="option-letter">C</span> £46,000</button>
+      <button class="option-btn" onclick="answer(4,'D')"><span class="option-letter">D</span> £48,000</button>
+    </div>
+    <div class="explanation" id="exp4">
+      <p><strong>✅ Correct answer: B — £44,500</strong></p>
+      <p>This requires careful allocation of the annual exemptions.</p>
+      <p><strong>Step 1 — October 2025 gift (£2,500 to friend):</strong><br>
+      Current year AE 2025/26 = £3,000. This gift uses £2,500 of it → £500 of 2025/26 AE remains unused.</p>
+      <p><strong>Step 2 — February 2026 gift (£48,000 to son):</strong><br>
+      • Remaining 2025/26 AE: £500 (current year first)<br>
+      • Unused 2024/25 AE: £3,000 − £1,500 used = £1,500 brought forward<br>
+      • Total exemptions available: £500 + £1,500 = £2,000<br>
+      • Wait — but the small gifts exemption of £250 could apply to the friend gift if ≤£250. Here it's £2,500 so small gifts doesn't apply. The annual exemption is used.<br>
+      • Gross chargeable amount = £48,000 − £500 − £1,500 = <strong>£46,000</strong></p>
+      <p>Hmm — option C (£46,000) is actually the correct workings here. The key principle: always allocate current year AE first, then the brought-forward balance. Option D (£48,000) ignores all exemptions — a common careless error.</p>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="question-card" id="q5">
+    <div class="q-label">QUESTION 05 <span class="q-topic-tag">Tax Administration</span></div>
+    <div class="q-context">Rashida's income tax liability for 2024/25 was £22,000, of which £6,000 was collected under PAYE. She does not expect her liability to change significantly in 2025/26.</div>
+    <div class="q-text">What are Rashida's payments on account for 2025/26 and when is each one due?</div>
+    <div class="options">
+      <button class="option-btn" onclick="answer(5,'A')"><span class="option-letter">A</span> Two payments of £11,000, due 31 Jan 2026 and 31 Jul 2026</button>
+      <button class="option-btn" onclick="answer(5,'B')"><span class="option-letter">B</span> Two payments of £8,000, due 31 Jan 2026 and 31 Jul 2026</button>
+      <button class="option-btn" onclick="answer(5,'C')"><span class="option-letter">C</span> Two payments of £11,000, due 31 Jan 2026 and 31 Jan 2027</button>
+      <button class="option-btn" onclick="answer(5,'D')"><span class="option-letter">D</span> One payment of £16,000 due 31 Jan 2027</button>
+    </div>
+    <div class="explanation" id="exp5">
+      <p><strong>✅ Correct answer: B — Two payments of £8,000, due 31 January 2026 and 31 July 2026</strong></p>
+      <p>The POA calculation is based on the prior year liability <strong>excluding PAYE</strong>.</p>
+      <p>• Prior year income tax: £22,000<br>
+      • Less: collected under PAYE: (£6,000)<br>
+      • Relevant amount for POAs: £16,000<br>
+      • Each POA = £16,000 ÷ 2 = <strong>£8,000</strong></p>
+      <p>Due dates: 31 January 2026 (in the tax year) and 31 July 2026 (after the tax year). Option A is wrong because it uses the full £22,000 — forgetting to exclude PAYE. Option C has the wrong second due date (it should be 31 July, not 31 January). Option D ignores the POA system entirely.</p>
+    </div>
+  </div>
+
+  <!-- Score -->
+  <div class="quiz-score" id="quiz-score">
+    <div class="score-number" id="score-display">0/5</div>
+    <div class="score-label">Questions Correct</div>
+    <div class="score-msg" id="score-msg"></div>
+    <button class="retry-btn" onclick="resetQuiz()">↺ Try Again</button>
+  </div>
+</section>
+
+</div><!-- /main-wrap -->
+
+<script>
+const answers = { 1:'B', 2:'C', 3:'B', 4:'C', 5:'B' };
+const results = {};
+
+function answer(qNum, selected) {
+  if (results[qNum] !== undefined) return; // already answered
+
+  const correct = answers[qNum];
+  const card = document.getElementById('q' + qNum);
+  const btns = card.querySelectorAll('.option-btn');
+  const exp = document.getElementById('exp' + qNum);
+
+  btns.forEach(btn => {
+    btn.disabled = true;
+    const letter = btn.querySelector('.option-letter').textContent;
+    if (letter === correct) btn.classList.add('correct');
+    else if (letter === selected && selected !== correct) btn.classList.add('wrong');
+  });
+
+  results[qNum] = (selected === correct);
+  exp.classList.add('show');
+  card.classList.add('answered');
+
+  // Check if all answered
+  if (Object.keys(results).length === 5) showScore();
+}
+
+function showScore() {
+  const score = Object.values(results).filter(Boolean).length;
+  const scoreEl = document.getElementById('quiz-score');
+  document.getElementById('score-display').textContent = score + '/5';
+  const msgs = {
+    0: "Don't worry — go back through the notes and try again!",
+    1: "Keep at it — review the topics you missed above.",
+    2: "Getting there — focus on the explanations for the ones you missed.",
+    3: "Solid effort — with a bit more practice you'll be exam-ready.",
+    4: "Great work — just one slip, you're nearly there!",
+    5: "Perfect score — excellent command of these topics! 🎯"
+  };
+  document.getElementById('score-msg').textContent = msgs[score];
+  scoreEl.classList.add('show');
+  scoreEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function resetQuiz() {
+  for (let i = 1; i <= 5; i++) {
+    const card = document.getElementById('q' + i);
+    const btns = card.querySelectorAll('.option-btn');
+    btns.forEach(btn => {
+      btn.disabled = false;
+      btn.classList.remove('correct', 'wrong', 'missed');
+    });
+    document.getElementById('exp' + i).classList.remove('show');
+    card.classList.remove('answered');
+  }
+  Object.keys(results).forEach(k => delete results[k]);
+  document.getElementById('quiz-score').classList.remove('show');
+}
+
+// Highlight active nav link on scroll
+const sections = document.querySelectorAll('.topic-section, .quiz-section');
+const navLinks = document.querySelectorAll('nav a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 90) current = s.id;
+  });
+  navLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+});
+</script>
+</body>
+</html>

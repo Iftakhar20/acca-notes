@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACCA TX – Individual Trading Income | Complete Tutorial Notes | June 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red: #C0392B;
+  --red-dark: #96281B;
+  --red-pale: #FDECEA;
+  --red-border: #F5B7B1;
+  --navy: #1B2A4A;
+  --navy-mid: #2C3E6B;
+  --navy-pale: #EBF0FA;
+  --gold: #D4AC0D;
+  --gold-pale: #FEF9E7;
+  --gold-border: #F9E79F;
+  --teal: #117A65;
+  --teal-pale: #E8F8F5;
+  --teal-border: #A9DFBF;
+  --purple: #6C3483;
+  --purple-pale: #F5EEF8;
+  --ink: #1A1A2E;
+  --body: #2C2C3E;
+  --muted: #5D6D7E;
+  --light: #F8F9FA;
+  --white: #FFFFFF;
+  --border: #DEE2E6;
+  --shadow: 0 2px 12px rgba(27,42,74,0.08);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #F4F5F7;
+  color: var(--body);
+  line-height: 1.75;
+}
+
+/* ═══ HERO ═══ */
+.hero {
+  background: var(--navy);
+  color: white;
+  padding: 60px 0 50px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-inner { max-width: 1040px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 2; }
+.hero::after {
+  content: '';
+  position: absolute;
+  right: -80px; top: -80px;
+  width: 420px; height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(192,57,43,0.25) 0%, transparent 70%);
+}
+.hero-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 100px;
+  padding: 5px 14px 5px 8px;
+  font-size: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 22px;
+}
+.hero-pill span.dot {
+  display: inline-block;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #2ECC71;
+}
+.hero h1 {
+  font-family: 'Lora', serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 14px;
+  max-width: 680px;
+}
+.hero h1 em { font-style: italic; color: #F0B27A; }
+.hero-desc {
+  font-size: 15px;
+  color: rgba(255,255,255,0.65);
+  max-width: 580px;
+  line-height: 1.65;
+  margin-bottom: 30px;
+}
+.hero-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.htag {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.75);
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.3px;
+}
+
+/* ═══ STICKY NAV ═══ */
+.sticky-nav {
+  position: sticky; top: 0; z-index: 200;
+  background: var(--white);
+  border-bottom: 2px solid var(--red);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.sticky-nav-inner {
+  max-width: 1040px; margin: 0 auto; padding: 0 40px;
+  display: flex; align-items: stretch; gap: 0;
+  overflow-x: auto; scrollbar-width: none;
+}
+.sticky-nav-inner::-webkit-scrollbar { display: none; }
+.nav-link {
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 12.5px;
+  font-weight: 500;
+  white-space: nowrap;
+  padding: 13px 15px;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: color 0.2s, border-color 0.2s;
+  letter-spacing: 0.2px;
+}
+.nav-link:hover { color: var(--red); border-color: var(--red); }
+
+/* ═══ MAIN LAYOUT ═══ */
+.wrapper { max-width: 1040px; margin: 0 auto; padding: 0 40px 100px; }
+
+/* ═══ CHAPTER ═══ */
+.chapter {
+  margin-top: 64px;
+  scroll-margin-top: 58px;
+}
+.chapter-header {
+  display: flex; align-items: flex-start; gap: 18px;
+  background: var(--navy);
+  color: white;
+  border-radius: 12px 12px 0 0;
+  padding: 24px 30px;
+}
+.ch-num {
+  font-family: 'Lora', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.2);
+  line-height: 1;
+  min-width: 60px;
+}
+.ch-meta .ch-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 4px;
+}
+.ch-meta h2 {
+  font-family: 'Lora', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+.chapter-body {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  padding: 32px 36px;
+}
+
+/* ═══ TYPOGRAPHY INSIDE CHAPTERS ═══ */
+.chapter-body h3 {
+  font-family: 'Lora', serif;
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 28px 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--navy-pale);
+}
+.chapter-body h3:first-child { margin-top: 0; }
+.chapter-body h4 {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--red-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin: 20px 0 8px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.chapter-body p {
+  margin-bottom: 12px;
+  color: var(--body);
+  font-size: 14.5px;
+  line-height: 1.78;
+}
+.chapter-body ul, .chapter-body ol {
+  padding-left: 22px;
+  margin-bottom: 14px;
+}
+.chapter-body li {
+  margin-bottom: 6px;
+  font-size: 14.5px;
+  color: var(--body);
+  line-height: 1.7;
+}
+.chapter-body strong { color: var(--ink); }
+.chapter-body em { color: var(--red-dark); font-style: normal; font-weight: 600; }
+
+/* ═══ RULE BLOCK ═══ */
+.rule {
+  background: var(--navy-pale);
+  border-left: 4px solid var(--navy-mid);
+  border-radius: 0 8px 8px 0;
+  padding: 16px 20px;
+  margin: 16px 0;
+  font-size: 14.5px;
+}
+.rule strong { color: var(--navy); }
+
+/* ═══ TIP BOX ═══ */
+.tip {
+  background: var(--teal-pale);
+  border-left: 4px solid var(--teal);
+  border-radius: 0 8px 8px 0;
+  padding: 14px 20px;
+  margin: 16px 0;
+}
+.tip-hd {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--teal);
+  margin-bottom: 5px;
+}
+.tip p, .tip li { font-size: 14px; color: #1a4a3a; }
+.tip ul { padding-left: 18px; margin: 6px 0 0; }
+
+/* ═══ WARNING BOX ═══ */
+.warn {
+  background: var(--red-pale);
+  border-left: 4px solid var(--red);
+  border-radius: 0 8px 8px 0;
+  padding: 14px 20px;
+  margin: 16px 0;
+}
+.warn-hd {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--red);
+  margin-bottom: 5px;
+}
+.warn p, .warn li { font-size: 14px; color: #641e16; }
+
+/* ═══ EXAMPLE BOX ═══ */
+.example {
+  border: 1.5px solid var(--gold-border);
+  background: var(--gold-pale);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin: 20px 0;
+}
+.ex-hd {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #7D6608;
+  margin-bottom: 4px;
+}
+.example h5 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+.example p { font-size: 14px; color: #4a3e00; margin-bottom: 8px; }
+.example ul { padding-left: 18px; }
+.example li { font-size: 14px; color: #4a3e00; margin-bottom: 4px; }
+
+/* ═══ NOTE BOX ═══ */
+.note {
+  background: var(--purple-pale);
+  border-left: 4px solid var(--purple);
+  border-radius: 0 8px 8px 0;
+  padding: 14px 20px;
+  margin: 16px 0;
+}
+.note-hd {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--purple);
+  margin-bottom: 5px;
+}
+.note p, .note li { font-size: 14px; color: #4a235a; }
+.note ul { padding-left: 18px; margin-top: 6px; }
+
+/* ═══ TABLES ═══ */
+.tbl-wrap { overflow-x: auto; margin: 16px 0; border-radius: 8px; box-shadow: var(--shadow); }
+table.tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  font-family: 'JetBrains Mono', monospace;
+  background: white;
+}
+table.tbl thead tr { background: var(--navy); color: white; }
+table.tbl thead th {
+  padding: 10px 14px;
+  text-align: left;
+  font-size: 11px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+table.tbl thead th.r { text-align: right; }
+table.tbl tbody td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+table.tbl tbody td.r { text-align: right; }
+table.tbl tbody tr:last-child td { border-bottom: none; }
+table.tbl tbody tr:nth-child(even) td { background: var(--light); }
+table.tbl tr.total td { background: var(--red-pale) !important; font-weight: 700; color: var(--red-dark); border-top: 2px solid var(--red); }
+table.tbl tr.subtotal td { border-top: 1px solid var(--navy); font-weight: 600; background: var(--navy-pale) !important; }
+table.tbl tr.sh td { background: #E8EAF6 !important; font-weight: 700; color: var(--navy); font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
+table.tbl td.ind { padding-left: 28px; }
+table.tbl td.neg { color: var(--red); }
+table.tbl td.pos { color: var(--teal); }
+
+/* ═══ KEY-VALUE GRID ═══ */
+.kv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin: 16px 0; }
+.kv-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--navy);
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+.kv-card.red { border-top-color: var(--red); }
+.kv-card.teal { border-top-color: var(--teal); }
+.kv-card.gold { border-top-color: var(--gold); }
+.kv-val {
+  font-family: 'Lora', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 2px;
+}
+.kv-card.red .kv-val { color: var(--red); }
+.kv-card.teal .kv-val { color: var(--teal); }
+.kv-label { font-size: 12px; color: var(--muted); font-family: 'JetBrains Mono', monospace; }
+
+/* ═══ TWO COLUMN ═══ */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+@media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
+.col-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 18px;
+}
+.col-card .col-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--border);
+}
+.col-card.allow .col-title { color: var(--teal); border-color: var(--teal); }
+.col-card.disallow .col-title { color: var(--red); border-color: var(--red); }
+.col-card ul { padding-left: 16px; }
+.col-card li { font-size: 13.5px; color: var(--body); margin-bottom: 5px; }
+
+/* ═══ STEP FLOW ═══ */
+.steps { margin: 16px 0; }
+.step {
+  display: flex; gap: 16px; align-items: flex-start;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 8px;
+}
+.step-num {
+  min-width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.step p { font-size: 14px; color: var(--body); margin: 0; padding-top: 5px; }
+
+/* ═══ HIGHLIGHT BANNER ═══ */
+.banner {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  color: white;
+  border-radius: 10px;
+  padding: 22px 28px;
+  margin: 20px 0;
+}
+.banner h4 {
+  font-family: 'Lora', serif;
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+  color: #F0B27A;
+}
+.banner p, .banner li { font-size: 14px; color: rgba(255,255,255,0.82); line-height: 1.7; }
+.banner ul { padding-left: 18px; }
+.banner li { margin-bottom: 5px; }
+
+/* ═══ MINI FORMULA ═══ */
+.formula {
+  background: var(--light);
+  border: 1.5px dashed var(--border);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13.5px;
+  color: var(--navy);
+}
+
+/* ═══ DATES GRID ═══ */
+.dates-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; margin: 16px 0; }
+.date-box {
+  background: white;
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--red);
+  border-radius: 8px;
+  padding: 14px;
+  text-align: center;
+}
+.date-val {
+  font-family: 'Lora', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--red);
+  margin-bottom: 4px;
+}
+.date-desc { font-size: 11.5px; color: var(--muted); font-family: 'JetBrains Mono', monospace; }
+
+footer {
+  background: var(--navy);
+  color: rgba(255,255,255,0.45);
+  text-align: center;
+  padding: 24px 20px;
+  font-size: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  margin-top: 60px;
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-pill"><span class="dot"></span>ACCA TX-UK · FA2025 · June 2026 Window</div>
+    <h1>Individual's <em>Trading Income</em><br>Complete Tutorial Notes</h1>
+    <p class="hero-desc">Detailed explanations, worked rules, tutorial notes and fully annotated examples — everything you need to understand the topic deeply, not just memorise it.</p>
+    <div class="hero-tags">
+      <span class="htag">§1 Tax-Adjusted Profit</span>
+      <span class="htag">§2 Capital Allowances</span>
+      <span class="htag">§3 Cash Basis</span>
+      <span class="htag">§4 Partnerships</span>
+      <span class="htag">§5 Trading Losses</span>
+      <span class="htag">§6 Tax Administration</span>
+    </div>
+  </div>
+</div>
+
+<!-- STICKY NAV -->
+<div class="sticky-nav">
+  <div class="sticky-nav-inner">
+    <a class="nav-link" href="#s1">1 · Tax-Adjusted Profit</a>
+    <a class="nav-link" href="#s2">2 · Capital Allowances</a>
+    <a class="nav-link" href="#s3">3 · Cash Basis</a>
+    <a class="nav-link" href="#s4">4 · Partnerships</a>
+    <a class="nav-link" href="#s5">5 · Trading Losses</a>
+    <a class="nav-link" href="#s6">6 · Tax Administration</a>
+  </div>
+</div>
+
+<div class="wrapper">
+
+<!-- ═══════════════════════════════════════════════════════════
+     CHAPTER 1 — TAX-ADJUSTED TRADING PROFIT
+═══════════════════════════════════════════════════════════ -->
+<div class="chapter" id="s1">
+  <div class="chapter-header">
+    <div class="ch-num">01</div>
+    <div class="ch-meta">
+      <div class="ch-label">Accruals Basis · Syllabus Section B3(a)(b)(c)(d)</div>
+      <h2>Tax-Adjusted Trading Profit</h2>
+    </div>
+  </div>
+  <div class="chapter-body">
+
+    <h3>1.1 What Is the Tax-Adjusted Trading Profit?</h3>
+    <p>A sole trader's accounts are prepared under accounting rules (e.g. including depreciation, private expenses). <strong>These are NOT the same as the rules HMRC uses to tax you.</strong> The process of converting the accounting profit into the <em>taxable trading profit</em> is called the <strong>adjustment of profits</strong>.</p>
+    <p>The key principle underlying every adjustment is the <strong>"wholly and exclusively" rule</strong>: an expense is only deductible for tax purposes if it is incurred wholly and exclusively for the purposes of the trade. If it has a private element, only the business portion (if identifiable) is allowed.</p>
+
+    <div class="rule">
+      <strong>The Core Rule:</strong> An expense is allowable only if it is incurred <strong>wholly and exclusively</strong> for the purposes of the trade (ITA 2007 / ITTOIA 2005). The expense must also be <em>revenue</em> in nature — capital expenditure is never deductible as a revenue expense (it gets capital allowances instead).
+    </div>
+
+    <h3>1.2 The Pro Forma — How to Lay Out an Adjustment</h3>
+    <p>Always start with the <strong>net profit per the accounts</strong>. You then make two types of adjustment:</p>
+    <ul>
+      <li><strong>Add back</strong> any expense that is <em>disallowable</em> (i.e. it has been deducted in the accounts but HMRC won't allow it).</li>
+      <li><strong>Deduct</strong> any item that is <em>allowable for tax</em> but has not been deducted in the accounts (principally capital allowances, which replace depreciation).</li>
+    </ul>
+
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr>
+          <th style="width:55%">Item</th>
+          <th class="r">Add back £</th>
+          <th class="r">Deduct £</th>
+        </tr></thead>
+        <tbody>
+          <tr><td><strong>Net profit per accounts (starting point)</strong></td><td class="r">X</td><td class="r"></td></tr>
+          <tr class="sh"><td colspan="3">Disallowable items — ADD BACK (these have been deducted in accounts but are not tax-deductible)</td></tr>
+          <tr><td class="ind">Depreciation</td><td class="r">X</td><td class="r"></td></tr>
+          <tr><td class="ind">Amortisation</td><td class="r">X</td><td class="r"></td></tr>
+          <tr><td class="ind">Private use element of expenses</td><td class="r">X</td><td class="r"></td></tr>
+          <tr><td class="ind">Capital expenditure charged to P&amp;L</td><td class="r">X</td><td class="r"></td></tr>
+          <tr><td class="ind">Client/supplier entertaining</td><td class="r">X</td><td class="r"></td></tr>
+          <tr><td class="ind">Fines and penalties</td><td class="r">X</td><td class="r"></td></tr>
+          <tr><td class="ind">Non-qualifying charitable donations</td><td class="r">X</td><td class="r"></td></tr>
+          <tr><td class="ind">Political donations</td><td class="r">X</td><td class="r"></td></tr>
+          <tr><td class="ind">Legal fees for capital transactions</td><td class="r">X</td><td class="r"></td></tr>
+          <tr><td class="ind">Non-specific (general) bad debt provisions</td><td class="r">X</td><td class="r"></td></tr>
+          <tr class="sh"><td colspan="3">Allowable items — DEDUCT (not in the accounts, but tax allows them)</td></tr>
+          <tr><td class="ind">Capital allowances (replaces depreciation)</td><td class="r"></td><td class="r neg">(X)</td></tr>
+          <tr><td class="ind">Pre-trading expenditure (within 7 years)</td><td class="r"></td><td class="r neg">(X)</td></tr>
+          <tr class="total"><td><strong>Tax-adjusted trading profit</strong></td><td class="r"></td><td class="r"><strong>= X</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tip">
+      <div class="tip-hd">📌 Exam Technique — Zero Items</div>
+      <p>If a question instructs you to "indicate by the use of zero (0) any items which require no adjustment" — you MUST write 0 against allowable items. Markers award marks for this. Never leave allowable items blank.</p>
+    </div>
+
+    <h3>1.3 Detailed Tutorial — Disallowable Items Explained</h3>
+
+    <h4>A) Depreciation</h4>
+    <p>Depreciation is the accounting way of spreading the cost of a fixed asset over its useful life. <strong>HMRC does not accept depreciation as a deduction</strong> because tax relief for capital expenditure is given through the capital allowances system instead (see Chapter 2). Therefore, whenever depreciation appears in accounts, it must be <strong>added back</strong> in full.</p>
+    <div class="example">
+      <div class="ex-hd">Example</div>
+      <h5>Depreciation charged in accounts = £5,000. Capital allowances computed = £4,200.</h5>
+      <p>You add back £5,000 (depreciation) AND deduct £4,200 (capital allowances). These are two separate adjustments — you never net them off.</p>
+    </div>
+
+    <h4>B) Private Use of Expenses (Owner/Sole Trader)</h4>
+    <p>If a sole trader uses something partly for personal purposes (e.g. a car, home phone, a room at home), only the <em>business proportion</em> is deductible. The private element must be <strong>added back</strong>. This only applies where private use by the <em>owner</em> is involved. If an <em>employee</em> uses a company car privately, no adjustment is made to trading profit — the employee is instead charged a benefit-in-kind.</p>
+    <div class="example">
+      <div class="ex-hd">Example — Motor Expenses</div>
+      <h5>Idris drives 13,000 business miles out of 20,000 total miles. Motor expenses in accounts = £9,340.</h5>
+      <p>Business proportion = 13,000/20,000 = 65%.</p>
+      <p>Allowable amount = £9,340 × 65% = £6,071.</p>
+      <p>Private element to add back = £9,340 × 35% = £3,269.</p>
+      <p><strong>Note:</strong> For capital allowances, the car is put in a separate private use column. The WDA is computed first, then multiplied by the business proportion to give the actual allowance (65% in this case).</p>
+    </div>
+
+    <h4>C) Capital Expenditure in the P&L</h4>
+    <p>Sometimes a sole trader incorrectly charges capital expenditure (e.g. buying new equipment, building improvements) through the income statement rather than capitalising it. For tax purposes, capital expenditure is <strong>never</strong> deductible as a revenue expense. It must be added back. Capital allowances may then be available instead.</p>
+    <div class="warn">
+      <div class="warn-hd">⚠️ Capital vs Revenue — Key Distinction</div>
+      <p>Revenue expenditure: maintains an existing asset, or relates to trading operations (e.g. repainting existing offices — allowable). Capital expenditure: creates a new asset or provides an enduring benefit (e.g. building a new extension — not deductible, but SBA may apply). Legal fees for buying/selling a capital asset = capital. Legal fees for renewing a short lease (≤50 years) = revenue and allowable.</p>
+    </div>
+
+    <h4>D) Entertaining</h4>
+    <p><strong>Entertaining customers, suppliers, or any external parties is never deductible</strong> — add it all back. The only exception is <em>staff entertaining</em> (e.g. the annual office party), which is fully allowable.</p>
+    <div class="note">
+      <div class="note-hd">Common Confusion — VAT vs Income Tax</div>
+      <p>For VAT purposes, input VAT can be recovered on entertaining overseas customers. But for income tax / corporation tax purposes, ALL customer and supplier entertaining is disallowed — including overseas customers. Students often confuse these two rules.</p>
+    </div>
+
+    <h4>E) Gifts to Customers</h4>
+    <p>Gifts to customers are a disallowable form of entertaining UNLESS all three conditions are met:</p>
+    <ul>
+      <li>The gift costs <strong>less than £50 per recipient per year</strong></li>
+      <li>The gift is <strong>not food, drink, tobacco</strong> or a voucher exchangeable for goods</li>
+      <li>The gift carries a <strong>conspicuous advertisement</strong> for the business</li>
+    </ul>
+    <div class="example">
+      <div class="ex-hd">Example — Gifts</div>
+      <h5>Pens with company logo at £12 each — allowable (under £50, not food/drink, carries ad). Food hampers at £75 each — disallowable (food item). Clocks at £60 each — disallowable (over £50).</h5>
+    </div>
+
+    <h4>F) Fines and Penalties</h4>
+    <p>Fines (e.g. parking fines, speeding fines, HMRC penalties) are <strong>never deductible</strong>. The rationale is that allowing a tax deduction for breaking the law would undermine the purpose of the penalty. Add back in full.</p>
+
+    <h4>G) Charitable Donations</h4>
+    <p>Qualifying charitable donations (paid under Gift Aid) are <strong>not deductible in computing trading profit</strong> — they are instead deductible from total income at a later stage. Add them back. Exception: a donation is allowable as a trading expense if it is <em>wholly and exclusively</em> for trade purposes and can be shown to be genuine advertising (e.g. sponsoring a local community event where the business logo appears prominently).</p>
+
+    <h4>H) Legal and Professional Fees</h4>
+    <p>This area requires careful analysis because legal fees can be either revenue (allowable) or capital (disallowable):</p>
+    <div class="two-col">
+      <div class="col-card allow">
+        <div class="col-title">✅ Allowable Legal Fees</div>
+        <ul>
+          <li>Renewal of a short lease (≤50 years)</li>
+          <li>Debt collection / recovery</li>
+          <li>Defending a trading lawsuit</li>
+          <li>Employment contract disputes</li>
+          <li>Routine accountancy and tax compliance</li>
+        </ul>
+      </div>
+      <div class="col-card disallow">
+        <div class="col-title">❌ Disallowable Legal Fees</div>
+        <ul>
+          <li>Acquisition of a capital asset</li>
+          <li>Disposal of a capital asset</li>
+          <li>Acquiring a new long lease (&gt;50 years)</li>
+          <li>Business incorporation</li>
+          <li>Share capital issues</li>
+        </ul>
+      </div>
+    </div>
+
+    <h4>I) Bad Debts</h4>
+    <p>The correct treatment of bad debts is nuanced:</p>
+    <ul>
+      <li><strong>Specific write-off of a trade debt</strong> — allowable (the debt has been identified as irrecoverable)</li>
+      <li><strong>Recovery of a previously written-off debt</strong> — add back to income (a taxable receipt)</li>
+      <li><strong>General provision</strong> (e.g. "2% of debtors may go bad") — <em>disallowable</em>, add back. HMRC requires specific identification.</li>
+      <li><strong>Increase in general provision</strong> — disallowable, add back. <strong>Decrease in general provision</strong> — the original provision was disallowed, so the release is also non-taxable (deduct from profit).</li>
+    </ul>
+
+    <h3>1.4 Allowable Items — What You CAN Deduct</h3>
+    <div class="two-col">
+      <div class="col-card allow">
+        <div class="col-title">✅ Always Allowable</div>
+        <ul>
+          <li>Staff salaries, wages and bonuses</li>
+          <li>Employer pension contributions</li>
+          <li>Staff entertaining and staff welfare</li>
+          <li>Business insurance premiums</li>
+          <li>Rent of business premises</li>
+          <li>Business telephone and internet</li>
+          <li>Stationery and office supplies</li>
+          <li>Revenue repairs and maintenance</li>
+          <li>Patent royalties for trade purposes</li>
+          <li>Specific bad debt write-offs</li>
+          <li>Qualifying gift to customers (see above)</li>
+        </ul>
+      </div>
+      <div class="col-card disallow">
+        <div class="col-title">✅ Conditionally Allowable</div>
+        <ul>
+          <li>Motor expenses — business proportion only (for owner's private use car)</li>
+          <li>Home office — reasonable proportion of bills</li>
+          <li>Charitable donations — only if genuine advertising</li>
+          <li>Legal fees — revenue nature only</li>
+          <li>Subsistence — if away from usual base of operations</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>1.5 Pre-Trading Expenditure</h3>
+    <p>If someone spends money <em>before</em> they start trading — perhaps fitting out premises, buying initial stock, or marketing costs — they might worry they'll lose the tax relief. HMRC provides specific relief:</p>
+    <div class="rule">
+      <strong>The Rule:</strong> Expenditure incurred <strong>within seven years before</strong> the date the trade commences is treated as if it were incurred on the <strong>first day of trading</strong>, provided it would have been revenue-deductible had the trade been carried on at the time it was incurred.
+    </div>
+    <div class="example">
+      <div class="ex-hd">Example — Pre-Trading Expenditure</div>
+      <h5>Wretched Ltd commenced trading on 1 August 2025. Advertising expenditure of £7,990 was incurred in April 2025 — three months before trading commenced.</h5>
+      <p>Since the advertising was incurred within seven years of starting to trade, it is treated as incurred on 1 August 2025 (first day of trading) and is <strong>deductible</strong>. The pre-trading expenditure is deducted as if it arose in the first accounting period.</p>
+    </div>
+
+    <h3>1.6 The Badges of Trade (SCOTEM)</h3>
+    <p>Whether a person is "trading" (and therefore subject to income tax on profits) rather than simply making an investment gain (subject to CGT) is determined by reference to the <strong>badges of trade</strong>. No single badge is conclusive — all must be weighed together. The mnemonic <strong>SCOTEM</strong> covers them:</p>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Badge</th><th>What It Means</th><th>Pointing Towards Trade When...</th></tr></thead>
+        <tbody>
+          <tr><td><strong>S</strong>ubject matter</td><td>The nature of the asset</td><td>Asset has no personal use (e.g. bulk commodities, land held purely for resale)</td></tr>
+          <tr><td><strong>C</strong>ircumstances of sale</td><td>Why was it sold?</td><td>Sold systematically for profit; a forced sale suggests no trade</td></tr>
+          <tr><td><strong>O</strong>ther similar transactions</td><td>Pattern of behaviour</td><td>Repeated buying and selling of similar assets creates a trading pattern</td></tr>
+          <tr><td><strong>T</strong>ransactions to make profit</td><td>Profit motive</td><td>Clear intention to make a profit; organised commercial manner</td></tr>
+          <tr><td><strong>E</strong>xistence of financing</td><td>Borrowed to buy?</td><td>If money was borrowed specifically to buy an asset for quick resale — suggests trade</td></tr>
+          <tr><td><strong>M</strong>odification/improvements</td><td>Work done to the asset</td><td>Work done to make the asset more saleable = trading behaviour</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tip">
+      <div class="tip-hd">📌 Exam Technique — Applying SCOTEM</div>
+      <p>In the exam, if you are asked to apply the badges of trade, do not just list them — <strong>apply each badge to the facts given</strong> and state whether it points towards or against trading activity. Then give a conclusion. You will score marks for each badge discussed in the context of the question.</p>
+    </div>
+
+    <h3>1.7 Comprehensive Worked Example</h3>
+    <div class="example">
+      <div class="ex-hd">📝 Full Worked Example — Adjustment of Profits (Accruals Basis)</div>
+      <h5>Amaia runs a sole trader business. Her draft accounts for the year ended 5 April 2026 show a net profit of £48,200. The following notes apply:</h5>
+      <ul>
+        <li>Depreciation charged: £3,600</li>
+        <li>Entertaining customers: £1,800 (disallowable). Entertaining staff at Christmas: £900 (allowable).</li>
+        <li>Motor expenses: £8,400. Amaia drives 12,000 business miles out of 15,000 total miles.</li>
+        <li>Legal fees: £2,500 for renewing a 20-year lease (allowable — short lease). £1,200 for buying a new van (capital — disallowable).</li>
+        <li>Donation to local charity: £500. The charity put Amaia's logo on its banner (allowable as advertising).</li>
+        <li>General bad debt provision increased by £400 (disallowable). A specific trade debt of £700 was written off (allowable).</li>
+        <li>Capital allowances computed: £4,900.</li>
+      </ul>
+    </div>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Item</th><th class="r">Add back £</th><th class="r">Deduct £</th><th class="r">Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Net profit per accounts</td><td class="r">48,200</td><td class="r"></td><td></td></tr>
+          <tr class="sh"><td colspan="4">Disallowable items — ADD BACK</td></tr>
+          <tr><td class="ind">Depreciation</td><td class="r">3,600</td><td class="r"></td><td>Never allowable — CA given instead</td></tr>
+          <tr><td class="ind">Customer entertaining</td><td class="r">1,800</td><td class="r"></td><td>Only staff entertaining allowed</td></tr>
+          <tr><td class="ind">Staff entertaining</td><td class="r">0</td><td class="r"></td><td>Fully allowable — show zero</td></tr>
+          <tr><td class="ind">Motor expenses — private portion (3,000/15,000 = 20%: £8,400×20%)</td><td class="r">1,680</td><td class="r"></td><td>Only business 80% is deductible</td></tr>
+          <tr><td class="ind">Legal fees — lease renewal</td><td class="r">0</td><td class="r"></td><td>Short lease renewal = revenue, allowable</td></tr>
+          <tr><td class="ind">Legal fees — new van acquisition</td><td class="r">1,200</td><td class="r"></td><td>Capital expenditure — disallowable</td></tr>
+          <tr><td class="ind">Charitable donation (advertising)</td><td class="r">0</td><td class="r"></td><td>Wholly &amp; exclusively for trade</td></tr>
+          <tr><td class="ind">General bad debt provision increase</td><td class="r">400</td><td class="r"></td><td>General provisions disallowed</td></tr>
+          <tr><td class="ind">Specific bad debt write-off</td><td class="r">0</td><td class="r"></td><td>Specific write-offs are allowable</td></tr>
+          <tr class="sh"><td colspan="4">Allowable deductions — DEDUCT</td></tr>
+          <tr><td class="ind">Capital allowances</td><td class="r"></td><td class="r neg">(4,900)</td><td>Computed separately</td></tr>
+          <tr class="subtotal"><td>Sub-total</td><td class="r">56,880</td><td class="r">(4,900)</td><td></td></tr>
+          <tr class="total"><td><strong>Tax-adjusted trading profit</strong></td><td class="r"></td><td class="r"><strong>51,980</strong></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <div class="note-hd">Tutorial Note</div>
+      <p>Notice that items 3, 5, 7, 9 all show £0 — these are allowable items and they appear in the computation with a zero to confirm that no adjustment is required. Markers award marks for this. The van legal fee (£1,200) must be added back because it is capital — it will instead go into the capital allowances computation as part of the van's acquisition cost.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     CHAPTER 2 — CAPITAL ALLOWANCES
+═══════════════════════════════════════════════════════════ -->
+<div class="chapter" id="s2">
+  <div class="chapter-header">
+    <div class="ch-num">02</div>
+    <div class="ch-meta">
+      <div class="ch-label">Plant &amp; Machinery · Syllabus Section B3(e)</div>
+      <h2>Capital Allowances</h2>
+    </div>
+  </div>
+  <div class="chapter-body">
+
+    <h3>2.1 Why Capital Allowances Exist</h3>
+    <p>Depreciation is never deductible for tax. Instead, the tax system provides its own relief for capital expenditure — called <strong>capital allowances</strong>. These are calculated using standardised rates set by HMRC and are deducted from the tax-adjusted trading profit. Capital allowances are therefore more generous or less generous than accounting depreciation depending on the asset.</p>
+    <p>Capital allowances apply to <strong>plant and machinery</strong> (P&amp;M). "Plant and machinery" is not defined in statute but case law and practice means it includes: machinery, equipment, computers, vehicles, fixtures &amp; fittings, and integral building features.</p>
+
+    <h3>2.2 The Pools System</h3>
+    <p>Assets are placed into <strong>pools</strong>. A pool is a running total of the written-down value (TWDV) of qualifying assets. Each year, the TWDV at the start of the year is adjusted for additions and disposals, and then writing down allowances (WDA) are applied to the remaining balance.</p>
+
+    <div class="kv-grid">
+      <div class="kv-card">
+        <div class="kv-val">Main Pool</div>
+        <div class="kv-label">18% WDA p.a.</div>
+      </div>
+      <div class="kv-card red">
+        <div class="kv-val">Special Rate Pool</div>
+        <div class="kv-label">6% WDA p.a.</div>
+      </div>
+      <div class="kv-card teal">
+        <div class="kv-val">Private Use Assets</div>
+        <div class="kv-label">Own column — WDA × business %</div>
+      </div>
+      <div class="kv-card gold">
+        <div class="kv-val">Short Life Assets</div>
+        <div class="kv-label">Own column — balancing adj. on disposal</div>
+      </div>
+    </div>
+
+    <h3>2.3 The Annual Investment Allowance (AIA)</h3>
+    <p>The AIA gives a <strong>100% deduction in the year of purchase</strong> for most plant and machinery. This is extremely valuable — it means the full cost of qualifying expenditure can be deducted in year one rather than over many years. The key rules are:</p>
+    <ul>
+      <li>AIA limit = <strong>£1,000,000 per annum</strong>. Time-apportioned for short accounting periods (e.g. 9-month period: £1,000,000 × 9/12 = £750,000).</li>
+      <li>AIA applies to additions in <strong>both the main pool and special rate pool</strong>.</li>
+      <li><strong>Cars never qualify for AIA</strong> — they have their own rules.</li>
+      <li>AIA should be claimed on <em>special rate pool additions first</em> (because those would otherwise only get 6% WDA). After that, claim on main pool additions.</li>
+    </ul>
+    <div class="banner">
+      <h4>Why Claim AIA on SRP First?</h4>
+      <p>If you have £50,000 of main pool additions and £20,000 of special rate pool additions, and the AIA limit is sufficient to cover both, then claim all £20,000 SRP first (saving from 6% → 100%) and all £50,000 main pool (saving from 18% → 100%). If AIA is limited, always maximise relief by covering the slowest pool first.</p>
+    </div>
+
+    <h3>2.4 First Year Allowances (FYA)</h3>
+    <p>A 100% FYA is available on <strong>new, zero-emission cars</strong> only (CO₂ = 0g/km). Key rules:</p>
+    <ul>
+      <li>The car must be <strong>brand new</strong> — a second-hand zero-emission car does NOT qualify (it gets 18% WDA instead).</li>
+      <li>FYA is <strong>never time-apportioned</strong>, even if the accounting period is shorter than 12 months.</li>
+      <li>FYA is 100% — the full cost is deducted in year one.</li>
+    </ul>
+
+    <h3>2.5 Writing Down Allowances (WDA)</h3>
+    <p>WDA is applied to the <strong>remaining balance</strong> of each pool after AIA and FYA claims, and after adjusting for disposals. The rate depends on the pool:</p>
+
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Pool Type</th><th>WDA Rate</th><th>What Goes In</th></tr></thead>
+        <tbody>
+          <tr><td>Main pool</td><td class="r">18% p.a.</td><td>Most P&amp;M; cars with CO₂ 1–50g/km; zero-emission cars (if second-hand)</td></tr>
+          <tr><td>Special rate pool</td><td class="r">6% p.a.</td><td>Cars with CO₂ &gt;50g/km; integral features (lifts, heating, electrical); long-life assets</td></tr>
+          <tr><td>Small pool WDA</td><td class="r">£1,000 max</td><td>If pool balance falls below £1,000, the whole balance can be written off</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="rule">
+      <strong>Time Apportionment of WDA:</strong> WDA <em>is</em> time-apportioned for short accounting periods. For example, if the period is 9 months: WDA = 18% × 9/12. The small pool WDA of £1,000 is also time-apportioned. <strong>Exception: FYA is never time-apportioned.</strong>
+    </div>
+
+    <h3>2.6 Cars — Special Rules</h3>
+    <p>Cars have their own regime based entirely on CO₂ emissions. Cars can NEVER get AIA. The rules are:</p>
+
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>CO₂ Emissions</th><th>Pool</th><th>Rate</th><th>Key Points</th></tr></thead>
+        <tbody>
+          <tr><td>0g/km (new)</td><td>Main pool</td><td class="r">100% FYA</td><td>Must be brand new. FYA never time-apportioned.</td></tr>
+          <tr><td>0g/km (second-hand)</td><td>Main pool</td><td class="r">18% WDA</td><td>Does not qualify for FYA as it is not new.</td></tr>
+          <tr><td>1–50g/km</td><td>Main pool</td><td class="r">18% WDA</td><td>Goes into main pool unless private use by owner</td></tr>
+          <tr><td>&gt;50g/km</td><td>Special rate pool</td><td class="r">6% WDA</td><td>Goes into SRP unless private use by owner</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>Private Use Cars — The Separate Column Rule</h4>
+    <p>When a <strong>sole trader (the owner)</strong> uses a car partly for private purposes, that car MUST be shown in a <strong>separate private use column</strong>. The WDA is computed on the full balance, then <em>multiplied by the business use percentage</em> to give the allowable amount. The difference remains in the column and is carried forward.</p>
+    <div class="warn">
+      <div class="warn-hd">⚠️ Critical Distinction — Owner vs Employee</div>
+      <p>Private use by the <strong>owner</strong> of a sole trader: car goes in a separate column, WDA is restricted to business proportion. Private use by an <strong>employee</strong> of a company: NO restriction on capital allowances — the employee simply pays tax on the car benefit-in-kind instead.</p>
+    </div>
+
+    <h3>2.7 Balancing Adjustments</h3>
+    <p>Balancing adjustments arise when assets are disposed of. There are two types:</p>
+    <ul>
+      <li><strong>Balancing allowance</strong>: arises when proceeds are LESS than the TWDV. The shortfall = a <em>deduction</em> from profits.</li>
+      <li><strong>Balancing charge</strong>: arises when proceeds EXCEED the TWDV. The excess = an <em>addition</em> to profits (i.e. tax is clawed back).</li>
+    </ul>
+    <div class="rule">
+      <strong>Important:</strong> For the main pool and special rate pool, a balancing allowance only arises on <strong>cessation of trade</strong> (when the pool is closed). If assets are sold mid-trade but other assets remain in the pool, there is no balancing allowance — you just carry the remaining balance forward. However, a balancing <em>charge</em> can arise mid-trade if disposal proceeds exceed the pool balance.
+    </div>
+    <div class="rule">
+      <strong>Private use and short life asset columns:</strong> These DO get balancing adjustments on disposal (because they are treated as individual columns, not pooled). The TWDV of the column is compared to the proceeds (capped at original cost) when the asset is sold.
+    </div>
+
+    <h3>2.8 Short Life Assets (SLA)</h3>
+    <p>A short life asset election allows certain assets to be placed in their <strong>own column</strong> rather than pooled. The benefit is that you get a <em>balancing allowance</em> when the asset is eventually sold, giving faster tax relief if the asset loses value quickly. The rules:</p>
+    <ul>
+      <li>Election must be made within 2 years of the end of the accounting period in which the asset was acquired.</li>
+      <li>If the asset is <strong>not disposed of within 8 years</strong>, the TWDV is transferred into the main pool at the end of the 8th year.</li>
+      <li>Cars cannot be short life assets.</li>
+    </ul>
+
+    <h3>2.9 Structures and Buildings Allowance (SBA)</h3>
+    <p>The SBA provides tax relief for the cost of constructing or renovating commercial buildings. Key rules:</p>
+    <ul>
+      <li>Rate: <strong>3% per annum</strong> on qualifying expenditure (straight-line, not reducing balance).</li>
+      <li>Available from the date the building is <strong>first brought into use</strong> — not from when it's acquired.</li>
+      <li>Qualifying expenditure includes: building/construction cost + qualifying renovation costs. <strong>Land cost never qualifies.</strong></li>
+      <li><strong>No balancing adjustment on disposal</strong> — if the building is sold, the buyer continues claiming SBAs on the original cost.</li>
+      <li>SBA is <strong>always calculated separately</strong> from plant &amp; machinery capital allowances.</li>
+      <li>SBA is <strong>time-apportioned</strong> based on when the building is brought into use during the accounting period.</li>
+    </ul>
+    <div class="example">
+      <div class="ex-hd">Example — SBA</div>
+      <h5>Ashura purchases and brings into use a commercial building on 1 July 2025 (mid-way through her 9-month period ended 5 April 2026). Cost of structure: £97,600. Land: £30,000.</h5>
+      <p>Qualifying expenditure = £97,600 (land excluded).</p>
+      <p>Annual SBA = £97,600 × 3% = £2,928.</p>
+      <p>Period available = 1 July 2025 to 5 April 2026 = 9 months (the full accounting period length).</p>
+      <p>SBA deduction = £2,928 × 9/12 = <strong>£2,196</strong>.</p>
+    </div>
+
+    <h3>2.10 Full Worked Example — Capital Allowances Pro Forma</h3>
+    <div class="example">
+      <div class="ex-hd">📝 Dee Zyne — 9-month period ended 5 April 2026</div>
+      <h5>Commenced trading 1 July 2025. Assets acquired during the period:</h5>
+      <ul>
+        <li>Computer: £1,257 (main pool, with AIA)</li>
+        <li>Office furniture: £2,175 (main pool, with AIA)</li>
+        <li>Car A: £10,400, CO₂ = 35g/km — main pool (no AIA)</li>
+        <li>Car B: £17,800, CO₂ = 120g/km — Dee uses this 80% for business, 20% private — private use column</li>
+      </ul>
+    </div>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th style="width:35%">Item</th>
+            <th class="r">AIA £</th>
+            <th class="r">Main Pool £</th>
+            <th class="r">Priv. Use Car £</th>
+            <th class="r">Allowances £</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="sh"><td colspan="5">Additions NOT qualifying for AIA (Cars)</td></tr>
+          <tr><td class="ind">Car A (1–50g/km) → main pool</td><td class="r"></td><td class="r">10,400</td><td class="r"></td><td class="r"></td></tr>
+          <tr><td class="ind">Car B (&gt;50g/km, private use) → own column</td><td class="r"></td><td class="r"></td><td class="r">17,800</td><td class="r"></td></tr>
+          <tr class="sh"><td colspan="5">Additions qualifying for AIA</td></tr>
+          <tr><td class="ind">Computer £1,257 + Furniture £2,175</td><td class="r">3,432</td><td class="r"></td><td class="r"></td><td class="r"></td></tr>
+          <tr><td><strong>AIA @ 100% (all qualifying expenditure)</strong></td><td class="r neg">(3,432)</td><td class="r"></td><td class="r"></td><td class="r pos">3,432</td></tr>
+          <tr class="subtotal"><td colspan="2">AIA pool balance = £0. Carry forward = nil.</td><td class="r">10,400</td><td class="r">17,800</td><td class="r"></td></tr>
+          <tr><td><strong>WDA @ 18% × 9/12</strong> (time-apportioned — 9-month period)</td><td class="r"></td><td class="r neg">(1,404)</td><td class="r"></td><td class="r pos">1,404</td></tr>
+          <tr><td><strong>WDA @ 6% × 9/12</strong> = £801 × <strong>80% business use</strong></td><td class="r"></td><td class="r"></td><td class="r neg">(801)</td><td class="r pos">641</td></tr>
+          <tr class="total"><td><strong>Total Capital Allowances</strong></td><td class="r"></td><td class="r"></td><td class="r"></td><td class="r"><strong>5,477</strong></td></tr>
+          <tr><td>TWDV carried forward</td><td class="r"></td><td class="r">8,996</td><td class="r">16,999</td><td class="r"></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <div class="note-hd">Tutorial Notes</div>
+      <ul>
+        <li>AIA and WDA are both time-apportioned for the 9-month period. The AIA limit = £1,000,000 × 9/12 = £750,000 — well above the £3,432 needed, so full AIA is claimed.</li>
+        <li>Car A (35g/km) goes in the main pool at 18% WDA. No private use restriction because Dee is the owner — wait, actually this car has no private use mentioned, so it gets the full WDA. If Dee also had private use of Car A, it would need its own column.</li>
+        <li>Car B (120g/km) — over 50g/km so 6% WDA. It's a private use car (owner uses it), so it gets its own column. WDA = £17,800 × 6% × 9/12 = £801. Only 80% is the actual allowance = £641. The remaining 20% (£160) stays in the column as part of the TWDV carried forward (£17,800 − £801 = £16,999).</li>
+        <li>FYA is never time-apportioned — but no FYA arises here as neither car has zero CO₂ emissions.</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     CHAPTER 3 — CASH BASIS
+═══════════════════════════════════════════════════════════ -->
+<div class="chapter" id="s3">
+  <div class="chapter-header">
+    <div class="ch-num">03</div>
+    <div class="ch-meta">
+      <div class="ch-label">Default Basis for Sole Traders · Syllabus Section B3(a)</div>
+      <h2>Cash Basis of Accounting</h2>
+    </div>
+  </div>
+  <div class="chapter-body">
+
+    <h3>3.1 What Is the Cash Basis and Who Can Use It?</h3>
+    <p>The <strong>cash basis</strong> is a simplified method of computing taxable trading profit. Instead of recognising income when earned and expenses when incurred (the accruals basis), the cash basis only recognises income when <strong>actually received</strong> and expenses when <strong>actually paid</strong>.</p>
+    <p>Since FA2024, the cash basis is the <strong>default method</strong> for sole traders and unincorporated businesses — i.e. it applies automatically unless the trader elects out. Partnerships can also use the cash basis. Companies cannot.</p>
+
+    <div class="rule">
+      <strong>Entry Condition:</strong> Cash basis is available where cash receipts do not exceed the cash basis threshold (given in the tax tables in the exam). A trader who exceeds the limit must switch to the accruals basis. A trader on the cash basis can <strong>elect out</strong> and use the accruals basis if preferred.
+    </div>
+
+    <h3>3.2 How the Cash Basis Differs from the Accruals Basis</h3>
+
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Item</th><th>Cash Basis</th><th>Accruals Basis</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Income recognition</strong></td><td>Only when <em>received</em> (cash in the bank). Outstanding receivables at year-end are excluded.</td><td>When earned/invoiced, regardless of whether received.</td></tr>
+          <tr><td><strong>Expense recognition</strong></td><td>Only when <em>paid</em>. Unpaid payables at year-end are excluded.</td><td>When incurred, regardless of whether paid.</td></tr>
+          <tr><td><strong>Depreciation</strong></td><td>Not deductible (same as accruals).</td><td>Not deductible.</td></tr>
+          <tr><td><strong>Capital expenditure (P&amp;M)</strong></td><td><strong>Deductible in full</strong> when paid (replaces capital allowances). Exception: cars — see below.</td><td>Not deductible — relief via capital allowances.</td></tr>
+          <tr><td><strong>Cars</strong></td><td>Car purchase/running costs are NOT deductible. Instead, use <strong>HMRC approved mileage rates</strong>.</td><td>Car costs adjusted for private use; capital allowances apply.</td></tr>
+          <tr><td><strong>Interest paid</strong></td><td>Deductible but <strong>capped at £500</strong> per year.</td><td>Fully deductible if for the trade.</td></tr>
+          <tr><td><strong>Private use of business premises</strong></td><td>Full costs deductible, but <strong>HMRC flat rate</strong> is added back as a private use adjustment.</td><td>Actual private proportion is disallowed.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>3.3 HMRC Approved Mileage Rates — Cars Under Cash Basis</h3>
+    <p>Under the cash basis, a trader who uses a car for business purposes cannot claim actual car costs (petrol, insurance, repairs) or capital allowances. Instead, they must use HMRC's approved mileage rates:</p>
+    <div class="formula">
+      First 10,000 business miles in the year: 45p per mile<br>
+      Remaining business miles: 25p per mile
+    </div>
+    <div class="example">
+      <div class="ex-hd">Example — Mileage Under Cash Basis</div>
+      <h5>Idris drives 13,000 business miles in the year. Calculate the deductible car expense under the cash basis.</h5>
+      <p>First 10,000 miles × 45p = £4,500</p>
+      <p>Remaining 3,000 miles × 25p = £750</p>
+      <p>Total deductible car expense = <strong>£5,250</strong></p>
+      <p>The car's purchase cost of £9,000 and running costs of £9,340 are completely ignored under the cash basis — replaced entirely by the mileage deduction above.</p>
+    </div>
+
+    <h3>3.4 HMRC Flat Rate Adjustment for Business Premises</h3>
+    <p>Where a sole trader lives and works at the same premises (e.g. a bed &amp; breakfast owner, a childminder), they may deduct their full household costs from trading profit. But a flat rate private use adjustment must then be <strong>added back</strong> to account for their personal consumption. These are given in the tax tables in the exam.</p>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Number of Occupants</th><th class="r">Monthly Rate</th><th class="r">Annual Rate</th></tr></thead>
+        <tbody>
+          <tr><td>1 person</td><td class="r">£350/month</td><td class="r">£4,200</td></tr>
+          <tr><td>2 persons</td><td class="r">£500/month</td><td class="r">£6,000</td></tr>
+          <tr><td>3 or more</td><td class="r">£650/month</td><td class="r">£7,800</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <div class="note-hd">Tutorial Note</div>
+      <p>Under the cash basis, you first deduct the <em>actual</em> household costs in full as a trading expense, and then add back the flat rate as a "private use adjustment". The net deduction is therefore: actual costs paid − flat rate adjustment. The flat rate covers ALL private usage of food, utilities and household goods — you do not need to work out actual private proportions.</p>
+    </div>
+
+    <h3>3.5 Capital Expenditure Under the Cash Basis</h3>
+    <p>One of the biggest advantages of the cash basis is that <strong>capital expenditure on plant and machinery (other than cars) is deductible in full</strong> in the year it is paid. This eliminates the need for a capital allowances computation on most assets. However:</p>
+    <ul>
+      <li><strong>Cars</strong> — never deductible under cash basis (use mileage rates instead).</li>
+      <li><strong>Land and buildings</strong> — not deductible under the cash basis.</li>
+      <li><strong>Financial instruments / investments</strong> — not deductible.</li>
+    </ul>
+
+    <h3>3.6 Full Worked Example — Cash Basis vs Accruals Basis</h3>
+    <div class="example">
+      <div class="ex-hd">📝 Idris Williams — Year ended 5 April 2026. Bed &amp; Breakfast business. Net profit per accounts: £20,175.</div>
+      <h5>The following information is relevant:</h5>
+      <ul>
+        <li>Revenue = £49,910, of which £10,275 is still outstanding (not yet received).</li>
+        <li>Household goods (food, utilities etc.) = £17,660 total. 95% was paid in the period; £4,500 relates to Idris's personal use. Flat rate (1 person) = £4,200.</li>
+        <li>Depreciation = £1,250 (furniture £3,500 + car £9,000, CO₂ 35g/km).</li>
+        <li>Car expenses = £9,340 (13,000 business miles out of 20,000 total).</li>
+        <li>Other expenses = £1,485 (all allowable; £400 unpaid at year end).</li>
+      </ul>
+    </div>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr>
+          <th>Item</th>
+          <th class="r">Accruals Basis £</th>
+          <th class="r">Cash Basis £</th>
+          <th>Why Different?</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>Revenue</td><td class="r">49,910</td><td class="r">39,635</td><td>Cash basis excludes £10,275 outstanding</td></tr>
+          <tr><td>Food, utilities, etc.</td><td class="r neg">(13,160)</td><td class="r neg">(16,777)</td><td>Accruals: deduct £17,660 less £4,500 private. Cash: deduct 95% paid = £16,777, then add back flat rate</td></tr>
+          <tr><td>Flat rate private use adjustment</td><td class="r">—</td><td class="r">+4,200</td><td>Cash basis adds back HMRC flat rate instead of specific private use</td></tr>
+          <tr><td>Depreciation</td><td class="r pos">+1,250</td><td class="r">0</td><td>Accruals: add back depreciation. Cash: depreciation never in accounts adjustment</td></tr>
+          <tr><td>Car expenses — actual (private portion added back)</td><td class="r pos">+3,269</td><td class="r">0</td><td>Accruals: add back 35% private proportion. Cash: car costs replaced by mileage rate</td></tr>
+          <tr><td>Furniture — capital expenditure</td><td class="r">0</td><td class="r neg">(3,500)</td><td>Cash: deductible in full when paid (no capital allowances needed)</td></tr>
+          <tr><td>Car — mileage rate (13,000 miles)</td><td class="r">—</td><td class="r neg">(5,250)</td><td>Cash basis: 10,000 × 45p + 3,000 × 25p = £5,250</td></tr>
+          <tr><td>Other expenses</td><td class="r neg">(1,485)</td><td class="r neg">(1,085)</td><td>Cash: deduct only what was paid (£1,485 − £400 unpaid)</td></tr>
+          <tr><td>Capital allowances (accruals only)</td><td class="r neg">(4,553)</td><td class="r">—</td><td>Capital allowances replaced by full deduction under cash basis</td></tr>
+          <tr class="total"><td><strong>Tax-adjusted trading profit</strong></td><td class="r"><strong>24,641</strong></td><td class="r"><strong>17,223</strong></td><td>Cash basis saves £7,418 of taxable profit here</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tip">
+      <div class="tip-hd">📌 Exam Advice — Which Basis Is More Beneficial?</div>
+      <p>The exam may ask you to state which basis is more beneficial. Simply compare the two taxable profits — the <strong>lower</strong> profit is more tax-efficient. In the example above, the cash basis gives a lower profit (£17,223 vs £24,641), so the cash basis is more beneficial for Idris for 2025/26. State the difference: "Using the cash basis results in a taxable profit £7,418 lower than the accruals basis."</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     CHAPTER 4 — PARTNERSHIPS
+═══════════════════════════════════════════════════════════ -->
+<div class="chapter" id="s4">
+  <div class="chapter-header">
+    <div class="ch-num">04</div>
+    <div class="ch-meta">
+      <div class="ch-label">Sole Traders &amp; LLPs · Syllabus Section B3(g)</div>
+      <h2>Partnerships</h2>
+    </div>
+  </div>
+  <div class="chapter-body">
+
+    <h3>4.1 The Fundamental Principle</h3>
+    <p>A partnership is <strong>not</strong> a taxable entity in its own right. Instead:</p>
+    <ul>
+      <li>The partnership computes <strong>one single tax-adjusted trading profit</strong> for the accounting period (using all the rules in Chapters 1–3).</li>
+      <li>That profit is then <strong>allocated between the partners</strong> according to the profit-sharing agreement.</li>
+      <li>Each partner then declares their own <strong>individual share</strong> as trading income on their own personal tax return, applying their own personal allowance, tax rates, and any loss relief.</li>
+    </ul>
+    <p>This means partners are taxed <em>as if they were individual sole traders</em> — the partnership itself pays no tax.</p>
+
+    <h3>4.2 Allocating Profits — The Profit-Sharing Agreement</h3>
+    <p>The profit-sharing agreement typically provides for three elements (deducted in order before splitting the balance):</p>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><p><strong>Salaries</strong>: Partners may receive a fixed salary before profit is shared (compensating a partner who works more). This is NOT a tax deduction — it is just an allocation mechanism. Salaries are time-apportioned if a change occurs mid-period.</p></div>
+      <div class="step"><div class="step-num">2</div><p><strong>Interest on capital</strong>: Partners may receive a return on their capital account balance (e.g. 4% × capital balance). This is also just an allocation, not a deductible expense.</p></div>
+      <div class="step"><div class="step-num">3</div><p><strong>Balance shared in agreed ratio</strong>: The remaining profit (after salaries and interest on capital) is split in the profit-sharing ratio (PSR).</p></div>
+    </div>
+
+    <h3>4.3 Changes in the Profit-Sharing Ratio Mid-Period</h3>
+    <p>If the PSR changes during an accounting period, the period is <strong>time-apportioned</strong> — split into two sub-periods at the date of change. Each sub-period's profit is calculated (total profit × fraction of year) and then allocated using the respective PSR for that sub-period.</p>
+    <div class="example">
+      <div class="ex-hd">📝 Worked Example — PSR Change Mid-Year</div>
+      <h5>Elizabeth &amp; Henry — Partnership, year ended 31 December 2025. Adjusted trading profit = £120,000.</h5>
+      <p>Until 31 July 2025 (7 months): PSR 70:30 (Elizabeth:Henry), no salaries.</p>
+      <p>From 1 August 2025 (5 months): PSR 80:20, with Henry receiving a salary of £24,000 per annum.</p>
+    </div>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Allocation Step</th><th class="r">Total £</th><th class="r">Elizabeth £</th><th class="r">Henry £</th></tr></thead>
+        <tbody>
+          <tr class="sh"><td colspan="4">Period 1: Jan–Jul 2025 = 7/12 × £120,000 = £70,000</td></tr>
+          <tr><td class="ind">PSR 70:30 (no salary)</td><td class="r">70,000</td><td class="r">49,000</td><td class="r">21,000</td></tr>
+          <tr class="sh"><td colspan="4">Period 2: Aug–Dec 2025 = 5/12 × £120,000 = £50,000</td></tr>
+          <tr><td class="ind">Henry's salary (£24,000 × 5/12)</td><td class="r">10,000</td><td class="r">—</td><td class="r">10,000</td></tr>
+          <tr><td class="ind">Balance (£50,000 − £10,000 = £40,000) in PSR 80:20</td><td class="r">40,000</td><td class="r">32,000</td><td class="r">8,000</td></tr>
+          <tr class="total"><td><strong>Total for year ended 31 Dec 2025</strong></td><td class="r">120,000</td><td class="r"><strong>81,000</strong></td><td class="r"><strong>39,000</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <div class="note-hd">Tutorial Note — Why Time-Apportion?</div>
+      <p>The exam frequently tests the scenario where a salary or PSR changes during a year. The correct technique is to split the year at the change date, compute the profit for each sub-period (as a fraction of the total), apply the relevant PSR to each sub-period, and add the two sub-periods together. The salary must also be time-apportioned (£24,000 × 5/12 = £10,000 for the 5-month period).</p>
+    </div>
+
+    <h3>4.4 Change in Partnership Membership</h3>
+    <p>When a partner <strong>joins or leaves</strong> mid-accounting period, the principle is identical — time-apportion the profit at the date of change, allocate each sub-period under the respective PSR, and compute each partner's individual share. Each partner is then taxed on their own share of profits as if they were a sole trader.</p>
+    <div class="example">
+      <div class="ex-hd">📝 Worked Example — Partner Joins and Leaves</div>
+      <h5>Sam, Tam &amp; Uma — Year ended 30 June 2026. Profit = £132,000. Sam = 80% throughout. Tam (20%) retires on 31 October 2025, replaced by Uma (20%) on 1 November 2025.</h5>
+    </div>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Period</th><th class="r">Total £</th><th class="r">Sam (80%) £</th><th class="r">Tam (20%) £</th><th class="r">Uma (20%) £</th></tr></thead>
+        <tbody>
+          <tr class="sh"><td colspan="5">1 July–31 October 2025 (4/12 × £132,000 = £44,000)</td></tr>
+          <tr><td class="ind">Sam 80%, Tam 20%</td><td class="r">44,000</td><td class="r">35,200</td><td class="r">8,800</td><td class="r">—</td></tr>
+          <tr class="sh"><td colspan="5">1 November 2025–30 June 2026 (8/12 × £132,000 = £88,000)</td></tr>
+          <tr><td class="ind">Sam 80%, Uma 20%</td><td class="r">88,000</td><td class="r">70,400</td><td class="r">—</td><td class="r">17,600</td></tr>
+          <tr class="total"><td><strong>Year ended 30 June 2026 — total shares</strong></td><td class="r"><strong>132,000</strong></td><td class="r"><strong>105,600</strong></td><td class="r"><strong>8,800</strong></td><td class="r"><strong>17,600</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Each partner then reports their allocated share on their individual tax return for the relevant tax year. For tax year 2025/26 (6 April 2025 to 5 April 2026), Sam's trading income assessment is based on the accounting period(s) whose end date falls in 2025/26:</p>
+    <div class="formula">
+      Sam's 2025/26 assessment = (3/12 × prior year share) + (9/12 × current year share)<br>
+      = 3/12 × £110,000 + 9/12 × £105,600 = £27,500 + £79,200 = <strong>£106,700</strong>
+    </div>
+
+    <h3>4.5 Partners and Loss Relief</h3>
+    <p>If the partnership makes a loss, each partner receives their individual share of the loss (allocated using the same PSR). Each partner can then independently choose which loss relief claim to make — partners in the same partnership do NOT have to choose the same option. The available loss relief claims are the same as for sole traders (see Chapter 5).</p>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     CHAPTER 5 — TRADING LOSSES
+═══════════════════════════════════════════════════════════ -->
+<div class="chapter" id="s5">
+  <div class="chapter-header">
+    <div class="ch-num">05</div>
+    <div class="ch-meta">
+      <div class="ch-label">Loss Relief Options &amp; Strategy · Syllabus Section B3(f)</div>
+      <h2>Trading Losses for Individuals</h2>
+    </div>
+  </div>
+  <div class="chapter-body">
+
+    <h3>5.1 Overview — Why Loss Relief Matters</h3>
+    <p>When a sole trader's tax-adjusted trading profit is <em>negative</em>, the result is a <strong>trading loss</strong>. HMRC provides several ways to obtain tax relief for this loss. Understanding <em>how</em> each relief works, <em>when</em> it can be claimed, and <em>why</em> one may be better than another is essential for the exam.</p>
+
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Relief</th><th>Set Against</th><th>When Available</th><th>Cap?</th><th>Order</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Carry forward (s83)</strong></td><td>Future profits of <em>same trade</em></td><td>Any year</td><td>None</td><td>Indefinitely</td></tr>
+          <tr><td><strong>Current year (s64)</strong></td><td>Total income in year of loss</td><td>Year of loss</td><td>Yes — £50k/25% ATI</td><td>Current year first</td></tr>
+          <tr><td><strong>Prior year (s64)</strong></td><td>Total income of prior tax year</td><td>Year of loss</td><td>Yes — £50k/25% ATI</td><td>After current year</td></tr>
+          <tr><td><strong>Against gains (s261B)</strong></td><td>Chargeable gains (same or prior year)</td><td>Year of loss</td><td>Must have s64 first</td><td>After total income claim</td></tr>
+          <tr><td><strong>Early years relief (s72)</strong></td><td>Total income — 3 prior years (FIFO)</td><td>First 4 years of trade</td><td>Yes — £50k/25% ATI</td><td>FIFO (earliest first)</td></tr>
+          <tr><td><strong>Terminal loss (s89)</strong></td><td>Trading profits — last 3 years (LIFO)</td><td>On cessation only</td><td>None</td><td>LIFO (latest first)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>5.2 Carry Forward Relief (s83)</h3>
+    <p>This is the <em>default</em> relief — if a trader takes no action, their trading loss is automatically carried forward and set against the first available future trading profits from the <strong>same trade</strong>. Key points:</p>
+    <ul>
+      <li>Can be carried forward <strong>indefinitely</strong> — no time limit.</li>
+      <li>Can only be set against profits from the <strong>same trade</strong> — if the trader starts a new business, the old loss cannot be carried into it.</li>
+      <li><strong>No cap applies</strong> — the full carried-forward loss is set against the first profits, even if this wastes the personal allowance.</li>
+      <li>A formal claim must be made within 4 years of the tax year in which the loss arose.</li>
+    </ul>
+    <div class="tip">
+      <div class="tip-hd">📌 When Is Carry Forward Beneficial?</div>
+      <p>Carry forward gives relief at the <em>lowest tax rate</em> applicable in the future (often basic rate 20%). It is slower than s64 current/prior year relief. However, it is particularly beneficial if the trader has no other income in the current/prior years (so a s64 claim would waste the personal allowance), or if future profits will be taxed at a higher rate.</p>
+    </div>
+
+    <h3>5.3 Current Year and Prior Year Relief (s64)</h3>
+    <p>A trader can elect to set a trading loss against their <strong>total income</strong> (including employment income, property income, savings income) rather than waiting for future trading profits. This is faster relief and may be at higher tax rates.</p>
+
+    <h4>How It Works</h4>
+    <ul>
+      <li>A <strong>current year claim</strong> sets the loss against total income for the tax year in which the loss arises (the loss year).</li>
+      <li>A <strong>prior year claim</strong> sets the loss against total income for the tax year immediately before the loss year.</li>
+      <li>The two claims are <strong>independent</strong> — a trader can claim one without the other, or both.</li>
+      <li>If both are claimed, you can choose which year to use first (current or prior — whichever gives more tax relief).</li>
+    </ul>
+
+    <h4>The Income Tax Reliefs Cap</h4>
+    <p>A critical restriction applies when claiming s64 relief against income that is <em>not trading profits from the same trade</em>. In such cases, the deduction is capped at the <strong>greater of £50,000 or 25% of Adjusted Total Income (ATI)</strong> for that year.</p>
+    <div class="banner">
+      <h4>Understanding the Cap — Two Part Test</h4>
+      <p>Step 1: Calculate 25% of ATI (ATI = total income before the loss relief claim).</p>
+      <p>Step 2: Compare to £50,000.</p>
+      <p>Step 3: The cap is the <strong>higher</strong> of the two figures.</p>
+      <p>Step 4: The deduction cannot exceed this cap, UNLESS the loss is being set against trading profits from the same trade (in which case there is no cap).</p>
+      <p>Example: If ATI = £80,000, then 25% × £80,000 = £20,000. Higher of £20,000 and £50,000 = £50,000. So at most £50,000 of the loss can be relieved against other income in that year.</p>
+    </div>
+    <div class="example">
+      <div class="ex-hd">📝 Worked Example — s64 Current + Prior Year Relief</div>
+      <h5>Dill — Tax year 2025/26. Trading loss = £58,000. Employment income = £361,990. No trading income in 2025/26 (loss year).</h5>
+      <p>Cap = greater of: 25% × £361,990 = £90,498, or £50,000. So cap = £90,498.</p>
+      <p>Loss = £58,000 — this is below the cap, so the full £58,000 can be relieved.</p>
+    </div>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Item</th><th class="r">2025/26 £</th></tr></thead>
+        <tbody>
+          <tr><td>Employment income</td><td class="r">361,990</td></tr>
+          <tr><td>Trading income</td><td class="r">0</td></tr>
+          <tr class="subtotal"><td>Total income</td><td class="r">361,990</td></tr>
+          <tr><td>Less: s64 loss relief (£58,000 ≤ cap of £90,498 — full relief available)</td><td class="r neg">(58,000)</td></tr>
+          <tr class="total"><td><strong>Net income</strong></td><td class="r"><strong>303,990</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="warn">
+      <div class="warn-hd">⚠️ s64 May Waste Personal Allowance</div>
+      <p>If the loss claim reduces total income below £12,570 (the personal allowance), the personal allowance is partially or fully wasted. The trader still pays no more tax (net income cannot go below zero), but they lose the benefit of the personal allowance. When choosing whether to claim s64, consider if relief would be wasted this way, and compare to the carry-forward option where the PA might be preserved.</p>
+    </div>
+
+    <h3>5.4 Relief Against Chargeable Gains (s261B)</h3>
+    <p>After making a s64 claim against total income (which is a prerequisite), any <em>remaining loss</em> can be extended to chargeable gains in the same year. This is a two-stage process:</p>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><p>First, claim s64 against <strong>total income</strong> in the same tax year (this is mandatory before gains can be used).</p></div>
+      <div class="step"><div class="step-num">2</div><p>Any remaining loss can then be set against <strong>net chargeable gains</strong> (gains after deducting capital losses but <em>before</em> the Annual Exempt Amount of £3,000).</p></div>
+      <div class="step"><div class="step-num">3</div><p>The AEA is applied after the trading loss — this may be <strong>wasted</strong> if the trading loss absorbs all gains.</p></div>
+    </div>
+    <div class="tip">
+      <div class="tip-hd">📌 Is Relief Against Gains Worthwhile?</div>
+      <p>Relief against gains saves CGT at 18% (basic rate) or 24% (higher rate). This is less than the 40%/45% income tax saving on income relief. However, if total income has been reduced to zero by a s64 claim and there are still gains to offset, the gains relief may still be the best use of remaining losses. Always show a loss memorandum to track amounts used and remaining.</p>
+    </div>
+
+    <h3>5.5 Early Years Loss Relief (s72)</h3>
+    <p>This relief is specifically designed for new traders who often incur start-up losses. It allows the loss to be carried back further than the usual one prior year:</p>
+    <ul>
+      <li>Available for losses arising in the <strong>first four tax years</strong> of a trade.</li>
+      <li>The loss is carried back against <strong>total income of the three preceding tax years</strong>, applied on a <strong>FIFO basis</strong> (earliest year first).</li>
+      <li>The same cap applies: greater of £50,000 or 25% of ATI.</li>
+    </ul>
+    <div class="example">
+      <div class="ex-hd">📝 Worked Example — Early Years Relief</div>
+      <h5>Sabine started trading 1 April 2024. Loss in year ended 31 March 2026 (tax year 2025/26) = £25,000. Sabine was employed until 31 March 2024 earning £45,000 p.a. plus savings income £3,000 p.a. She wants relief as early as possible.</h5>
+      <p>The loss arises in tax year 2025/26. This is year 2 of trading (2024/25 was year 1). Early years relief is available.</p>
+      <p>Carry back to the 3 preceding tax years on a FIFO basis (earliest first):</p>
+      <ul>
+        <li>2022/23 — total income = £48,000. Set loss here first: relieve £25,000 (loss exhausted).</li>
+        <li>2023/24 and 2024/25 — no further loss to relieve.</li>
+      </ul>
+      <p>Result: The full £25,000 loss is relieved in 2022/23, saving income tax at up to 40% on employment income from three years ago.</p>
+    </div>
+
+    <h3>5.6 Terminal Loss Relief (s89)</h3>
+    <p>When a trader <strong>permanently ceases to trade</strong>, any loss in the final 12 months (the "terminal loss") can be carried back against trading profits of the preceding 3 tax years on a <strong>LIFO basis</strong> (latest year first).</p>
+    <ul>
+      <li>The terminal loss = trading loss in the last 12 months of trading (may span two tax years).</li>
+      <li>Carry back is against <strong>trading profits only</strong> (not total income, unlike s64).</li>
+      <li><strong>No cap applies</strong> to terminal loss relief.</li>
+      <li>Applied LIFO — most recent preceding year first, then going further back.</li>
+    </ul>
+    <div class="example">
+      <div class="ex-hd">📝 Worked Example — Terminal Loss Relief</div>
+      <h5>Carol ceased trading on 31 March 2026. Trading loss in year ended 31 March 2026 = £44,000. Prior trading profits: 2024/25 = £19,000, 2023/24 = £28,000, 2022/23 = £12,000. Dividend income £5,000 every year.</h5>
+      <p>Terminal loss = £44,000 (loss in the last 12 months = 1 April 2025–31 March 2026).</p>
+      <p>Carry back LIFO against trading profits only (dividends excluded):</p>
+    </div>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Tax Year (LIFO)</th><th class="r">Trading Profit £</th><th class="r">Loss Offset £</th><th class="r">Remaining Loss £</th></tr></thead>
+        <tbody>
+          <tr><td>2024/25 (most recent — first)</td><td class="r">19,000</td><td class="r neg">(19,000)</td><td class="r">25,000</td></tr>
+          <tr><td>2023/24 (second)</td><td class="r">28,000</td><td class="r neg">(25,000)</td><td class="r">0</td></tr>
+          <tr><td>2022/23 (third)</td><td class="r">12,000</td><td class="r">—</td><td class="r">0</td></tr>
+          <tr class="total"><td><strong>Total terminal loss relieved</strong></td><td class="r"></td><td class="r"><strong>44,000</strong></td><td class="r"><strong>0</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <div class="note-hd">Tutorial Note</div>
+      <p>In 2023/24, only £25,000 (not the full £28,000) is offset — the loss was exhausted at £25,000. The amount offset in 2023/24 is therefore £25,000, leaving £3,000 of trading profits remaining taxable in 2023/24. Terminal loss relief only applies against trading profits, so the dividend income in each year is completely unaffected.</p>
+    </div>
+
+    <h3>5.7 Choosing the Best Loss Relief — Factors to Consider</h3>
+    <div class="banner">
+      <h4>The Four Factors — Always Discuss These in the Exam</h4>
+      <ul>
+        <li><strong>1. Tax rate:</strong> Preference for relief at the highest possible rate (40%/45% income tax &gt; 20% income tax &gt; 24% CGT &gt; 18% CGT).</li>
+        <li><strong>2. Timing:</strong> Current/prior year or early years relief gives faster relief than carry forward. Faster relief = time value of money benefit (tax saved sooner).</li>
+        <li><strong>3. Personal allowance wastage:</strong> If a s64 claim reduces net income below £12,570, the personal allowance (or part of it) is wasted. Consider whether it is worth the tax saving.</li>
+        <li><strong>4. AEA wastage:</strong> Setting a loss against gains may waste the £3,000 AEA (Annual Exempt Amount for CGT).</li>
+      </ul>
+    </div>
+
+    <h3>5.8 The Loss Memorandum — Always Show This</h3>
+    <p>In an exam, whenever you are working through a loss question, always prepare a <strong>loss memorandum</strong> that tracks: total loss, amounts claimed in each year, and the balance remaining. This prevents errors and earns marks even if your computations contain errors elsewhere.</p>
+    <div class="formula">
+      Trading loss in [year]:                           £(X)<br>
+      Less: Relief against total income [year]:         £X<br>
+      Less: Relief against gains [year]:                £X<br>
+      Loss carried forward to future years:             £X
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     CHAPTER 6 — TAX ADMINISTRATION
+═══════════════════════════════════════════════════════════ -->
+<div class="chapter" id="s6">
+  <div class="chapter-header">
+    <div class="ch-num">06</div>
+    <div class="ch-meta">
+      <div class="ch-label">Self-Assessment · Syllabus Section A3 &amp; A4</div>
+      <h2>Tax Administration for Individuals</h2>
+    </div>
+  </div>
+  <div class="chapter-body">
+
+    <h3>6.1 The Self-Assessment System</h3>
+    <p>Under self-assessment, each individual taxpayer is responsible for calculating their own tax liability and filing their own tax return. HMRC issues a <strong>notice to file</strong> to taxpayers who need to complete a return (including all sole traders and partners). The taxpayer must then file the return by the due date and pay any tax owed.</p>
+
+    <h3>6.2 Filing Deadlines — Tax Year 2025/26</h3>
+    <div class="dates-grid">
+      <div class="date-box"><div class="date-val">31 Oct 2026</div><div class="date-desc">Deadline: Paper return for 2025/26</div></div>
+      <div class="date-box"><div class="date-val">31 Jan 2027</div><div class="date-desc">Deadline: Electronic return for 2025/26</div></div>
+      <div class="date-box"><div class="date-val">3 months</div><div class="date-desc">From date notice issued (if issued after 31 Oct 2026)</div></div>
+    </div>
+    <div class="rule">
+      <strong>If notice to file is issued after 31 October 2026:</strong> the filing deadline is 3 months from the date the notice to file is issued (rather than the standard 31 October/31 January deadlines). This applies if HMRC issues the notice late.
+    </div>
+
+    <h3>6.3 Payments on Account (POAs)</h3>
+    <p>Many self-employed individuals must make <strong>advance payments</strong> towards their current year's tax liability. These are called payments on account. The system works as follows:</p>
+
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><p>Calculate the <strong>"relevant amount"</strong> for the prior year = income tax liability + Class 4 NIC for that year, MINUS any amounts collected at source (e.g. PAYE, tax deducted at source from savings interest). <strong>CGT is excluded</strong> from the relevant amount.</p></div>
+      <div class="step"><div class="step-num">2</div><p>If the relevant amount exceeds <strong>£1,000</strong> AND is more than 20% of the total tax liability (i.e. more than 80% was NOT collected at source), then POAs are required for the following year.</p></div>
+      <div class="step"><div class="step-num">3</div><p>Each POA = <strong>50% of the prior year's relevant amount</strong>. Two POAs are required each year.</p></div>
+      <div class="step"><div class="step-num">4</div><p>The <strong>balancing payment</strong> (or repayment) is due on 31 January after the tax year — this also includes any CGT owed.</p></div>
+    </div>
+
+    <h4>Due Dates for Tax Year 2025/26</h4>
+    <div class="dates-grid">
+      <div class="date-box"><div class="date-val">31 Jan 2026</div><div class="date-desc">1st POA for 2025/26 (50% of 2024/25 relevant amount)</div></div>
+      <div class="date-box"><div class="date-val">31 Jul 2026</div><div class="date-desc">2nd POA for 2025/26</div></div>
+      <div class="date-box"><div class="date-val">31 Jan 2027</div><div class="date-desc">Balancing payment + 1st POA for 2026/27</div></div>
+      <div class="date-box"><div class="date-val">60 days</div><div class="date-desc">CGT on residential property — from disposal date</div></div>
+    </div>
+
+    <div class="example">
+      <div class="ex-hd">📝 Worked Example — Payments on Account</div>
+      <h5>Sophie Shape — Tax year 2025/26. Prior year (2024/25) income tax = £5,240. Prior year Class 4 NIC = £1,820. PAYE deducted = £0. CGT liability 2025/26 = £5,277. 2025/26 income tax = £6,100. 2025/26 Class 4 NIC = £1,910.</h5>
+      <p><strong>Relevant amount (2024/25)</strong> = £5,240 + £1,820 − £0 = £7,060. Exceeds £1,000 and no PAYE → POAs required.</p>
+      <p><strong>Each POA for 2025/26</strong> = £7,060 × 50% = <strong>£3,530</strong> (due 31 Jan 2026 and 31 Jul 2026).</p>
+      <p><strong>Total 2025/26 liability</strong> = £6,100 + £1,910 + £5,277 (CGT) = £13,287.</p>
+      <p><strong>Balancing payment (31 Jan 2027)</strong> = £13,287 − £3,530 − £3,530 = <strong>£6,227</strong>.</p>
+      <p><strong>1st POA for 2026/27</strong> (also due 31 Jan 2027) = (£6,100 + £1,910) × 50% = <strong>£4,005</strong>.</p>
+      <p>Total payable on 31 January 2027 = £6,227 + £4,005 = <strong>£10,232</strong>.</p>
+    </div>
+
+    <h4>Reducing Payments on Account</h4>
+    <p>A taxpayer can apply to <strong>reduce their POAs</strong> if they expect their current year's liability to be lower than the prior year. However, if the POAs are reduced below what turns out to be the actual liability, <strong>interest</strong> is charged on the shortfall from the original due date. If the reduction was made <strong>fraudulently or negligently</strong>, a tax-geared penalty is also charged.</p>
+
+    <h3>6.4 Record Keeping</h3>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Type of Records</th><th>Retention Period</th><th>For 2025/26 — Keep Until</th></tr></thead>
+        <tbody>
+          <tr><td>Business records (incl. property income)</td><td>5 years after the 31 January filing deadline</td><td>31 January 2032</td></tr>
+          <tr><td>Personal/other records (non-business)</td><td>12 months after the 31 January filing deadline</td><td>31 January 2028</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>6.5 HMRC Enquiries and Discovery Assessments</h3>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Action</th><th>Time Limit</th><th>2025/26 Deadline</th></tr></thead>
+        <tbody>
+          <tr><td>HMRC opens a compliance check (enquiry)</td><td>12 months from the actual date the return is filed</td><td>Depends on when return filed</td></tr>
+          <tr><td>Taxpayer amends the return</td><td>12 months from 31 January filing deadline</td><td>31 January 2028</td></tr>
+          <tr><td>Discovery assessment — innocent error / no careless/deliberate behaviour</td><td>4 years from end of tax year</td><td>5 April 2030</td></tr>
+          <tr><td>Discovery assessment — careless behaviour</td><td>6 years from end of tax year</td><td>5 April 2032</td></tr>
+          <tr><td>Discovery assessment — deliberate behaviour</td><td>20 years from end of tax year</td><td>5 April 2046</td></tr>
+          <tr><td>Overpayment relief claim by taxpayer</td><td>4 years from end of tax year</td><td>5 April 2030</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <div class="note-hd">Tutorial Note — What Is a Discovery Assessment?</div>
+      <p>A discovery assessment is used when HMRC discovers that a taxpayer has underpaid tax after the enquiry window has closed. The time limit depends entirely on the taxpayer's <em>behaviour</em> — not on how large the error is. Deliberate concealment (e.g. hiding income) gives HMRC 20 years to act. Careless errors (e.g. failing to check a return properly) give 6 years. Innocent errors (where the taxpayer was not at fault) allow only 4 years.</p>
+    </div>
+
+    <h3>6.6 Late Filing Penalties</h3>
+    <p>Filing a self-assessment tax return late triggers an escalating series of penalties:</p>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>How Late?</th><th>Penalty</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Any late return</td><td>£100 fixed penalty</td><td>Automatic — applies even if no tax is due or the tax is paid on time</td></tr>
+          <tr><td>More than 3 months late</td><td>+£10 per day × up to 90 days (max £900)</td><td>Daily penalties for up to 90 days</td></tr>
+          <tr><td>More than 6 months late</td><td>+5% of tax due (minimum £300)</td><td>Tax-geared penalty</td></tr>
+          <tr><td>More than 12 months late</td><td>+Further 5% of tax due (minimum £300)</td><td>Additional tax-geared penalty</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="example">
+      <div class="ex-hd">📝 Example — Late Filing Penalties</div>
+      <h5>Zahra filed her electronic return for 2024/25 on 10 August 2026 (deadline was 31 January 2026). Tax due = £8,400.</h5>
+      <p>Return is more than 6 months late but less than 12 months late (31 Jan 2026 → 10 Aug 2026 = about 6.3 months).</p>
+      <p>£100 fixed penalty + £900 daily penalties (90 days × £10) + 5% of £8,400 = £420 tax-geared penalty.</p>
+      <p>Total maximum penalty = £100 + £900 + £420 = <strong>£1,420</strong>.</p>
+    </div>
+
+    <h3>6.7 Late Payment Interest and Penalties</h3>
+    <p>Paying tax late is separate from filing late. Two charges may apply:</p>
+
+    <h4>Interest on Late Payment</h4>
+    <p>Interest is charged <strong>automatically</strong> from the due date until the date of payment. There is no minimum threshold — any late payment incurs interest. The rate is currently <strong>8.5% per annum</strong>.</p>
+    <div class="formula">
+      Interest = Amount unpaid × 8.5% × (number of days late ÷ 365)
+    </div>
+    <div class="example">
+      <div class="ex-hd">📝 Example — Interest Calculation</div>
+      <h5>Rajesh paid his balancing payment of £1,200 on 30 June 2027. It was due 31 January 2027. How long was the payment late?</h5>
+      <p>31 January 2027 to 30 June 2027 = 5 months late.</p>
+      <p>Interest = £1,200 × 8.5% × 5/12 = <strong>£43</strong>.</p>
+    </div>
+
+    <h4>Late Payment Penalties (Surcharges)</h4>
+    <p>In addition to interest, separate <em>penalties</em> apply if the balancing payment remains unpaid:</p>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>How Late?</th><th>Penalty</th></tr></thead>
+        <tbody>
+          <tr><td>Up to 30 days late</td><td>No penalty (interest only)</td></tr>
+          <tr><td>More than 30 days late</td><td>5% of the unpaid tax</td></tr>
+          <tr><td>More than 6 months late</td><td>Additional 5% (total: 10%)</td></tr>
+          <tr><td>More than 12 months late</td><td>Further 5% (total: 15%)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="example">
+      <div class="ex-hd">📝 Example — Interest + Penalty</div>
+      <h5>Rajesh paid £1,200 (balancing payment for 2025/26) on 30 June 2027. Due date was 31 January 2027.</h5>
+      <p>Late by 5 months → more than 30 days but less than 6 months.</p>
+      <p>Interest = £1,200 × 8.5% × 5/12 = <strong>£43</strong>.</p>
+      <p>Penalty (more than 30 days late) = £1,200 × 5% = <strong>£60</strong>.</p>
+      <p>Total additional charges = £43 + £60 = <strong>£103</strong>.</p>
+    </div>
+    <div class="tip">
+      <div class="tip-hd">📌 Interest vs Penalty — Remember This Distinction</div>
+      <p>Interest runs automatically from day one of being late. The 5% penalty only kicks in once the payment is MORE than 30 days late. Always show these as two separate calculations — markers award marks for each.</p>
+    </div>
+
+    <h3>6.8 Standard Penalties for Errors in Returns</h3>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Taxpayer Behaviour</th><th class="r">Max Penalty</th><th class="r">Min — Unprompted</th><th class="r">Min — Prompted</th></tr></thead>
+        <tbody>
+          <tr><td>Careless (reasonable care not taken)</td><td class="r">30%</td><td class="r">0%</td><td class="r">15%</td></tr>
+          <tr><td>Deliberate but not concealed</td><td class="r">70%</td><td class="r">20%</td><td class="r">35%</td></tr>
+          <tr><td>Deliberate and concealed</td><td class="r">100%</td><td class="r">30%</td><td class="r">50%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <div class="note-hd">Tutorial Note — Prompted vs Unprompted</div>
+      <p>An <strong>unprompted disclosure</strong> is where the taxpayer voluntarily comes forward before HMRC has started any enquiry. This attracts a lower minimum penalty — rewarding proactive honesty. A <strong>prompted disclosure</strong> is where HMRC has already opened an enquiry or contacted the taxpayer — the minimum penalty is higher because HMRC had to initiate the process.</p>
+    </div>
+
+    <h3>6.9 Class 4 National Insurance Contributions</h3>
+    <p>Class 4 NIC is paid by self-employed individuals on their <strong>trading profits</strong> (not on savings, dividends, or property income). It is calculated alongside income tax and is included in the POA calculation. Key rates for 2025/26:</p>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Band</th><th class="r">Rate</th></tr></thead>
+        <tbody>
+          <tr><td>Trading profits £0 – £12,570</td><td class="r">Nil</td></tr>
+          <tr><td>Trading profits £12,571 – £50,270</td><td class="r"><strong>6%</strong></td></tr>
+          <tr><td>Trading profits £50,271 and above</td><td class="r"><strong>2%</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="example">
+      <div class="ex-hd">📝 Example — Class 4 NIC</div>
+      <h5>Raj — trading profit 2025/26 = £52,000. Property income = £5,200 (ignored for Class 4).</h5>
+      <p>(£50,270 − £12,570) × 6% = £37,700 × 6% = £2,262</p>
+      <p>(£52,000 − £50,270) × 2% = £1,730 × 2% = £35</p>
+      <p>Class 4 NIC payable = £2,262 + £35 = <strong>£2,297</strong></p>
+    </div>
+
+    <h3>6.10 Quick Reference — Key Rates and Figures FA2025</h3>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Item</th><th class="r">Rate / Amount</th></tr></thead>
+        <tbody>
+          <tr class="sh"><td colspan="2">Income Tax</td></tr>
+          <tr><td class="ind">Basic rate band (non-savings)</td><td class="r">£1–£37,700 at 20%</td></tr>
+          <tr><td class="ind">Higher rate band</td><td class="r">£37,701–£125,140 at 40%</td></tr>
+          <tr><td class="ind">Additional rate</td><td class="r">£125,141+ at 45%</td></tr>
+          <tr><td class="ind">Personal allowance</td><td class="r">£12,570</td></tr>
+          <tr><td class="ind">Savings nil rate (basic rate taxpayer)</td><td class="r">£1,000</td></tr>
+          <tr><td class="ind">Savings nil rate (higher rate taxpayer)</td><td class="r">£500</td></tr>
+          <tr><td class="ind">Dividend nil rate band</td><td class="r">£500</td></tr>
+          <tr class="sh"><td colspan="2">Capital Gains Tax</td></tr>
+          <tr><td class="ind">Lower rate</td><td class="r">18%</td></tr>
+          <tr><td class="ind">Higher rate</td><td class="r">24%</td></tr>
+          <tr><td class="ind">Annual Exempt Amount (AEA)</td><td class="r">£3,000</td></tr>
+          <tr><td class="ind">BADR rate / Investors' Relief rate</td><td class="r">14% (lifetime limit £1m each)</td></tr>
+          <tr class="sh"><td colspan="2">NIC</td></tr>
+          <tr><td class="ind">Class 4: £12,571–£50,270</td><td class="r">6%</td></tr>
+          <tr><td class="ind">Class 4: £50,271+</td><td class="r">2%</td></tr>
+          <tr><td class="ind">Class 1 Employee: £12,571–£50,270</td><td class="r">8%</td></tr>
+          <tr><td class="ind">Class 1 Employer: £5,001+</td><td class="r">15%</td></tr>
+          <tr class="sh"><td colspan="2">Interest Rates</td></tr>
+          <tr><td class="ind">Official rate of interest (beneficial loans etc.)</td><td class="r">3.75%</td></tr>
+          <tr><td class="ind">Underpaid tax (late payment interest)</td><td class="r">8.5%</td></tr>
+          <tr><td class="ind">Overpaid tax (HMRC repayment)</td><td class="r">3.5%</td></tr>
+          <tr class="sh"><td colspan="2">Capital Allowances</td></tr>
+          <tr><td class="ind">AIA limit</td><td class="r">£1,000,000 p.a.</td></tr>
+          <tr><td class="ind">WDA — Main Pool</td><td class="r">18% p.a.</td></tr>
+          <tr><td class="ind">WDA — Special Rate Pool</td><td class="r">6% p.a.</td></tr>
+          <tr><td class="ind">SBA</td><td class="r">3% p.a.</td></tr>
+          <tr><td class="ind">FYA — new zero-emission cars</td><td class="r">100%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- /wrapper -->
+
+<footer>
+  ACCA TX-UK · FA2025 · June 2026 Examination Window<br>
+  These notes are prepared based on the ACCA June 2026–June 2027 Syllabus &amp; Study Guide and the Kaplan TX Exam Kit (FA2025). All tax figures are from FA2025 tax tables.<br>
+  For revision purposes only. © 2026
+</footer>
+
+</body>
+</html>

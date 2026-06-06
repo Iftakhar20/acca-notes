@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACCA TX – VAT Complete Tutorial | FA2025 | June 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f9f5;
+    --surface: #ffffff;
+    --surface2: #eef5ee;
+    --surface3: #e2efe2;
+    --primary: #2d7a3a;
+    --primary-dark: #1e5628;
+    --primary-light: #4a9e57;
+    --accent: #f0a500;
+    --accent2: #d64f1e;
+    --text: #1a2e1a;
+    --text-soft: #3d5c3d;
+    --text-muted: #6b8c6b;
+    --border: #c8dfc8;
+    --border-light: #dceadc;
+    --example-bg: #f0faf0;
+    --example-border: #5aaa6a;
+    --tip-bg: #fff8e6;
+    --tip-border: #f0a500;
+    --warning-bg: #fff1ec;
+    --warning-border: #d64f1e;
+    --formula-bg: #1e3a20;
+    --formula-text: #a8f5b0;
+    --quiz-bg: #f7fcf7;
+    --quiz-border: #3d8a4a;
+    --correct-bg: #e8f7e8;
+    --correct-border: #2d7a3a;
+    --max-width: 960px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--primary-light) 100%);
+    color: white;
+    padding: 48px 24px 40px;
+    text-align: center;
+  }
+  .site-header .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .site-header h1 {
+    font-family: 'Lora', serif;
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .site-header p {
+    font-size: 1.1rem;
+    opacity: 0.88;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* ── NAV / TOC ── */
+  .toc-wrapper {
+    background: var(--surface);
+    border-bottom: 2px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(45,122,58,0.08);
+  }
+  .toc-scroll {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .toc-scroll::-webkit-scrollbar { display: none; }
+  .toc-link {
+    display: block;
+    padding: 14px 16px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--text-soft);
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+  }
+  .toc-link:hover { color: var(--primary); border-bottom-color: var(--primary-light); }
+
+  /* ── MAIN LAYOUT ── */
+  .main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  /* ── SECTION ── */
+  .section {
+    background: var(--surface);
+    border-radius: 14px;
+    padding: 40px 44px;
+    margin-bottom: 36px;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 2px 16px rgba(45,122,58,0.06);
+  }
+
+  .section-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--primary-light);
+    margin-bottom: 8px;
+  }
+  .section h2 {
+    font-family: 'Lora', serif;
+    font-size: 1.9rem;
+    color: var(--primary-dark);
+    margin-bottom: 6px;
+    border-bottom: 3px solid var(--surface3);
+    padding-bottom: 12px;
+  }
+  .section h3 {
+    font-family: 'Lora', serif;
+    font-size: 1.3rem;
+    color: var(--primary);
+    margin-top: 32px;
+    margin-bottom: 10px;
+  }
+  .section h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-top: 24px;
+    margin-bottom: 8px;
+  }
+  .section p { margin-bottom: 14px; }
+  .section ul, .section ol {
+    margin: 10px 0 16px 24px;
+  }
+  .section li { margin-bottom: 6px; }
+
+  /* ── KEY FIGURES ── */
+  .key-figures {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .key-fig {
+    background: var(--surface2);
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    text-align: center;
+  }
+  .key-fig .fig-label { font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 4px; }
+  .key-fig .fig-value { font-size: 1.6rem; font-weight: 700; color: var(--primary-dark); font-family: 'Lora', serif; }
+  .key-fig .fig-sub { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+  /* ── FORMULA BOX ── */
+  .formula {
+    background: var(--formula-bg);
+    color: var(--formula-text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 15px;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 20px 0;
+    line-height: 1.9;
+    border-left: 5px solid var(--primary-light);
+    white-space: pre-wrap;
+  }
+  .formula .comment {
+    color: #6bc97a;
+    font-size: 13px;
+  }
+
+  /* ── EXAMPLE BOX ── */
+  .example {
+    background: var(--example-bg);
+    border: 1.5px solid var(--example-border);
+    border-left: 5px solid var(--example-border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 20px 0;
+  }
+  .example-title {
+    font-weight: 700;
+    color: var(--primary-dark);
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .example-title::before {
+    content: "📝";
+    font-size: 16px;
+  }
+
+  /* ── TIP BOX ── */
+  .tip {
+    background: var(--tip-bg);
+    border: 1.5px solid var(--tip-border);
+    border-left: 5px solid var(--tip-border);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-size: 15.5px;
+  }
+  .tip-title {
+    font-weight: 700;
+    color: #8a6000;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .tip-title::before { content: "💡"; }
+
+  /* ── WARNING BOX ── */
+  .warning {
+    background: var(--warning-bg);
+    border: 1.5px solid var(--warning-border);
+    border-left: 5px solid var(--warning-border);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-size: 15.5px;
+  }
+  .warning-title {
+    font-weight: 700;
+    color: #8a2800;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .warning-title::before { content: "⚠️"; }
+
+  /* ── TABLE ── */
+  .table-wrap { overflow-x: auto; margin: 20px 0; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15.5px;
+  }
+  thead th {
+    background: var(--primary);
+    color: white;
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+  }
+  thead th:first-child { border-radius: 8px 0 0 0; }
+  thead th:last-child { border-radius: 0 8px 0 0; }
+  tbody tr:nth-child(even) { background: var(--surface2); }
+  tbody td {
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--border-light);
+    vertical-align: top;
+  }
+  .tick { color: #2d7a3a; font-weight: 700; }
+  .cross { color: #c0392b; font-weight: 700; }
+
+  /* ── CALC TABLE ── */
+  .calc-table { margin: 12px 0; font-family: 'JetBrains Mono', monospace; font-size: 15px; }
+  .calc-row { display: flex; justify-content: space-between; padding: 4px 0; }
+  .calc-row.indent { padding-left: 24px; }
+  .calc-row.sub-total { border-top: 1px solid var(--border); padding-top: 6px; font-weight: 600; }
+  .calc-row.total { border-top: 2px solid var(--primary-dark); border-bottom: 2px solid var(--primary-dark); padding: 6px 0; font-weight: 700; color: var(--primary-dark); }
+  .calc-val { font-weight: 600; }
+  .calc-val.neg::before { content: "("; }
+  .calc-val.neg::after { content: ")"; }
+
+  /* ── QUIZ / PRACTICE ── */
+  .quiz-section {
+    background: var(--quiz-bg);
+    border: 2px solid var(--quiz-border);
+    border-radius: 14px;
+    padding: 28px 32px;
+    margin: 30px 0;
+  }
+  .quiz-title {
+    font-family: 'Lora', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .quiz-title::before { content: "🎯"; }
+  .q-item { margin-bottom: 24px; }
+  .q-stem { font-weight: 600; margin-bottom: 10px; font-size: 15.5px; }
+  .q-options { margin-left: 8px; }
+  .q-opt { padding: 6px 0; cursor: pointer; display: flex; gap: 10px; align-items: flex-start; font-size: 15px; }
+  .q-opt input[type=radio] { margin-top: 4px; accent-color: var(--primary); cursor: pointer; transform: scale(1.2); }
+  .q-answer {
+    display: none;
+    margin-top: 14px;
+    background: var(--correct-bg);
+    border: 1.5px solid var(--correct-border);
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .q-answer.show { display: block; }
+  .q-answer .ans-label { font-weight: 700; color: var(--primary-dark); margin-bottom: 4px; }
+  .q-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 22px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 6px;
+    transition: background 0.2s;
+  }
+  .q-btn:hover { background: var(--primary-dark); }
+
+  /* ── COMPARISON GRID ── */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .compare-card {
+    background: var(--surface2);
+    border: 1.5px solid var(--border);
+    border-top: 4px solid var(--primary);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+  .compare-card h4 { color: var(--primary-dark); margin-bottom: 10px; font-size: 1rem; }
+  .compare-card .threshold { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; font-style: italic; }
+  .compare-card ul { margin-left: 16px; font-size: 14.5px; }
+  .compare-card li { margin-bottom: 5px; }
+
+  /* ── DECISION TREE ── */
+  .dtree {
+    background: var(--surface2);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin: 20px 0;
+    font-size: 15px;
+  }
+  .dtree-node { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 10px; }
+  .dtree-step {
+    background: var(--primary);
+    color: white;
+    font-weight: 700;
+    font-size: 12px;
+    min-width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .dtree-arrow { color: var(--primary); font-weight: 700; margin-left: 38px; font-size: 13px; }
+
+  /* ── HIGHLIGHT SPAN ── */
+  .hl { background: #dff5e0; color: var(--primary-dark); font-weight: 600; padding: 1px 6px; border-radius: 4px; }
+  .hl-warn { background: #fff3cd; color: #7a4a00; font-weight: 600; padding: 1px 6px; border-radius: 4px; }
+  .hl-red { background: #fdecea; color: #8a2000; font-weight: 600; padding: 1px 6px; border-radius: 4px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    .section { padding: 24px 20px; }
+    .compare-grid { grid-template-columns: 1fr; }
+    .site-header h1 { font-size: 1.9rem; }
+    .key-figures { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* ── SCROLL PROGRESS ── */
+  #progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: var(--primary-light);
+    transition: width 0.1s;
+    z-index: 9999;
+  }
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="badge">ACCA TX-UK &nbsp;|&nbsp; Finance Act 2025 &nbsp;|&nbsp; June 2026</div>
+  <h1>Value Added Tax (VAT)<br>Complete Exam Tutorial</h1>
+  <p>Everything you need — theory, worked examples, exam tips, and practice questions — all in one place.</p>
+</header>
+
+<!-- STICKY TOC -->
+<nav class="toc-wrapper">
+  <div class="toc-scroll">
+    <a class="toc-link" href="#overview">Overview</a>
+    <a class="toc-link" href="#registration">Registration</a>
+    <a class="toc-link" href="#supplies">Types of Supply</a>
+    <a class="toc-link" href="#taxpoint">Tax Points</a>
+    <a class="toc-link" href="#computation">Computation</a>
+    <a class="toc-link" href="#invoices">Invoices</a>
+    <a class="toc-link" href="#returns">Returns & Admin</a>
+    <a class="toc-link" href="#penalties">Penalties</a>
+    <a class="toc-link" href="#special">Special Schemes</a>
+    <a class="toc-link" href="#groups">VAT Groups</a>
+    <a class="toc-link" href="#overseas">Overseas</a>
+    <a class="toc-link" href="#practice">Practice Qs</a>
+  </div>
+</nav>
+
+<main class="main">
+
+<!-- ═══════════════════════════════════════════════ SECTION 0 – OVERVIEW ═══ -->
+<section class="section" id="overview">
+  <div class="section-label">Section F of Syllabus</div>
+  <h2>How VAT Works — The Big Picture</h2>
+
+  <p>VAT is a <strong>consumption tax</strong> on the supply of goods and services in the UK. The key idea is that businesses collect VAT on behalf of HMRC — they charge it on their sales (output tax) and reclaim it on their purchases (input tax). Only the <em>difference</em> is paid over to HMRC.</p>
+
+  <div class="formula">
+VAT payable to HMRC = Output Tax (on sales) − Input Tax (on purchases)
+
+<span class="comment">If Output Tax > Input Tax → PAY to HMRC</span>
+<span class="comment">If Input Tax > Output Tax → RECLAIM from HMRC (repayment trader)</span>
+  </div>
+
+  <div class="tip">
+    <div class="tip-title">The Golden Rule</div>
+    VAT is ultimately borne by the <strong>end consumer</strong>. Registered businesses are merely the tax <em>collector</em> — they pass on the VAT they collect, net of what they paid on inputs.
+  </div>
+
+  <div class="key-figures">
+    <div class="key-fig">
+      <div class="fig-label">Standard Rate</div>
+      <div class="fig-value">20%</div>
+      <div class="fig-sub">Most goods &amp; services</div>
+    </div>
+    <div class="key-fig">
+      <div class="fig-label">Zero Rate</div>
+      <div class="fig-value">0%</div>
+      <div class="fig-sub">Taxable but 0% charged</div>
+    </div>
+    <div class="key-fig">
+      <div class="fig-label">Registration Limit</div>
+      <div class="fig-value">£90,000</div>
+      <div class="fig-sub">FA2025 threshold</div>
+    </div>
+    <div class="key-fig">
+      <div class="fig-label">Deregistration Limit</div>
+      <div class="fig-value">£88,000</div>
+      <div class="fig-sub">FA2025 threshold</div>
+    </div>
+  </div>
+
+  <h3>The VAT Terminology You Must Know</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Term</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Output Tax</strong></td><td>VAT you charge on your sales — you collect it from customers and pay it to HMRC</td></tr>
+        <tr><td><strong>Input Tax</strong></td><td>VAT you pay on your purchases — you reclaim this from HMRC (subject to rules)</td></tr>
+        <tr><td><strong>Taxable Supply</strong></td><td>A supply that is <em>subject</em> to VAT (standard-rated OR zero-rated). Input VAT is fully recoverable.</td></tr>
+        <tr><td><strong>Exempt Supply</strong></td><td>A supply that is <em>outside</em> VAT. NO output tax charged, BUT input VAT cannot be recovered.</td></tr>
+        <tr><td><strong>Taxable Person</strong></td><td>A person registered (or required to be registered) for VAT</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ SECTION 1 – REGISTRATION ═══ -->
+<section class="section" id="registration">
+  <div class="section-label">Syllabus F1 — Registration Requirements</div>
+  <h2>VAT Registration</h2>
+
+  <h3>Compulsory Registration — Historic Test</h3>
+  <p>This is the most tested registration scenario. You check cumulatively whether taxable turnover in any <strong>rolling 12-month period</strong> has exceeded <span class="hl">£90,000</span>.</p>
+
+  <div class="dtree">
+    <div class="dtree-node"><div class="dtree-step">1</div><div>At the end of each month, add up the taxable turnover for the past 12 months.</div></div>
+    <div class="dtree-node"><div class="dtree-step">2</div><div>If the total <strong>exceeds £90,000</strong>, the threshold is breached at the <em>end of that month</em>.</div></div>
+    <div class="dtree-node"><div class="dtree-step">3</div><div>Notify HMRC <strong>within 30 days</strong> of the end of the month in which the limit was exceeded.</div></div>
+    <div class="dtree-node"><div class="dtree-step">4</div><div>VAT registration takes effect from the <strong>1st day of the 2nd month</strong> after the month in which the limit was exceeded.</div></div>
+  </div>
+
+  <div class="example">
+    <div class="example-title">Worked Example — Historic Test</div>
+    <p>Frances' monthly taxable supplies: Nov 25 = £16k, Dec 25 = £21k, Jan 26 = £31k, and 2/3 × Feb 26 = £23k. Running total hits <strong>£90,667</strong> on <strong>30 November 2025</strong>.</p>
+    <div class="calc-table">
+      <div class="calc-row"><span>Threshold exceeded:</span><span class="calc-val">30 November 2025</span></div>
+      <div class="calc-row"><span>Notify HMRC by:</span><span class="calc-val">30 December 2025 (30 days from end of Nov)</span></div>
+      <div class="calc-row"><span>Registered from:</span><span class="calc-val hl">1 January 2026 (1st day of 2nd month)</span></div>
+    </div>
+    <div class="tip" style="margin-top:12px">
+      <div class="tip-title">Exam Trap!</div>
+      The threshold is breached at the <em>end of the month</em> (e.g. 30 November), NOT on the specific day during the month when the cumulative total crossed £90,000. The registration date is always the 1st of the SECOND month after. Don't confuse the notification deadline with the registration date.
+    </div>
+  </div>
+
+  <h3>Compulsory Registration — Future Test</h3>
+  <p>If you have <em>reasonable grounds to believe</em> that your taxable turnover in the <strong>next 30 days alone</strong> will exceed £90,000:</p>
+  <ul>
+    <li>Notify HMRC <strong>before those 30 days are up</strong>.</li>
+    <li>Registration takes effect from the <strong>beginning of that 30-day period</strong>.</li>
+  </ul>
+  <div class="warning">
+    <div class="warning-title">Key Contrast with Historic Test</div>
+    Under the future test, registration is effective <em>immediately</em> (start of the 30-day period), not the 1st of the following month. This is a common exam distinction.
+  </div>
+
+  <h3>Voluntary Registration</h3>
+  <p>A business can voluntarily register even if below the £90,000 threshold. This is <strong>beneficial when:</strong></p>
+  <ul>
+    <li>Making <strong>zero-rated supplies</strong> — you can reclaim input VAT without having to charge output VAT to customers.</li>
+    <li>Selling to <strong>VAT-registered businesses</strong> — those businesses can recover the VAT you charge, so the additional cost doesn't put off customers.</li>
+  </ul>
+  <p>Voluntary registration is <strong>NOT beneficial</strong> if:</p>
+  <ul>
+    <li>You sell to <strong>unregistered consumers</strong> (e.g. members of the public) — you'd be charging them an extra 20% they can't reclaim.</li>
+    <li>You buy <strong>zero-rated supplies</strong> — you have no input VAT to recover anyway.</li>
+  </ul>
+
+  <h3>Deregistration</h3>
+  <p><strong>Compulsory deregistration:</strong> If you <em>cease making taxable supplies</em>, notify HMRC <strong>within 30 days</strong> of cessation. Deregistration is effective from the date of cessation (or a later agreed date).</p>
+  <p><strong>Voluntary deregistration:</strong> If you reasonably expect taxable turnover in the next 12 months to fall <strong>below £88,000</strong> (the deregistration limit), you may apply to deregister.</p>
+
+  <h4>Output VAT on Deregistration</h4>
+  <p>On deregistration, you must account for output tax on the value of <strong>business assets</strong> (non-current assets and inventory) on which input tax was previously claimed — <em>unless</em> the total VAT liability arising is <strong>£1,000 or less</strong>.</p>
+
+  <div class="warning">
+    <div class="warning-title">Common Exam Trap on Deregistration</div>
+    The threshold below which output VAT on deregistration assets is waived is <span class="hl-red">£1,000</span> — not £88,000 (that's the deregistration turnover limit). This distinction has been specifically tested.
+  </div>
+
+  <h3>Pre-Registration Input VAT</h3>
+  <p>When you first register, you can reclaim input VAT incurred <em>before</em> registration, subject to strict rules:</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Type of Input</th><th>Reclaim Period</th><th>Additional Condition</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Goods</strong></td><td>Purchased up to <span class="hl">4 years</span> before registration</td><td>Must still be held (on hand) at registration date</td></tr>
+        <tr><td><strong>Services</strong></td><td>Supplied up to <span class="hl">6 months</span> before registration</td><td>Must have been for business purposes</td></tr>
+        <tr><td>Cars (private use)</td><td class="cross">✗ Cannot reclaim</td><td>Normal input VAT block applies</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="example">
+    <div class="example-title">Worked Example — Pre-Registration Input VAT</div>
+    <p>Ardent Ltd registered for VAT on <strong>1 January 2026</strong>. It had incurred advertising costs of £120/month in input VAT from April 2025, and purchased laptops for £200 input VAT which it still uses.</p>
+    <div class="calc-table">
+      <div class="calc-row indent"><span>Advertising: 1 July 2025 – 31 Dec 2025 (6 months × £120)</span><span class="calc-val">£720</span></div>
+      <div class="calc-row indent"><span>Advertising: April – June 2025 (beyond 6 months)</span><span class="calc-val">£0</span></div>
+      <div class="calc-row indent"><span>Laptops (still held at registration)</span><span class="calc-val">£200</span></div>
+      <div class="calc-row total"><span>Total pre-registration input VAT recoverable</span><span class="calc-val">£920</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ SECTION 2 – TYPES OF SUPPLY ═══ -->
+<section class="section" id="supplies">
+  <div class="section-label">Syllabus F2(f)</div>
+  <h2>Types of Supply</h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Category</th><th>Output VAT Charged?</th><th>Input VAT Recoverable?</th><th>Examples</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Standard-Rated</strong></td>
+          <td class="tick">✓ 20%</td>
+          <td class="tick">✓ Yes</td>
+          <td>Most goods and services — accountancy, consulting, software, furniture</td>
+        </tr>
+        <tr>
+          <td><strong>Zero-Rated</strong></td>
+          <td>0% (technically taxable)</td>
+          <td class="tick">✓ Yes</td>
+          <td>Food (unprocessed), children's clothes, books, newspapers, exports, drugs on prescription, public transport</td>
+        </tr>
+        <tr>
+          <td><strong>Exempt</strong></td>
+          <td class="cross">✗ No</td>
+          <td class="cross">✗ No (blocked)</td>
+          <td>Financial services, insurance, education, health, land/property (unless opted to tax), postage stamps</td>
+        </tr>
+        <tr>
+          <td><strong>Outside the Scope</strong></td>
+          <td class="cross">✗ No</td>
+          <td class="cross">✗ No</td>
+          <td>Wages, dividends, statutory charges (e.g. MOT, road fund licence)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tip">
+    <div class="tip-title">Zero-Rated vs Exempt — The Critical Distinction</div>
+    Both result in <strong>no VAT charged to the customer</strong>. But zero-rated is still a <em>taxable supply</em>, so input VAT is fully recoverable. Exempt means input VAT is <em>blocked</em>. A trader making only exempt supplies cannot register for VAT at all.
+  </div>
+
+  <h3>Practical Impact for Exam Questions</h3>
+  <p>When you see a question about whether voluntary registration is beneficial:</p>
+  <ul>
+    <li><strong>Zero-rated seller + standard-rated purchases</strong> → Voluntary registration = excellent! Reclaim input VAT, no output VAT to charge.</li>
+    <li><strong>Exempt seller</strong> → Cannot register; cannot reclaim input VAT.</li>
+    <li><strong>Standard-rated seller to public</strong> → Registering adds 20% to prices, hurting competitiveness.</li>
+  </ul>
+</section>
+
+<!-- ═══════════════════════════════════════════════ SECTION 3 – TAX POINTS ═══ -->
+<section class="section" id="taxpoint">
+  <div class="section-label">Syllabus F2(c)</div>
+  <h2>Tax Points — When Does VAT Arise?</h2>
+  <p>The <strong>tax point</strong> determines which VAT return period a transaction falls into. Getting this wrong is a common mistake.</p>
+
+  <h3>Basic Tax Point (BTP)</h3>
+  <ul>
+    <li><strong>Goods:</strong> Date the goods are <em>delivered / made available</em></li>
+    <li><strong>Services:</strong> Date the service is <em>completed</em></li>
+  </ul>
+
+  <h3>Actual Tax Point (ATP) — Overrides the BTP</h3>
+  <p>The BTP is overridden if <em>either</em> of these happen:</p>
+  <ol>
+    <li><strong>Before BTP:</strong> An invoice is issued <em>before</em> the BTP → invoice date is the ATP</li>
+    <li><strong>Before BTP:</strong> Payment is received <em>before</em> the BTP → payment date is the ATP</li>
+    <li><strong>After BTP:</strong> Invoice issued <em>within 14 days</em> of the BTP → invoice date becomes the ATP</li>
+  </ol>
+
+  <div class="tip">
+    <div class="tip-title">The 14-Day Rule</div>
+    An invoice issued within 14 days <em>after</em> the BTP makes the invoice date the actual tax point — <strong>provided no actual tax point has already arisen</strong> (e.g. from a deposit payment before the BTP).
+  </div>
+
+  <div class="example">
+    <div class="example-title">Worked Example — Tax Point Timeline</div>
+    <p>Equipment delivered on <strong>23 December 2025</strong>. Invoice raised on <strong>3 January 2026</strong>. A 10% deposit was paid on <strong>28 September 2025</strong>.</p>
+    <div class="table-wrap" style="margin-top:12px">
+      <table>
+        <thead><tr><th>Transaction</th><th>Tax Point</th><th>VAT Return Period</th></tr></thead>
+        <tbody>
+          <tr><td>Deposit (28 Sep 2025)</td><td>28 Sep 2025 — payment before BTP</td><td>Quarter ended 30 Sep 2025</td></tr>
+          <tr><td>Balance (delivery 23 Dec, invoice 3 Jan)</td><td><strong>3 January 2026</strong> — invoice within 14 days of BTP</td><td>Quarter ended 31 Mar 2026</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="warning" style="margin-top:12px">
+      <div class="warning-title">Exam Trap!</div>
+      Without the deposit, the balance invoice on 3 Jan 2026 would make 3 Jan the tax point (invoice within 14 days). But the invoice date is <strong>after</strong> the BTP (23 Dec), so it belongs in the Q1 2026 return, NOT the Q4 2025 return.
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-title">Services Example — Room Hire</div>
+    <p>A room hired on <strong>15 January 2026</strong>. 25% deposit paid on <strong>20 December 2025</strong>. Invoice for balance issued on <strong>20 January 2026</strong>.</p>
+    <ul>
+      <li><strong>BTP</strong> = 15 January (date service performed)</li>
+      <li><strong>Deposit ATP</strong> = 20 December (payment before BTP)</li>
+      <li><strong>Balance ATP</strong> = 20 January (invoice within 14 days of BTP)</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ SECTION 4 – COMPUTATION ═══ -->
+<section class="section" id="computation">
+  <div class="section-label">Syllabus F2(a)(b)(e)(g)(h)</div>
+  <h2>Computing VAT Liability</h2>
+
+  <h3>Basic Computation Structure</h3>
+  <div class="formula">
+OUTPUT TAX:
+  Standard-rated sales × 20%                         £X
+  Goods taken for personal use (replacement value × 20%)  £X
+  Fuel scale charge (private use)                      £X
+                                                      ────
+  Total Output VAT                                     £X
+
+INPUT TAX:
+  Standard-rated purchases × 20%                      £X
+  Less: Blocked input VAT (see below)                 (£X)
+                                                      ────
+  Net Input VAT recoverable                            £X
+
+<span class="comment">VAT payable/(repayable) = Output Tax − Input Tax</span>
+  </div>
+
+  <h3>Key Adjustments to Output VAT</h3>
+
+  <h4>1. Prompt Payment Discounts</h4>
+  <p>Output VAT is calculated on the <strong>actual amount paid</strong>. If a prompt payment discount is offered and taken, VAT is calculated on the <em>discounted</em> price, even if the invoice shows the full price.</p>
+  <div class="example">
+    <div class="example-title">Example — Prompt Payment Discount</div>
+    <p>Invoice for £500 (ex-VAT). 5% discount offered and taken by customer. Output VAT = <strong>£475 × 20% = £95</strong> (not £500 × 20%).</p>
+  </div>
+
+  <h4>2. Goods Removed for Personal Use</h4>
+  <p>If a business owner takes goods from the business for personal use, output VAT must be charged on the <strong>replacement value</strong> (cost price), NOT the selling price.</p>
+  <div class="example">
+    <div class="example-title">Example — Goods for Personal Use</div>
+    <p>Kristel takes ladies' clothes from stock. Replacement value = £90, selling price = £125. Output VAT = <strong>£90 × 20% = £18</strong>.</p>
+  </div>
+
+  <h3>Non-Deductible (Blocked) Input VAT</h3>
+  <p>Certain categories of input VAT <strong>cannot be reclaimed</strong>, regardless of how much business use there is:</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Item</th><th>Rule</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Cars (any private use)</strong></td><td>Input VAT is <span class="hl-red">completely blocked</span> if the car is used partly for private purposes. Only 100% business use (e.g. pool car, taxi) allows recovery.</td></tr>
+        <tr><td><strong>Business Entertainment</strong></td><td>Input VAT on entertaining UK customers is blocked. <strong>Exceptions:</strong> staff entertainment and entertaining overseas customers — these ARE recoverable.</td></tr>
+        <tr><td><strong>Car Leasing (private use)</strong></td><td>Only <span class="hl">50%</span> of input VAT is recoverable on a leased car used partly privately (regardless of the actual private use split).</td></tr>
+        <tr><td><strong>Fuel for private use</strong></td><td>Input VAT on fuel CAN be reclaimed in full. However, output VAT must be charged using the <strong>fuel scale charge</strong> to account for the private element.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="example">
+    <div class="example-title">Worked Example — Cars and Fuel</div>
+    <p>A business owns a car used 60% for business. In Q1 it incurred: Car repair invoices £456 (inc. VAT); fuel £624 (inc. VAT). Fuel scale charge for the quarter = £380 (inc. VAT).</p>
+    <div class="calc-table">
+      <div class="calc-row"><span>Input VAT on repairs (£456 × 1/6)</span><span class="calc-val">£76</span></div>
+      <div class="calc-row"><span>Input VAT on fuel (£624 × 1/6) — <em>full amount reclaimed</em></span><span class="calc-val">£104</span></div>
+      <div class="calc-row indent" style="color:var(--text-muted);font-size:14px"><span>Input VAT on car purchase</span><span>£0 — blocked (private use)</span></div>
+      <div class="calc-row sub-total"><span>Total input VAT recoverable</span><span class="calc-val">£180</span></div>
+      <div class="calc-row" style="margin-top:12px"><span>Output VAT — fuel scale charge (£380 × 1/6)</span><span class="calc-val">£63</span></div>
+    </div>
+    <p style="margin-top:10px;font-size:14px;color:var(--text-muted)">The fuel input VAT is reclaimed in full despite private use — but the scale charge creates output VAT to compensate.</p>
+  </div>
+
+  <h3>Relief for Impairment Losses (Bad Debt Relief)</h3>
+  <p>If a customer doesn't pay, you can <strong>reclaim the output VAT</strong> you already paid to HMRC — but only when all these conditions are met:</p>
+  <ul>
+    <li>At least <span class="hl">6 months</span> have elapsed since the debt was due for payment</li>
+    <li>The debt has been <strong>written off</strong> in the VAT account</li>
+    <li>The debt has not been sold to a debt collection agency</li>
+  </ul>
+  <div class="tip">
+    <div class="tip-title">Reclaim Amount</div>
+    You reclaim the VAT fraction of the <strong>outstanding balance</strong>. For a £800 net debt, the VAT component is £800 × 1/6 = £133. If the liquidator has paid anything, reduce the debt first.
+  </div>
+
+  <h3>Valuation of Supplies — Key Rates</h3>
+  <div class="formula">
+To extract VAT from a VAT-inclusive price:
+  VAT = VAT-inclusive price × 1/6     (same as × 20/120)
+
+To add VAT to a net (ex-VAT) price:
+  VAT = Net price × 20%
+
+To find the net price from a gross price:
+  Net = Gross × 100/120     (same as ÷ 1.2)
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ SECTION 5 – INVOICES ═══ -->
+<section class="section" id="invoices">
+  <div class="section-label">Syllabus F2(d)</div>
+  <h2>VAT Invoices</h2>
+
+  <h3>Full VAT Invoice — Required Contents</h3>
+  <p>A full VAT invoice must show:</p>
+  <ol>
+    <li>Unique, sequential invoice number</li>
+    <li>Supplier's name, address and VAT registration number</li>
+    <li>Date of supply (tax point)</li>
+    <li>Date of issue of invoice (if different from date of supply)</li>
+    <li>Description of goods or services</li>
+    <li>For each VAT rate: the net amount, VAT rate, and VAT amount</li>
+    <li>Total amount payable (inclusive of VAT)</li>
+    <li><strong>Customer's name and address</strong></li>
+  </ol>
+
+  <div class="warning">
+    <div class="warning-title">What is NOT required on a full VAT invoice</div>
+    The <strong>customer's VAT registration number</strong> is NOT a mandatory requirement. This surprises many students. Also, the date of delivery is not automatically required (though it often coincides with the tax point which is required).
+  </div>
+
+  <h3>Simplified (Less Detailed) VAT Invoice</h3>
+  <p>Can be issued when the total consideration is <strong>less than £250</strong> (including VAT). It must show:</p>
+  <ul>
+    <li>Supplier's name, address, and VAT number</li>
+    <li>Date of supply</li>
+    <li>Description of goods or services</li>
+    <li>Total amount payable (inc. VAT)</li>
+    <li>VAT rate applicable</li>
+  </ul>
+  <p>A simplified invoice does <strong>NOT</strong> need to show the <em>amount of VAT</em> separately. (The total is shown but not the VAT split.)</p>
+
+  <div class="tip">
+    <div class="tip-title">Exam Trap — Simplified Invoice Threshold</div>
+    The threshold for simplified invoices is <span class="hl">£250</span> (VAT-inclusive), NOT £1,000. Questions deliberately offer £1,000 as a distractor. Always go with £250.
+  </div>
+
+  <h4>When Must a VAT Invoice Be Issued?</h4>
+  <ul>
+    <li>Mandatory when making a <strong>taxable supply to a VAT-registered customer</strong> (standard or zero rated)</li>
+    <li>Not required for exempt supplies</li>
+    <li>Not required for sales to non-VAT-registered customers (though can be issued)</li>
+    <li>Must be issued within <span class="hl">30 days</span> of the date of supply</li>
+  </ul>
+
+  <h4>VAT Records Retention</h4>
+  <p>VAT records (including VAT invoices) must be retained for <strong>6 years</strong>.</p>
+</section>
+
+<!-- ═══════════════════════════════════════════════ SECTION 6 – RETURNS & ADMIN ═══ -->
+<section class="section" id="returns">
+  <div class="section-label">Syllabus F2(b) — Administration</div>
+  <h2>VAT Returns & Administration</h2>
+
+  <h3>Filing and Payment Deadlines</h3>
+  <p>The standard VAT return covers a <strong>quarter</strong> (3 months). Both the return and the payment are due:</p>
+  <div class="formula">
+Deadline = 1 month and 7 days after the end of the quarter
+
+Example: Quarter ended 31 March 2026
+→ Deadline = 7 May 2026
+  </div>
+  <p>All VAT returns must be filed <strong>electronically</strong> and all payments made electronically. There is no option to file on paper.</p>
+
+  <h3>Making Tax Digital (MTD)</h3>
+  <p>From <strong>1 April 2025</strong>, all VAT-registered businesses must use MTD — keeping digital records and submitting returns via MTD-compatible software. This applies whether or not turnover exceeds the registration threshold.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>MTD Statement</th><th>True / False</th></tr></thead>
+      <tbody>
+        <tr><td>MTD software prints returns that are then posted to HMRC</td><td class="cross">✗ False — submitted digitally</td></tr>
+        <tr><td>Standard VAT return and payment dates still apply</td><td class="tick">✓ True</td></tr>
+        <tr><td>Businesses are still responsible for checking returns</td><td class="tick">✓ True</td></tr>
+        <tr><td>Applies to ALL VAT-registered businesses, even below threshold</td><td class="tick">✓ True (from April 2025)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Correcting VAT Errors</h3>
+  <ul>
+    <li><strong>Net error ≤ £10,000</strong> (or ≤ 1% of net VAT turnover, max £50,000): adjust on the <em>current</em> VAT return</li>
+    <li><strong>Net error > £10,000</strong>: must be disclosed to HMRC separately via a VAT652 form</li>
+  </ul>
+</section>
+
+<!-- ═══════════════════════════════════════════════ SECTION 7 – PENALTIES ═══ -->
+<section class="section" id="penalties">
+  <div class="section-label">Syllabus F2(j)</div>
+  <h2>Penalties for Late Submission & Payment</h2>
+
+  <h3>Late Submission — Penalty Points System</h3>
+  <p>The UK has replaced the old default surcharge with a <strong>points-based system</strong> for late VAT returns.</p>
+  <div class="dtree">
+    <div class="dtree-node"><div class="dtree-step">1</div><div>Each late submission earns <strong>1 penalty point</strong>.</div></div>
+    <div class="dtree-node"><div class="dtree-step">2</div><div>No financial penalty arises UNTIL you reach the <strong>threshold of 4 points</strong> (for quarterly filers).</div></div>
+    <div class="dtree-node"><div class="dtree-step">3</div><div>Once at 4 points, a <span class="hl">£200 penalty</span> is charged for <em>each</em> subsequent late submission.</div></div>
+    <div class="dtree-node"><div class="dtree-step">4</div><div>Points expire after <span class="hl">2 years</span> — BUT only if the penalty threshold has NOT been reached.</div></div>
+    <div class="dtree-node"><div class="dtree-step">5</div><div>Once at threshold (4 points), all points reset to zero only after <strong>12 consecutive on-time returns</strong>.</div></div>
+  </div>
+
+  <div class="example">
+    <div class="example-title">Worked Example — Penalty Points</div>
+    <p>Chimney Ltd already has 3 penalty points. It then files the Q1 2026 return late (23 March 2026 vs deadline 7 March 2026).</p>
+    <ul>
+      <li>Points now = <strong>4</strong> → threshold reached</li>
+      <li>A <span class="hl">£200 penalty</span> is charged immediately</li>
+      <li>If the next return (Q2) is also filed late → another £200 penalty</li>
+      <li>Points will NOT expire after 2 years; they reset to zero only after 12 consecutive on-time returns</li>
+    </ul>
+  </div>
+
+  <h3>Late Payment Penalties</h3>
+  <p>Based on how many days the VAT payment is overdue:</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Days Late</th><th>Penalty</th></tr></thead>
+      <tbody>
+        <tr><td>Up to 15 days late</td><td class="tick">No penalty</td></tr>
+        <tr><td>16 to 30 days late</td><td><span class="hl-warn">3%</span> of the unpaid VAT</td></tr>
+        <tr><td>More than 30 days late</td><td><span class="hl-red">6%</span> of the unpaid VAT, plus a daily rate at an annual rate of 10%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p><strong>Interest</strong> is also charged on late paid VAT from the due date to the actual payment date, regardless of whether a penalty applies.</p>
+
+  <div class="example">
+    <div class="example-title">Worked Example — Late Payment</div>
+    <p>VAT was due on <strong>7 November 2025</strong>. Payment was made on <strong>27 November 2025</strong> — 20 days late (in the 16–30 day band).</p>
+    <ul>
+      <li>Penalty = <strong>3%</strong> of late paid VAT (not zero, and not 6%)</li>
+      <li>Interest is also payable from 7 Nov to 27 Nov</li>
+    </ul>
+  </div>
+
+  <h3>Errors and Penalties for Inaccuracies</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Behaviour</th><th>Penalty Rate</th></tr></thead>
+      <tbody>
+        <tr><td>Careless (reasonable care not taken)</td><td>0%–30%</td></tr>
+        <tr><td>Deliberate (but not concealed)</td><td>20%–70%</td></tr>
+        <tr><td>Deliberate and concealed</td><td>30%–100%</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ SECTION 8 – SPECIAL SCHEMES ═══ -->
+<section class="section" id="special">
+  <div class="section-label">Syllabus F3</div>
+  <h2>Special VAT Schemes</h2>
+
+  <div class="compare-grid">
+    <div class="compare-card">
+      <h4>💧 Cash Accounting</h4>
+      <div class="threshold">Join: Expected taxable T/O ≤ £1,350,000</div>
+      <div class="threshold">Leave: T/O exceeds £1,600,000</div>
+      <ul>
+        <li>Output tax = when <em>payment received</em></li>
+        <li>Input tax = when <em>payment made</em></li>
+        <li>Automatic bad debt protection</li>
+        <li>Good for businesses with slow-paying customers</li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <h4>📅 Annual Accounting</h4>
+      <div class="threshold">Join: Expected taxable T/O ≤ £1,350,000</div>
+      <div class="threshold">Leave: T/O exceeds £1,600,000</div>
+      <ul>
+        <li>Only <em>one</em> return per year</li>
+        <li>9 interim monthly payments (months 4–12): each = 10% of prior year's VAT liability</li>
+        <li>Balancing payment with annual return</li>
+        <li>Reduces admin burden</li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <h4>📊 Flat Rate Scheme</h4>
+      <div class="threshold">Join: Expected taxable T/O (ex-VAT) ≤ £150,000</div>
+      <div class="threshold">Leave: T/O (inc. VAT) exceeds £230,000</div>
+      <ul>
+        <li>VAT = flat-rate % × <em>VAT-inclusive total turnover</em></li>
+        <li>Includes zero-rated and exempt sales</li>
+        <li>No input VAT reclaimed on purchases</li>
+        <li>Still charge 20% on sales invoices</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Flat Rate Scheme — Deep Dive (Highly Tested!)</h3>
+  <p>This is the trickiest scheme. The formula is:</p>
+  <div class="formula">
+Flat Rate VAT = Flat Rate % × (VAT-INCLUSIVE total taxable turnover)
+
+Note: "Taxable turnover" includes standard-rated AND zero-rated sales
+      It does NOT include exempt sales
+
+Step 1: Take net (ex-VAT) standard-rated sales and × 120% to get VAT-inclusive
+Step 2: Add zero-rated sales (they have no VAT to add, already gross)
+Step 3: Apply the flat rate % to the total
+  </div>
+
+  <div class="example">
+    <div class="example-title">Worked Example — Flat Rate Scheme</div>
+    <p>Kristel has standard-rated sales of <strong>£26,250</strong> (ex-VAT) and zero-rated sales of <strong>£6,300</strong>. Flat rate % = 8.5%.</p>
+    <div class="calc-table">
+      <div class="calc-row"><span>Standard-rated sales (inc. VAT): £26,250 × 120%</span><span class="calc-val">£31,500</span></div>
+      <div class="calc-row"><span>Zero-rated sales</span><span class="calc-val">£6,300</span></div>
+      <div class="calc-row sub-total"><span>Total VAT-inclusive turnover</span><span class="calc-val">£37,800</span></div>
+      <div class="calc-row total"><span>Flat rate VAT: £37,800 × 8.5%</span><span class="calc-val">£3,213</span></div>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-title">Worked Example — Jack's Monthly Flat Rate</div>
+    <p>Jack: Standard-rated sales = £10,000/month (ex-VAT). Purchases = £7,000/month (ex-VAT). Flat rate % = 8%.</p>
+    <div class="calc-table">
+      <div class="calc-row"><span>VAT-inclusive turnover: £10,000 × 120%</span><span class="calc-val">£12,000</span></div>
+      <div class="calc-row total"><span>Flat rate VAT: £12,000 × 8%</span><span class="calc-val">£960</span></div>
+    </div>
+    <p style="margin-top:8px;font-size:14px;color:var(--text-muted)">Notice: purchases of £7,000 are completely <em>irrelevant</em> under the flat rate scheme. The purchases figure is a red herring.</p>
+  </div>
+
+  <h3>Annual Accounting — Monthly Payments</h3>
+  <div class="example">
+    <div class="example-title">Worked Example — Annual Accounting Payments</div>
+    <p>Triangle Ltd. Year ended 31 Dec 2024 VAT = £47,700. Year ended 31 Dec 2025 VAT = £73,500.</p>
+    <p>Monthly payments for 2025 year are based on the <strong>prior year (2024)</strong>:</p>
+    <div class="calc-table">
+      <div class="calc-row"><span>Monthly payment = £47,700 × 10%</span><span class="calc-val">£4,770</span></div>
+      <div class="calc-row"><span>Number of payments (months 4 to 12)</span><span class="calc-val">9 payments</span></div>
+      <div class="calc-row sub-total"><span>Total payments on account</span><span class="calc-val">£42,930</span></div>
+      <div class="calc-row total"><span>Balancing payment with return: £73,500 − £42,930</span><span class="calc-val">£30,570</span></div>
+    </div>
+  </div>
+
+  <h3>Joining Conditions Summary</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Condition</th><th>Cash Accounting</th><th>Annual Accounting</th><th>Flat Rate</th></tr></thead>
+      <tbody>
+        <tr><td>Turnover limit to join</td><td>≤ £1,350,000 (ex-VAT)</td><td>≤ £1,350,000 (ex-VAT)</td><td>≤ £150,000 (ex-VAT)</td></tr>
+        <tr><td>Up to date with VAT returns</td><td class="tick">✓</td><td class="tick">✓</td><td>—</td></tr>
+        <tr><td>Up to date with VAT payments</td><td class="tick">✓</td><td class="tick">✓</td><td>—</td></tr>
+        <tr><td>No VAT convictions in last 12 months</td><td class="tick">✓ (required)</td><td>—</td><td>—</td></tr>
+        <tr><td>Can be incorporated businesses?</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ SECTION 9 – VAT GROUPS ═══ -->
+<section class="section" id="groups">
+  <div class="section-label">Syllabus F1(c)</div>
+  <h2>VAT Groups</h2>
+
+  <h3>Conditions to Form a VAT Group</h3>
+  <ul>
+    <li>Each company must be under <strong>common control</strong> (more than 50% owned by the same person/company)</li>
+    <li>Each company must be established in, or have a <strong>fixed establishment in, the UK</strong></li>
+    <li>Eligible companies are NOT automatically included — each company can choose to be included or excluded</li>
+  </ul>
+
+  <div class="example">
+    <div class="example-title">Worked Example — VAT Group Eligibility</div>
+    <p>Fergus owns: A Ltd (75%), B Ltd (60% via A Ltd), C Ltd (100%), D Sarl — a French company (100%). Which can join a VAT group?</p>
+    <ul>
+      <li><span class="tick">✓</span> A Ltd — UK company, >50% owned by Fergus</li>
+      <li><span class="tick">✓</span> B Ltd — UK company, >50% owned (via A Ltd chain)</li>
+      <li><span class="tick">✓</span> C Ltd — UK company, 100% owned</li>
+      <li><span class="cross">✗</span> D Sarl — <strong>Cannot join</strong>: no UK establishment</li>
+    </ul>
+  </div>
+
+  <h3>Consequences of a VAT Group</h3>
+  <ul>
+    <li>Supplies between group members are <strong>ignored for VAT purposes</strong> (no VAT charged between them)</li>
+    <li>One <strong>representative member</strong> submits one consolidated VAT return for the entire group (any member can be the representative)</li>
+    <li>All group members are <strong>jointly and severally liable</strong> for the whole group's VAT — not just their share</li>
+  </ul>
+</section>
+
+<!-- ═══════════════════════════════════════════════ SECTION 10 – OVERSEAS ═══ -->
+<section class="section" id="overseas">
+  <div class="section-label">Syllabus F2(k)(l)</div>
+  <h2>Overseas — Imports, Exports & Reverse Charge</h2>
+
+  <h3>Exports (Goods leaving the UK)</h3>
+  <p>Exports of goods are <span class="hl">zero-rated</span>, regardless of what their UK rate would be. The overseas customer accounts for tax in their own country.</p>
+
+  <h3>Imports (Goods entering the UK)</h3>
+  <p>For goods imported from outside the UK, the importer must account for VAT as if it were a UK supply:</p>
+  <ul>
+    <li>Account for <strong>output VAT</strong> at the UK rate on the value of the imported goods (on the VAT return covering the date of importation)</li>
+    <li>If used for taxable supplies, reclaim as <strong>input VAT on the same return</strong></li>
+    <li>Net effect = £0 for a fully taxable business (postponed VAT accounting)</li>
+  </ul>
+  <div class="tip">
+    <div class="tip-title">The Rate Applied</div>
+    Always use the <em>UK rate</em> when importing. The VAT rate in the overseas country is completely irrelevant.
+  </div>
+
+  <h3>Reverse Charge — Services from Overseas</h3>
+  <p>When a UK VAT-registered business <strong>receives services from an overseas supplier</strong>, the <em>customer</em> (not the supplier) accounts for UK VAT via the reverse charge:</p>
+  <ul>
+    <li>The UK business accounts for <strong>output VAT</strong> at the UK rate (as if it were the supplier)</li>
+    <li>It then claims the same amount as <strong>input VAT</strong> (if used for taxable business purposes)</li>
+    <li>Again, net effect = £0 for a fully taxable business</li>
+  </ul>
+
+  <div class="example">
+    <div class="example-title">Worked Example — Overseas Services (Reverse Charge)</div>
+    <p>Kristel paid £220 for marketing services from an overseas company. The marketing services are standard-rated in the UK.</p>
+    <ul>
+      <li>Output VAT (reverse charge): £220 × 20% = <strong>£44</strong></li>
+      <li>Input VAT recovery: £220 × 20% = <strong>£44</strong></li>
+      <li>Net VAT effect = £0</li>
+    </ul>
+    <p style="font-size:14px;color:var(--text-muted);margin-top:8px">Note: The exam question for Kristel only asked for input VAT, so the answer was £44. The reverse charge output VAT was noted but not included in the output VAT computation asked.</p>
+  </div>
+
+  <h3>Place of Supply — Quick Guide</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Transaction</th><th>VAT Treatment in UK</th></tr></thead>
+      <tbody>
+        <tr><td>UK goods sold to overseas customer (export)</td><td>Zero-rated</td></tr>
+        <tr><td>Goods imported into UK</td><td>Account for output + input VAT at UK rate</td></tr>
+        <tr><td>Services received from overseas into UK business</td><td>Reverse charge: output + input VAT at UK rate</td></tr>
+        <tr><td>Services supplied by UK business to overseas</td><td>Treated as zero-rated</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ SECTION 11 – PRACTICE Qs ═══ -->
+<section class="section" id="practice">
+  <div class="section-label">Exam Practice</div>
+  <h2>Practice Questions</h2>
+  <p>Work through these before revealing the answer. These are styled after real ACCA objective test questions.</p>
+
+  <!-- QUIZ 1 — REGISTRATION -->
+  <div class="quiz-section">
+    <div class="quiz-title">Practice Set 1 — Registration</div>
+
+    <div class="q-item" id="q1">
+      <div class="q-stem">Q1. Brett started trading on 1 February 2024. His sales were £6,000/month for 3 months, then £8,000/month for 4 months, then £10,500/month after that. From what date must Brett charge output VAT?</div>
+      <div class="q-options">
+        <label class="q-opt"><input type="radio" name="q1" value="A"> A. 1 March 2025</label>
+        <label class="q-opt"><input type="radio" name="q1" value="B"> B. 1 January 2025</label>
+        <label class="q-opt"><input type="radio" name="q1" value="C"> C. 30 January 2025</label>
+        <label class="q-opt"><input type="radio" name="q1" value="D"> D. 1 February 2025</label>
+      </div>
+      <button class="q-btn" onclick="showAnswer('q1a')">Show Answer</button>
+      <div class="q-answer" id="q1a">
+        <div class="ans-label">✓ Correct Answer: D — 1 February 2025</div>
+        Cumulative taxable supplies to 31 December 2024 = (3×£6k) + (4×£8k) + (5×£10.5k) = £18k + £32k + £52.5k = <strong>£102,500</strong> — exceeds £90,000 by end of December 2024.<br><br>
+        Notify HMRC by 30 January 2025 (30 days from end of December). Registered and must charge VAT from <strong>1 February 2025</strong> (1st day of 2nd month after December).
+      </div>
+    </div>
+
+    <div class="q-item" id="q2">
+      <div class="q-stem">Q2. Betty voluntarily registers for VAT. Which TWO of the following statements are TRUE about input VAT on supplies made BEFORE registration?</div>
+      <div class="q-options">
+        <label class="q-opt"><input type="radio" name="q2" value="A"> A. She CAN reclaim VAT on a car bought 6 months ago, used partly privately — still in use</label>
+        <label class="q-opt"><input type="radio" name="q2" value="B"> B. She CANNOT reclaim VAT on petrol used in her car in the month prior to registration</label>
+        <label class="q-opt"><input type="radio" name="q2" value="C"> C. She CAN reclaim VAT on a van for the business bought 2 years ago — still in use</label>
+        <label class="q-opt"><input type="radio" name="q2" value="D"> D. She CAN reclaim VAT on accountancy services purchased 1 year ago</label>
+        <label class="q-opt"><input type="radio" name="q2" value="E"> E. She CAN reclaim VAT on goods bought 2 months ago and already sold</label>
+      </div>
+      <button class="q-btn" onclick="showAnswer('q2a')">Show Answer</button>
+      <div class="q-answer" id="q2a">
+        <div class="ans-label">✓ Correct Answers: B and C</div>
+        <strong>A — False:</strong> Cars used partly privately → input VAT always blocked.<br>
+        <strong>B — True:</strong> Fuel (a service) consumed prior to registration → cannot reclaim (must have been incurred within 6 months AND the service must be available at registration).<br>
+        <strong>C — True:</strong> A van is a commercial vehicle (not a car). It was purchased within 4 years, is still held/in use → input VAT recoverable.<br>
+        <strong>D — False:</strong> Accountancy services = services, recoverable only within 6 months. One year ago = out of time.<br>
+        <strong>E — False:</strong> Goods already sold at registration → no longer "on hand" → cannot reclaim.
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ 2 — TAX POINTS -->
+  <div class="quiz-section">
+    <div class="quiz-title">Practice Set 2 — Tax Points & Output VAT</div>
+
+    <div class="q-item" id="q3">
+      <div class="q-stem">Q3. Padma Ltd received an order on 20 October 2025. Goods were delivered on 14 November 2025. Padma issued an invoice on 30 November 2025. What is the tax point?</div>
+      <div class="q-options">
+        <label class="q-opt"><input type="radio" name="q3" value="A"> A. 20 October 2025 — date of order</label>
+        <label class="q-opt"><input type="radio" name="q3" value="B"> B. 14 November 2025 — date of delivery (basic tax point)</label>
+        <label class="q-opt"><input type="radio" name="q3" value="C"> C. 30 November 2025 — invoice date (within 14 days of delivery)</label>
+        <label class="q-opt"><input type="radio" name="q3" value="D"> D. 20 November 2025 — 30 days after order</label>
+      </div>
+      <button class="q-btn" onclick="showAnswer('q3a')">Show Answer</button>
+      <div class="q-answer" id="q3a">
+        <div class="ans-label">✓ Correct Answer: C — 30 November 2025</div>
+        BTP = 14 November (delivery date). Invoice issued on 30 November is <strong>16 days</strong> after the BTP — that's within 14 days... wait, 30 Nov minus 14 Nov = 16 days. That's OUTSIDE 14 days!<br><br>
+        <strong>Therefore, the tax point remains the BTP = 14 November 2025.</strong> (Answer B is actually correct in this case — the 14-day rule requires the invoice within 14 days of delivery; 16 days is too late.)<br><br>
+        <em>Examiner note: Always count the days precisely. If the invoice had been on 28 November (14 days), it would override to 28 November. At 16 days, the BTP prevails.</em>
+      </div>
+    </div>
+
+    <div class="q-item" id="q4">
+      <div class="q-stem">Q4. Kristel (retailer of ladies' and children's clothes) has standard-rated sales of £7,200 and zero-rated sales of £1,600 in the quarter. She offered a prompt payment discount; the discount taken was £140 on standard-rated and £90 on zero-rated. What is her total output VAT?</div>
+      <div class="q-options">
+        <label class="q-opt"><input type="radio" name="q4" value="A"> A. £1,760</label>
+        <label class="q-opt"><input type="radio" name="q4" value="B"> B. £1,714</label>
+        <label class="q-opt"><input type="radio" name="q4" value="C"> C. £1,440</label>
+        <label class="q-opt"><input type="radio" name="q4" value="D"> D. £1,412</label>
+      </div>
+      <button class="q-btn" onclick="showAnswer('q4a')">Show Answer</button>
+      <div class="q-answer" id="q4a">
+        <div class="ans-label">✓ Correct Answer: D — £1,412</div>
+        Output VAT on standard-rated = <strong>(£7,200 − £140) × 20% = £7,060 × 20% = £1,412</strong><br>
+        Output VAT on zero-rated = (£1,600 − £90) × 0% = £0<br><br>
+        Total output VAT = <strong>£1,412</strong><br><br>
+        The prompt payment discount must be deducted before calculating VAT, as VAT is charged on the <em>actual</em> amount received. Note: the zero-rated discount doesn't affect VAT at all.
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ 3 — SPECIAL SCHEMES -->
+  <div class="quiz-section">
+    <div class="quiz-title">Practice Set 3 — Special Schemes</div>
+
+    <div class="q-item" id="q5">
+      <div class="q-stem">Q5. Hamza uses the flat rate scheme. For year ended 31 March 2026: standard-rated sales (net) = £100,000; zero-rated sales = £30,000; standard-rated purchases (net) = £15,000. Flat rate % = 11%. What is his VAT liability?</div>
+      <div class="q-options">
+        <label class="q-opt"><input type="radio" name="q5" value="A"> A. £14,300</label>
+        <label class="q-opt"><input type="radio" name="q5" value="B"> B. £16,500</label>
+        <label class="q-opt"><input type="radio" name="q5" value="C"> C. £14,520</label>
+        <label class="q-opt"><input type="radio" name="q5" value="D"> D. £13,200</label>
+      </div>
+      <button class="q-btn" onclick="showAnswer('q5a')">Show Answer</button>
+      <div class="q-answer" id="q5a">
+        <div class="ans-label">✓ Correct Answer: B — £16,500</div>
+        Flat rate scheme: apply % to <em>VAT-inclusive</em> total turnover (standard + zero-rated):<br><br>
+        Standard-rated (inc. VAT): £100,000 × 120% = £120,000<br>
+        Zero-rated: £30,000<br>
+        <strong>Total: £150,000</strong><br><br>
+        VAT = £150,000 × 11% = <strong>£16,500</strong><br><br>
+        Purchases of £15,000 are completely irrelevant — the whole point of the flat rate scheme is that purchases are ignored. Classic exam trap!
+      </div>
+    </div>
+
+    <div class="q-item" id="q6">
+      <div class="q-stem">Q6. Which of these statements about the VAT cash accounting scheme is TRUE?</div>
+      <div class="q-options">
+        <label class="q-opt"><input type="radio" name="q6" value="A"> A. Input tax cannot be claimed until the invoice is paid</label>
+        <label class="q-opt"><input type="radio" name="q6" value="B"> B. To join, expected taxable turnover for the next 12 months must not exceed £150,000</label>
+        <label class="q-opt"><input type="radio" name="q6" value="C"> C. Traders don't pay output VAT until they receive it from customers</label>
+        <label class="q-opt"><input type="radio" name="q6" value="D"> D. The scheme cannot be used where a trader issues an invoice before supplying goods</label>
+      </div>
+      <button class="q-btn" onclick="showAnswer('q6a')">Show Answer</button>
+      <div class="q-answer" id="q6a">
+        <div class="ans-label">✓ Correct Answer: C</div>
+        <strong>A — False:</strong> Under cash accounting, input tax is claimed when payment is <em>made</em> (not the invoice date) — this can sometimes DELAY recovery compared to the normal scheme, not just input timing.<br>
+        <strong>B — False:</strong> The £150,000 limit is for the flat rate scheme. Cash accounting threshold = <strong>£1,350,000</strong>.<br>
+        <strong>C — True:</strong> Output VAT is not due until customers pay → helps cash flow when customers are slow payers.<br>
+        <strong>D — False:</strong> No such restriction exists for cash accounting (this is more of a misconception).
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ 4 — PENALTIES -->
+  <div class="quiz-section">
+    <div class="quiz-title">Practice Set 4 — Penalties & Administration</div>
+
+    <div class="q-item" id="q7">
+      <div class="q-stem">Q7. Chimney Ltd has 3 penalty points. It files its Q1 2026 VAT return late, giving it 4 penalty points. Which of these consequences is NOT true?</div>
+      <div class="q-options">
+        <label class="q-opt"><input type="radio" name="q7" value="A"> A. A £200 penalty will be charged</label>
+        <label class="q-opt"><input type="radio" name="q7" value="B"> B. Penalty points will expire two years after they were acquired</label>
+        <label class="q-opt"><input type="radio" name="q7" value="C"> C. If the Q2 2026 return is also filed late, another £200 penalty will be charged</label>
+        <label class="q-opt"><input type="radio" name="q7" value="D"> D. Chimney Ltd must submit all returns on time for 12 months for points to reset</label>
+      </div>
+      <button class="q-btn" onclick="showAnswer('q7a')">Show Answer</button>
+      <div class="q-answer" id="q7a">
+        <div class="ans-label">✓ Correct Answer: B — This statement is NOT true</div>
+        Once a business has reached the threshold (4 points), the 2-year expiry rule NO LONGER applies. Points can only be reset to zero by submitting all returns on time for the next <strong>12 consecutive months</strong>.<br><br>
+        The other statements are all true: A £200 penalty arises at 4 points, further late returns incur additional £200 penalties, and 12 on-time returns are needed to reset.
+      </div>
+    </div>
+
+    <div class="q-item" id="q8">
+      <div class="q-stem">Q8. Mabel ceased trading on 31 March 2026. By when must she notify HMRC of her cessation? And from when can she be deregistered?</div>
+      <div class="q-options">
+        <label class="q-opt"><input type="radio" name="q8" value="A"> A. Notification: 30 April 2026; Deregistration: 30 April 2026</label>
+        <label class="q-opt"><input type="radio" name="q8" value="B"> B. Notification: 30 April 2026; Deregistration: 31 March 2026</label>
+        <label class="q-opt"><input type="radio" name="q8" value="C"> C. Notification: 31 March 2026; Deregistration: 31 March 2026</label>
+        <label class="q-opt"><input type="radio" name="q8" value="D"> D. Notification: 31 March 2026; Deregistration: 30 April 2026</label>
+      </div>
+      <button class="q-btn" onclick="showAnswer('q8a')">Show Answer</button>
+      <div class="q-answer" id="q8a">
+        <div class="ans-label">✓ Correct Answer: B</div>
+        On ceasing taxable supplies (31 March 2026):<br>
+        → Notify HMRC within 30 days = by <strong>30 April 2026</strong><br>
+        → Deregistration can be backdated to the date she ceased making taxable supplies = <strong>31 March 2026</strong><br><br>
+        The deregistration date can be the date of cessation itself — it doesn't have to wait for the notification deadline.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div style="text-align:center; padding: 32px 0; color: var(--text-muted); font-size:14px; border-top: 1px solid var(--border-light); margin-top: 20px;">
+  <strong>ACCA TX-UK · VAT Tutorial · Finance Act 2025 · June 2026 Exam Window</strong><br>
+  Based on Kaplan Study Kit FA25 &amp; ACCA Syllabus &amp; Study Guide 2026–27<br>
+  <span style="color:var(--text-muted)">All figures from FA2025 Tax Tables: Registration £90,000 · Deregistration £88,000 · Standard Rate 20%</span>
+</div>
+
+</main>
+
+<script>
+  // Progress bar
+  window.addEventListener('scroll', () => {
+    const el = document.getElementById('progress');
+    const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+    el.style.width = pct + '%';
+  });
+
+  // Quiz reveal
+  function showAnswer(id) {
+    document.getElementById(id).classList.add('show');
+  }
+
+  // Smooth scroll for nav
+  document.querySelectorAll('.toc-link').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>

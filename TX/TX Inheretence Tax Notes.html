@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IHT Complete Tutorial – ACCA TX (FA2025)</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --purple:   #410fa2;
+    --pink:     #d6529e;
+    --yellow:   #f2c63a;
+    --light:    #dedde4;
+    --white:    #ffffff;
+    --bg:       #f9f8fc;
+    --text:     #1a1530;
+    --muted:    #5c5470;
+    --card:     #ffffff;
+    --border:   #e2e0ec;
+    --purple-lt:#ede8fa;
+    --pink-lt:  #fdf0f9;
+    --yellow-lt:#fffbea;
+    --green:    #1a7f5a;
+    --green-lt: #e8f7f2;
+    --red:      #c0392b;
+    --red-lt:   #fdf0ee;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.75;
+    background: var(--bg);
+    color: var(--text);
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 32px 80px;
+  }
+
+  /* ─── HEADER ─── */
+  .hero {
+    background: linear-gradient(135deg, var(--purple) 0%, #6a23c8 60%, var(--pink) 100%);
+    color: white;
+    padding: 56px 48px 48px;
+    margin: 0 -32px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(45deg, rgba(255,255,255,.03) 0px, rgba(255,255,255,.03) 1px, transparent 1px, transparent 24px);
+  }
+  .hero-badge {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 2.9rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .hero p {
+    font-size: 1.05rem;
+    opacity: .85;
+    max-width: 640px;
+  }
+  .hero-meta {
+    display: flex; gap: 24px; flex-wrap: wrap;
+    margin-top: 28px;
+  }
+  .hero-meta span {
+    background: rgba(255,255,255,.15);
+    border: 1px solid rgba(255,255,255,.25);
+    padding: 6px 16px;
+    border-radius: 6px;
+    font-size: .88rem;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* ─── TOC ─── */
+  .toc {
+    background: var(--purple-lt);
+    border-left: 5px solid var(--purple);
+    border-radius: 0 12px 12px 0;
+    padding: 28px 32px;
+    margin-bottom: 48px;
+  }
+  .toc h2 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--purple); margin-bottom: 16px; }
+  .toc ol { padding-left: 20px; }
+  .toc li { margin: 6px 0; }
+  .toc a { color: var(--purple); text-decoration: none; font-size: .96rem; }
+  .toc a:hover { text-decoration: underline; }
+
+  /* ─── SECTIONS ─── */
+  section { margin-bottom: 56px; }
+  h2.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: var(--purple);
+    border-bottom: 3px solid var(--yellow);
+    padding-bottom: 10px;
+    margin-bottom: 28px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  h2.section-title .icon {
+    background: var(--purple);
+    color: white;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: .85rem;
+    font-family: 'JetBrains Mono', monospace;
+    flex-shrink: 0;
+  }
+  h3.sub-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--pink);
+    margin: 32px 0 14px;
+  }
+  h4.mini-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--purple);
+    margin: 24px 0 10px;
+  }
+  p { margin-bottom: 14px; }
+
+  /* ─── CALLOUTS ─── */
+  .callout {
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin: 20px 0;
+    border-left: 5px solid;
+  }
+  .callout.tip   { background: var(--green-lt); border-color: var(--green); }
+  .callout.warn  { background: var(--yellow-lt); border-color: var(--yellow); }
+  .callout.trap  { background: var(--red-lt); border-color: var(--red); }
+  .callout.info  { background: var(--purple-lt); border-color: var(--purple); }
+  .callout .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .callout.tip   .label { color: var(--green); }
+  .callout.warn  .label { color: #b38000; }
+  .callout.trap  .label { color: var(--red); }
+  .callout.info  .label { color: var(--purple); }
+  .callout p { margin: 0; font-size: .97rem; }
+
+  /* ─── TABLES ─── */
+  .tbl-wrap { overflow-x: auto; margin: 20px 0; }
+  table { border-collapse: collapse; width: 100%; font-size: .93rem; }
+  thead tr { background: var(--purple); color: white; }
+  thead th { padding: 12px 16px; text-align: left; font-family: 'Source Serif 4', serif; font-weight: 600; }
+  tbody tr:nth-child(even) { background: var(--purple-lt); }
+  tbody tr:nth-child(odd)  { background: var(--white); }
+  tbody td { padding: 11px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tbody tr:hover { background: #f0ecfc; }
+
+  /* ─── WORKING BOXES ─── */
+  .working-box {
+    background: var(--white);
+    border: 2px solid var(--purple);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 24px 0;
+    box-shadow: 0 4px 18px rgba(65,15,162,.08);
+  }
+  .working-box .wbox-header {
+    background: var(--purple);
+    color: white;
+    padding: 12px 20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .working-box .wbox-body { padding: 20px 24px; }
+  .calc-line {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: .95rem;
+    gap: 16px;
+  }
+  .calc-line:last-child { border-bottom: none; }
+  .calc-line.total {
+    font-weight: 700;
+    border-top: 2px solid var(--purple);
+    border-bottom: 2px solid var(--purple);
+    color: var(--purple);
+    margin-top: 4px;
+  }
+  .calc-line.sub-total { font-weight: 600; border-top: 1px solid var(--muted); }
+  .calc-line.deduct .amt { color: var(--red); }
+  .calc-line.nil   .amt { color: var(--green); }
+  .calc-line .desc { flex: 1; }
+  .calc-line .amt  { font-family: 'JetBrains Mono', monospace; font-size: .93rem; white-space: nowrap; }
+  .calc-note {
+    background: var(--yellow-lt);
+    border-left: 4px solid var(--yellow);
+    padding: 10px 16px;
+    margin-top: 14px;
+    font-size: .9rem;
+    border-radius: 0 6px 6px 0;
+  }
+
+  /* ─── MEMORY HOOKS ─── */
+  .memory-hook {
+    background: linear-gradient(135deg, var(--pink-lt), var(--yellow-lt));
+    border: 2px dashed var(--pink);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: .96rem;
+  }
+  .memory-hook .mh-label {
+    color: var(--pink);
+    font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .8rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  /* ─── RATE/REF BOX ─── */
+  .rate-box {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 2px solid var(--purple);
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: .94rem;
+    margin: 16px 0;
+  }
+  .rate-box .rb-cell {
+    padding: 10px 18px;
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+  }
+  .rate-box .rb-cell:nth-child(even) { border-right: none; background: var(--purple-lt); }
+  .rate-box .rb-cell:nth-last-child(-n+2) { border-bottom: none; }
+  .rate-box .rb-cell .key { font-size: .8rem; color: var(--muted); font-family: 'JetBrains Mono', monospace; }
+  .rate-box .rb-cell .val { font-weight: 700; color: var(--purple); font-size: 1.05rem; }
+
+  /* ─── STEP LIST ─── */
+  .step-list { list-style: none; padding: 0; counter-reset: steps; margin: 16px 0; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex; gap: 16px;
+    margin-bottom: 16px;
+    align-items: flex-start;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: var(--purple);
+    color: white;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-list li p { margin: 0; }
+
+  /* ─── GRID CARDS ─── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 20px 0; }
+  @media (max-width: 700px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  }
+  .card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    box-shadow: 0 2px 10px rgba(65,15,162,.05);
+  }
+  .card h4 { font-size: 1rem; color: var(--purple); margin-bottom: 8px; }
+  .card p { font-size: .9rem; margin: 0; color: var(--muted); }
+
+  /* ─── HIGHLIGHT SPAN ─── */
+  .hl-purple { background: var(--purple-lt); color: var(--purple); padding: 1px 7px; border-radius: 4px; font-weight: 600; }
+  .hl-pink   { background: var(--pink-lt); color: var(--pink); padding: 1px 7px; border-radius: 4px; font-weight: 600; }
+  .hl-yellow { background: var(--yellow-lt); color: #7a5c00; padding: 1px 7px; border-radius: 4px; font-weight: 600; }
+  .hl-green  { background: var(--green-lt); color: var(--green); padding: 1px 7px; border-radius: 4px; font-weight: 600; }
+  .hl-red    { background: var(--red-lt); color: var(--red); padding: 1px 7px; border-radius: 4px; font-weight: 600; }
+
+  /* ─── PRACTICE Q ─── */
+  .pq-box {
+    background: var(--white);
+    border: 2px solid var(--pink);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 28px 0;
+  }
+  .pq-box .pq-header {
+    background: var(--pink);
+    color: white;
+    padding: 10px 20px;
+    font-family: 'Playfair Display', serif;
+    font-size: .95rem;
+    font-weight: 700;
+  }
+  .pq-box .pq-body { padding: 18px 22px; }
+  .pq-box .pq-q { font-weight: 600; margin-bottom: 10px; }
+  details { margin-top: 14px; }
+  details summary {
+    background: var(--pink-lt);
+    border: 1px solid var(--pink);
+    color: var(--pink);
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .85rem;
+    font-weight: 600;
+    user-select: none;
+  }
+  details summary:hover { background: #fce0f5; }
+  details .ans { margin-top: 14px; }
+
+  /* divider */
+  .divider { height: 2px; background: linear-gradient(to right, var(--purple), var(--pink), var(--yellow)); border: none; margin: 48px 0; border-radius: 2px; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════ -->
+<div class="hero">
+  <div class="hero-badge">ACCA TX (UK) · June 2026</div>
+  <h1>Inheritance Tax (IHT)<br>Complete Tutorial</h1>
+  <p>Finance Act 2025 · Syllabus Section D · All exam question types covered — OT, OT Case, and Section C</p>
+  <div class="hero-meta">
+    <span>NRB £325,000</span>
+    <span>RNRB £175,000</span>
+    <span>Death Rate 40%</span>
+    <span>Lifetime Rate 20%</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     TOC
+═══════════════════════════════════════════ -->
+<nav class="toc">
+  <h2>📚 Contents</h2>
+  <ol>
+    <li><a href="#s1">The Big Picture — What IHT Is About</a></li>
+    <li><a href="#s2">Transfer of Value & Types of Gift</a></li>
+    <li><a href="#s3">Lifetime Exemptions</a></li>
+    <li><a href="#s4">Lifetime Tax on CLTs</a></li>
+    <li><a href="#s5">Death & the Seven-Year Rule</a></li>
+    <li><a href="#s6">Taper Relief</a></li>
+    <li><a href="#s7">The Death Estate</a></li>
+    <li><a href="#s8">Nil Rate Band — Transfer Between Spouses</a></li>
+    <li><a href="#s9">Residence Nil Rate Band (RNRB)</a></li>
+    <li><a href="#s10">IHT Planning Techniques</a></li>
+    <li><a href="#s11">Payment of IHT — Administration Rules</a></li>
+    <li><a href="#s12">Diminution in Value — Share Gifts</a></li>
+    <li><a href="#s13">Full Worked Scenarios (Exam-Style)</a></li>
+    <li><a href="#s14">Common Exam Traps & Examiner Tips</a></li>
+    <li><a href="#s15">Quick Reference — Rates & Allowances</a></li>
+  </ol>
+</nav>
+
+<!-- ═══════════════════════════════════════════
+     S1 — BIG PICTURE
+═══════════════════════════════════════════ -->
+<section id="s1">
+  <h2 class="section-title"><span class="icon">1</span>The Big Picture — What IHT Is About</h2>
+
+  <p>Inheritance Tax is a tax on the transfer of wealth. The UK charges IHT when someone gives away assets — either <strong>during their lifetime</strong> or when they <strong>die</strong>.</p>
+
+  <p>The key logic is: the government wants a cut every time wealth passes from one person to another outside of exempt categories. IHT is therefore charged on the <em>donor</em> (the person giving), not the recipient.</p>
+
+  <div class="grid-2">
+    <div class="card">
+      <h4>🎁 Lifetime Giving</h4>
+      <p>Some gifts are immediately taxable (CLTs). Others are tentatively tax-free (PETs) but become chargeable if the donor dies within 7 years.</p>
+    </div>
+    <div class="card">
+      <h4>💀 Death Estate</h4>
+      <p>Everything owned at death is valued, exemptions/deductions applied, and IHT charged at 40% on the excess over the nil rate band.</p>
+    </div>
+  </div>
+
+  <div class="callout info">
+    <div class="label">⚡ Syllabus Scope (FA2025)</div>
+    <p>The June 2026 syllabus <strong>excludes</strong>: trusts, business property relief, agricultural property relief, domicile/long-term residence rules, related property, and grossing-up. <strong>Everything else below is examinable.</strong></p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════
+     S2 — TRANSFER OF VALUE & TYPES
+═══════════════════════════════════════════ -->
+<section id="s2">
+  <h2 class="section-title"><span class="icon">2</span>Transfer of Value &amp; Types of Gift</h2>
+
+  <h3 class="sub-title">What is the "Transfer of Value"?</h3>
+  <p>The transfer of value is NOT simply the market value of what you give away. It is the <strong>loss to the donor's estate</strong> — the <em>diminution in value</em>. This is especially important for shares.</p>
+
+  <div class="callout tip">
+    <div class="label">🔑 Principle</div>
+    <p>Transfer of value = <strong>Value of estate BEFORE the gift</strong> − <strong>Value of estate AFTER the gift</strong></p>
+  </div>
+
+  <p>For cash or normal assets, loss to estate = market value of the gift. For shares in a private company, because a majority shareholding commands a higher price per share, the loss to the donor's estate is <em>more</em> than the market value of the shares given away.</p>
+
+  <h3 class="sub-title">Three Types of Lifetime Transfer</h3>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Type</th><th>What is it?</th><th>Lifetime Tax?</th><th>What happens on death?</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="hl-red">Exempt Transfer</span></td>
+          <td>Gifts covered by exemptions (spouse, annual, small gifts, etc.)</td>
+          <td>None</td>
+          <td>Ignored completely</td>
+        </tr>
+        <tr>
+          <td><span class="hl-yellow">PET</span><br>(Potentially Exempt Transfer)</td>
+          <td>Gift from individual to another individual</td>
+          <td>None</td>
+          <td>If donor dies within 7 years → becomes chargeable at 40%<br>If donor survives 7 years → permanently exempt</td>
+        </tr>
+        <tr>
+          <td><span class="hl-purple">CLT</span><br>(Chargeable Lifetime Transfer)</td>
+          <td>Gift into a trust</td>
+          <td>Yes — at 20% (or 25% if donor pays)</td>
+          <td>Reviewed again at death rates — top-up tax may be due</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="memory-hook">
+    <div class="mh-label">🧠 Memory Hook</div>
+    <strong>"People give PETs, Trustees get CLTs."</strong><br>
+    Person → Person = PET. Person → Trust = CLT.
+  </div>
+
+  <h3 class="sub-title">Chronological Order Rule</h3>
+  <p>Always process gifts in <strong>date order — oldest first</strong>. You apply the nil rate band to the earliest gift. Later gifts only get whatever NRB remains.</p>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════
+     S3 — EXEMPTIONS
+═══════════════════════════════════════════ -->
+<section id="s3">
+  <h2 class="section-title"><span class="icon">3</span>Lifetime Exemptions</h2>
+
+  <p>These reduce the transfer of value to arrive at the gross chargeable transfer (GCT). Apply them in the order given below.</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Exemption</th><th>Amount</th><th>Key Rules</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Spouse / Civil Partner</strong></td>
+          <td>Unlimited</td>
+          <td>100% exempt. Applies to both lifetime gifts and death estate legacies. Not to siblings, children, or parents.</td>
+        </tr>
+        <tr>
+          <td><strong>Annual Exemption (AE)</strong></td>
+          <td>£3,000 per tax year</td>
+          <td>Unused AE carries forward <strong>one year only</strong>. Must use current year first, then prior year. Applies to <em>earliest</em> gift in a tax year if multiple gifts made.</td>
+        </tr>
+        <tr>
+          <td><strong>Small Gifts Exemption</strong></td>
+          <td>£250 per recipient per year</td>
+          <td>Cannot be combined with the AE for the same recipient. If gift exceeds £250, the whole gift is chargeable — the £250 is not a deduction.</td>
+        </tr>
+        <tr>
+          <td><strong>Normal Expenditure Out of Income</strong></td>
+          <td>Unlimited</td>
+          <td>Regular gifts paid from income (not capital) where donor retains normal standard of living. Rare in TX questions but can appear.</td>
+        </tr>
+        <tr>
+          <td><strong>Gifts in Consideration of Marriage</strong></td>
+          <td>Parent: £5,000<br>Grandparent/remoter ancestor: £2,500<br>Any other person: £1,000</td>
+          <td>Gift must be made on the occasion of a marriage. Given in addition to AE.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout trap">
+    <div class="label">⚠️ Exam Trap — Annual Exemption</div>
+    <p>AEs cannot be deducted from the <strong>death estate</strong>. They only apply to <strong>lifetime gifts</strong>. Many students incorrectly apply AEs to the estate calculation.</p>
+  </div>
+
+  <div class="callout trap">
+    <div class="label">⚠️ Exam Trap — AE is Applied Even to PETs That Never Become Chargeable</div>
+    <p>If someone makes a PET in 2023/24 and survives 7 years, the AE for 2023/24 is still used up. This means less AE available for the <em>next</em> gift in the same year.</p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════
+     S4 — LIFETIME TAX ON CLTs
+═══════════════════════════════════════════ -->
+<section id="s4">
+  <h2 class="section-title"><span class="icon">4</span>Lifetime Tax on CLTs</h2>
+
+  <p>When someone gives into a trust (a CLT), there is an immediate IHT charge. The rate depends on <strong>who pays the tax</strong>.</p>
+
+  <div class="grid-2">
+    <div class="card">
+      <h4>Donee (Trust) Pays Tax</h4>
+      <p>Tax = <strong>20%</strong> × taxable amount.<br>The gross chargeable transfer = value of gift (after exemptions).</p>
+    </div>
+    <div class="card">
+      <h4>Donor Pays Tax</h4>
+      <p>Tax must be <strong>grossed up</strong> because paying the tax is itself a further gift. Tax = <strong>25%</strong> × taxable amount (= 20/80 × taxable).<br>Gross chargeable transfer = gift + tax paid.</p>
+    </div>
+  </div>
+
+  <h3 class="sub-title">Pro-Forma — Lifetime CLT Tax</h3>
+
+  <div class="working-box">
+    <div class="wbox-header">📊 CLT Lifetime Tax Calculation</div>
+    <div class="wbox-body">
+      <div class="calc-line"><span class="desc">Transfer of value (loss to donor's estate)</span><span class="amt">£X</span></div>
+      <div class="calc-line deduct"><span class="desc">Less: Annual exemption — current year</span><span class="amt">(£3,000)</span></div>
+      <div class="calc-line deduct"><span class="desc">Less: Annual exemption — prior year (if available)</span><span class="amt">(£3,000)</span></div>
+      <div class="calc-line deduct"><span class="desc">Less: Other applicable exemptions</span><span class="amt">(£X)</span></div>
+      <div class="calc-line sub-total"><span class="desc">Gross Chargeable Transfer (GCT)</span><span class="amt">£X</span></div>
+      <div class="calc-line deduct"><span class="desc">Less: NRB available at date of gift (£325,000)</span><span class="amt">(£325,000)</span></div>
+      <div class="calc-line deduct"><span class="desc">Less: CLTs in 7 years before this gift</span><span class="amt">(£X)</span></div>
+      <div class="calc-line sub-total"><span class="desc">NRB available</span><span class="amt">(£X)</span></div>
+      <div class="calc-line"><span class="desc">Taxable amount</span><span class="amt">£X</span></div>
+      <div class="calc-line total"><span class="desc">IHT payable: × 20% (donee pays) OR × 25% (donor pays)</span><span class="amt">£X</span></div>
+      <div class="calc-note"><strong>NB:</strong> PETs in the prior 7 years are ignored when calculating lifetime tax on a CLT. Only prior CLTs reduce the available NRB for lifetime purposes.</div>
+    </div>
+  </div>
+
+  <div class="callout trap">
+    <div class="label">⚠️ Critical Point — PETs Do NOT Reduce NRB at Lifetime Stage</div>
+    <p>When calculating lifetime tax on a CLT, only <em>prior CLTs</em> eat into the available NRB. Prior PETs are completely ignored at this stage (they are only relevant on death).</p>
+  </div>
+
+  <h4 class="mini-title">Worked Example — Lifetime CLT (donor pays tax)</h4>
+
+  <p>Rishi makes a gift of £355,000 (after exemptions) to a trust on 16 April 2019. He agrees to pay the IHT himself. No prior CLTs in 7 years.</p>
+
+  <div class="working-box">
+    <div class="wbox-header">💼 Rishi — CLT 16 April 2019 (Donor Pays)</div>
+    <div class="wbox-body">
+      <div class="calc-line"><span class="desc">Transfer of value (after exemptions)</span><span class="amt">355,000</span></div>
+      <div class="calc-line"><span class="desc">NRB at date of gift 2019/20</span><span class="amt">325,000</span></div>
+      <div class="calc-line deduct"><span class="desc">Less: CLTs in 7 years before (none)</span><span class="amt">(0)</span></div>
+      <div class="calc-line deduct"><span class="desc">NRB available</span><span class="amt">(325,000)</span></div>
+      <div class="calc-line sub-total"><span class="desc">Taxable amount</span><span class="amt">30,000</span></div>
+      <div class="calc-line total"><span class="desc">IHT payable (£30,000 × 25% — donor pays, grossed up)</span><span class="amt">£7,500</span></div>
+      <div class="calc-line"><span class="desc">Gross chargeable transfer (£355,000 + £7,500)</span><span class="amt">£362,500</span></div>
+      <div class="calc-note">The GCT of £362,500 is the amount that reduces the NRB available for future gifts within 7 years.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════
+     S5 — DEATH & SEVEN-YEAR RULE
+═══════════════════════════════════════════ -->
+<section id="s5">
+  <h2 class="section-title"><span class="icon">5</span>Death &amp; the Seven-Year Rule</h2>
+
+  <p>When a person dies, HMRC looks back <strong>7 years</strong> to review all lifetime gifts. The outcome depends on what type of gift each one was.</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Gift Type</th><th>If made &gt; 7 years before death</th><th>If made ≤ 7 years before death</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="hl-yellow">PET</span></td>
+          <td>Falls away — no tax charge at all.<br>But AE used at the time is still used up.</td>
+          <td>Becomes fully chargeable. Tax at death rates (40%) less taper relief if 3–7 years.</td>
+        </tr>
+        <tr>
+          <td><span class="hl-purple">CLT</span></td>
+          <td>Falls out of the 7-year window — no additional death charge.<br>But still reduces NRB for gifts made after it (while still within 7 years of those later gifts).</td>
+          <td>Re-assessed at death rates. If death tax &gt; lifetime tax already paid → pay the difference (top-up). Never a refund.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sub-title">Key Principle — NRB Accumulation at Death</h3>
+  <p>When computing death tax on each gift, the NRB available is reduced by <strong>all gross chargeable transfers</strong> (both CLTs and PETs that have become chargeable) in the <strong>7 years before that particular gift</strong>.</p>
+
+  <ul class="step-list">
+    <li><p>List all gifts in date order, applying exemptions to arrive at the gross chargeable amount for each.</p></li>
+    <li><p>For each gift within 7 years of death, find the NRB at the date of <strong>death</strong> and deduct GCTs in the 7 years <em>before that gift</em>.</p></li>
+    <li><p>Apply 40% to the taxable amount. Apply taper relief if gift was 3–7 years before death.</p></li>
+    <li><p>For CLTs: deduct lifetime tax paid. For PETs: no lifetime tax was paid, so no deduction.</p></li>
+    <li><p>Then compute the death estate (see Section 7).</p></li>
+  </ul>
+
+  <div class="callout tip">
+    <div class="label">🔑 Important: NRB is at date of DEATH, not date of gift</div>
+    <p>For all death calculations (on both lifetime gifts and the death estate), always use the NRB at the date of death — currently <strong>£325,000</strong>. The NRB at the time the gift was made is only relevant for lifetime tax on CLTs.</p>
+  </div>
+
+  <h4 class="mini-title">Worked Example — PET Becoming Chargeable on Death</h4>
+  <p>Tony makes a PET of £500,000 on 10 July 2023. A CLT of £120,000 (net of AEs) was made on 14 April 2017. Tony dies in 2025.</p>
+
+  <div class="working-box">
+    <div class="wbox-header">💀 Tony — Death Tax on PET (10 July 2023)</div>
+    <div class="wbox-body">
+      <div class="calc-line"><span class="desc">Transfer of value (PET)</span><span class="amt">500,000</span></div>
+      <div class="calc-line"><span class="desc">NRB at death 2025/26</span><span class="amt">325,000</span></div>
+      <div class="calc-line deduct"><span class="desc">Less: GCTs in 7 years before this gift (10.6.2016–10.6.2023)<br> CLT on 14.4.2017 (within that window)</span><span class="amt">(120,000)</span></div>
+      <div class="calc-line sub-total"><span class="desc">NRB available</span><span class="amt">(205,000)</span></div>
+      <div class="calc-line"><span class="desc">Taxable amount</span><span class="amt">295,000</span></div>
+      <div class="calc-line total"><span class="desc">IHT payable (£295,000 × 40%)</span><span class="amt">£118,000</span></div>
+      <div class="calc-note">The earlier PET (Feb 2017) fell more than 7 years before death — it is completely ignored. The CLT on 14.4.2017 is only relevant because it is within 7 years of the PET on 10.7.2023 — it eats into the NRB available for that PET.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════
+     S6 — TAPER RELIEF
+═══════════════════════════════════════════ -->
+<section id="s6">
+  <h2 class="section-title"><span class="icon">6</span>Taper Relief</h2>
+
+  <p>If the donor survives more than 3 years after making a PET or CLT, taper relief reduces the <strong>IHT payable on death</strong>. It does NOT reduce the chargeable amount — only the tax.</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Years Between Gift and Death</th><th>% Reduction of Tax</th><th>Effective Tax Rate on Excess</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>0 – 3 years</td><td>0%</td><td>40%</td></tr>
+        <tr><td>More than 3 but less than 4 years</td><td>20%</td><td>32%</td></tr>
+        <tr><td>More than 4 but less than 5 years</td><td>40%</td><td>24%</td></tr>
+        <tr><td>More than 5 but less than 6 years</td><td>60%</td><td>16%</td></tr>
+        <tr><td>More than 6 but less than 7 years</td><td>80%</td><td>8%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="memory-hook">
+    <div class="mh-label">🧠 Memory Hook — Taper</div>
+    <strong>0 / 20 / 40 / 60 / 80</strong> = reduction at each year milestone after year 3.<br>
+    Think: <em>"Every year after 3, I get 20% more relief."</em>
+  </div>
+
+  <div class="callout trap">
+    <div class="label">⚠️ Critical Point — Taper Only Applies if Tax Actually Arises</div>
+    <p>Taper only matters if the gift exceeds the available NRB. If the gift falls entirely within the NRB, there is no tax and therefore no taper to apply. Wasting time on taper for NRB-covered gifts is a common timing mistake.</p>
+  </div>
+
+  <div class="callout trap">
+    <div class="label">⚠️ Taper Reduces Tax — NOT the Chargeable Amount</div>
+    <p>This is frequently misunderstood. The full chargeable amount still goes into the NRB accumulation for subsequent gifts. Only the <em>tax payable</em> is reduced by taper.</p>
+  </div>
+
+  <div class="callout warn">
+    <div class="label">⚡ For CLTs at Death — Credit for Lifetime Tax</div>
+    <p>After applying taper, deduct lifetime IHT already paid. The result must not be negative (no refunds). If the death tax (after taper) is less than lifetime tax paid, the additional tax payable is simply nil.</p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════
+     S7 — DEATH ESTATE
+═══════════════════════════════════════════ -->
+<section id="s7">
+  <h2 class="section-title"><span class="icon">7</span>The Death Estate</h2>
+
+  <h3 class="sub-title">What Goes Into the Death Estate?</h3>
+  <p>Everything the deceased <strong>owned at the date of death</strong>, valued at the date of death. The estate is then reduced by allowable deductions.</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Included in Estate</th><th>Deductible</th><th>NOT Deductible</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Main residence<br>Other property<br>Investments (shares, ISAs)<br>Cash / bank accounts<br>Personal belongings</td>
+          <td>Mortgages<br>Outstanding income tax / CGT<br>Other legally enforceable debts outstanding at death</td>
+          <td>IHT itself<br>Debts not legally enforceable (promises)<br>Debts already paid before death<br>Funeral expenses (excluded at TX level)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sub-title">Pro-Forma — Death Estate Calculation</h3>
+
+  <div class="working-box">
+    <div class="wbox-header">📊 Death Estate IHT Calculation</div>
+    <div class="wbox-body">
+      <div class="calc-line"><span class="desc">Gross estate (assets at market value)</span><span class="amt">£X</span></div>
+      <div class="calc-line deduct"><span class="desc">Less: Deductible liabilities</span><span class="amt">(£X)</span></div>
+      <div class="calc-line sub-total"><span class="desc">Net estate</span><span class="amt">£X</span></div>
+      <div class="calc-line deduct"><span class="desc">Less: Spouse / civil partner exemption (if applicable)</span><span class="amt">(£X)</span></div>
+      <div class="calc-line sub-total"><span class="desc">Chargeable estate</span><span class="amt">£X</span></div>
+      <div class="calc-line deduct"><span class="desc">Less: Residence nil rate band (RNRB)</span><span class="amt">(£175,000)</span></div>
+      <div class="calc-line deduct"><span class="desc">Less: Transferred RNRB from deceased spouse (if applicable)</span><span class="amt">(£X)</span></div>
+      <div class="calc-line deduct"><span class="desc">Less: NRB available at death (£325,000 less GCTs in 7 years before death)</span><span class="amt">(£X)</span></div>
+      <div class="calc-line sub-total"><span class="desc">Taxable estate</span><span class="amt">£X</span></div>
+      <div class="calc-line total"><span class="desc">IHT payable (× 40%)</span><span class="amt">£X</span></div>
+      <div class="calc-note"><strong>Note:</strong> Annual exemptions are NOT deducted from the death estate. They only apply to lifetime gifts.</div>
+    </div>
+  </div>
+
+  <h3 class="sub-title">Who Gets What? — Residuary Legatee</h3>
+  <p>The death estate is distributed after IHT. Often the exam asks how much a <em>specific legatee</em> or the <em>residuary legatee</em> (the person who gets what's left) receives.</p>
+
+  <div class="working-box">
+    <div class="wbox-header">📋 Example — Death Estate Distribution</div>
+    <div class="wbox-body">
+      <div class="calc-line"><span class="desc">Death estate (gross)</span><span class="amt">1,600,000</span></div>
+      <div class="calc-line deduct"><span class="desc">Less: Exempt legacy to spouse</span><span class="amt">(400,000)</span></div>
+      <div class="calc-line sub-total"><span class="desc">Chargeable estate</span><span class="amt">1,200,000</span></div>
+      <div class="calc-line deduct"><span class="desc">IHT @ 40%</span><span class="amt">(480,000)</span></div>
+      <div class="calc-line sub-total"><span class="desc">Net estate after IHT</span><span class="amt">720,000</span></div>
+      <div class="calc-line deduct"><span class="desc">Less: Specific legacy to brother (after-tax)</span><span class="amt">(100,000)</span></div>
+      <div class="calc-line total"><span class="desc">Residue to niece (residuary legatee)</span><span class="amt">£620,000</span></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════
+     S8 — TRANSFERABLE NRB
+═══════════════════════════════════════════ -->
+<section id="s8">
+  <h2 class="section-title"><span class="icon">8</span>Nil Rate Band — Transfer Between Spouses</h2>
+
+  <p>When a spouse/civil partner dies, any <strong>unused percentage</strong> of their NRB can be transferred to the surviving spouse. This can potentially double the surviving spouse's NRB.</p>
+
+  <h3 class="sub-title">How It Works — Step by Step</h3>
+
+  <ul class="step-list">
+    <li><p>Calculate the NRB actually used by the first spouse on death — this includes specific legacies (not to spouse) and PETs/CLTs within 7 years.</p></li>
+    <li><p>Calculate the <strong>unused percentage</strong> = (NRB − amount used) ÷ NRB at first death × 100%.</p></li>
+    <li><p>Apply that <strong>percentage</strong> to the NRB at the date of the <em>second spouse's death</em>.</p></li>
+    <li><p>Add this to the surviving spouse's own NRB.</p></li>
+  </ul>
+
+  <div class="callout tip">
+    <div class="label">🔑 Use the Percentage, Not the Amount</div>
+    <p>It is the <strong>unused percentage</strong> that is transferred, not the pound amount. This means if the NRB has changed between the two deaths, the surviving spouse benefits from the higher current NRB.</p>
+  </div>
+
+  <h4 class="mini-title">Worked Example</h4>
+  <p>Nadia died when the NRB was £255,000. Half her estate (£275,400 / 2 = £137,700) was used to pay IHT (the other half went to her husband, exempt). Her husband Tareq dies in 2025/26 when NRB is £325,000.</p>
+
+  <div class="working-box">
+    <div class="wbox-header">👫 Transferable NRB Calculation</div>
+    <div class="wbox-body">
+      <div class="calc-line"><span class="desc">NRB at Nadia's death</span><span class="amt">255,000</span></div>
+      <div class="calc-line deduct"><span class="desc">NRB used on Nadia's death (£275,400 × 50%)</span><span class="amt">(137,700)</span></div>
+      <div class="calc-line sub-total"><span class="desc">Unused NRB on Nadia's death</span><span class="amt">117,300</span></div>
+      <div class="calc-line"><span class="desc">Unused % = £117,300 / £255,000</span><span class="amt">46%</span></div>
+      <div class="calc-line"><span class="desc">Tareq's own NRB in 2025/26</span><span class="amt">325,000</span></div>
+      <div class="calc-line"><span class="desc">Transferred NRB (£325,000 × 46%)</span><span class="amt">149,500</span></div>
+      <div class="calc-line total"><span class="desc">Total NRB available to Tareq</span><span class="amt">£474,500</span></div>
+    </div>
+  </div>
+
+  <div class="callout info">
+    <div class="label">ℹ️ Note</div>
+    <p>If the first spouse left their entire estate to the surviving spouse (fully exempt), then 100% of the NRB is unused and can be transferred in full. This is the most common scenario in exams.</p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════
+     S9 — RNRB
+═══════════════════════════════════════════ -->
+<section id="s9">
+  <h2 class="section-title"><span class="icon">9</span>Residence Nil Rate Band (RNRB)</h2>
+
+  <p>The RNRB is an <strong>additional nil rate band</strong> of £175,000 available on death when:</p>
+
+  <ul class="step-list">
+    <li><p>The estate includes a <strong>residential property</strong> (or has included one at some point — i.e. the deceased has at some point lived in it as their home).</p></li>
+    <li><p>The property is left to <strong>direct descendants</strong> — children, grandchildren, step-children, or their spouses.</p></li>
+  </ul>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Scenario</th><th>RNRB Available?</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>House left to children</td>
+          <td><span class="hl-green">Yes</span></td>
+          <td>Standard application. RNRB = £175,000.</td>
+        </tr>
+        <tr>
+          <td>House left to siblings/friends</td>
+          <td><span class="hl-red">No</span></td>
+          <td>Siblings are not direct descendants.</td>
+        </tr>
+        <tr>
+          <td>No main residence in estate at death</td>
+          <td><span class="hl-yellow">Transferred only</span></td>
+          <td>Own RNRB cannot be used but unused % can still be transferred to surviving spouse.</td>
+        </tr>
+        <tr>
+          <td>RNRB restricted by property value</td>
+          <td><span class="hl-yellow">Partially</span></td>
+          <td>If net value of residence &lt; £175,000, RNRB is capped at the net value.</td>
+        </tr>
+        <tr>
+          <td>Spouse left entire estate to surviving spouse</td>
+          <td><span class="hl-green">Transferred 100%</span></td>
+          <td>100% of RNRB transfers even if no property at that death. The surviving spouse's total RNRB = £350,000.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout warn">
+    <div class="label">⚡ Exam Note — RNRB Not Reduced by Lifetime Gifts</div>
+    <p>Unlike the main NRB, the RNRB is <strong>not</strong> reduced by lifetime gifts made within 7 years of death. It always starts at the full £175,000 (subject to the property value cap).</p>
+  </div>
+
+  <h4 class="mini-title">Transfer of Unused RNRB from Spouse</h4>
+  <p>Works exactly like the transferable NRB — the unused <em>percentage</em> is applied to the RNRB at the date of the surviving spouse's death. If the first spouse had 100% unused RNRB, the survivor gets both their own RNRB (£175,000) and the transferred RNRB (£175,000) = £350,000 total.</p>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════
+     S10 — IHT PLANNING
+═══════════════════════════════════════════ -->
+<section id="s10">
+  <h2 class="section-title"><span class="icon">10</span>IHT Planning Techniques</h2>
+
+  <p>The exam regularly asks you to <em>explain</em> or <em>evaluate</em> basic IHT planning. Here are the key techniques you must know.</p>
+
+  <div class="grid-2">
+    <div class="card">
+      <h4>1. Make Lifetime Gifts (PETs)</h4>
+      <p>Gifts made more than 7 years before death are fully exempt. Even if the donor dies within 7 years, taper relief reduces the tax after 3 years. <strong>Lock in asset value</strong> — future growth escapes IHT.</p>
+    </div>
+    <div class="card">
+      <h4>2. Skip a Generation</h4>
+      <p>Leaving assets directly to grandchildren rather than children avoids a second charge to IHT when children pass those assets on. Tax is only levied once before grandchildren inherit.</p>
+    </div>
+    <div class="card">
+      <h4>3. Use Exemptions Efficiently</h4>
+      <p>Annual exemptions (£3,000/year) and small gifts (£250/person) reduce the estate over time. Regular gifts from income can be made without limit if conditions are met.</p>
+    </div>
+    <div class="card">
+      <h4>4. Spouse Exemption</h4>
+      <p>Gifts between spouses are fully exempt. Combined NRBs of £650,000 (plus up to £350,000 RNRB = £1 million potential) can pass to children tax-free through proper planning.</p>
+    </div>
+  </div>
+
+  <h3 class="sub-title">Calculating IHT Savings from Lifetime Giving</h3>
+  <p>A common Section C question asks to compare: (a) keeping the asset until death vs (b) giving it away in lifetime.</p>
+
+  <div class="working-box">
+    <div class="wbox-header">📋 IHT Saving Calculation Framework</div>
+    <div class="wbox-body">
+      <div class="calc-line"><span class="desc">IHT if asset kept in estate at death (40% × asset value)</span><span class="amt">£X</span></div>
+      <div class="calc-line deduct"><span class="desc">Less: Death tax on lifetime gift (after taper relief)</span><span class="amt">(£X)</span></div>
+      <div class="calc-line deduct"><span class="desc">Less: Lifetime IHT paid on CLT (if applicable)</span><span class="amt">(£X)</span></div>
+      <div class="calc-line total"><span class="desc">Net IHT saving from making the lifetime gift</span><span class="amt">£X</span></div>
+      <div class="calc-note">Remember: the value of the gift is fixed at the time it was made — future growth in the asset's value is outside the estate and saves IHT.</div>
+    </div>
+  </div>
+
+  <div class="callout tip">
+    <div class="label">✅ Exam Tip — Three Planning Points to Know</div>
+    <p>1. Even without 7-year survival, taper relief reduces IHT after 3 years.<br>
+    2. The value is frozen at date of gift — future appreciation escapes IHT.<br>
+    3. Skipping a generation prevents double taxation of the same assets.</p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════
+     S11 — PAYMENT / ADMIN
+═══════════════════════════════════════════ -->
+<section id="s11">
+  <h2 class="section-title"><span class="icon">11</span>Payment of IHT — Administration Rules</h2>
+
+  <p>This area regularly appears in OT questions. Learn these rules cold — they are easy marks if you know them.</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Situation</th><th>Who Pays</th><th>Due Date</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Lifetime CLT — Tax on making the gift</strong></td>
+          <td>Primarily the <strong>Donor</strong> (unless the trust agrees to pay)</td>
+          <td>Later of: (i) 6 months after end of month of transfer, or (ii) 30 April after end of tax year of transfer</td>
+        </tr>
+        <tr>
+          <td><strong>Death tax on a PET</strong></td>
+          <td>The <strong>Donee</strong> (recipient of the gift)</td>
+          <td>6 months after end of month of death</td>
+        </tr>
+        <tr>
+          <td><strong>Death tax on a CLT (top-up)</strong></td>
+          <td>The <strong>Trustees</strong> of the trust (the donee)</td>
+          <td>6 months after end of month of death</td>
+        </tr>
+        <tr>
+          <td><strong>Death estate</strong></td>
+          <td><strong>Personal Representatives</strong> (executors/administrators) — they pay from the estate. The tax is ultimately <em>borne</em> by the residuary legatee.</td>
+          <td>6 months after end of month of death</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4 class="mini-title">The "Due Date" Rule for CLT Lifetime Tax — Worked Out</h4>
+  <p>Gift made on 15 January 2026 (tax year 2025/26):</p>
+  <div class="grid-2">
+    <div class="card">
+      <h4>Rule (i): 6 months after end of month</h4>
+      <p>End of January 2026 = 31 January 2026<br>+ 6 months = <strong>31 July 2026</strong></p>
+    </div>
+    <div class="card">
+      <h4>Rule (ii): 30 April after year end</h4>
+      <p>Tax year 2025/26 ends 5 April 2026<br>30 April after that = <strong>30 April 2027</strong></p>
+    </div>
+  </div>
+  <div class="callout info" style="margin-top:14px;">
+    <div class="label">ℹ️ Due Date</div>
+    <p>Take the <strong>later</strong> of the two = <strong>30 April 2027</strong>. This is why gifts between 6 October and 5 April use rule (ii) as the later date.</p>
+  </div>
+
+  <div class="callout tip">
+    <div class="label">🔑 Simple Version of the "Later Of" Rule</div>
+    <p>If the gift is made between <strong>6 April and 30 September</strong> → rule (i) (6 months from month end) is typically later.<br>
+    If the gift is made between <strong>1 October and 5 April</strong> → rule (ii) (30 April after tax year end) is typically later.</p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════
+     S12 — DIMINUTION IN VALUE
+═══════════════════════════════════════════ -->
+<section id="s12">
+  <h2 class="section-title"><span class="icon">12</span>Diminution in Value — Share Gifts</h2>
+
+  <p>When an individual gifts shares in a private company, the transfer of value may be <strong>greater than</strong> the market value of the shares given. This is because majority shareholdings command a premium price per share. By giving shares away, the donor moves from a majority position to a minority position, so each remaining share is worth less.</p>
+
+  <h4 class="mini-title">Formula</h4>
+  <div class="callout info">
+    <div class="label">Formula</div>
+    <p><strong>Transfer of value = (Shares before gift × price before) − (Shares after gift × price after)</strong></p>
+  </div>
+
+  <h4 class="mini-title">Worked Example</h4>
+  <p>Dominic owns 7,500 shares (75%) in Halder Ltd at £20/share. He gifts 3,000 shares. After the gift his remaining 4,500 shares (45%) are worth only £8/share.</p>
+
+  <div class="working-box">
+    <div class="wbox-header">📊 Diminution in Value — Dominic</div>
+    <div class="wbox-body">
+      <div class="calc-line"><span class="desc">Value of estate before transfer (7,500 × £20)</span><span class="amt">150,000</span></div>
+      <div class="calc-line deduct"><span class="desc">Less: Value of estate after transfer (4,500 × £8)</span><span class="amt">(36,000)</span></div>
+      <div class="calc-line total"><span class="desc">Transfer of value (loss to estate)</span><span class="amt">£114,000</span></div>
+      <div class="calc-note">Note: The market value of the shares gifted was only 3,000 × £8 = £24,000. But the IHT transfer of value is £114,000 because of the loss in value of the remaining shares.</div>
+    </div>
+  </div>
+
+  <div class="callout trap">
+    <div class="label">⚠️ Exam Trap</div>
+    <p>Students often use the market value of the shares <em>given away</em> as the transfer of value. This is wrong. Always use the diminution in the donor's estate.</p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════
+     S13 — FULL WORKED SCENARIOS
+═══════════════════════════════════════════ -->
+<section id="s13">
+  <h2 class="section-title"><span class="icon">13</span>Full Worked Scenarios (Exam-Style)</h2>
+
+  <h3 class="sub-title">Scenario A — James (CLT + PET + CLT + Death Estate)</h3>
+  <p><em>James made a CLT of £35,000 gross (net of AEs: £29,000) to a trust on 9 October 2018. No lifetime tax was paid. He made a PET of £420,000 to his daughter on 14 May 2024, then a CLT of £260,000 to a trust on 2 August 2024. No lifetime tax was paid on either. James' death estate was £870,000. He dies in 2025. Identify the IHT on death.</em></p>
+
+  <div class="working-box">
+    <div class="wbox-header">💀 James — IHT Computation on Death</div>
+    <div class="wbox-body">
+      <p style="font-size:.9rem;color:var(--muted);margin-bottom:10px;"><em>Step 1: Is the CLT on 9 October 2018 within 7 years of death?</em> Death ~2025. 9 Oct 2018 is more than 7 years before death → falls away. No death tax. BUT it uses NRB for gifts made after it and within 7 years of it.</p>
+
+      <p style="font-size:.9rem;font-weight:600;margin:14px 0 6px;">PET — 14 May 2024 (within 7 years of death)</p>
+      <div class="calc-line"><span class="desc">Value transferred</span><span class="amt">420,000</span></div>
+      <div class="calc-line deduct"><span class="desc">Annual exemptions 2024/25 + 2023/24</span><span class="amt">(6,000)</span></div>
+      <div class="calc-line sub-total"><span class="desc">Chargeable PET</span><span class="amt">414,000</span></div>
+      <div class="calc-line"><span class="desc">NRB at death</span><span class="amt">325,000</span></div>
+      <div class="calc-line deduct"><span class="desc">GCTs in 7 years before this PET (14.5.2017–14.5.2024): CLT 9.10.2018 = £29,000 net</span><span class="amt">(29,000)</span></div>
+      <div class="calc-line sub-total"><span class="desc">NRB available</span><span class="amt">(296,000)</span></div>
+      <div class="calc-line"><span class="desc">Taxable amount (£414,000 − £296,000)</span><span class="amt">118,000</span></div>
+      <div class="calc-line nil"><span class="desc">IHT: £296,000 × 0% (within NRB)</span><span class="amt">0</span></div>
+      <div class="calc-line total"><span class="desc">IHT: £118,000 × 40%</span><span class="amt">£47,200</span></div>
+      <div class="calc-note">James' daughter (donee) is responsible for paying £47,200.</div>
+
+      <p style="font-size:.9rem;font-weight:600;margin:20px 0 6px;">CLT — 2 August 2024 (within 7 years of death)</p>
+      <div class="calc-line"><span class="desc">Chargeable (no AEs remaining)</span><span class="amt">260,000</span></div>
+      <div class="calc-note" style="margin-bottom:10px;">NRB already fully used by the CLT (Oct 2018) + PET (May 2024) — no NRB available.</div>
+      <div class="calc-line total"><span class="desc">IHT: £260,000 × 40%</span><span class="amt">£104,000</span></div>
+      <div class="calc-note">The trust (donee) is responsible for paying £104,000.</div>
+
+      <p style="font-size:.9rem;font-weight:600;margin:20px 0 6px;">Death Estate</p>
+      <div class="calc-line"><span class="desc">Chargeable estate</span><span class="amt">870,000</span></div>
+      <div class="calc-note" style="margin-bottom:10px;">No NRB remaining (all used by lifetime gifts within 7 years of death).</div>
+      <div class="calc-line total"><span class="desc">IHT: £870,000 × 40%</span><span class="amt">£348,000</span></div>
+      <div class="calc-note">The personal representatives are responsible for paying £348,000 from the estate.</div>
+    </div>
+  </div>
+
+  <h3 class="sub-title">Scenario B — Aurora (PET + Death Estate with RNRB + Transferred NRB)</h3>
+  <p><em>Aurora made a PET of £416,000 on 23 August 2019 (marriage gift to daughter — marriage exemption £1,000 applies, plus AEs £6,000). Andrew (Aurora's husband) died earlier leaving his entire estate to Aurora (100% of NRB unused). Aurora's death estate includes her main residence (previously occupied, left to her children) and two let properties with mortgages. Aurora dies 6 April 2025. NRB at death £325,000; RNRB £175,000.</em></p>
+
+  <div class="working-box">
+    <div class="wbox-header">💀 Aurora — IHT on Lifetime Gift (PET becomes chargeable)</div>
+    <div class="wbox-body">
+      <div class="calc-line"><span class="desc">Value transferred</span><span class="amt">416,000</span></div>
+      <div class="calc-line deduct"><span class="desc">Less: Marriage exemption</span><span class="amt">(1,000)</span></div>
+      <div class="calc-line deduct"><span class="desc">Less: AE 2019/20 + 2018/19</span><span class="amt">(6,000)</span></div>
+      <div class="calc-line sub-total"><span class="desc">PET</span><span class="amt">409,000</span></div>
+      <div class="calc-line"><span class="desc">NRB at death</span><span class="amt">325,000</span></div>
+      <div class="calc-line deduct"><span class="desc">GCTs in 7 years before gift (none)</span><span class="amt">(0)</span></div>
+      <div class="calc-line sub-total"><span class="desc">NRB available</span><span class="amt">(325,000)</span></div>
+      <div class="calc-line"><span class="desc">Taxable amount</span><span class="amt">84,000</span></div>
+      <div class="calc-line"><span class="desc">IHT (£84,000 × 40%)</span><span class="amt">33,600</span></div>
+      <div class="calc-line deduct"><span class="desc">Taper relief: gift is 5–6 years before death → 60% reduction</span><span class="amt">(20,160)</span></div>
+      <div class="calc-line total"><span class="desc">IHT payable on PET</span><span class="amt">£13,440</span></div>
+    </div>
+  </div>
+
+  <div class="working-box" style="margin-top:20px;">
+    <div class="wbox-header">💀 Aurora — Death Estate</div>
+    <div class="wbox-body">
+      <div class="calc-line"><span class="desc">Main residence (previously occupied, left to children)</span><span class="amt">500,000</span></div>
+      <div class="calc-line"><span class="desc">Let property 1 (£350,000)</span><span class="amt">350,000</span></div>
+      <div class="calc-line"><span class="desc">Let property 2 (£350,000)</span><span class="amt">350,000</span></div>
+      <div class="calc-line"><span class="desc">Let property 3 (£350,000)</span><span class="amt">350,000</span></div>
+      <div class="calc-line deduct"><span class="desc">Less: Mortgages on let properties (£115,000 × 2)</span><span class="amt">(230,000)</span></div>
+      <div class="calc-line sub-total"><span class="desc">Gross chargeable estate</span><span class="amt">1,320,000</span></div>
+      <div class="calc-line deduct"><span class="desc">Less: RNRB (main residence left to children)</span><span class="amt">(175,000)</span></div>
+      <div class="calc-line deduct"><span class="desc">Less: Transferred RNRB from Andrew (100% unused)</span><span class="amt">(175,000)</span></div>
+      <div class="calc-line deduct"><span class="desc">Less: NRB — fully used by lifetime PET (£409,000 &gt; £325,000)</span><span class="amt">(0)</span></div>
+      <div class="calc-line sub-total"><span class="desc">Taxable estate</span><span class="amt">970,000</span></div>
+      <div class="calc-line total"><span class="desc">IHT payable (£970,000 × 40%)</span><span class="amt">£388,000</span></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════
+     S14 — EXAM TRAPS & TIPS
+═══════════════════════════════════════════ -->
+<section id="s14">
+  <h2 class="section-title"><span class="icon">14</span>Common Exam Traps &amp; Examiner Tips</h2>
+
+  <div class="callout trap">
+    <div class="label">🚨 Trap 1 — Using NRB at Gift Date for Death Calculations</div>
+    <p>For all death calculations (death tax on gifts AND the death estate), always use the NRB at <strong>date of death</strong>. The NRB at the time the gift was made is only used for CLT lifetime tax.</p>
+  </div>
+
+  <div class="callout trap">
+    <div class="label">🚨 Trap 2 — Including PETs in Lifetime NRB Calculations</div>
+    <p>When calculating lifetime tax on a CLT, PETs in the prior 7 years do NOT reduce the NRB. Only prior CLTs matter at the lifetime stage.</p>
+  </div>
+
+  <div class="callout trap">
+    <div class="label">🚨 Trap 3 — Deducting AEs from the Death Estate</div>
+    <p>Annual exemptions only apply to lifetime gifts. Never deduct the £3,000 AE from the death estate.</p>
+  </div>
+
+  <div class="callout trap">
+    <div class="label">🚨 Trap 4 — Taper Reduces Tax, Not the Chargeable Amount</div>
+    <p>Taper relief reduces the IHT payable on death. It does not reduce the value of the gift for NRB accumulation purposes. The full GCT still eats into the NRB for subsequent gifts.</p>
+  </div>
+
+  <div class="callout trap">
+    <div class="label">🚨 Trap 5 — Wasting Time on Taper When No Tax Arises</div>
+    <p>If a gift is fully within the NRB, there is no IHT on it — taper is irrelevant. Examiner reports repeatedly note that students apply taper relief unnecessarily, wasting exam time.</p>
+  </div>
+
+  <div class="callout trap">
+    <div class="label">🚨 Trap 6 — Who Pays IHT Confusion</div>
+    <p>Death tax on PETs → <strong>donee</strong>. Death tax on CLTs → <strong>trustees</strong>. Death estate → <strong>personal representatives</strong>. Mix these up and you drop marks on easy administration questions.</p>
+  </div>
+
+  <div class="callout trap">
+    <div class="label">🚨 Trap 7 — Non-Enforceable Debts in the Estate</div>
+    <p>Promises to pay (not legally binding), debts already paid, and IHT itself are not deductible from the death estate. Only legally enforceable debts <em>outstanding at date of death</em> are deductible.</p>
+  </div>
+
+  <div class="callout warn">
+    <div class="label">⭐ Examiner's Favourite: Check if Gift is Within 7 Years of Death First</div>
+    <p>Before doing any calculation on a lifetime gift, always check: is it within 7 years of death? If not, for a PET → ignore. For a CLT → no death charge, but it still affects the NRB available for later gifts that ARE within 7 years.</p>
+  </div>
+
+  <div class="callout tip">
+    <div class="label">✅ Efficient Exam Technique</div>
+    <p>Read the scenario first and mark each gift: (1) &gt; 7 years from death? (2) PET or CLT? This takes 30 seconds and prevents you spending time on calculations that aren't needed.</p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════
+     S15 — QUICK REFERENCE
+═══════════════════════════════════════════ -->
+<section id="s15">
+  <h2 class="section-title"><span class="icon">15</span>Quick Reference — Rates &amp; Allowances (FA2025)</h2>
+
+  <div class="grid-2">
+    <div>
+      <h4 class="mini-title">IHT Rates &amp; Bands</h4>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Item</th><th>Amount</th></tr></thead>
+          <tbody>
+            <tr><td>Nil Rate Band</td><td><strong>£325,000</strong></td></tr>
+            <tr><td>Residence Nil Rate Band</td><td><strong>£175,000</strong></td></tr>
+            <tr><td>Lifetime rate (CLTs)</td><td><strong>20%</strong> (25% if donor pays)</td></tr>
+            <tr><td>Death rate</td><td><strong>40%</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div>
+      <h4 class="mini-title">Lifetime Exemptions</h4>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Exemption</th><th>Amount</th></tr></thead>
+          <tbody>
+            <tr><td>Annual exemption</td><td><strong>£3,000</strong> p.a. (1 yr c/fwd)</td></tr>
+            <tr><td>Small gifts</td><td><strong>£250</strong> per person per year</td></tr>
+            <tr><td>Marriage — parent</td><td><strong>£5,000</strong></td></tr>
+            <tr><td>Marriage — grandparent</td><td><strong>£2,500</strong></td></tr>
+            <tr><td>Marriage — any other</td><td><strong>£1,000</strong></td></tr>
+            <tr><td>Spouse / civil partner</td><td><strong>Unlimited</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <h4 class="mini-title" style="margin-top:24px;">Taper Relief Table</h4>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Years Between Gift and Death</th><th>% Reduction in Tax</th><th>Effective Rate</th></tr></thead>
+      <tbody>
+        <tr><td>0 – 3 years</td><td>0%</td><td>40%</td></tr>
+        <tr><td>&gt; 3 – 4 years</td><td>20%</td><td>32%</td></tr>
+        <tr><td>&gt; 4 – 5 years</td><td>40%</td><td>24%</td></tr>
+        <tr><td>&gt; 5 – 6 years</td><td>60%</td><td>16%</td></tr>
+        <tr><td>&gt; 6 – 7 years</td><td>80%</td><td>8%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4 class="mini-title" style="margin-top:24px;">Payment Summary</h4>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>What</th><th>Who Pays</th><th>When</th></tr></thead>
+      <tbody>
+        <tr><td>Lifetime CLT tax</td><td>Donor (primarily)</td><td>Later of: 6 months from month end, or 30 April after tax year end</td></tr>
+        <tr><td>Death tax on PET</td><td>Donee (recipient)</td><td>6 months after month of death</td></tr>
+        <tr><td>Death tax on CLT (top-up)</td><td>Trustees (donee)</td><td>6 months after month of death</td></tr>
+        <tr><td>Death estate IHT</td><td>Personal representatives</td><td>6 months after month of death</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="memory-hook" style="margin-top:28px;">
+    <div class="mh-label">🧠 Final Memory Hook — The IHT Story</div>
+    <strong>"Give → PET or CLT. Die within 7 years → pay death rates. Survive 7 → free. Use exemptions. Freeze values. Skip generations. Leave the house to kids for RNRB. Transfer unused NRB from spouse."</strong>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════
+     PRACTICE QUESTIONS
+═══════════════════════════════════════════ -->
+<section id="practice">
+  <h2 class="section-title"><span class="icon">✏</span>Practice Questions (Exam-Style)</h2>
+
+  <div class="pq-box">
+    <div class="pq-header">Practice Q1 — OT Single (Gift Types)</div>
+    <div class="pq-body">
+      <p class="pq-q">Gideon makes a cash gift of £50,000 to his nephew on 1 May 2025. He used £2,000 of his annual exemption on a gift to a friend on 3 April 2025 and £2,500 of the prior year's AE on a gift in August 2024. What is the gross chargeable transfer of the gift to his nephew?</p>
+      <details>
+        <summary>▶ Show Answer</summary>
+        <div class="ans">
+          <div class="working-box">
+            <div class="wbox-header">Solution</div>
+            <div class="wbox-body">
+              <div class="calc-line"><span class="desc">Transfer of value</span><span class="amt">50,000</span></div>
+              <div class="calc-line deduct"><span class="desc">AE 2025/26: £3,000 − £2,000 already used = remaining</span><span class="amt">(1,000)</span></div>
+              <div class="calc-line deduct"><span class="desc">AE 2024/25 b/f: £3,000 − £2,500 already used = remaining</span><span class="amt">(500)</span></div>
+              <div class="calc-line total"><span class="desc">Gross chargeable transfer</span><span class="amt">£48,500</span></div>
+              <div class="calc-note">The gift to his nephew is a PET (individual → individual). AE is always applied to the earliest gift in a tax year. The current year AE must be used before the prior year carry-forward.</div>
+            </div>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="pq-box">
+    <div class="pq-header">Practice Q2 — CLT Lifetime Tax</div>
+    <div class="pq-body">
+      <p class="pq-q">Dianne makes a CLT to a trust of £520,000 (after AEs) on 1 March 2026. She had previously made a CLT of £70,000 (net) to a trust on 10 June 2025 (within 7 years). She pays the lifetime tax herself. What is the lifetime IHT payable?</p>
+      <details>
+        <summary>▶ Show Answer</summary>
+        <div class="ans">
+          <div class="working-box">
+            <div class="wbox-header">Solution — Dianne CLT (Donor pays)</div>
+            <div class="wbox-body">
+              <div class="calc-line"><span class="desc">Transfer of value (after AEs)</span><span class="amt">520,000</span></div>
+              <div class="calc-line"><span class="desc">NRB at date of gift 2025/26</span><span class="amt">325,000</span></div>
+              <div class="calc-line deduct"><span class="desc">Less: CLTs in 7 years before gift (1.3.2019–1.3.2026): CLT 10.6.2025</span><span class="amt">(70,000)</span></div>
+              <div class="calc-line sub-total"><span class="desc">NRB available</span><span class="amt">(255,000)</span></div>
+              <div class="calc-line"><span class="desc">Taxable amount</span><span class="amt">265,000</span></div>
+              <div class="calc-line total"><span class="desc">IHT (£265,000 × 25% — donor pays)</span><span class="amt">£66,250</span></div>
+              <div class="calc-note">Any prior PETs within 7 years are ignored for lifetime CLT calculations — only prior CLTs reduce the NRB.</div>
+            </div>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="pq-box">
+    <div class="pq-header">Practice Q3 — Death Tax on PET with Taper</div>
+    <div class="pq-body">
+      <p class="pq-q">Nagina makes a PET of £350,000 (after AEs) to her grandson on 11 May 2022. There are no prior GCTs. She dies on 26 June 2025. Calculate the IHT payable on this PET.</p>
+      <details>
+        <summary>▶ Show Answer</summary>
+        <div class="ans">
+          <div class="working-box">
+            <div class="wbox-header">Solution — Nagina PET on Death</div>
+            <div class="wbox-body">
+              <div class="calc-line"><span class="desc">PET (after AEs)</span><span class="amt">350,000</span></div>
+              <div class="calc-line"><span class="desc">NRB at death 2025/26</span><span class="amt">325,000</span></div>
+              <div class="calc-line deduct"><span class="desc">GCTs in 7 years before gift (none)</span><span class="amt">(0)</span></div>
+              <div class="calc-line sub-total"><span class="desc">NRB available</span><span class="amt">(325,000)</span></div>
+              <div class="calc-line"><span class="desc">Taxable amount</span><span class="amt">25,000</span></div>
+              <div class="calc-line"><span class="desc">IHT (£25,000 × 40%)</span><span class="amt">10,000</span></div>
+              <div class="calc-line deduct"><span class="desc">Taper relief: 11.5.2022 → 26.6.2025 = 3–4 years → 20% reduction</span><span class="amt">(2,000)</span></div>
+              <div class="calc-line total"><span class="desc">IHT payable</span><span class="amt">£8,000</span></div>
+              <div class="calc-note">The Grandson is responsible for paying £8,000. Due date = 6 months after end of month of Nagina's death = 31 December 2025.</div>
+            </div>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="pq-box">
+    <div class="pq-header">Practice Q4 — Administration (Who Pays & When)</div>
+    <div class="pq-body">
+      <p class="pq-q">Sandeep makes a CLT to a trust on 3 November 2025. He is primarily liable for the lifetime tax. Identify (a) the due date for lifetime IHT, and (b) the statement about who is liable.</p>
+      <details>
+        <summary>▶ Show Answer</summary>
+        <div class="ans">
+          <p>(a) <strong>Due date:</strong></p>
+          <p>Rule (i): 6 months after end of November 2025 = 31 May 2026<br>Rule (ii): 30 April after end of tax year 2025/26 = 30 April 2026<br><strong>Later of = 31 May 2026</strong></p>
+          <p>(b) <strong>Primarily liable: Sandeep (the donor)</strong> — the trustees can also pay, but the donor is primarily responsible.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<footer style="margin-top:64px; padding:24px 0; border-top:2px solid var(--border); text-align:center; color:var(--muted); font-size:.85rem; font-family:'JetBrains Mono', monospace;">
+  ACCA TX (UK) · Finance Act 2025 · June 2026 Exam Window · Based on Kaplan Exam Kit &amp; ACCA Syllabus<br>
+  <span style="color:var(--purple);">NRB £325,000 · RNRB £175,000 · Death Rate 40% · Lifetime Rate 20%</span>
+</footer>
+
+</body>
+</html>

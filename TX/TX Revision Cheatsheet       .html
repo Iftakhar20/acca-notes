@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACCA TX-UK · One-Hour Revision Cheatsheet (FA2025 · June 2026)</title>
+<style>
+  :root{
+    --blue:#3a86ff;
+    --blue-dark:#1c6dff;
+    --blue-deep:#0f4fcc;
+    --blue-soft:#e8f1ff;
+    --blue-softer:#f4f8ff;
+    --blue-line:#cfe0ff;
+    --ink:#1a2433;
+    --ink-soft:#42506a;
+    --bg:#fbfdff;
+    --warn-bg:#fff6e9;
+    --warn-line:#ffcf8a;
+    --warn-ink:#8a5a00;
+    --good-bg:#eaf7ef;
+    --good-line:#a8dcb9;
+    --good-ink:#1f7a44;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1040px;margin:0 auto;padding:0 22px 80px;}
+
+  header.hero{
+    background:linear-gradient(135deg,var(--blue) 0%,var(--blue-deep) 100%);
+    color:#fff;padding:42px 22px 38px;text-align:center;
+    box-shadow:0 6px 24px rgba(28,109,255,.25);
+  }
+  header.hero h1{margin:0 0 8px;font-size:2.15rem;letter-spacing:-.5px;}
+  header.hero p{margin:4px 0;font-size:1.05rem;opacity:.95;}
+  .pill{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);
+    padding:5px 14px;border-radius:999px;font-size:.92rem;margin-top:10px;}
+
+  /* sticky nav */
+  nav.toc{
+    position:sticky;top:0;z-index:50;background:rgba(251,253,255,.96);
+    backdrop-filter:blur(6px);border-bottom:2px solid var(--blue-line);
+    padding:12px 0;
+  }
+  nav.toc .wrap{padding-bottom:0;}
+  nav.toc ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
+  nav.toc a{
+    text-decoration:none;color:var(--blue-deep);background:var(--blue-soft);
+    border:1px solid var(--blue-line);padding:7px 13px;border-radius:8px;
+    font-size:.95rem;font-weight:600;transition:.15s;
+  }
+  nav.toc a:hover{background:var(--blue);color:#fff;}
+
+  section{margin-top:40px;scroll-margin-top:72px;}
+  h2.area{
+    font-size:1.6rem;color:#fff;background:var(--blue-dark);
+    padding:14px 20px;border-radius:12px;margin:0 0 18px;
+    box-shadow:0 4px 12px rgba(28,109,255,.18);letter-spacing:-.3px;
+  }
+  h2.area .tag{font-size:.85rem;opacity:.8;font-weight:400;float:right;margin-top:6px;}
+  h3{
+    font-size:1.22rem;color:var(--blue-deep);margin:26px 0 10px;
+    padding-bottom:6px;border-bottom:2px solid var(--blue-soft);
+  }
+
+  .card{
+    background:#fff;border:1px solid var(--blue-line);border-radius:12px;
+    padding:18px 20px;margin:14px 0;box-shadow:0 2px 8px rgba(28,109,255,.06);
+  }
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr;} body{font-size:16px;}}
+
+  ul.tight{margin:8px 0;padding-left:22px;}
+  ul.tight li{margin:5px 0;}
+  .lead{font-weight:600;color:var(--blue-deep);}
+
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.97rem;}
+  th,td{border:1px solid var(--blue-line);padding:8px 11px;text-align:left;vertical-align:top;}
+  th{background:var(--blue-soft);color:var(--blue-deep);}
+  tr:nth-child(even) td{background:var(--blue-softer);}
+
+  .hook{
+    background:var(--blue-soft);border-left:5px solid var(--blue);
+    padding:11px 15px;border-radius:0 10px 10px 0;margin:12px 0;
+  }
+  .hook b{color:var(--blue-deep);}
+  .hook::before{content:"🧠 Memory hook — ";font-weight:700;color:var(--blue-dark);}
+
+  .story{
+    background:var(--blue-softer);border:1px dashed var(--blue);
+    padding:11px 15px;border-radius:10px;margin:12px 0;font-style:italic;color:var(--ink-soft);
+  }
+  .story::before{content:"📖 Story:  ";font-style:normal;font-weight:700;color:var(--blue-dark);}
+
+  .warn{
+    background:var(--warn-bg);border-left:5px solid var(--warn-line);
+    padding:11px 15px;border-radius:0 10px 10px 0;margin:12px 0;color:var(--warn-ink);
+  }
+  .warn::before{content:"⚠️ Trap you've fallen for —  ";font-weight:700;}
+
+  .step{background:var(--good-bg);border-left:5px solid var(--good-line);
+    padding:11px 15px;border-radius:0 10px 10px 0;margin:12px 0;color:var(--good-ink);}
+  .step::before{content:"✅ Method:  ";font-weight:700;}
+
+  code,.num{background:var(--blue-soft);padding:1px 6px;border-radius:5px;
+    font-family:"Consolas",monospace;color:var(--blue-deep);font-size:.95em;}
+  .footer{text-align:center;margin-top:50px;color:var(--ink-soft);font-size:.9rem;}
+  .mini{font-size:.86rem;color:var(--ink-soft);}
+  .kbd{display:inline-block;background:#fff;border:1px solid var(--blue-line);
+    border-radius:6px;padding:1px 8px;font-weight:600;color:var(--blue-deep);}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>ACCA TX-UK — One-Hour Revision Cheatsheet</h1>
+  <p>Finance Act 2025 · June 2026 / June 2027 exam window</p>
+  <p class="pill">Built for fast final-pass revision — method, hooks &amp; your own past traps</p>
+</header>
+
+<nav class="toc">
+  <div class="wrap">
+    <ul>
+      <li><a href="#admin">A · System &amp; Admin</a></li>
+      <li><a href="#income">B · Income Tax &amp; NIC</a></li>
+      <li><a href="#cgt">C · Capital Gains</a></li>
+      <li><a href="#iht">D · Inheritance Tax</a></li>
+      <li><a href="#ct">E · Corporation Tax</a></li>
+      <li><a href="#vat">F · VAT</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <div class="card" style="margin-top:24px;background:var(--blue-softer);">
+    <b class="lead">How to use this in &lt;1 hour:</b> Don't memorise rates — they are <b>printed in your exam tax tables</b>.
+    Memorise the <b>method</b>, the <b>order of steps</b>, and the <b>traps</b>. Read each
+    <span class="hook" style="display:inline;padding:2px 8px;">memory hook</span> and
+    <span class="story" style="display:inline;padding:2px 8px;font-style:normal;">story</span> — they're the bits that stick under pressure.
+    Reference figures below are FA2025; verify against the table you're given.
+  </div>
+
+  <!-- ============ A ============ -->
+  <section id="admin">
+    <h2 class="area">A · The UK Tax System &amp; Administration <span class="tag">~10% · easy marks</span></h2>
+
+    <h3>Self Assessment — Individuals (the dates that earn easy marks)</h3>
+    <div class="card">
+      <table>
+        <tr><th>Event</th><th>Deadline</th></tr>
+        <tr><td>Notify chargeability to HMRC</td><td>5 Oct after the tax year</td></tr>
+        <tr><td>Paper return</td><td>31 Oct</td></tr>
+        <tr><td>Online return + pay balancing payment</td><td><b>31 Jan</b> after tax year</td></tr>
+        <tr><td>1st Payment on Account (POA)</td><td><b>31 Jan</b> (in the tax year)</td></tr>
+        <tr><td>2nd Payment on Account</td><td><b>31 July</b> (after tax year)</td></tr>
+        <tr><td>Keep records (business)</td><td>5 years after 31 Jan filing date</td></tr>
+      </table>
+      <div class="hook"><b>"Jan–July–Jan"</b> = the POA rhythm. Each POA = 50% of <i>last year's</i> income tax + Class 4 NIC. Capital gains tax &amp; Class 2 NIC are <b>NOT</b> in POAs — they're only in the 31 Jan balancing payment.</div>
+      <div class="warn">In past attempts you forgot to <b>state the POA due dates explicitly</b>. Always write "31 January" and "31 July" — those words are the marks.</div>
+    </div>
+
+    <h3>Penalties &amp; Interest</h3>
+    <div class="grid2">
+      <div class="card">
+        <p class="lead">Late filing</p>
+        <ul class="tight">
+          <li>£100 fixed (immediately)</li>
+          <li>&gt;3 months: £10/day (max 90 days)</li>
+          <li>&gt;6 / &gt;12 months: 5% of tax (each)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="lead">Incorrect return — penalty = % of lost tax × behaviour</p>
+        <ul class="tight">
+          <li>Careless: up to 30%</li>
+          <li>Deliberate: up to 70%</li>
+          <li>Deliberate + concealed: up to 100%</li>
+        </ul>
+        <p class="mini">Unprompted disclosure cuts the penalty hardest.</p>
+      </div>
+    </div>
+    <div class="story">A student files late, shrugs "it's only £100." Three months later the <b>£10/day meter</b> has been running and a 5% slice is coming. Penalties <i>escalate</i> — that's the exam point.</div>
+  </section>
+
+  <!-- ============ B ============ -->
+  <section id="income">
+    <h2 class="area">B · Income Tax &amp; National Insurance <span class="tag">biggest area</span></h2>
+
+    <h3>The Income Tax Computation — always the same skeleton</h3>
+    <div class="step">Pool income into <b>three columns</b>: Non-savings → Savings → Dividends. Deduct Personal Allowance. Tax <b>in that order</b> (NSI first, then savings, then dividends). Each band fills up before the next rate applies.</div>
+    <div class="card">
+      <table>
+        <tr><th>Income type</th><th>Rates (FA2025 ref)</th></tr>
+        <tr><td>Non-savings &amp; savings</td><td>20% basic / 40% higher (&gt;£50,270) / 45% additional (&gt;£125,140)</td></tr>
+        <tr><td>Dividends</td><td>8.75% / 33.75% / 39.35%</td></tr>
+      </table>
+      <ul class="tight">
+        <li><b>Personal Allowance £12,570</b>, tapered £1 for every £2 of <span class="num">Adjusted Net Income &gt; £100,000</span> → gone at £125,140.</li>
+        <li><b>Savings starting rate band</b> £5,000 @ 0% — only useful if non-savings income is low.</li>
+        <li><b>Personal Savings Allowance:</b> £1,000 (basic), £500 (higher), £0 (additional).</li>
+        <li><b>Dividend allowance £500</b> @ 0% (uses up the band though).</li>
+      </ul>
+      <div class="hook">PA taper: <b>"£100k is the cliff edge."</b> The effective marginal rate in the £100k–£125,140 zone is ~60% because you lose PA <i>and</i> pay 40%.</div>
+    </div>
+
+    <div class="card">
+      <p class="lead">Extending the basic-rate band</p>
+      Gross <b>personal pension</b> and <b>Gift Aid</b> contributions extend the basic rate band (and higher-rate threshold) by the gross amount. They don't reduce income — they widen the cheap band.
+      <div class="hook">Pension/Gift Aid = <b>"stretch the band, don't shrink the income."</b> Gross up by ×100/80.</div>
+    </div>
+
+    <h3>Employment Income &amp; Benefits</h3>
+    <div class="card">
+      <table>
+        <tr><th>Benefit</th><th>Taxable amount</th></tr>
+        <tr><td>Company car</td><td>List price × CO₂% (cash for cars). Fuel benefit = £27,800 × same %. Reduce car only for part-year/unavailability.</td></tr>
+        <tr><td>Living accommodation</td><td>Annual value + (cost − £75,000) × official rate, if cost &gt; £75,000</td></tr>
+        <tr><td>Beneficial loan</td><td>Avg/strict method × official rate; <b>exempt if ≤ £10,000</b> all year</td></tr>
+        <tr><td>Use of asset</td><td>20% × market value when first provided</td></tr>
+      </table>
+      <div class="warn">Your recurring trap: you applied a <b>private-use restriction to a company/employee asset</b>. Private-use restriction belongs to <b>sole traders only</b> (it adjusts the owner's own capital allowances/expenses). An <b>employee</b> is taxed on the <i>full</i> benefit regardless of private use; a <b>company</b> claims full capital allowances.</div>
+      <div class="hook">Exempt staples to remember: pension contributions, ≤£500 employer pension advice, mobile phone (1), £6/week home-working, trivial benefits ≤£50, workplace parking, bikes-to-work.</div>
+    </div>
+
+    <h3>Trading Income — Adjustment of Profit</h3>
+    <div class="step">Start with <b>net profit</b> → <b>ADD BACK</b> disallowed expenses &amp; non-trade items in the accounts → <b>DEDUCT</b> income taxed elsewhere &amp; allowable items not in accounts (e.g. capital allowances). The result is tax-adjusted trading profit.</div>
+    <div class="card">
+      <table>
+        <tr><th>Add back (disallowed)</th><th>Deduct / allow</th></tr>
+        <tr><td>Owner's drawings, private use portion, depreciation, client entertaining, most legal fees on capital items, fines, donations (non-trade), &gt;50g/km car lease ×15%</td><td>Capital allowances, trade income wrongly in non-trade lines, deductible pre-trading expenses (7 yrs)</td></tr>
+      </table>
+      <div class="hook"><b>"Depreciation is the impostor"</b> — always add it back; capital allowances are the real tax deduction.</div>
+      <div class="story">A sole trader buys a van used 70% for business / 30% private. The <b>private 30% is restricted</b> because <i>he</i> owns it. If instead his <b>company</b> owned the van, no restriction — the company gets it all and the employee is taxed on a benefit. Same van, different owner, different rule.</div>
+    </div>
+
+    <h3>Capital Allowances</h3>
+    <div class="card">
+      <ul class="tight">
+        <li><b>AIA £1,000,000</b>: 100% on plant &amp; machinery (not cars). Time-apportion the limit for short periods.</li>
+        <li><b>Main pool 18%</b> WDA (reducing balance). <b>Special rate pool 6%</b> (long-life, integral features, high-CO₂ cars).</li>
+        <li><b>FYA / Full expensing</b> 100% for companies on new main-pool plant (not cars).</li>
+        <li><b>Cars:</b> 0g/km → 100% FYA; ≤50g/km → main pool 18%; &gt;50g/km → special pool 6%. No AIA on any car.</li>
+        <li><b>SBA 3%</b> straight-line on commercial building cost — <b>exclude land</b>.</li>
+        <li>Small pools ≤£1,000 → write off in full.</li>
+      </ul>
+      <div class="warn">Two traps you've hit: (1) <b>forgetting to time-apportion the AIA/WDA</b> for a short or long accounting period; (2) <b>including land in SBA</b> qualifying cost — land never qualifies.</div>
+      <div class="hook"><b>"Cars get no AIA, ever."</b> And SBA is the <b>"building, not the ground"</b> — strip out land.</div>
+    </div>
+
+    <h3>Trading Losses — Individuals</h3>
+    <div class="card">
+      <table>
+        <tr><th>Relief</th><th>Against</th></tr>
+        <tr><td>Carry forward (default)</td><td>Future profits of the <b>same trade</b> only</td></tr>
+        <tr><td>s.64 current/prior year</td><td><b>Total income</b> of current and/or prior year (all-or-nothing, can't restrict to save PA)</td></tr>
+        <tr><td>Opening-years (s.72)</td><td>Total income of 3 years before, earliest first</td></tr>
+        <tr><td>Terminal loss (s.89)</td><td>Trade profits of final 12 months + prior 3 years</td></tr>
+      </table>
+      <div class="hook"><b>"Carry forward = same trade. Sideways (s.64) = any income."</b></div>
+      <div class="warn">Watch the cap: loss relief against <i>other</i> income is capped at the greater of £50,000 or 25% of adjusted total income.</div>
+    </div>
+
+    <h3>National Insurance — who pays what</h3>
+    <div class="card">
+      <table>
+        <tr><th>Class</th><th>Who</th><th>On / rate (FA2025 ref)</th></tr>
+        <tr><td>Class 1 primary</td><td>Employee</td><td>8% on £12,570–£50,270, 2% above</td></tr>
+        <tr><td>Class 1 secondary</td><td>Employer</td><td>15% above £5,000 threshold; Employment Allowance £10,500</td></tr>
+        <tr><td>Class 1A</td><td>Employer</td><td>15% on taxable benefits</td></tr>
+        <tr><td>Class 2</td><td>Self-employed</td><td>Flat; no longer payable if profit ≥ small-profits threshold (credit given)</td></tr>
+        <tr><td>Class 4</td><td>Self-employed</td><td>6% on £12,570–£50,270, 2% above (on trading profit)</td></tr>
+      </table>
+      <div class="warn">Your NIC traps, all in one place: <br>
+        • <b>Pension contributions do NOT reduce trading profit for Class 4</b> NIC. <br>
+        • <b>Employment Allowance applies to Class 1 secondary only — not Class 1A.</b> <br>
+        • <b>Single-director-only companies are excluded</b> from the Employment Allowance. <br>
+        • For part-year, <b>do NOT annualise before pro-rating</b> — apply the actual period's thresholds correctly.</div>
+      <div class="hook"><b>"1 = the job, 4 = the trade, 1A = the perks."</b> Employer pays for perks (1A) and the job (secondary); the employee pays primary.</div>
+    </div>
+
+    <h3>Property Income &amp; Pensions (quick)</h3>
+    <div class="grid2">
+      <div class="card">
+        <p class="lead">Property</p>
+        <ul class="tight">
+          <li>Cash basis default if receipts ≤ £150,000.</li>
+          <li>Finance/mortgage interest → <b>20% tax reducer</b>, not a deduction.</li>
+          <li>Replacement of domestic items relief (no initial cost).</li>
+          <li>Rent-a-room: £7,500 exemption.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="lead">Pensions</p>
+        <ul class="tight">
+          <li>Annual allowance £60,000 (tapered for high earners), 3-yr carry forward.</li>
+          <li>Tax relief on contributions up to higher of £3,600 or 100% of earnings.</li>
+          <li>Relief via band extension (above).</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ C ============ -->
+  <section id="cgt">
+    <h2 class="area">C · Chargeable Gains — Individuals</h2>
+
+    <div class="step">Per asset: Proceeds − cost − enhancement − selling costs = gain. Pool gains, deduct losses, deduct <b>Annual Exempt Amount £3,000</b>, then apply CGT rate. Losses b/f used only after AEA.</div>
+    <div class="card">
+      <table>
+        <tr><th>Asset / relief</th><th>Rate (FA2025 ref)</th></tr>
+        <tr><td>Normal gains — basic rate band / higher</td><td>18% / 24%</td></tr>
+        <tr><td>Business Asset Disposal Relief (BADR)</td><td>14% — lifetime limit £1m</td></tr>
+        <tr><td>Investors' relief</td><td>14% — lifetime limit £1m</td></tr>
+      </table>
+      <div class="hook">Gains <b>"sit on top"</b> of taxable income — fill the remaining basic-rate band at 18%, the rest at 24%. BADR gains use the band first.</div>
+    </div>
+
+    <h3>Reliefs — the four to know cold</h3>
+    <div class="card">
+      <table>
+        <tr><th>Relief</th><th>Trigger</th><th>Effect</th></tr>
+        <tr><td><b>PPR</b></td><td>Sale of main home</td><td>Exempt; last 9 months always count; letting relief limited</td></tr>
+        <tr><td><b>BADR</b></td><td>Sell whole/part of business, owned 2 yrs</td><td>14% rate</td></tr>
+        <tr><td><b>Gift (holdover) relief</b></td><td>Gift of business asset</td><td>Defers gain — rolls into donee's base cost</td></tr>
+        <tr><td><b>Rollover relief</b></td><td>Sell &amp; reinvest in qualifying business asset</td><td>Defers gain into new asset's cost</td></tr>
+      </table>
+      <div class="story">Think of <b>rollover relief as a "tax snowball"</b> — you roll the gain forward into the new asset and it grows until you finally stop reinvesting and it melts (becomes taxable).</div>
+    </div>
+
+    <h3>Special rules</h3>
+    <div class="grid2">
+      <div class="card">
+        <p class="lead">Chattels</p>
+        <ul class="tight">
+          <li>Cost &amp; proceeds ≤ £6,000 → exempt.</li>
+          <li>Proceeds &gt; £6,000, cost ≤ £6,000 → gain capped at <span class="num">5/3 × (proceeds − £6,000)</span>.</li>
+          <li>Wasting chattels (life ≤50 yrs) → exempt.</li>
+        </ul>
+        <div class="hook">"<b>6,000 is the chattel cushion</b>, and 5/3 is the cap rope."</div>
+      </div>
+      <div class="card">
+        <p class="lead">Shares — matching for individuals</p>
+        <ol class="tight">
+          <li>Same day</li>
+          <li>Next 30 days (bed &amp; breakfast)</li>
+          <li>Section 104 pool (average cost)</li>
+        </ol>
+        <p class="mini">Bonus/rights issues attach to the pool.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ D ============ -->
+  <section id="iht">
+    <h2 class="area">D · Inheritance Tax</h2>
+
+    <div class="step">Track every gift on a <b>7-year rolling clock</b>. Lifetime gifts use the Nil Rate Band first (oldest first); only the excess is taxed. On death, re-test gifts in the last 7 years, then tax the estate.</div>
+    <div class="card">
+      <table>
+        <tr><th>Transfer</th><th>Lifetime</th><th>On death within 7 yrs</th></tr>
+        <tr><td>PET (gift to individual)</td><td>No tax</td><td>Taxed if death within 7 yrs</td></tr>
+        <tr><td>CLT (gift to trust)</td><td>20% (if donor pays) on excess over NRB</td><td>Re-charged at 40%, less lifetime tax paid</td></tr>
+        <tr><td>Death estate</td><td>—</td><td>40% (36% if ≥10% to charity)</td></tr>
+      </table>
+      <ul class="tight">
+        <li><b>Nil Rate Band £325,000</b>; transferable unused % to spouse.</li>
+        <li><b>Residence NRB £175,000</b> — main home to direct descendants; tapered if estate &gt; £2m.</li>
+        <li><b>Taper relief</b> on tax (not value): 3–4 yrs 20% off, 4–5 yrs 40%, 5–6 yrs 60%, 6–7 yrs 80%.</li>
+      </ul>
+      <div class="hook">Exemptions to fire first: <b>£3,000 annual</b> (1 yr carry-back), <b>£250 small gifts</b>, marriage (£5,000 parent / £2,500 grandparent / £1,000 other), <b>normal expenditure out of income</b>, and unlimited <b>spouse &amp; charity</b>.</div>
+      <div class="story">Picture a <b>candle (the NRB) burning down over 7 years</b>. Each gift takes a chunk. Die, and the tax-man re-lights the candle for everything in the last 7 years — but taper relief shaves the tax the longer ago the gift was.</div>
+      <div class="warn">Taper relief reduces the <b>tax</b>, never the gross gift value — a classic mark-loser.</div>
+    </div>
+  </section>
+
+  <!-- ============ E ============ -->
+  <section id="ct">
+    <h2 class="area">E · Corporation Tax</h2>
+
+    <h3>The computation &amp; the rate decision</h3>
+    <div class="step">Trading profit (after capital allowances) + property + non-trade interest + chargeable gains − qualifying donations = <b>TTP</b>. Then test the rate using <b>augmented profits</b>.</div>
+    <div class="card">
+      <table>
+        <tr><th>Augmented profits</th><th>Rate (FY2025 ref)</th></tr>
+        <tr><td>≤ £50,000 (lower limit)</td><td>Small profits rate 19%</td></tr>
+        <tr><td>£50,001 – £250,000</td><td>25% with <b>marginal relief (3/200)</b></td></tr>
+        <tr><td>&gt; £250,000 (upper limit)</td><td>Main rate 25%</td></tr>
+      </table>
+      <p><b>MR</b> = 3/200 × (£250,000 − Augmented profits) × (TTP ÷ Augmented profits)</p>
+      <ul class="tight">
+        <li><b>Augmented profits = TTP + non-group exempt dividends.</b></li>
+        <li><b>Associated companies</b> divide both limits (÷ number of associates).</li>
+        <li>Limits are time-apportioned for short periods; a long period is split into 12m + remainder.</li>
+      </ul>
+      <div class="warn">Your dividend trap, nailed down: <b>intra-group dividends are excluded from BOTH TTP and augmented profits</b>. <b>Non-group exempt dividends</b> are still excluded from TTP but <b>ARE added to augmented profits</b> — for rate banding only. And remember associates <b>halve the band limits</b>.</div>
+      <div class="hook">Marginal relief lives in the <b>"50k–250k corridor."</b> Below it = 19%; above = 25%; inside = 25% minus the 3/200 trim.</div>
+    </div>
+
+    <h3>Company Losses</h3>
+    <div class="card">
+      <table>
+        <tr><th>Loss</th><th>Relief</th></tr>
+        <tr><td>Trading loss</td><td>Current year vs total profits; carry back 12 months; carry forward vs total profits (with restriction over £5m)</td></tr>
+        <tr><td>Capital loss</td><td>Only vs current/future chargeable gains</td></tr>
+      </table>
+    </div>
+
+    <h3>Groups — two different tests (don't mix them!)</h3>
+    <div class="grid2">
+      <div class="card">
+        <p class="lead">Group relief group (75%)</p>
+        <ul class="tight">
+          <li>≥75% direct/indirect holding throughout.</li>
+          <li>Surrender <b>current-year</b> losses (trading, excess interest, etc.) between members.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="lead">Chargeable gains group</p>
+        <ul class="tight">
+          <li>Each link ≥75%, but only <b>&gt;50% effective interest</b> from the top.</li>
+          <li>Assets transferred at <b>no gain/no loss</b>; can match gains &amp; losses.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="warn">Twice-recorded trap: <b>do NOT apply the 75% group-relief test to a chargeable-gains group.</b> Gains group needs each link ≥75% but only &gt;50% effective overall.</div>
+    <div class="warn">And: <b>brought-forward losses are NOT surrenderable for group relief</b> — only current-year losses go sideways. (You've slipped on this before.)</div>
+    <div class="hook"><b>"75% to lend a loss, 50%-effective to share a gain."</b></div>
+
+    <h3>Company self assessment</h3>
+    <div class="card">
+      <ul class="tight">
+        <li>File return &amp; pay tax: <b>9 months + 1 day</b> after period end (small/medium companies).</li>
+        <li>File return: within 12 months of period end.</li>
+        <li>Large companies (&gt;£1.5m profit): pay by <b>quarterly instalments</b>.</li>
+      </ul>
+      <div class="hook">"<b>Nine-and-a-day</b>" is the small-company pay date — easy to write, easy to lose if forgotten.</div>
+    </div>
+  </section>
+
+  <!-- ============ F ============ -->
+  <section id="vat">
+    <h2 class="area">F · Value Added Tax</h2>
+
+    <h3>Registration &amp; deregistration</h3>
+    <div class="card">
+      <ul class="tight">
+        <li><b>Compulsory registration</b> — <b>historic test:</b> taxable supplies &gt; <b>£90,000</b> in the last 12 months → register within 30 days, effective from the start of the next month. <b>Future test:</b> will exceed £90,000 in the next 30 days alone → register immediately.</li>
+        <li><b>Deregister</b> if turnover expected &lt; <b>£88,000</b>.</li>
+        <li>Voluntary registration lets you recover input tax — good if customers are VAT-registered or you make zero-rated supplies.</li>
+      </ul>
+      <div class="hook"><b>"90 in, 88 out."</b> Register over 90k, leave under 88k.</div>
+    </div>
+
+    <h3>Output vs input tax</h3>
+    <div class="card">
+      <ul class="tight">
+        <li>Standard 20%, zero-rated 0% (recover input), exempt (no recovery).</li>
+        <li><b>Irrecoverable input VAT:</b> client entertaining and <b>cars with any private use</b> (the purchase). Fuel can be recovered with a scale charge.</li>
+        <li>Tax point = basic (delivery), overridden by invoice/payment within 14 days.</li>
+        <li>Bad debt relief: debt &gt;6 months old &amp; written off.</li>
+      </ul>
+      <div class="hook">"<b>Cars and canapés can't be claimed</b>" — the two famous blocked inputs (private-use cars &amp; entertaining).</div>
+    </div>
+
+    <h3>Schemes (when each helps)</h3>
+    <div class="card">
+      <table>
+        <tr><th>Scheme</th><th>Threshold</th><th>Why use it</th></tr>
+        <tr><td>Cash accounting</td><td>≤£1.35m</td><td>Account for VAT on payment — automatic bad-debt relief, cash-flow help</td></tr>
+        <tr><td>Annual accounting</td><td>≤£1.35m</td><td>One return a year + instalments — less admin</td></tr>
+        <tr><td>Flat rate</td><td>≤£150,000</td><td>Pay fixed % of gross turnover — simple, no input tracking</td></tr>
+      </table>
+      <div class="hook"><b>"Cash &amp; Annual share the 1.35m gate; Flat rate is the 150k small-trader door."</b></div>
+    </div>
+
+    <h3>Returns &amp; penalties</h3>
+    <div class="card">
+      <ul class="tight">
+        <li>Return &amp; payment: <b>1 month + 7 days</b> after quarter end.</li>
+        <li>Late submission = <b>points-based</b> system; threshold reached → £200 penalties.</li>
+        <li>Default surcharge replaced by separate late-payment penalties + interest.</li>
+      </ul>
+      <div class="story">VAT lateness is now like a <b>driving licence</b> — you collect points for each late return, and once you hit the limit the fines start. One slip is a warning; a habit gets punished.</div>
+    </div>
+  </section>
+
+  <!-- ===== Exam technique ===== -->
+  <section>
+    <h2 class="area">⏱️ Final Exam-Day Technique</h2>
+    <div class="card">
+      <ul class="tight">
+        <li><b>1.8 minutes per mark.</b> Section C 10-markers ≈ 18 mins — set the proforma skeleton first, then fill numbers.</li>
+        <li><b>Open the tax table page before you start</b> — never recall a rate from memory.</li>
+        <li>Show workings as labelled W1, W2 — method marks survive arithmetic slips.</li>
+        <li>State <b>dates and rules in words</b> (POA dates, "no gain/no loss", "exempt") — they are marks.</li>
+        <li>Target 75 marks of confident attempts; don't over-invest in one part.</li>
+      </ul>
+      <div class="hook">Your personal pre-flight checklist: <b>private-use only for owners · time-apportion CAs · land out of SBA · b/f losses can't be surrendered · taper cuts tax not value · POA dates in words.</b></div>
+    </div>
+  </section>
+
+  <div class="footer">
+    ACCA TX-UK · Finance Act 2025 · condensed revision aid. Reference figures verify against your exam tax tables. Good luck on 2 June. 🍀
+  </div>
+
+</div>
+</body>
+</html>

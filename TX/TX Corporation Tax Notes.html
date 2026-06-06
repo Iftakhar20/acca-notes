@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACCA TX – Corporation Tax | June 2026</title>
+<style>
+  :root {
+    --acca: #6b1c6e;
+    --acca-light: #f3eaf4;
+    --accent: #d4a017;
+    --text: #1a1a2e;
+    --muted: #5a5a7a;
+    --border: #ddd;
+    --pass: #1a7a3e;
+    --pass-bg: #eafaf1;
+    --warn: #a04000;
+    --warn-bg: #fff3e0;
+    --info: #1a4fa0;
+    --info-bg: #e8f0fe;
+    --card: #ffffff;
+    --bg: #f7f7fb;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.7; }
+
+  /* ── HEADER ── */
+  header { background: var(--acca); color: #fff; padding: 32px 40px 24px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,.3); }
+  header h1 { font-size: 1.7rem; font-weight: 700; letter-spacing: .3px; }
+  header p { font-size: .92rem; opacity: .85; margin-top: 4px; }
+  .exam-badge { display: inline-block; background: var(--accent); color: #1a1a1a; font-weight: 700; font-size: .8rem; padding: 3px 10px; border-radius: 20px; margin-left: 12px; vertical-align: middle; }
+
+  /* ── LAYOUT ── */
+  .container { display: flex; gap: 0; max-width: 1280px; margin: 0 auto; }
+  nav { width: 270px; min-width: 240px; background: #fff; border-right: 1px solid var(--border); padding: 24px 0; position: sticky; top: 78px; height: calc(100vh - 78px); overflow-y: auto; }
+  nav h3 { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); padding: 0 20px 8px; border-bottom: 1px solid var(--border); margin-bottom: 8px; }
+  nav a { display: block; padding: 7px 20px; font-size: .88rem; color: var(--text); text-decoration: none; border-left: 3px solid transparent; transition: all .15s; }
+  nav a:hover { background: var(--acca-light); color: var(--acca); border-left-color: var(--acca); }
+  nav .section-label { font-size: .72rem; font-weight: 700; text-transform: uppercase; color: var(--muted); padding: 14px 20px 3px; letter-spacing: .8px; }
+  main { flex: 1; padding: 32px 40px 60px; overflow-x: hidden; }
+
+  /* ── SECTIONS ── */
+  .section { background: var(--card); border-radius: 10px; border: 1px solid var(--border); padding: 28px 32px; margin-bottom: 28px; box-shadow: 0 1px 4px rgba(0,0,0,.05); }
+  h2.sec-title { font-size: 1.25rem; color: var(--acca); border-bottom: 2px solid var(--acca); padding-bottom: 8px; margin-bottom: 18px; display: flex; align-items: center; gap: 10px; }
+  h2.sec-title .num { background: var(--acca); color: #fff; border-radius: 50%; width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center; font-size: .85rem; font-weight: 700; flex-shrink: 0; }
+  h3 { font-size: 1.05rem; color: var(--acca); margin: 20px 0 10px; }
+  h4 { font-size: .95rem; color: var(--text); font-weight: 700; margin: 14px 0 6px; }
+  p { margin-bottom: 10px; }
+  ul, ol { padding-left: 22px; margin-bottom: 10px; }
+  li { margin-bottom: 4px; }
+
+  /* ── CALLOUTS ── */
+  .tip   { background: var(--pass-bg); border-left: 4px solid var(--pass); border-radius: 0 6px 6px 0; padding: 12px 16px; margin: 14px 0; }
+  .warn  { background: var(--warn-bg); border-left: 4px solid var(--warn); border-radius: 0 6px 6px 0; padding: 12px 16px; margin: 14px 0; }
+  .info  { background: var(--info-bg); border-left: 4px solid var(--info); border-radius: 0 6px 6px 0; padding: 12px 16px; margin: 14px 0; }
+  .tip strong, .warn strong, .info strong { display: block; margin-bottom: 4px; font-size: .85rem; text-transform: uppercase; letter-spacing: .5px; }
+  .tip strong { color: var(--pass); }
+  .warn strong { color: var(--warn); }
+  .info strong { color: var(--info); }
+
+  /* ── TABLES ── */
+  .tbl-wrap { overflow-x: auto; margin: 14px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+  th { background: var(--acca); color: #fff; padding: 9px 13px; text-align: left; font-weight: 600; }
+  td { padding: 8px 13px; border-bottom: 1px solid var(--border); }
+  tr:nth-child(even) td { background: var(--acca-light); }
+  .num-col { text-align: right; font-family: 'Courier New', monospace; }
+  tfoot td { font-weight: 700; border-top: 2px solid var(--acca); background: #f0e8f0; }
+
+  /* ── COMPUTATION BOX ── */
+  .comp { background: #fafafa; border: 1px solid var(--border); border-radius: 8px; padding: 20px 24px; margin: 16px 0; }
+  .comp h4 { color: var(--acca); font-size: .98rem; margin-bottom: 12px; }
+  .comp-row { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px dashed #e0e0e0; font-size: .9rem; }
+  .comp-row:last-child { border-bottom: none; }
+  .comp-row.total { border-top: 2px solid var(--acca); border-bottom: none; font-weight: 700; margin-top: 4px; padding-top: 8px; color: var(--acca); }
+  .comp-row.sub { padding-left: 16px; color: var(--muted); }
+  .comp-row .label { flex: 1; }
+  .comp-row .value { font-family: 'Courier New', monospace; min-width: 110px; text-align: right; }
+  .comp-row .note { font-size: .78rem; color: var(--muted); margin-left: 8px; }
+
+  /* ── FORMULA CHIP ── */
+  .formula { display: inline-block; background: var(--acca); color: #fff; border-radius: 6px; padding: 6px 14px; font-family: 'Courier New', monospace; font-size: .9rem; margin: 6px 0; }
+
+  /* ── EXAMPLE HEADER ── */
+  .eg-head { background: var(--accent); color: #1a1a1a; padding: 6px 16px; border-radius: 6px 6px 0 0; font-weight: 700; font-size: .85rem; margin-bottom: 0; }
+  .eg-body { border: 2px solid var(--accent); border-top: none; border-radius: 0 0 6px 6px; padding: 16px; margin-bottom: 16px; }
+
+  /* ── RATES TABLE HIGHLIGHT ── */
+  .rate-card { display: inline-block; background: var(--acca); color: #fff; border-radius: 8px; padding: 14px 22px; margin: 6px 8px 6px 0; text-align: center; min-width: 130px; }
+  .rate-card .rate { font-size: 1.8rem; font-weight: 700; line-height: 1; }
+  .rate-card .label { font-size: .78rem; opacity: .85; margin-top: 4px; }
+  .rate-card.gold { background: var(--accent); color: #1a1a1a; }
+
+  /* ── TOP INTRO ── */
+  .intro-banner { background: linear-gradient(135deg, var(--acca) 0%, #9b2fae 100%); color: #fff; border-radius: 10px; padding: 24px 30px; margin-bottom: 28px; }
+  .intro-banner h2 { font-size: 1.1rem; margin-bottom: 8px; }
+  .intro-banner ul { padding-left: 20px; opacity: .9; font-size: .92rem; }
+
+  /* ── FOOTER ── */
+  footer { background: var(--acca); color: rgba(255,255,255,.7); text-align: center; padding: 16px; font-size: .8rem; }
+
+  @media(max-width: 900px){
+    nav { display: none; }
+    main { padding: 20px 16px 40px; }
+    header { padding: 18px 20px 14px; }
+    header h1 { font-size: 1.3rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>📊 Corporation Tax — Comprehensive Notes & Tutorial
+    <span class="exam-badge">TX-UK • June 2026</span>
+  </h1>
+  <p>Syllabus Section E | FA 2025 | Based on ACCA J26–J27 Tax Tables & Official Study Guide</p>
+</header>
+
+<div class="container">
+<!-- ════════════════════════════ SIDEBAR NAV ════════════════════════════ -->
+<nav>
+  <h3>Contents</h3>
+  <div class="section-label">E1 — Scope</div>
+  <a href="#e1">Accounting Period & Residence</a>
+  <div class="section-label">E2 — Taxable Total Profits</div>
+  <a href="#trading">Trading Profit (Tax-Adjusted)</a>
+  <a href="#capital-allowances">Capital Allowances</a>
+  <a href="#property">Property Business Profits</a>
+  <a href="#loan">Loan Relationships</a>
+  <a href="#donations">Charitable Donations</a>
+  <a href="#ttp">TTP Proforma</a>
+  <a href="#losses">Trading Losses</a>
+  <div class="section-label">E3 — Chargeable Gains</div>
+  <a href="#cg">Gains Computation</a>
+  <a href="#indexation">Indexation Allowance</a>
+  <a href="#shares">Share Disposals</a>
+  <a href="#rollover">Rollover Relief</a>
+  <div class="section-label">E4 — CT Liability</div>
+  <a href="#rates">Tax Rates & Marginal Relief</a>
+  <a href="#payment">Payment & Filing</a>
+  <div class="section-label">E5 — Groups</div>
+  <a href="#groups">Group Reliefs</a>
+  <div class="section-label">Practice</div>
+  <a href="#examples">Worked Examples</a>
+  <a href="#quick-ref">Quick Reference</a>
+</nav>
+
+<!-- ════════════════════════════ MAIN CONTENT ════════════════════════════ -->
+<main>
+
+  <div class="intro-banner">
+    <h2>🎯 What to Expect in the Exam</h2>
+    <ul>
+      <li>One <strong>15-mark question</strong> focused on corporation tax (Section E) — mandatory</li>
+      <li>Tests: TTP computation, CT liability, marginal relief, losses, gains, groups</li>
+      <li>Target: 60–70 marks overall — aim to score 10–12 on this question</li>
+      <li>FA2025 applies — Financial Year 2025 rates (main rate 25%, small profits rate 19%)</li>
+    </ul>
+  </div>
+
+<!-- ════ SECTION E1 ════ -->
+<div class="section" id="e1">
+  <h2 class="sec-title"><span class="num">E1</span> The Scope of Corporation Tax</h2>
+
+  <h3>Key Definitions</h3>
+  <div class="tbl-wrap">
+  <table>
+    <tr><th>Term</th><th>Definition</th></tr>
+    <tr><td><strong>Period of Account</strong></td><td>Any period for which a company draws up accounts (can be up to 18 months for a new company). NOT necessarily equal to 12 months.</td></tr>
+    <tr><td><strong>Accounting Period (AP)</strong></td><td>The period for which CT is charged. Maximum 12 months. If accounts > 12 months, split into two APs: first 12 months + remainder.</td></tr>
+    <tr><td><strong>Financial Year (FY)</strong></td><td>Runs 1 April to 31 March. FY2025 = 1 April 2025 to 31 March 2026. Tax rates are set per FY.</td></tr>
+  </table>
+  </div>
+
+  <h3>When Does an Accounting Period Start?</h3>
+  <ul>
+    <li>When a company comes within the charge to CT (e.g., starts trading)</li>
+    <li>Immediately after the end of the previous AP</li>
+    <li>When it acquires a source of income after a dormant period</li>
+  </ul>
+
+  <h3>When Does an Accounting Period End?</h3>
+  <ul>
+    <li>12 months after it started</li>
+    <li>At the end of the company's period of account (e.g., year-end)</li>
+    <li>When the company starts/stops trading</li>
+    <li>When the company goes into liquidation</li>
+  </ul>
+
+  <div class="warn">
+    <strong>⚠️ Exam Trap</strong>
+    If a company prepares accounts for 15 months (say 1 Jan 2025 to 31 Mar 2026), this creates <strong>two APs</strong>: AP1 = 1 Jan 2025 to 31 Dec 2025 (12 months) and AP2 = 1 Jan 2026 to 31 Mar 2026 (3 months). Profits must be time-apportioned between the two APs.
+  </div>
+
+  <h3>Residence</h3>
+  <p>A company is <strong>UK resident</strong> if:</p>
+  <ul>
+    <li>Incorporated in the UK (automatic residency), <strong>or</strong></li>
+    <li>Its central management and control (board decisions) is exercised in the UK (common law test)</li>
+  </ul>
+  <p>UK-resident companies pay CT on worldwide profits. Non-resident companies only pay CT on UK-source trading profits through a UK permanent establishment.</p>
+
+  <div class="tip">
+    <strong>✅ Excluded from TX syllabus</strong>
+    Investment companies, close companies, reorganisations, personal service companies — you will NOT be tested on these.
+  </div>
+</div>
+
+<!-- ════ SECTION E2 — TRADING PROFIT ════ -->
+<div class="section" id="trading">
+  <h2 class="sec-title"><span class="num">E2a</span> Tax-Adjusted Trading Profit</h2>
+
+  <p>Start with <strong>accounting profit</strong>, then make tax adjustments. The rules are broadly the same as for a sole trader, but with some differences for companies.</p>
+
+  <h3>Adjustments to Accounting Profit</h3>
+
+  <h4>Add Back (Disallow):</h4>
+  <ul>
+    <li>Depreciation and amortisation (replaced by capital allowances)</li>
+    <li>Capital expenditure incorrectly charged to P&amp;L</li>
+    <li>Entertaining customers (UK or overseas — both disallowed)</li>
+    <li>Fines and penalties</li>
+    <li>Political donations</li>
+    <li>Excessive salary to a shareholder-director (if not arm's length)</li>
+    <li>Non-trade losses</li>
+  </ul>
+
+  <h4>Deduct (Allow):</h4>
+  <ul>
+    <li>Capital allowances (added as a separate deduction)</li>
+    <li>Pre-trading expenditure (incurred within 7 years before trade starts — treated as incurred on day 1 of trading)</li>
+    <li>Employee entertaining — fully deductible</li>
+    <li>Staff costs, rent, rates, insurance — all allowable</li>
+    <li>Legal fees relating to revenue matters (e.g., debt collection, renewing short leases)</li>
+  </ul>
+
+  <div class="warn">
+    <strong>⚠️ Common Mistakes</strong>
+    Legal fees for acquiring capital assets = disallowed. Legal fees for renewing a short lease = allowed. Entertaining staff = allowed. Entertaining customers = always disallowed.
+  </div>
+
+  <h3>Key Differences vs Income Tax (Sole Trader)</h3>
+  <div class="tbl-wrap">
+  <table>
+    <tr><th>Item</th><th>Sole Trader (IT)</th><th>Company (CT)</th></tr>
+    <tr><td>Loan interest paid</td><td>Deducted in trading profit</td><td>Loan relationships rules — separate deduction</td></tr>
+    <tr><td>Loan interest received</td><td>Taxed as savings income</td><td>Taxed as non-trade loan relationship credit</td></tr>
+    <tr><td>Charitable donations</td><td>Gift Aid — under personal tax</td><td>Qualifying charitable donations — deducted from TTP</td></tr>
+    <tr><td>Capital gains</td><td>CGT applies</td><td>Chargeable gains — taxed as part of TTP</td></tr>
+  </table>
+  </div>
+</div>
+
+<!-- ════ CAPITAL ALLOWANCES ════ -->
+<div class="section" id="capital-allowances">
+  <h2 class="sec-title"><span class="num">E2b</span> Capital Allowances for Companies</h2>
+
+  <p>Companies claim capital allowances instead of accounting depreciation. The rules mirror income tax, with one important addition: the <strong>Full Expensing (100% FYA)</strong> on main pool assets and <strong>50% FYA</strong> on special rate pool assets for new assets only.</p>
+
+  <h3>Rates from Tax Tables (FA2025)</h3>
+  <div class="tbl-wrap">
+  <table>
+    <tr><th>Pool / Asset</th><th>Rate</th><th>Notes</th></tr>
+    <tr><td>Annual Investment Allowance (AIA)</td><td>100%</td><td>Limit: £1,000,000 per AP. Most plant & machinery qualifies. NOT available to individuals for cars.</td></tr>
+    <tr><td>Main Pool (WDA)</td><td>18% reducing balance</td><td>General plant, machinery, cars (1–50g CO₂)</td></tr>
+    <tr><td>Special Rate Pool (WDA)</td><td>6% reducing balance</td><td>High-emission cars (>50g CO₂), integral features, long-life assets</td></tr>
+    <tr><td>Full Expensing — Main Pool FYA</td><td>100%</td><td>New (not second-hand) main pool assets only. No disposal proceeds deducted on sale — add 100% of proceeds back to pool.</td></tr>
+    <tr><td>Special Rate FYA</td><td>50%</td><td>New special rate assets only (excl. cars)</td></tr>
+    <tr><td>New car — zero CO₂</td><td>100%</td><td>First year allowance</td></tr>
+    <tr><td>Second-hand car — zero or 1–50g CO₂</td><td>18%</td><td>Main pool WDA</td></tr>
+    <tr><td>Car — over 50g CO₂</td><td>6%</td><td>Special rate pool WDA</td></tr>
+    <tr><td>Structures & Buildings Allowance</td><td>3% straight-line</td><td>On cost of new commercial buildings</td></tr>
+  </table>
+  </div>
+
+  <div class="info">
+    <strong>ℹ️ Full Expensing (FE) — Key Rule</strong>
+    Full expensing (100% FYA) replaced the super-deduction from April 2023. When an asset on which FE was claimed is <strong>sold</strong>, a 100% balancing charge applies (i.e., proceeds are added back in full — there is no pool balance to net off against).
+  </div>
+
+  <h3>Short Accounting Periods</h3>
+  <p>AIA limit and WDA percentages are time-apportioned for APs shorter than 12 months. For example, for a 9-month AP:</p>
+  <ul>
+    <li>AIA limit = £1,000,000 × 9/12 = £750,000</li>
+    <li>WDA main pool = 18% × 9/12 = 13.5%</li>
+  </ul>
+
+  <div class="eg-head">📝 Example — Capital Allowances Computation (12-month AP)</div>
+  <div class="eg-body">
+    <p>Zara Ltd has the following for the year ending 31 March 2026:</p>
+    <ul>
+      <li>Main pool b/f: £40,000</li>
+      <li>New machinery purchased (main pool): £80,000 — Full expensing claimed</li>
+      <li>Secondhand car (40g CO₂): £18,000 — added to main pool</li>
+      <li>Plant disposed of: £12,000 proceeds (original cost £15,000, pool asset)</li>
+    </ul>
+
+    <div class="tbl-wrap">
+    <table>
+      <tr><th></th><th class="num-col">Main Pool £</th><th class="num-col">Allowances £</th></tr>
+      <tr><td>TWDV b/f</td><td class="num-col">40,000</td><td class="num-col"></td></tr>
+      <tr><td>Addition — Full Expensing (£80,000 new machinery)</td><td class="num-col">—</td><td class="num-col">80,000 (100% FYA)</td></tr>
+      <tr><td>Addition — secondhand car (no AIA)</td><td class="num-col">18,000</td><td class="num-col"></td></tr>
+      <tr><td>Disposal proceeds</td><td class="num-col">(12,000)</td><td class="num-col"></td></tr>
+      <tr><td>Balance before WDA</td><td class="num-col">46,000</td><td class="num-col"></td></tr>
+      <tr><td>WDA @ 18%</td><td class="num-col">(8,280)</td><td class="num-col">8,280</td></tr>
+      <tr><td>TWDV c/f</td><td class="num-col">37,720</td><td class="num-col"></td></tr>
+      <tfoot><tr><td>Total Capital Allowances</td><td></td><td class="num-col">88,280</td></tr></tfoot>
+    </table>
+    </div>
+    <p class="info" style="padding:8px 12px; font-size:.87rem;">Note: AIA is available but Full Expensing gives 100% in year so both give the same result here. AIA would be used if asset is not new.</p>
+  </div>
+</div>
+
+<!-- ════ PROPERTY ════ -->
+<div class="section" id="property">
+  <h2 class="sec-title"><span class="num">E2c</span> Property Business Profits</h2>
+  <p>Companies compute property business profits the same way as income tax: rental income less allowable expenses (mortgage interest is <strong>fully deductible</strong> for companies — there is NO finance cost restriction that applies to individuals).</p>
+  <ul>
+    <li>Accruals basis applies</li>
+    <li>All UK property income pooled together</li>
+    <li>Capital allowances available on fixtures in commercial property</li>
+    <li>Furnished holiday lettings rules do NOT apply for CT (they applied for IT only and were abolished from April 2025 anyway)</li>
+  </ul>
+
+  <h3>Property Business Loss</h3>
+  <p>A property business loss is carried forward and set against <strong>future property income only</strong>. It cannot be surrendered as group relief or offset against general profits.</p>
+
+  <div class="warn">
+    <strong>⚠️ Exam Key Point</strong>
+    For companies, loan interest on property borrowing = fully deductible (loan relationships). For individuals, restricted to 20% basic rate relief. Examiner often tests this difference.
+  </div>
+</div>
+
+<!-- ════ LOAN RELATIONSHIPS ════ -->
+<div class="section" id="loan">
+  <h2 class="sec-title"><span class="num">E2d</span> Loan Relationship Rules</h2>
+
+  <p>Companies do not simply deduct interest paid and credit interest received through trading profit. Instead, the <strong>loan relationship</strong> rules apply:</p>
+
+  <div class="tbl-wrap">
+  <table>
+    <tr><th>Type</th><th>Treatment</th><th>Included in TTP as</th></tr>
+    <tr><td>Interest paid on a trading loan (e.g., overdraft for the business)</td><td>Trading loan relationship — debit</td><td>Deducted from trading profit</td></tr>
+    <tr><td>Interest paid on a non-trading loan (e.g., to buy investments)</td><td>Non-trading loan relationship — debit</td><td>Deducted from TTP as a separate item</td></tr>
+    <tr><td>Interest received on cash deposits, intercompany loans, bonds</td><td>Non-trading loan relationship — credit</td><td>Added to TTP as a separate income item</td></tr>
+  </table>
+  </div>
+
+  <div class="tip">
+    <strong>✅ Simple Rule for TX</strong>
+    In most TX exam questions, the examiner will tell you whether interest is "trading" or not. If it's bank interest received — always add to TTP. If it's bank loan interest on the trade — deduct in trading profit. Interest on investment loans — deduct separately.
+  </div>
+</div>
+
+<!-- ════ DONATIONS ════ -->
+<div class="section" id="donations">
+  <h2 class="sec-title"><span class="num">E2e</span> Qualifying Charitable Donations</h2>
+  <ul>
+    <li>Cash donations by a company to UK-registered charities = <strong>qualifying charitable donations (QCDs)</strong></li>
+    <li>Deducted from Taxable Total Profits (after trading profit, property income, gains, loan relationships are all added)</li>
+    <li>Cannot create or increase a loss — if TTP is insufficient, the excess is simply lost</li>
+    <li>No grossing up required (unlike Gift Aid for individuals)</li>
+  </ul>
+  <div class="warn">
+    <strong>⚠️ Note</strong>
+    QCDs are deducted <em>after</em> TTP is arrived at — not within trading profit. Loss relief claims are set off before QCDs. QCDs cannot be carried back or forward.
+  </div>
+</div>
+
+<!-- ════ TTP PROFORMA ════ -->
+<div class="section" id="ttp">
+  <h2 class="sec-title"><span class="num">E2f</span> Taxable Total Profits (TTP) — Proforma</h2>
+
+  <div class="comp">
+    <h4>Standard TTP Computation Proforma</h4>
+    <div class="comp-row"><span class="label">Tax-adjusted trading profit</span><span class="value">X</span></div>
+    <div class="comp-row sub"><span class="label">(Less: capital allowances included above)</span><span class="value">(X)</span></div>
+    <div class="comp-row"><span class="label">Property business profit</span><span class="value">X</span></div>
+    <div class="comp-row"><span class="label">Non-trading loan relationship credits (interest received)</span><span class="value">X</span></div>
+    <div class="comp-row"><span class="label">Non-trading loan relationship debits (non-trade interest paid)</span><span class="value">(X)</span></div>
+    <div class="comp-row"><span class="label">Chargeable gains</span><span class="value">X</span></div>
+    <div class="comp-row total"><span class="label">Total profits</span><span class="value">X</span></div>
+    <div class="comp-row"><span class="label">Less: qualifying charitable donations</span><span class="value">(X)</span></div>
+    <div class="comp-row total"><span class="label">Taxable Total Profits (TTP)</span><span class="value">X</span></div>
+  </div>
+</div>
+
+<!-- ════ LOSSES ════ -->
+<div class="section" id="losses">
+  <h2 class="sec-title"><span class="num">E2g</span> Trading Losses — Companies</h2>
+
+  <h3>Option 1: Carry Forward</h3>
+  <ul>
+    <li>Carried forward indefinitely against <strong>total profits</strong> (post April 2017 losses) — company can choose how much to relieve</li>
+    <li>Pre-April 2017 losses: only against future trading profits of the same trade</li>
+    <li>Exam tip: assume losses are post-April 2017 unless stated otherwise (and the syllabus excludes the £5m restriction)</li>
+  </ul>
+
+  <h3>Option 2: Claim Against Current Period Total Profits</h3>
+  <ul>
+    <li>Current year claim: set against total profits of the AP in which the loss arose</li>
+    <li>Must be claimed within 2 years of the end of the loss-making AP</li>
+    <li>Relief is for the <strong>full loss</strong> — cannot claim part (but QCDs may then be wasted)</li>
+  </ul>
+
+  <h3>Option 3: Carry Back Against Previous Period</h3>
+  <ul>
+    <li>After a current year claim, can carry back up to <strong>12 months</strong> before the start of the loss AP</li>
+    <li>Set against total profits of the earlier AP</li>
+  </ul>
+
+  <h3>Option 4: Group Relief</h3>
+  <p>Losses can be surrendered to group members (see Section E5).</p>
+
+  <div class="tbl-wrap">
+  <table>
+    <tr><th>Option</th><th>Against What?</th><th>Timeframe</th><th>Flexibility?</th></tr>
+    <tr><td>Carry forward</td><td>Future total profits</td><td>Indefinite</td><td>Yes — choose amount</td></tr>
+    <tr><td>Current year</td><td>Current period total profits</td><td>Same AP</td><td>No — all or nothing</td></tr>
+    <tr><td>Carry back</td><td>Prior period total profits</td><td>12 months back</td><td>No — all or nothing</td></tr>
+    <tr><td>Group relief</td><td>Group member's total profits</td><td>Same AP</td><td>Yes — choose amount</td></tr>
+  </table>
+  </div>
+
+  <h3>Factors Influencing Choice of Relief</h3>
+  <ul>
+    <li>Speed of relief (carry back = fastest cash repayment)</li>
+    <li>Marginal rate: if carry back offsets 25% CT vs carry forward at 19%, prefer carry back</li>
+    <li>Impact on QCDs: current year/carry back claim = QCDs may be wasted</li>
+    <li>Cash flow needs of the company</li>
+  </ul>
+
+  <div class="eg-head">📝 Example — Loss Relief</div>
+  <div class="eg-body">
+    <p>Bolt Ltd has the following results:</p>
+    <div class="tbl-wrap">
+    <table>
+      <tr><th></th><th class="num-col">Year ended 31 Mar 2025 £</th><th class="num-col">Year ended 31 Mar 2026 £</th></tr>
+      <tr><td>Trading profit / (loss)</td><td class="num-col">120,000</td><td class="num-col">(90,000)</td></tr>
+      <tr><td>Property income</td><td class="num-col">15,000</td><td class="num-col">15,000</td></tr>
+      <tr><td>Qualifying charitable donations</td><td class="num-col">5,000</td><td class="num-col">5,000</td></tr>
+    </table>
+    </div>
+
+    <p><strong>Option A — Current year + Carry back:</strong></p>
+    <div class="comp">
+      <div class="comp-row"><span class="label">Year ended 31 Mar 2026 — Total profits</span><span class="value">15,000</span></div>
+      <div class="comp-row"><span class="label">Current year claim (loss)</span><span class="value">(15,000)</span></div>
+      <div class="comp-row total"><span class="label">TTP</span><span class="value">nil</span></div>
+      <div class="comp-row sub"><span class="label">QCDs wasted: £5,000</span><span class="value"></span></div>
+      <div class="comp-row"><span class="label">Remaining loss to carry back: £90,000 − £15,000 =</span><span class="value">75,000</span></div>
+      <div class="comp-row"><span class="label">Year ended 31 Mar 2025 — Total profits</span><span class="value">135,000</span></div>
+      <div class="comp-row"><span class="label">Carry back claim</span><span class="value">(75,000)</span></div>
+      <div class="comp-row"><span class="label">Less: QCDs</span><span class="value">(5,000)</span></div>
+      <div class="comp-row total"><span class="label">TTP</span><span class="value">55,000</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ CHARGEABLE GAINS ════ -->
+<div class="section" id="cg">
+  <h2 class="sec-title"><span class="num">E3a</span> Chargeable Gains for Companies</h2>
+
+  <p>Companies do not pay CGT — chargeable gains are included in TTP and charged to corporation tax at the same rate as other profits.</p>
+
+  <h3>Basic Gain Computation</h3>
+  <div class="comp">
+    <div class="comp-row"><span class="label">Proceeds (or market value)</span><span class="value">X</span></div>
+    <div class="comp-row"><span class="label">Less: Incidental costs of disposal</span><span class="value">(X)</span></div>
+    <div class="comp-row"><span class="label">Less: Cost of acquisition</span><span class="value">(X)</span></div>
+    <div class="comp-row"><span class="label">Less: Enhancement expenditure</span><span class="value">(X)</span></div>
+    <div class="comp-row"><span class="label">Less: Indexation allowance</span><span class="value">(X)</span></div>
+    <div class="comp-row total"><span class="label">Chargeable gain</span><span class="value">X</span></div>
+  </div>
+
+  <div class="info">
+    <strong>ℹ️ Key Differences — Company Gains vs Individual CGT</strong>
+    <ul>
+      <li>No annual exempt amount for companies</li>
+      <li>Indexation allowance available (not available to individuals after Dec 2017)</li>
+      <li>No entrepreneurs' relief / BADR</li>
+      <li>Gains taxed at CT rates (19% or 25%), not CGT rates</li>
+      <li>No 30-day reporting requirement</li>
+    </ul>
+  </div>
+
+  <h3>Capital Losses</h3>
+  <ul>
+    <li>Capital losses can only be set against chargeable gains — NOT against trading profits</li>
+    <li>Current year losses are automatically set against gains of the same period</li>
+    <li>Excess losses carried forward against future chargeable gains</li>
+    <li>Cannot be carried back</li>
+  </ul>
+</div>
+
+<!-- ════ INDEXATION ════ -->
+<div class="section" id="indexation">
+  <h2 class="sec-title"><span class="num">E3b</span> Indexation Allowance</h2>
+
+  <p>Indexation allowance compensates companies for the effect of inflation on the cost of assets. It uses the Retail Prices Index (RPI).</p>
+
+  <div class="formula">Indexation Allowance = Cost × Indexation Factor</div>
+
+  <p>The indexation factor is given in the exam question — you do <strong>not</strong> need to calculate it yourself. It is frozen at December 2017 values for disposals from January 2018 onwards (but still applies up to December 2017).</p>
+
+  <div class="tip">
+    <strong>✅ Key Rules</strong>
+    <ul>
+      <li>The indexation allowance can reduce a gain to nil but CANNOT create or increase a loss</li>
+      <li>Available on cost and enhancement expenditure (not on disposal costs)</li>
+      <li>For disposals from January 2018: indexation factor is frozen at December 2017</li>
+      <li>The exam question will give you the factor — apply it to cost</li>
+    </ul>
+  </div>
+
+  <div class="eg-head">📝 Example — Gain with Indexation</div>
+  <div class="eg-body">
+    <p>Petra Ltd sold a commercial property in December 2025:</p>
+    <ul>
+      <li>Sale proceeds: £850,000</li>
+      <li>Original cost (March 2010): £400,000</li>
+      <li>Enhancement (June 2015): £50,000</li>
+      <li>Indexation factor on original cost (March 2010 → December 2017): 0.261</li>
+      <li>Indexation factor on enhancement (June 2015 → December 2017): 0.062</li>
+    </ul>
+    <div class="comp">
+      <div class="comp-row"><span class="label">Proceeds</span><span class="value">850,000</span></div>
+      <div class="comp-row"><span class="label">Less: Cost</span><span class="value">(400,000)</span></div>
+      <div class="comp-row"><span class="label">Less: Enhancement</span><span class="value">(50,000)</span></div>
+      <div class="comp-row"><span class="label">Less: Indexation on cost (£400,000 × 0.261)</span><span class="value">(104,400)</span></div>
+      <div class="comp-row"><span class="label">Less: Indexation on enhancement (£50,000 × 0.062)</span><span class="value">(3,100)</span></div>
+      <div class="comp-row total"><span class="label">Chargeable gain</span><span class="value">292,500</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ SHARES ════ -->
+<div class="section" id="shares">
+  <h2 class="sec-title"><span class="num">E3c</span> Share Disposals by Companies</h2>
+
+  <p>Companies use a <strong>share pool</strong> (also called the s.104 pool) to track share costs, with separate matching rules that differ from individuals.</p>
+
+  <h3>Matching Order for Companies</h3>
+  <ol>
+    <li><strong>Same day acquisitions</strong> (shares bought on same day as disposal)</li>
+    <li><strong>Acquisitions within the following 9 days</strong> (FIFO basis)</li>
+    <li><strong>The share pool</strong> (all remaining shares — average cost)</li>
+  </ol>
+
+  <div class="warn">
+    <strong>⚠️ Difference from Individuals</strong>
+    Individuals match with: same day → previous 30 days (LIFO) → share pool. Companies use <strong>9 days</strong> forward matching (not 30). Companies do NOT have a bed-and-breakfasting 30-day rule.
+  </div>
+
+  <h3>The Share Pool</h3>
+  <p>The share pool is a running account of number of shares and their total cost. Each new purchase adds to both. Each disposal reduces both proportionately. Indexation is calculated on the indexed cost column up to December 2017 (then frozen).</p>
+
+  <div class="eg-head">📝 Example — Share Pool with Indexation</div>
+  <div class="eg-body">
+    <p>Helios Ltd made the following transactions in Argo plc shares:</p>
+    <div class="tbl-wrap">
+    <table>
+      <tr><th>Date</th><th>Event</th><th class="num-col">Shares</th><th class="num-col">Cost £</th><th class="num-col">Indexed Cost £</th></tr>
+      <tr><td>June 2008</td><td>Purchase</td><td class="num-col">5,000</td><td class="num-col">20,000</td><td class="num-col">20,000</td></tr>
+      <tr><td>Mar 2012</td><td>Indexation to Mar 2012 (factor 0.142)</td><td class="num-col">—</td><td class="num-col">—</td><td class="num-col">+2,840 → 22,840</td></tr>
+      <tr><td>Mar 2012</td><td>Purchase</td><td class="num-col">3,000</td><td class="num-col">15,000</td><td class="num-col">+15,000 → 37,840</td></tr>
+      <tr><td>Dec 2025</td><td>Indexation to Dec 2017 (factor 0.195 on 37,840)</td><td class="num-col">—</td><td class="num-col">—</td><td class="num-col">+7,379 → 45,219</td></tr>
+      <tr><td>Dec 2025</td><td>Disposal of 4,000 shares</td><td class="num-col">(4,000)</td><td class="num-col">— </td><td class="num-col">—</td></tr>
+    </table>
+    </div>
+    <p><em>On disposal of 4,000 shares from pool of 8,000:</em></p>
+    <div class="comp">
+      <div class="comp-row"><span class="label">Proceeds (given)</span><span class="value">28,000</span></div>
+      <div class="comp-row"><span class="label">Indexed cost (4,000/8,000 × £45,219)</span><span class="value">(22,610)</span></div>
+      <div class="comp-row total"><span class="label">Chargeable gain</span><span class="value">5,390</span></div>
+    </div>
+    <p><em>Pool after disposal: 4,000 shares, indexed cost £22,609, cost £17,500</em></p>
+  </div>
+
+  <h3>Bonus Issues &amp; Rights Issues</h3>
+  <ul>
+    <li><strong>Bonus issue:</strong> Additional free shares. No cost — just increase number of shares in pool. The cost per share falls.</li>
+    <li><strong>Rights issue:</strong> Additional shares bought at preferential price. Add both shares and cost to the pool. Run indexation up to date of rights issue first.</li>
+    <li><strong>Takeovers/reorganisations:</strong> If shares are exchanged for shares + cash (or only shares), apportion original cost over new holding based on market values. No gain on a share-for-share exchange unless cash received.</li>
+  </ul>
+</div>
+
+<!-- ════ ROLLOVER ════ -->
+<div class="section" id="rollover">
+  <h2 class="sec-title"><span class="num">E3d</span> Rollover Relief — Companies</h2>
+
+  <p>Rollover relief defers a chargeable gain when the sale proceeds from a qualifying business asset are reinvested in another qualifying asset.</p>
+
+  <h3>Qualifying Assets</h3>
+  <ul>
+    <li>Land and buildings (used in the trade)</li>
+    <li>Fixed plant and machinery (not moveable)</li>
+    <li>Goodwill (for unincorporated businesses — NOT for companies from 2002)</li>
+    <li>Ships, aircraft, hovercraft, satellites</li>
+  </ul>
+
+  <h3>Conditions</h3>
+  <ul>
+    <li>New asset must be acquired within <strong>1 year before or 3 years after</strong> the disposal</li>
+    <li>Both old and new assets must be qualifying business assets</li>
+    <li>Company must use both assets in the trade</li>
+  </ul>
+
+  <h3>Amount of Relief</h3>
+  <div class="formula">Gain deferred = lower of: gain OR (proceeds reinvested − original cost)</div>
+
+  <p>If proceeds are <strong>not fully reinvested</strong>, the gain deferred is reduced. The part of proceeds NOT reinvested is immediately chargeable.</p>
+
+  <div class="eg-head">📝 Example — Partial Rollover</div>
+  <div class="eg-body">
+    <p>Crescent Ltd sells a factory for £600,000, making a gain of £180,000. It buys a new factory for £550,000 within 3 years.</p>
+    <div class="comp">
+      <div class="comp-row"><span class="label">Proceeds</span><span class="value">600,000</span></div>
+      <div class="comp-row"><span class="label">Amount not reinvested (£600,000 − £550,000)</span><span class="value">50,000</span></div>
+      <div class="comp-row"><span class="label">Immediately chargeable (lower of £50,000 and £180,000)</span><span class="value">50,000</span></div>
+      <div class="comp-row total"><span class="label">Gain deferred (rolled into cost of new factory)</span><span class="value">130,000</span></div>
+      <div class="comp-row sub"><span class="label">New factory cost for CT purposes: £550,000 − £130,000 =</span><span class="value">420,000</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ CT RATES ════ -->
+<div class="section" id="rates">
+  <h2 class="sec-title"><span class="num">E4a</span> Corporation Tax Liability &amp; Marginal Relief</h2>
+
+  <h3>Rates — Financial Year 2025 (applies to APs ending in 2025–26)</h3>
+  <div style="display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 20px;">
+    <div class="rate-card"><div class="rate">19%</div><div class="label">Small Profits Rate<br>TTP ≤ £50,000</div></div>
+    <div class="rate-card"><div class="rate">25%</div><div class="label">Main Rate<br>TTP ≥ £250,000</div></div>
+    <div class="rate-card gold"><div class="rate">3/200</div><div class="label">Standard Fraction<br>Marginal Relief</div></div>
+  </div>
+
+  <div class="tbl-wrap">
+  <table>
+    <tr><th>TTP Range</th><th>Tax Treatment</th></tr>
+    <tr><td>£50,000 or below</td><td>19% on all TTP — small profits rate</td></tr>
+    <tr><td>£50,001 to £250,000</td><td>25% on all TTP, then deduct marginal relief</td></tr>
+    <tr><td>Over £250,000</td><td>25% on all TTP — main rate, no marginal relief</td></tr>
+  </table>
+  </div>
+
+  <h3>Marginal Relief Formula</h3>
+  <div class="formula">MR = (Upper Limit − Augmented Profits) × 3/200 × TTP / Augmented Profits</div>
+
+  <ul>
+    <li><strong>Augmented profits</strong> = TTP + exempt dividends from non-group companies</li>
+    <li>In most exam questions, augmented profits = TTP (if no exempt dividends)</li>
+    <li><strong>Upper limit</strong> = £250,000; <strong>Lower limit</strong> = £50,000</li>
+  </ul>
+
+  <div class="warn">
+    <strong>⚠️ Associated Companies — Limits Divided</strong>
+    The £50,000 and £250,000 limits are divided by the <strong>number of associated companies + 1</strong>. Two associated companies = divide limits by 3. The examiner may tell you "Apex Ltd has 2 associated companies" — you MUST divide limits accordingly.
+    <br><br>
+    <strong>What counts as associated?</strong> A company is associated if one controls the other, or both are under common control. Dormant companies are excluded.
+  </div>
+
+  <div class="eg-head">📝 Example — CT Liability with Marginal Relief</div>
+  <div class="eg-body">
+    <p>Nova Ltd has TTP of £180,000 for the year ended 31 March 2026. It has one associated company.</p>
+    <p><strong>Step 1: Adjust limits</strong><br>
+    Limits divided by 2 (1 + 1 associated company):<br>
+    Lower limit = £50,000 / 2 = £25,000 | Upper limit = £250,000 / 2 = £125,000</p>
+    <p><strong>Step 2: Determine rate</strong><br>
+    TTP = £180,000 &gt; £125,000 → Main rate applies → 25% (no marginal relief needed)</p>
+    <div class="comp">
+      <div class="comp-row"><span class="label">TTP</span><span class="value">180,000</span></div>
+      <div class="comp-row"><span class="label">CT @ 25%</span><span class="value">45,000</span></div>
+      <div class="comp-row total"><span class="label">CT liability</span><span class="value">45,000</span></div>
+    </div>
+    <hr style="margin:12px 0; border-color:#ddd;">
+    <p><strong>Alternative: Lunar Ltd — no associated companies, TTP = £180,000</strong></p>
+    <p>Limits: £50,000 / £250,000. TTP of £180,000 falls between → marginal relief applies.</p>
+    <div class="comp">
+      <div class="comp-row"><span class="label">CT @ 25% on TTP of £180,000</span><span class="value">45,000</span></div>
+      <div class="comp-row"><span class="label">Less: Marginal relief: (£250,000 − £180,000) × 3/200</span><span class="value">(1,050)</span></div>
+      <div class="comp-row total"><span class="label">CT liability</span><span class="value">43,950</span></div>
+    </div>
+    <p style="font-size:.85rem; color:#555; margin-top:8px;">Effective rate: £43,950 / £180,000 = 24.4%</p>
+  </div>
+</div>
+
+<!-- ════ PAYMENT ════ -->
+<div class="section" id="payment">
+  <h2 class="sec-title"><span class="num">E4b</span> Payment &amp; Filing — Corporation Tax</h2>
+
+  <div class="tbl-wrap">
+  <table>
+    <tr><th>Obligation</th><th>Deadline</th></tr>
+    <tr><td>CT600 (tax return) filing</td><td>12 months after end of AP</td></tr>
+    <tr><td>CT payment — small/non-QC companies</td><td>9 months and 1 day after end of AP</td></tr>
+    <tr><td>CT payment — large companies (quarterly instalments)</td><td>Months 7, 10, 13, 16 from start of AP</td></tr>
+  </table>
+  </div>
+
+  <h3>Quarterly Instalments (Large Companies)</h3>
+  <p>A company is <strong>large</strong> if its augmented profits exceed <strong>£1,500,000</strong> (divided by number of associated companies + 1). Large companies must pay CT in quarterly instalments based on estimated profits.</p>
+
+  <div class="info">
+    <strong>ℹ️ TX Exam Tip</strong>
+    The examiner rarely tests the detailed mechanics of quarterly instalments — just know the threshold (£1,500,000) and the general timing. Most questions test the 9 months + 1 day deadline.
+  </div>
+
+  <h3>Interest on Late/Early Payment</h3>
+  <ul>
+    <li>Interest on <strong>underpaid</strong> CT: 8.5% per annum</li>
+    <li>Interest on <strong>overpaid</strong> CT (repayment supplement): 3.5% per annum</li>
+  </ul>
+
+  <h3>Penalties for Errors</h3>
+  <div class="tbl-wrap">
+  <table>
+    <tr><th>Behaviour</th><th>Max Penalty</th><th>Unprompted Disclosure Min</th><th>Prompted Disclosure Min</th></tr>
+    <tr><td>Deliberate and concealed</td><td>100%</td><td>30%</td><td>50%</td></tr>
+    <tr><td>Deliberate but not concealed</td><td>70%</td><td>20%</td><td>35%</td></tr>
+    <tr><td>Careless</td><td>30%</td><td>0%</td><td>15%</td></tr>
+  </table>
+  </div>
+</div>
+
+<!-- ════ GROUPS ════ -->
+<div class="section" id="groups">
+  <h2 class="sec-title"><span class="num">E5</span> Groups of Companies</h2>
+
+  <h3>75% Group — Group Relief</h3>
+  <p>A 75% group exists when a parent company owns (directly or indirectly) at least <strong>75% of the ordinary share capital</strong> of another company AND is entitled to at least 75% of distributable profits and net assets on winding up.</p>
+
+  <h4>What can be surrendered?</h4>
+  <ul>
+    <li>Trading losses (current period only — NOT carry-forward losses for group relief)</li>
+    <li>Non-trade loan relationship deficits</li>
+    <li>Excess qualifying charitable donations</li>
+    <li>Excess property business losses</li>
+    <li>Capital allowances in excess of income</li>
+  </ul>
+
+  <h4>Key Rules</h4>
+  <ul>
+    <li>Losses can be surrendered to any group member for the <strong>overlapping period</strong> of membership</li>
+    <li>The surrendering company gets no benefit — claimant pays nothing (or a payment up to tax saved at 25% rate)</li>
+    <li>Group relief is not available for losses carried forward (post-2017 carry-forward losses)</li>
+    <li>Claimant company deducts group relief after its own losses</li>
+  </ul>
+
+  <div class="eg-head">📝 Example — Group Relief</div>
+  <div class="eg-body">
+    <p>Apex Ltd (parent) owns 80% of Base Ltd. Year ended 31 March 2026:</p>
+    <ul>
+      <li>Apex Ltd: TTP = £400,000</li>
+      <li>Base Ltd: Trading loss = £80,000</li>
+    </ul>
+    <p>Base Ltd surrenders £80,000 loss to Apex Ltd:</p>
+    <div class="comp">
+      <div class="comp-row"><span class="label">Apex Ltd TTP</span><span class="value">400,000</span></div>
+      <div class="comp-row"><span class="label">Less: Group relief from Base Ltd</span><span class="value">(80,000)</span></div>
+      <div class="comp-row total"><span class="label">Taxable TTP</span><span class="value">320,000</span></div>
+      <div class="comp-row"><span class="label">CT @ 25%</span><span class="value">80,000</span></div>
+      <div class="comp-row total"><span class="label">CT liability</span><span class="value">80,000</span></div>
+    </div>
+    <p style="font-size:.87rem; color:#555;">Base Ltd: has no CT liability (loss used). Limits for associated companies: £50,000 / 2 = £25,000 lower; £250,000 / 2 = £125,000 upper. TTP of £320,000 > £125,000 → main rate 25%.</p>
+  </div>
+
+  <h3>75% Chargeable Gains Group</h3>
+  <p>The <strong>same 75% test</strong> applies, PLUS the parent must have an <strong>effective economic interest</strong> of more than 50% in the subsidiary (i.e., 75% × 75% = 56.25% minimum if going through intermediate companies).</p>
+
+  <h4>Reliefs available in a gains group:</h4>
+  <ul>
+    <li><strong>No gain/no loss transfer:</strong> Assets can be transferred between group members with no CT charge on the gain (gain deferred until asset leaves the group)</li>
+    <li><strong>Gains and losses matching:</strong> Capital gains can be offset against capital losses of group members by election</li>
+  </ul>
+
+  <div class="warn">
+    <strong>⚠️ Degrouping Charge</strong>
+    If a company leaves the group within <strong>6 years</strong> of receiving an asset via a no gain/no loss transfer, a degrouping charge applies — the deferred gain is triggered. This is an <strong>excluded topic</strong> in TX — just know the basic rule exists.
+  </div>
+</div>
+
+<!-- ════ WORKED EXAMPLES ════ -->
+<div class="section" id="examples">
+  <h2 class="sec-title"><span class="num">★</span> Full Worked Example — Corporation Tax Computation</h2>
+
+  <div class="eg-head">📝 Comprehensive Example</div>
+  <div class="eg-body">
+    <p><strong>Orion Ltd</strong> — year ended 31 March 2026. No associated companies. The following information is available:</p>
+    <ul>
+      <li>Accounting profit per accounts: <strong>£310,000</strong></li>
+      <li>Included in accounting profit: Depreciation £45,000 | Entertaining customers £8,000 | Donation to a local charity (qualifying) £6,000 | Profit on disposal of machinery £14,000</li>
+      <li>Capital allowances for the year: £38,000</li>
+      <li>Bank interest received: £12,000</li>
+      <li>Property rental income: £22,000 (after allowable expenses)</li>
+      <li>Chargeable gain on disposal of land: £35,000 (after indexation allowance)</li>
+    </ul>
+
+    <h4>Step 1 — Tax-adjusted trading profit</h4>
+    <div class="comp">
+      <div class="comp-row"><span class="label">Accounting profit</span><span class="value">310,000</span></div>
+      <div class="comp-row"><span class="label">Add: Depreciation</span><span class="value">45,000</span></div>
+      <div class="comp-row"><span class="label">Add: Customer entertaining (disallowed)</span><span class="value">8,000</span></div>
+      <div class="comp-row"><span class="label">Add: Charitable donation (not allowable in trading profit)</span><span class="value">6,000</span></div>
+      <div class="comp-row"><span class="label">Less: Profit on disposal of machinery (not trading)</span><span class="value">(14,000)</span></div>
+      <div class="comp-row"><span class="label">Less: Bank interest received (loan relationship)</span><span class="value">(12,000)</span></div>
+      <div class="comp-row"><span class="label">Less: Rental income (separate source)</span><span class="value">(22,000)</span></div>
+      <div class="comp-row total"><span class="label">Adjusted profit before capital allowances</span><span class="value">321,000</span></div>
+      <div class="comp-row"><span class="label">Less: Capital allowances</span><span class="value">(38,000)</span></div>
+      <div class="comp-row total"><span class="label">Tax-adjusted trading profit</span><span class="value">283,000</span></div>
+    </div>
+
+    <h4>Step 2 — TTP Computation</h4>
+    <div class="comp">
+      <div class="comp-row"><span class="label">Tax-adjusted trading profit</span><span class="value">283,000</span></div>
+      <div class="comp-row"><span class="label">Property business profit</span><span class="value">22,000</span></div>
+      <div class="comp-row"><span class="label">Non-trading loan relationship credit (bank interest)</span><span class="value">12,000</span></div>
+      <div class="comp-row"><span class="label">Chargeable gain</span><span class="value">35,000</span></div>
+      <div class="comp-row total"><span class="label">Total profits</span><span class="value">352,000</span></div>
+      <div class="comp-row"><span class="label">Less: Qualifying charitable donation</span><span class="value">(6,000)</span></div>
+      <div class="comp-row total"><span class="label">Taxable Total Profits (TTP)</span><span class="value">346,000</span></div>
+    </div>
+
+    <h4>Step 3 — CT Liability</h4>
+    <p>TTP = £346,000 &gt; £250,000 → Main rate applies → 25%</p>
+    <div class="comp">
+      <div class="comp-row"><span class="label">TTP</span><span class="value">346,000</span></div>
+      <div class="comp-row"><span class="label">CT @ 25%</span><span class="value">86,500</span></div>
+      <div class="comp-row total"><span class="label">Corporation Tax liability</span><span class="value">86,500</span></div>
+    </div>
+
+    <p><strong>Payment due:</strong> 1 January 2027 (9 months + 1 day after 31 March 2026).<br>
+    <strong>CT600 due:</strong> 31 March 2027 (12 months after end of AP).</p>
+  </div>
+</div>
+
+<!-- ════ QUICK REFERENCE ════ -->
+<div class="section" id="quick-ref">
+  <h2 class="sec-title"><span class="num">📌</span> Quick Reference — Corporation Tax (FA2025)</h2>
+
+  <div class="tbl-wrap">
+  <table>
+    <tr><th>Item</th><th>Rule / Amount</th></tr>
+    <tr><td>Small profits rate</td><td>19% (TTP ≤ £50,000)</td></tr>
+    <tr><td>Main rate</td><td>25% (TTP ≥ £250,000)</td></tr>
+    <tr><td>Marginal relief fraction</td><td>3/200</td></tr>
+    <tr><td>Lower limit</td><td>£50,000 (÷ associated companies + 1)</td></tr>
+    <tr><td>Upper limit</td><td>£250,000 (÷ associated companies + 1)</td></tr>
+    <tr><td>Quarterly instalments threshold</td><td>Augmented profits &gt; £1,500,000</td></tr>
+    <tr><td>AIA limit</td><td>£1,000,000</td></tr>
+    <tr><td>Full expensing (FE)</td><td>100% — new main pool assets only</td></tr>
+    <tr><td>Special rate FYA</td><td>50% — new special rate assets (excl. cars)</td></tr>
+    <tr><td>Main pool WDA</td><td>18% reducing balance</td></tr>
+    <tr><td>Special rate pool WDA</td><td>6% reducing balance</td></tr>
+    <tr><td>Structures & buildings</td><td>3% straight line</td></tr>
+    <tr><td>Loss carry-back period</td><td>12 months (after current year claim)</td></tr>
+    <tr><td>CT payment (non-QC)</td><td>9 months + 1 day after end of AP</td></tr>
+    <tr><td>CT600 filing deadline</td><td>12 months after end of AP</td></tr>
+    <tr><td>Group relief threshold</td><td>75% ordinary share capital</td></tr>
+    <tr><td>Rollover reinvestment window</td><td>1 year before to 3 years after disposal</td></tr>
+    <tr><td>Share matching — companies</td><td>Same day → 9 days forward → share pool</td></tr>
+    <tr><td>Indexation allowance</td><td>Frozen at December 2017 for post-Jan 2018 disposals</td></tr>
+    <tr><td>Interest on underpaid CT</td><td>8.5% p.a.</td></tr>
+    <tr><td>Interest on overpaid CT</td><td>3.5% p.a.</td></tr>
+  </table>
+  </div>
+
+  <div class="tip">
+    <strong>✅ Last-Minute Exam Tips</strong>
+    <ul>
+      <li>Always show your TTP proforma — even if some figures are zero. Marks are given for structure.</li>
+      <li>Remember to divide limits by associated companies + 1 before determining the rate.</li>
+      <li>If augmented profits ≠ TTP (due to exempt dividends), use augmented profits for limit comparison but TTP for rate calculation.</li>
+      <li>Indexation allowance cannot create a loss — state this if indexation exceeds unindexed gain.</li>
+      <li>QCDs cannot be carried forward or back — if TTP is insufficient, excess is lost.</li>
+      <li>Capital losses are ring-fenced — only against capital gains, not trading profit.</li>
+      <li>Group relief: surrendering company's losses reduce claimant's TTP — no payment required (unless agreed commercially up to tax saving value).</li>
+    </ul>
+  </div>
+</div>
+
+</main>
+</div>
+
+<footer>
+  <p>ACCA TX-UK (Taxation) | Section E — Corporation Tax | June 2026 Exam Window | Based on FA2025 & ACCA J26–J27 Tax Tables</p>
+  <p style="margin-top:4px; font-size:.75rem;">These notes are for study purposes. Always verify against ACCA official materials. © Study Notes 2026</p>
+</footer>
+
+</body>
+</html>

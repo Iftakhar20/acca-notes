@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACCA TX – Key Dates & Durations (FA2025)</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f4f7f2;
+    --surface: #ffffff;
+    --surface2: #eef3ec;
+    --border: #d3e2cf;
+    --text: #1a2e18;
+    --text-muted: #5a7258;
+    --accent-green: #2e7d32;
+    --accent-teal: #00796b;
+    --accent-amber: #ef6c00;
+    --accent-red: #c62828;
+    --accent-blue: #1565c0;
+    --accent-purple: #6a1b9a;
+
+    /* Timeline shades */
+    --past: #b0c4ae;
+    --current: #43a047;
+    --future: #90caf9;
+
+    --radius: 14px;
+    --shadow: 0 2px 16px rgba(46,125,50,0.08);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.55;
+    padding: 32px 20px 60px;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 44px;
+  }
+  .page-header h1 {
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: var(--accent-green);
+    letter-spacing: -0.5px;
+  }
+  .page-header p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-top: 6px;
+  }
+  .legend {
+    display: flex; gap: 20px; justify-content: center;
+    flex-wrap: wrap; margin-top: 14px;
+  }
+  .legend-item {
+    display: flex; align-items: center; gap: 7px;
+    font-size: 0.88rem; font-weight: 500;
+  }
+  .legend-dot {
+    width: 14px; height: 14px; border-radius: 50%;
+  }
+
+  /* ── Section card ── */
+  .section {
+    background: var(--surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    margin-bottom: 32px;
+    overflow: hidden;
+  }
+  .section-header {
+    padding: 18px 26px 14px;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-icon {
+    font-size: 1.5rem;
+  }
+  .section-header h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--accent-green);
+  }
+  .section-body {
+    padding: 20px 26px 26px;
+  }
+
+  /* ── Date table ── */
+  .date-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+  }
+  .date-table thead th {
+    background: var(--surface2);
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 9px 14px;
+    text-align: left;
+    border-bottom: 2px solid var(--border);
+  }
+  .date-table tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+  }
+  .date-table tbody tr:hover { background: #f0f7ee; }
+  .date-table tbody td {
+    padding: 11px 14px;
+    vertical-align: top;
+  }
+  .date-table .rule-col { color: var(--text); font-weight: 500; }
+  .date-table .limit-col {
+    color: var(--text-muted);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.88rem;
+  }
+  .date-table .actual-col {
+    font-family: 'DM Mono', monospace;
+    font-weight: 600;
+    font-size: 0.92rem;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .badge-green  { background: #e8f5e9; color: #2e7d32; }
+  .badge-amber  { background: #fff3e0; color: #e65100; }
+  .badge-red    { background: #ffebee; color: #c62828; }
+  .badge-blue   { background: #e3f2fd; color: #1565c0; }
+  .badge-purple { background: #f3e5f5; color: #6a1b9a; }
+  .badge-teal   { background: #e0f2f1; color: #00695c; }
+
+  /* ── Timeline ── */
+  .timeline-wrap {
+    margin-top: 18px;
+  }
+  .timeline-title {
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+  }
+  .timeline-outer {
+    position: relative;
+    overflow-x: auto;
+    padding-bottom: 6px;
+  }
+  .timeline-svg-wrap {
+    min-width: 700px;
+  }
+  svg.tl { width: 100%; overflow: visible; }
+
+  .note {
+    background: #f1f8e9;
+    border-left: 4px solid var(--accent-green);
+    border-radius: 0 8px 8px 0;
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    color: var(--text);
+    margin-top: 14px;
+  }
+  .note strong { color: var(--accent-green); }
+
+  /* sub-divider */
+  .sub-head {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    padding: 8px 0 4px;
+    border-bottom: 1px dashed var(--border);
+    margin-bottom: 6px;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>📅 ACCA TX–UK Key Dates &amp; Durations</h1>
+  <p>FA2025 · Applicable for June 2026 Exam Sitting · All dates reference tax year <strong>2025/26</strong></p>
+  <div class="legend">
+    <div class="legend-item"><span class="legend-dot" style="background:#9e9e9e"></span>Past periods</div>
+    <div class="legend-item"><span class="legend-dot" style="background:#43a047"></span>Current tax year (6 Apr 25 – 5 Apr 26)</div>
+    <div class="legend-item"><span class="legend-dot" style="background:#1565c0"></span>Future deadlines</div>
+    <div class="legend-item"><span class="legend-dot" style="background:#c62828"></span>Key exam date</div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     1. SELF-ASSESSMENT – INDIVIDUALS
+     ═══════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">👤</span>
+    <h2>Self-Assessment – Individuals</h2>
+  </div>
+  <div class="section-body">
+
+    <div class="sub-head">Filing Deadlines</div>
+    <table class="date-table">
+      <thead><tr><th>What</th><th>Rule</th><th>For 2025/26</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="rule-col">Paper tax return</td>
+          <td class="limit-col">31 October following end of tax year (if notice issued by 31 Oct)</td>
+          <td class="actual-col"><span class="badge badge-amber">31 Oct 2026</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">Electronic (online) tax return</td>
+          <td class="limit-col">31 January following end of tax year</td>
+          <td class="actual-col"><span class="badge badge-blue">31 Jan 2027</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">If notice to file issued AFTER 31 Oct</td>
+          <td class="limit-col">3 months from date of notice</td>
+          <td class="actual-col"><span class="badge badge-teal">3 months from notice</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="sub-head">Payment Deadlines</div>
+    <table class="date-table">
+      <thead><tr><th>What</th><th>Rule</th><th>For 2025/26</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="rule-col">1st Payment on Account (IT + Class 4 NIC)</td>
+          <td class="limit-col">31 January IN the tax year</td>
+          <td class="actual-col"><span class="badge badge-green">31 Jan 2026 ✓</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">2nd Payment on Account (IT + Class 4 NIC)</td>
+          <td class="limit-col">31 July FOLLOWING end of tax year</td>
+          <td class="actual-col"><span class="badge badge-blue">31 Jul 2026</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">Balancing payment (IT + Class 4 NIC)</td>
+          <td class="limit-col">31 January following end of tax year</td>
+          <td class="actual-col"><span class="badge badge-blue">31 Jan 2027</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">CGT – Residential property disposal</td>
+          <td class="limit-col">60 days after the disposal date</td>
+          <td class="actual-col"><span class="badge badge-amber">60 days after disposal</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">CGT – Balance</td>
+          <td class="limit-col">31 January following end of tax year</td>
+          <td class="actual-col"><span class="badge badge-blue">31 Jan 2027</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">Class 1A NIC (employers)</td>
+          <td class="limit-col">22 July following end of tax year (19 Jul if not electronic)</td>
+          <td class="actual-col"><span class="badge badge-blue">22 Jul 2026</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="sub-head">Record Retention</div>
+    <table class="date-table">
+      <thead><tr><th>Type of Records</th><th>How Long</th><th>For 2025/26 → Keep Until</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="rule-col">Business records (self-employed, property)</td>
+          <td class="limit-col">5 years from 31 Jan following end of tax year<br><em>(= 5 years after filing deadline)</em></td>
+          <td class="actual-col"><span class="badge badge-purple">31 Jan 2032</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">Personal records (employees, investors)</td>
+          <td class="limit-col">12 months from 31 Jan following end of tax year</td>
+          <td class="actual-col"><span class="badge badge-teal">31 Jan 2028</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="sub-head">Amendment, Enquiry &amp; Discovery</div>
+    <table class="date-table">
+      <thead><tr><th>Action</th><th>Rule</th><th>For 2025/26</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="rule-col">Taxpayer amends return</td>
+          <td class="limit-col">12 months from 31 Jan following end of tax year</td>
+          <td class="actual-col"><span class="badge badge-blue">31 Jan 2028</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">HMRC opens enquiry</td>
+          <td class="limit-col">12 months from ACTUAL submission date</td>
+          <td class="actual-col"><span class="badge badge-amber">12 mths from filing</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">HMRC discovery – no careless/deliberate</td>
+          <td class="limit-col">4 years from end of tax year</td>
+          <td class="actual-col"><span class="badge badge-amber">5 Apr 2030</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">HMRC discovery – careless behaviour</td>
+          <td class="limit-col">6 years from end of tax year</td>
+          <td class="actual-col"><span class="badge badge-red">5 Apr 2032</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">HMRC discovery – deliberate behaviour</td>
+          <td class="limit-col">20 years from end of tax year</td>
+          <td class="actual-col"><span class="badge badge-red">5 Apr 2046 ⚠️</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">Taxpayer overpayment relief claim</td>
+          <td class="limit-col">4 years from end of tax year</td>
+          <td class="actual-col"><span class="badge badge-teal">5 Apr 2030</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">Taxpayer appeal against assessment</td>
+          <td class="limit-col">30 days from assessment (in writing)</td>
+          <td class="actual-col"><span class="badge badge-amber">30 days from assessment</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Timeline: Individuals SA for 2025/26 -->
+    <div class="timeline-wrap">
+      <div class="timeline-title">📊 Timeline — Individual SA for Tax Year 2025/26</div>
+      <div class="timeline-outer">
+        <div class="timeline-svg-wrap">
+<svg class="tl" viewBox="0 0 820 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#555"/>
+    </marker>
+    <marker id="arr-b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#1565c0"/>
+    </marker>
+    <marker id="arr-g" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#43a047"/>
+    </marker>
+    <marker id="arr-r" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#c62828"/>
+    </marker>
+  </defs>
+
+  <!-- Past band -->
+  <rect x="30" y="85" width="120" height="18" rx="9" fill="#cfd8dc"/>
+  <!-- Current TY band -->
+  <rect x="150" y="82" width="230" height="24" rx="12" fill="#a5d6a7"/>
+  <!-- Future band -->
+  <rect x="380" y="85" width="410" height="18" rx="9" fill="#bbdefb"/>
+
+  <!-- Baseline -->
+  <line x1="30" y1="94" x2="790" y2="94" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Labels on bar -->
+  <text x="90" y="97" font-family="DM Sans" font-size="9" fill="#546e7a" text-anchor="middle">Past</text>
+  <text x="265" y="97" font-family="DM Sans" font-size="9.5" fill="#1b5e20" font-weight="700" text-anchor="middle">2025/26 Tax Year</text>
+  <text x="585" y="97" font-family="DM Sans" font-size="9" fill="#1565c0" text-anchor="middle">Future Deadlines →</text>
+
+  <!-- Key events: dots and labels -->
+  <!-- 6 Apr 2025 -->
+  <circle cx="150" cy="94" r="5" fill="#43a047"/>
+  <text x="150" y="74" font-family="DM Mono" font-size="8.5" fill="#2e7d32" text-anchor="middle" font-weight="600">6 Apr 25</text>
+  <line x1="150" y1="79" x2="150" y2="89" stroke="#43a047" stroke-width="1.2"/>
+
+  <!-- 31 Jan 2026 – 1st POA -->
+  <circle cx="280" cy="94" r="5" fill="#ef6c00"/>
+  <text x="280" y="118" font-family="DM Mono" font-size="8" fill="#e65100" text-anchor="middle">31 Jan 26</text>
+  <text x="280" y="127" font-family="DM Sans" font-size="7.5" fill="#e65100" text-anchor="middle">1st POA</text>
+  <line x1="280" y1="94" x2="280" y2="115" stroke="#ef6c00" stroke-width="1.2"/>
+
+  <!-- 5 Apr 2026 -->
+  <circle cx="380" cy="94" r="5" fill="#43a047"/>
+  <text x="380" y="74" font-family="DM Mono" font-size="8.5" fill="#2e7d32" text-anchor="middle" font-weight="600">5 Apr 26</text>
+  <line x1="380" y1="79" x2="380" y2="89" stroke="#43a047" stroke-width="1.2"/>
+
+  <!-- 31 Jul 2026 – 2nd POA -->
+  <circle cx="480" cy="94" r="5" fill="#1565c0"/>
+  <text x="480" y="118" font-family="DM Mono" font-size="8" fill="#1565c0" text-anchor="middle">31 Jul 26</text>
+  <text x="480" y="127" font-family="DM Sans" font-size="7.5" fill="#1565c0" text-anchor="middle">2nd POA</text>
+  <line x1="480" y1="94" x2="480" y2="115" stroke="#1565c0" stroke-width="1.2"/>
+
+  <!-- 31 Oct 2026 – Paper return -->
+  <circle cx="540" cy="94" r="5" fill="#ef6c00"/>
+  <text x="540" y="74" font-family="DM Mono" font-size="8" fill="#e65100" text-anchor="middle">31 Oct 26</text>
+  <text x="540" y="66" font-family="DM Sans" font-size="7.5" fill="#e65100" text-anchor="middle">Paper return</text>
+  <line x1="540" y1="79" x2="540" y2="89" stroke="#ef6c00" stroke-width="1.2"/>
+
+  <!-- 31 Jan 2027 – online + bal pmt + CGT -->
+  <circle cx="620" cy="94" r="6" fill="#c62828"/>
+  <text x="620" y="74" font-family="DM Mono" font-size="8" fill="#c62828" text-anchor="middle" font-weight="700">31 Jan 27</text>
+  <text x="620" y="66" font-family="DM Sans" font-size="7.5" fill="#c62828" text-anchor="middle">Online/Bal Pmt/CGT</text>
+  <line x1="620" y1="79" x2="620" y2="89" stroke="#c62828" stroke-width="1.5"/>
+
+  <!-- 31 Jan 2028 – amend + personal records -->
+  <circle cx="700" cy="94" r="5" fill="#1565c0"/>
+  <text x="700" y="118" font-family="DM Mono" font-size="8" fill="#1565c0" text-anchor="middle">31 Jan 28</text>
+  <text x="700" y="127" font-family="DM Sans" font-size="7.5" fill="#1565c0" text-anchor="middle">Amend/Personal records</text>
+  <line x1="700" y1="94" x2="700" y2="115" stroke="#1565c0" stroke-width="1.2"/>
+
+  <!-- 31 Jan 2032 – Business records -->
+  <circle cx="775" cy="94" r="5" fill="#6a1b9a"/>
+  <text x="775" y="74" font-family="DM Mono" font-size="8" fill="#6a1b9a" text-anchor="middle">31 Jan 32</text>
+  <text x="775" y="66" font-family="DM Sans" font-size="7.5" fill="#6a1b9a" text-anchor="middle">Biz records</text>
+  <line x1="775" y1="79" x2="775" y2="89" stroke="#6a1b9a" stroke-width="1.2"/>
+
+  <!-- Year label -->
+  <text x="30" y="155" font-family="DM Sans" font-size="8.5" fill="#90a4ae">← Prior years</text>
+  <text x="400" y="155" font-family="DM Sans" font-size="8.5" fill="#1565c0" text-anchor="middle">All arrows = deadlines for 2025/26 tax year</text>
+</svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>💡 Memory hook:</strong> "31 Jan" is the magic date — it triggers 1st POA (in-year), online return, balancing payment, and CGT balance — all on the same calendar date (different years). <strong>"July" = 2nd POA = Class 1A NIC.</strong>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     2. CORPORATION TAX – COMPANIES
+     ═══════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🏢</span>
+    <h2>Self-Assessment – Companies (Corporation Tax)</h2>
+  </div>
+  <div class="section-body">
+
+    <div class="sub-head">Filing &amp; Payment Dates</div>
+    <table class="date-table">
+      <thead><tr><th>What</th><th>Rule</th><th>Example: AP = Year ended 31 Mar 2026</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="rule-col">CT Return filing (non-large)</td>
+          <td class="limit-col">12 months from end of accounting period (AP)</td>
+          <td class="actual-col"><span class="badge badge-blue">31 Mar 2027</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">CT Payment – small/medium company</td>
+          <td class="limit-col">9 months + 1 day after end of AP</td>
+          <td class="actual-col"><span class="badge badge-amber">1 Jan 2027</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">CT Quarterly instalment 1 (large co.)</td>
+          <td class="limit-col">14th day of 7th month after start of AP</td>
+          <td class="actual-col"><span class="badge badge-red">14 Oct 2025</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">CT Quarterly instalment 2 (large co.)</td>
+          <td class="limit-col">14th day of 10th month after start of AP</td>
+          <td class="actual-col"><span class="badge badge-red">14 Jan 2026</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">CT Quarterly instalment 3 (large co.)</td>
+          <td class="limit-col">14th day of 13th month after start of AP</td>
+          <td class="actual-col"><span class="badge badge-red">14 Apr 2026</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">CT Quarterly instalment 4 (large co.) — FINAL</td>
+          <td class="limit-col">14th day of 4th month AFTER end of AP (= 16th month from start)</td>
+          <td class="actual-col"><span class="badge badge-red">14 Jul 2026</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">Large company threshold</td>
+          <td class="limit-col">Augmented profits &gt; £1,500,000 (pro-rated for short APs &amp; associated co.s)</td>
+          <td class="actual-col"><span class="badge badge-purple">£1.5m limit</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="sub-head">Record Retention &amp; Claims</div>
+    <table class="date-table">
+      <thead><tr><th>Action</th><th>Rule</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="rule-col">Company record retention</td>
+          <td class="limit-col"><span class="badge badge-purple">6 years</span> from end of accounting period</td>
+        </tr>
+        <tr>
+          <td class="rule-col">HMRC opens enquiry</td>
+          <td class="limit-col">12 months from actual submission of CT return</td>
+        </tr>
+        <tr>
+          <td class="rule-col">Company overpayment relief</td>
+          <td class="limit-col">4 years from end of accounting period</td>
+        </tr>
+        <tr>
+          <td class="rule-col">Loss – current year &amp; 12-mth carry back</td>
+          <td class="limit-col">2 years from end of AP in which loss arose</td>
+        </tr>
+        <tr>
+          <td class="rule-col">Group relief surrender</td>
+          <td class="limit-col">2 years after claimant company's AP</td>
+        </tr>
+        <tr>
+          <td class="rule-col">Rollover relief (companies)</td>
+          <td class="limit-col">4 years from end of AP of disposal or acquisition (later)</td>
+        </tr>
+        <tr>
+          <td class="rule-col">Gains group – transfer election</td>
+          <td class="limit-col">2 years from end of AP of the disposing company</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Timeline: CT for AP year ended 31 Mar 2026 -->
+    <div class="timeline-wrap">
+      <div class="timeline-title">📊 Timeline — CT for Accounting Period Year Ended 31 March 2026</div>
+      <div class="timeline-outer">
+        <div class="timeline-svg-wrap">
+<svg class="tl" viewBox="0 0 820 190" xmlns="http://www.w3.org/2000/svg">
+  <!-- Past band (AP period) -->
+  <rect x="30" y="82" width="360" height="24" rx="12" fill="#a5d6a7"/>
+  <!-- After AP end -->
+  <rect x="390" y="85" width="400" height="18" rx="9" fill="#bbdefb"/>
+
+  <line x1="30" y1="94" x2="790" y2="94" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <text x="210" y="97" font-family="DM Sans" font-size="9" fill="#1b5e20" font-weight="700" text-anchor="middle">AP: 1 Apr 25 – 31 Mar 26 (current period)</text>
+  <text x="580" y="97" font-family="DM Sans" font-size="9" fill="#1565c0" text-anchor="middle">Post-AP deadlines →</text>
+
+  <!-- Instalment dates for large company (AP year ended 31 Mar 2026) -->
+  <!-- Start of AP = 1 Apr 2025 -->
+  <circle cx="30" cy="94" r="5" fill="#43a047"/>
+  <text x="30" y="74" font-family="DM Mono" font-size="8" fill="#2e7d32" text-anchor="middle">1 Apr 25</text>
+  <text x="30" y="66" font-family="DM Sans" font-size="7.5" fill="#2e7d32" text-anchor="middle">AP Start</text>
+  <line x1="30" y1="79" x2="30" y2="89" stroke="#43a047" stroke-width="1.2"/>
+
+  <!-- 14 Oct 25 = Instalment 1 -->
+  <circle cx="175" cy="94" r="5" fill="#c62828"/>
+  <text x="175" y="118" font-family="DM Mono" font-size="8" fill="#c62828" text-anchor="middle">14 Oct 25</text>
+  <text x="175" y="127" font-family="DM Sans" font-size="7.5" fill="#c62828" text-anchor="middle">Instalment 1</text>
+  <line x1="175" y1="94" x2="175" y2="115" stroke="#c62828" stroke-width="1.2"/>
+
+  <!-- 31 Mar 26 = AP end -->
+  <circle cx="390" cy="94" r="5" fill="#43a047"/>
+  <text x="390" y="74" font-family="DM Mono" font-size="8" fill="#2e7d32" text-anchor="middle">31 Mar 26</text>
+  <text x="390" y="66" font-family="DM Sans" font-size="7.5" fill="#2e7d32" text-anchor="middle">AP End</text>
+  <line x1="390" y1="79" x2="390" y2="89" stroke="#43a047" stroke-width="1.2"/>
+
+  <!-- 14 Jan 26 = Instalment 2 -->
+  <circle cx="278" cy="94" r="5" fill="#c62828"/>
+  <text x="278" y="118" font-family="DM Mono" font-size="8" fill="#c62828" text-anchor="middle">14 Jan 26</text>
+  <text x="278" y="127" font-family="DM Sans" font-size="7.5" fill="#c62828" text-anchor="middle">Instalment 2</text>
+  <line x1="278" y1="94" x2="278" y2="115" stroke="#c62828" stroke-width="1.2"/>
+
+  <!-- 14 Apr 26 = Instalment 3 -->
+  <circle cx="450" cy="94" r="5" fill="#c62828"/>
+  <text x="450" y="74" font-family="DM Mono" font-size="8" fill="#c62828" text-anchor="middle">14 Apr 26</text>
+  <text x="450" y="66" font-family="DM Sans" font-size="7.5" fill="#c62828" text-anchor="middle">Instalment 3</text>
+  <line x1="450" y1="79" x2="450" y2="89" stroke="#c62828" stroke-width="1.2"/>
+
+  <!-- 14 Jul 26 = Instalment 4 (FINAL) -->
+  <circle cx="570" cy="94" r="6" fill="#c62828"/>
+  <text x="570" y="118" font-family="DM Mono" font-size="8" fill="#c62828" text-anchor="middle" font-weight="700">14 Jul 26</text>
+  <text x="570" y="127" font-family="DM Sans" font-size="7.5" fill="#c62828" text-anchor="middle">FINAL Instalment</text>
+  <line x1="570" y1="94" x2="570" y2="115" stroke="#c62828" stroke-width="1.5"/>
+
+  <!-- 1 Jan 2027 = Small co payment -->
+  <circle cx="660" cy="94" r="5" fill="#1565c0"/>
+  <text x="660" y="74" font-family="DM Mono" font-size="8" fill="#1565c0" text-anchor="middle">1 Jan 27</text>
+  <text x="660" y="66" font-family="DM Sans" font-size="7.5" fill="#1565c0" text-anchor="middle">Small co. pays</text>
+  <line x1="660" y1="79" x2="660" y2="89" stroke="#1565c0" stroke-width="1.2"/>
+
+  <!-- 31 Mar 2027 = CT return filing -->
+  <circle cx="740" cy="94" r="5" fill="#6a1b9a"/>
+  <text x="740" y="118" font-family="DM Mono" font-size="8" fill="#6a1b9a" text-anchor="middle">31 Mar 27</text>
+  <text x="740" y="127" font-family="DM Sans" font-size="7.5" fill="#6a1b9a" text-anchor="middle">CT Return filed</text>
+  <line x1="740" y1="94" x2="740" y2="115" stroke="#6a1b9a" stroke-width="1.2"/>
+</svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>💡 Memory hook:</strong> Small company CT = <strong>"9+1"</strong> (9 months &amp; 1 day after AP ends). Large company quarterly = <strong>months 7, 10, 13, 16</strong> from AP start. Return filing = <strong>12 months after AP end.</strong> Company records = <strong>6 years</strong> (vs 5 years for business individuals).
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     3. VAT
+     ═══════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🧾</span>
+    <h2>VAT – Registration, Returns &amp; Records</h2>
+  </div>
+  <div class="section-body">
+
+    <table class="date-table">
+      <thead><tr><th>Event</th><th>Rule / Duration</th><th>Specific Date / Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="rule-col">Registration – Historic test notification to HMRC</td>
+          <td class="limit-col">30 days from end of month threshold exceeded</td>
+          <td class="actual-col"><span class="badge badge-amber">30 days from month-end</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">Registration – Historic: charge VAT from</td>
+          <td class="limit-col">1st day of 2nd month after month threshold exceeded</td>
+          <td class="actual-col"><span class="badge badge-amber">Start of 2nd following month</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">Registration – Future test notification</td>
+          <td class="limit-col">30 days from when it is anticipated threshold will be exceeded</td>
+          <td class="actual-col"><span class="badge badge-amber">30 days from anticipation</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">Registration – Future: charge VAT from</td>
+          <td class="limit-col">Date it is anticipated threshold will be exceeded (start of 30-day period)</td>
+          <td class="actual-col"><span class="badge badge-red">Immediately on anticipation date</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">Registration threshold</td>
+          <td class="limit-col">Taxable supplies &gt; £90,000 in any 12-month rolling period</td>
+          <td class="actual-col"><span class="badge badge-green">£90,000</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">Deregistration threshold</td>
+          <td class="limit-col">Taxable supplies expected to fall below £88,000</td>
+          <td class="actual-col"><span class="badge badge-green">£88,000</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">Compulsory deregistration – notify HMRC</td>
+          <td class="limit-col">30 days from cessation of taxable supplies</td>
+          <td class="actual-col"><span class="badge badge-amber">30 days from cessation</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">VAT return &amp; payment deadline</td>
+          <td class="limit-col">1 month + 7 days after end of return period</td>
+          <td class="actual-col"><span class="badge badge-blue">~37 days after period-end</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">Pre-registration input VAT – goods (on hand)</td>
+          <td class="limit-col">Any time before registration (must be on hand at registration)</td>
+          <td class="actual-col"><span class="badge badge-teal">Must be in inventory</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">Pre-registration input VAT – services</td>
+          <td class="limit-col">Incurred within 6 months before registration date</td>
+          <td class="actual-col"><span class="badge badge-teal">6 months prior only</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">Impairment loss relief (bad debt)</td>
+          <td class="limit-col">At least 6 months after debt was due for payment + written off</td>
+          <td class="actual-col"><span class="badge badge-amber">6 months after due date</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">VAT records retention</td>
+          <td class="limit-col"><strong>6 years</strong></td>
+          <td class="actual-col"><span class="badge badge-purple">6 years</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">Error correction (de minimis) on next return</td>
+          <td class="limit-col">Net error &lt; £10,000 (or &lt; 1% of turnover, max £50,000)</td>
+          <td class="actual-col"><span class="badge badge-teal">Next VAT return</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">Penalty points expire (no penalty yet reached)</td>
+          <td class="limit-col">2 years from the late submission</td>
+          <td class="actual-col"><span class="badge badge-green">2 years per point</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">Annual accounting – instalment payments</td>
+          <td class="limit-col">9 monthly instalments (mths 4–12), balance + return in month 13</td>
+          <td class="actual-col"><span class="badge badge-blue">9 payments + 1 balancing</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="sub-head">Late VAT Payment Penalties</div>
+    <table class="date-table">
+      <thead><tr><th>Days Late</th><th>Penalty</th></tr></thead>
+      <tbody>
+        <tr><td class="rule-col">Up to 15 days</td><td class="actual-col"><span class="badge badge-green">None</span></td></tr>
+        <tr><td class="rule-col">16 to 30 days</td><td class="actual-col"><span class="badge badge-amber">3% of overdue VAT</span></td></tr>
+        <tr><td class="rule-col">More than 30 days</td><td class="actual-col"><span class="badge badge-red">6% + daily penalty at 10% p.a.</span></td></tr>
+      </tbody>
+    </table>
+
+    <!-- VAT Timeline -->
+    <div class="timeline-wrap">
+      <div class="timeline-title">📊 Timeline — VAT Compulsory Registration (Historic Test, threshold crossed Oct 2025)</div>
+      <div class="timeline-outer">
+        <div class="timeline-svg-wrap">
+<svg class="tl" viewBox="0 0 820 180" xmlns="http://www.w3.org/2000/svg">
+  <rect x="30" y="85" width="230" height="18" rx="9" fill="#cfd8dc"/>
+  <rect x="260" y="82" width="230" height="24" rx="12" fill="#a5d6a7"/>
+  <rect x="490" y="85" width="300" height="18" rx="9" fill="#bbdefb"/>
+
+  <line x1="30" y1="94" x2="790" y2="94" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <text x="145" y="97" font-family="DM Sans" font-size="8.5" fill="#546e7a" text-anchor="middle">Rolling 12-month count</text>
+  <text x="370" y="97" font-family="DM Sans" font-size="8.5" fill="#1b5e20" font-weight="600" text-anchor="middle">Current tax year (Apr 25–Apr 26)</text>
+
+  <!-- Threshold crossed: 31 Oct 2025 -->
+  <circle cx="260" cy="94" r="5" fill="#c62828"/>
+  <text x="260" y="74" font-family="DM Mono" font-size="8" fill="#c62828" text-anchor="middle">31 Oct 25</text>
+  <text x="260" y="66" font-family="DM Sans" font-size="7.5" fill="#c62828" text-anchor="middle">Threshold crossed!</text>
+  <line x1="260" y1="79" x2="260" y2="89" stroke="#c62828" stroke-width="1.5"/>
+
+  <!-- Notify HMRC: 30 Nov 2025 -->
+  <circle cx="350" cy="94" r="5" fill="#ef6c00"/>
+  <text x="350" y="118" font-family="DM Mono" font-size="8" fill="#e65100" text-anchor="middle">30 Nov 25</text>
+  <text x="350" y="127" font-family="DM Sans" font-size="7.5" fill="#e65100" text-anchor="middle">Notify HMRC</text>
+  <line x1="350" y1="94" x2="350" y2="115" stroke="#ef6c00" stroke-width="1.2"/>
+
+  <!-- Charge VAT from: 1 Dec 2025 -->
+  <circle cx="430" cy="94" r="5" fill="#43a047"/>
+  <text x="430" y="74" font-family="DM Mono" font-size="8" fill="#2e7d32" text-anchor="middle">1 Dec 25</text>
+  <text x="430" y="66" font-family="DM Sans" font-size="7.5" fill="#2e7d32" text-anchor="middle">Charge VAT</text>
+  <line x1="430" y1="79" x2="430" y2="89" stroke="#43a047" stroke-width="1.2"/>
+
+  <!-- 1st Return end: 31 Dec 2025 (quarter) -->
+  <circle cx="490" cy="94" r="5" fill="#1565c0"/>
+  <text x="490" y="118" font-family="DM Mono" font-size="8" fill="#1565c0" text-anchor="middle">31 Dec 25</text>
+  <text x="490" y="127" font-family="DM Sans" font-size="7.5" fill="#1565c0" text-anchor="middle">1st return period end</text>
+  <line x1="490" y1="94" x2="490" y2="115" stroke="#1565c0" stroke-width="1.2"/>
+
+  <!-- Payment due: 7 Feb 2026 (1 month + 7 days) -->
+  <circle cx="590" cy="94" r="5" fill="#c62828"/>
+  <text x="590" y="74" font-family="DM Mono" font-size="8" fill="#c62828" text-anchor="middle">7 Feb 26</text>
+  <text x="590" y="66" font-family="DM Sans" font-size="7.5" fill="#c62828" text-anchor="middle">Return + pay due</text>
+  <line x1="590" y1="79" x2="590" y2="89" stroke="#c62828" stroke-width="1.2"/>
+
+  <!-- Pre-reg services: 6 months before = 1 Jun 25 -->
+  <circle cx="195" cy="94" r="5" fill="#6a1b9a"/>
+  <text x="195" y="118" font-family="DM Mono" font-size="8" fill="#6a1b9a" text-anchor="middle">1 Jun 25</text>
+  <text x="195" y="127" font-family="DM Sans" font-size="7.5" fill="#6a1b9a" text-anchor="middle">Pre-reg services start</text>
+  <line x1="195" y1="94" x2="195" y2="115" stroke="#6a1b9a" stroke-width="1.2"/>
+</svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>💡 Memory hook:</strong> Notify = <strong>30 days from month-end</strong>. Start charging = <strong>1st of the 2nd month after</strong>. Return payment = <strong>1 month + 7 days</strong> (think: "one month and a week"). Pre-reg services = <strong>6 months</strong>. Records = <strong>6 years</strong>.
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     4. LOSS RELIEF CLAIMS – INDIVIDUALS
+     ═══════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">📉</span>
+    <h2>Trading Loss Relief – Time Limits</h2>
+  </div>
+  <div class="section-body">
+
+    <div class="sub-head">Individual Trading Losses</div>
+    <table class="date-table">
+      <thead><tr><th>Relief Type</th><th>Time Limit</th><th>For 2025/26 loss → deadline</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="rule-col">Agree amount to carry forward</td>
+          <td class="limit-col">4 years from end of loss tax year</td>
+          <td class="actual-col"><span class="badge badge-amber">5 Apr 2030</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">Current year &amp; prior year set-off (s.64)</td>
+          <td class="limit-col">12 months from 31 Jan following end of loss year</td>
+          <td class="actual-col"><span class="badge badge-blue">31 Jan 2028</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">3-year carry back (opening years, s.72)</td>
+          <td class="limit-col">12 months from 31 Jan following end of loss year</td>
+          <td class="actual-col"><span class="badge badge-blue">31 Jan 2028</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">Terminal loss – 3-year carry back (s.89)</td>
+          <td class="limit-col">4 years from end of last year of trading</td>
+          <td class="actual-col"><span class="badge badge-amber">5 Apr 2030</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="sub-head">CGT Reliefs</div>
+    <table class="date-table">
+      <thead><tr><th>Relief</th><th>Time Limit</th><th>For 2025/26</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="rule-col">Rollover relief (individuals)</td>
+          <td class="limit-col">4 years from later of: disposal year-end OR acquisition year-end</td>
+          <td class="actual-col"><span class="badge badge-amber">5 Apr 2030</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">Gift holdover relief</td>
+          <td class="limit-col">4 years from end of tax year of disposal</td>
+          <td class="actual-col"><span class="badge badge-amber">5 Apr 2030</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">Business Asset Disposal Relief (BADR)</td>
+          <td class="limit-col">12 months from 31 Jan following end of tax year of disposal</td>
+          <td class="actual-col"><span class="badge badge-blue">31 Jan 2028</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">Main Private Residence election</td>
+          <td class="limit-col">2 years from acquisition of second property</td>
+          <td class="actual-col"><span class="badge badge-teal">2 years from acquisition</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      <strong>💡 Pattern:</strong> Claims that say <em>"31 Jan"</em> = <strong>12 months from Jan filing</strong>. Claims that say <em>"5 April"</em> = <strong>4 years from end of tax year</strong>. Terminal/carry-forward = <strong>4 years from tax year end</strong>.
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     5. INHERITANCE TAX
+     ═══════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🏛️</span>
+    <h2>Inheritance Tax (IHT) – Key Periods</h2>
+  </div>
+  <div class="section-body">
+
+    <table class="date-table">
+      <thead><tr><th>Rule / Period</th><th>Duration</th><th>Significance</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="rule-col">Potentially Exempt Transfer (PET) – becomes exempt</td>
+          <td class="limit-col">Donor survives <strong>7 years</strong></td>
+          <td class="actual-col"><span class="badge badge-green">Full exemption at 7 yrs</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">Taper relief applies</td>
+          <td class="limit-col">Donor survives more than 3 but less than 7 years</td>
+          <td class="actual-col"><span class="badge badge-amber">3–7 years before death</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">Annual exemption</td>
+          <td class="limit-col">£3,000 per tax year (unused carries forward 1 year only)</td>
+          <td class="actual-col"><span class="badge badge-teal">Use it or lose it (1yr)</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">Small gifts exemption</td>
+          <td class="limit-col">£250 per person per year</td>
+          <td class="actual-col"><span class="badge badge-green">£250 per recipient/yr</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">IHT payment – on death</td>
+          <td class="limit-col">6 months after end of month of death</td>
+          <td class="actual-col"><span class="badge badge-red">6 months from month of death</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">IHT payment – on lifetime chargeable transfer (LCT)</td>
+          <td class="limit-col">6 months after end of month of transfer</td>
+          <td class="actual-col"><span class="badge badge-amber">6 months from month of LCT</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="sub-head">Taper Relief Table</div>
+    <table class="date-table">
+      <thead><tr><th>Years before death</th><th>% Reduction in IHT</th></tr></thead>
+      <tbody>
+        <tr><td class="rule-col">3–4 years</td><td class="actual-col"><span class="badge badge-amber">20%</span></td></tr>
+        <tr><td class="rule-col">4–5 years</td><td class="actual-col"><span class="badge badge-amber">40%</span></td></tr>
+        <tr><td class="rule-col">5–6 years</td><td class="actual-col"><span class="badge badge-green">60%</span></td></tr>
+        <tr><td class="rule-col">6–7 years</td><td class="actual-col"><span class="badge badge-green">80%</span></td></tr>
+        <tr><td class="rule-col">7+ years</td><td class="actual-col"><span class="badge badge-green">100% (PET exempt)</span></td></tr>
+      </tbody>
+    </table>
+
+    <!-- IHT 7-year timeline -->
+    <div class="timeline-wrap">
+      <div class="timeline-title">📊 Timeline — IHT 7-Year PET Rule (gift made in 2025/26)</div>
+      <div class="timeline-outer">
+        <div class="timeline-svg-wrap">
+<svg class="tl" viewBox="0 0 820 180" xmlns="http://www.w3.org/2000/svg">
+  <!-- Zones -->
+  <rect x="80" y="82" width="200" height="24" rx="5" fill="#ffcdd2"/>
+  <rect x="280" y="82" width="200" height="24" rx="5" fill="#ffe0b2"/>
+  <rect x="480" y="82" width="200" height="24" rx="5" fill="#c8e6c9"/>
+  <rect x="680" y="82" width="110" height="24" rx="5" fill="#a5d6a7"/>
+
+  <line x1="50" y1="94" x2="790" y2="94" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <text x="180" y="97" font-family="DM Sans" font-size="8.5" fill="#c62828" font-weight="600" text-anchor="middle">Full IHT charged</text>
+  <text x="380" y="97" font-family="DM Sans" font-size="8.5" fill="#e65100" font-weight="600" text-anchor="middle">Taper relief applies</text>
+  <text x="580" y="97" font-family="DM Sans" font-size="8.5" fill="#2e7d32" font-weight="600" text-anchor="middle">80% relief</text>
+  <text x="735" y="97" font-family="DM Sans" font-size="8.5" fill="#1b5e20" font-weight="700" text-anchor="middle">EXEMPT</text>
+
+  <!-- Gift date = 2025/26 -->
+  <circle cx="80" cy="94" r="5" fill="#c62828"/>
+  <text x="80" y="74" font-family="DM Mono" font-size="8.5" fill="#c62828" text-anchor="middle">Gift 2025/26</text>
+  <line x1="80" y1="79" x2="80" y2="89" stroke="#c62828" stroke-width="1.5"/>
+
+  <!-- 3 years = 2028/29 -->
+  <circle cx="280" cy="94" r="5" fill="#ef6c00"/>
+  <text x="280" y="118" font-family="DM Mono" font-size="8" fill="#e65100" text-anchor="middle">+3 yrs ≈ 2028</text>
+  <text x="280" y="127" font-family="DM Sans" font-size="7.5" fill="#e65100" text-anchor="middle">Taper starts</text>
+  <line x1="280" y1="94" x2="280" y2="115" stroke="#ef6c00" stroke-width="1.2"/>
+
+  <!-- 6 years = 2031/32 -->
+  <circle cx="480" cy="94" r="5" fill="#43a047"/>
+  <text x="480" y="74" font-family="DM Mono" font-size="8" fill="#2e7d32" text-anchor="middle">+6 yrs ≈ 2031</text>
+  <text x="480" y="66" font-family="DM Sans" font-size="7.5" fill="#2e7d32" text-anchor="middle">80% relief</text>
+  <line x1="480" y1="79" x2="480" y2="89" stroke="#43a047" stroke-width="1.2"/>
+
+  <!-- 7 years = 2032/33 -->
+  <circle cx="680" cy="94" r="6" fill="#1b5e20"/>
+  <text x="680" y="118" font-family="DM Mono" font-size="8" fill="#1b5e20" text-anchor="middle" font-weight="700">+7 yrs ≈ 2032</text>
+  <text x="680" y="127" font-family="DM Sans" font-size="7.5" fill="#1b5e20" text-anchor="middle">PET EXEMPT!</text>
+  <line x1="680" y1="94" x2="680" y2="115" stroke="#1b5e20" stroke-width="1.5"/>
+</svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>💡 Memory hook for taper:</strong> "3 → 7 years = 20%, 40%, 60%, 80%" — add 20% per year band. Beyond 7 years = fully exempt (PET). Annual exemption carry-forward = <strong>1 year only</strong>.
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     6. PENALTIES & INTEREST – QUICK REFERENCE
+     ═══════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">⚠️</span>
+    <h2>Penalties &amp; Interest – Quick Reference</h2>
+  </div>
+  <div class="section-body">
+
+    <div class="sub-head">Late Filing – Self-Assessment (Individuals)</div>
+    <table class="date-table">
+      <thead><tr><th>How late?</th><th>Penalty</th></tr></thead>
+      <tbody>
+        <tr><td class="rule-col">Up to 3 months late</td><td class="actual-col"><span class="badge badge-amber">£100 fixed</span></td></tr>
+        <tr><td class="rule-col">3–6 months late</td><td class="actual-col"><span class="badge badge-amber">£10/day (max £900)</span></td></tr>
+        <tr><td class="rule-col">6–12 months late</td><td class="actual-col"><span class="badge badge-red">£300 or 5% of tax (higher)</span></td></tr>
+        <tr><td class="rule-col">Over 12 months – no deliberate</td><td class="actual-col"><span class="badge badge-red">£300 or 5% of tax (higher)</span></td></tr>
+        <tr><td class="rule-col">Over 12 months – deliberate</td><td class="actual-col"><span class="badge badge-red">Up to 100% of tax</span></td></tr>
+      </tbody>
+    </table>
+
+    <div class="sub-head">Late Payment – Self-Assessment (Individuals)</div>
+    <table class="date-table">
+      <thead><tr><th>How late?</th><th>Penalty</th></tr></thead>
+      <tbody>
+        <tr><td class="rule-col">30 days late</td><td class="actual-col"><span class="badge badge-amber">5% of unpaid tax</span></td></tr>
+        <tr><td class="rule-col">6 months late</td><td class="actual-col"><span class="badge badge-red">Further 5%</span></td></tr>
+        <tr><td class="rule-col">12 months late</td><td class="actual-col"><span class="badge badge-red">Further 5%</span></td></tr>
+        <tr><td class="rule-col">Interest on late payment</td><td class="actual-col"><span class="badge badge-amber">8.5% p.a. (FA2025)</span></td></tr>
+        <tr><td class="rule-col">Interest on overpaid tax (HMRC repays)</td><td class="actual-col"><span class="badge badge-green">3.5% p.a.</span></td></tr>
+      </tbody>
+    </table>
+
+    <div class="sub-head">Error Penalties (all taxes)</div>
+    <table class="date-table">
+      <thead><tr><th>Behaviour</th><th>Max</th><th>Min (unprompted)</th><th>Min (prompted)</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="rule-col">Deliberate &amp; concealed</td>
+          <td class="actual-col"><span class="badge badge-red">100%</span></td>
+          <td class="actual-col"><span class="badge badge-amber">30%</span></td>
+          <td class="actual-col"><span class="badge badge-red">50%</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">Deliberate but not concealed</td>
+          <td class="actual-col"><span class="badge badge-red">70%</span></td>
+          <td class="actual-col"><span class="badge badge-amber">20%</span></td>
+          <td class="actual-col"><span class="badge badge-red">35%</span></td>
+        </tr>
+        <tr>
+          <td class="rule-col">Careless</td>
+          <td class="actual-col"><span class="badge badge-amber">30%</span></td>
+          <td class="actual-col"><span class="badge badge-green">0%</span></td>
+          <td class="actual-col"><span class="badge badge-amber">15%</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      <strong>💡 Memory hook for errors:</strong> Careless = 30% max, 0% if you own up first. Deliberate = 70% max. Concealed on top = 100%. Unprompted disclosure always gives the better deal.
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     7. MASTER SUMMARY TIMELINE
+     ═══════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🗓️</span>
+    <h2>Master Calendar — All Key Dates for 2025/26 in Order</h2>
+  </div>
+  <div class="section-body">
+    <div class="timeline-wrap">
+      <div class="timeline-title">📊 All key deadlines relating to tax year 2025/26 in chronological order</div>
+      <div class="timeline-outer">
+        <div class="timeline-svg-wrap">
+<svg class="tl" viewBox="0 0 820 340" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background bands -->
+  <rect x="20" y="10" width="130" height="320" rx="6" fill="#f5f5f5"/>
+  <rect x="150" y="10" width="155" height="320" rx="6" fill="#e8f5e9"/>
+  <rect x="305" y="10" width="515" height="320" rx="6" fill="#e3f2fd"/>
+
+  <text x="85" y="28" font-family="DM Sans" font-size="9" fill="#78909c" text-anchor="middle" font-weight="600">PAST</text>
+  <text x="227" y="28" font-family="DM Sans" font-size="9" fill="#2e7d32" text-anchor="middle" font-weight="700">CURRENT TAX YEAR</text>
+  <text x="560" y="28" font-family="DM Sans" font-size="9" fill="#1565c0" text-anchor="middle" font-weight="600">FUTURE DEADLINES (2025/26 related)</text>
+
+  <!-- Vertical axis / time spine -->
+  <line x1="400" y1="35" x2="400" y2="325" stroke="#ccc" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- Date rows -->
+  <!-- Row helper: y positions = 50, 75, 100, 125, 150, 175, 200, 225, 250, 275, 300 -->
+
+  <!-- 6 Apr 2025 -->
+  <rect x="152" y="42" width="150" height="20" rx="4" fill="#c8e6c9"/>
+  <text x="227" y="56" font-family="DM Mono" font-size="9" fill="#1b5e20" text-anchor="middle" font-weight="600">6 Apr 2025 — Tax year starts</text>
+
+  <!-- 31 Jan 2026 -->
+  <rect x="152" y="67" width="150" height="20" rx="4" fill="#fff9c4"/>
+  <text x="227" y="81" font-family="DM Mono" font-size="9" fill="#e65100" text-anchor="middle" font-weight="600">31 Jan 2026 — 1st POA (IT + NIC)</text>
+
+  <!-- 5 Apr 2026 -->
+  <rect x="152" y="92" width="150" height="20" rx="4" fill="#c8e6c9"/>
+  <text x="227" y="106" font-family="DM Mono" font-size="9" fill="#1b5e20" text-anchor="middle" font-weight="600">5 Apr 2026 — Tax year ends</text>
+
+  <!-- 22 Jul 2026 -->
+  <rect x="307" y="117" width="200" height="20" rx="4" fill="#bbdefb"/>
+  <text x="407" y="131" font-family="DM Mono" font-size="9" fill="#1565c0" text-anchor="middle">22 Jul 2026 — Class 1A NIC</text>
+
+  <!-- 31 Jul 2026 -->
+  <rect x="307" y="142" width="200" height="20" rx="4" fill="#bbdefb"/>
+  <text x="407" y="156" font-family="DM Mono" font-size="9" fill="#1565c0" text-anchor="middle">31 Jul 2026 — 2nd POA (IT + NIC)</text>
+
+  <!-- 31 Oct 2026 -->
+  <rect x="307" y="167" width="200" height="20" rx="4" fill="#fff3e0"/>
+  <text x="407" y="181" font-family="DM Mono" font-size="9" fill="#e65100" text-anchor="middle">31 Oct 2026 — Paper return deadline</text>
+
+  <!-- 31 Jan 2027 -->
+  <rect x="307" y="192" width="260" height="20" rx="4" fill="#ffcdd2"/>
+  <text x="437" y="206" font-family="DM Mono" font-size="9" fill="#c62828" text-anchor="middle" font-weight="700">31 Jan 2027 — Online return + Bal Pmt + CGT</text>
+
+  <!-- 31 Jan 2028 -->
+  <rect x="307" y="217" width="260" height="20" rx="4" fill="#bbdefb"/>
+  <text x="437" y="231" font-family="DM Mono" font-size="9" fill="#1565c0" text-anchor="middle">31 Jan 2028 — Amend return / BADR / Personal records</text>
+
+  <!-- 5 Apr 2030 -->
+  <rect x="307" y="242" width="260" height="20" rx="4" fill="#e8eaf6"/>
+  <text x="437" y="256" font-family="DM Mono" font-size="9" fill="#4527a0" text-anchor="middle">5 Apr 2030 — Overpayment relief / Loss c/f / Discovery (4yr)</text>
+
+  <!-- 5 Apr 2032 -->
+  <rect x="307" y="267" width="260" height="20" rx="4" fill="#f3e5f5"/>
+  <text x="437" y="281" font-family="DM Mono" font-size="9" fill="#6a1b9a" text-anchor="middle">31 Jan 2032 — Business records retention ends</text>
+
+  <!-- 5 Apr 2032 discovery (careless) -->
+  <rect x="307" y="292" width="260" height="20" rx="4" fill="#ffebee"/>
+  <text x="437" y="306" font-family="DM Mono" font-size="9" fill="#c62828" text-anchor="middle">5 Apr 2032 — Discovery (careless behaviour)</text>
+
+  <!-- arrows marking now (May 2026) -->
+  <line x1="400" y1="120" x2="400" y2="325" stroke="#1565c0" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="760" y="120" font-family="DM Sans" font-size="8" fill="#1565c0" text-anchor="end">← We are here (May 2026)</text>
+  <line x1="755" y1="120" x2="400" y2="120" stroke="#1565c0" stroke-width="0.8" marker-end="url(#arr-b)"/>
+</svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="text-align:center; padding: 20px 0; color: var(--text-muted); font-size: 0.85rem;">
+  ACCA TX–UK · FA2025 · Prepared for June 2026 Exam Sitting · All dates reference tax year 2025/26
+</div>
+
+</body>
+</html>

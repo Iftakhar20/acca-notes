@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="ocean">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACCA TX – Employment Income & Benefits | FA2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Nunito:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+
+/* ══════════════════════════════════════════
+   THEME DEFINITIONS
+══════════════════════════════════════════ */
+
+/* 1. OCEAN — medium cool blue (default) */
+[data-theme="ocean"] {
+  --paper:      #eef4f8;
+  --card:       #ffffff;
+  --card-alt:   #f0f7fb;
+  --ink:        #1a2c38;
+  --muted:      #4a6070;
+  --border:     #b8d4e4;
+  --accent:     #1a6e9e;
+  --accent2:    #0d4d72;
+  --accentHov:  #1558820;
+  --hi-green:   #136b40;
+  --hi-red:     #9e2a1a;
+  --hi-gold:    #7a5c0a;
+  --nav-bg:     #1a6e9e;
+  --nav-txt:    #ffffff;
+  --hdr-bg:     #0d4d72;
+  --hdr-txt:    #ffffff;
+  --hdr-sub:    rgba(255,255,255,.72);
+  --gold-hi:    #c8a830;
+  --toc-bg:     #0d4d72;
+  --toc-txt:    #e8f2fa;
+  --strip-bg:   #0d4d72;
+  --strip-txt:  #d8eaf6;
+  --formula-bg: #0b2a3a;
+  --ex-head-bg: #cce4f5;
+  --ex-head-txt:#0d3a54;
+  --ex-bdr:     #7ab8da;
+  --ex-body-bg: #f5fbff;
+  --ans-bg:     #d8f0e4;
+  --ans-bdr:    #6ec495;
+  --ans-txt:    #0f3020;
+  --inf-tip-bg: #d8f0e4; --inf-tip-bdr:#6ec495; --inf-tip-txt:#0f3020;
+  --inf-warn-bg:#fdf0c8; --inf-warn-bdr:#c8a028; --inf-warn-txt:#3a2800;
+  --inf-key-bg: #cce4f5; --inf-key-bdr:#6aaed8; --inf-key-txt:#083050;
+  --inf-exam-bg:#fde0dc; --inf-exam-bdr:#d07070; --inf-exam-txt:#3a1010;
+  --crd-grn-bg: #e4f5ec; --crd-red-bg: #fdeee8; --crd-gld-bg: #fef7e0;
+  --tr-even:    #e8f4fb;
+  --th-bg:      #1a6e9e;
+  --tag-ex-bg:  #d8f0e4; --tag-ex-c:#136b40;
+  --tag-tx-bg:  #fde0dc; --tag-tx-c:#9e2a1a;
+  --step-bg:    #1a6e9e;
+  --comp-head:  #1a6e9e;
+}
+
+/* 2. SAGE — medium warm green */
+[data-theme="sage"] {
+  --paper:      #eef4ef;
+  --card:       #ffffff;
+  --card-alt:   #f0f7f1;
+  --ink:        #182818;
+  --muted:      #406040;
+  --border:     #b0d0b8;
+  --accent:     #2e7d4f;
+  --accent2:    #1a5c38;
+  --nav-bg:     #2e7d4f;
+  --nav-txt:    #ffffff;
+  --hdr-bg:     #1a5c38;
+  --hdr-txt:    #ffffff;
+  --hdr-sub:    rgba(255,255,255,.72);
+  --gold-hi:    #c8a830;
+  --toc-bg:     #1a5c38;
+  --toc-txt:    #e4f2e8;
+  --strip-bg:   #1a5c38;
+  --strip-txt:  #d4eedc;
+  --formula-bg: #0f2a18;
+  --ex-head-bg: #c8e8d0;
+  --ex-head-txt:#0d3a20;
+  --ex-bdr:     #78c498;
+  --ex-body-bg: #f5fff8;
+  --ans-bg:     #d0eedc;
+  --ans-bdr:    #60c080;
+  --ans-txt:    #0a2818;
+  --hi-green:   #1a5c38;
+  --hi-red:     #8c2820;
+  --hi-gold:    #7a5c0a;
+  --inf-tip-bg: #d0eedc; --inf-tip-bdr:#60c080; --inf-tip-txt:#0a2818;
+  --inf-warn-bg:#fdf0c8; --inf-warn-bdr:#c8a028; --inf-warn-txt:#3a2800;
+  --inf-key-bg: #c8e8d0; --inf-key-bdr:#78c498; --inf-key-txt:#083020;
+  --inf-exam-bg:#fde0dc; --inf-exam-bdr:#d07070; --inf-exam-txt:#3a1010;
+  --crd-grn-bg: #d8f0e0; --crd-red-bg: #fdeee8; --crd-gld-bg: #fef7e0;
+  --tr-even:    #e8f5ec;
+  --th-bg:      #2e7d4f;
+  --tag-ex-bg:  #d0eedc; --tag-ex-c:#1a5c38;
+  --tag-tx-bg:  #fde0dc; --tag-tx-c:#8c2820;
+  --step-bg:    #2e7d4f;
+  --comp-head:  #2e7d4f;
+}
+
+/* 3. SLATE — medium warm grey-purple */
+[data-theme="slate"] {
+  --paper:      #f0eef6;
+  --card:       #ffffff;
+  --card-alt:   #f5f2fc;
+  --ink:        #201830;
+  --muted:      #50487a;
+  --border:     #c0b8d8;
+  --accent:     #5e48a8;
+  --accent2:    #3d2e80;
+  --nav-bg:     #5e48a8;
+  --nav-txt:    #ffffff;
+  --hdr-bg:     #3d2e80;
+  --hdr-txt:    #ffffff;
+  --hdr-sub:    rgba(255,255,255,.72);
+  --gold-hi:    #d4a830;
+  --toc-bg:     #3d2e80;
+  --toc-txt:    #e8e4f8;
+  --strip-bg:   #3d2e80;
+  --strip-txt:  #d8d4f4;
+  --formula-bg: #1a1430;
+  --ex-head-bg: #ddd8f5;
+  --ex-head-txt:#2a1860;
+  --ex-bdr:     #9080d0;
+  --ex-body-bg: #faf8ff;
+  --ans-bg:     #e0dff5;
+  --ans-bdr:    #8070c8;
+  --ans-txt:    #180f3a;
+  --hi-green:   #2a6b45;
+  --hi-red:     #9e2a1a;
+  --hi-gold:    #7a5c0a;
+  --inf-tip-bg: #d8f0e4; --inf-tip-bdr:#6ec495; --inf-tip-txt:#0f3020;
+  --inf-warn-bg:#fdf0c8; --inf-warn-bdr:#c8a028; --inf-warn-txt:#3a2800;
+  --inf-key-bg: #ddd8f5; --inf-key-bdr:#9080d0; --inf-key-txt:#201838;
+  --inf-exam-bg:#fde0dc; --inf-exam-bdr:#d07070; --inf-exam-txt:#3a1010;
+  --crd-grn-bg: #ddf0e8; --crd-red-bg: #fdeee8; --crd-gld-bg: #fef7e0;
+  --tr-even:    #edeaf8;
+  --th-bg:      #5e48a8;
+  --tag-ex-bg:  #d8f0e4; --tag-ex-c:#2a6b45;
+  --tag-tx-bg:  #fde0dc; --tag-tx-c:#9e2a1a;
+  --step-bg:    #5e48a8;
+  --comp-head:  #5e48a8;
+}
+
+/* 4. SANDSTONE — light warm (the "light" theme) */
+[data-theme="sandstone"] {
+  --paper:      #f9f6f0;
+  --card:       #ffffff;
+  --card-alt:   #fdf9f3;
+  --ink:        #2c2018;
+  --muted:      #7a6858;
+  --border:     #d8c8a8;
+  --accent:     #b06020;
+  --accent2:    #804010;
+  --nav-bg:     #b06020;
+  --nav-txt:    #ffffff;
+  --hdr-bg:     #804010;
+  --hdr-txt:    #ffffff;
+  --hdr-sub:    rgba(255,255,255,.75);
+  --gold-hi:    #c89020;
+  --toc-bg:     #804010;
+  --toc-txt:    #f4ece0;
+  --strip-bg:   #804010;
+  --strip-txt:  #f0e4d0;
+  --formula-bg: #201408;
+  --ex-head-bg: #f5e4c8;
+  --ex-head-txt:#4a2a00;
+  --ex-bdr:     #c8a070;
+  --ex-body-bg: #fffdf8;
+  --ans-bg:     #e4f0d8;
+  --ans-bdr:    #90c070;
+  --ans-txt:    #182808;
+  --hi-green:   #2a6020;
+  --hi-red:     #8c2820;
+  --hi-gold:    #8a6010;
+  --inf-tip-bg: #e4f0d8; --inf-tip-bdr:#90c070; --inf-tip-txt:#182808;
+  --inf-warn-bg:#fdf0c8; --inf-warn-bdr:#c8a028; --inf-warn-txt:#3a2800;
+  --inf-key-bg: #e0ecf8; --inf-key-bdr:#80b0d8; --inf-key-txt:#0a2040;
+  --inf-exam-bg:#fde0dc; --inf-exam-bdr:#d07070; --inf-exam-txt:#3a1010;
+  --crd-grn-bg: #e4f0d8; --crd-red-bg: #fdeee8; --crd-gld-bg: #fef4dc;
+  --tr-even:    #f5eede;
+  --th-bg:      #b06020;
+  --tag-ex-bg:  #e4f0d8; --tag-ex-c:#2a6020;
+  --tag-tx-bg:  #fde8e4; --tag-tx-c:#8c2820;
+  --step-bg:    #b06020;
+  --comp-head:  #b06020;
+}
+
+/* 5. MIDNIGHT — dark theme */
+[data-theme="midnight"] {
+  --paper:      #111820;
+  --card:       #1a2230;
+  --card-alt:   #1e2838;
+  --ink:        #e4eaf2;
+  --muted:      #88a0b8;
+  --border:     #2a3a50;
+  --accent:     #4aa8e0;
+  --accent2:    #6ac0f0;
+  --nav-bg:     #0e1520;
+  --nav-txt:    #c8dff0;
+  --hdr-bg:     #0e1520;
+  --hdr-txt:    #e4eaf2;
+  --hdr-sub:    rgba(200,220,240,.68);
+  --gold-hi:    #d4a840;
+  --toc-bg:     #0e1520;
+  --toc-txt:    #c8dff0;
+  --strip-bg:   #0e1520;
+  --strip-txt:  #b8d4ec;
+  --formula-bg: #080e16;
+  --ex-head-bg: #1e3050;
+  --ex-head-txt:#9ac8e8;
+  --ex-bdr:     #2a4870;
+  --ex-body-bg: #1a2838;
+  --ans-bg:     #1a3028;
+  --ans-bdr:    #2a6040;
+  --ans-txt:    #a0d8b8;
+  --hi-green:   #50c880;
+  --hi-red:     #f07060;
+  --hi-gold:    #d4a840;
+  --inf-tip-bg: #1a3028; --inf-tip-bdr:#2a6040; --inf-tip-txt:#a0d8b8;
+  --inf-warn-bg:#2a2010; --inf-warn-bdr:#806020; --inf-warn-txt:#d8c080;
+  --inf-key-bg: #1e3050; --inf-key-bdr:#2a4870; --inf-key-txt:#9ac8e8;
+  --inf-exam-bg:#301818; --inf-exam-bdr:#703030; --inf-exam-txt:#e8b0a0;
+  --crd-grn-bg: #182818; --crd-red-bg: #2a1818; --crd-gld-bg: #221808;
+  --tr-even:    #1e2a3a;
+  --th-bg:      #0e1f30;
+  --tag-ex-bg:  #1a3028; --tag-ex-c:#50c880;
+  --tag-tx-bg:  #301818; --tag-tx-c:#f07060;
+  --step-bg:    #4aa8e0;
+  --comp-head:  #1e3050;
+}
+
+/* ══════════════════════════════════════════
+   BASE STYLES (use variables everywhere)
+══════════════════════════════════════════ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.75;
+    transition: background .3s, color .3s;
+  }
+
+  /* ── THEME SWITCHER BAR ── */
+  .theme-bar {
+    background: var(--hdr-bg);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    padding: 8px 32px;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+  }
+  .theme-bar span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--hdr-sub);
+    margin-right: 4px;
+  }
+  .tbtn {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,.3);
+    cursor: pointer;
+    transition: transform .2s, border-color .2s;
+    position: relative;
+  }
+  .tbtn:hover { transform: scale(1.18); border-color: rgba(255,255,255,.8); }
+  .tbtn.active { border-color: #fff; box-shadow: 0 0 0 2px rgba(255,255,255,.4); }
+  .tbtn[data-t="ocean"]     { background: linear-gradient(135deg,#1a6e9e,#0d4d72); }
+  .tbtn[data-t="sage"]      { background: linear-gradient(135deg,#2e7d4f,#1a5c38); }
+  .tbtn[data-t="slate"]     { background: linear-gradient(135deg,#5e48a8,#3d2e80); }
+  .tbtn[data-t="sandstone"] { background: linear-gradient(135deg,#b06020,#804010); }
+  .tbtn[data-t="midnight"]  { background: linear-gradient(135deg,#1a2230,#0e1520); }
+  .tbtn[data-t="midnight"]::after { content:'🌙'; font-size:12px; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); }
+  .theme-label { font-size:10px; color:var(--hdr-sub); font-family:'JetBrains Mono',monospace; margin-top:2px; text-align:center; display:block; white-space:nowrap; }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--hdr-bg);
+    color: var(--hdr-txt);
+    padding: 44px 48px 38px;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 380px; height: 380px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .header-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold-hi);
+    margin-bottom: 12px;
+  }
+  header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(26px, 4vw, 46px);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 14px;
+  }
+  header h1 span { color: var(--accent); }
+  .header-sub { font-size: 15px; color: var(--hdr-sub); max-width: 680px; }
+  .exam-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+  .badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    padding: 5px 13px;
+    border-radius: 20px;
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.2);
+    color: rgba(255,255,255,.9);
+    letter-spacing: 1px;
+  }
+  .badge.gold { background: rgba(255,255,255,.08); border-color: var(--gold-hi); color: var(--gold-hi); }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--nav-bg);
+    padding: 0 32px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    min-height: 46px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.15);
+  }
+  nav a {
+    color: rgba(255,255,255,.85);
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 12px 14px;
+    transition: color .15s, background .15s;
+    white-space: nowrap;
+    letter-spacing: .2px;
+  }
+  nav a:hover { color: #fff; background: rgba(255,255,255,.14); border-radius: 4px; }
+
+  [id] { scroll-margin-top: 62px; }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 1200px; margin: 0 auto; padding: 40px 32px 80px; }
+
+  /* ── HEADINGS ── */
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 800;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--accent);
+    color: var(--ink);
+  }
+  h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 30px 0 11px;
+    color: var(--accent2);
+  }
+  h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13.5px;
+    font-weight: 700;
+    margin: 18px 0 8px;
+    text-transform: uppercase;
+    letter-spacing: .6px;
+    color: var(--ink);
+  }
+  p { margin-bottom: 11px; }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--card);
+    border-radius: 10px;
+    box-shadow: 0 1px 10px rgba(0,0,0,.06);
+    padding: 24px 28px;
+    margin: 18px 0;
+    border-left: 4px solid var(--accent);
+  }
+  .card.green { border-left-color: var(--hi-green); background: var(--crd-grn-bg); }
+  .card.red   { border-left-color: var(--hi-red);   background: var(--crd-red-bg); }
+  .card.gold  { border-left-color: var(--gold-hi);  background: var(--crd-gld-bg); }
+
+  /* ── INFO BOXES ── */
+  .infobox {
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 18px 0;
+    font-size: 14.5px;
+    display: flex;
+    gap: 13px;
+    align-items: flex-start;
+  }
+  .infobox.tip  { background:var(--inf-tip-bg);  border:1px solid var(--inf-tip-bdr);  color:var(--inf-tip-txt);  }
+  .infobox.warn { background:var(--inf-warn-bg); border:1px solid var(--inf-warn-bdr); color:var(--inf-warn-txt); }
+  .infobox.key  { background:var(--inf-key-bg);  border:1px solid var(--inf-key-bdr);  color:var(--inf-key-txt);  }
+  .infobox.exam { background:var(--inf-exam-bg); border:1px solid var(--inf-exam-bdr); color:var(--inf-exam-txt); }
+  .infobox-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+
+  /* ── FORMULA BOX ── */
+  .formula {
+    background: var(--formula-bg);
+    color: #dce8f0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin: 14px 0;
+    line-height: 1.95;
+    overflow-x: auto;
+    white-space: pre;
+  }
+  .formula .comment { color: #70c890; }
+  .formula .num     { color: #d4b040; }
+  .formula .total   { color: #f0d040; border-top: 1px solid rgba(255,255,255,.2); padding-top: 5px; margin-top: 4px; display: block; }
+  .formula .sub     { color: #d8985a; }
+
+  /* ── TABLES ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 14px;
+    background: var(--card);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 1px 8px rgba(0,0,0,.06);
+  }
+  th {
+    background: var(--th-bg);
+    color: #fff;
+    padding: 11px 15px;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: .3px;
+  }
+  td { padding: 10px 15px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--ink); }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: var(--tr-even); }
+  .green-cell { color: var(--hi-green); font-weight: 700; }
+  .red-cell   { color: var(--hi-red);   font-weight: 700; }
+  .gold-cell  { color: var(--hi-gold);  font-weight: 700; }
+
+  /* ── EXAMPLE BOX ── */
+  .example-box {
+    border: 1.5px solid var(--ex-bdr);
+    border-radius: 10px;
+    margin: 22px 0;
+    overflow: hidden;
+  }
+  .example-header {
+    background: var(--ex-head-bg);
+    color: var(--ex-head-txt);
+    padding: 11px 18px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 13.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1.5px solid var(--ex-bdr);
+  }
+  .example-body { padding: 20px 22px; background: var(--ex-body-bg); color: var(--ink); }
+
+  /* ── ANSWER BOX ── */
+  .answer-box {
+    background: var(--ans-bg);
+    border: 1px solid var(--ans-bdr);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-top: 12px;
+    color: var(--ans-txt);
+  }
+  .answer-box .answer-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--hi-green);
+    margin-bottom: 7px;
+  }
+
+  /* ── GRID ── */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 18px 0; }
+  @media (max-width: 700px) { .grid2 { grid-template-columns: 1fr; } }
+
+  /* ── COMPARISON ── */
+  .comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 14px 0; }
+  .comparison .col-head {
+    background: var(--comp-head);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 12.5px;
+    border-radius: 8px 8px 0 0;
+    letter-spacing: .3px;
+  }
+  .comparison .col-body {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    padding: 15px;
+    font-size: 13.5px;
+    color: var(--ink);
+  }
+  .comparison .col-body li { margin-bottom: 6px; margin-left: 16px; }
+  @media (max-width: 640px) { .comparison { grid-template-columns: 1fr; } }
+
+  /* ── STEPS ── */
+  .steps { margin: 14px 0; }
+  .step { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+  .step-num {
+    background: var(--step-bg);
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 13px;
+  }
+  .step-body { flex: 1; padding-top: 5px; font-size: 15px; color: var(--ink); }
+  .step-body strong { color: var(--accent2); }
+
+  /* ── TOC ── */
+  .toc {
+    background: var(--toc-bg);
+    color: var(--toc-txt);
+    border-radius: 10px;
+    padding: 26px 30px;
+    margin: 30px 0;
+  }
+  .toc h3 {
+    color: var(--gold-hi);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin: 0 0 18px;
+    font-weight: 600;
+  }
+  .toc ol { counter-reset: toc-item; list-style: none; }
+  .toc li {
+    counter-increment: toc-item;
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    font-size: 14px;
+  }
+  .toc li:last-child { border-bottom: none; }
+  .toc li::before {
+    content: counter(toc-item, decimal-leading-zero);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    color: var(--gold-hi);
+    width: 24px;
+    flex-shrink: 0;
+  }
+  .toc a { color: var(--toc-txt); text-decoration: none; opacity: .88; }
+  .toc a:hover { opacity: 1; }
+
+  /* ── PILL TAGS ── */
+  .tag {
+    display: inline-block;
+    font-size: 10.5px;
+    font-family: 'JetBrains Mono', monospace;
+    border-radius: 20px;
+    padding: 2px 10px;
+    margin: 2px;
+    letter-spacing: .4px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--ink);
+  }
+  .tag.exempt  { background: var(--tag-ex-bg); border-color: var(--tag-ex-c); color: var(--tag-ex-c); }
+  .tag.taxable { background: var(--tag-tx-bg); border-color: var(--tag-tx-c); color: var(--tag-tx-c); }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 3px;
+    background: linear-gradient(to right, var(--accent), var(--accent2), transparent);
+    margin: 44px 0 38px;
+    border-radius: 2px;
+  }
+
+  /* ── STRIP ── */
+  .strip {
+    background: var(--strip-bg);
+    color: var(--strip-txt);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin: 18px 0;
+    font-size: 14px;
+  }
+  .strip-title {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--gold-hi);
+    font-size: 10.5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .strip-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; }
+  .strip-item strong { color: var(--gold-hi); font-family: 'JetBrains Mono', monospace; }
+
+  @media (max-width: 600px) { nav { overflow-x: auto; } .container { padding: 24px 16px 60px; } }
+
+  @media print {
+    .theme-bar, nav { display: none; }
+    .formula { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<!-- THEME SWITCHER -->
+<div class="theme-bar">
+  <span>Theme</span>
+  <div style="display:flex;gap:10px;align-items:flex-end;">
+    <div style="text-align:center">
+      <button class="tbtn active" data-t="ocean" title="Ocean" onclick="setTheme('ocean',this)"></button>
+      <span class="theme-label">Ocean</span>
+    </div>
+    <div style="text-align:center">
+      <button class="tbtn" data-t="sage" title="Sage" onclick="setTheme('sage',this)"></button>
+      <span class="theme-label">Sage</span>
+    </div>
+    <div style="text-align:center">
+      <button class="tbtn" data-t="slate" title="Slate" onclick="setTheme('slate',this)"></button>
+      <span class="theme-label">Slate</span>
+    </div>
+    <div style="text-align:center">
+      <button class="tbtn" data-t="sandstone" title="Sandstone" onclick="setTheme('sandstone',this)"></button>
+      <span class="theme-label">Sand</span>
+    </div>
+    <div style="text-align:center">
+      <button class="tbtn" data-t="midnight" title="Midnight" onclick="setTheme('midnight',this)"></button>
+      <span class="theme-label">Dark</span>
+    </div>
+  </div>
+</div>
+
+<script>
+function setTheme(t,btn){
+  document.documentElement.setAttribute('data-theme',t);
+  document.querySelectorAll('.tbtn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+</script>
+
+<!-- ═══════════════════════════ HEADER ═══════════════════════════ -->
+<header>
+  <div class="header-tag">ACCA TX-UK · Finance Act 2025 · June 2026 Examination</div>
+  <h1>Employment Income &<br><span>Benefits in Kind</span></h1>
+  <p class="header-sub">Complete tutorial covering taxable earnings, exempt benefits, company cars, fuel, living accommodation, beneficial loans, and other employment benefits — with full worked examples.</p>
+  <div class="exam-badges">
+    <span class="badge">FA 2025</span>
+    <span class="badge gold">Tax Year 2025/26</span>
+    <span class="badge">June 2026 Window</span>
+    <span class="badge">Section B &amp; C Examinable</span>
+  </div>
+</header>
+
+<!-- ═══════════════════════════ NAV ═══════════════════════════ -->
+<nav>
+  <a href="#basics">Basics</a>
+  <a href="#exempt">Exempt Benefits</a>
+  <a href="#car">Company Car</a>
+  <a href="#fuel">Car Fuel</a>
+  <a href="#van">Van</a>
+  <a href="#accom">Accommodation</a>
+  <a href="#loan">Beneficial Loan</a>
+  <a href="#assets">Other Assets</a>
+  <a href="#nic">NIC</a>
+  <a href="#practice">Practice Qs</a>
+</nav>
+
+<!-- ═══════════════════════════ MAIN ═══════════════════════════ -->
+<div class="container">
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc">
+  <h3>Contents</h3>
+  <ol>
+    <li><a href="#basics">Employment Income — the Basics</a></li>
+    <li><a href="#exempt">Exempt Benefits (Zero Taxable Value)</a></li>
+    <li><a href="#car">Company Car Benefit — Full Method</a></li>
+    <li><a href="#fuel">Car Fuel Benefit</a></li>
+    <li><a href="#van">Company Van &amp; Van Fuel Benefit</a></li>
+    <li><a href="#accom">Living Accommodation Benefit</a></li>
+    <li><a href="#loan">Beneficial Loan Benefit</a></li>
+    <li><a href="#assets">Other Benefits (Assets, Medical, Mileage…)</a></li>
+    <li><a href="#nic">National Insurance Contributions — Class 1A</a></li>
+    <li><a href="#practice">Practice Questions &amp; Answers</a></li>
+  </ol>
+</div>
+
+<!-- ═══════════════════ SECTION 1: BASICS ═══════════════════ -->
+<div id="basics">
+  <div class="section-label">Section 01</div>
+  <h2>Employment Income — the Basics</h2>
+
+  <p>Employment income is assessable under the <strong>receipts basis</strong>: income is taxed in the tax year it is <em>received</em> (or when the employee becomes entitled to it, if earlier for directors).</p>
+
+  <div class="card">
+    <h4>Structure of Employment Income</h4>
+    <div class="formula">
+<span class="comment">-- Employment Income Computation (Tax Year 2025/26) --</span>
+
+Salary / wages / bonuses                              X
+Add: Taxable benefits in kind                         X
+Add: Taxable reimbursed expenses                      X
+Less: Allowable deductions (e.g. pension, expenses)  (X)
+                                                    ───
+<span class="total">Employment Income                                     X</span>
+    </div>
+  </div>
+
+  <h3>Receipts Basis — Key Timing Rules</h3>
+  <table>
+    <tr><th>Income Type</th><th>When Taxable</th><th>Example</th></tr>
+    <tr><td>Regular salary</td><td>Date received (usually pay date)</td><td>Salary paid 28 Feb 2026 → 2025/26</td></tr>
+    <tr><td>Bonus</td><td>Date received OR date entitled — whichever is earlier</td><td>Bonus approved Dec 2025, paid Apr 2026 → 2025/26 (if entitled Dec 2025)</td></tr>
+    <tr><td>Director's remuneration</td><td>Earliest of: credited to account, received, or when entitlement determined</td><td>Board minutes Dec 2025 = taxed 2025/26</td></tr>
+  </table>
+
+  <div class="infobox exam">
+    <span class="infobox-icon">📝</span>
+    <div><strong>Exam Tip:</strong> A bonus paid on 6 April 2025 in respect of the year ending 31 December 2024 is taxable in <strong>2025/26</strong> (date received). A bonus paid 3 April 2026 for year ending 31 December 2025 is also taxable in <strong>2025/26</strong>.</div>
+  </div>
+
+  <h3>Allowable Deductions from Employment Income</h3>
+  <table>
+    <tr><th>Deductible</th><th>Not Deductible</th></tr>
+    <tr><td>Employee contributions to occupational pension scheme</td><td>Interest on mortgage for main residence</td></tr>
+    <tr><td>Expenses incurred <em>wholly, exclusively, and necessarily</em> in performing duties</td><td>Interest on loan to buy shares in a quoted company</td></tr>
+    <tr><td>Professional subscriptions (approved bodies)</td><td>Cost of commuting between home and office</td></tr>
+    <tr><td>Business travel expenses</td><td>Clothing (unless a specific uniform)</td></tr>
+    <tr><td>Home working allowance £6/week (HMRC approved)</td><td>General training not required for current job</td></tr>
+  </table>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════ SECTION 2: EXEMPT ═══════════════════ -->
+<div id="exempt">
+  <div class="section-label">Section 02</div>
+  <h2>Exempt Benefits (Zero Taxable Value)</h2>
+
+  <p>These benefits are provided by an employer but create <strong>no taxable benefit</strong> for the employee and carry <strong>no Class 1A NIC liability</strong> for the employer.</p>
+
+  <div class="grid2">
+    <div class="card green">
+      <h4>🚗 Workplace Transport</h4>
+      <p><span class="tag exempt">EXEMPT</span><br>Employer-provided car parking at or near the workplace.<br>Works bus services / minibuses.</p>
+    </div>
+    <div class="card green">
+      <h4>📱 Mobile Phone</h4>
+      <p><span class="tag exempt">EXEMPT</span><br><strong>One</strong> mobile phone per employee (including private calls). A <em>second</em> phone is a taxable benefit.</p>
+    </div>
+    <div class="card green">
+      <h4>🍽️ Staff Canteen</h4>
+      <p><span class="tag exempt">EXEMPT</span><br>Meals provided free or subsidised on the employer's premises, <strong>available to all staff</strong>.</p>
+    </div>
+    <div class="card green">
+      <h4>🏫 Workplace Nursery</h4>
+      <p><span class="tag exempt">EXEMPT</span><br>Employer-provided or contracted childcare on the employer's premises (or in a facility the employer manages). Not merely a voucher.</p>
+    </div>
+    <div class="card green">
+      <h4>🏋️ In-House Gym</h4>
+      <p><span class="tag exempt">EXEMPT</span><br>Use of the employer's own sporting / recreational facilities. But an <strong>external gym membership</strong> paid by the employer is <span class="tag taxable">TAXABLE</span>.</p>
+    </div>
+    <div class="card green">
+      <h4>💼 Employer Pension Contributions</h4>
+      <p><span class="tag exempt">EXEMPT</span><br>Employer contributions to registered pension schemes are exempt from tax and Class 1A NIC.</p>
+    </div>
+    <div class="card green">
+      <h4>🎁 Trivial Benefits</h4>
+      <p><span class="tag exempt">EXEMPT</span><br>Gifts to employees costing <strong>≤ £50 per occasion</strong>, not cash/cash-voucher, not performance-related. (Directors: max £300/year aggregate.)</p>
+    </div>
+    <div class="card green">
+      <h4>⚡ Electric Car Charging</h4>
+      <p><span class="tag exempt">EXEMPT</span><br>Electricity provided by the employer to charge an electric company car. There is no additional fuel benefit charge.</p>
+    </div>
+  </div>
+
+  <div class="infobox warn">
+    <span class="infobox-icon">⚠️</span>
+    <div><strong>Common Exam Trap:</strong> A <em>company gym</em> on the employer's premises used only by employees = <strong>exempt</strong>. A membership to an <em>external health club</em> = <strong>taxable</strong>. In the Dill question (Kaplan Q95), the company gym is £0 benefit; the external health club of £990 is fully taxable.</div>
+  </div>
+
+  <h3>Annual Party / Staff Event</h3>
+  <div class="card">
+    <p>Annual parties (e.g. Christmas party) are exempt if the <strong>cost per head does not exceed £150</strong> per year in total across all qualifying events. If cost exceeds £150 per head, the <em>full</em> amount (not just the excess) becomes taxable.</p>
+    <div class="infobox exam">
+      <span class="infobox-icon">📝</span>
+      <div>A summer event costing £200 per head = <strong>fully taxable</strong> (exceeds £150). The event costing £120 per head = <strong>exempt</strong>.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════ SECTION 3: COMPANY CAR ═══════════════════ -->
+<div id="car">
+  <div class="section-label">Section 03</div>
+  <h2>Company Car Benefit — Full Calculation Method</h2>
+
+  <div class="strip">
+    <div class="strip-title">Key FA2025 Figures — Company Car</div>
+    <div class="strip-grid">
+      <div class="strip-item">Base CO₂: <strong>55 g/km</strong></div>
+      <div class="strip-item">Base %: <strong>17%</strong> at 55 g/km</div>
+      <div class="strip-item">Diesel surcharge: <strong>+4%</strong> (unless RDE2)</div>
+      <div class="strip-item">Each 5 g/km above 55: <strong>+1%</strong></div>
+      <div class="strip-item">Electric (0 g/km): <strong>3%</strong></div>
+      <div class="strip-item">Max %: <strong>37%</strong></div>
+    </div>
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><strong>Find the List Price</strong> — always use the manufacturer's list price, never the price actually paid by the employer. Include any accessories added at or after delivery.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><strong>Determine the Appropriate Percentage</strong> — based on fuel type and CO₂ emissions (see table below).</div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><strong>Calculate the Gross Benefit</strong> — List Price × Appropriate % × months available/12.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body"><strong>Deduct Employee Contributions</strong> — any amount the employee pays the employer for private use of the car reduces the benefit.</div>
+    </div>
+  </div>
+
+  <h3>Appropriate Percentage Table (FA2025 — Tax Year 2025/26)</h3>
+  <table>
+    <tr><th>Fuel Type / CO₂</th><th>Appropriate %</th><th>Notes</th></tr>
+    <tr><td>Electric (0 g/km)</td><td class="green-cell">3%</td><td>No electricity fuel benefit</td></tr>
+    <tr><td>Hybrid: ≥130 mile electric range</td><td class="green-cell">3%</td><td>CO₂ between 1–50 g/km</td></tr>
+    <tr><td>Hybrid: 70–129 mile electric range</td><td>6%</td><td>CO₂ between 1–50 g/km</td></tr>
+    <tr><td>Hybrid: 40–69 mile electric range</td><td>9%</td><td>CO₂ between 1–50 g/km</td></tr>
+    <tr><td>Hybrid: 30–39 mile electric range</td><td>13%</td><td>CO₂ between 1–50 g/km</td></tr>
+    <tr><td>Hybrid: &lt;30 mile electric range</td><td>15%</td><td>CO₂ between 1–50 g/km</td></tr>
+    <tr><td>Petrol / RDE2 Diesel: 51–54 g/km</td><td>16%</td><td></td></tr>
+    <tr><td>Petrol / RDE2 Diesel: 55 g/km</td><td>17%</td><td>Base level</td></tr>
+    <tr><td>Petrol: 56–59 g/km</td><td>18%</td><td>+1% per 5 g/km above 55</td></tr>
+    <tr><td>Petrol: 60–64 g/km</td><td>19%</td><td></td></tr>
+    <tr><td>Petrol: 100 g/km</td><td>26%</td><td>17 + (100–55)/5 = 17+9</td></tr>
+    <tr><td>Petrol: 155 g/km</td><td>37%</td><td>Capped at 37%</td></tr>
+    <tr><td>Non-RDE2 Diesel: add 4% to above</td><td class="red-cell">+4%</td><td>Rounds CO₂ down to nearest 5</td></tr>
+  </table>
+
+  <div class="infobox key">
+    <span class="infobox-icon">🔑</span>
+    <div><strong>CO₂ Rounding Rule:</strong> CO₂ emissions are rounded <strong>down</strong> to the nearest 5 g/km before applying the formula. E.g., 152 g/km → rounded to 150 g/km.</div>
+  </div>
+
+  <h3>Formula Summary</h3>
+  <div class="formula">
+<span class="comment">-- Appropriate % Calculation (Petrol, CO₂ > 55 g/km) --</span>
+% = 17 + [(CO₂ rounded down to nearest 5) – 55] ÷ 5
+<span class="comment">-- If Non-RDE2 Diesel: add 4% --</span>
+
+<span class="comment">-- Car Benefit --</span>
+Car Benefit = List Price × Appropriate % × (months available ÷ 12)
+Less: Employee's contribution to private use               (X)
+                                                          ───
+<span class="total">Taxable Car Benefit                                        X</span>
+  </div>
+
+  <!-- WORKED EXAMPLES — CAR -->
+  <div class="example-box">
+    <div class="example-header">🚗 Worked Example 1 — Petrol Car (Thiago / Kaplan Q27)</div>
+    <div class="example-body">
+      <p><strong>Facts:</strong> New diesel car (meets RDE2), list price £28,000, CO₂ = 152 g/km, available from 6 May 2025 (11 months).</p>
+      <div class="formula">
+<span class="comment">-- Step 1: CO₂ rounded down --</span>
+152 g/km → 150 g/km
+
+<span class="comment">-- Step 2: Appropriate % --</span>
+Base (RDE2 diesel, so no 4% surcharge)    = 17%
+Plus: (150 – 55) ÷ 5 = 95 ÷ 5            = 19%
+                                           ────
+Appropriate %                              36%
+
+<span class="comment">-- Step 3: Car Benefit --</span>
+£28,000 × 36% × 11/12                    = <span class="num">£9,240</span>
+      </div>
+      <div class="answer-box">
+        <div class="answer-label">✓ Answer</div>
+        <strong>Taxable car benefit = £9,240</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header">⚡ Worked Example 2 — Electric Car (Enzo / Kaplan Q28)</div>
+    <div class="example-body">
+      <p><strong>Facts:</strong> Electric car, zero CO₂, <em>list price</em> £45,000 (employer paid £42,000 — irrelevant). Used 60% business / 40% private — also irrelevant; proportion of private use does NOT affect the benefit.</p>
+      <div class="formula">
+<span class="comment">-- Appropriate % for electric car --</span>
+CO₂ = 0 → Appropriate % = 3%
+
+<span class="comment">-- Car Benefit (full year) --</span>
+£45,000 × 3%                             = <span class="num">£1,350</span>
+
+<span class="comment">-- Charging electricity provided --</span>
+Electric car charging at office           = <span class="num">£0 (exempt)</span>
+      </div>
+      <div class="answer-box">
+        <div class="answer-label">✓ Answer</div>
+        <strong>Taxable car benefit = £1,350. No fuel benefit charge.</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header">🔋 Worked Example 3 — Hybrid Car (Jason / Kaplan Q98)</div>
+    <div class="example-body">
+      <p><strong>Facts:</strong> Hybrid car, list price £62,500, CO₂ between 1–50 g/km, electric range < 30 miles. Available from 15 March 2025 (whole of 2025/26 = full year).</p>
+      <div class="formula">
+<span class="comment">-- Hybrid: CO₂ 1–50 g/km, range &lt; 30 miles --</span>
+Appropriate % = 15%
+
+<span class="comment">-- Car Benefit --</span>
+£62,500 × 15%                            = <span class="num">£9,375</span>
+      </div>
+      <div class="answer-box">
+        <div class="answer-label">✓ Answer</div>
+        <strong>Taxable car benefit = £9,375</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header">🚗 Worked Example 4 — Non-RDE2 Diesel (Poppy / Kaplan Q99)</div>
+    <div class="example-body">
+      <p><strong>Facts:</strong> Diesel car (does NOT meet RDE2), list price £21,800, CO₂ = 70 g/km. Provided 1 August 2025 to 5 April 2026 (8 months).</p>
+      <div class="formula">
+<span class="comment">-- Step 1: CO₂ rounded down --</span>
+70 g/km → 70 g/km (already a multiple of 5)
+
+<span class="comment">-- Step 2: Base % (treated as petrol first) --</span>
+17 + (70 – 55) ÷ 5 = 17 + 3             = 20%
+<span class="comment">-- Add diesel surcharge (NOT RDE2) --</span>
+20 + 4                                   = 24%
+
+<span class="comment">-- Step 3: Car Benefit --</span>
+£21,800 × 24% × 8/12                    = <span class="num">£3,488</span>
+      </div>
+      <div class="answer-box">
+        <div class="answer-label">✓ Answer</div>
+        <strong>Taxable car benefit = £3,488</strong>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════ SECTION 4: FUEL ═══════════════════ -->
+<div id="fuel">
+  <div class="section-label">Section 04</div>
+  <h2>Car Fuel Benefit</h2>
+
+  <div class="strip">
+    <div class="strip-title">FA2025 Fuel Benefit Base Figure</div>
+    <div class="strip-grid">
+      <div class="strip-item">Fuel benefit base: <strong>£28,200</strong></div>
+      <div class="strip-item">Formula: <strong>£28,200 × Appropriate %</strong></div>
+    </div>
+  </div>
+
+  <div class="formula">
+<span class="comment">-- Car Fuel Benefit (only if employer pays for ANY private fuel) --</span>
+Fuel Benefit = £28,200 × Appropriate % × (months available ÷ 12)
+Less: Employee contribution for private fuel               <span class="sub">(Only if pays FULL cost of ALL private fuel)</span>
+                                                          ───
+<span class="total">Taxable Fuel Benefit                                       X</span>
+  </div>
+
+  <div class="infobox warn">
+    <span class="infobox-icon">⚠️</span>
+    <div><strong>All-or-Nothing Rule:</strong> If the employee makes a <em>partial</em> payment for private fuel, the fuel benefit is <strong>not reduced</strong> — it only reduces to nil if the employee reimburses the <em>full</em> cost of all private fuel. This makes it almost always beneficial to include the full fuel benefit rather than a partial reimbursement.</div>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header">⛽ Worked Example — Fuel Benefit (FA2025)</div>
+    <div class="example-body">
+      <p><strong>Facts:</strong> Emma has a petrol company car, list price £30,000, CO₂ = 105 g/km, available all year. Employer also pays for all private fuel.</p>
+      <div class="formula">
+<span class="comment">-- Appropriate % --</span>
+CO₂ rounded: 105 g/km → 105 g/km
+% = 17 + (105 – 55) ÷ 5 = 17 + 10      = 27%
+
+<span class="comment">-- Car Benefit --</span>
+£30,000 × 27%                           = <span class="num">£8,100</span>
+
+<span class="comment">-- Fuel Benefit --</span>
+£28,200 × 27%                           = <span class="num">£7,614</span>
+
+<span class="comment">-- Total car-related benefit --</span>
+£8,100 + £7,614                         = <span class="num">£15,714</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════ SECTION 5: VAN ═══════════════════ -->
+<div id="van">
+  <div class="section-label">Section 05</div>
+  <h2>Company Van &amp; Van Fuel Benefit</h2>
+
+  <div class="strip">
+    <div class="strip-title">FA2025 Van Benefit Figures (Given in Exam!)</div>
+    <div class="strip-grid">
+      <div class="strip-item">Van benefit: <strong>£4,020</strong></div>
+      <div class="strip-item">Van fuel benefit: <strong>£769</strong></div>
+      <div class="strip-item">Zero-emission van: <strong>£0</strong></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p>Unlike company cars, van benefits are <strong>flat-rate charges</strong>. The list price, CO₂ emissions, and % of private use are all <strong>irrelevant</strong> — except if private use is <em>insignificant</em>, in which case there is <strong>no benefit at all</strong>.</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header">🚐 Worked Example — Van (Olayide / Kaplan Q29)</div>
+    <div class="example-body">
+      <p><strong>Facts:</strong> Van (list price £30,000, CO₂ 158 g/km) provided full year, 40% private use. Employer pays private fuel.</p>
+      <div class="formula">
+<span class="comment">-- Van Benefit (list price and CO2 irrelevant) --</span>
+Van benefit (flat rate)                  = <span class="num">£4,020</span>
+Van fuel benefit (flat rate)             = <span class="num">£769</span>
+                                           ────
+Total taxable benefit                    = <span class="num">£4,789</span>
+      </div>
+      <div class="answer-box">
+        <div class="answer-label">✓ Answer</div>
+        <strong>Total van benefit = £4,789</strong>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════ SECTION 6: ACCOMMODATION ═══════════════════ -->
+<div id="accom">
+  <div class="section-label">Section 06</div>
+  <h2>Living Accommodation Benefit</h2>
+
+  <p>Where an employer provides living accommodation to an employee, there are potentially <strong>three separate benefits</strong>:</p>
+
+  <div class="grid2">
+    <div class="card">
+      <h4>1️⃣ Basic Benefit (Annual Value)</h4>
+      <p>Always charged. The <strong>annual value</strong> (rateable value / rental value) of the property.</p>
+    </div>
+    <div class="card red">
+      <h4>2️⃣ Additional Benefit (Expensive Accommodation)</h4>
+      <p>Only if original cost + improvements made <em>before</em> start of tax year exceeds <strong>£75,000</strong>.</p>
+    </div>
+    <div class="card">
+      <h4>3️⃣ Running Costs</h4>
+      <p>If the employer also pays bills (heating, council tax, etc.), these are added as a separate benefit at <strong>cost</strong>.</p>
+    </div>
+  </div>
+
+  <h3>Additional Benefit — Expensive Accommodation</h3>
+  <div class="formula">
+<span class="comment">-- Only applies if cost > £75,000 --</span>
+
+<span class="comment">-- Case A: Purchased &lt; 6 years before first provided --</span>
+Base = Cost of property + cost of improvements before start of tax year
+
+<span class="comment">-- Case B: Purchased ≥ 6 years before first provided --</span>
+Base = Market Value when first made available to employee
+       (improvements before this date are already reflected in MV)
+
+<span class="comment">-- Additional Benefit Calculation --</span>
+(Base – £75,000) × Official Rate of Interest (3.75% for 2025/26)
+= Additional Benefit
+
+<span class="comment">-- Total Living Accommodation Benefit --</span>
+Annual Value                               X
+Additional benefit (if > £75,000)          X
+Running costs paid by employer             X
+Furniture benefit (20% of cost)            X
+                                          ───
+Sub-total                                  X
+Less: Employee's contribution             (X)
+                                          ───
+<span class="total">Total Taxable Benefit                       X</span>
+<span class="comment">× months available ÷ 12 (if not full year)</span>
+  </div>
+
+  <h3>Furniture in Employer-Provided Accommodation</h3>
+  <div class="card gold">
+    <p>If the employer also provides <strong>furniture</strong>, an additional benefit arises:<br><strong>Furniture Benefit = 20% × Cost of furniture</strong></p>
+    <p>This is a <em>separate</em> benefit — not included within the accommodation benefit calculation.</p>
+  </div>
+
+  <h3>Job-Related Accommodation — Exempt!</h3>
+  <div class="card green">
+    <p>Accommodation is <strong>exempt</strong> from all three benefit charges if it qualifies as job-related, e.g.:</p>
+    <ul style="margin-left:20px;margin-top:8px;">
+      <li>Necessary for the proper performance of duties (e.g. caretaker, minister)</li>
+      <li>Customary for that type of employment and enables better performance of duties</li>
+      <li>Provided for security reasons (e.g. police officer, government minister)</li>
+    </ul>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header">🏠 Worked Example — Amanda's Accommodation (Kaplan Q123)</div>
+    <div class="example-body">
+      <p><strong>Facts:</strong> Employer purchased property on 10 February 2023 for £174,000. Improvements of £8,000 were made. Annual value £6,300. Furniture provided by employer at cost £12,400. Accommodation provided <strong>1 November 2025 to 5 April 2026 (5 months)</strong>. Official interest rate = 3.75%.</p>
+      <p>Property was purchased <em>less than 6 years</em> before first provided to Amanda → use <strong>cost method</strong>.</p>
+      <div class="formula">
+<span class="comment">-- Annual Value --</span>
+Annual value                             =  6,300
+<span class="comment">-- Additional Benefit --</span>
+Cost                                       174,000
+Add: Improvements                           +8,000
+                                           ───────
+                                           182,000
+Less: £75,000 limit                        (75,000)
+                                           ───────
+Excess                                     107,000
+× ORI 3.75%                             =   4,013
+<span class="comment">-- Furniture Benefit --</span>
+£12,400 × 20%                           =   2,480
+                                           ───────
+Sub-total                               = <span class="num">12,793</span>
+                                           ───────
+<span class="comment">-- Time apportion (5 months) --</span>
+£12,793 × 5/12                          = <span class="num">£5,330</span>
+      </div>
+      <div class="answer-box">
+        <div class="answer-label">✓ Answer</div>
+        <strong>Total taxable living accommodation benefit = £5,330</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="infobox exam">
+    <span class="infobox-icon">📝</span>
+    <div><strong>Examiner's Warning:</strong> The most common mistakes are: (1) Using MV instead of cost when property was purchased &lt;6 years ago; (2) Forgetting the furniture benefit; (3) Forgetting to time-apportion when accommodation was not available for the full year; (4) Not deducting employee contributions.</div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════ SECTION 7: LOAN ═══════════════════ -->
+<div id="loan">
+  <div class="section-label">Section 07</div>
+  <h2>Beneficial Loan Benefit</h2>
+
+  <p>If an employer provides a loan to an employee at <strong>below the official rate of interest (ORI)</strong>, the difference is a taxable benefit. <strong>ORI for 2025/26 = 3.75%.</strong></p>
+
+  <div class="infobox key">
+    <span class="infobox-icon">💡</span>
+    <div>No benefit arises if the total outstanding loans to an employee do not exceed <strong>£10,000</strong> at any point in the tax year (de minimis rule).</div>
+  </div>
+
+  <h3>Two Calculation Methods</h3>
+  <div class="comparison">
+    <div>
+      <div class="col-head">Method 1: Average Method</div>
+      <div class="col-body">
+        <p><strong>Formula:</strong></p>
+        <p>Average loan = (Opening balance + Closing balance) ÷ 2</p>
+        <p>Benefit = Average loan × ORI × months/12</p>
+        <p>Less: interest actually paid by employee</p>
+        <br>
+        <p><em>Default method in the exam unless told otherwise or employee requests exact method.</em></p>
+      </div>
+    </div>
+    <div>
+      <div class="col-head">Method 2: Exact Method</div>
+      <div class="col-body">
+        <p><strong>Formula:</strong></p>
+        <p>Calculate interest on the actual loan balance day-by-day (or monthly)</p>
+        <p>Can only be used if HMRC or the employee requests it.</p>
+        <br>
+        <p><em>The employee (not the employer) can elect to use this method if it gives a lower benefit.</em></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="formula">
+<span class="comment">-- Average Method (most common in exam) --</span>
+Balance at start of tax year (or when loan taken)        A
+Balance at end of tax year (or when loan repaid)         B
+                                                       ───
+Average loan  = (A + B) ÷ 2
+
+Benefit = Average loan × ORI (3.75%) × months/12
+Less: Interest actually paid by employee                (X)
+                                                       ───
+<span class="total">Taxable Loan Benefit                                     X</span>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header">💰 Worked Example — Beneficial Loan (Woojin / Kaplan Q30)</div>
+    <div class="example-body">
+      <p><strong>Facts:</strong> Loan of £100,000 taken 6 April 2025. Employee repaid £40,000 on 6 August 2025. Balance at 5 April 2026 = £60,000. Employee pays 1% interest.</p>
+      <div class="formula">
+<span class="comment">-- Average Method --</span>
+Balance at start (6 April 2025)          = 100,000
+Balance at end (5 April 2026)            =  60,000
+                                           ───────
+                                           160,000
+Average loan (÷2)                        =  80,000
+
+<span class="comment">-- Gross Benefit --</span>
+£80,000 × 3.75%                          =  3,000
+
+<span class="comment">-- Less interest paid by employee --</span>
+Apr–Aug (4 months): £100,000 × 1% × 4/12= (333)
+Aug–Apr (8 months): £60,000 × 1% × 8/12 = (400)
+                                           ─────
+<span class="total">Net Taxable Loan Benefit                 = £2,267</span>
+      </div>
+      <div class="answer-box">
+        <div class="answer-label">✓ Answer</div>
+        <strong>Taxable beneficial loan benefit = £2,267 (Answer B in Kaplan)</strong>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════ SECTION 8: OTHER ASSETS ═══════════════════ -->
+<div id="assets">
+  <div class="section-label">Section 08</div>
+  <h2>Other Benefits — Assets, Medical, Mileage</h2>
+
+  <h3>Use of an Asset Provided to Employee</h3>
+  <div class="card">
+    <p>When an employer provides an asset (e.g. a television, bicycle, laptop) for the employee's <strong>private use</strong>, the annual benefit is:</p>
+    <div class="formula">
+Annual Benefit = <span class="num">20%</span> × <strong>Market Value</strong> of the asset when first provided to the employee
+    </div>
+    <p>The benefit runs each year the asset is available for private use.</p>
+  </div>
+
+  <h3>Transfer / Gift of an Asset to the Employee</h3>
+  <div class="card red">
+    <p>When the employer later <strong>gives (gifts) the asset</strong> to the employee, the benefit is the <strong>higher of</strong>:</p>
+    <div class="formula">
+(i)  Market Value at date of transfer
+
+(ii) Market Value when first made available for private use
+     Less: Annual benefits already taxed in prior years (20% × MV per year)
+                                                         ─────────────────
+     Net amount
+                                                         ─────────────────
+Taxable gift benefit = Higher of (i) or (ii)
+    </div>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header">📸 Worked Example — Camera Gift (Max / Kaplan Q31)</div>
+    <div class="example-body">
+      <p><strong>Facts:</strong> Star Ltd provided Max with a camera on 6 April 2024. Market value at that date = £2,000. On 6 April 2025, Star Ltd gifted the camera to Max. Market value on gift date = £1,400.</p>
+      <div class="formula">
+<span class="comment">-- Use of asset benefit (2024/25) --</span>
+£2,000 × 20%                             =  400 (taxed in 2024/25)
+
+<span class="comment">-- Gift benefit (2025/26): Higher of --</span>
+(i)  MV at date of gift                  = 1,400
+(ii) MV when first provided              = 2,000
+     Less: already taxed (£2,000 × 20%)  = (400)
+                                           ─────
+                                           1,600
+                                           ─────
+Higher of £1,400 and £1,600             = <span class="num">£1,600</span>
+      </div>
+      <div class="answer-box">
+        <div class="answer-label">✓ Answer D in Kaplan</div>
+        <strong>Taxable gift benefit in 2025/26 = £1,600</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header">📺 Worked Example — Television Provided &amp; Gifted (Kim / Kaplan Q94)</div>
+    <div class="example-body">
+      <p><strong>Facts:</strong> SharpSuit plc provided Kim with a television costing £2,000 on 6 April 2024 for private use. On 6 April 2025, it was given to Kim. Market value on gift date = £1,400 (typical question format).</p>
+      <div class="formula">
+<span class="comment">-- 2024/25: Use of asset benefit --</span>
+£2,000 × 20%                             =  400
+
+<span class="comment">-- 2025/26: Gift benefit --</span>
+(i)  MV at gift date                     = 1,400
+(ii) MV when first provided              = 2,000
+     Less: taxed 2024/25                  = (400)
+     Net                                 = 1,600
+
+Higher of (i) and (ii)                  = <span class="num">£1,600</span>
+      </div>
+      <div class="answer-box">
+        <div class="answer-label">✓ Answer</div>
+        <strong>Taxable benefit 2025/26 = £1,600</strong>
+      </div>
+    </div>
+  </div>
+
+  <h3>Medical Insurance &amp; Other Benefits</h3>
+  <table>
+    <tr><th>Benefit</th><th>Taxable Amount</th></tr>
+    <tr><td>Private medical insurance</td><td>Cost to the employer</td></tr>
+    <tr><td>Staff entertaining (non-annual events)</td><td>Cost to employer</td></tr>
+    <tr><td>Cash vouchers / credit tokens</td><td>Face value of voucher</td></tr>
+    <tr><td>Non-cash vouchers (e.g. gift cards)</td><td>Cost to employer</td></tr>
+    <tr><td>Subscription to external sports club</td><td>Cost to employer</td></tr>
+    <tr><td>Two mobile phones</td><td>Cost of second phone</td></tr>
+  </table>
+
+  <h3>Approved Mileage Allowance Payments (AMAP)</h3>
+  <div class="strip">
+    <div class="strip-title">FA2025 AMAP Rates</div>
+    <div class="strip-grid">
+      <div class="strip-item">First 10,000 miles: <strong>45p/mile</strong></div>
+      <div class="strip-item">Over 10,000 miles: <strong>25p/mile</strong></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p>When an employee uses their <strong>own car</strong> for business travel:</p>
+    <ul style="margin-left:20px;margin-top:8px;">
+      <li>Employer pays <strong>less than AMAP</strong> → difference is a <strong>deduction</strong> (allowable expense) from employment income.</li>
+      <li>Employer pays <strong>more than AMAP</strong> → excess is a <strong>taxable benefit</strong>.</li>
+      <li>Commuting (home to office) is <strong>not</strong> business travel — no AMAP relief.</li>
+    </ul>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header">🚗 Worked Example — AMAP (John Beach / Kaplan Q96)</div>
+    <div class="example-body">
+      <p><strong>Facts:</strong> John drove 5,960 business miles (excluding commuting — 4,270 miles to customers + 510 miles to other offices, totalling 4,780 allowable). Wait — re-reading: total paid was for 5,960 miles at 60p. Allowable AMAP: (4,270+510) = 4,780 × 45p (all under 10,000).</p>
+      <div class="formula">
+<span class="comment">-- Mileage received --</span>
+5,960 miles × 60p                        = 3,576
+
+<span class="comment">-- AMAP entitlement (4,780 miles, all under 10,000) --</span>
+(4,270 + 510) miles × 45p               = (2,151)
+                                           ──────
+<span class="total">Taxable excess mileage benefit           = £1,425</span>
+      </div>
+      <div class="answer-box">
+        <div class="answer-label">✓ Answer</div>
+        <strong>Taxable mileage benefit = £1,425</strong><br>
+        <small>Note: travel between home and office is ordinary commuting — excluded from allowable business miles.</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════ SECTION 9: NIC ═══════════════════ -->
+<div id="nic">
+  <div class="section-label">Section 09</div>
+  <h2>National Insurance Contributions — Class 1A</h2>
+
+  <div class="card">
+    <p><strong>Class 1A NIC</strong> is paid by the <strong>employer only</strong> (not the employee) on the taxable value of most non-cash benefits in kind.</p>
+    <p><strong>Rate: 15% for 2025/26</strong> (applied to the taxable benefit value).</p>
+    <p><strong>Due date: 22 July</strong> following the end of the tax year (if paying electronically), or 19 July if paying by cheque.</p>
+  </div>
+
+  <h3>What Attracts Class 1A NIC?</h3>
+  <div class="comparison">
+    <div>
+      <div class="col-head">✅ Class 1A NIC Applies</div>
+      <div class="col-body">
+        <ul>
+          <li>Company car benefit</li>
+          <li>Car fuel benefit</li>
+          <li>Van benefit and van fuel benefit</li>
+          <li>Private medical insurance</li>
+          <li>Living accommodation</li>
+          <li>Beneficial loan benefit</li>
+          <li>Non-cash assets provided/gifted</li>
+          <li>External gym / sports club membership</li>
+          <li>Annual events over £150/head</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <div class="col-head">❌ Class 1A NIC Does NOT Apply</div>
+      <div class="col-body">
+        <ul>
+          <li>Exempt benefits (one mobile, staff canteen, in-house gym etc.)</li>
+          <li>Cash payments → Class 1 NIC instead</li>
+          <li>Cash vouchers → Class 1 NIC instead</li>
+          <li>Employer pension contributions → exempt</li>
+          <li>Car parking at/near workplace → exempt</li>
+          <li>Workplace nursery → exempt</li>
+          <li>Ordinary commuting mileage → Class 1 if cash paid</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header">💷 Worked Example — Class 1A NIC (Alonso / Kaplan Q60)</div>
+    <div class="example-body">
+      <p><strong>Facts:</strong> Red Dolphin Ltd provided: (1) Cash vouchers £3,000; (2) Gift of a new television £2,000.</p>
+      <div class="formula">
+<span class="comment">-- Cash vouchers --</span>
+Class 1 NIC (not Class 1A) — excluded    = £0 Class 1A
+
+<span class="comment">-- Television (non-cash asset) --</span>
+£2,000 × 15%                             = <span class="num">£300</span>
+
+<span class="comment">-- Due date (electronic) --</span>
+                                         = <span class="num">22 July 2026</span>
+      </div>
+      <div class="answer-box">
+        <div class="answer-label">✓ Answer</div>
+        <strong>Class 1A NIC = £300, due 22 July 2026</strong>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════ SECTION 10: PRACTICE ═══════════════════ -->
+<div id="practice">
+  <div class="section-label">Section 10</div>
+  <h2>Practice Questions &amp; Full Answers</h2>
+
+  <!-- Q1 -->
+  <div class="example-box">
+    <div class="example-header">❓ Practice Question 1 — Car &amp; Fuel Benefit</div>
+    <div class="example-body">
+      <p>Foo is provided with a petrol car on 1 October 2025. The car has a list price of £24,000 and CO₂ emissions of 90 g/km. The employer also provides fuel for all private journeys. The car is available for the rest of 2025/26 (6 months). Calculate the car benefit and fuel benefit.</p>
+      <details style="margin-top:16px;">
+        <summary style="cursor:pointer;font-weight:700;color:var(--accent2);">▶ Click to reveal answer</summary>
+        <div class="answer-box" style="margin-top:12px;">
+          <div class="answer-label">✓ Answer</div>
+          <div class="formula">
+<span class="comment">-- Appropriate % (Petrol) --</span>
+CO₂: 90 g/km → 90 g/km
+% = 17 + (90 – 55) ÷ 5 = 17 + 7         = 24%
+
+<span class="comment">-- Car Benefit (6 months) --</span>
+£24,000 × 24% × 6/12                    = <span class="num">£2,880</span>
+
+<span class="comment">-- Fuel Benefit (6 months) --</span>
+£28,200 × 24% × 6/12                    = <span class="num">£3,384</span>
+          </div>
+          <p><strong>Car benefit = £2,880 | Fuel benefit = £3,384</strong></p>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="example-box">
+    <div class="example-header">❓ Practice Question 2 — Living Accommodation</div>
+    <div class="example-body">
+      <p>Hannah's employer (Lomly Ltd) provides her with accommodation from 1 January 2026. The property was purchased by Lomly Ltd 3 years ago for £250,000. Annual value = £16,000. No improvements. Official rate 3.75%. Calculate the accommodation benefit for 2025/26.</p>
+      <details style="margin-top:16px;">
+        <summary style="cursor:pointer;font-weight:700;color:var(--accent2);">▶ Click to reveal answer</summary>
+        <div class="answer-box" style="margin-top:12px;">
+          <div class="answer-label">✓ Answer</div>
+          <div class="formula">
+<span class="comment">-- Property purchased &lt; 6 years ago → use cost --</span>
+Annual Value                             = 16,000
+Additional Benefit:
+  Cost                    250,000
+  Less: £75,000          (75,000)
+  Excess                  175,000
+  × 3.75%                              =  6,563
+                                          ──────
+Sub-total                               = 22,563
+                                          ──────
+<span class="comment">-- Time apportion: 3 months (Jan–Apr) --</span>
+£22,563 × 3/12                          = <span class="num">£5,641</span>
+          </div>
+          <p><strong>Taxable accommodation benefit = £5,641</strong></p>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="example-box">
+    <div class="example-header">❓ Practice Question 3 — Television Benefit</div>
+    <div class="example-body">
+      <p>On 6 April 2024, an employer provided an employee with a 65-inch television costing £1,800 for personal use. On 6 April 2025, the employer gave the television to the employee as a gift. Its market value was £1,100 on 6 April 2025. Calculate the taxable benefit in 2025/26.</p>
+      <details style="margin-top:16px;">
+        <summary style="cursor:pointer;font-weight:700;color:var(--accent2);">▶ Click to reveal answer</summary>
+        <div class="answer-box" style="margin-top:12px;">
+          <div class="answer-label">✓ Answer</div>
+          <div class="formula">
+<span class="comment">-- 2024/25: Use of asset benefit (already taxed) --</span>
+£1,800 × 20% = £360
+
+<span class="comment">-- 2025/26: Gift benefit — higher of: --</span>
+(i)  MV at gift date                     = 1,100
+(ii) MV when first provided              = 1,800
+     Less: taxed in 2024/25              =  (360)
+                                           ─────
+                                           1,440
+
+Higher of £1,100 and £1,440             = <span class="num">£1,440</span>
+          </div>
+          <p><strong>Taxable benefit 2025/26 = £1,440</strong></p>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="example-box">
+    <div class="example-header">❓ Practice Question 4 — Beneficial Loan</div>
+    <div class="example-body">
+      <p>On 1 August 2025, Subsequent plc provided Jason with an interest-free loan of £140,000 to help him purchase a main residence. No repayments are made before 5 April 2026. Calculate the taxable loan benefit for 2025/26 (8 months).</p>
+      <details style="margin-top:16px;">
+        <summary style="cursor:pointer;font-weight:700;color:var(--accent2);">▶ Click to reveal answer</summary>
+        <div class="answer-box" style="margin-top:12px;">
+          <div class="answer-label">✓ Answer</div>
+          <div class="formula">
+<span class="comment">-- Average Method --</span>
+Balance at start (1 Aug 2025)            = 140,000
+Balance at end (5 Apr 2026)              = 140,000
+Average                                  = 140,000
+
+<span class="comment">-- Benefit (8 months, interest-free so no deduction) --</span>
+£140,000 × 3.75% × 8/12                 = <span class="num">£3,500</span>
+          </div>
+          <p><strong>Taxable loan benefit = £3,500</strong></p>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="example-box">
+    <div class="example-header">❓ Practice Question 5 — Mixed Benefits Summary (Comprehensive)</div>
+    <div class="example-body">
+      <p>Tom is employed by Alpha Ltd on a salary of £55,000 for 2025/26. He receives the following:</p>
+      <ul style="margin-left:20px;margin-bottom:12px;font-size:15px;">
+        <li>Diesel company car (RDE2), list price £32,000, CO₂ = 120 g/km, available full year</li>
+        <li>Employer pays all fuel including private</li>
+        <li>One mobile phone worth £600</li>
+        <li>Employer contributes £2,000 to Tom's occupational pension</li>
+        <li>External gym membership £1,200 paid by Alpha Ltd</li>
+        <li>Staff canteen meals (open to all staff) costing employer £800</li>
+      </ul>
+      <p>Calculate Tom's total employment income.</p>
+      <details style="margin-top:16px;">
+        <summary style="cursor:pointer;font-weight:700;color:var(--accent2);">▶ Click to reveal answer</summary>
+        <div class="answer-box" style="margin-top:12px;">
+          <div class="answer-label">✓ Answer</div>
+          <div class="formula">
+<span class="comment">-- Car benefit % (RDE2 diesel, CO₂ 120 g/km) --</span>
+120 g/km → 120 g/km
+% = 17 + (120–55)÷5 = 17 + 13           = 30%
+<span class="comment">-- RDE2: NO 4% surcharge --</span>
+
+<span class="comment">-- Car Benefit --</span>
+£32,000 × 30%                           = 9,600
+
+<span class="comment">-- Fuel Benefit --</span>
+£28,200 × 30%                           = 8,460
+
+<span class="comment">-- Exempt items --</span>
+1 mobile phone                          =     0  (exempt)
+Employer pension contribution           =     0  (exempt)
+Staff canteen (open to all staff)       =     0  (exempt)
+
+<span class="comment">-- Taxable items --</span>
+External gym membership                 = 1,200  (taxable)
+
+<span class="comment">-- Employment Income --</span>
+Salary                                 = 55,000
+Car benefit                            =  9,600
+Fuel benefit                           =  8,460
+Gym membership                         =  1,200
+                                         ──────
+<span class="total">Total Employment Income               = £74,260</span>
+          </div>
+          <p><strong>Total employment income = £74,260</strong></p>
+          <p style="margin-top:8px;font-size:14px;color:var(--muted);">Class 1A NIC (employer) = (£9,600 + £8,460 + £1,200) × 15% = £19,260 × 15% = <strong>£2,889</strong>, due 22 July 2026.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+
+</div><!-- end practice -->
+
+<div class="divider"></div>
+
+<!-- ═══════════════════ QUICK REFERENCE ═══════════════════ -->
+<div class="strip">
+  <div class="strip-title">⚡ Quick Reference — FA2025 Key Figures</div>
+  <div class="strip-grid">
+    <div class="strip-item">Personal Allowance: <strong>£12,570</strong></div>
+    <div class="strip-item">Basic rate band: <strong>£37,700</strong></div>
+    <div class="strip-item">ORI (Beneficial Loan): <strong>3.75%</strong></div>
+    <div class="strip-item">Car base CO₂: <strong>55 g/km = 17%</strong></div>
+    <div class="strip-item">Fuel benefit base: <strong>£28,200</strong></div>
+    <div class="strip-item">Van benefit: <strong>£4,020</strong></div>
+    <div class="strip-item">Van fuel benefit: <strong>£769</strong></div>
+    <div class="strip-item">Accommodation threshold: <strong>£75,000</strong></div>
+    <div class="strip-item">AMAP ≤10,000 miles: <strong>45p/mile</strong></div>
+    <div class="strip-item">AMAP >10,000 miles: <strong>25p/mile</strong></div>
+    <div class="strip-item">Asset use benefit: <strong>20% × MV</strong></div>
+    <div class="strip-item">Class 1A NIC rate: <strong>15%</strong></div>
+    <div class="strip-item">Class 1A due date: <strong>22 July 2026</strong></div>
+    <div class="strip-item">Annual party limit: <strong>£150/head</strong></div>
+  </div>
+</div>
+
+<p style="text-align:center;margin-top:40px;font-size:13px;color:var(--muted);font-family:'JetBrains Mono',monospace;">
+  ACCA TX-UK · Finance Act 2025 · Tax Year 2025/26 · June 2026 Examination Window<br>
+  Based on Kaplan TX Exam Kit FA25 &amp; ACCA Official Tax Tables J26–J27
+</p>
+
+</div><!-- end container -->
+</body>
+</html>

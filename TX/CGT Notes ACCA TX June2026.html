@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capital Gains Tax – ACCA TX (FA2025) | June 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f0e8;
+    --card: #fffdf8;
+    --accent1: #c0392b;
+    --accent2: #2471a3;
+    --accent3: #1e8449;
+    --accent4: #d68910;
+    --accent5: #7d3c98;
+    --text: #2c2c2c;
+    --muted: #6b6b6b;
+    --border: #e0d8cc;
+    --highlight: #fef9e7;
+    --blue-light: #eaf4fb;
+    --green-light: #eafaf1;
+    --red-light: #fdf2f2;
+    --purple-light: #f5eef8;
+    --orange-light: #fef5e7;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+    line-height: 1.8;
+  }
+
+  /* HEADER */
+  .page-header {
+    background: linear-gradient(135deg, #1a2a6c 0%, #c0392b 60%, #d68910 100%);
+    color: white;
+    padding: 50px 40px 40px;
+    text-align: center;
+  }
+  .page-header .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 30px;
+    padding: 6px 22px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .page-header h1 {
+    font-family: 'Merriweather', serif;
+    font-size: 2.8em;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+  .page-header p {
+    font-size: 1.05em;
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* NAV */
+  .toc {
+    background: var(--card);
+    border-bottom: 3px solid var(--accent1);
+    padding: 28px 40px;
+  }
+  .toc h2 {
+    font-size: 1em;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent1);
+    margin-bottom: 16px;
+  }
+  .toc-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .toc-grid a {
+    background: var(--bg);
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--accent2);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .toc-grid a:hover { background: var(--accent2); color: white; border-color: var(--accent2); }
+
+  /* MAIN */
+  .container { max-width: 1050px; margin: 0 auto; padding: 40px 30px 80px; }
+
+  /* SECTION */
+  .section {
+    background: var(--card);
+    border-radius: 16px;
+    border: 2px solid var(--border);
+    margin-bottom: 40px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .section-header {
+    padding: 22px 32px 18px;
+    border-bottom: 3px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .section-num {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2em; font-weight: 800;
+    color: white;
+    flex-shrink: 0;
+  }
+  .section-header h2 {
+    font-family: 'Merriweather', serif;
+    font-size: 1.5em;
+    font-weight: 700;
+  }
+  .section-body { padding: 28px 32px; }
+
+  /* COLOURS per section */
+  .s1 .section-num { background: var(--accent2); }
+  .s1 .section-header { background: var(--blue-light); }
+  .s1 .section-header h2 { color: var(--accent2); }
+  .s1 .section-header { border-color: #aed6f1; }
+
+  .s2 .section-num { background: var(--accent3); }
+  .s2 .section-header { background: var(--green-light); }
+  .s2 .section-header h2 { color: var(--accent3); }
+  .s2 .section-header { border-color: #a9dfbf; }
+
+  .s3 .section-num { background: var(--accent4); }
+  .s3 .section-header { background: var(--orange-light); }
+  .s3 .section-header h2 { color: #b7770d; }
+  .s3 .section-header { border-color: #f9e4b7; }
+
+  .s4 .section-num { background: var(--accent5); }
+  .s4 .section-header { background: var(--purple-light); }
+  .s4 .section-header h2 { color: var(--accent5); }
+  .s4 .section-header { border-color: #d2b4de; }
+
+  .s5 .section-num { background: var(--accent1); }
+  .s5 .section-header { background: var(--red-light); }
+  .s5 .section-header h2 { color: var(--accent1); }
+  .s5 .section-header { border-color: #f1948a; }
+
+  .s6 .section-num { background: #16a085; }
+  .s6 .section-header { background: #e8f8f5; }
+  .s6 .section-header h2 { color: #16a085; }
+  .s6 .section-header { border-color: #a2d9ce; }
+
+  /* PROSE */
+  .section-body p { margin-bottom: 16px; font-size: 1em; }
+  .section-body h3 {
+    font-family: 'Merriweather', serif;
+    font-size: 1.15em;
+    font-weight: 700;
+    margin: 28px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--border);
+  }
+  .section-body h4 {
+    font-size: 1em;
+    font-weight: 800;
+    color: var(--accent2);
+    margin: 20px 0 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* FORMULA BOX */
+  .formula-box {
+    background: #1a2a6c;
+    color: white;
+    border-radius: 12px;
+    padding: 24px 28px;
+    font-family: 'Merriweather', serif;
+    font-size: 1em;
+    line-height: 2;
+    margin: 22px 0;
+  }
+  .formula-box .row { display: flex; justify-content: space-between; }
+  .formula-box .row.deduct { color: #f8c471; }
+  .formula-box .row.total { border-top: 2px solid rgba(255,255,255,0.4); padding-top: 8px; font-weight: 700; font-size: 1.05em; }
+  .formula-box .label { flex: 1; }
+  .formula-box .amount { text-align: right; min-width: 120px; }
+
+  /* EXAMPLE BOX */
+  .example {
+    background: #f0f7ff;
+    border: 2px solid #aed6f1;
+    border-left: 6px solid var(--accent2);
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin: 22px 0;
+  }
+  .example .ex-title {
+    font-weight: 800;
+    color: var(--accent2);
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .example .ex-title::before { content: "📝"; font-size: 1.1em; }
+
+  /* WORKING TABLE */
+  .calc-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1em;
+    margin: 14px 0;
+  }
+  .calc-table td {
+    padding: 7px 10px;
+    border-bottom: 1px solid #dde8f5;
+  }
+  .calc-table td:last-child { text-align: right; font-family: monospace; font-size: 1.05em; }
+  .calc-table tr.subtotal td { border-bottom: 2px solid #aed6f1; font-weight: 600; }
+  .calc-table tr.total td { border-bottom: 3px double #2471a3; font-weight: 800; color: var(--accent2); }
+  .calc-table tr.deduct td { color: var(--accent1); }
+  .calc-table tr.note td { font-size: 0.9em; color: var(--muted); font-style: italic; }
+
+  /* INFO / WARNING / TIP BOXES */
+  .info-box {
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin: 18px 0;
+    font-size: 0.97em;
+  }
+  .info-box .ib-title {
+    font-weight: 800;
+    margin-bottom: 8px;
+    font-size: 1em;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .info-box.tip { background: #eafaf1; border-left: 5px solid var(--accent3); }
+  .info-box.tip .ib-title { color: var(--accent3); }
+  .info-box.warn { background: #fef9e7; border-left: 5px solid var(--accent4); }
+  .info-box.warn .ib-title { color: #b7770d; }
+  .info-box.key { background: #fdf2f2; border-left: 5px solid var(--accent1); }
+  .info-box.key .ib-title { color: var(--accent1); }
+  .info-box.exam { background: #f5eef8; border-left: 5px solid var(--accent5); }
+  .info-box.exam .ib-title { color: var(--accent5); }
+
+  /* RATE TABLE */
+  .rate-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1em;
+    margin: 16px 0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .rate-table thead tr { background: #1a2a6c; color: white; }
+  .rate-table thead td { padding: 12px 16px; font-weight: 700; }
+  .rate-table tbody tr:nth-child(even) { background: #f0f4fc; }
+  .rate-table tbody tr:nth-child(odd) { background: #fafcff; }
+  .rate-table tbody td { padding: 11px 16px; border-bottom: 1px solid #dde8f5; }
+  .rate-table tbody tr:last-child td { border-bottom: none; }
+
+  /* BULLET LIST */
+  .bullet-list { list-style: none; padding: 0; margin: 12px 0; }
+  .bullet-list li {
+    padding: 7px 0 7px 32px;
+    position: relative;
+    border-bottom: 1px dashed var(--border);
+    font-size: 1em;
+  }
+  .bullet-list li:last-child { border-bottom: none; }
+  .bullet-list li::before {
+    content: "▸";
+    color: var(--accent2);
+    position: absolute;
+    left: 8px;
+    font-size: 1em;
+  }
+
+  /* STEP LIST */
+  .step-list { counter-reset: steps; list-style: none; padding: 0; margin: 12px 0; }
+  .step-list li {
+    padding: 10px 14px 10px 52px;
+    position: relative;
+    margin-bottom: 10px;
+    background: var(--bg);
+    border-radius: 8px;
+    counter-increment: steps;
+    font-size: 1em;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28px; height: 28px;
+    background: var(--accent2);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800;
+    font-size: 0.9em;
+  }
+
+  /* PILL */
+  .pill {
+    display: inline-block;
+    border-radius: 20px;
+    padding: 3px 14px;
+    font-size: 0.85em;
+    font-weight: 700;
+    margin: 2px;
+  }
+  .pill.red { background: #fadbd8; color: #922b21; }
+  .pill.green { background: #d5f5e3; color: #1e8449; }
+  .pill.blue { background: #d6eaf8; color: #1a5276; }
+  .pill.orange { background: #fdebd0; color: #935116; }
+  .pill.purple { background: #e8daef; color: #6c3483; }
+  .pill.grey { background: #e5e8e8; color: #515a5a; }
+
+  /* HIGHLIGHT */
+  mark { background: #fff176; padding: 1px 4px; border-radius: 3px; }
+
+  /* TWO-COL */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 16px 0; }
+  @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
+  .mini-card {
+    background: var(--bg);
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+  .mini-card .mc-title { font-weight: 800; margin-bottom: 8px; font-size: 0.95em; }
+
+  /* FOOTER */
+  .page-footer {
+    text-align: center;
+    padding: 30px;
+    color: var(--muted);
+    font-size: 0.9em;
+    border-top: 2px solid var(--border);
+    margin-top: 20px;
+  }
+
+  /* DIVIDER */
+  .divider { border: none; border-top: 2px dashed var(--border); margin: 24px 0; }
+
+  /* MATCHING RULES TABLE */
+  .match-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.97em; }
+  .match-table th { background: #2c3e50; color: white; padding: 10px 14px; text-align: left; }
+  .match-table td { padding: 9px 14px; border-bottom: 1px solid var(--border); }
+  .match-table tr:nth-child(even) td { background: #f7f9fa; }
+
+  /* STICKY NAV on scroll */
+  .top-btn {
+    position: fixed;
+    bottom: 30px; right: 30px;
+    background: var(--accent2);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 48px; height: 48px;
+    font-size: 1.4em;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    z-index: 100;
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none;
+  }
+  .top-btn:hover { background: #1a5276; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="page-header">
+  <div class="badge">ACCA TX-UK · FA2025 · June 2026</div>
+  <h1>Capital Gains Tax (CGT)</h1>
+  <p>Complete study notes covering the full syllabus — Section C of the ACCA TX-UK exam. All rates from the official FA2025 Tax Tables.</p>
+</div>
+
+<!-- TOC -->
+<div class="toc" id="top">
+  <h2>📚 Contents</h2>
+  <div class="toc-grid">
+    <a href="#s1">1. Scope & Basics</a>
+    <a href="#s2">2. Basic Computation</a>
+    <a href="#s3">3. Chattels & Property</a>
+    <a href="#s4">4. Shares & Securities</a>
+    <a href="#s5">5. CGT Calculation</a>
+    <a href="#s6">6. Reliefs & Exemptions</a>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="container">
+
+<!-- ======================================================
+     SECTION 1 — SCOPE
+     ====================================================== -->
+<div class="section s1" id="s1">
+  <div class="section-header">
+    <div class="section-num">C1</div>
+    <h2>Scope of Capital Gains Tax</h2>
+  </div>
+  <div class="section-body">
+
+    <p>CGT is charged on the <strong>gain</strong> you make when you <strong>dispose of a chargeable asset</strong>. Think of it as: you bought something, sold it for more, and now HMRC wants a slice of that profit.</p>
+
+    <h3>Who Pays CGT?</h3>
+    <ul class="bullet-list">
+      <li><strong>UK resident individuals</strong> — on worldwide disposals</li>
+      <li><strong>Non-UK residents</strong> — only on disposals of UK land/property</li>
+      <li>CGT applies to <strong>individuals</strong> (not companies — they pay Corporation Tax on gains)</li>
+      <li>The tax year runs <strong>6 April to 5 April</strong></li>
+    </ul>
+
+    <h3>What is a "Disposal"?</h3>
+    <p>A disposal includes: a <strong>sale</strong>, a <strong>gift</strong>, the <strong>destruction</strong> of an asset, or receiving <strong>compensation/insurance proceeds</strong> for a lost/damaged asset.</p>
+
+    <div class="info-box tip">
+      <div class="ib-title">💡 Deemed Market Value Rule</div>
+      When you <strong>give away</strong> an asset (a gift), there are NO actual proceeds — but HMRC treats the disposal as if it happened at <strong>market value</strong>. This prevents people giving away assets to avoid CGT.
+    </div>
+
+    <h3>Chargeable vs Exempt Assets</h3>
+
+    <div class="two-col">
+      <div class="mini-card">
+        <div class="mc-title" style="color:var(--accent1)">❌ EXEMPT Assets (no CGT)</div>
+        <ul class="bullet-list">
+          <li>Your <strong>main home</strong> (usually — see PRR)</li>
+          <li><strong>Cars</strong> (including business cars)</li>
+          <li><strong>ISA investments</strong></li>
+          <li><strong>Gilt-edged securities</strong> (government bonds)</li>
+          <li><strong>Qualifying corporate bonds (QCBs)</strong></li>
+          <li><strong>Wasting chattels</strong> (life ≤ 50 years, e.g. a boat, racehorse)</li>
+          <li><strong>Non-wasting chattels</strong> bought AND sold for ≤ £6,000</li>
+          <li><strong>Cash</strong></li>
+          <li>Foreign currency for <strong>personal use</strong></li>
+          <li>Winnings (lottery, betting)</li>
+        </ul>
+      </div>
+      <div class="mini-card">
+        <div class="mc-title" style="color:var(--accent3)">✅ CHARGEABLE Assets</div>
+        <ul class="bullet-list">
+          <li>Land and buildings</li>
+          <li>Shares and securities (not gilts/QCBs)</li>
+          <li>Business assets</li>
+          <li>Antiques, jewellery, art (non-wasting chattels)</li>
+          <li>Shares in unquoted companies</li>
+          <li>Second homes / investment properties</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="example">
+      <div class="ex-title">Example — Identifying Exempt vs Chargeable</div>
+      <p>Omar has the following disposals in 2025/26:</p>
+      <table class="calc-table">
+        <tr><td>His main home (always lived in it)</td><td>EXEMPT — Private Residence Relief</td></tr>
+        <tr><td>His car (used privately)</td><td>EXEMPT — cars always exempt</td></tr>
+        <tr><td>A motorboat (bought £5k, sold £12k)</td><td>EXEMPT — wasting chattel (life ≤ 50 yrs)</td></tr>
+        <tr><td>Government bonds (gilts)</td><td>EXEMPT — gilt-edged securities</td></tr>
+        <tr><td>Shares in Tesco plc</td><td>CHARGEABLE</td></tr>
+        <tr><td>A buy-to-let flat</td><td>CHARGEABLE — not a main home</td></tr>
+        <tr><td>Antique vase bought £4k, sold £5.5k</td><td>EXEMPT — both under £6,000</td></tr>
+        <tr class="total"><td>Antique vase bought £4k, sold £7k</td><td>CHARGEABLE — proceeds exceed £6,000</td></tr>
+      </table>
+    </div>
+
+    <h3>CGT — Payment Dates</h3>
+    <div class="info-box key">
+      <div class="ib-title">⚠️ Key Dates — Don't Confuse These!</div>
+      <table class="calc-table">
+        <tr><td><strong>Most assets</strong> (shares, business assets, etc.)</td><td><strong>31 January</strong> following the tax year end<br>e.g. 2025/26 gain → pay by <strong>31 January 2027</strong></td></tr>
+        <tr><td><strong>UK residential property</strong></td><td><strong>60 days</strong> after the date of completion</td></tr>
+      </table>
+    </div>
+
+  </div>
+</div><!-- end s1 -->
+
+
+<!-- ======================================================
+     SECTION 2 — BASIC COMPUTATION
+     ====================================================== -->
+<div class="section s2" id="s2">
+  <div class="section-header">
+    <div class="section-num">C2</div>
+    <h2>Basic Principles of Computing Gains & Losses</h2>
+  </div>
+  <div class="section-body">
+
+    <h3>The CGT Proforma</h3>
+    <p>Every single CGT computation uses this proforma. Learn it until it's automatic:</p>
+
+    <div class="formula-box">
+      <div class="row"><span class="label">Disposal proceeds (or Market Value if a gift)</span><span class="amount">£ X</span></div>
+      <div class="row deduct"><span class="label">Less: Incidental costs of disposal (legal fees, agent fees)</span><span class="amount">(X)</span></div>
+      <div class="row subtotal"><span class="label"><strong>Net Proceeds</strong></span><span class="amount">X</span></div>
+      <div class="row deduct"><span class="label">Less: Acquisition cost (original purchase price)</span><span class="amount">(X)</span></div>
+      <div class="row deduct"><span class="label">Less: Incidental costs of acquisition</span><span class="amount">(X)</span></div>
+      <div class="row deduct"><span class="label">Less: Enhancement expenditure (capital improvements)</span><span class="amount">(X)</span></div>
+      <div class="row total"><span class="label"><strong>Chargeable Gain / (Allowable Loss)</strong></span><span class="amount">X / (X)</span></div>
+    </div>
+
+    <div class="info-box warn">
+      <div class="ib-title">⚠️ Revenue vs Capital Expenditure</div>
+      Only <strong>capital</strong> expenditure can be deducted. <strong>Repairs and maintenance</strong> are revenue — they are NOT deductible in a CGT computation (they are deducted from rental/trading income instead).
+      <br><br>
+      E.g. Replacing a warehouse roof = revenue (repair) = NOT deductible in CGT. Adding an extension = capital = deductible.
+    </div>
+
+    <h3>Part Disposals</h3>
+    <p>When you sell <strong>part</strong> of an asset (e.g. sell half of a field), you must apportion the original cost:</p>
+
+    <div class="formula-box" style="font-size:0.97em; padding: 18px 24px;">
+      <div class="row"><span class="label"><strong>Allowable Cost</strong> = Total Cost × A / (A + B)</span></div>
+      <div class="row" style="font-size:0.9em; color:#f8c471; margin-top:8px;"><span class="label">Where: A = Proceeds from the part disposed of</span></div>
+      <div class="row" style="font-size:0.9em; color:#f8c471;"><span class="label">B = Market value of the part RETAINED</span></div>
+    </div>
+
+    <div class="example">
+      <div class="ex-title">Example — Part Disposal</div>
+      <p>Priya bought a field for £60,000. She sells a portion for £30,000. The remaining part is worth £90,000.</p>
+      <table class="calc-table">
+        <tr><td>Proceeds</td><td>£30,000</td></tr>
+        <tr><td>A = £30,000 (proceeds); B = £90,000 (MV retained)</td><td></td></tr>
+        <tr class="deduct"><td>Allowable cost = £60,000 × £30,000/(£30,000+£90,000)</td><td>(£15,000)</td></tr>
+        <tr class="total"><td><strong>Chargeable gain</strong></td><td><strong>£15,000</strong></td></tr>
+      </table>
+    </div>
+
+    <h3>Damaged / Destroyed Assets & Insurance Proceeds</h3>
+
+    <div class="two-col">
+      <div class="mini-card">
+        <div class="mc-title" style="color:var(--accent3)">✅ Asset Damaged (not destroyed)</div>
+        <p>If you <strong>spend the insurance money on restoring</strong> the asset, you can elect to <strong>deduct the proceeds from the asset's cost</strong> instead of having a disposal. This defers the gain.</p>
+      </div>
+      <div class="mini-card">
+        <div class="mc-title" style="color:var(--accent4)">🏚️ Asset Destroyed</div>
+        <p>If the asset is <strong>destroyed</strong> and you receive insurance proceeds, it is treated as a <strong>disposal</strong>. Proceeds = insurance money. BUT if you reinvest in a replacement asset → Rollover relief may defer the gain.</p>
+      </div>
+    </div>
+
+    <h3>Capital Losses</h3>
+    <p>When you <strong>sell an asset for less than it cost</strong>, you make an allowable capital loss. Here are the key rules:</p>
+
+    <ol class="step-list">
+      <li><strong>Current year losses</strong> are set off against current year gains in full — even if this wastes the Annual Exempt Amount (AEA). You cannot choose to skip a current year loss.</li>
+      <li>If there are still net gains after current year losses, then deduct the <strong>AEA (£3,000)</strong>.</li>
+      <li>Only THEN set off <strong>brought forward losses</strong> — but only enough to reduce taxable gains to nil. This means brought forward losses are <strong>restricted to preserve the AEA</strong>.</li>
+      <li>Any <strong>unused brought forward losses carry forward indefinitely</strong> to future years.</li>
+    </ol>
+
+    <div class="example">
+      <div class="ex-title">Example — Capital Losses</div>
+      <p>In 2025/26, Hali has a chargeable gain of £7,000 and brought forward losses of £39,300 from 2023/24.</p>
+      <table class="calc-table">
+        <tr><td>Chargeable gain</td><td>£7,000</td></tr>
+        <tr class="deduct"><td>Less: AEA</td><td>(£3,000)</td></tr>
+        <tr><td>Taxable gain before brought forward losses</td><td>£4,000</td></tr>
+        <tr class="deduct"><td>Less: Capital losses b/f (restricted — only use £4,000)</td><td>(£4,000)</td></tr>
+        <tr class="total"><td><strong>Taxable gains = NIL ✔</strong></td><td><strong>£0</strong></td></tr>
+        <tr class="note"><td>Loss c/f (£39,300 − £4,000)</td><td>£35,300</td></tr>
+      </table>
+      <p style="margin-top:12px; font-size:0.95em;"><strong>Key point:</strong> We only used £4,000 of the loss — enough to reduce taxable gain to zero. We did NOT use the full loss, because that would waste the £3,000 AEA.</p>
+    </div>
+
+    <div class="info-box key">
+      <div class="ib-title">⚠️ Current Year Loss Rule (Exam Trap!)</div>
+      Goma has a gain of £6,900 and a <strong>current year</strong> loss of £9,100. The current year loss is set against the gain in full:<br><br>
+      Gain £6,900 − Current year loss £6,900 = NIL. The AEA is wasted! Loss c/f = £9,100 − £6,900 = <strong>£2,200</strong>
+    </div>
+
+    <h3>Spouses / Civil Partners</h3>
+    <ul class="bullet-list">
+      <li>Transfers between spouses (or civil partners) are on a <strong>"no gain, no loss" basis</strong> — no CGT arises on the transfer</li>
+      <li>The receiving spouse takes over the <strong>original cost</strong> of the asset</li>
+      <li>Each spouse gets their own <strong>AEA</strong> and their own basic rate band</li>
+      <li>Splitting an asset before disposal can save CGT by using both AEAs and lower rates</li>
+    </ul>
+
+    <div class="example">
+      <div class="ex-title">Example — Spouse Transfer (No Gain No Loss)</div>
+      <p>Jackson bought a villa for <strong>£115,000</strong> in May 2014. He gifted it to his wife Sophia in 2020 when it was worth £100,000. Sophia later sold it for <strong>£159,000</strong>.</p>
+      <table class="calc-table">
+        <tr><td>Sophia's proceeds</td><td>£159,000</td></tr>
+        <tr class="deduct"><td>Less: Cost (Jackson's original cost — NOT the gift value of £100,000)</td><td>(£115,000)</td></tr>
+        <tr><td>Chargeable gain</td><td>£44,000</td></tr>
+        <tr class="deduct"><td>Less: AEA</td><td>(£3,000)</td></tr>
+        <tr class="deduct"><td>Less: Capital losses b/f</td><td>(£4,300)</td></tr>
+        <tr class="total"><td><strong>Taxable gains</strong></td><td><strong>£36,700</strong></td></tr>
+        <tr><td>CGT payable (Sophia has taxable income > BRB, so 24%)</td><td>£8,808</td></tr>
+      </table>
+    </div>
+
+  </div>
+</div><!-- end s2 -->
+
+
+<!-- ======================================================
+     SECTION 3 — CHATTELS & PROPERTY
+     ====================================================== -->
+<div class="section s3" id="s3">
+  <div class="section-header">
+    <div class="section-num">C3</div>
+    <h2>Gains & Losses on Movable & Immovable Property</h2>
+  </div>
+  <div class="section-body">
+
+    <h3>What is a "Chattel"?</h3>
+    <p>A chattel is any <strong>tangible, movable property</strong> — things you can physically touch and move. Examples: paintings, furniture, jewellery, antiques, boats.</p>
+
+    <h4>Types of Chattels</h4>
+    <table class="rate-table">
+      <thead><tr><td>Type</td><td>Definition</td><td>Examples</td><td>CGT Treatment</td></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="pill blue">Wasting Chattel</span></td>
+          <td>Predictable life of <strong>≤ 50 years</strong></td>
+          <td>Boats, racehorses, caravans, machinery</td>
+          <td><strong>ALWAYS EXEMPT</strong> — no CGT</td>
+        </tr>
+        <tr>
+          <td><span class="pill orange">Non-wasting Chattel</span></td>
+          <td>Predictable life of <strong>&gt; 50 years</strong></td>
+          <td>Antiques, paintings, jewellery, porcelain</td>
+          <td>Depends on proceeds and cost (see below)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>The £6,000 Chattel Rules</h3>
+    <p>For <strong>non-wasting chattels</strong>, the treatment depends on whether proceeds and/or cost exceed <strong>£6,000</strong>:</p>
+
+    <table class="rate-table">
+      <thead><tr><td>Situation</td><td>Treatment</td></tr></thead>
+      <tbody>
+        <tr>
+          <td>Both proceeds AND cost ≤ £6,000</td>
+          <td><span class="pill green">EXEMPT</span> — No CGT</td>
+        </tr>
+        <tr>
+          <td>Cost ≤ £6,000 but proceeds <strong>&gt;</strong> £6,000</td>
+          <td>Gain is capped at: <strong>5/3 × (Proceeds − £6,000)</strong></td>
+        </tr>
+        <tr>
+          <td>Cost <strong>&gt;</strong> £6,000 but proceeds ≤ £6,000 (a loss)</td>
+          <td>Calculate loss using <strong>deemed proceeds of £6,000</strong> (reduces allowable loss)</td>
+        </tr>
+        <tr>
+          <td>Both cost AND proceeds <strong>&gt;</strong> £6,000</td>
+          <td>Normal gain/loss computation — no special rules</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="example">
+      <div class="ex-title">Example — Chattel Rules (Non-Wasting)</div>
+
+      <p><strong>Scenario A:</strong> Antique painting — cost £1,000, sold for £7,200</p>
+      <table class="calc-table">
+        <tr><td>Actual gain (£7,200 − £1,000)</td><td>£6,200</td></tr>
+        <tr><td>Maximum gain = 5/3 × (£7,200 − £6,000) = 5/3 × £1,200</td><td>£2,000</td></tr>
+        <tr class="total"><td><strong>Chargeable gain (the lower of actual vs maximum)</strong></td><td><strong>£2,000</strong></td></tr>
+      </table>
+
+      <hr class="divider">
+      <p><strong>Scenario B:</strong> Antique vase — cost £22,000, sold for £5,500 (a loss)</p>
+      <table class="calc-table">
+        <tr><td>Deemed proceeds (restricted to £6,000 minimum)</td><td>£6,000</td></tr>
+        <tr class="deduct"><td>Less: Allowable costs (£22,000 + £800 acquisition fees)</td><td>(£22,800)</td></tr>
+        <tr class="total"><td><strong>Allowable loss</strong></td><td><strong>(£16,800)</strong></td></tr>
+        <tr class="note"><td>Without the £6,000 floor, loss would have been £17,100 — the rule reduces the loss</td><td></td></tr>
+      </table>
+
+      <hr class="divider">
+      <p><strong>Scenario C:</strong> Antique brooch — cost £3,500, sold for £4,800</p>
+      <table class="calc-table">
+        <tr class="total"><td><strong>EXEMPT</strong> — both proceeds AND cost below £6,000</td><td>£NIL</td></tr>
+      </table>
+    </div>
+
+    <h3>Private Residence Relief (PRR)</h3>
+    <p>When you sell your <strong>main home</strong>, any gain is usually <strong>fully exempt</strong> under PRR. This is one of the most valuable CGT reliefs available.</p>
+
+    <h4>The PRR Formula</h4>
+    <div class="formula-box">
+      <div class="row"><span class="label">PRR Exempt Amount = Gain × <strong>Exempt Months / Total Months of Ownership</strong></span></div>
+    </div>
+
+    <h4>Periods That Count as "Occupied" (Deemed Occupation)</h4>
+    <table class="rate-table">
+      <thead><tr><td>Period</td><td>Deemed Occupation?</td><td>Conditions</td></tr></thead>
+      <tbody>
+        <tr><td>Any period of <strong>actual occupation</strong></td><td><span class="pill green">YES</span></td><td>Always counts</td></tr>
+        <tr><td><strong>Last 9 months</strong> of ownership</td><td><span class="pill green">YES</span> (always)</td><td>Only if property was the main residence at some point</td></tr>
+        <tr><td>Working <strong>abroad</strong> for an employer</td><td><span class="pill green">YES</span> (unlimited)</td><td>Must occupy before AND after (if still own at end)</td></tr>
+        <tr><td><strong>Any reason</strong></td><td><span class="pill orange">UP TO 3 YEARS</span></td><td>Must occupy before AND after (if still own at end)</td></tr>
+        <tr><td>Working <strong>elsewhere in the UK</strong></td><td><span class="pill orange">UP TO 4 YEARS</span></td><td>Must occupy before AND after</td></tr>
+      </tbody>
+    </table>
+
+    <div class="info-box tip">
+      <div class="ib-title">💡 The "Last 9 Months" Rule</div>
+      The last 9 months of ownership are <strong>ALWAYS exempt</strong> — regardless of whether you are actually living there. This is because people often move out before the sale completes. 
+      <br><br>
+      <strong>Note:</strong> If part of the house was <strong>always used for business</strong>, the last 9 months rule does NOT apply to that business portion.
+    </div>
+
+    <div class="example">
+      <div class="ex-title">Example — PRR with Periods Away</div>
+      <p>Angus bought his house on 31 March 2012. He moved out on 31 March 2026 (total ownership = 168 months = 14 years).</p>
+      <table class="calc-table">
+        <tr><td><strong>31.3.2012 – 31.3.2017</strong> (60 months): Actual occupation</td><td>Exempt: 60 months</td></tr>
+        <tr><td><strong>1.4.2017 – 31.3.2019</strong> (24 months): Working overseas</td><td>Exempt: 24 months (working abroad — unlimited)</td></tr>
+        <tr><td><strong>1.4.2019 – 31.3.2020</strong> (12 months): Returned — actual occupation</td><td>Exempt: 12 months</td></tr>
+        <tr><td><strong>1.4.2020 – 31.3.2026</strong> (72 months): Left — empty</td><td>Chargeable: 63 months; Last 9 months = Exempt</td></tr>
+        <tr class="subtotal"><td>Total ownership</td><td>168 months</td></tr>
+        <tr><td>Exempt months</td><td>60+24+12+9 = 105 months</td></tr>
+        <tr class="total"><td><strong>PRR = Gain × 105/168</strong></td><td><strong>62.5% exempt</strong></td></tr>
+      </table>
+    </div>
+
+    <h4>Letting Relief</h4>
+    <p>Available when <strong>part of the property is let out</strong> while you also live there (shared occupancy). The relief is the <strong>lowest of</strong>:</p>
+    <ul class="bullet-list">
+      <li>£40,000</li>
+      <li>The amount of PRR</li>
+      <li>The gain attributed to the letting period</li>
+    </ul>
+
+    <div class="example">
+      <div class="ex-title">Example — PRR + Letting Relief</div>
+      <p>Masuma owned her house for 10 years. She always occupied 6 of the 10 rooms. The other 4 rooms were let throughout. Gain before reliefs = £120,000.</p>
+      <table class="calc-table">
+        <tr><td>PRR = £120,000 × 6/10 (occupied portion only)</td><td>£72,000</td></tr>
+        <tr><td>Gain remaining after PRR</td><td>£48,000</td></tr>
+        <tr><td>Letting relief = lowest of: £40,000 / £72,000 / £48,000</td><td>£40,000</td></tr>
+        <tr class="total"><td><strong>Chargeable gain = £120,000 − £72,000 − £40,000</strong></td><td><strong>£8,000</strong></td></tr>
+      </table>
+    </div>
+
+  </div>
+</div><!-- end s3 -->
+
+
+<!-- ======================================================
+     SECTION 4 — SHARES
+     ====================================================== -->
+<div class="section s4" id="s4">
+  <div class="section-header">
+    <div class="section-num">C4</div>
+    <h2>Gains & Losses on Shares & Securities</h2>
+  </div>
+  <div class="section-body">
+
+    <h3>Valuing Quoted Shares Disposed of by Gift</h3>
+    <p>If shares are <strong>gifted</strong>, use <strong>market value</strong>. For quoted (listed) shares, market value = the <strong>mid-price</strong> between the quoted buying and selling prices on the Stock Exchange on the date of disposal.</p>
+
+    <div class="example">
+      <div class="ex-title">Example — Quoted Share Valuation</div>
+      <p>Shares in Tesco plc are quoted at 210p–220p on the date of gift. Market value = (210 + 220) / 2 = <strong>215p per share</strong>.</p>
+    </div>
+
+    <h3>Share Identification Rules — Individuals</h3>
+    <p>When you buy shares over time, how do you know <em>which</em> shares you're selling? HMRC uses matching rules. Match disposals in this order:</p>
+
+    <table class="match-table">
+      <thead><tr><th>Priority</th><th>Match Against</th><th>Why It Matters</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="pill red">1st</span></td>
+          <td><strong>Shares acquired on the same day</strong> as the disposal</td>
+          <td>Prevents same-day bed-and-breakfasting</td>
+        </tr>
+        <tr>
+          <td><span class="pill orange">2nd</span></td>
+          <td><strong>Shares acquired within the next 30 days</strong> after disposal</td>
+          <td>Stops the "30-day bed & breakfast" avoidance</td>
+        </tr>
+        <tr>
+          <td><span class="pill green">3rd</span></td>
+          <td><strong>Share pool</strong> (FA1985 pool — all other shares)</td>
+          <td>Averaging of costs for longer-term holdings</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="info-box exam">
+      <div class="ib-title">📝 Exam Focus — "Bed & Breakfast" Anti-Avoidance</div>
+      Without these rules, a person could sell shares to crystallise a loss, then buy them back the next day. The 30-day rule means: if you sell shares and buy the <em>same</em> company shares within 30 days, the repurchase is matched against the sale FIRST (not the pool). This cancels out the tax-planning strategy.
+    </div>
+
+    <h3>The Share Pool (FA1985 Pool)</h3>
+    <p>The <strong>share pool</strong> is a running record of all shares held (other than same-day/30-day matches). It tracks both the <strong>number of shares</strong> and their <strong>cumulative cost</strong>.</p>
+
+    <ul class="bullet-list">
+      <li><strong>Purchases:</strong> Add number and cost to the pool</li>
+      <li><strong>Bonus issues:</strong> Add shares — <strong>no cost</strong> (free shares)</li>
+      <li><strong>Rights issues:</strong> Add shares at the price <strong>paid</strong></li>
+      <li><strong>Disposal:</strong> Remove a proportion of shares and apportion cost</li>
+    </ul>
+
+    <div class="formula-box">
+      <div class="row"><span class="label">Cost of shares sold = Pool Cost × (Number sold / Total shares in pool)</span></div>
+    </div>
+
+    <div class="example">
+      <div class="ex-title">Example — Share Pool with Bonus Issue</div>
+      <p>Mick owns shares in Stone Ltd:</p>
+      <table class="calc-table">
+        <tr><td>June 2016: Bought 500,000 shares</td><td>Cost £960,000</td></tr>
+        <tr><td>Dec 2021: Bonus issue 3:2 (500,000 × 3/2 = 750,000)</td><td>Cost <strong>£NIL</strong></td></tr>
+        <tr><td>Pool after bonus: 1,250,000 shares</td><td>Total cost £960,000</td></tr>
+        <tr class="deduct"><td>Sept 2025: Sells 700,000 shares</td><td></td></tr>
+        <tr><td>Cost = £960,000 × 700,000/1,250,000</td><td><strong>£537,600</strong></td></tr>
+        <tr class="note"><td>Balance c/f: 550,000 shares @ £422,400</td><td></td></tr>
+      </table>
+    </div>
+
+    <h3>Rights Issues</h3>
+    <p>A rights issue is when the company offers <strong>existing shareholders</strong> the chance to buy more shares (often at a discount). Unlike a bonus issue, you actually <strong>pay</strong> for rights issue shares.</p>
+
+    <div class="example">
+      <div class="ex-title">Example — Rights Issue in Share Pool</div>
+      <p>April 2014: Bought 40,000 shares @ £6.50 = £260,000. May 2017: Rights issue 1:4 @ £4 per share (buys 10,000 shares = £40,000).</p>
+      <table class="calc-table">
+        <tr><td>April 2014 purchase</td><td>40,000 shares | £260,000</td></tr>
+        <tr><td>May 2017 rights issue (1:4 × 40,000 = 10,000 @ £4)</td><td>+10,000 shares | +£40,000</td></tr>
+        <tr class="subtotal"><td>May 2021: Bonus issue 1:5 (50,000/5 = 10,000)</td><td>+10,000 shares | £NIL</td></tr>
+        <tr><td>Pool total</td><td>60,000 shares | £300,000</td></tr>
+        <tr class="deduct"><td>March 2026: Sells 12,500 shares → Cost = £300,000 × 12,500/60,000</td><td>(12,500 shares) | <strong>(£62,500)</strong></td></tr>
+      </table>
+    </div>
+
+    <h3>Takeovers and Reorganisations</h3>
+    <p>When company A takes over company B, shareholders in B receive shares (and sometimes cash) in company A. The key rule is: <strong>no immediate disposal if only shares received</strong>. The original cost is carried forward into the new shares.</p>
+
+    <h4>Takeover with Cash AND Shares</h4>
+    <p>If consideration includes <strong>cash</strong>, a <strong>part disposal</strong> occurs on the cash element. The original cost is <strong>split in proportion to market values</strong> received.</p>
+
+    <div class="example">
+      <div class="ex-title">Example — Takeover (Cash + Shares)</div>
+      <p>Hunter held shares in Moon Ltd (original cost £90,000). Riley plc takes over and offers: <strong>£3 cash per share + 2 Riley plc shares</strong> per Moon share. Hunter held 50,000 Moon shares.</p>
+      <table class="calc-table">
+        <tr><td>Cash received (50,000 × £3)</td><td>£150,000</td></tr>
+        <tr><td>Shares received (50,000 × 2 × £1.20)</td><td>£120,000</td></tr>
+        <tr><td>Total consideration</td><td>£270,000</td></tr>
+        <tr class="deduct"><td>Cost allocated to cash = £90,000 × £150,000/£270,000</td><td>(£50,000)</td></tr>
+        <tr class="total"><td><strong>Chargeable gain on cash element</strong></td><td><strong>£100,000</strong></td></tr>
+        <tr class="note"><td>Cost allocated to new shares = £90,000 × £120,000/£270,000 = £40,000 (carried forward)</td><td></td></tr>
+      </table>
+    </div>
+
+    <h3>Exempt Securities</h3>
+    <ul class="bullet-list">
+      <li><strong>Gilt-edged securities</strong> (UK government bonds) — always exempt</li>
+      <li><strong>Qualifying Corporate Bonds (QCBs)</strong> — always exempt</li>
+    </ul>
+
+    <div class="info-box tip">
+      <div class="ib-title">💡 Exam Note</div>
+      You only need to know that gilts and QCBs are exempt — you will NOT be asked to calculate gains on them or explain the rules in detail.
+    </div>
+
+  </div>
+</div><!-- end s4 -->
+
+
+<!-- ======================================================
+     SECTION 5 — CGT CALCULATION
+     ====================================================== -->
+<div class="section s5" id="s5">
+  <div class="section-header">
+    <div class="section-num">C5</div>
+    <h2>The Computation of Capital Gains Tax</h2>
+  </div>
+  <div class="section-body">
+
+    <h3>CGT Rates — FA2025</h3>
+    <p>The rates below are from the <strong>official FA2025 Tax Tables</strong> (applicable for June 2026 exam):</p>
+
+    <table class="rate-table">
+      <thead><tr><td>Type of Gain</td><td>Lower Rate</td><td>Higher Rate</td></tr></thead>
+      <tbody>
+        <tr><td>Most assets (shares, business assets, etc.)</td><td><strong>18%</strong> (within BRB)</td><td><strong>24%</strong> (above BRB)</td></tr>
+        <tr><td>Residential property (investment)</td><td><strong>18%</strong></td><td><strong>24%</strong></td></tr>
+        <tr><td>BADR / Investors' Relief gains</td><td colspan="2" style="text-align:center;"><strong>14%</strong> (flat rate)</td></tr>
+      </tbody>
+    </table>
+
+    <h4>What determines 18% vs 24%?</h4>
+    <p>The rate depends on whether the individual has any <strong>remaining basic rate band</strong>. The basic rate band for 2025/26 is <strong>£37,700</strong>.</p>
+
+    <div class="info-box warn">
+      <div class="ib-title">⚠️ How to Find Remaining Basic Rate Band</div>
+      Remaining BRB = £37,700 − Taxable income (after personal allowance)<br><br>
+      <strong>Extended by:</strong> Gross pension contributions (divide net payment by 80%) or Gift Aid (divide net by 80%)
+    </div>
+
+    <h3>The Full CGT Computation Proforma</h3>
+    <div class="formula-box">
+      <div class="row"><span class="label">Chargeable gains in the year</span><span class="amount">£ X</span></div>
+      <div class="row deduct"><span class="label">Less: Current year capital losses</span><span class="amount">(X)</span></div>
+      <div class="row"><span class="label">Net gains</span><span class="amount">X</span></div>
+      <div class="row deduct"><span class="label">Less: Annual Exempt Amount (AEA) — £3,000 (2025/26)</span><span class="amount">(3,000)</span></div>
+      <div class="row deduct"><span class="label">Less: Brought forward capital losses (restricted)</span><span class="amount">(X)</span></div>
+      <div class="row total"><span class="label"><strong>Taxable gains</strong></span><span class="amount">X</span></div>
+      <div class="row" style="margin-top:12px; font-size:0.9em; color:#f8c471;"><span class="label">Tax gains falling within remaining BRB × 18%</span><span class="amount">X</span></div>
+      <div class="row" style="font-size:0.9em; color:#f8c471;"><span class="label">Gains above BRB × 24%</span><span class="amount">X</span></div>
+      <div class="row total"><span class="label"><strong>CGT Payable</strong></span><span class="amount">£ X</span></div>
+    </div>
+
+    <div class="example">
+      <div class="ex-title">Example — Full CGT Computation (Standard)</div>
+      <p>Naomi had a chargeable gain of £20,700 in 2025/26 from selling a residential investment property. Taxable income = £29,700. She paid £2,000 net pension contributions.</p>
+      <table class="calc-table">
+        <tr><td>Chargeable gain</td><td>£20,700</td></tr>
+        <tr class="deduct"><td>Less: AEA</td><td>(£3,000)</td></tr>
+        <tr class="total"><td>Taxable gains</td><td>£17,700</td></tr>
+        <tr class="note"><td colspan="2"><strong>Working: Remaining BRB</strong><br>£37,700 + gross pension (£2,000 × 100/80 = £2,500) = £40,200 − taxable income £29,700 = <strong>£10,500 remaining BRB</strong></td></tr>
+        <tr><td>First £10,500 × 18% (within BRB)</td><td>£1,890</td></tr>
+        <tr><td>Remaining £7,200 × 24% (above BRB)</td><td>£1,728</td></tr>
+        <tr class="total"><td><strong>CGT Payable</strong></td><td><strong>£3,618</strong></td></tr>
+      </table>
+    </div>
+
+    <div class="example">
+      <div class="ex-title">Example — Brian (No BRB remaining)</div>
+      <p>Brian has employment income of £43,000 and a chargeable gain of £8,700 from selling an antique vase. 2025/26.</p>
+      <table class="calc-table">
+        <tr><td>Chargeable gain</td><td>£8,700</td></tr>
+        <tr class="deduct"><td>Less: AEA</td><td>(£3,000)</td></tr>
+        <tr><td>Taxable gains</td><td>£5,700</td></tr>
+        <tr class="note"><td colspan="2"><strong>Remaining BRB</strong> = £37,700 − (£43,000 − £12,570 PA) = £37,700 − £30,430 = <strong>£7,270</strong><br>All £5,700 taxable gains fall within remaining BRB</td></tr>
+        <tr class="total"><td>CGT = £5,700 × <strong>18%</strong></td><td><strong>£1,026</strong></td></tr>
+      </table>
+    </div>
+
+    <h3>Tax Planning with Spouses</h3>
+    <p>Splitting an asset between spouses before disposal can save CGT in two ways:</p>
+    <ul class="bullet-list">
+      <li><strong>Use both AEAs:</strong> Each spouse gets £3,000 AEA — saving = £3,000 × CGT rate</li>
+      <li><strong>Use lower rate bands:</strong> If spouse has unused basic rate band, their portion is taxed at 18% instead of 24%</li>
+    </ul>
+
+    <div class="example">
+      <div class="ex-title">Example — Spouse Planning</div>
+      <p>Albert (higher rate taxpayer) wants to sell a property. His wife Victoria has unused BRB of £16,260. If he puts 50% into Victoria's name first (no gain/no loss), the CGT saving is:</p>
+      <table class="calc-table">
+        <tr><td>Gains falling into Victoria's BRB (£16,260)</td><td>Tax saved at (24% − 18%) = 6%</td></tr>
+        <tr class="total"><td>CGT saving = £16,260 × 6%</td><td><strong>£976</strong></td></tr>
+      </table>
+    </div>
+
+    <h3>Annual Exempt Amount (AEA)</h3>
+    <table class="rate-table">
+      <thead><tr><td>Tax Year</td><td>AEA</td></tr></thead>
+      <tbody>
+        <tr><td>2025/26</td><td><strong>£3,000</strong></td></tr>
+        <tr><td>2026/27</td><td>£3,000</td></tr>
+      </tbody>
+    </table>
+    <ul class="bullet-list">
+      <li>Each individual gets their own AEA</li>
+      <li>AEA cannot be transferred or carried forward — <strong>use it or lose it</strong></li>
+      <li>Always deduct AEA <strong>after current year losses</strong> but <strong>before</strong> brought forward losses</li>
+    </ul>
+
+  </div>
+</div><!-- end s5 -->
+
+
+<!-- ======================================================
+     SECTION 6 — RELIEFS
+     ====================================================== -->
+<div class="section s6" id="s6">
+  <div class="section-header">
+    <div class="section-num">C6</div>
+    <h2>Reliefs & Exemptions on Disposal of Capital Assets</h2>
+  </div>
+  <div class="section-body">
+
+    <h3>Overview of Available Reliefs</h3>
+    <div class="two-col">
+      <div class="mini-card">
+        <div class="mc-title" style="color:#16a085">Deferral Reliefs</div>
+        <ul class="bullet-list">
+          <li><strong>Rollover Relief</strong> — business asset replaced</li>
+          <li><strong>Gift Holdover Relief</strong> — asset gifted</li>
+          <li><strong>EIS Deferral Relief</strong> (out of scope)</li>
+        </ul>
+      </div>
+      <div class="mini-card">
+        <div class="mc-title" style="color:var(--accent1)">Reduction Reliefs</div>
+        <ul class="bullet-list">
+          <li><strong>BADR</strong> — 14% rate on qualifying gains</li>
+          <li><strong>Investors' Relief</strong> — 14% rate on qualifying gains</li>
+          <li><strong>PRR</strong> — full or partial exemption on main home</li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- BADR -->
+    <h3>Business Asset Disposal Relief (BADR)</h3>
+    <p>BADR reduces the tax rate on qualifying gains to a flat <strong>14%</strong> — much lower than the normal 18%/24%. There is a <strong>lifetime limit of £1,000,000</strong> of qualifying gains.</p>
+
+    <h4>Qualifying Conditions for BADR — Sole Traders / Partnerships</h4>
+    <ul class="bullet-list">
+      <li>Disposal of the <strong>whole or part of a business</strong> (not individual business assets)</li>
+      <li>Must have owned the business for at least <strong>2 years</strong> before disposal</li>
+    </ul>
+
+    <h4>Qualifying Conditions for BADR — Shares in a Company</h4>
+    <ul class="bullet-list">
+      <li>The company must be the individual's <strong>"personal company"</strong> — they must hold <strong>≥ 5%</strong> of ordinary shares AND voting rights</li>
+      <li>The individual must be an <strong>employee or officer</strong> of the company (full-time or part-time)</li>
+      <li>Both the 5% holding and employment conditions must have been met for at least <strong>2 years</strong> before disposal</li>
+      <li>The company must be a <strong>trading company</strong> (not an investment company)</li>
+    </ul>
+
+    <div class="example">
+      <div class="ex-title">Example — BADR Qualifying vs Not Qualifying</div>
+      <table class="calc-table">
+        <tr><td><strong>Innocent</strong> — managing director, holds 20% (>5%), owned 3+ years</td><td><span class="pill green">QUALIFIES ✓</span> — CGT at 14%</td></tr>
+        <tr><td><strong>Nigel</strong> — NOT an employee, holds only 3% (<5%)</td><td><span class="pill red">DOES NOT QUALIFY ✗</span> — CGT at 24%</td></tr>
+      </table>
+      <p style="margin-top:14px;">Innocent CGT = £63,000 × 14% = £8,820. Nigel's CGT = £38,200 × 24% = £9,168. Saving = £348.</p>
+    </div>
+
+    <div class="info-box exam">
+      <div class="ib-title">📝 Exam Tips — BADR</div>
+      <ul class="bullet-list">
+        <li>Lifetime limit = <strong>£1,000,000</strong>. If some has been used, check how much remains</li>
+        <li>BADR gains are taxed at 14% regardless of whether the person has remaining BRB or not</li>
+        <li>When setting off the AEA: it's more beneficial to set it against <strong>non-BADR gains first</strong> (saves 24% vs 14%)</li>
+        <li>BADR does NOT apply to <strong>associated disposals</strong> (excluded from syllabus)</li>
+      </ul>
+    </div>
+
+    <hr class="divider">
+
+    <!-- INVESTORS RELIEF -->
+    <h3>Investors' Relief (IR)</h3>
+    <p>Investors' Relief also gives a flat <strong>14% rate</strong>, with a <strong>lifetime limit of £1,000,000</strong>. It is designed for <strong>external investors</strong> who put money into unlisted trading companies but are NOT employees.</p>
+
+    <h4>Qualifying Conditions for Investors' Relief</h4>
+    <ul class="bullet-list">
+      <li>Shares must be <strong>unlisted ordinary shares</strong> (including AIM shares)</li>
+      <li>The shares must have been <strong>newly issued (subscribed for)</strong> directly from the company — NOT purchased on the secondary market</li>
+      <li>Held for a minimum of <strong>3 years</strong></li>
+      <li>The individual must <strong>NOT be an employee</strong> of the company (or an officer)</li>
+      <li>The company must be a <strong>trading company</strong></li>
+    </ul>
+
+    <div class="example">
+      <div class="ex-title">Example — Investors' Relief</div>
+      <p>Siobhan subscribed for (bought new) shares in an unquoted trading company in 2018. She is NOT an employee. She sold the shares in 2025 (held 7 years). Gain = £900,000. She has not previously used IR.</p>
+      <table class="calc-table">
+        <tr><td>Qualifies for IR? YES — unquoted, subscribed for, held 3+ years, not an employee</td><td></td></tr>
+        <tr><td>Gain within £1m lifetime limit: £900,000 × 14%</td><td>£126,000</td></tr>
+        <tr class="note"><td>Remaining lifetime limit c/f: £1,000,000 − £900,000</td><td>£100,000</td></tr>
+      </table>
+    </div>
+
+    <div class="info-box key">
+      <div class="ib-title">⚠️ BADR vs Investors' Relief — Key Differences</div>
+      <table class="calc-table">
+        <tr><td></td><td><strong>BADR</strong></td><td><strong>Investors' Relief</strong></td></tr>
+        <tr><td>Rate</td><td>14%</td><td>14%</td></tr>
+        <tr><td>Lifetime limit</td><td>£1,000,000</td><td>£1,000,000</td></tr>
+        <tr><td>Employee required?</td><td>YES — must be employee/officer</td><td>NO — must NOT be employee</td></tr>
+        <tr><td>Minimum holding</td><td>2 years</td><td>3 years</td></tr>
+        <tr><td>Share type</td><td>Unlisted or listed (personal company)</td><td>Unlisted ONLY (subscribed for)</td></tr>
+      </table>
+    </div>
+
+    <hr class="divider">
+
+    <!-- ROLLOVER RELIEF -->
+    <h3>Rollover Relief</h3>
+    <p>When a <strong>business sells a qualifying asset</strong> and reinvests the proceeds in a <strong>replacement qualifying asset</strong>, the gain can be <strong>deferred</strong> (rolled over) into the cost of the new asset.</p>
+
+    <h4>Qualifying Assets for Rollover Relief</h4>
+    <ul class="bullet-list">
+      <li>Land and buildings used in the trade</li>
+      <li><strong>Fixed</strong> (immovable) plant and machinery</li>
+      <li>Goodwill</li>
+      <li><strong>NOT:</strong> shares, moveable plant and machinery</li>
+    </ul>
+
+    <h4>Timing Rule</h4>
+    <ul class="bullet-list">
+      <li>Replacement must be acquired between <strong>1 year before</strong> and <strong>3 years after</strong> the disposal</li>
+      <li>The replacement asset must also be a <strong>qualifying asset used in the trade</strong></li>
+    </ul>
+
+    <h4>How Rollover Works</h4>
+    <div class="formula-box">
+      <div class="row"><span class="label">If ALL proceeds reinvested → Gain deferred in FULL</span></div>
+      <div class="row" style="color:#f8c471;"><span class="label">If PARTIAL reinvestment → Gain chargeable = Proceeds NOT reinvested</span></div>
+      <div class="row" style="color:#f8c471;"><span class="label">Gain deferred = Total gain − Gain immediately chargeable</span></div>
+      <div class="row" style="margin-top:8px; color:white; font-size:0.9em;"><span class="label">Base cost of new asset = Purchase price − Deferred gain</span></div>
+    </div>
+
+    <div class="example">
+      <div class="ex-title">Example — Rollover Relief</div>
+      <p>Mick's business sells a warehouse for £522,000 (cost £258,000 → gain = £264,000). He buys a new warehouse for £480,000 within 12 months.</p>
+      <table class="calc-table">
+        <tr><td>Proceeds not reinvested (£522,000 − £480,000)</td><td>£42,000</td></tr>
+        <tr><td>Gain immediately chargeable</td><td>£42,000</td></tr>
+        <tr><td>Gain deferred (£264,000 − £42,000)</td><td>£222,000</td></tr>
+        <tr class="total"><td>Base cost of new warehouse (£480,000 − £222,000)</td><td><strong>£258,000</strong></td></tr>
+      </table>
+    </div>
+
+    <hr class="divider">
+
+    <!-- GIFT HOLDOVER -->
+    <h3>Gift Holdover Relief</h3>
+    <p>When you <strong>give away a business asset</strong> (or shares in an unquoted trading company), you can <strong>hold over</strong> the gain — meaning the gain is deferred until the recipient eventually sells the asset.</p>
+
+    <h4>How it works:</h4>
+    <ul class="bullet-list">
+      <li>Donor's gain is <strong>reduced to nil</strong> (or reduced if partial consideration)</li>
+      <li>Recipient's acquisition cost = Market value − Gain held over</li>
+      <li>The gain is "stored" inside the lower cost — crystallising when the recipient disposes</li>
+      <li>Joint election by <strong>both donor and recipient</strong> — must be made by <strong>4 years</strong> after end of the tax year of the gift</li>
+    </ul>
+
+    <h4>What assets qualify?</h4>
+    <ul class="bullet-list">
+      <li>Assets used in a trade (business assets)</li>
+      <li>Shares in <strong>unquoted trading companies</strong></li>
+      <li>Shares in the individual's <strong>personal company</strong> (≥ 5%) — but the relief may be restricted if the company has investment assets</li>
+      <li>No minimum ownership period required</li>
+    </ul>
+
+    <div class="example">
+      <div class="ex-title">Example — Gift Holdover with Restriction</div>
+      <p>Bill (5%+ shareholder, employee) gifts shares in High Rise Ltd to his daughter Belle. MV = £260,000. Bill's original cost = £112,000. Gain = £148,000. High Rise Ltd has: chargeable business assets £150,000 / total chargeable assets £180,000.</p>
+      <p style="margin-top:10px;"><strong>Restriction:</strong> Because the company has investment assets, holdover is restricted:</p>
+      <table class="calc-table">
+        <tr><td>Gain eligible for holdover = £148,000 × £150,000/£180,000</td><td>£123,333</td></tr>
+        <tr><td>Bill's chargeable gain = £148,000 − £123,333</td><td>£24,667</td></tr>
+        <tr class="deduct"><td>AEA</td><td>(£3,000)</td></tr>
+        <tr><td>Taxable gain</td><td>£21,667</td></tr>
+        <tr><td>CGT (BADR applies as Bill qualifies): £21,667 × 14%</td><td>£3,033</td></tr>
+        <tr class="note"><td>Belle's acquisition cost = £260,000 − £123,333</td><td>£136,667</td></tr>
+      </table>
+    </div>
+
+    <div class="info-box exam">
+      <div class="ib-title">📝 Exam Focus — BADR + Gift Holdover Interaction</div>
+      If BADR is available to the donor, holding over the gain <strong>forfeits BADR</strong> on the held-over element for the donor — but the recipient might not qualify for BADR. So there's a decision to make: does the donor claim holdover (delaying all CGT) or pay now at 14% with BADR? The exam often asks you to compare both scenarios.
+    </div>
+
+    <hr class="divider">
+
+    <!-- QUICK REFERENCE -->
+    <h3>Quick Reference — Summary of All Reliefs</h3>
+    <table class="rate-table">
+      <thead><tr><td>Relief</td><td>Effect</td><td>Lifetime Limit</td><td>Key Condition</td></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>BADR</strong></td>
+          <td>Tax at 14%</td>
+          <td>£1,000,000</td>
+          <td>Employee + 5%+ holding + 2 years + trading company</td>
+        </tr>
+        <tr>
+          <td><strong>Investors' Relief</strong></td>
+          <td>Tax at 14%</td>
+          <td>£1,000,000</td>
+          <td>NOT employee + subscribed shares + 3 years + unlisted trading company</td>
+        </tr>
+        <tr>
+          <td><strong>Rollover Relief</strong></td>
+          <td>Defers gain</td>
+          <td>No limit</td>
+          <td>Qualifying business asset → proceeds reinvested in replacement within 1yr before/3yrs after</td>
+        </tr>
+        <tr>
+          <td><strong>Gift Holdover</strong></td>
+          <td>Defers gain to recipient</td>
+          <td>No limit</td>
+          <td>Joint election; qualifying business assets or unquoted trading company shares</td>
+        </tr>
+        <tr>
+          <td><strong>PRR</strong></td>
+          <td>Full/partial exemption</td>
+          <td>No limit</td>
+          <td>Must be main residence; proportion based on months of occupation</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Exam Practice Tips</h3>
+    <ol class="step-list">
+      <li>Always use the standard proforma: Proceeds → Cost → Gain → AEA → Losses → Tax</li>
+      <li>Check asset type first — exempt assets need NO calculation (car, main home, wasting chattel under £6k)</li>
+      <li>For chattels — apply the £6,000 rules before computing gain</li>
+      <li>For shares — apply matching rules in order: same day → 30 day → pool</li>
+      <li>For CGT rate — calculate remaining basic rate band including pension/gift aid extensions</li>
+      <li>For BADR — check: 5%? Employee? 2 years? Trading company? Lifetime limit available?</li>
+      <li>Always compare BADR vs no-BADR in a question involving a choice of who makes the disposal</li>
+    </ol>
+
+  </div>
+</div><!-- end s6 -->
+
+</div><!-- end container -->
+
+<!-- FOOTER -->
+<div class="page-footer">
+  <p>ACCA TX-UK · Capital Gains Tax · FA2025 · Applicable for June 2026 Exam Window</p>
+  <p style="margin-top:8px;">All figures from official ACCA Tax Tables (FA2025 | J26–J27). Study notes for educational purposes.</p>
+</div>
+
+<!-- TOP BUTTON -->
+<a href="#top" class="top-btn" title="Back to top">↑</a>
+
+</body>
+</html>
