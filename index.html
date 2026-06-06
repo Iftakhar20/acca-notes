@@ -1,690 +1,341 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ACCA Study Notes — Iftekhar</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Outfit:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACCA Study Notes — Iftekhar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-      :root {
-        --cream: #faf8f4;
-        --cream-mid: #f3efe8;
-        --cream-border: #e8e2d8;
-        --ink: #1c1a17;
-        --ink-mid: #4a4540;
-        --ink-muted: #8c877f;
-        --ink-dim: #b8b2a8;
+  :root {
+    --cream: #faf8f4;
+    --cream-mid: #f3efe8;
+    --cream-border: #e8e2d8;
+    --ink: #1c1a17;
+    --ink-mid: #4a4540;
+    --ink-muted: #8c877f;
+    --ink-dim: #b8b2a8;
 
-        --tx: #c0440e;
-        --tx-bg: #fef3ee;
-        --tx-border: #f0c4ae;
-        --tx-mid: #e8703a;
+    --tx: #c0440e;
+    --tx-bg: #fef3ee;
+    --tx-border: #f0c4ae;
+    --tx-mid: #e8703a;
 
-        --fm: #1a5fa8;
-        --fm-bg: #eef5fd;
-        --fm-border: #b0cef0;
-        --fm-mid: #3a82cc;
+    --fm: #1a5fa8;
+    --fm-bg: #eef5fd;
+    --fm-border: #b0cef0;
+    --fm-mid: #3a82cc;
 
-        --aa: #1a7a52;
-        --aa-bg: #eef8f3;
-        --aa-border: #a0dcc0;
-        --aa-mid: #2ea06e;
-      }
+    --aa: #1a7a52;
+    --aa-bg: #eef8f3;
+    --aa-border: #a0dcc0;
+    --aa-mid: #2ea06e;
+  }
 
-      html {
-        scroll-behavior: smooth;
-      }
+  html { scroll-behavior: smooth; }
 
-      body {
-        font-family: "Outfit", sans-serif;
-        background-color: var(--cream);
-        color: var(--ink);
-        min-height: 100vh;
-        overflow-x: hidden;
-      }
+  body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--cream);
+    color: var(--ink);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
 
-      /* ── Background ── */
-      .bg-layer {
-        position: fixed;
-        inset: 0;
-        z-index: 0;
-        pointer-events: none;
-        overflow: hidden;
-      }
-      .bg-blob {
-        position: absolute;
-        border-radius: 50%;
-        filter: blur(100px);
-      }
-      .blob-1 {
-        width: 700px;
-        height: 500px;
-        top: -200px;
-        right: -150px;
-        background: rgba(192, 68, 14, 0.06);
-      }
-      .blob-2 {
-        width: 600px;
-        height: 600px;
-        bottom: -200px;
-        left: -150px;
-        background: rgba(26, 95, 168, 0.05);
-      }
-      .blob-3 {
-        width: 400px;
-        height: 400px;
-        top: 40%;
-        left: 50%;
-        background: rgba(26, 122, 82, 0.04);
-      }
-      .bg-dots {
-        position: absolute;
-        inset: 0;
-        background-image: radial-gradient(
-          circle,
-          rgba(28, 26, 23, 0.07) 1px,
-          transparent 1px
-        );
-        background-size: 28px 28px;
-      }
+  .bg-layer { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .bg-blob { position: absolute; border-radius: 50%; filter: blur(100px); }
+  .blob-1 { width: 700px; height: 500px; top: -200px; right: -150px; background: rgba(192,68,14,0.06); }
+  .blob-2 { width: 600px; height: 600px; bottom: -200px; left: -150px; background: rgba(26,95,168,0.05); }
+  .blob-3 { width: 400px; height: 400px; top: 40%; left: 50%; background: rgba(26,122,82,0.04); }
+  .bg-dots {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(28,26,23,0.07) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
 
-      /* ── Layout ── */
-      .page {
-        position: relative;
-        z-index: 1;
-        max-width: 980px;
-        margin: 0 auto;
-        padding: 0 1.5rem 5rem;
-      }
+  .page { position: relative; z-index: 1; max-width: 980px; margin: 0 auto; padding: 0 1.5rem 5rem; }
 
-      /* ── Hero ── */
-      .hero {
-        padding: 5rem 0 3rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        animation: fadeUp 0.7s ease both;
-      }
-      .hero-eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        font-family: "Outfit", sans-serif;
-        font-size: 11px;
-        font-weight: 500;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-        color: var(--ink-muted);
-        border: 1px solid var(--cream-border);
-        background: white;
-        padding: 5px 18px;
-        border-radius: 100px;
-        margin-bottom: 1.75rem;
-        box-shadow: 0 1px 4px rgba(28, 26, 23, 0.06);
-      }
-      .hero h1 {
-        font-family: "Playfair Display", serif;
-        font-size: clamp(40px, 7vw, 68px);
-        font-weight: 700;
-        line-height: 1.08;
-        color: var(--ink);
-        margin-bottom: 1rem;
-      }
-      .hero h1 em {
-        font-style: italic;
-        font-weight: 500;
-        background: linear-gradient(135deg, var(--tx-mid), var(--fm-mid));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-      .hero-sub {
-        font-size: 15px;
-        color: var(--ink-muted);
-        font-weight: 300;
-        letter-spacing: 0.04em;
-        margin-bottom: 2.5rem;
-      }
-      .hero-divider {
-        width: 60px;
-        height: 2px;
-        background: linear-gradient(
-          90deg,
-          var(--tx-mid),
-          var(--fm-mid),
-          var(--aa-mid)
-        );
-        border-radius: 2px;
-      }
+  .hero {
+    padding: 5rem 0 3rem;
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    animation: fadeUp 0.7s ease both;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--ink-muted); border: 1px solid var(--cream-border);
+    background: white; padding: 5px 18px; border-radius: 100px;
+    margin-bottom: 1.75rem; box-shadow: 0 1px 4px rgba(28,26,23,0.06);
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 7vw, 68px);
+    font-weight: 700; line-height: 1.08; color: var(--ink); margin-bottom: 1rem;
+  }
+  .hero h1 em {
+    font-style: italic; font-weight: 500;
+    background: linear-gradient(135deg, var(--tx-mid), var(--fm-mid));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .hero-sub { font-size: 15px; color: var(--ink-muted); font-weight: 300; letter-spacing: 0.04em; margin-bottom: 2.5rem; }
+  .hero-divider { width: 60px; height: 2px; background: linear-gradient(90deg, var(--tx-mid), var(--fm-mid), var(--aa-mid)); border-radius: 2px; }
 
-      /* ── Nav pills ── */
-      .nav-pills {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        flex-wrap: wrap;
-        margin: 2.5rem 0 3.5rem;
-        animation: fadeUp 0.7s 0.12s ease both;
-      }
-      .pill {
-        font-size: 12px;
-        font-weight: 500;
-        letter-spacing: 0.04em;
-        padding: 8px 22px;
-        border-radius: 100px;
-        cursor: pointer;
-        border: 1.5px solid;
-        text-decoration: none;
-        transition: all 0.18s;
-        background: white;
-      }
-      .pill-tx {
-        color: var(--tx);
-        border-color: var(--tx-border);
-      }
-      .pill-fm {
-        color: var(--fm);
-        border-color: var(--fm-border);
-      }
-      .pill-aa {
-        color: var(--aa);
-        border-color: var(--aa-border);
-      }
-      .pill-tx:hover {
-        background: var(--tx-bg);
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(192, 68, 14, 0.12);
-      }
-      .pill-fm:hover {
-        background: var(--fm-bg);
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(26, 95, 168, 0.12);
-      }
-      .pill-aa:hover {
-        background: var(--aa-bg);
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(26, 122, 82, 0.12);
-      }
+  .nav-pills {
+    display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;
+    margin: 2.5rem 0 3.5rem; animation: fadeUp 0.7s 0.12s ease both;
+  }
+  .pill {
+    font-size: 12px; font-weight: 500; letter-spacing: 0.04em;
+    padding: 8px 22px; border-radius: 100px; cursor: pointer;
+    border: 1.5px solid; text-decoration: none; transition: all 0.18s; background: white;
+  }
+  .pill-tx { color: var(--tx); border-color: var(--tx-border); }
+  .pill-fm { color: var(--fm); border-color: var(--fm-border); }
+  .pill-aa { color: var(--aa); border-color: var(--aa-border); }
+  .pill-tx:hover { background: var(--tx-bg); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(192,68,14,0.12); }
+  .pill-fm:hover { background: var(--fm-bg); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(26,95,168,0.12); }
+  .pill-aa:hover { background: var(--aa-bg); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(26,122,82,0.12); }
 
-      /* ── Section ── */
-      .section {
-        margin-bottom: 3rem;
-        animation: fadeUp 0.6s ease both;
-      }
-      .section-label {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        margin-bottom: 1.25rem;
-      }
-      .exam-badge {
-        font-family: "Outfit", sans-serif;
-        font-size: 11px;
-        font-weight: 500;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        padding: 5px 14px;
-        border-radius: 6px;
-        border: 1.5px solid;
-        white-space: nowrap;
-      }
-      .badge-tx {
-        color: var(--tx);
-        border-color: var(--tx-border);
-        background: var(--tx-bg);
-      }
-      .badge-fm {
-        color: var(--fm);
-        border-color: var(--fm-border);
-        background: var(--fm-bg);
-      }
-      .badge-aa {
-        color: var(--aa);
-        border-color: var(--aa-border);
-        background: var(--aa-bg);
-      }
-      .section-title {
-        font-family: "Playfair Display", serif;
-        font-size: 20px;
-        font-weight: 500;
-        color: var(--ink);
-      }
-      .section-line {
-        flex: 1;
-        height: 1px;
-        background: var(--cream-border);
-      }
+  .section { margin-bottom: 3rem; animation: fadeUp 0.6s ease both; }
+  .section-label { display: flex; align-items: center; gap: 14px; margin-bottom: 1.25rem; }
+  .exam-badge {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 6px; border: 1.5px solid; white-space: nowrap;
+  }
+  .badge-tx { color: var(--tx); border-color: var(--tx-border); background: var(--tx-bg); }
+  .badge-fm { color: var(--fm); border-color: var(--fm-border); background: var(--fm-bg); }
+  .badge-aa { color: var(--aa); border-color: var(--aa-border); background: var(--aa-bg); }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 500; color: var(--ink); }
+  .section-line { flex: 1; height: 1px; background: var(--cream-border); }
 
-      /* ── Cards ── */
-      .cards-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
-        gap: 12px;
-      }
-      .card {
-        display: flex;
-        flex-direction: column;
-        background: white;
-        border: 1.5px solid var(--cream-border);
-        border-radius: 14px;
-        padding: 20px 18px 16px;
-        text-decoration: none;
-        color: var(--ink);
-        transition:
-          transform 0.18s ease,
-          box-shadow 0.18s ease,
-          border-color 0.18s ease;
-        animation: fadeUp 0.5s ease both;
-      }
-      .card:hover {
-        transform: translateY(-4px);
-      }
-      .card-tx:hover {
-        border-color: var(--tx-border);
-        box-shadow: 0 8px 24px rgba(192, 68, 14, 0.1);
-      }
-      .card-fm:hover {
-        border-color: var(--fm-border);
-        box-shadow: 0 8px 24px rgba(26, 95, 168, 0.1);
-      }
-      .card-aa:hover {
-        border-color: var(--aa-border);
-        box-shadow: 0 8px 24px rgba(26, 122, 82, 0.1);
-      }
+  .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(195px, 1fr)); gap: 12px; }
+  .card {
+    display: flex; flex-direction: column;
+    background: white; border: 1.5px solid var(--cream-border);
+    border-radius: 14px; padding: 20px 18px 16px;
+    text-decoration: none; color: var(--ink);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    animation: fadeUp 0.5s ease both;
+  }
+  .card:hover { transform: translateY(-4px); }
+  .card-tx:hover { border-color: var(--tx-border); box-shadow: 0 8px 24px rgba(192,68,14,0.10); }
+  .card-fm:hover { border-color: var(--fm-border); box-shadow: 0 8px 24px rgba(26,95,168,0.10); }
+  .card-aa:hover { border-color: var(--aa-border); box-shadow: 0 8px 24px rgba(26,122,82,0.10); }
 
-      .card-icon {
-        width: 36px;
-        height: 36px;
-        border-radius: 9px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 17px;
-        margin-bottom: 14px;
-        flex-shrink: 0;
-      }
-      .icon-tx {
-        background: var(--tx-bg);
-      }
-      .icon-fm {
-        background: var(--fm-bg);
-      }
-      .icon-aa {
-        background: var(--aa-bg);
-      }
+  .card-icon { width: 36px; height: 36px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 17px; margin-bottom: 14px; flex-shrink: 0; }
+  .icon-tx { background: var(--tx-bg); }
+  .icon-fm { background: var(--fm-bg); }
+  .icon-aa { background: var(--aa-bg); }
 
-      .card-name {
-        font-size: 13px;
-        font-weight: 400;
-        line-height: 1.45;
-        color: var(--ink);
-        flex: 1;
-      }
-      .card-footer {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-top: 14px;
-        padding-top: 12px;
-        border-top: 1px solid var(--cream-border);
-      }
-      .card-label {
-        font-size: 10px;
-        font-weight: 500;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        opacity: 0.45;
-      }
-      .card-arrow {
-        font-size: 14px;
-        color: var(--ink-dim);
-        transition:
-          transform 0.18s,
-          color 0.18s;
-      }
-      .card:hover .card-arrow {
-        transform: translateX(3px);
-      }
-      .card-tx:hover .card-arrow {
-        color: var(--tx);
-      }
-      .card-fm:hover .card-arrow {
-        color: var(--fm);
-      }
-      .card-aa:hover .card-arrow {
-        color: var(--aa);
-      }
+  .card-name { font-size: 13px; font-weight: 400; line-height: 1.45; color: var(--ink); flex: 1; }
+  .card-footer {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--cream-border);
+  }
+  .card-label { font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.45; }
+  .card-arrow { font-size: 14px; color: var(--ink-dim); transition: transform 0.18s, color 0.18s; }
+  .card:hover .card-arrow { transform: translateX(3px); }
+  .card-tx:hover .card-arrow { color: var(--tx); }
+  .card-fm:hover .card-arrow { color: var(--fm); }
+  .card-aa:hover .card-arrow { color: var(--aa); }
 
-      /* ── Footer ── */
-      .footer {
-        text-align: center;
-        padding-top: 2.5rem;
-        margin-top: 1rem;
-        border-top: 1px solid var(--cream-border);
-        font-size: 12px;
-        color: var(--ink-dim);
-        letter-spacing: 0.05em;
-      }
+  .footer { text-align: center; padding-top: 2.5rem; margin-top: 1rem; border-top: 1px solid var(--cream-border); font-size: 12px; color: var(--ink-dim); letter-spacing: 0.05em; }
 
-      /* ── Animations ── */
-      @keyframes fadeUp {
-        from {
-          opacity: 0;
-          transform: translateY(16px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      .section:nth-child(1) {
-        animation-delay: 0.1s;
-      }
-      .section:nth-child(2) {
-        animation-delay: 0.2s;
-      }
-      .section:nth-child(3) {
-        animation-delay: 0.3s;
-      }
-      .cards-grid .card:nth-child(1) {
-        animation-delay: 0.05s;
-      }
-      .cards-grid .card:nth-child(2) {
-        animation-delay: 0.1s;
-      }
-      .cards-grid .card:nth-child(3) {
-        animation-delay: 0.15s;
-      }
-      .cards-grid .card:nth-child(4) {
-        animation-delay: 0.2s;
-      }
-      .cards-grid .card:nth-child(5) {
-        animation-delay: 0.25s;
-      }
-      .cards-grid .card:nth-child(6) {
-        animation-delay: 0.3s;
-      }
-      .cards-grid .card:nth-child(7) {
-        animation-delay: 0.35s;
-      }
-      .cards-grid .card:nth-child(8) {
-        animation-delay: 0.4s;
-      }
-      .cards-grid .card:nth-child(9) {
-        animation-delay: 0.45s;
-      }
-      .cards-grid .card:nth-child(10) {
-        animation-delay: 0.5s;
-      }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  .section:nth-child(1) { animation-delay: 0.1s; }
+  .section:nth-child(2) { animation-delay: 0.2s; }
+  .section:nth-child(3) { animation-delay: 0.3s; }
+  .cards-grid .card:nth-child(1)  { animation-delay: 0.05s; }
+  .cards-grid .card:nth-child(2)  { animation-delay: 0.10s; }
+  .cards-grid .card:nth-child(3)  { animation-delay: 0.15s; }
+  .cards-grid .card:nth-child(4)  { animation-delay: 0.20s; }
+  .cards-grid .card:nth-child(5)  { animation-delay: 0.25s; }
+  .cards-grid .card:nth-child(6)  { animation-delay: 0.30s; }
+  .cards-grid .card:nth-child(7)  { animation-delay: 0.35s; }
+  .cards-grid .card:nth-child(8)  { animation-delay: 0.40s; }
+  .cards-grid .card:nth-child(9)  { animation-delay: 0.45s; }
+  .cards-grid .card:nth-child(10) { animation-delay: 0.50s; }
 
-      @media (max-width: 600px) {
-        .hero {
-          padding: 3rem 0 2rem;
-        }
-        .cards-grid {
-          grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
-          gap: 10px;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="bg-layer" aria-hidden="true">
-      <div class="bg-dots"></div>
-      <div class="bg-blob blob-1"></div>
-      <div class="bg-blob blob-2"></div>
-      <div class="bg-blob blob-3"></div>
+  @media (max-width: 600px) {
+    .hero { padding: 3rem 0 2rem; }
+    .cards-grid { grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-layer" aria-hidden="true">
+  <div class="bg-dots"></div>
+  <div class="bg-blob blob-1"></div>
+  <div class="bg-blob blob-2"></div>
+  <div class="bg-blob blob-3"></div>
+</div>
+
+<div class="page">
+
+  <header class="hero">
+    <div class="hero-eyebrow">June 2026 Exam Session</div>
+    <h1>ACCA Study<br><em>Notes & Revision</em></h1>
+    <p class="hero-sub">TX · FM · AA &nbsp;·&nbsp; Iftekhar Ahmed</p>
+    <div class="hero-divider"></div>
+  </header>
+
+  <nav class="nav-pills">
+    <a href="#tx" class="pill pill-tx">Taxation TX</a>
+    <a href="#fm" class="pill pill-fm">Financial Management FM</a>
+    <a href="#aa" class="pill pill-aa">Audit &amp; Assurance AA</a>
+  </nav>
+
+  <!-- TX — files are in TX/ folder -->
+  <section id="tx" class="section">
+    <div class="section-label">
+      <span class="exam-badge badge-tx">TX</span>
+      <span class="section-title">Taxation — Finance Act 2025</span>
+      <div class="section-line"></div>
     </div>
-
-    <div class="page">
-      <!-- Hero -->
-      <header class="hero">
-        <div class="hero-eyebrow">June 2026 Exam Session</div>
-        <h1>ACCA Study<br /><em>Notes & Revision</em></h1>
-        <p class="hero-sub">TX · FM · AA &nbsp;·&nbsp; IA</p>
-        <div class="hero-divider"></div>
-      </header>
-
-      <!-- Nav -->
-      <nav class="nav-pills">
-        <a href="#tx" class="pill pill-tx">Taxation TX</a>
-        <a href="#fm" class="pill pill-fm">Financial Management FM</a>
-        <a href="#aa" class="pill pill-aa">Audit &amp; Assurance AA</a>
-      </nav>
-
-      <!-- TX -->
-      <section id="tx" class="section">
-        <div class="section-label">
-          <span class="exam-badge badge-tx">TX</span>
-          <span class="section-title">Taxation — Finance Act 2025</span>
-          <div class="section-line"></div>
-        </div>
-        <div class="cards-grid">
-          <a class="card card-tx" href="CGT Notes ACCA TX June2026.html">
-            <div class="card-icon icon-tx">📊</div>
-            <span class="card-name">Capital Gains Tax Notes</span>
-            <div class="card-footer">
-              <span class="card-label">TX</span
-              ><span class="card-arrow">→</span>
-            </div>
-          </a>
-          <a class="card card-tx" href="TX Corporation Tax Notes.html">
-            <div class="card-icon icon-tx">🏢</div>
-            <span class="card-name">Corporation Tax Notes</span>
-            <div class="card-footer">
-              <span class="card-label">TX</span
-              ><span class="card-arrow">→</span>
-            </div>
-          </a>
-          <a class="card card-tx" href="TX Employment Benefits.html">
-            <div class="card-icon icon-tx">👔</div>
-            <span class="card-name">Employment Benefits</span>
-            <div class="card-footer">
-              <span class="card-label">TX</span
-              ><span class="card-arrow">→</span>
-            </div>
-          </a>
-          <a class="card card-tx" href="TX Inheretence Tax Notes.html">
-            <div class="card-icon icon-tx">🏛️</div>
-            <span class="card-name">Inheritance Tax Notes</span>
-            <div class="card-footer">
-              <span class="card-label">TX</span
-              ><span class="card-arrow">→</span>
-            </div>
-          </a>
-          <a class="card card-tx" href="TX Key Dates Notes.html">
-            <div class="card-icon icon-tx">📅</div>
-            <span class="card-name">Key Dates</span>
-            <div class="card-footer">
-              <span class="card-label">TX</span
-              ><span class="card-arrow">→</span>
-            </div>
-          </a>
-          <a class="card card-tx" href="TX Pension & NIC.html">
-            <div class="card-icon icon-tx">🔐</div>
-            <span class="card-name">Pension &amp; NIC</span>
-            <div class="card-footer">
-              <span class="card-label">TX</span
-              ><span class="card-arrow">→</span>
-            </div>
-          </a>
-          <a class="card card-tx" href="TX Refresher Notes.html">
-            <div class="card-icon icon-tx">🔁</div>
-            <span class="card-name">Refresher Notes</span>
-            <div class="card-footer">
-              <span class="card-label">TX</span
-              ><span class="card-arrow">→</span>
-            </div>
-          </a>
-          <a class="card card-tx" href="TX Revision Cheatsheet       .html">
-            <div class="card-icon icon-tx">⚡</div>
-            <span class="card-name">Revision Cheatsheet</span>
-            <div class="card-footer">
-              <span class="card-label">TX</span
-              ><span class="card-arrow">→</span>
-            </div>
-          </a>
-          <a class="card card-tx" href="TX Trading Income Notes.html">
-            <div class="card-icon icon-tx">📈</div>
-            <span class="card-name">Trading Income Notes</span>
-            <div class="card-footer">
-              <span class="card-label">TX</span
-              ><span class="card-arrow">→</span>
-            </div>
-          </a>
-          <a class="card card-tx" href="TX VAT Notes.html">
-            <div class="card-icon icon-tx">🧾</div>
-            <span class="card-name">VAT Notes</span>
-            <div class="card-footer">
-              <span class="card-label">TX</span
-              ><span class="card-arrow">→</span>
-            </div>
-          </a>
-        </div>
-      </section>
-
-      <!-- FM -->
-      <section id="fm" class="section">
-        <div class="section-label">
-          <span class="exam-badge badge-fm">FM</span>
-          <span class="section-title">Financial Management</span>
-          <div class="section-line"></div>
-        </div>
-        <div class="cards-grid">
-          <a class="card card-fm" href="FM Financial Management Function.html">
-            <div class="card-icon icon-fm">🎯</div>
-            <span class="card-name">Financial Management Function</span>
-            <div class="card-footer">
-              <span class="card-label">FM</span
-              ><span class="card-arrow">→</span>
-            </div>
-          </a>
-          <a class="card card-fm" href="FM Investment Appraisal Notes.html">
-            <div class="card-icon icon-fm">💹</div>
-            <span class="card-name">Investment Appraisal Notes</span>
-            <div class="card-footer">
-              <span class="card-label">FM</span
-              ><span class="card-arrow">→</span>
-            </div>
-          </a>
-        </div>
-      </section>
-
-      <!-- AA -->
-      <section id="aa" class="section">
-        <div class="section-label">
-          <span class="exam-badge badge-aa">AA</span>
-          <span class="section-title">Audit &amp; Assurance</span>
-          <div class="section-line"></div>
-        </div>
-        <div class="cards-grid">
-          <a class="card card-aa" href="AA Audit Reports.html">
-            <div class="card-icon icon-aa">📋</div>
-            <span class="card-name">Audit Reports</span>
-            <div class="card-footer">
-              <span class="card-label">AA</span
-              ><span class="card-arrow">→</span>
-            </div>
-          </a>
-          <a class="card card-aa" href="AA_Audit_Reports_Quiz.html">
-            <div class="card-icon icon-aa">❓</div>
-            <span class="card-name">Audit Reports Quiz</span>
-            <div class="card-footer">
-              <span class="card-label">AA</span
-              ><span class="card-arrow">→</span>
-            </div>
-          </a>
-          <a class="card card-aa" href="AA_Auditors_Report_TCWG_Chapter12.html">
-            <div class="card-icon icon-aa">📝</div>
-            <span class="card-name">Auditor's Report — TCWG (Ch.12)</span>
-            <div class="card-footer">
-              <span class="card-label">AA</span
-              ><span class="card-arrow">→</span>
-            </div>
-          </a>
-          <a class="card card-aa" href="AA Automated Tools Techniques.html">
-            <div class="card-icon icon-aa">🤖</div>
-            <span class="card-name">Automated Tools &amp; Techniques</span>
-            <div class="card-footer">
-              <span class="card-label">AA</span
-              ><span class="card-arrow">→</span>
-            </div>
-          </a>
-          <a class="card card-aa" href="AA Controls Testing Notes.html">
-            <div class="card-icon icon-aa">🔍</div>
-            <span class="card-name">Controls Testing Notes</span>
-            <div class="card-footer">
-              <span class="card-label">AA</span
-              ><span class="card-arrow">→</span>
-            </div>
-          </a>
-          <a class="card card-aa" href="AA Ethics and Acceptance.html">
-            <div class="card-icon icon-aa">⚖️</div>
-            <span class="card-name">Ethics and Acceptance</span>
-            <div class="card-footer">
-              <span class="card-label">AA</span
-              ><span class="card-arrow">→</span>
-            </div>
-          </a>
-          <a class="card card-aa" href="AA Revision Cheatsheet______.html">
-            <div class="card-icon icon-aa">⚡</div>
-            <span class="card-name">Revision Cheatsheet</span>
-            <div class="card-footer">
-              <span class="card-label">AA</span
-              ><span class="card-arrow">→</span>
-            </div>
-          </a>
-          <a class="card card-aa" href="AA Substantive Procedures.html">
-            <div class="card-icon icon-aa">🔬</div>
-            <span class="card-name">Substantive Procedures</span>
-            <div class="card-footer">
-              <span class="card-label">AA</span
-              ><span class="card-arrow">→</span>
-            </div>
-          </a>
-          <a
-            class="card card-aa"
-            href="AA Substantive Procedures Cheatsheet.html"
-          >
-            <div class="card-icon icon-aa">📌</div>
-            <span class="card-name">Substantive Procedures Cheatsheet</span>
-            <div class="card-footer">
-              <span class="card-label">AA</span
-              ><span class="card-arrow">→</span>
-            </div>
-          </a>
-          <a
-            class="card card-aa"
-            href="AA_Written_Representations_Tutorial.html"
-          >
-            <div class="card-icon icon-aa">✍️</div>
-            <span class="card-name">Written Representations Tutorial</span>
-            <div class="card-footer">
-              <span class="card-label">AA</span
-              ><span class="card-arrow">→</span>
-            </div>
-          </a>
-        </div>
-      </section>
-
-      <footer class="footer">
-        ACCA Study Portal &nbsp;·&nbsp; Iftekhar20 &nbsp;·&nbsp; Hosted on
-        GitHub Pages
-      </footer>
+    <div class="cards-grid">
+      <a class="card card-tx" href="TX/CGT Notes ACCA TX June2026.html">
+        <div class="card-icon icon-tx">📊</div>
+        <span class="card-name">Capital Gains Tax Notes</span>
+        <div class="card-footer"><span class="card-label">TX</span><span class="card-arrow">→</span></div>
+      </a>
+      <a class="card card-tx" href="TX/TX Corporation Tax Notes.html">
+        <div class="card-icon icon-tx">🏢</div>
+        <span class="card-name">Corporation Tax Notes</span>
+        <div class="card-footer"><span class="card-label">TX</span><span class="card-arrow">→</span></div>
+      </a>
+      <a class="card card-tx" href="TX/TX Employment Benefits.html">
+        <div class="card-icon icon-tx">👔</div>
+        <span class="card-name">Employment Benefits</span>
+        <div class="card-footer"><span class="card-label">TX</span><span class="card-arrow">→</span></div>
+      </a>
+      <a class="card card-tx" href="TX/TX Inheretence Tax Notes.html">
+        <div class="card-icon icon-tx">🏛️</div>
+        <span class="card-name">Inheritance Tax Notes</span>
+        <div class="card-footer"><span class="card-label">TX</span><span class="card-arrow">→</span></div>
+      </a>
+      <a class="card card-tx" href="TX/TX Key Dates Notes.html">
+        <div class="card-icon icon-tx">📅</div>
+        <span class="card-name">Key Dates</span>
+        <div class="card-footer"><span class="card-label">TX</span><span class="card-arrow">→</span></div>
+      </a>
+      <a class="card card-tx" href="TX/TX Pension &amp; NIC.html">
+        <div class="card-icon icon-tx">🔐</div>
+        <span class="card-name">Pension &amp; NIC</span>
+        <div class="card-footer"><span class="card-label">TX</span><span class="card-arrow">→</span></div>
+      </a>
+      <a class="card card-tx" href="TX/TX Refresher Notes.html">
+        <div class="card-icon icon-tx">🔁</div>
+        <span class="card-name">Refresher Notes</span>
+        <div class="card-footer"><span class="card-label">TX</span><span class="card-arrow">→</span></div>
+      </a>
+      <a class="card card-tx" href="TX/TX Revision Cheatsheet       .html">
+        <div class="card-icon icon-tx">⚡</div>
+        <span class="card-name">Revision Cheatsheet</span>
+        <div class="card-footer"><span class="card-label">TX</span><span class="card-arrow">→</span></div>
+      </a>
+      <a class="card card-tx" href="TX/TX Trading Income Notes.html">
+        <div class="card-icon icon-tx">📈</div>
+        <span class="card-name">Trading Income Notes</span>
+        <div class="card-footer"><span class="card-label">TX</span><span class="card-arrow">→</span></div>
+      </a>
+      <a class="card card-tx" href="TX/TX VAT Notes.html">
+        <div class="card-icon icon-tx">🧾</div>
+        <span class="card-name">VAT Notes</span>
+        <div class="card-footer"><span class="card-label">TX</span><span class="card-arrow">→</span></div>
+      </a>
     </div>
-  </body>
+  </section>
+
+  <!-- FM — files are in FM/ folder -->
+  <section id="fm" class="section">
+    <div class="section-label">
+      <span class="exam-badge badge-fm">FM</span>
+      <span class="section-title">Financial Management</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="cards-grid">
+      <a class="card card-fm" href="FM/FM Financial Management Function.html">
+        <div class="card-icon icon-fm">🎯</div>
+        <span class="card-name">Financial Management Function</span>
+        <div class="card-footer"><span class="card-label">FM</span><span class="card-arrow">→</span></div>
+      </a>
+      <a class="card card-fm" href="FM/FM Investment Appraisal Notes.html">
+        <div class="card-icon icon-fm">💹</div>
+        <span class="card-name">Investment Appraisal Notes</span>
+        <div class="card-footer"><span class="card-label">FM</span><span class="card-arrow">→</span></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- AA — files are in AA/ folder -->
+  <section id="aa" class="section">
+    <div class="section-label">
+      <span class="exam-badge badge-aa">AA</span>
+      <span class="section-title">Audit &amp; Assurance</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="cards-grid">
+      <a class="card card-aa" href="AA/AA Audit Reports.html">
+        <div class="card-icon icon-aa">📋</div>
+        <span class="card-name">Audit Reports</span>
+        <div class="card-footer"><span class="card-label">AA</span><span class="card-arrow">→</span></div>
+      </a>
+      <a class="card card-aa" href="AA/AA_Audit_Reports_Quiz.html">
+        <div class="card-icon icon-aa">❓</div>
+        <span class="card-name">Audit Reports Quiz</span>
+        <div class="card-footer"><span class="card-label">AA</span><span class="card-arrow">→</span></div>
+      </a>
+      <a class="card card-aa" href="AA/AA_Auditors_Report_TCWG_Chapter12.html">
+        <div class="card-icon icon-aa">📝</div>
+        <span class="card-name">Auditor's Report — TCWG (Ch.12)</span>
+        <div class="card-footer"><span class="card-label">AA</span><span class="card-arrow">→</span></div>
+      </a>
+      <a class="card card-aa" href="AA/AA Automated Tools Techniques.html">
+        <div class="card-icon icon-aa">🤖</div>
+        <span class="card-name">Automated Tools &amp; Techniques</span>
+        <div class="card-footer"><span class="card-label">AA</span><span class="card-arrow">→</span></div>
+      </a>
+      <a class="card card-aa" href="AA/AA Controls Testing Notes.html">
+        <div class="card-icon icon-aa">🔍</div>
+        <span class="card-name">Controls Testing Notes</span>
+        <div class="card-footer"><span class="card-label">AA</span><span class="card-arrow">→</span></div>
+      </a>
+      <a class="card card-aa" href="AA/AA Ethics and Acceptance.html">
+        <div class="card-icon icon-aa">⚖️</div>
+        <span class="card-name">Ethics and Acceptance</span>
+        <div class="card-footer"><span class="card-label">AA</span><span class="card-arrow">→</span></div>
+      </a>
+      <a class="card card-aa" href="AA/AA Revision Cheatsheet______.html">
+        <div class="card-icon icon-aa">⚡</div>
+        <span class="card-name">Revision Cheatsheet</span>
+        <div class="card-footer"><span class="card-label">AA</span><span class="card-arrow">→</span></div>
+      </a>
+      <a class="card card-aa" href="AA/AA Substantive Procedures.html">
+        <div class="card-icon icon-aa">🔬</div>
+        <span class="card-name">Substantive Procedures</span>
+        <div class="card-footer"><span class="card-label">AA</span><span class="card-arrow">→</span></div>
+      </a>
+      <a class="card card-aa" href="AA/AA Substantive Procedures Cheatsheet.html">
+        <div class="card-icon icon-aa">📌</div>
+        <span class="card-name">Substantive Procedures Cheatsheet</span>
+        <div class="card-footer"><span class="card-label">AA</span><span class="card-arrow">→</span></div>
+      </a>
+      <a class="card card-aa" href="AA/AA_Written_Representations_Tutorial.html">
+        <div class="card-icon icon-aa">✍️</div>
+        <span class="card-name">Written Representations Tutorial</span>
+        <div class="card-footer"><span class="card-label">AA</span><span class="card-arrow">→</span></div>
+      </a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    ACCA Study Portal &nbsp;·&nbsp; Iftekhar20 &nbsp;·&nbsp; Hosted on GitHub Pages
+  </footer>
+
+</div>
+</body>
 </html>
