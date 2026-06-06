@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACCA FM – Investment Appraisal | Sep 2026 Exam Notes</title>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f4ef;
+    --card: #ffffff;
+    --primary: #1a5276;
+    --accent: #c0392b;
+    --teal: #1a7a6e;
+    --amber: #d4851b;
+    --light-blue: #d6eaf8;
+    --light-green: #d5f5e3;
+    --light-amber: #fef9e7;
+    --light-red: #fdedec;
+    --light-teal: #d0ece7;
+    --border: #dce5ef;
+    --text: #2c3e50;
+    --muted: #5d6d7e;
+    --formula-bg: #eaf2ff;
+    --formula-border: #2980b9;
+    --example-bg: #f0faf7;
+    --example-border: #1a7a6e;
+    --warning-bg: #fff8e6;
+    --warning-border: #d4851b;
+    --tip-bg: #f4f6f9;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 18px;
+    line-height: 1.75;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: linear-gradient(135deg, #1a3a5c 0%, #1a5276 60%, #1a7a6e 100%);
+    color: white;
+    padding: 48px 40px 36px;
+    text-align: center;
+  }
+  .site-header .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 50px;
+    padding: 6px 20px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .site-header h1 {
+    font-family: 'Merriweather', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 12px;
+  }
+  .site-header p {
+    font-size: 1.05rem;
+    opacity: 0.85;
+  }
+
+  /* ── NAV TOC ── */
+  .toc {
+    background: var(--card);
+    border-bottom: 3px solid var(--primary);
+    padding: 28px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+  .toc-title {
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .toc-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .toc-links a {
+    display: inline-block;
+    padding: 7px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    background: var(--light-blue);
+    color: var(--primary);
+    transition: all 0.2s;
+    border: 1px solid transparent;
+  }
+  .toc-links a:hover {
+    background: var(--primary);
+    color: white;
+  }
+
+  /* ── LAYOUT ── */
+  .content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 48px 32px;
+  }
+
+  /* ── SECTION HEADERS ── */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 60px 0 28px;
+    padding-bottom: 14px;
+    border-bottom: 3px solid var(--primary);
+  }
+  .section-num {
+    background: var(--primary);
+    color: white;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+  .section-title h2 {
+    font-family: 'Merriweather', serif;
+    font-size: 1.8rem;
+    color: var(--primary);
+    font-weight: 700;
+  }
+  .section-title .subtitle {
+    font-size: 0.9rem;
+    color: var(--muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── SUB HEADERS ── */
+  h3 {
+    font-family: 'Merriweather', serif;
+    font-size: 1.35rem;
+    color: var(--primary);
+    margin: 36px 0 14px;
+    padding-left: 14px;
+    border-left: 4px solid var(--teal);
+  }
+  h4 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--text);
+    margin: 24px 0 10px;
+  }
+  p { margin: 12px 0; }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 28px;
+    margin: 20px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    border: 1px solid var(--border);
+  }
+
+  /* ── FORMULA BOX ── */
+  .formula {
+    background: var(--formula-bg);
+    border-left: 5px solid var(--formula-border);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+    margin: 18px 0;
+    font-size: 1.1rem;
+  }
+  .formula .label {
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--formula-border);
+    margin-bottom: 8px;
+  }
+  .formula code {
+    display: block;
+    font-family: 'Courier New', monospace;
+    font-size: 1.15rem;
+    color: #1a3a6c;
+    font-weight: bold;
+    line-height: 1.6;
+  }
+
+  /* ── EXAMPLE BOX ── */
+  .example {
+    background: var(--example-bg);
+    border: 1px solid var(--example-border);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin: 20px 0;
+  }
+  .example .ex-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .example .ex-icon {
+    background: var(--teal);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .example .ex-title {
+    font-weight: 800;
+    font-size: 1.05rem;
+    color: var(--teal);
+  }
+
+  /* ── WARNING / TIP ── */
+  .tip {
+    background: var(--warning-bg);
+    border-left: 5px solid var(--amber);
+    border-radius: 0 8px 8px 0;
+    padding: 18px 22px;
+    margin: 18px 0;
+  }
+  .tip .tip-label {
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--amber);
+    margin-bottom: 6px;
+  }
+  .key-point {
+    background: var(--light-red);
+    border-left: 5px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 18px 22px;
+    margin: 18px 0;
+  }
+  .key-point .kp-label {
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+
+  /* ── TABLES ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+    font-size: 0.97rem;
+    background: var(--card);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+  }
+  thead tr {
+    background: var(--primary);
+    color: white;
+  }
+  th {
+    padding: 13px 16px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) { background: #f9fbfc; }
+
+  /* ── COMPARISON GRID ── */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0;
+  }
+  .compare-item {
+    border-radius: 10px;
+    padding: 20px;
+  }
+  .compare-item.pros { background: var(--light-green); border: 1px solid #82c696; }
+  .compare-item.cons { background: var(--light-red); border: 1px solid #e8a89c; }
+  .compare-item h4 { font-size: 1rem; margin: 0 0 10px; }
+  .compare-item ul { padding-left: 18px; }
+  .compare-item li { margin: 6px 0; font-size: 0.95rem; }
+
+  /* ── TIMELINE / CASH FLOW TABLE ── */
+  .cf-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 0.95rem;
+  }
+  .cf-table th {
+    background: #34495e;
+    color: white;
+    padding: 10px 14px;
+    text-align: center;
+    font-weight: 700;
+  }
+  .cf-table td {
+    padding: 10px 14px;
+    border: 1px solid #d5d8dc;
+    text-align: right;
+  }
+  .cf-table td.desc { text-align: left; font-weight: 600; }
+  .cf-table tr.total { background: #eaf0fb; font-weight: 700; }
+  .cf-table tr.highlight { background: #d5f5e3; font-weight: 700; }
+  .cf-table tr.sub { color: var(--muted); font-style: italic; font-size: 0.9rem; }
+
+  /* ── SYLLABUS BADGE ── */
+  .syllabus-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--light-blue);
+    color: var(--primary);
+    border: 1px solid #aed6f1;
+    border-radius: 50px;
+    padding: 4px 14px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 6px 10px 0;
+  }
+
+  ul, ol { padding-left: 22px; }
+  li { margin: 6px 0; }
+
+  .highlight-box {
+    background: linear-gradient(135deg, #eaf2ff, #e8f8f5);
+    border: 1px solid #aed6f1;
+    border-radius: 12px;
+    padding: 24px;
+    margin: 20px 0;
+  }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border), transparent);
+    margin: 48px 0;
+  }
+
+  .footer {
+    background: var(--primary);
+    color: rgba(255,255,255,0.8);
+    text-align: center;
+    padding: 32px;
+    font-size: 0.9rem;
+    margin-top: 60px;
+  }
+
+  @media (max-width: 700px) {
+    .site-header h1 { font-size: 1.9rem; }
+    .compare-grid { grid-template-columns: 1fr; }
+    .toc { padding: 18px 20px; }
+    .content { padding: 32px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════ HEADER ══════════ -->
+<header class="site-header">
+  <div class="badge">📚 ACCA Financial Management (FM)</div>
+  <h1>Investment Appraisal</h1>
+  <p>Comprehensive Study Notes · Section D · September 2026 Exam Window · Syllabus & Study Guide 2026–2027</p>
+</header>
+
+<!-- ══════════ TABLE OF CONTENTS ══════════ -->
+<nav class="toc">
+  <div class="toc-title">Quick Navigation</div>
+  <div class="toc-links">
+    <a href="#s1">D1: Appraisal Techniques</a>
+    <a href="#payback">Payback Period</a>
+    <a href="#roce">ROCE / ARR</a>
+    <a href="#npv">NPV</a>
+    <a href="#irr">IRR</a>
+    <a href="#s2">D2: Inflation & Tax</a>
+    <a href="#s3">D3: Risk & Uncertainty</a>
+    <a href="#s4">D4: Special Decisions</a>
+  </div>
+</nav>
+
+<div class="content">
+
+<!-- ══════════ INTRO ══════════ -->
+<div class="card" style="background: linear-gradient(135deg,#eaf4fb,#e8f8f5); border: none;">
+  <h3 style="border-left-color: var(--primary); margin-top:0;">What is Investment Appraisal?</h3>
+  <p>Investment appraisal (also called <strong>capital budgeting</strong>) is the process of evaluating whether a long-term investment is worth making. Companies spend money today — on machinery, buildings, technology — expecting future cash inflows. The question is: <strong>will those future benefits justify the cost?</strong></p>
+  <p>As an FP&A professional at Dubai Health, you'll recognise this every time a department submits a business case for new medical equipment or an IT system — this is exactly what investment appraisal covers.</p>
+
+  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap:14px; margin-top:20px;">
+    <div style="background:white; border-radius:10px; padding:16px; text-align:center; border:1px solid var(--border);">
+      <div style="font-size:1.8rem;">📅</div>
+      <div style="font-weight:800; color:var(--primary); font-size:1rem;">Payback</div>
+      <div style="font-size:0.85rem; color:var(--muted);">Non-DCF method</div>
+    </div>
+    <div style="background:white; border-radius:10px; padding:16px; text-align:center; border:1px solid var(--border);">
+      <div style="font-size:1.8rem;">📊</div>
+      <div style="font-weight:800; color:var(--primary); font-size:1rem;">ROCE / ARR</div>
+      <div style="font-size:0.85rem; color:var(--muted);">Non-DCF method</div>
+    </div>
+    <div style="background:white; border-radius:10px; padding:16px; text-align:center; border:1px solid var(--border);">
+      <div style="font-size:1.8rem;">💰</div>
+      <div style="font-weight:800; color:var(--primary); font-size:1rem;">NPV</div>
+      <div style="font-size:0.85rem; color:var(--muted);">DCF — gold standard</div>
+    </div>
+    <div style="background:white; border-radius:10px; padding:16px; text-align:center; border:1px solid var(--border);">
+      <div style="font-size:1.8rem;">📈</div>
+      <div style="font-weight:800; color:var(--primary); font-size:1rem;">IRR</div>
+      <div style="font-size:0.85rem; color:var(--muted);">DCF method</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ SECTION D1 ══════════ -->
+<div id="s1" class="section-header">
+  <div class="section-num">D1</div>
+  <div class="section-title">
+    <div class="subtitle">Syllabus Section D · Topic 1</div>
+    <h2>Investment Appraisal Techniques</h2>
+  </div>
+</div>
+
+<div style="margin-bottom:16px;">
+  <span class="syllabus-tag">D1(a) Relevant cash flows</span>
+  <span class="syllabus-tag">D1(b) Payback</span>
+  <span class="syllabus-tag">D1(c) Discounted payback</span>
+  <span class="syllabus-tag">D1(d) ROCE/ARR</span>
+  <span class="syllabus-tag">D1(e) NPV</span>
+  <span class="syllabus-tag">D1(f) IRR</span>
+  <span class="syllabus-tag">D1(g) DCF vs non-DCF</span>
+  <span class="syllabus-tag">D1(h) NPV vs IRR</span>
+</div>
+
+<!-- ── RELEVANT CASH FLOWS ── -->
+<h3>Identifying Relevant Cash Flows</h3>
+
+<p>Before calculating any appraisal figure, you must identify which cash flows to include. ACCA is very specific: only <strong>relevant (incremental) cash flows</strong> should be included.</p>
+
+<div class="card">
+  <h4>✅ INCLUDE — Relevant Cash Flows</h4>
+  <ul>
+    <li><strong>Incremental revenue</strong> — extra sales generated by the project</li>
+    <li><strong>Incremental costs</strong> — extra costs caused by the project</li>
+    <li><strong>Initial capital expenditure</strong> (Time 0)</li>
+    <li><strong>Scrap / residual value</strong> at end of project life</li>
+    <li><strong>Working capital</strong> — cash tied up in inventory/receivables (recovered at end)</li>
+    <li><strong>Opportunity costs</strong> — value of the next best alternative given up</li>
+    <li><strong>Tax effects</strong> (covered in D2)</li>
+  </ul>
+</div>
+
+<div class="card" style="background:#fdedec; border-color:#e8a89c;">
+  <h4>❌ EXCLUDE — Irrelevant Cash Flows</h4>
+  <ul>
+    <li><strong>Sunk costs</strong> — already spent, cannot be recovered (e.g., market research already paid for)</li>
+    <li><strong>Non-cash items</strong> — depreciation is NOT a cash flow; do not include it</li>
+    <li><strong>Absorbed overheads</strong> — only incremental (extra) overheads are relevant</li>
+    <li><strong>Finance costs</strong> — interest is reflected in the discount rate, not as a cash flow</li>
+  </ul>
+</div>
+
+<div class="example">
+  <div class="ex-header">
+    <span class="ex-icon">Example</span>
+    <span class="ex-title">Dubai Health — New MRI Machine</span>
+  </div>
+  <p>Dubai Health is evaluating a new MRI scanner. Six months ago, they paid AED 50,000 for a feasibility study. The machine costs AED 2,000,000 today. Revenues of AED 600,000 p.a. are expected. Existing maintenance costs of AED 40,000 p.a. will rise to AED 90,000 p.a. if the machine is bought.</p>
+  <table class="cf-table">
+    <thead><tr><th>Item</th><th>Amount (AED)</th><th>Include?</th><th>Reason</th></tr></thead>
+    <tbody>
+      <tr><td class="desc">Feasibility study cost</td><td>50,000</td><td>❌ Exclude</td><td>Sunk cost — already paid</td></tr>
+      <tr><td class="desc">Machine cost (T0)</td><td>2,000,000</td><td>✅ Include</td><td>Capital outflow</td></tr>
+      <tr><td class="desc">Incremental revenue</td><td>600,000 p.a.</td><td>✅ Include</td><td>New cash inflow</td></tr>
+      <tr><td class="desc">Incremental maintenance</td><td>50,000 p.a.</td><td>✅ Include</td><td>Extra cost (90,000 – 40,000)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── PAYBACK ── -->
+<div id="payback"></div>
+<h3>Payback Period</h3>
+
+<p>The payback period measures <strong>how long it takes to recover the initial investment</strong> from project cash flows. Simple, intuitive, and widely used — but has significant limitations.</p>
+
+<div class="formula">
+  <div class="label">Formula</div>
+  <code>Payback = Year before full recovery + (Remaining balance ÷ Cash flow in recovery year)</code>
+</div>
+
+<div class="example">
+  <div class="ex-header">
+    <span class="ex-icon">Example</span>
+    <span class="ex-title">Project Alpha — Payback Calculation</span>
+  </div>
+  <p>Initial investment: <strong>AED 500,000</strong>. Cash flows as follows:</p>
+  <table class="cf-table">
+    <thead><tr><th>Year</th><th>Cash Flow (AED)</th><th>Cumulative (AED)</th></tr></thead>
+    <tbody>
+      <tr><td class="desc">0</td><td>(500,000)</td><td>(500,000)</td></tr>
+      <tr><td class="desc">1</td><td>150,000</td><td>(350,000)</td></tr>
+      <tr><td class="desc">2</td><td>180,000</td><td>(170,000)</td></tr>
+      <tr class="highlight"><td class="desc">3</td><td>200,000</td><td>30,000 ✅</td></tr>
+      <tr><td class="desc">4</td><td>160,000</td><td>190,000</td></tr>
+    </tbody>
+  </table>
+  <p><strong>Payback = 2 years + (170,000 ÷ 200,000) = 2.85 years ≈ 2 years 10 months</strong></p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-item pros">
+    <h4>✅ Advantages of Payback</h4>
+    <ul>
+      <li>Simple and easy to understand</li>
+      <li>Useful measure of liquidity risk</li>
+      <li>Favours early cash flows — less exposure to uncertainty</li>
+      <li>Useful for businesses with cash flow constraints</li>
+      <li>Quick initial screening tool</li>
+    </ul>
+  </div>
+  <div class="compare-item cons">
+    <h4>❌ Disadvantages of Payback</h4>
+    <ul>
+      <li>Ignores cash flows after payback period</li>
+      <li>Ignores time value of money (TVM)</li>
+      <li>Does not measure profitability</li>
+      <li>No objective criteria — what is "acceptable"?</li>
+      <li>Does not maximise shareholder wealth</li>
+    </ul>
+  </div>
+</div>
+
+<h3>Discounted Payback Period</h3>
+<p>An improvement on payback: discount cash flows first, then calculate when discounted cumulative cash flows turn positive. This addresses the <strong>time value of money</strong> criticism but still ignores cash flows after the payback point.</p>
+
+<div class="example">
+  <div class="ex-header">
+    <span class="ex-icon">Example</span>
+    <span class="ex-title">Discounted Payback — 10% discount rate</span>
+  </div>
+  <table class="cf-table">
+    <thead><tr><th>Year</th><th>Cash Flow</th><th>DF @ 10%</th><th>PV</th><th>Cum. PV</th></tr></thead>
+    <tbody>
+      <tr><td class="desc">0</td><td>(500,000)</td><td>1.000</td><td>(500,000)</td><td>(500,000)</td></tr>
+      <tr><td class="desc">1</td><td>150,000</td><td>0.909</td><td>136,350</td><td>(363,650)</td></tr>
+      <tr><td class="desc">2</td><td>180,000</td><td>0.826</td><td>148,680</td><td>(214,970)</td></tr>
+      <tr><td class="desc">3</td><td>200,000</td><td>0.751</td><td>150,200</td><td>(64,770)</td></tr>
+      <tr class="highlight"><td class="desc">4</td><td>160,000</td><td>0.683</td><td>109,280</td><td>44,510 ✅</td></tr>
+    </tbody>
+  </table>
+  <p><strong>Discounted Payback = 3 years + (64,770 ÷ 109,280) = 3.59 years</strong> — longer than simple payback (2.85 years) as expected, since discounted cash flows are smaller.</p>
+</div>
+
+<!-- ── ROCE ── -->
+<div id="roce"></div>
+<h3>Return on Capital Employed (ROCE) / Accounting Rate of Return (ARR)</h3>
+
+<p>ROCE uses <strong>accounting profit</strong> (not cash flows) and compares it to the capital invested. Also called ARR.</p>
+
+<div class="formula">
+  <div class="label">Formula — Two Versions (both valid in exam)</div>
+  <code>ROCE = (Average annual accounting profit / Initial investment) × 100%</code>
+  <code>— OR —</code>
+  <code>ROCE = (Average annual accounting profit / Average investment) × 100%</code>
+  <code>Average Investment = (Initial investment + Scrap value) ÷ 2</code>
+  <code>Accounting Profit = Cash flow – Depreciation</code>
+  <code>Annual Depreciation = (Initial cost – Scrap value) ÷ Project life</code>
+</div>
+
+<div class="tip">
+  <div class="tip-label">⚠️ Exam Tip</div>
+  Always state which ROCE formula you are using in your exam answer. Both are acceptable but must be used consistently. The examiner will not penalise you for using either version.
+</div>
+
+<div class="example">
+  <div class="ex-header">
+    <span class="ex-icon">Example</span>
+    <span class="ex-title">ROCE Calculation</span>
+  </div>
+  <p>Machine cost: AED 400,000. Scrap value: AED 40,000. Life: 5 years. Annual cash inflows: AED 120,000.</p>
+  <ul>
+    <li>Annual depreciation = (400,000 – 40,000) ÷ 5 = <strong>AED 72,000</strong></li>
+    <li>Annual accounting profit = 120,000 – 72,000 = <strong>AED 48,000</strong></li>
+    <li>ROCE (on initial) = 48,000 ÷ 400,000 = <strong>12%</strong></li>
+    <li>Average investment = (400,000 + 40,000) ÷ 2 = 220,000</li>
+    <li>ROCE (on average) = 48,000 ÷ 220,000 = <strong>21.8%</strong></li>
+  </ul>
+  <p>If the company's target ROCE is 15%, the project would be <strong>rejected</strong> on initial investment basis but <strong>accepted</strong> on average investment basis — highlighting the importance of consistency.</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-item pros">
+    <h4>✅ Advantages of ROCE</h4>
+    <ul>
+      <li>Easy to understand and calculate</li>
+      <li>Uses accounting figures familiar to managers</li>
+      <li>Can be compared to a target/hurdle rate</li>
+      <li>Considers the whole project life (unlike payback)</li>
+    </ul>
+  </div>
+  <div class="compare-item cons">
+    <h4>❌ Disadvantages of ROCE</h4>
+    <ul>
+      <li>Uses profit not cash flows</li>
+      <li>Ignores time value of money</li>
+      <li>Affected by choice of depreciation method</li>
+      <li>No agreed definition — initial or average investment?</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ── NPV ── -->
+<div id="npv"></div>
+<div class="divider"></div>
+
+<div class="section-header" style="margin-top:20px;">
+  <div class="section-num" style="background: var(--teal);">★</div>
+  <div class="section-title">
+    <div class="subtitle">The most important method in FM</div>
+    <h2 style="color:var(--teal);">Net Present Value (NPV)</h2>
+  </div>
+</div>
+
+<div class="highlight-box">
+  <p><strong>NPV is the gold standard investment appraisal method.</strong> It directly measures the increase (or decrease) in shareholder wealth from undertaking a project. A positive NPV means the project creates value; a negative NPV destroys value.</p>
+</div>
+
+<h3>The Time Value of Money</h3>
+<p>AED 1,000 today is worth <em>more</em> than AED 1,000 in three years. Why?</p>
+<ul>
+  <li><strong>Inflation</strong> — money loses purchasing power over time</li>
+  <li><strong>Risk</strong> — future cash flows are uncertain</li>
+  <li><strong>Opportunity cost</strong> — money invested today could earn a return</li>
+</ul>
+
+<div class="formula">
+  <div class="label">Discount Factor Formula</div>
+  <code>Discount Factor (DF) = 1 ÷ (1 + r)ⁿ</code>
+  <code>Present Value (PV) = Future Cash Flow × Discount Factor</code>
+  <code>NPV = Sum of all PVs (including initial investment at T0)</code>
+</div>
+
+<div class="tip">
+  <div class="tip-label">💡 Using the ACCA Tables</div>
+  In the exam, you are given discount factor tables. For example, at 10% for year 3, the discount factor is 0.751. Simply multiply the cash flow by this factor.
+</div>
+
+<h3>Annuity and Perpetuity</h3>
+<p>When cash flows are equal each year, use the <strong>Annuity Factor (AF)</strong> — also called the Present Value of an Annuity or Cumulative Discount Factor.</p>
+
+<div class="formula">
+  <div class="label">Annuity Formula (for equal annual cash flows)</div>
+  <code>AF = [1 – (1+r)⁻ⁿ] ÷ r</code>
+  <code>PV of Annuity = Annual Cash Flow × AF</code>
+  <br>
+  <div class="label" style="margin-top:12px;">Perpetuity (cash flow continues forever)</div>
+  <code>PV of Perpetuity = Annual Cash Flow ÷ r</code>
+</div>
+
+<div class="example">
+  <div class="ex-header">
+    <span class="ex-icon">Example</span>
+    <span class="ex-title">Full NPV Calculation — Project Beta</span>
+  </div>
+  <p>Dubai Health considers expanding radiology services. Details:</p>
+  <ul>
+    <li>Initial investment: <strong>AED 800,000</strong> at T0</li>
+    <li>Working capital: <strong>AED 50,000</strong> required at T0, recovered at T4</li>
+    <li>Annual incremental revenue: <strong>AED 350,000</strong> (Years 1–4)</li>
+    <li>Annual incremental costs: <strong>AED 120,000</strong> (Years 1–4)</li>
+    <li>Scrap value at Year 4: <strong>AED 80,000</strong></li>
+    <li>Cost of capital: <strong>10%</strong></li>
+  </ul>
+  <table class="cf-table">
+    <thead>
+      <tr><th>Year</th><th>Item</th><th>Cash Flow (AED)</th><th>DF @ 10%</th><th>PV (AED)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="desc">0</td><td class="desc">Capital investment</td><td>(800,000)</td><td>1.000</td><td>(800,000)</td></tr>
+      <tr><td class="desc">0</td><td class="desc">Working capital</td><td>(50,000)</td><td>1.000</td><td>(50,000)</td></tr>
+      <tr class="sub"><td class="desc">1–4</td><td class="desc">Net operating CF (350k–120k)</td><td>230,000 p.a.</td><td>3.170*</td><td>729,100</td></tr>
+      <tr><td class="desc">4</td><td class="desc">Scrap value</td><td>80,000</td><td>0.683</td><td>54,640</td></tr>
+      <tr><td class="desc">4</td><td class="desc">Working capital recovery</td><td>50,000</td><td>0.683</td><td>34,150</td></tr>
+      <tr class="total"><td colspan="4">NPV</td><td>= (32,110)</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:0.85rem; color:var(--muted);">* Annuity factor for 4 years at 10% = 3.170 (from ACCA tables)</p>
+  <div class="key-point">
+    <div class="kp-label">Decision</div>
+    NPV = <strong>AED (32,110) — NEGATIVE → REJECT</strong>. The project destroys shareholder wealth at a 10% cost of capital.
+  </div>
+</div>
+
+<h3>NPV — Decision Rule</h3>
+<div class="card" style="background:var(--light-green); border: 1px solid #82c696;">
+  <ul style="font-size:1.05rem;">
+    <li>✅ <strong>NPV &gt; 0</strong>: Accept — project adds value to the business</li>
+    <li>❌ <strong>NPV &lt; 0</strong>: Reject — project destroys value</li>
+    <li>➡️ <strong>NPV = 0</strong>: Marginal — project earns exactly the required return</li>
+    <li>🔀 <strong>Mutually exclusive projects</strong>: Choose the one with the <strong>highest positive NPV</strong></li>
+  </ul>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-item pros">
+    <h4>✅ Advantages of NPV</h4>
+    <ul>
+      <li>Considers TVM</li>
+      <li>Uses cash flows, not accounting profit</li>
+      <li>Directly measures shareholder wealth added</li>
+      <li>Considers all cash flows over project life</li>
+      <li>Theoretically superior method</li>
+      <li>Can handle non-conventional cash flows</li>
+    </ul>
+  </div>
+  <div class="compare-item cons">
+    <h4>❌ Disadvantages of NPV</h4>
+    <ul>
+      <li>Harder to understand than payback/ROCE</li>
+      <li>Result is an absolute figure — hard to compare projects of different sizes</li>
+      <li>Relies on an accurate discount rate</li>
+      <li>Assumes cash flows are reinvested at cost of capital</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ── IRR ── -->
+<div id="irr"></div>
+<h3>Internal Rate of Return (IRR)</h3>
+
+<p>The IRR is the <strong>discount rate at which NPV = 0</strong>. It represents the return earned by the project. The decision rule: accept if IRR exceeds the cost of capital (hurdle rate).</p>
+
+<div class="formula">
+  <div class="label">IRR Formula (Linear Interpolation)</div>
+  <code>IRR = L + [ NPV_L ÷ (NPV_L – NPV_H) ] × (H – L)</code>
+  <code>Where: L = lower discount rate, H = higher discount rate</code>
+  <code>NPV_L = NPV at lower rate (positive), NPV_H = NPV at higher rate (negative)</code>
+</div>
+
+<div class="tip">
+  <div class="tip-label">📝 Exam Technique</div>
+  To calculate IRR: (1) Calculate NPV at one rate (should be positive — try the cost of capital). (2) Calculate NPV at a higher rate (should be negative). (3) Apply the interpolation formula. Choose two rates that give one positive and one negative NPV.
+</div>
+
+<div class="example">
+  <div class="ex-header">
+    <span class="ex-icon">Example</span>
+    <span class="ex-title">IRR Calculation — Project Gamma</span>
+  </div>
+  <p>Initial investment AED 100,000. Annual cash flows AED 30,000 for 5 years. Cost of capital: 12%.</p>
+  <p><strong>Step 1:</strong> NPV at 12%: PV = 30,000 × 3.605 (AF 5yr @12%) = 108,150; NPV = 108,150 – 100,000 = <strong>+AED 8,150</strong></p>
+  <p><strong>Step 2:</strong> Try 18%: PV = 30,000 × 3.127 = 93,810; NPV = 93,810 – 100,000 = <strong>–AED 6,190</strong></p>
+  <p><strong>Step 3:</strong> IRR = 12 + [8,150 ÷ (8,150 + 6,190)] × (18 – 12)</p>
+  <p>= 12 + [8,150 ÷ 14,340] × 6 = 12 + 0.568 × 6 = <strong>12 + 3.41 = 15.41%</strong></p>
+  <div class="key-point">
+    <div class="kp-label">Decision</div>
+    IRR 15.41% &gt; Cost of capital 12% → <strong>ACCEPT</strong> the project.
+  </div>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-item pros">
+    <h4>✅ Advantages of IRR</h4>
+    <ul>
+      <li>Considers TVM</li>
+      <li>Easy to understand as a percentage return</li>
+      <li>Can be compared directly to cost of capital</li>
+      <li>No need to know cost of capital to calculate</li>
+    </ul>
+  </div>
+  <div class="compare-item cons">
+    <h4>❌ Disadvantages of IRR</h4>
+    <ul>
+      <li>Can give multiple IRRs with non-conventional cash flows</li>
+      <li>Assumes reinvestment at IRR (often unrealistic)</li>
+      <li>Can give wrong ranking for mutually exclusive projects</li>
+      <li>Ignores scale of investment</li>
+    </ul>
+  </div>
+</div>
+
+<h3>NPV vs IRR — Key Comparison (D1h)</h3>
+
+<div class="key-point">
+  <div class="kp-label">🏆 ACCA's View — NPV is Superior</div>
+  <p>When NPV and IRR give conflicting rankings for mutually exclusive projects, <strong>always follow the NPV decision</strong>. NPV directly measures value added; IRR can mislead when project sizes differ.</p>
+</div>
+
+<table>
+  <thead><tr><th>Criteria</th><th>NPV</th><th>IRR</th></tr></thead>
+  <tbody>
+    <tr><td>Time value of money</td><td>✅ Yes</td><td>✅ Yes</td></tr>
+    <tr><td>Absolute wealth measure</td><td>✅ Yes (AED value)</td><td>❌ No (percentage only)</td></tr>
+    <tr><td>Multiple solutions possible</td><td>❌ No</td><td>✅ Yes (non-conventional CF)</td></tr>
+    <tr><td>Reinvestment assumption</td><td>Cost of capital (realistic)</td><td>IRR itself (often unrealistic)</td></tr>
+    <tr><td>Best for mutually exclusive</td><td>✅ Always</td><td>❌ Can conflict with NPV</td></tr>
+    <tr><td>Ease of understanding</td><td>Moderate</td><td>Easy (% return)</td></tr>
+  </tbody>
+</table>
+
+<h3>DCF vs Non-DCF — Superiority of DCF (D1g)</h3>
+<div class="card">
+  <p>The ACCA syllabus asks you to <strong>discuss why DCF methods (NPV and IRR) are superior</strong> to non-DCF methods (Payback and ROCE):</p>
+  <ul>
+    <li>DCF methods account for the <strong>time value of money</strong> — money today is worth more than money tomorrow</li>
+    <li>DCF methods use <strong>cash flows</strong> not accounting profits — cash is objective; profit is affected by accounting policies</li>
+    <li>DCF considers <strong>all cash flows</strong> over the entire project life — payback ignores flows after recovery</li>
+    <li>NPV directly measures <strong>shareholder wealth maximisation</strong> — the primary financial objective</li>
+  </ul>
+</div>
+
+<!-- ══════════ SECTION D2 ══════════ -->
+<div id="s2" class="section-header">
+  <div class="section-num">D2</div>
+  <div class="section-title">
+    <div class="subtitle">Syllabus Section D · Topic 2</div>
+    <h2>Allowing for Inflation and Taxation in DCF</h2>
+  </div>
+</div>
+
+<div style="margin-bottom:16px;">
+  <span class="syllabus-tag">D2(a) Real vs Nominal approach</span>
+  <span class="syllabus-tag">D2(b) Taxation effects</span>
+  <span class="syllabus-tag">D2(c) After-tax discount rates</span>
+</div>
+
+<h3>Inflation — Two Approaches (D2a)</h3>
+
+<p>Inflation affects investment appraisal in two ways: it affects the cash flows themselves, and it affects the discount rate. ACCA requires you to know <strong>both approaches</strong> and when to use each.</p>
+
+<div class="formula">
+  <div class="label">Fisher Equation (linking real and nominal rates)</div>
+  <code>(1 + nominal rate) = (1 + real rate) × (1 + inflation rate)</code>
+  <code>∴ Real rate = [(1 + nominal) ÷ (1 + inflation)] – 1</code>
+</div>
+
+<table>
+  <thead>
+    <tr><th>Approach</th><th>Cash Flows</th><th>Discount Rate</th><th>When to Use</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Nominal (Money Terms)</strong></td>
+      <td>Inflate to include inflation — "actual money received/paid"</td>
+      <td>Nominal/money rate</td>
+      <td>When different items inflate at different rates; with taxation (preferred in exam)</td>
+    </tr>
+    <tr>
+      <td><strong>Real Terms</strong></td>
+      <td>Keep at today's prices — exclude inflation</td>
+      <td>Real rate</td>
+      <td>Only when ALL items inflate at the same (general) rate</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="tip">
+  <div class="tip-label">⚠️ Critical Exam Point</div>
+  <strong>Both approaches give the same NPV</strong> — they are equivalent. However, when cash flows inflate at different rates (e.g., revenues at 4%, costs at 2%), you MUST use the nominal approach. When taxation is involved, always use the nominal approach.
+</div>
+
+<div class="example">
+  <div class="ex-header">
+    <span class="ex-icon">Example</span>
+    <span class="ex-title">Inflation — Nominal vs Real</span>
+  </div>
+  <p>Project: Cash flow of AED 100,000 at today's prices, receivable in Year 1. General inflation: 5%. Real rate: 8%.</p>
+
+  <p><strong>Nominal Approach:</strong></p>
+  <ul>
+    <li>Nominal cash flow Year 1 = 100,000 × 1.05 = <strong>AED 105,000</strong></li>
+    <li>Nominal discount rate = (1.08 × 1.05) – 1 = 13.4%</li>
+    <li>DF Year 1 = 1 ÷ 1.134 = 0.882</li>
+    <li>PV = 105,000 × 0.882 = <strong>AED 92,610</strong></li>
+  </ul>
+
+  <p><strong>Real Approach:</strong></p>
+  <ul>
+    <li>Cash flow stays at AED 100,000 (today's prices)</li>
+    <li>Real discount rate = 8%</li>
+    <li>DF Year 1 @ 8% = 0.926</li>
+    <li>PV = 100,000 × 0.926 = <strong>AED 92,600</strong></li>
+  </ul>
+  <p style="color:var(--teal); font-weight:700;">Same answer (small rounding difference) — both approaches are valid ✅</p>
+</div>
+
+<!-- ── TAXATION ── -->
+<h3>Taxation in Investment Appraisal (D2b)</h3>
+
+<p>Tax is a cash flow! In ACCA FM, you deal with two types of tax cash flows:</p>
+
+<div class="card">
+  <h4>1. Tax on Trading Cash Flows (Operating Cash Flows)</h4>
+  <ul>
+    <li>Tax is calculated on taxable profits (revenue – allowable costs)</li>
+    <li>Tax is typically paid <strong>one year in arrears</strong> (e.g., Year 1 profits taxed in Year 2)</li>
+    <li>Tax payments are <strong>cash outflows</strong></li>
+    <li>Tax rate × taxable operating cash flow = tax payable</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h4>2. Tax-Allowable Depreciation (TADs) / Capital Allowances</h4>
+  <p>The government allows companies to deduct a portion of capital expenditure against taxable profits each year. This generates a <strong>tax saving (cash inflow benefit)</strong>.</p>
+
+  <div class="formula">
+    <div class="label">Writing Down Allowance (WDA) — Reducing Balance Method</div>
+    <code>Year 1: WDA = Cost × Tax depreciation rate (e.g., 25%)</code>
+    <code>Year 2: WDA = (Cost – Year 1 WDA) × rate</code>
+    <code>Tax saving = WDA × tax rate</code>
+    <code>Tax saving is received ONE year after the WDA period (one year in arrears)</code>
+  </div>
+
+  <div class="formula">
+    <div class="label">Balancing Allowance / Charge (on disposal)</div>
+    <code>When asset is sold: Compare Tax Written Down Value (TWDV) to sale proceeds</code>
+    <code>If TWDV > proceeds: Balancing Allowance (gives extra tax saving)</code>
+    <code>If proceeds > TWDV: Balancing Charge (creates extra tax payment)</code>
+  </div>
+</div>
+
+<div class="example">
+  <div class="ex-header">
+    <span class="ex-icon">Example</span>
+    <span class="ex-title">Tax and Capital Allowances — Full Worked Example</span>
+  </div>
+  <p>Machine cost: AED 200,000 at T0. Life: 4 years. Scrap value: AED 20,000. WDA: 25% reducing balance. Tax rate: 25%. Tax paid one year in arrears. Annual taxable operating cash flows: AED 80,000.</p>
+
+  <h4>Step 1: Capital Allowances (WDA) Schedule</h4>
+  <table class="cf-table">
+    <thead><tr><th>Year</th><th>TWDV b/f</th><th>WDA @25%</th><th>TWDV c/f</th><th>Tax Saving (×25%)</th><th>Timing</th></tr></thead>
+    <tbody>
+      <tr><td class="desc">1</td><td>200,000</td><td>50,000</td><td>150,000</td><td>12,500</td><td>Year 2</td></tr>
+      <tr><td class="desc">2</td><td>150,000</td><td>37,500</td><td>112,500</td><td>9,375</td><td>Year 3</td></tr>
+      <tr><td class="desc">3</td><td>112,500</td><td>28,125</td><td>84,375</td><td>7,031</td><td>Year 4</td></tr>
+      <tr class="highlight"><td class="desc">4</td><td>84,375</td><td colspan="2">Balancing: TWDV 84,375 – Scrap 20,000 = <strong>64,375 allowance</strong></td><td>16,094</td><td>Year 5</td></tr>
+    </tbody>
+  </table>
+
+  <h4>Step 2: Tax on Operating Cash Flows</h4>
+  <p>Annual tax = AED 80,000 × 25% = <strong>AED 20,000</strong>, paid one year in arrears (Years 2–5)</p>
+
+  <h4>Step 3: NPV Calculation @ 10% cost of capital</h4>
+  <table class="cf-table">
+    <thead><tr><th>Year</th><th>Capital (AED)</th><th>Operating CF</th><th>Tax on Op. CF</th><th>Tax Saving WDA</th><th>Scrap</th><th>Total CF</th><th>DF@10%</th><th>PV</th></tr></thead>
+    <tbody>
+      <tr><td>0</td><td>(200,000)</td><td>–</td><td>–</td><td>–</td><td>–</td><td>(200,000)</td><td>1.000</td><td>(200,000)</td></tr>
+      <tr><td>1</td><td>–</td><td>80,000</td><td>–</td><td>–</td><td>–</td><td>80,000</td><td>0.909</td><td>72,720</td></tr>
+      <tr><td>2</td><td>–</td><td>80,000</td><td>(20,000)</td><td>12,500</td><td>–</td><td>72,500</td><td>0.826</td><td>59,885</td></tr>
+      <tr><td>3</td><td>–</td><td>80,000</td><td>(20,000)</td><td>9,375</td><td>–</td><td>69,375</td><td>0.751</td><td>52,100</td></tr>
+      <tr><td>4</td><td>–</td><td>80,000</td><td>(20,000)</td><td>7,031</td><td>20,000</td><td>87,031</td><td>0.683</td><td>59,442</td></tr>
+      <tr><td>5</td><td>–</td><td>–</td><td>(20,000)</td><td>16,094</td><td>–</td><td>(3,906)</td><td>0.621</td><td>(2,426)</td></tr>
+      <tr class="total"><td colspan="8"><strong>NPV</strong></td><td><strong>41,721</strong></td></tr>
+    </tbody>
+  </table>
+  <div class="key-point" style="margin-top:14px;">
+    <div class="kp-label">Decision</div>
+    NPV = <strong>+AED 41,721 → ACCEPT</strong> ✅
+  </div>
+</div>
+
+<h3>After-Tax Discount Rate (D2c)</h3>
+<p>The cost of capital used in after-tax DCF analysis should itself be an <strong>after-tax rate</strong>. For debt, the after-tax cost = pre-tax cost × (1 – tax rate), because interest is tax-deductible.</p>
+
+<div class="formula">
+  <div class="label">After-Tax Cost of Debt</div>
+  <code>Kd(after-tax) = Kd(pre-tax) × (1 – t)</code>
+  <code>Example: 8% pre-tax, 25% tax rate → Kd(after-tax) = 8% × (1–0.25) = 6%</code>
+</div>
+
+<!-- ══════════ SECTION D3 ══════════ -->
+<div id="s3" class="section-header">
+  <div class="section-num">D3</div>
+  <div class="section-title">
+    <div class="subtitle">Syllabus Section D · Topic 3</div>
+    <h2>Adjusting for Risk and Uncertainty</h2>
+  </div>
+</div>
+
+<div style="margin-bottom:16px;">
+  <span class="syllabus-tag">D3(a) Risk vs Uncertainty</span>
+  <span class="syllabus-tag">D3(b) Sensitivity Analysis</span>
+  <span class="syllabus-tag">D3(c) Probability Analysis</span>
+  <span class="syllabus-tag">D3(d) Simulation, Adjusted Payback, Risk-adj. Rates</span>
+</div>
+
+<h3>Risk vs Uncertainty (D3a)</h3>
+
+<table>
+  <thead><tr><th>Concept</th><th>Definition</th><th>How Measured</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>Risk</strong></td>
+      <td>Variability where <strong>probabilities can be assigned</strong> to possible outcomes</td>
+      <td>Expected Value, Standard Deviation, Probability tables</td>
+    </tr>
+    <tr>
+      <td><strong>Uncertainty</strong></td>
+      <td>Variability where probabilities <strong>cannot be assigned</strong> — the future is truly unknown</td>
+      <td>Sensitivity Analysis, Simulation, Scenario Analysis</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="tip">
+  <div class="tip-label">💡 Remember</div>
+  Uncertainty increases with project life — the further into the future, the less certain outcomes become.
+</div>
+
+<h3>Sensitivity Analysis (D3b)</h3>
+
+<p>Sensitivity analysis asks: <strong>"By how much can a variable change before the project becomes unacceptable (NPV = 0)?"</strong> It identifies which variables the NPV is most sensitive to.</p>
+
+<div class="formula">
+  <div class="label">Sensitivity Formula</div>
+  <code>Sensitivity = NPV ÷ PV of the variable being tested × 100%</code>
+  <code>The lower the %, the MORE sensitive (more critical) the variable is</code>
+</div>
+
+<div class="example">
+  <div class="ex-header">
+    <span class="ex-icon">Example</span>
+    <span class="ex-title">Sensitivity Analysis — Revenue</span>
+  </div>
+  <p>A project has NPV = +AED 25,000. PV of revenues = AED 500,000.</p>
+  <p>Sensitivity of revenues = 25,000 ÷ 500,000 × 100% = <strong>5%</strong></p>
+  <p>This means revenue can fall by only <strong>5%</strong> before NPV becomes zero. This variable is highly sensitive.</p>
+
+  <p>If PV of costs = AED 300,000:</p>
+  <p>Sensitivity of costs = 25,000 ÷ 300,000 × 100% = <strong>8.3%</strong></p>
+  <p>Costs are less sensitive than revenue — revenue is the more <strong>critical variable</strong>.</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-item pros">
+    <h4>✅ Advantages</h4>
+    <ul>
+      <li>Simple to calculate and understand</li>
+      <li>Identifies critical variables</li>
+      <li>Focuses management attention</li>
+      <li>No probability estimates needed</li>
+    </ul>
+  </div>
+  <div class="compare-item cons">
+    <h4>❌ Disadvantages</h4>
+    <ul>
+      <li>Only changes one variable at a time — unrealistic</li>
+      <li>No probabilities — doesn't say how likely the change is</li>
+      <li>Does not give a clear accept/reject signal</li>
+      <li>Still subjective in interpretation</li>
+    </ul>
+  </div>
+</div>
+
+<h3>Probability Analysis / Expected Values (D3c)</h3>
+
+<p>When probabilities can be assigned, we calculate the <strong>Expected Net Present Value (ENPV)</strong>.</p>
+
+<div class="formula">
+  <div class="label">Expected Value Formula</div>
+  <code>Expected Value (EV) = Σ (Probability × Outcome)</code>
+  <code>ENPV = Σ (Probability × NPV of each scenario)</code>
+</div>
+
+<div class="example">
+  <div class="ex-header">
+    <span class="ex-icon">Example</span>
+    <span class="ex-title">ENPV with Three Scenarios</span>
+  </div>
+  <table class="cf-table">
+    <thead><tr><th>Scenario</th><th>Probability</th><th>NPV (AED)</th><th>EV (AED)</th></tr></thead>
+    <tbody>
+      <tr><td class="desc">Optimistic</td><td>0.25</td><td>200,000</td><td>50,000</td></tr>
+      <tr><td class="desc">Most likely</td><td>0.50</td><td>80,000</td><td>40,000</td></tr>
+      <tr><td class="desc">Pessimistic</td><td>0.25</td><td>(60,000)</td><td>(15,000)</td></tr>
+      <tr class="total"><td colspan="3">ENPV</td><td>75,000</td></tr>
+    </tbody>
+  </table>
+  <p>ENPV = +AED 75,000 → Accept (positive expected NPV).</p>
+  <div class="tip" style="margin-top:12px;">
+    <div class="tip-label">⚠️ Limitation of EV</div>
+    EV is a long-run average — if this is a one-off project, the outcome is either the optimistic, most likely, or pessimistic result, not the average. A risk-averse manager might focus on the worst case.
+  </div>
+</div>
+
+<h3>Other Risk Techniques (D3d)</h3>
+
+<div class="card">
+  <h4>Simulation (e.g., Monte Carlo)</h4>
+  <p>A computer model assigns probability distributions to key variables and generates thousands of random scenarios. Produces a <strong>distribution of possible NPVs</strong>.</p>
+  <ul>
+    <li>✅ More realistic — many variables can change simultaneously</li>
+    <li>❌ Expensive and complex; probabilities for distributions may be subjective</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h4>Adjusted Payback</h4>
+  <p>Applying a <strong>shorter payback period</strong> requirement for riskier projects to compensate for uncertainty. Simple but crude — ignores cash flows after the reduced payback period.</p>
+</div>
+
+<div class="card">
+  <h4>Risk-Adjusted Discount Rates (RADR)</h4>
+  <p>Apply a <strong>higher discount rate</strong> to higher-risk projects (e.g., cost of capital 10%, but use 15% for a high-risk project). This reduces the NPV of future cash flows more aggressively.</p>
+  <ul>
+    <li>✅ Easy to apply; adjusts for both time value and risk</li>
+    <li>❌ Difficult to determine the appropriate risk premium objectively; applies increasing penalty to later cash flows even if risk is constant</li>
+  </ul>
+</div>
+
+<!-- ══════════ SECTION D4 ══════════ -->
+<div id="s4" class="section-header">
+  <div class="section-num">D4</div>
+  <div class="section-title">
+    <div class="subtitle">Syllabus Section D · Topic 4</div>
+    <h2>Specific Investment Decisions</h2>
+  </div>
+</div>
+
+<div style="margin-bottom:16px;">
+  <span class="syllabus-tag">D4(a) Lease vs Buy</span>
+  <span class="syllabus-tag">D4(b) Asset Replacement</span>
+  <span class="syllabus-tag">D4(c) Capital Rationing</span>
+</div>
+
+<!-- ── LEASE VS BUY ── -->
+<h3>Lease or Buy Decision (D4a)</h3>
+
+<p>Should a company <strong>lease</strong> an asset or <strong>borrow and buy</strong> it? This is a financing decision that evaluates the cheapest way to acquire the use of an asset.</p>
+
+<div class="tip">
+  <div class="tip-label">💡 Approach</div>
+  The decision to <strong>acquire</strong> the asset has already been made (positive NPV). The question is simply: which is the cheaper way to finance it — leasing or borrowing to buy?
+</div>
+
+<div class="formula">
+  <div class="label">Approach: Compare PV of costs under each option</div>
+  <code>Buy option: Include loan repayments (or asset cost), tax savings on capital allowances</code>
+  <code>Lease option: Include lease payments, tax relief on lease payments</code>
+  <code>Discount rate: After-tax cost of borrowing (since both options involve borrowing risk)</code>
+  <code>Choose the option with the LOWER PV of costs (cheaper)</code>
+</div>
+
+<div class="example">
+  <div class="ex-header">
+    <span class="ex-icon">Example</span>
+    <span class="ex-title">Lease vs Buy Decision</span>
+  </div>
+  <p>An asset costs AED 100,000 to buy. Alternatively, lease at AED 28,000 p.a. for 4 years (paid in advance, start of year). After-tax borrowing rate: 7%. Tax rate: 25%. WDA: 25%. Tax 1-year lag.</p>
+
+  <h4>Buy: PV of Costs</h4>
+  <table class="cf-table">
+    <thead><tr><th>Year</th><th>Item</th><th>Amount (AED)</th><th>DF@7%</th><th>PV (AED)</th></tr></thead>
+    <tbody>
+      <tr><td>0</td><td class="desc">Asset cost</td><td>(100,000)</td><td>1.000</td><td>(100,000)</td></tr>
+      <tr><td>2</td><td class="desc">Tax saving: Yr1 WDA (25k×25%=6,250)</td><td>6,250</td><td>0.873</td><td>5,456</td></tr>
+      <tr><td>3</td><td class="desc">Tax saving: Yr2 WDA (18,750×25%=4,688)</td><td>4,688</td><td>0.816</td><td>3,825</td></tr>
+      <tr><td>4</td><td class="desc">Tax saving: Yr3 WDA (14,063×25%=3,516)</td><td>3,516</td><td>0.763</td><td>2,682</td></tr>
+      <tr><td>5</td><td class="desc">Tax saving: Balancing allowance</td><td>~2,637</td><td>0.713</td><td>1,880</td></tr>
+      <tr class="total"><td colspan="4">PV of buy costs</td><td>≈ (86,157)</td></tr>
+    </tbody>
+  </table>
+
+  <h4>Lease: PV of Costs (lease payments start T0)</h4>
+  <p>After-tax lease payment = 28,000 × (1 – 0.25) = AED 21,000 (tax relief one year after payment)</p>
+  <table class="cf-table">
+    <thead><tr><th>Year</th><th>Item</th><th>Amount</th><th>DF@7%</th><th>PV</th></tr></thead>
+    <tbody>
+      <tr><td>0</td><td class="desc">Lease payment</td><td>(28,000)</td><td>1.000</td><td>(28,000)</td></tr>
+      <tr><td>1</td><td class="desc">Lease payment + Tax relief on T0 payment</td><td>(28,000)+7,000</td><td>0.935</td><td>(19,635)</td></tr>
+      <tr><td>2</td><td class="desc">Lease payment + Tax relief</td><td>(21,000)</td><td>0.873</td><td>(18,333)</td></tr>
+      <tr><td>3</td><td class="desc">Lease + Tax relief</td><td>(21,000)</td><td>0.816</td><td>(17,136)</td></tr>
+      <tr><td>4</td><td class="desc">Tax relief on Yr3 payment</td><td>7,000</td><td>0.763</td><td>5,341</td></tr>
+      <tr class="total"><td colspan="4">PV of lease costs</td><td>≈ (77,763)</td></tr>
+    </tbody>
+  </table>
+  <div class="key-point">
+    <div class="kp-label">Decision</div>
+    PV of lease costs (77,763) &lt; PV of buy costs (86,157) → <strong>LEASE is cheaper ✅</strong>
+  </div>
+</div>
+
+<!-- ── ASSET REPLACEMENT ── -->
+<h3>Asset Replacement Decisions (D4b)</h3>
+
+<p>When should you replace a machine? The key tool is the <strong>Equivalent Annual Cost (EAC)</strong> — also called Equivalent Annual Benefit (EAB). This converts NPV of costs into an annual figure, enabling fair comparison between assets with different lives.</p>
+
+<div class="formula">
+  <div class="label">Equivalent Annual Cost (EAC)</div>
+  <code>EAC = NPV of costs ÷ Annuity Factor for that period</code>
+  <code>— Choose the asset with the LOWEST EAC (cheapest per year)</code>
+  <br>
+  <div class="label" style="margin-top:12px;">Equivalent Annual Benefit (EAB)</div>
+  <code>EAB = NPV ÷ Annuity Factor</code>
+  <code>— Choose the project with the HIGHEST EAB</code>
+</div>
+
+<div class="example">
+  <div class="ex-header">
+    <span class="ex-icon">Example</span>
+    <span class="ex-title">Asset Replacement — EAC</span>
+  </div>
+  <p>Two machines provide the same service. Discount rate: 10%.</p>
+  <table class="cf-table">
+    <thead><tr><th>Item</th><th>Machine A (3-year life)</th><th>Machine B (5-year life)</th></tr></thead>
+    <tbody>
+      <tr><td class="desc">Purchase cost</td><td>AED 90,000</td><td>AED 120,000</td></tr>
+      <tr><td class="desc">Annual running cost</td><td>AED 25,000</td><td>AED 18,000</td></tr>
+      <tr><td class="desc">PV of total costs</td><td>AED 152,125</td><td>AED 188,244</td></tr>
+      <tr><td class="desc">Annuity Factor @10%</td><td>2.487 (3 years)</td><td>3.791 (5 years)</td></tr>
+      <tr class="highlight"><td class="desc"><strong>EAC</strong></td><td><strong>AED 61,162</strong></td><td><strong>AED 49,683</strong></td></tr>
+    </tbody>
+  </table>
+  <div class="key-point">
+    <div class="kp-label">Decision</div>
+    Machine B has a lower EAC (AED 49,683 vs AED 61,162) → <strong>Choose Machine B ✅</strong>
+  </div>
+  <p style="font-size:0.9rem; color:var(--muted);">Without EAC, comparing NPVs of AED 152,125 vs AED 188,244 is misleading — Machine A appears cheaper, but it provides fewer years of service!</p>
+</div>
+
+<h3>Optimal Replacement Cycle</h3>
+<p>When should you replace a machine with an identical one? Calculate the EAC for each possible cycle (replace every 1 year, 2 years, 3 years, etc.) and <strong>choose the cycle with the lowest EAC</strong>.</p>
+
+<!-- ── CAPITAL RATIONING ── -->
+<h3>Capital Rationing (D4c)</h3>
+
+<p>Capital rationing occurs when a company has insufficient funds to invest in all positive NPV projects. The goal: <strong>maximise total NPV from the limited funds available.</strong></p>
+
+<table>
+  <thead><tr><th>Type</th><th>Cause</th><th>Solution</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>Hard Rationing</strong></td>
+      <td>External restriction — capital markets limit borrowing</td>
+      <td>PI / Profitability Index</td>
+    </tr>
+    <tr>
+      <td><strong>Soft Rationing</strong></td>
+      <td>Internal management decision to limit investment budget</td>
+      <td>PI / Linear Programming</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Single-Period Capital Rationing</h4>
+
+<div class="formula">
+  <div class="label">Profitability Index (PI) — for Divisible Projects</div>
+  <code>PI = NPV ÷ Initial Investment (or PV of investment)</code>
+  <code>Rank projects by PI (highest first) and invest in order until funds run out</code>
+  <code>For partial investment in divisible projects: scale NPV proportionally</code>
+</div>
+
+<div class="example">
+  <div class="ex-header">
+    <span class="ex-icon">Example</span>
+    <span class="ex-title">Capital Rationing — Divisible Projects</span>
+  </div>
+  <p>Budget: <strong>AED 300,000</strong>. All projects are divisible.</p>
+  <table class="cf-table">
+    <thead><tr><th>Project</th><th>Initial Investment</th><th>NPV</th><th>PI = NPV÷Invest</th><th>Rank</th></tr></thead>
+    <tbody>
+      <tr><td class="desc">A</td><td>100,000</td><td>30,000</td><td>0.30</td><td>2nd</td></tr>
+      <tr><td class="desc">B</td><td>150,000</td><td>60,000</td><td>0.40</td><td>1st</td></tr>
+      <tr><td class="desc">C</td><td>200,000</td><td>40,000</td><td>0.20</td><td>3rd</td></tr>
+    </tbody>
+  </table>
+  <h4>Optimal Portfolio:</h4>
+  <table class="cf-table">
+    <thead><tr><th>Project</th><th>Proportion</th><th>Investment</th><th>NPV</th></tr></thead>
+    <tbody>
+      <tr><td class="desc">B (1st)</td><td>100%</td><td>150,000</td><td>60,000</td></tr>
+      <tr><td class="desc">A (2nd)</td><td>100%</td><td>100,000</td><td>30,000</td></tr>
+      <tr><td class="desc">C (3rd)</td><td>50% (50k remaining)</td><td>50,000</td><td>10,000</td></tr>
+      <tr class="total"><td colspan="2">Total</td><td>300,000</td><td><strong>100,000</strong></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="card" style="background:#fdf3e6; border:1px solid var(--amber);">
+  <h4>⚠️ Non-Divisible Projects</h4>
+  <p>When projects are non-divisible (cannot be partially undertaken), the PI approach may not work. Instead, <strong>enumerate all feasible combinations</strong> of projects within the budget and choose the combination with the highest total NPV.</p>
+  <p>Example: Budget AED 300,000; Projects: A (200k, NPV 40k), B (150k, NPV 45k), C (100k, NPV 20k). Test all combinations: A alone (200k→NPV 40k), B+C (250k→NPV 65k) ✅ best, A+C (300k→NPV 60k), B alone, C alone.</p>
+</div>
+
+<h4>Why Capital Rationing Exists (Discussion Points)</h4>
+<ul>
+  <li>Capital markets may be imperfect — information asymmetry makes external finance expensive</li>
+  <li>Management may be risk-averse and set arbitrary limits</li>
+  <li>Desire to maintain certain financial ratios (debt/equity, interest coverage)</li>
+  <li>New share issues may be perceived negatively by existing shareholders (dilution)</li>
+</ul>
+
+<!-- ══════════ SUMMARY TABLE ══════════ -->
+<div class="divider"></div>
+
+<div class="section-header">
+  <div class="section-num" style="background:var(--accent);">★</div>
+  <div class="section-title">
+    <div class="subtitle">Exam Revision Aid</div>
+    <h2>Complete Method Comparison</h2>
+  </div>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>Uses TVM?</th>
+      <th>Uses Cash Flows?</th>
+      <th>Considers Whole Life?</th>
+      <th>Measures Wealth?</th>
+      <th>ACCA Verdict</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Payback</strong></td>
+      <td>❌ No</td>
+      <td>✅ Yes</td>
+      <td>❌ No</td>
+      <td>❌ No</td>
+      <td>Supplementary tool only</td>
+    </tr>
+    <tr>
+      <td><strong>Discounted Payback</strong></td>
+      <td>✅ Yes</td>
+      <td>✅ Yes</td>
+      <td>❌ No</td>
+      <td>❌ No</td>
+      <td>Better than payback, still limited</td>
+    </tr>
+    <tr>
+      <td><strong>ROCE / ARR</strong></td>
+      <td>❌ No</td>
+      <td>❌ Profits</td>
+      <td>✅ Yes</td>
+      <td>❌ No</td>
+      <td>Weak — accounting-based</td>
+    </tr>
+    <tr>
+      <td><strong>NPV</strong></td>
+      <td>✅ Yes</td>
+      <td>✅ Yes</td>
+      <td>✅ Yes</td>
+      <td>✅ Yes</td>
+      <td>🏆 Best method — use this</td>
+    </tr>
+    <tr>
+      <td><strong>IRR</strong></td>
+      <td>✅ Yes</td>
+      <td>✅ Yes</td>
+      <td>✅ Yes</td>
+      <td>❌ Relative only</td>
+      <td>Good supplement to NPV</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ══════════ EXAM TIPS ══════════ -->
+<div class="divider"></div>
+
+<div class="section-header">
+  <div class="section-num" style="background:var(--accent);">💡</div>
+  <div class="section-title">
+    <div class="subtitle">For September 2026 Exam</div>
+    <h2>Top Exam Tips &amp; Common Mistakes</h2>
+  </div>
+</div>
+
+<div style="display:grid; grid-template-columns: 1fr 1fr; gap:18px; margin-bottom:24px;">
+  <div class="card" style="border-top: 4px solid var(--accent);">
+    <h4 style="color:var(--accent);">🚫 Common Mistakes</h4>
+    <ul>
+      <li>Including <strong>depreciation</strong> as a cash flow (it's not!)</li>
+      <li>Including <strong>sunk costs</strong> (already spent = irrelevant)</li>
+      <li>Including <strong>finance costs (interest)</strong> in cash flows — it's in the discount rate</li>
+      <li>Forgetting <strong>working capital</strong> outflow at start and recovery at end</li>
+      <li>Forgetting <strong>tax is paid one year in arrears</strong></li>
+      <li>Using nominal cash flows with a real discount rate (or vice versa)</li>
+      <li>In ROCE: using <strong>cash flows instead of accounting profit</strong></li>
+    </ul>
+  </div>
+  <div class="card" style="border-top: 4px solid var(--teal);">
+    <h4 style="color:var(--teal);">✅ Exam Scoring Tips</h4>
+    <ul>
+      <li>Always <strong>state the decision</strong> (accept/reject) — easy mark</li>
+      <li>Show <strong>workings clearly</strong> in separate columns</li>
+      <li>For IRR, pick rates that give <strong>one + and one – NPV</strong></li>
+      <li>For sensitivity: <strong>lower % = more critical</strong></li>
+      <li>Use ACCA tables for discount factors — always provided</li>
+      <li>State which ROCE formula you're using (initial or average)</li>
+      <li>For capital rationing: always use PI for divisible; enumerate for non-divisible</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card" style="background: linear-gradient(135deg, #eaf2ff, #e8f8f5);">
+  <h4>Key Relationships to Memorise</h4>
+  <ul>
+    <li>NPV &gt; 0 → IRR &gt; cost of capital → <strong>Accept</strong></li>
+    <li>NPV &lt; 0 → IRR &lt; cost of capital → <strong>Reject</strong></li>
+    <li>Real rate: <code>(1+n) = (1+r)(1+i)</code> — Fisher equation</li>
+    <li>Sensitivity = NPV ÷ PV of variable — lower % = more sensitive</li>
+    <li>EAC = NPV of costs ÷ Annuity Factor — choose lowest</li>
+    <li>PI = NPV ÷ Investment — rank for divisible capital rationing</li>
+    <li>Discounted payback period &gt; Simple payback period (always)</li>
+  </ul>
+</div>
+
+</div><!-- /content -->
+
+<div class="footer">
+  <p>ACCA Financial Management (FM) — Investment Appraisal Notes</p>
+  <p style="margin-top:6px; font-size:0.82rem;">Prepared for September 2026 Exam Window · Based on ACCA FM Syllabus &amp; Study Guide 2026–2027 · Section D</p>
+  <p style="margin-top:6px; font-size:0.82rem;">📌 Always verify against latest ACCA exam kit and study text for any updates</p>
+</div>
+
+</body>
+</html>

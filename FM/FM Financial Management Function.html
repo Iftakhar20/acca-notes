@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACCA FM – Chapter 1: The Financial Management Function</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #faf8f3;
+    --warm-white: #ffffff;
+    --ink: #2c2c2c;
+    --ink-light: #555;
+    --ink-faint: #888;
+    --accent: #c0392b;
+    --accent-soft: #e8ccc9;
+    --accent-bg: #fdf0ee;
+    --teal: #1a6b72;
+    --teal-soft: #c5e4e6;
+    --teal-bg: #eef7f8;
+    --gold: #b07d2e;
+    --gold-soft: #f0e3c5;
+    --gold-bg: #fdf7ec;
+    --navy: #1e3a5f;
+    --navy-soft: #ccd9e8;
+    --navy-bg: #edf2f8;
+    --green: #2d6a4f;
+    --green-soft: #c5ddd3;
+    --green-bg: #eef7f3;
+    --purple: #5e3a8a;
+    --purple-soft: #d6c7ea;
+    --purple-bg: #f3eef9;
+    --border: #e0dbd0;
+    --shadow: 0 2px 16px rgba(44,44,44,0.08);
+    --radius: 12px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 18px;
+    line-height: 1.8;
+  }
+
+  /* ── HEADER ── */
+  .page-header {
+    background: var(--navy);
+    color: #fff;
+    padding: 48px 40px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::before {
+    content: '';
+    position: absolute; top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(192,57,43,0.25) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .page-header::after {
+    content: '';
+    position: absolute; bottom: -40px; left: 20%;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(26,107,114,0.2) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+  }
+  .page-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    position: relative; z-index: 1;
+  }
+  .page-header .subtitle {
+    font-size: 18px;
+    color: rgba(255,255,255,0.75);
+    font-style: italic;
+    position: relative; z-index: 1;
+  }
+  .header-meta {
+    margin-top: 24px;
+    display: flex; gap: 20px; flex-wrap: wrap;
+    position: relative; z-index: 1;
+  }
+  .header-meta span {
+    background: rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.9);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+
+  /* ── LAYOUT ── */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  /* ── TABLE OF CONTENTS ── */
+  .toc {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    margin-bottom: 40px;
+    box-shadow: var(--shadow);
+  }
+  .toc-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--navy);
+    margin-bottom: 16px;
+    border-bottom: 2px solid var(--navy-soft);
+    padding-bottom: 10px;
+  }
+  .toc ol { list-style: none; counter-reset: toc-counter; }
+  .toc ol li { counter-increment: toc-counter; }
+  .toc ol li a {
+    display: flex; align-items: center; gap: 12px;
+    color: var(--ink);
+    text-decoration: none;
+    padding: 7px 0;
+    border-bottom: 1px dashed var(--border);
+    font-size: 16px;
+    transition: color 0.2s;
+  }
+  .toc ol li a:hover { color: var(--accent); }
+  .toc ol li a::before {
+    content: counter(toc-counter, decimal-leading-zero);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 600;
+    min-width: 28px;
+  }
+
+  /* ── SECTION CARDS ── */
+  .section {
+    background: var(--warm-white);
+    border-radius: var(--radius);
+    padding: 36px 36px 32px;
+    margin-bottom: 28px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+  .section-header {
+    display: flex; align-items: flex-start; gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 18px;
+    border-bottom: 2px solid var(--border);
+  }
+  .section-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px; font-weight: 600;
+    color: #fff;
+    background: var(--accent);
+    padding: 4px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+    margin-top: 4px;
+  }
+  .section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    color: var(--navy);
+    line-height: 1.3;
+  }
+
+  /* ── CONTENT ELEMENTS ── */
+  p { margin-bottom: 16px; font-size: 18px; line-height: 1.8; }
+
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 21px;
+    color: var(--teal);
+    margin: 28px 0 12px;
+  }
+  h4 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--navy);
+    margin: 20px 0 8px;
+    font-family: 'Source Serif 4', serif;
+  }
+
+  ul, ol { padding-left: 24px; margin-bottom: 16px; }
+  li { margin-bottom: 8px; font-size: 18px; line-height: 1.7; }
+
+  /* ── CALLOUT BOXES ── */
+  .box {
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 20px 0;
+    border-left: 5px solid;
+  }
+  .box-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .box p, .box li { font-size: 17px; }
+
+  .box-definition { background: var(--teal-bg); border-color: var(--teal); }
+  .box-definition .box-title { color: var(--teal); }
+
+  .box-example { background: var(--gold-bg); border-color: var(--gold); }
+  .box-example .box-title { color: var(--gold); }
+
+  .box-exam { background: var(--accent-bg); border-color: var(--accent); }
+  .box-exam .box-title { color: var(--accent); }
+
+  .box-key { background: var(--navy-bg); border-color: var(--navy); }
+  .box-key .box-title { color: var(--navy); }
+
+  .box-warning { background: #fff9ec; border-color: #e09b00; }
+  .box-warning .box-title { color: #b07a00; }
+
+  .box-nfp { background: var(--green-bg); border-color: var(--green); }
+  .box-nfp .box-title { color: var(--green); }
+
+  /* ── COMPARISON TABLE ── */
+  .table-wrap { overflow-x: auto; margin: 20px 0; }
+  table {
+    width: 100%; border-collapse: collapse;
+    font-size: 16px;
+  }
+  thead tr { background: var(--navy); color: #fff; }
+  thead th {
+    padding: 14px 18px;
+    text-align: left;
+    font-family: 'Source Serif 4', serif;
+    font-weight: 600;
+    font-size: 16px;
+  }
+  tbody tr:nth-child(odd) { background: var(--cream); }
+  tbody tr:nth-child(even) { background: var(--warm-white); }
+  tbody td { padding: 13px 18px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.6; }
+  tbody tr:hover { background: var(--navy-bg); }
+
+  /* ── DECISION DIAGRAM ── */
+  .decision-trio {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px; margin: 24px 0;
+  }
+  .decision-card {
+    border-radius: 10px;
+    padding: 22px 20px;
+    text-align: center;
+    border: 2px solid;
+  }
+  .decision-card .icon { font-size: 32px; margin-bottom: 10px; }
+  .decision-card h4 { font-size: 18px; margin: 0 0 8px; }
+  .decision-card p { font-size: 15px; margin: 0; line-height: 1.6; }
+  .dc-invest { background: var(--teal-bg); border-color: var(--teal); }
+  .dc-invest h4 { color: var(--teal); }
+  .dc-finance { background: var(--gold-bg); border-color: var(--gold); }
+  .dc-finance h4 { color: var(--gold); }
+  .dc-dividend { background: var(--accent-bg); border-color: var(--accent); }
+  .dc-dividend h4 { color: var(--accent); }
+
+  /* ── 3Es CARDS ── */
+  .three-e-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px; margin: 20px 0;
+  }
+  .e-card {
+    border-radius: 10px; padding: 22px;
+    border: 2px solid;
+  }
+  .e-card .e-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px; font-weight: 700;
+    line-height: 1; margin-bottom: 8px;
+  }
+  .e-card h4 { font-size: 18px; margin-bottom: 8px; }
+  .e-card p { font-size: 15px; line-height: 1.6; margin: 0; }
+  .ec { background: var(--teal-bg); border-color: var(--teal); }
+  .ec .e-letter, .ec h4 { color: var(--teal); }
+  .ef { background: var(--gold-bg); border-color: var(--gold); }
+  .ef .e-letter, .ef h4 { color: var(--gold); }
+  .ee { background: var(--green-bg); border-color: var(--green); }
+  .ee .e-letter, .ee h4 { color: var(--green); }
+
+  /* ── STAKEHOLDER TABLE ── */
+  .stakeholder-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 12px; margin: 20px 0;
+  }
+  .sh-card {
+    border-radius: 8px; padding: 16px 18px;
+    border: 1px solid var(--border);
+    background: var(--cream);
+  }
+  .sh-card .sh-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 1px;
+    color: var(--ink-faint); margin-bottom: 6px;
+  }
+  .sh-card h4 { font-size: 17px; color: var(--navy); margin-bottom: 6px; }
+  .sh-card p { font-size: 15px; color: var(--ink-light); margin: 0; line-height: 1.5; }
+
+  /* ── QUIZ SECTION ── */
+  .quiz-card {
+    background: var(--purple-bg);
+    border: 2px solid var(--purple-soft);
+    border-radius: 10px;
+    padding: 22px 24px;
+    margin: 16px 0;
+  }
+  .quiz-card .q-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; font-weight: 600;
+    color: var(--purple); letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 8px;
+  }
+  .quiz-card p { font-size: 18px; font-weight: 600; margin-bottom: 16px; }
+  .quiz-options { list-style: none; padding: 0; }
+  .quiz-options li {
+    padding: 10px 14px;
+    border-radius: 7px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    border: 1.5px solid var(--purple-soft);
+    background: #fff;
+    font-size: 16px;
+    transition: all 0.2s;
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .quiz-options li:hover { background: var(--purple-soft); }
+  .quiz-options li .opt-letter {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600; color: var(--purple);
+    min-width: 20px;
+  }
+  .quiz-options li.correct { background: #e6f4ea; border-color: #2d6a4f; }
+  .quiz-options li.wrong { background: #fce8e6; border-color: #c0392b; }
+  .quiz-options li.correct .opt-letter { color: #2d6a4f; }
+  .quiz-options li.wrong .opt-letter { color: #c0392b; }
+  .quiz-feedback {
+    display: none; margin-top: 12px;
+    padding: 12px 16px; border-radius: 7px;
+    font-size: 16px; line-height: 1.6;
+  }
+  .quiz-feedback.show { display: block; }
+  .quiz-feedback.correct { background: #e6f4ea; color: #1a4730; }
+  .quiz-feedback.wrong { background: #fce8e6; color: #7a1a1a; }
+
+  /* ── FORMULA ── */
+  .formula-box {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 16px 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 17px;
+    text-align: center;
+  }
+  .formula-box .formula-label {
+    font-size: 12px; letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 10px;
+  }
+  .formula-box .formula-main {
+    font-size: 19px; font-weight: 600;
+    color: #fff;
+  }
+
+  /* ── FLOW CHART ── */
+  .flow { display: flex; flex-direction: column; align-items: flex-start; gap: 0; margin: 20px 0; }
+  .flow-step {
+    display: flex; align-items: center; gap: 16px;
+    padding: 14px 20px; border-radius: 9px;
+    background: var(--navy-bg); border: 1.5px solid var(--navy-soft);
+    font-size: 16px; width: 100%;
+  }
+  .flow-step .step-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px; font-weight: 700;
+    color: var(--navy); background: var(--navy-soft);
+    width: 30px; height: 30px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .flow-arrow {
+    font-size: 22px; color: var(--accent);
+    padding: 4px 0 4px 24px;
+  }
+
+  /* ── PILL TAGS ── */
+  .pill {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; font-weight: 600;
+    padding: 3px 10px; border-radius: 20px;
+    margin: 2px;
+  }
+  .pill-level { background: var(--accent-soft); color: var(--accent); }
+  .pill-chapter { background: var(--navy-soft); color: var(--navy); }
+
+  /* ── SUMMARY GRID ── */
+  .summary-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px; margin: 20px 0;
+  }
+  .summary-card {
+    border-radius: 10px; padding: 18px;
+    border: 1.5px solid var(--border);
+    background: var(--cream);
+  }
+  .summary-card .sc-icon { font-size: 26px; margin-bottom: 8px; }
+  .summary-card h4 { font-size: 16px; color: var(--navy); margin-bottom: 6px; }
+  .summary-card p { font-size: 14px; color: var(--ink-light); margin: 0; line-height: 1.5; }
+
+  /* ── FOOTER ── */
+  .page-footer {
+    background: var(--navy); color: rgba(255,255,255,0.7);
+    text-align: center; padding: 28px 20px;
+    font-size: 14px; font-family: 'JetBrains Mono', monospace;
+  }
+  .page-footer strong { color: #fff; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .section { padding: 24px 18px; }
+    .page-header { padding: 32px 20px 28px; }
+    .container { padding: 24px 14px 60px; }
+    .decision-trio, .three-e-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Smooth scroll */
+  html { scroll-behavior: smooth; }
+
+  /* Print */
+  @media print {
+    body { background: #fff; font-size: 14px; }
+    .page-header, .section { box-shadow: none; }
+    .quiz-options li { border: 1px solid #ccc; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════ HEADER ═══════════════════════ -->
+<header class="page-header">
+  <div class="header-badge">ACCA FM · Chapter A1</div>
+  <h1>The Financial Management Function</h1>
+  <p class="subtitle">Comprehensive Study Notes — September 2026 Examination</p>
+  <div class="header-meta">
+    <span>📚 Syllabus Section A</span>
+    <span>🗓️ Sep 2026 – Jun 2027</span>
+    <span>🎯 Exam Level: Knowledge + Application</span>
+    <span>⏱️ ~90 min reading</span>
+  </div>
+</header>
+
+<div class="container">
+
+<!-- ═══════════════════════ TABLE OF CONTENTS ═══════════════════════ -->
+<nav class="toc">
+  <div class="toc-title">📋 Chapter Contents</div>
+  <ol>
+    <li><a href="#s1">The Nature & Purpose of Financial Management</a></li>
+    <li><a href="#s2">Financial Objectives & Corporate Strategy</a></li>
+    <li><a href="#s3">Stakeholders & Impact on Corporate Objectives</a></li>
+    <li><a href="#s4">Measuring Achievement of Corporate Objectives</a></li>
+    <li><a href="#s5">Agency Theory & Managerial Reward Schemes</a></li>
+    <li><a href="#s6">Corporate Governance</a></li>
+    <li><a href="#s7">Financial & Other Objectives in Not-for-Profit Organisations</a></li>
+    <li><a href="#s8">Practice Questions</a></li>
+  </ol>
+</nav>
+
+<!-- ═══════════════════════ SECTION 1 ═══════════════════════ -->
+<section class="section" id="s1">
+  <div class="section-header">
+    <div class="section-number">A.1</div>
+    <h2>The Nature & Purpose of Financial Management</h2>
+  </div>
+
+  <div class="box box-definition">
+    <div class="box-title">📖 Core Definition</div>
+    <p><strong>Financial management</strong> is concerned with the efficient acquisition and deployment of both short- and long-term financial resources, to ensure the objectives of the enterprise are achieved.</p>
+  </div>
+
+  <p>Think of it this way — in your role as an FP&A professional at Dubai Health, you routinely make resource allocation decisions: <em>Which departments get capital? How do we fund this expansion? Do we pay a dividend or reinvest?</em> That, in essence, is financial management.</p>
+
+  <h3>⚡ The Three Core Financial Management Decisions</h3>
+  <p>Every financial management decision falls into one of three buckets:</p>
+
+  <div class="decision-trio">
+    <div class="decision-card dc-invest">
+      <div class="icon">📊</div>
+      <h4>Investment Decision</h4>
+      <p>Where do we deploy capital? Long-term (non-current assets) and short-term (working capital). Covered in Chapters D & C.</p>
+    </div>
+    <div class="decision-card dc-finance">
+      <div class="icon">💰</div>
+      <h4>Financing Decision</h4>
+      <p>How do we raise funds? Equity, debt, short-term or long-term? Covered in Chapter E.</p>
+    </div>
+    <div class="decision-card dc-dividend">
+      <div class="icon">📤</div>
+      <h4>Dividend Decision</h4>
+      <p>How much cash do we return to shareholders vs. retain for reinvestment? Covered in Chapter E.</p>
+    </div>
+  </div>
+
+  <div class="box box-example">
+    <div class="box-title">💡 Real-World Example — Healthcare Context</div>
+    <p><strong>Investment:</strong> Dubai Health decides to build a new specialist cancer centre (long-term capital investment) AND maintain enough pharmacy stock to treat daily patients (working capital investment).</p>
+    <p><strong>Financing:</strong> Should the centre be funded through government grants, sukuk bonds, or internal reserves?</p>
+    <p><strong>Dividend:</strong> Not applicable for a public healthcare authority, but the equivalent is: reinvest surplus into services or return it to the Ministry of Finance?</p>
+  </div>
+
+  <div class="box box-warning">
+    <div class="box-title">⚠️ Important: These Decisions Are Interconnected!</div>
+    <p>Increasing capital allocated for investment → less cash available for dividends <em>or</em> need to raise more financing. The three decisions do not exist in isolation.</p>
+  </div>
+
+  <h3>🔗 Relationship with Other Financial Roles</h3>
+  <p>The FM exam distinguishes clearly between three different financial functions:</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Role</th>
+          <th>Time Horizon</th>
+          <th>Focus</th>
+          <th>Example Tasks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Financial Management</strong></td>
+          <td>Long-term</td>
+          <td>Raising & allocating capital; achieving financial objectives</td>
+          <td>Dividend policy; capital structure; investment appraisal</td>
+        </tr>
+        <tr>
+          <td><strong>Management Accounting</strong></td>
+          <td>Short-term (12 months)</td>
+          <td>Planning, control & internal decision-making</td>
+          <td>Budgets, variance analysis, overhead apportionment</td>
+        </tr>
+        <tr>
+          <td><strong>Financial Accounting</strong></td>
+          <td>Historical</td>
+          <td>Reporting past results to external stakeholders</td>
+          <td>Income statement, balance sheet, depreciation</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box box-exam">
+    <div class="box-title">🎯 Exam Tip — Syllabus Point A1(b) [Level 1]</div>
+    <p>You may be asked to classify a task. Remember: <strong>establishing dividend policy = Financial Management</strong>. <strong>Reviewing overtime spending = Management Accounting</strong>. <strong>Identifying accruals = Financial Accounting</strong>.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════ SECTION 2 ═══════════════════════ -->
+<section class="section" id="s2">
+  <div class="section-header">
+    <div class="section-number">A.2</div>
+    <h2>Financial Objectives & the Relationship with Corporate Strategy</h2>
+  </div>
+
+  <h3>🏗️ The Strategy Hierarchy</h3>
+  <p>Objectives define <em>what</em> the organisation wants to achieve. Strategy defines <em>how</em> to get there. They cascade downward through the organisation:</p>
+
+  <div class="flow">
+    <div class="flow-step">
+      <div class="step-num">1</div>
+      <div><strong>Mission / Purpose</strong> — The overriding reason the organisation exists (e.g. "To provide world-class healthcare to the people of Dubai")</div>
+    </div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step">
+      <div class="step-num">2</div>
+      <div><strong>Corporate Goals</strong> — Broad aims aligned with mission (e.g. "Expand specialist services")</div>
+    </div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step">
+      <div class="step-num">3</div>
+      <div><strong>Objectives</strong> — Specific, measurable targets (e.g. "Increase ROCE by 3% within 2 years")</div>
+    </div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step">
+      <div class="step-num">4</div>
+      <div><strong>Strategies</strong> — Plans to achieve objectives at corporate, business & operational levels</div>
+    </div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step">
+      <div class="step-num">5</div>
+      <div><strong>Targets</strong> — Departmental-level KPIs (e.g. "Credit control team: reduce debtor days to 30")</div>
+    </div>
+  </div>
+
+  <h3>🎯 Financial Objectives for Listed Companies</h3>
+  <p>The <strong>primary financial objective</strong> of a for-profit company is to <strong>maximise shareholder wealth</strong>. Other common financial objectives include:</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Objective</th>
+          <th>What it means</th>
+          <th>Key Limitation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Shareholder Wealth Maximisation ⭐</strong></td>
+          <td>Maximise share price + dividends over long term (Total Shareholder Return = TSR)</td>
+          <td>Hardest to measure day-to-day but theoretically superior</td>
+        </tr>
+        <tr>
+          <td><strong>Profit Maximisation</strong></td>
+          <td>Maximise accounting profit</td>
+          <td>Ignores timing, risk, cash. Can be manipulated. Long-run vs short-run conflicts.</td>
+        </tr>
+        <tr>
+          <td><strong>EPS Growth</strong></td>
+          <td>Grow earnings per share = Profit after tax ÷ shares in issue</td>
+          <td>Accounting measure — not the same as shareholder income. Open to same flaws as profit.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box box-example">
+    <div class="box-title">💡 Why Profit Maximisation ≠ Shareholder Wealth Maximisation</div>
+    <p><strong>Tesla example from your Kaplan Study Text:</strong> Tesla's share price rose from ~$4.67 (2010) to ~$63.40 (2018) <em>despite recording annual losses throughout this period</em>. The stock market looked beyond current profits and valued long-term potential.</p>
+    <p><strong>Three reasons profit can mislead:</strong></p>
+    <ul>
+      <li><strong>Short vs. long run:</strong> Cutting R&D boosts profit this year but destroys future value</li>
+      <li><strong>Quality/risk:</strong> High-risk profits are valued less by investors — the market discounts risky earnings</li>
+      <li><strong>Cash vs. accrual:</strong> Dividends are paid in cash, not accounting profit. Companies with high profit but poor cash conversion may still struggle.</li>
+    </ul>
+  </div>
+
+  <h3>🔄 Maximising vs. Satisficing</h3>
+  <div class="box box-key">
+    <div class="box-title">📌 Key Distinction</div>
+    <ul>
+      <li><strong>Maximising</strong> — Seeking the maximum level of returns even if it means higher risk and management effort (e.g. aggressively expanding market share)</li>
+      <li><strong>Satisficing</strong> — Finding an "adequate" outcome; holding returns at a satisfactory level, avoiding risk, reducing workload (e.g. a family-owned firm that is content with steady annual profits)</li>
+    </ul>
+    <p>Management typically tries to <em>maximise</em> returns to shareholders while <em>satisficing</em> for other stakeholders (employees, lenders, etc.).</p>
+  </div>
+
+  <h3>📐 Strategy Levels</h3>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Level</th>
+          <th>Who Decides</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Corporate Strategy</strong></td>
+          <td>Senior management / Board</td>
+          <td>"Acquire a rival hospital group via share-for-share deal"</td>
+        </tr>
+        <tr>
+          <td><strong>Business Strategy</strong></td>
+          <td>Business unit managers</td>
+          <td>"Compete on quality rather than price in private patient services"</td>
+        </tr>
+        <tr>
+          <td><strong>Operational Strategy</strong></td>
+          <td>Functional managers</td>
+          <td>"Implement JIT inventory for medical supplies to reduce holding cost"</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box box-exam">
+    <div class="box-title">🎯 Exam Tip — Syllabus A2 [Level 2]</div>
+    <p>A common question asks you to classify items as financial objective, commercial (non-financial) objective, or strategy. Use this test:</p>
+    <ul>
+      <li>Does it have a number and relate to money/returns? → <strong>Financial objective</strong></li>
+      <li>Is it about market position, customer satisfaction, or brand? → <strong>Commercial objective</strong></li>
+      <li>Is it an action or plan that achieves an objective? → <strong>Strategy</strong></li>
+    </ul>
+    <p>Example: "Increase EPS by 5%" = Financial objective. "Acquire a rival" = Corporate strategy. "Improve brand awareness in the UK" = Commercial objective.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════ SECTION 3 ═══════════════════════ -->
+<section class="section" id="s3">
+  <div class="section-header">
+    <div class="section-number">A.3</div>
+    <h2>Stakeholders & Impact on Corporate Objectives</h2>
+  </div>
+
+  <div class="box box-definition">
+    <div class="box-title">📖 Definition</div>
+    <p>A <strong>stakeholder</strong> is any individual or group with a vested interest in the organisation. They can be internal, connected, or external.</p>
+  </div>
+
+  <h3>👥 Stakeholder Groups & Their Objectives</h3>
+
+  <div class="stakeholder-grid">
+    <div class="sh-card">
+      <div class="sh-tag">Internal</div>
+      <h4>👔 Managers / Directors</h4>
+      <p>Job security, bonuses, power, empire building, salary maximisation</p>
+    </div>
+    <div class="sh-card">
+      <div class="sh-tag">Internal</div>
+      <h4>👷 Employees</h4>
+      <p>Good wages, job security, safe working conditions, career progression</p>
+    </div>
+    <div class="sh-card">
+      <div class="sh-tag">Connected</div>
+      <h4>📈 Shareholders</h4>
+      <p>Shareholder wealth maximisation: dividend income + capital gains</p>
+    </div>
+    <div class="sh-card">
+      <div class="sh-tag">Connected</div>
+      <h4>🏦 Lenders / Banks</h4>
+      <p>Repayment of principal + interest; long-term cash generation ability</p>
+    </div>
+    <div class="sh-card">
+      <div class="sh-tag">Connected</div>
+      <h4>🛒 Customers</h4>
+      <p>Value for money; quality products/services; reliable supply</p>
+    </div>
+    <div class="sh-card">
+      <div class="sh-tag">Connected</div>
+      <h4>📦 Suppliers</h4>
+      <p>Prompt payment; long-term contracts; regular business</p>
+    </div>
+    <div class="sh-card">
+      <div class="sh-tag">External</div>
+      <h4>🏛️ Government</h4>
+      <p>Tax revenue; employment; compliance with law; export growth</p>
+    </div>
+    <div class="sh-card">
+      <div class="sh-tag">External</div>
+      <h4>🌍 Community</h4>
+      <p>Environmental responsibility; pollution control; social welfare</p>
+    </div>
+    <div class="sh-card">
+      <div class="sh-tag">External</div>
+      <h4>📣 Pressure Groups</h4>
+      <p>Environmental protection; animal rights; ethical supply chains</p>
+    </div>
+  </div>
+
+  <h3>⚔️ Conflicts Between Stakeholders</h3>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Stakeholder Conflict</th>
+          <th>Nature of Conflict</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Shareholders vs. Employees</strong></td>
+          <td>Shareholders want lower wages to boost profits; employees want higher pay</td>
+        </tr>
+        <tr>
+          <td><strong>Shareholders vs. Managers</strong></td>
+          <td>Managers may pursue empire building, high salaries, or risk-averse strategies that don't maximise shareholder wealth (the Agency Problem)</td>
+        </tr>
+        <tr>
+          <td><strong>Shareholders vs. Lenders</strong></td>
+          <td>Shareholders may prefer risky projects (high return if successful); lenders prefer safe, predictable cash flows</td>
+        </tr>
+        <tr>
+          <td><strong>Customers vs. Shareholders</strong></td>
+          <td>Customers want low prices / high quality; shareholders want high margins</td>
+        </tr>
+        <tr>
+          <td><strong>Government vs. Shareholders</strong></td>
+          <td>Government wants high tax; companies try to minimise tax legally</td>
+        </tr>
+        <tr>
+          <td><strong>Customers vs. Community</strong></td>
+          <td>Customers may want cheap goods produced in environmentally harmful ways; community wants environmental protection</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>🌐 The Stakeholder View</h3>
+  <p>Professor Charles Handy argued that <strong>shareholder wealth maximisation cannot be the single overall objective</strong> of organisations. Modern companies must balance competing claims of all stakeholders, especially given that some multinationals have revenues exceeding the GDP of small nations.</p>
+
+  <div class="box box-exam">
+    <div class="box-title">🎯 Exam Tip — Syllabus A3(a)(b)(c) [Level 2]</div>
+    <p>In exam questions involving stakeholder conflicts, always:</p>
+    <ul>
+      <li>Identify the <em>specific</em> groups and their objectives</li>
+      <li>Explain the nature of the conflict</li>
+      <li>Suggest management's role in resolving/balancing the conflict</li>
+    </ul>
+    <p>The examiner wants analysis, not just a list of stakeholders!</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════ SECTION 4 ═══════════════════════ -->
+<section class="section" id="s4">
+  <div class="section-header">
+    <div class="section-number">A.4 / A.3(d)</div>
+    <h2>Measuring Achievement of Corporate Objectives</h2>
+  </div>
+
+  <p>Ratio analysis is the primary tool for measuring corporate performance. The FM syllabus covers four main categories (detailed in Chapter 19 of the Study Text):</p>
+
+  <div class="summary-grid">
+    <div class="summary-card">
+      <div class="sc-icon">📈</div>
+      <h4>Profitability & Return</h4>
+      <p>ROCE, Return on Equity, Net Profit Margin, Gross Profit Margin</p>
+    </div>
+    <div class="summary-card">
+      <div class="sc-icon">⚖️</div>
+      <h4>Debt & Gearing</h4>
+      <p>Debt/Equity ratio, Interest Cover, Debt/Capital ratio</p>
+    </div>
+    <div class="summary-card">
+      <div class="sc-icon">💧</div>
+      <h4>Liquidity</h4>
+      <p>Current Ratio, Quick Ratio, Cash Flow ratios</p>
+    </div>
+    <div class="summary-card">
+      <div class="sc-icon">👥</div>
+      <h4>Investor Ratios</h4>
+      <p>EPS, P/E ratio, Dividend Yield, Total Shareholder Return (TSR)</p>
+    </div>
+  </div>
+
+  <h3>🏆 Total Shareholder Return (TSR)</h3>
+  <p>TSR is the key measure of shareholder wealth creation, combining both capital gain and dividend income:</p>
+
+  <div class="formula-box">
+    <div class="formula-label">Formula — Total Shareholder Return</div>
+    <div class="formula-main">TSR = (Dividend per share + Capital gain) ÷ Opening share price × 100%</div>
+  </div>
+
+  <div class="box box-example">
+    <div class="box-title">💡 TSR Example</div>
+    <p>A company's share price rises from $5.00 to $5.60 during the year, and a dividend of $0.30 is paid.</p>
+    <p><strong>TSR = ($0.30 + $0.60) ÷ $5.00 × 100% = $0.90 ÷ $5.00 = 18%</strong></p>
+    <p>This means investors received an 18% return on their investment — both from dividends and share price appreciation.</p>
+  </div>
+
+  <h3>📊 EPS (Earnings Per Share)</h3>
+
+  <div class="formula-box">
+    <div class="formula-label">Formula — Earnings Per Share</div>
+    <div class="formula-main">EPS = Profit after tax − Preference dividends ÷ Number of ordinary shares in issue</div>
+  </div>
+
+  <div class="box box-example">
+    <div class="box-title">💡 EPS Example</div>
+    <p>ABC Corp earns $10m after tax, has preference dividends of $1m, and 30m ordinary shares in issue.</p>
+    <p><strong>EPS = ($10m − $1m) ÷ 30m = $0.30 per share</strong></p>
+    <p>If last year's EPS was $0.25, then EPS growth = ($0.30 − $0.25) ÷ $0.25 = <strong>20% growth</strong></p>
+  </div>
+
+  <div class="box box-exam">
+    <div class="box-title">🎯 Exam Tip — Syllabus A3(d) [Level 2]</div>
+    <p>You need to know ROCE, Return on Equity, EPS, Dividend per Share, and TSR. These ratios appear not only in Chapter 1 questions but also in longer scenario questions asking you to <em>evaluate</em> financial performance against objectives.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════ SECTION 5 ═══════════════════════ -->
+<section class="section" id="s5">
+  <div class="section-header">
+    <div class="section-number">A.3(c)(e)</div>
+    <h2>Agency Theory & Managerial Reward Schemes</h2>
+  </div>
+
+  <div class="box box-definition">
+    <div class="box-title">📖 Agency Theory Definition</div>
+    <p>An <strong>agency relationship</strong> arises when one party (the <em>principal</em>) employs another (the <em>agent</em>) to perform a task on their behalf.</p>
+    <p>In a company: <strong>Shareholders = Principal</strong> &nbsp;|&nbsp; <strong>Directors/Managers = Agent</strong></p>
+  </div>
+
+  <h3>💔 The Agency Problem — Divorce of Ownership & Control</h3>
+  <p>Once managers are appointed, they may act in <em>their own</em> interests rather than those of shareholders. This is the core of the agency problem. Historical examples of director self-interest include:</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Problem</th>
+          <th>What Happens</th>
+          <th>Real Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Excessive Remuneration</strong></td>
+          <td>Directors award themselves large bonuses even when company performs poorly</td>
+          <td>UK banks during 2008–09 recession — directors paid bonuses while receiving government bailouts</td>
+        </tr>
+        <tr>
+          <td><strong>Empire Building</strong></td>
+          <td>CEOs pursue acquisitions for prestige/power rather than shareholder value</td>
+          <td>1980s wave of conglomerate takeovers — returns to shareholders often disappointing</td>
+        </tr>
+        <tr>
+          <td><strong>Creative Accounting</strong></td>
+          <td>Directors manipulate accounts to flatter profits/share price</td>
+          <td>Enron (2001), WorldCom — collapsed after accounting scandals</td>
+        </tr>
+        <tr>
+          <td><strong>Off-Balance-Sheet Finance</strong></td>
+          <td>Moving liabilities into entities not consolidated in accounts</td>
+          <td>Quasi-subsidiaries used by Enron to hide debts</td>
+        </tr>
+        <tr>
+          <td><strong>Takeover Defence</strong></td>
+          <td>Directors resist takeovers even when they benefit shareholders, to protect their jobs</td>
+          <td>Companies spending shareholder money on expensive advisors to block bids</td>
+        </tr>
+        <tr>
+          <td><strong>Unethical Activities</strong></td>
+          <td>Pursuing activities harmful to society but profitable for the company</td>
+          <td>Trading with sanctioned regimes; environmental pollution</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>🎁 Managerial Reward Schemes — Aligning Interests</h3>
+  <p>A key solution to the agency problem is to design remuneration packages that align managers' incentives with shareholders' objectives. A good scheme should:</p>
+
+  <ul>
+    <li>Be clearly defined, impossible to manipulate, and easy to monitor</li>
+    <li>Link rewards to changes in shareholder wealth</li>
+    <li>Match managers' time horizons to shareholders' time horizons</li>
+    <li>Encourage managers to adopt similar attitudes to risk as shareholders</li>
+  </ul>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Scheme</th>
+          <th>How it Works</th>
+          <th>Advantages</th>
+          <th>Disadvantages</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Profit-linked remuneration</strong></td>
+          <td>Bonus paid when profit exceeds minimum threshold</td>
+          <td>Simple to set up and monitor</td>
+          <td>Encourages short-termism; creative accounting; managers "relax" once target hit; may sacrifice long-term investment</td>
+        </tr>
+        <tr>
+          <td><strong>EVA-linked remuneration</strong></td>
+          <td>Bonus linked to Economic Value Added (increase in shareholder wealth)</td>
+          <td>More closely aligns with shareholder wealth creation</td>
+          <td>Complex to calculate; managers may not understand it</td>
+        </tr>
+        <tr>
+          <td><strong>Revenue growth-linked</strong></td>
+          <td>Bonus tied to revenue/sales growth</td>
+          <td>Drives growth; economies of scale</td>
+          <td>Revenue can grow without profit growing; managers may chase unprofitable revenue</td>
+        </tr>
+        <tr>
+          <td><strong>Executive Share Option Plan (ESOP)</strong></td>
+          <td>Managers granted the right to buy shares at a fixed price in the future</td>
+          <td>Directly links reward to share price → long-term focus; aligns manager & shareholder interests</td>
+          <td>Managers sell immediately on exercise; useless if share price below exercise price; dilutes existing shareholders; may incentivise creative accounting to protect share price</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box box-example">
+    <div class="box-title">💡 ESOP Example</div>
+    <p>CEO is granted options to buy 500,000 shares at $4.00 each, exercisable in 3 years. If the share price rises to $6.00:</p>
+    <ul>
+      <li>CEO buys shares at $4.00 (exercise price) = costs $2,000,000</li>
+      <li>Sells immediately at $6.00 = receives $3,000,000</li>
+      <li>Profit = <strong>$1,000,000</strong></li>
+    </ul>
+    <p>This motivates the CEO to grow the share price. However, once the options are exercised, the incentive ends — the CEO may not care about future share price performance.</p>
+  </div>
+
+  <div class="box box-exam">
+    <div class="box-title">🎯 Exam Tip — Syllabus A3(c)(e) [Level 2]</div>
+    <p>Questions on agency theory often ask you to: (1) explain the agency problem in context, (2) evaluate the suitability of a specific reward scheme, or (3) suggest how corporate governance can reduce agency costs. Always relate your answer to the <em>specific scenario</em> given.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════ SECTION 6 ═══════════════════════ -->
+<section class="section" id="s6">
+  <div class="section-header">
+    <div class="section-number">A.3(e)</div>
+    <h2>Corporate Governance</h2>
+  </div>
+
+  <p>Corporate governance codes represent a <strong>regulatory approach</strong> to reducing the agency problem. Rather than relying on incentives alone, governance codes set rules for how companies should be managed.</p>
+
+  <h3>📜 Key Corporate Governance Requirements</h3>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Area</th>
+          <th>Requirement</th>
+          <th>Why it Matters</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Independent NEDs</strong></td>
+          <td>At least half the board (excluding chair) should be independent Non-Executive Directors</td>
+          <td>NEDs provide oversight without being involved in daily management; harder for executives to "capture" the board</td>
+        </tr>
+        <tr>
+          <td><strong>NED Restrictions</strong></td>
+          <td>NEDs should NOT hold share options; should not have relationships that compromise independence</td>
+          <td>Prevents NEDs being influenced by personal financial interests</td>
+        </tr>
+        <tr>
+          <td><strong>Chairman/CEO Split</strong></td>
+          <td>Chairman and CEO must be different people; CEO should NOT later become Chairman</td>
+          <td>Avoids concentration of power; ensures CEO is accountable to independent Chair</td>
+        </tr>
+        <tr>
+          <td><strong>Director Re-election</strong></td>
+          <td>All directors must stand for re-election at least every 3 years</td>
+          <td>Shareholders retain ongoing ability to remove directors who are not serving their interests</td>
+        </tr>
+        <tr>
+          <td><strong>Remuneration Disclosure</strong></td>
+          <td>Clear disclosure of total emoluments for all directors</td>
+          <td>Transparency allows shareholders to challenge excessive pay</td>
+        </tr>
+        <tr>
+          <td><strong>Short Contract Periods</strong></td>
+          <td>Directors' service contracts should aim for 1 year or less</td>
+          <td>Reduces "golden handshake" payments when poor-performing directors are removed</td>
+        </tr>
+        <tr>
+          <td><strong>Senior Independent NED</strong></td>
+          <td>One independent NED designated as champion for shareholders</td>
+          <td>Provides a direct channel for shareholders to raise concerns</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box box-key">
+    <div class="box-title">📌 Key Background — Why Governance Codes Were Created</div>
+    <p>The codes emerged after high-profile corporate scandals:</p>
+    <ul>
+      <li><strong>Maxwell Communications</strong> (1991) — Robert Maxwell stole from pension funds</li>
+      <li><strong>Enron</strong> (2001) — Off-balance-sheet fraud; collapsed overnight wiping out thousands of employees' savings</li>
+      <li><strong>WorldCom</strong> (2002) — $11bn accounting fraud</li>
+    </ul>
+    <p>Stock exchanges now <em>refer to</em> governance codes in listing requirements — though compliance is typically "comply or explain" rather than legally mandatory.</p>
+  </div>
+
+  <div class="box box-exam">
+    <div class="box-title">🎯 Exam Tip</div>
+    <p>Corporate governance is a Level 2 topic — you need to <em>apply</em> it to scenarios, not just recite requirements. If a question describes a company where the CEO is also Chairman, or where all directors have 5-year contracts, you should identify this as a governance weakness and explain the risks.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════ SECTION 7 ═══════════════════════ -->
+<section class="section" id="s7">
+  <div class="section-header">
+    <div class="section-number">A.4</div>
+    <h2>Financial & Other Objectives in Not-for-Profit Organisations</h2>
+  </div>
+
+  <div class="box box-definition">
+    <div class="box-title">📖 Definition</div>
+    <p>A <strong>Not-for-Profit Organisation (NFP/NPO)</strong> does not have profit maximisation or shareholder wealth as its primary objective. Instead, it aims to benefit prescribed groups of people (e.g. patients, students, the public).</p>
+    <p><strong>Examples:</strong> Hospitals, government agencies (like Dubai Health as a public authority), charities, universities, NGOs, central government departments.</p>
+  </div>
+
+  <h3>🌟 Why NFP Objectives are Different</h3>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Commercial Company</th>
+          <th>Not-for-Profit Organisation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Primary Objective</strong></td>
+          <td>Maximise shareholder wealth</td>
+          <td>Provide service / benefit society</td>
+        </tr>
+        <tr>
+          <td><strong>Performance Measure</strong></td>
+          <td>Profit, TSR, EPS, share price</td>
+          <td>Value for Money (VFM), 3 Es, service quality</td>
+        </tr>
+        <tr>
+          <td><strong>Stakeholders</strong></td>
+          <td>Relatively clear hierarchy (shareholders primary)</td>
+          <td>Wide range with complex, often conflicting interests</td>
+        </tr>
+        <tr>
+          <td><strong>Funding</strong></td>
+          <td>Revenue from customers, equity from shareholders</td>
+          <td>Grants, government funding, donations — often in tranches</td>
+        </tr>
+        <tr>
+          <td><strong>Objectives measurability</strong></td>
+          <td>Mostly financial — clear and quantifiable</td>
+          <td>Many are qualitative (e.g. "quality of patient care") — very hard to measure</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>💰 Value for Money (VFM) — The Core NFP Objective</h3>
+
+  <div class="box box-nfp">
+    <div class="box-title">🌿 Definition</div>
+    <p><strong>Value for Money</strong> = Achieving the desired level and quality of service at the most economical cost.</p>
+    <p>VFM is assessed using the <strong>Three Es framework</strong>:</p>
+  </div>
+
+  <div class="three-e-grid">
+    <div class="e-card ec">
+      <div class="e-letter">E</div>
+      <h4>Economy</h4>
+      <p>Acquiring resources of appropriate quality and quantity at the <strong>lowest cost</strong>. Not just cheapest — quality must be fit for purpose.</p>
+      <p style="margin-top:8px; font-size:14px; font-style:italic;">"Buying medical gloves at the lowest price that still meets safety standards"</p>
+    </div>
+    <div class="e-card ef">
+      <div class="e-letter">E</div>
+      <h4>Efficiency</h4>
+      <p>Maximising output from a given level of input, or minimising input to achieve required output.</p>
+      <p style="margin-top:8px; font-size:14px; font-style:italic;">"Treating more patients per doctor per day without reducing care quality"</p>
+    </div>
+    <div class="e-card ee">
+      <div class="e-letter">E</div>
+      <h4>Effectiveness</h4>
+      <p>Ensuring outputs actually achieve the predetermined objectives.</p>
+      <p style="margin-top:8px; font-size:14px; font-style:italic;">"A sports centre built cheaply and efficiently but located far from deprived communities fails on effectiveness"</p>
+    </div>
+  </div>
+
+  <div class="box box-example">
+    <div class="box-title">💡 Dubai Health Context — The 3 Es in Practice</div>
+    <p>Imagine Dubai Health wants to evaluate its outpatient clinic service:</p>
+    <ul>
+      <li><strong>Economy:</strong> Are medical supplies and staff being acquired at the best possible price without compromising quality standards?</li>
+      <li><strong>Efficiency:</strong> How many patients per hour does each doctor see? Is the admin system minimising the time to process appointments?</li>
+      <li><strong>Effectiveness:</strong> Is the clinic actually improving patient health outcomes? Are chronic disease patients returning for fewer emergency visits after attending the clinic?</li>
+    </ul>
+    <p>A clinic could score well on Economy (cheap) and Efficiency (fast) but fail on Effectiveness if patients aren't getting better — meaning VFM overall is poor.</p>
+  </div>
+
+  <h3>🔧 Efficiency: Two Types</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Definition</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Input-driven efficiency</strong></td>
+          <td>Maximise output from strictly limited resources (few income sources)</td>
+          <td>A library providing maximum opening hours with a fixed budget</td>
+        </tr>
+        <tr>
+          <td><strong>Output-driven efficiency</strong></td>
+          <td>Provide a required/statutory level of service at minimum cost</td>
+          <td>Prison service — must meet statutory obligations; goal is to do so cost-effectively</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>📏 Measuring Achievement in NFPs</h3>
+  <p>Since profits cannot be used as a performance measure, NFPs typically set <strong>quantitative and qualitative targets</strong> such as:</p>
+
+  <ul>
+    <li>Total grants/donations to be raised</li>
+    <li>Maximum % of income that fundraising costs can represent</li>
+    <li>Amounts to be spent on specific programmes or projects</li>
+    <li>Maximum permitted administration costs</li>
+    <li>Meeting agreed budgets</li>
+    <li>Breaking even in the long run (income ≥ expenditure)</li>
+  </ul>
+
+  <div class="box box-example">
+    <div class="box-title">💡 NFP Performance Measures — Hospital Example</div>
+    <p>A public hospital might use:</p>
+    <ul>
+      <li><strong>Economy:</strong> Cost per bed-night; drug procurement cost vs. benchmark</li>
+      <li><strong>Efficiency:</strong> Beds occupied per day (occupancy rate); average length of stay; operations per theatre per week</li>
+      <li><strong>Effectiveness:</strong> Patient satisfaction scores; re-admission rates within 30 days; infection rates; mortality rates vs. expected</li>
+    </ul>
+  </div>
+
+  <h3>⚡ Factors Making NFP Objectives More Complex</h3>
+  <ul>
+    <li><strong>Wide range of stakeholders</strong> — government funders, service users, staff, regulators, community — all with different priorities</li>
+    <li><strong>High stakeholder involvement</strong> — funders and sponsors often have their own conditions attached</li>
+    <li><strong>Little financial input from recipients</strong> — patients/students don't pay full cost, removing market price signals</li>
+    <li><strong>Funding in tranches</strong> — often project-based or annual grants, not stable commercial revenues</li>
+    <li><strong>Longer planning horizons</strong> — healthcare infrastructure takes decades</li>
+    <li><strong>Government influence</strong> — objectives may be determined politically rather than purely on merit</li>
+  </ul>
+
+  <div class="box box-exam">
+    <div class="box-title">🎯 Exam Tip — Syllabus A4(a)(b)(c) [Level 2]</div>
+    <p>NFP questions are popular in FM! Exam scenarios often describe a public sector body (hospital, council, charity) and ask you to:</p>
+    <ul>
+      <li>Explain VFM and how it applies to the scenario</li>
+      <li>Suggest appropriate performance measures (link to 3 Es)</li>
+      <li>Discuss why profit is not an appropriate objective for the organisation</li>
+      <li>Identify stakeholders and their conflicting objectives</li>
+    </ul>
+    <p>Practise with the college canteen example from TYU1 in your Study Text!</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════ SECTION 8 — PRACTICE ═══════════════════════ -->
+<section class="section" id="s8">
+  <div class="section-header">
+    <div class="section-number">✏️</div>
+    <h2>Practice Questions — Exam Style</h2>
+  </div>
+
+  <p>Work through these questions carefully. They are based on real exam question styles for Chapter 1. Click an option to see the answer.</p>
+
+  <!-- Q1 -->
+  <div class="quiz-card">
+    <div class="q-label">Question 1 — Level 1</div>
+    <p>Which of the following is NOT one of the three main types of decision facing the financial manager in a company?</p>
+    <ul class="quiz-options" id="q1">
+      <li onclick="answer(this,'q1','wrong','A')"><span class="opt-letter">A</span> Dividend decision</li>
+      <li onclick="answer(this,'q1','wrong','B')"><span class="opt-letter">B</span> Investment decision</li>
+      <li onclick="answer(this,'q1','correct','C')"><span class="opt-letter">C</span> Economic decision</li>
+      <li onclick="answer(this,'q1','wrong','D')"><span class="opt-letter">D</span> Financing decision</li>
+    </ul>
+    <div class="quiz-feedback" id="q1-fb-correct">✅ <strong>Correct! C — Economic decision.</strong> The three core financial management decisions are: Investment, Financing, and Dividend. The "economic decision" does not exist as a financial management category.</div>
+    <div class="quiz-feedback" id="q1-fb-wrong">❌ <strong>Incorrect.</strong> The answer is C — Economic decision. The three core financial management decisions are: (1) Investment, (2) Financing, and (3) Dividend. "Economic decision" is not one of them.</div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="quiz-card">
+    <div class="q-label">Question 2 — Level 2</div>
+    <p>The agency problem is a driving force behind the growing importance attached to sound corporate governance. In this context, the 'agents' are the:</p>
+    <ul class="quiz-options" id="q2">
+      <li onclick="answer(this,'q2','wrong','A')"><span class="opt-letter">A</span> Customers</li>
+      <li onclick="answer(this,'q2','wrong','B')"><span class="opt-letter">B</span> Shareholders</li>
+      <li onclick="answer(this,'q2','correct','C')"><span class="opt-letter">C</span> Managers</li>
+      <li onclick="answer(this,'q2','wrong','D')"><span class="opt-letter">D</span> Auditors</li>
+    </ul>
+    <div class="quiz-feedback" id="q2-fb-correct">✅ <strong>Correct! C — Managers.</strong> In the principal-agent relationship: Shareholders are the <em>principals</em> (they own the company and set objectives). Managers/Directors are the <em>agents</em> (hired to manage the company on behalf of principals). The agency problem arises because agents may act in their own interests.</div>
+    <div class="quiz-feedback" id="q2-fb-wrong">❌ <strong>Incorrect.</strong> The answer is C — Managers. Shareholders = principals; Managers = agents. This is the core of agency theory. Corporate governance codes aim to ensure managers (agents) act in shareholders' (principals') interests.</div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="quiz-card">
+    <div class="q-label">Question 3 — Level 2</div>
+    <p>Which of the following is an example of a FINANCIAL objective that a company might choose to pursue?</p>
+    <ul class="quiz-options" id="q3">
+      <li onclick="answer(this,'q3','wrong','A')"><span class="opt-letter">A</span> Provision of good wages and salaries</li>
+      <li onclick="answer(this,'q3','wrong','B')"><span class="opt-letter">B</span> Dealing honestly and fairly with customers on all occasions</li>
+      <li onclick="answer(this,'q3','wrong','C')"><span class="opt-letter">C</span> Producing environmentally friendly products</li>
+      <li onclick="answer(this,'q3','correct','D')"><span class="opt-letter">D</span> Restricting the level of gearing to below a specified target level</li>
+    </ul>
+    <div class="quiz-feedback" id="q3-fb-correct">✅ <strong>Correct! D — Restricting gearing below a target level.</strong> This is a quantifiable financial target relating to capital structure. Options A, B, and C are non-financial (social/ethical/HR) objectives — they cannot be directly expressed as a financial number.</div>
+    <div class="quiz-feedback" id="q3-fb-wrong">❌ <strong>Incorrect.</strong> The answer is D. "Restricting gearing to below a target level" is measurable in financial terms and relates to capital structure. Good wages, honest dealings, and environmental products are important but are <em>non-financial</em> objectives (commercial/ethical in nature).</div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="quiz-card">
+    <div class="q-label">Question 4 — Level 2 (NFP)</div>
+    <p>In the context of managing performance in 'not-for-profit' organisations, which of the following definitions is INCORRECT?</p>
+    <ul class="quiz-options" id="q4">
+      <li onclick="answer(this,'q4','wrong','A')"><span class="opt-letter">A</span> Value for money means providing a service in a way which is economical, efficient and effective</li>
+      <li onclick="answer(this,'q4','wrong','B')"><span class="opt-letter">B</span> Economy means doing things cheaply: not spending $2 when the same thing can be bought for $1</li>
+      <li onclick="answer(this,'q4','correct','C')"><span class="opt-letter">C</span> Efficiency means doing things quickly: minimising the amount of time that is spent on a given activity</li>
+      <li onclick="answer(this,'q4','wrong','D')"><span class="opt-letter">D</span> Effectiveness means doing the right things: spending funds so as to achieve the organisation's objectives</li>
+    </ul>
+    <div class="quiz-feedback" id="q4-fb-correct">✅ <strong>Correct! C is INCORRECT.</strong> Efficiency does NOT mean "doing things quickly." It means maximising output for a given input (or minimising input for a required output). Speed alone is not the measure — what matters is the ratio of outputs to inputs. A fast but wasteful process is not efficient.</div>
+    <div class="quiz-feedback" id="q4-fb-wrong">❌ <strong>Incorrect.</strong> The answer is C. "Doing things quickly" is wrong as a definition of efficiency. Efficiency = maximising useful output for a given level of input (or minimising input to produce a required output). Speed is not the criterion — resource utilisation is.</div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="quiz-card">
+    <div class="q-label">Question 5 — Level 2 (Agency)</div>
+    <p>A growing company with cash flow problems currently uses an EPS-based bonus scheme. Which of the following BEST describes a weakness of this scheme in this context?</p>
+    <ul class="quiz-options" id="q5">
+      <li onclick="answer(this,'q5','wrong','A')"><span class="opt-letter">A</span> EPS growth is too difficult to calculate for most managers to understand</li>
+      <li onclick="answer(this,'q5','correct','B')"><span class="opt-letter">B</span> EPS rewards accounting profit, which may lead managers to prioritise short-term earnings over investment needed for long-term growth, worsening cash flow</li>
+      <li onclick="answer(this,'q5','wrong','C')"><span class="opt-letter">C</span> EPS bonuses require regulatory approval from the stock exchange</li>
+      <li onclick="answer(this,'q5','wrong','D')"><span class="opt-letter">D</span> EPS growth always leads to a reduction in the share price</li>
+    </ul>
+    <div class="quiz-feedback" id="q5-fb-correct">✅ <strong>Correct! B.</strong> EPS is an <em>accounting</em> measure (profit-based, not cash-based). In a fast-growing company with cash flow problems, managers incentivised by EPS may cut investment or capital expenditure to boost reported earnings — this makes the cash flow problem worse and damages long-term shareholder wealth. A better scheme might link bonuses to cash flow generation or EVA.</div>
+    <div class="quiz-feedback" id="q5-fb-wrong">❌ <strong>Incorrect.</strong> The answer is B. EPS is an accounting measure. In a high-growth company with cash flow pressures, managers chasing EPS bonuses may cut investment or hoard cash in ways that damage future growth. The scheme creates a misalignment between short-term accounting profit (EPS) and long-term shareholder value creation.</div>
+  </div>
+
+</section>
+
+<!-- ═══════════════════════ CHAPTER SUMMARY ═══════════════════════ -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-number">📝</div>
+    <h2>Chapter 1 — Key Points Summary</h2>
+  </div>
+
+  <div class="summary-grid">
+    <div class="summary-card">
+      <div class="sc-icon">🎯</div>
+      <h4>FM Core Purpose</h4>
+      <p>Efficient acquisition & deployment of financial resources to achieve objectives. Three decisions: Investment, Financing, Dividend.</p>
+    </div>
+    <div class="summary-card">
+      <div class="sc-icon">📈</div>
+      <h4>Primary Objective</h4>
+      <p>Maximise shareholder wealth (TSR = dividend + capital gain). Superior to profit maximisation — includes time, risk, cash.</p>
+    </div>
+    <div class="summary-card">
+      <div class="sc-icon">👥</div>
+      <h4>Stakeholders</h4>
+      <p>Internal (managers, employees), Connected (shareholders, lenders, customers), External (government, community). Conflicts must be managed.</p>
+    </div>
+    <div class="summary-card">
+      <div class="sc-icon">⚖️</div>
+      <h4>Agency Theory</h4>
+      <p>Shareholders (principal) vs. Managers (agent). Solved through: reward schemes (ESOP, EVA-linked) and corporate governance codes.</p>
+    </div>
+    <div class="summary-card">
+      <div class="sc-icon">📏</div>
+      <h4>Measurement</h4>
+      <p>Ratio analysis: Profitability (ROCE), Gearing, Liquidity, Investor (EPS, TSR, P/E). Detailed in Chapter 19.</p>
+    </div>
+    <div class="summary-card">
+      <div class="sc-icon">🏥</div>
+      <h4>Not-for-Profit</h4>
+      <p>Primary goal: benefit society. No profit measure → use VFM / 3 Es: Economy, Efficiency, Effectiveness.</p>
+    </div>
+  </div>
+
+  <div class="box box-exam">
+    <div class="box-title">🏆 Chapter 1 Exam Weight & Approach</div>
+    <p>Chapter 1 (Syllabus Section A) typically appears in <strong>Section A MCQs</strong> (OT questions worth 2 marks each) and occasionally as part of a <strong>Section B scenario question</strong>. The NFP element (Value for Money / 3 Es) is particularly popular in scenario-based questions. Master the definitions and be able to apply them to unfamiliar contexts.</p>
+    <p>Intellectual levels: Most topics are at <strong>Level 2 (Application)</strong> — you need to do more than just define; you must apply to scenarios.</p>
+  </div>
+
+</section>
+
+</div><!-- /container -->
+
+<footer class="page-footer">
+  <strong>ACCA FM — Chapter A1: The Financial Management Function</strong><br>
+  Based on ACCA Syllabus &amp; Study Guide September 2026 – June 2027 · Kaplan Study Text Jun-26<br>
+  Prepared for September 2026 Examination Window
+</footer>
+
+<script>
+function answer(el, qId, result, opt) {
+  // Prevent re-answering
+  const container = document.getElementById(qId);
+  if (container.dataset.answered) return;
+  container.dataset.answered = 'true';
+
+  const items = container.querySelectorAll('li');
+  items.forEach(li => {
+    li.style.pointerEvents = 'none';
+    if (li === el) {
+      li.classList.add(result);
+    }
+    // Reveal correct answer even if wrong was chosen
+    const optLetter = li.querySelector('.opt-letter').textContent;
+    // Mark correct on reveal
+  });
+
+  const correctFb = document.getElementById(qId + '-fb-correct');
+  const wrongFb = document.getElementById(qId + '-fb-wrong');
+
+  if (result === 'correct') {
+    correctFb.classList.add('show', 'correct');
+  } else {
+    wrongFb.classList.add('show', 'wrong');
+    // Also highlight the correct option
+    items.forEach(li => {
+      if (!li.classList.contains('wrong')) {
+        // Find correct option by checking data on click - just highlight the chosen wrong one
+      }
+    });
+  }
+}
+</script>
+
+</body>
+</html>
