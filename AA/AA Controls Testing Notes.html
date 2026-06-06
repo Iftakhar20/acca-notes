@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AA Study Notes – Controls Testing</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e1117;
+    --surface: #161b27;
+    --surface2: #1e2535;
+    --border: #2a3348;
+    --accent1: #4f8ef7;
+    --accent2: #f7c84f;
+    --accent3: #4fdb9a;
+    --accent4: #f7614f;
+    --text: #e4eaf7;
+    --text-muted: #8899bb;
+    --heading: #ffffff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ---- HERO ---- */
+  .hero {
+    background: linear-gradient(135deg, #0d1b3e 0%, #0e1117 60%, #0a2018 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 52px 48px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -60px; right: -60px;
+    width: 360px; height: 360px;
+    background: radial-gradient(circle, rgba(79,142,247,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: var(--accent3);
+    letter-spacing: 3px; text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px; color: var(--heading);
+    line-height: 1.1; margin-bottom: 10px;
+  }
+  .hero h1 span { color: var(--accent1); }
+  .hero-sub {
+    color: var(--text-muted); font-size: 14px;
+    max-width: 620px; margin-top: 8px;
+  }
+  .badge-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+  .badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; padding: 4px 12px;
+    border-radius: 20px; font-weight: 600;
+    letter-spacing: 1px;
+  }
+  .badge-blue  { background: rgba(79,142,247,0.15); color: var(--accent1); border: 1px solid rgba(79,142,247,0.3); }
+  .badge-gold  { background: rgba(247,200,79,0.12); color: var(--accent2); border: 1px solid rgba(247,200,79,0.3); }
+  .badge-green { background: rgba(79,219,154,0.12); color: var(--accent3); border: 1px solid rgba(79,219,154,0.3); }
+
+  /* ---- LAYOUT ---- */
+  .toc-sidebar {
+    position: sticky; top: 0;
+    width: 240px; min-width: 240px;
+    height: 100vh; overflow-y: auto;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    padding: 28px 0;
+  }
+  .toc-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; color: var(--text-muted);
+    letter-spacing: 3px; text-transform: uppercase;
+    padding: 0 22px 14px;
+    border-bottom: 1px solid var(--border); margin-bottom: 12px;
+  }
+  .toc-item {
+    display: block; padding: 7px 22px;
+    color: var(--text-muted); font-size: 13px;
+    text-decoration: none; border-left: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  .toc-item:hover { color: var(--accent1); border-left-color: var(--accent1); background: rgba(79,142,247,0.06); }
+  .toc-item.sub { padding-left: 36px; font-size: 12px; }
+  .toc-num { color: var(--accent2); font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-right: 6px; }
+
+  .main-layout { display: flex; }
+  .content { flex: 1; padding: 0 52px 80px; max-width: calc(100% - 240px); }
+
+  /* ---- SECTIONS ---- */
+  .section { padding-top: 52px; }
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: var(--accent1);
+    letter-spacing: 3px; text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; color: var(--heading);
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  h3 {
+    font-size: 16px; font-weight: 700;
+    color: var(--accent2); margin: 24px 0 10px;
+    font-family: 'Source Sans 3', sans-serif;
+    text-transform: uppercase; letter-spacing: 1px;
+    font-size: 13px;
+  }
+  p { margin-bottom: 12px; }
+
+  /* ---- CALLOUT BOXES ---- */
+  .callout {
+    border-radius: 8px; padding: 18px 22px;
+    margin: 18px 0; border-left: 3px solid;
+  }
+  .callout-blue  { background: rgba(79,142,247,0.08); border-color: var(--accent1); }
+  .callout-gold  { background: rgba(247,200,79,0.08); border-color: var(--accent2); }
+  .callout-green { background: rgba(79,219,154,0.08); border-color: var(--accent3); }
+  .callout-red   { background: rgba(247,97,79,0.08);  border-color: var(--accent4); }
+  .callout-title {
+    font-weight: 700; font-size: 12px;
+    letter-spacing: 2px; text-transform: uppercase;
+    margin-bottom: 8px; font-family: 'JetBrains Mono', monospace;
+  }
+  .callout-blue  .callout-title { color: var(--accent1); }
+  .callout-gold  .callout-title { color: var(--accent2); }
+  .callout-green .callout-title { color: var(--accent3); }
+  .callout-red   .callout-title { color: var(--accent4); }
+
+  /* ---- DEFINITION CARD ---- */
+  .def-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 18px 0; }
+  .def-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px; padding: 18px;
+    border-top: 2px solid var(--accent1);
+  }
+  .def-card.gold-top  { border-top-color: var(--accent2); }
+  .def-card.green-top { border-top-color: var(--accent3); }
+  .def-card.red-top   { border-top-color: var(--accent4); }
+  .def-card h4 {
+    font-size: 13px; font-weight: 700;
+    color: var(--heading); margin-bottom: 8px;
+    text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .def-card p { font-size: 13px; color: var(--text-muted); margin: 0; }
+
+  /* ---- TABLE ---- */
+  table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 13px; }
+  thead tr { background: var(--surface2); }
+  th {
+    text-align: left; padding: 10px 14px;
+    color: var(--accent1); font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 1px;
+    border-bottom: 2px solid var(--accent1);
+  }
+  td { padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:hover td { background: rgba(79,142,247,0.04); }
+  .tag {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; padding: 2px 8px;
+    border-radius: 4px; font-weight: 600;
+    margin-right: 4px;
+  }
+  .tag-auto   { background: rgba(79,219,154,0.15); color: var(--accent3); }
+  .tag-manual { background: rgba(247,200,79,0.15); color: var(--accent2); }
+  .tag-prev   { background: rgba(247,97,79,0.15);  color: var(--accent4); }
+  .tag-detect { background: rgba(79,142,247,0.15); color: var(--accent1); }
+
+  /* ---- PROCESS FLOW ---- */
+  .flow { display: flex; gap: 0; margin: 20px 0; flex-wrap: wrap; }
+  .flow-step {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 6px; padding: 14px 16px;
+    flex: 1; min-width: 140px; position: relative;
+    font-size: 13px;
+  }
+  .flow-step::after {
+    content: '→';
+    position: absolute; right: -16px; top: 50%; transform: translateY(-50%);
+    color: var(--accent1); font-size: 18px; z-index: 1;
+  }
+  .flow-step:last-child::after { display: none; }
+  .flow-step-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; color: var(--accent2);
+    margin-bottom: 4px;
+  }
+  .flow-step-title { font-weight: 700; color: var(--heading); font-size: 13px; }
+  .flow-step p { color: var(--text-muted); font-size: 12px; margin-top: 4px; margin-bottom: 0; }
+
+  /* ---- EXAMPLE BOX ---- */
+  .example {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 8px; margin: 20px 0; overflow: hidden;
+  }
+  .example-header {
+    background: linear-gradient(90deg, rgba(79,142,247,0.15), transparent);
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--border);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: var(--accent1);
+    letter-spacing: 2px; text-transform: uppercase;
+  }
+  .example-body { padding: 18px 20px; }
+
+  /* ---- BULLET LIST ---- */
+  ul.notes-list { padding-left: 0; list-style: none; margin: 10px 0 16px; }
+  ul.notes-list li {
+    padding: 5px 0 5px 22px; position: relative;
+    font-size: 14px; color: var(--text);
+    border-bottom: 1px solid rgba(42,51,72,0.5);
+  }
+  ul.notes-list li:last-child { border-bottom: none; }
+  ul.notes-list li::before {
+    content: '▸'; position: absolute; left: 0;
+    color: var(--accent1); font-size: 11px; top: 7px;
+  }
+  ul.notes-list.gold li::before { color: var(--accent2); }
+  ul.notes-list.green li::before { color: var(--accent3); }
+  ul.notes-list.red li::before { color: var(--accent4); }
+
+  /* ---- IMPORTANT HIGHLIGHT ---- */
+  .highlight { color: var(--accent2); font-weight: 700; }
+  .highlight-green { color: var(--accent3); font-weight: 700; }
+  .highlight-blue  { color: var(--accent1); font-weight: 700; }
+  .highlight-red   { color: var(--accent4); font-weight: 700; }
+
+  /* ---- DIVIDER ---- */
+  hr { border: none; border-top: 1px solid var(--border); margin: 36px 0; }
+
+  /* ---- PETRA SCENARIO BOX ---- */
+  .scenario {
+    background: linear-gradient(135deg, rgba(79,142,247,0.06), rgba(79,219,154,0.04));
+    border: 1px solid var(--border);
+    border-radius: 10px; padding: 22px 26px; margin: 20px 0;
+  }
+  .scenario-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; color: var(--heading); margin-bottom: 14px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .scenario-title::before {
+    content: '📋';
+    font-size: 20px;
+  }
+
+  /* ---- TOC SCROLL STYLING ---- */
+  .toc-sidebar::-webkit-scrollbar { width: 4px; }
+  .toc-sidebar::-webkit-scrollbar-track { background: transparent; }
+  .toc-sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 900px) {
+    .toc-sidebar { display: none; }
+    .content { max-width: 100%; padding: 0 24px 60px; }
+    .def-grid { grid-template-columns: 1fr; }
+    .hero { padding: 36px 24px 28px; }
+    .hero h1 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">ACCA AA · Study Notes</div>
+  <h1>Controls Testing &amp;<br><span>Control Objectives</span></h1>
+  <p class="hero-sub">A complete teacher-style guide to understanding internal controls, control objectives, direct controls, tests of control, and control deficiencies — everything you need before attempting Question 222 Petra.</p>
+  <div class="badge-row">
+    <span class="badge badge-blue">AA Syllabus Area C &amp; D</span>
+    <span class="badge badge-gold">Systems &amp; Controls</span>
+    <span class="badge badge-green">June 2026 Exam</span>
+  </div>
+</div>
+
+<div class="main-layout">
+
+  <!-- SIDEBAR TOC -->
+  <nav class="toc-sidebar">
+    <div class="toc-title">Contents</div>
+    <a class="toc-item" href="#s1"><span class="toc-num">01</span>Big Picture</a>
+    <a class="toc-item" href="#s2"><span class="toc-num">02</span>Control Objectives</a>
+    <a class="toc-item sub" href="#s2a">What Are They?</a>
+    <a class="toc-item sub" href="#s2b">The ACCA Formula</a>
+    <a class="toc-item sub" href="#s2c">By System Type</a>
+    <a class="toc-item" href="#s3"><span class="toc-num">03</span>Types of Controls</a>
+    <a class="toc-item sub" href="#s3a">Preventive vs Detective</a>
+    <a class="toc-item sub" href="#s3b">Manual vs Automated</a>
+    <a class="toc-item sub" href="#s3c">IT General Controls</a>
+    <a class="toc-item" href="#s4"><span class="toc-num">04</span>Direct Controls</a>
+    <a class="toc-item sub" href="#s4a">What Makes One "Direct"</a>
+    <a class="toc-item sub" href="#s4b">Payroll Examples</a>
+    <a class="toc-item sub" href="#s4c">Sales Examples</a>
+    <a class="toc-item" href="#s5"><span class="toc-num">05</span>Tests of Control</a>
+    <a class="toc-item sub" href="#s5a">What the Auditor Does</a>
+    <a class="toc-item sub" href="#s5b">Techniques</a>
+    <a class="toc-item sub" href="#s5c">The Direct Control–Test Link</a>
+    <a class="toc-item" href="#s6"><span class="toc-num">06</span>Control Deficiencies</a>
+    <a class="toc-item sub" href="#s6a">Spotting Deficiencies</a>
+    <a class="toc-item sub" href="#s6b">Common Patterns</a>
+    <a class="toc-item sub" href="#s6c">Recommendations</a>
+    <a class="toc-item" href="#s7"><span class="toc-num">07</span>Substantive Procedures</a>
+    <a class="toc-item" href="#s8"><span class="toc-num">08</span>Key Exam Techniques</a>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+
+    <!-- SECTION 1: BIG PICTURE -->
+    <section class="section" id="s1">
+      <div class="section-num">Section 01</div>
+      <h2>The Big Picture — Why Controls Matter to an Auditor</h2>
+
+      <p>Think of a company like a factory. Products go in, products come out. But without rules and checks in place, things go wrong — errors creep in, fraud happens, and money disappears. These rules and checks are called <span class="highlight">internal controls</span>.</p>
+
+      <p>As an auditor, you don't just check the final numbers. You first look at the <em>system</em> that produces those numbers. If the system has good controls, you can place reliance on it and do less detailed checking of individual transactions. If the system is weak, you do more detailed testing (substantive procedures).</p>
+
+      <div class="callout callout-blue">
+        <div class="callout-title">🎯 The Auditor's Journey</div>
+        <div class="flow">
+          <div class="flow-step">
+            <div class="flow-step-num">STEP 1</div>
+            <div class="flow-step-title">Understand the System</div>
+            <p>Walk through the client's processes (payroll, sales, purchases).</p>
+          </div>
+          <div class="flow-step">
+            <div class="flow-step-num">STEP 2</div>
+            <div class="flow-step-title">Identify Controls</div>
+            <p>Find the key direct controls in place.</p>
+          </div>
+          <div class="flow-step">
+            <div class="flow-step-num">STEP 3</div>
+            <div class="flow-step-title">Test Controls</div>
+            <p>Check if those controls are actually working (tests of control).</p>
+          </div>
+          <div class="flow-step">
+            <div class="flow-step-num">STEP 4</div>
+            <div class="flow-step-title">Spot Weaknesses</div>
+            <p>Identify deficiencies and report to management.</p>
+          </div>
+        </div>
+      </div>
+
+      <p>This entire process is called <span class="highlight">controls testing</span>, and it sits at the heart of your AA exam. Now let's build up each piece.</p>
+    </section>
+
+    <hr>
+
+    <!-- SECTION 2: CONTROL OBJECTIVES -->
+    <section class="section" id="s2">
+      <div class="section-num">Section 02</div>
+      <h2>Control Objectives</h2>
+
+      <h3 id="s2a">What Are Control Objectives?</h3>
+      <p>A <span class="highlight">control objective</span> is simply the <em>goal or purpose</em> that a system of controls is trying to achieve. It answers the question: <strong>"What are we trying to prevent going wrong here?"</strong></p>
+
+      <div class="callout callout-gold">
+        <div class="callout-title">💡 Simple Analogy</div>
+        <p>Imagine you run a coffee shop. Your control objective for cash is: <em>"Ensure all cash received from customers is accurately recorded and banked."</em> Your control to achieve this might be a till that issues receipts and a manager who counts the till at the end of each day. The <strong>objective</strong> is the goal. The <strong>control</strong> is the mechanism to achieve it.</p>
+      </div>
+
+      <h3 id="s2b">The ACCA Formula for Writing Control Objectives</h3>
+      <p>In the exam, control objectives are written in a standard way. They always follow this pattern:</p>
+
+      <div class="example">
+        <div class="example-header">The Formula</div>
+        <div class="example-body">
+          <p><span class="highlight-blue">[Action word]</span> + <span class="highlight">[what you are protecting / ensuring]</span> + <span class="highlight-green">[the risk you are preventing]</span></p>
+          <br>
+          <p><strong>Example for a sales system:</strong></p>
+          <p>"To ensure that all <span class="highlight-blue">goods dispatched</span> are <span class="highlight">invoiced to customers</span> — preventing <span class="highlight-green">revenue being understated</span>."</p>
+          <br>
+          <p>"To ensure that <span class="highlight-blue">only valid, authorised orders</span> are accepted — preventing <span class="highlight-green">sales to customers who cannot pay</span>."</p>
+        </div>
+      </div>
+
+      <p>Notice the language: <strong>"To ensure that..."</strong> or <strong>"To prevent..."</strong> — these are classic exam sentence starters. The objective is always outcome-focused, not process-focused.</p>
+
+      <div class="callout callout-red">
+        <div class="callout-title">⚠️ Common Mistake</div>
+        <p>Students often confuse a control objective with a control procedure. <span class="highlight-red">A control objective is the GOAL.</span> A control procedure is the mechanism. <br><br>
+        ❌ Wrong as a control objective: <em>"The supervisor checks the payslips."</em> — this is a control, not an objective.<br>
+        ✅ Correct control objective: <em>"To ensure that gross-to-net pay calculations are accurate and complete."</em></p>
+      </div>
+
+      <h3 id="s2c">Control Objectives by System</h3>
+      <p>The ACCA exam tests the same types of systems again and again. Here are the standard control objectives for each:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>System</th>
+            <th>Control Objective</th>
+            <th>Risk Being Prevented</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Sales</strong></td>
+            <td>All orders are from authorised, credit-checked customers</td>
+            <td>Bad debts / sales to fraudulent customers</td>
+          </tr>
+          <tr>
+            <td><strong>Sales</strong></td>
+            <td>All goods despatched are invoiced</td>
+            <td>Revenue understatement</td>
+          </tr>
+          <tr>
+            <td><strong>Sales</strong></td>
+            <td>Invoices are accurately stated at correct prices and quantities</td>
+            <td>Revenue over/understatement</td>
+          </tr>
+          <tr>
+            <td><strong>Sales</strong></td>
+            <td>Discounts are only granted within authorised limits</td>
+            <td>Unauthorised reduction in revenue</td>
+          </tr>
+          <tr>
+            <td><strong>Sales</strong></td>
+            <td>All credit limits are set and enforced appropriately</td>
+            <td>Irrecoverable debts</td>
+          </tr>
+          <tr>
+            <td><strong>Payroll</strong></td>
+            <td>Only bona fide employees are on the payroll</td>
+            <td>Ghost employees / fraud</td>
+          </tr>
+          <tr>
+            <td><strong>Payroll</strong></td>
+            <td>Pay calculations are accurate and complete</td>
+            <td>Over/underpayment of wages</td>
+          </tr>
+          <tr>
+            <td><strong>Payroll</strong></td>
+            <td>Wage rates are updated only with authorisation</td>
+            <td>Unauthorised pay increases</td>
+          </tr>
+          <tr>
+            <td><strong>Payroll</strong></td>
+            <td>Cash pay packets contain the correct amount</td>
+            <td>Theft / misappropriation of wages</td>
+          </tr>
+          <tr>
+            <td><strong>Purchases</strong></td>
+            <td>Purchases are only made from authorised, approved suppliers</td>
+            <td>Fictitious suppliers / fraud</td>
+          </tr>
+          <tr>
+            <td><strong>Purchases</strong></td>
+            <td>All goods received are recorded in full</td>
+            <td>Liabilities being understated</td>
+          </tr>
+          <tr>
+            <td><strong>Purchases</strong></td>
+            <td>Invoices are only processed for goods/services actually received</td>
+            <td>Fictitious purchases</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <hr>
+
+    <!-- SECTION 3: TYPES OF CONTROLS -->
+    <section class="section" id="s3">
+      <div class="section-num">Section 03</div>
+      <h2>Types of Controls</h2>
+
+      <h3 id="s3a">Preventive vs Detective Controls</h3>
+      <p>This is one of the most tested distinctions in the AA exam.</p>
+
+      <div class="def-grid">
+        <div class="def-card">
+          <h4>🛡️ Preventive Control</h4>
+          <p>Stops an error or fraud from happening <strong>in the first place</strong>. Like a seatbelt — it prevents harm before it occurs.</p>
+        </div>
+        <div class="def-card red-top">
+          <h4>🔍 Detective Control</h4>
+          <p>Identifies that an error or fraud <strong>has already happened</strong>. Like a smoke alarm — it tells you something has gone wrong after the fact.</p>
+        </div>
+        <div class="def-card gold-top">
+          <h4>🔑 Example — Preventive</h4>
+          <p>A credit check before accepting a new customer <strong>prevents</strong> selling goods to someone who can't pay.</p>
+        </div>
+        <div class="def-card green-top">
+          <h4>🔑 Example — Detective</h4>
+          <p>A monthly aged receivables review <strong>detects</strong> overdue balances that already exist on the ledger.</p>
+        </div>
+      </div>
+
+      <h3 id="s3b">Manual vs Automated Controls</h3>
+      <p>Controls can also be performed by people or by computer systems.</p>
+
+      <table>
+        <thead><tr><th>Type</th><th>Description</th><th>Example</th><th>Strength</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="tag tag-manual">Manual</span></td>
+            <td>Performed by a human</td>
+            <td>Supervisor signing a payroll listing</td>
+            <td>Flexible, uses judgement; but prone to human error</td>
+          </tr>
+          <tr>
+            <td><span class="tag tag-auto">Automated</span></td>
+            <td>Performed by the IT system</td>
+            <td>System calculating gross-to-net pay automatically</td>
+            <td>Consistent, no human error; but only as good as the programming</td>
+          </tr>
+          <tr>
+            <td><span class="tag tag-detect">IT-dependent Manual</span></td>
+            <td>Human uses system-generated output to perform a check</td>
+            <td>Supervisor reviews a system-generated payroll report</td>
+            <td>Combines both — relies on system integrity AND human judgement</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 id="s3c">IT General Controls (ITGCs)</h3>
+      <p>These are broad controls over the entire IT environment. They don't directly prevent individual transaction errors, but they <em>support</em> all other automated controls. If ITGCs are weak, you cannot rely on automated controls.</p>
+
+      <ul class="notes-list">
+        <li><strong>Access controls</strong> — Who can access the system? (Passwords, user permissions)</li>
+        <li><strong>Change management</strong> — Controls over changes to programs and data</li>
+        <li><strong>Data backup and recovery</strong> — Ensuring data isn't lost</li>
+        <li><strong>Physical security</strong> — Protecting servers and hardware</li>
+      </ul>
+    </section>
+
+    <hr>
+
+    <!-- SECTION 4: DIRECT CONTROLS -->
+    <section class="section" id="s4">
+      <div class="section-num">Section 04</div>
+      <h2>Direct Controls</h2>
+
+      <h3 id="s4a">What Makes a Control "Direct"?</h3>
+      <p>A <span class="highlight">direct control</span> is one that <strong>directly addresses a specific control objective</strong>. It is the mechanism that, if working properly, achieves the goal described in the control objective.</p>
+
+      <div class="callout callout-green">
+        <div class="callout-title">📌 Key Point</div>
+        <p>In the exam, when asked for "direct controls," you must link each control to the specific risk or objective it addresses. A control is only "direct" in relation to a specific assertion or risk. The same control might not be relevant to a different risk.</p>
+      </div>
+
+      <p>Think of it as a lock-and-key relationship:</p>
+      <ul class="notes-list">
+        <li><strong>Risk / Objective</strong> = the lock (what needs to be secured)</li>
+        <li><strong>Direct Control</strong> = the key (the mechanism that achieves security for that specific risk)</li>
+      </ul>
+
+      <h3 id="s4b">Payroll Direct Controls — Using Petra as a Guide</h3>
+      <p>The Petra Co payroll scenario gives us several real examples. Let's break them down:</p>
+
+      <div class="example">
+        <div class="example-header">Example: Payroll System — Petra Co</div>
+        <div class="example-body">
+          <table>
+            <thead><tr><th>What Happens in Petra</th><th>The Direct Control</th><th>Objective Achieved</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>Clock card system linked to payroll; security supervises entry/exit</td>
+                <td><span class="tag tag-auto">Automated</span> Clock cards linked to payroll system ensure hours worked = hours paid</td>
+                <td>Employees are only paid for hours actually worked</td>
+              </tr>
+              <tr>
+                <td>Payroll supervisor selects sample, reperforms gross-to-net calculations, signs payslips</td>
+                <td><span class="tag tag-manual">Manual</span> Supervisory review and reperformance of pay calculations</td>
+                <td>Pay calculations are accurate and errors are detected before payment</td>
+              </tr>
+              <tr>
+                <td>Revised pay rates entered by clerk; <strong>checked by senior clerk before processing</strong></td>
+                <td><span class="tag tag-manual">Manual</span> Senior clerk review and sign-off of revised pay rates on payroll listing</td>
+                <td>Unauthorised or incorrect pay rate changes are prevented</td>
+              </tr>
+              <tr>
+                <td>Two members prepare and re-count cash pay packets; both sign the weekly payroll listing</td>
+                <td><span class="tag tag-manual">Manual</span> Segregation of duties — separate preparation and verification of cash packets</td>
+                <td>Cash pay packets contain correct amounts; prevents misappropriation</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="callout callout-gold">
+        <div class="callout-title">💡 How to Write a Direct Control in the Exam</div>
+        <p>Always include: <strong>WHO does WHAT, WHEN, and WHAT evidence is produced.</strong><br><br>
+        ❌ Weak answer: <em>"The supervisor checks the payslips."</em><br>
+        ✅ Strong answer: <em>"The payroll supervisor selects a sample of payslips, reperforms the gross-to-net pay calculations, investigates any discrepancies, and signs the payslips as evidence of their review."</em></p>
+      </div>
+
+      <h3 id="s4c">Sales System Direct Controls — Petra Examples</h3>
+
+      <table>
+        <thead><tr><th>What Happens in Petra</th><th>The Direct Control</th><th>Objective Achieved</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Credit checks for all new customers before set-up</td>
+            <td><span class="tag tag-prev">Preventive</span> Credit check procedure before a new customer is accepted</td>
+            <td>Only creditworthy customers are accepted; bad debt risk reduced</td>
+          </tr>
+          <tr>
+            <td>Finance director sets credit limits; only reviewed on request</td>
+            <td><span class="tag tag-manual">Manual</span> FD authorisation of credit limits</td>
+            <td>Credit limits are appropriately set by a senior, responsible person</td>
+          </tr>
+          <tr>
+            <td>Sales staff check credit limit and inventory before completing order form</td>
+            <td><span class="tag tag-prev">Preventive</span> Pre-order checks against credit limit and inventory</td>
+            <td>Orders are only placed if the customer is within limit and goods are available</td>
+          </tr>
+          <tr>
+            <td>Three-part pre-printed, sequentially numbered order forms</td>
+            <td><span class="tag tag-auto">Automated</span> Sequential pre-printing ensures completeness</td>
+            <td>All orders are captured; no order is processed without documentation</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <hr>
+
+    <!-- SECTION 5: TESTS OF CONTROL -->
+    <section class="section" id="s5">
+      <div class="section-num">Section 05</div>
+      <h2>Tests of Control (ToC)</h2>
+
+      <h3 id="s5a">What Does the Auditor Actually Do?</h3>
+      <p>A test of control answers the question: <strong>"Is this control actually working in practice?"</strong></p>
+      <p>Just because a company has a control doesn't mean it's being applied properly. The auditor needs evidence. Tests of control gather that evidence.</p>
+
+      <div class="callout callout-blue">
+        <div class="callout-title">📌 ISA 330 Reminder</div>
+        <p>Under ISA 330 (Auditor's Responses to Assessed Risks), the auditor should perform tests of control when: (1) the risk assessment relies on controls operating effectively, or (2) substantive procedures alone cannot provide sufficient evidence at the assertion level.</p>
+      </div>
+
+      <h3 id="s5b">The Four Testing Techniques</h3>
+
+      <div class="def-grid">
+        <div class="def-card">
+          <h4>1. Inspection</h4>
+          <p>Look at documents for evidence the control took place — signatures, authorisation stamps, tick marks, dates.</p>
+        </div>
+        <div class="def-card gold-top">
+          <h4>2. Observation</h4>
+          <p>Watch the control being performed in real time. Useful for controls that leave no paper trail (e.g., watching cash packets being counted).</p>
+        </div>
+        <div class="def-card green-top">
+          <h4>3. Re-performance</h4>
+          <p>The auditor independently repeats the control themselves — e.g., recalculates payroll to verify the supervisor's check was correct.</p>
+        </div>
+        <div class="def-card red-top">
+          <h4>4. Enquiry</h4>
+          <p>Ask the client how the control works. But remember: enquiry alone is NEVER sufficient — it must be corroborated by another method.</p>
+        </div>
+      </div>
+
+      <h3 id="s5c">The Direct Control → Test of Control Link</h3>
+      <p>In the exam, when you identify a direct control, you must <strong>design a test that directly tests that specific control</strong>. The test must verify that the control was: (a) carried out, and (b) effective.</p>
+
+      <div class="example">
+        <div class="example-header">Full Worked Examples — Payroll Direct Controls &amp; Tests</div>
+        <div class="example-body">
+          <table>
+            <thead><tr><th>Direct Control</th><th>Test of Control</th><th>Technique Used</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>Payroll supervisor reperforms gross-to-net calculations and <strong>signs payslips</strong> as evidence</td>
+                <td>For a sample of payslips, inspect for the supervisor's signature confirming review was performed. Reperform the gross-to-net calculation and compare to payslip amounts to verify accuracy.</td>
+                <td><span class="tag tag-detect">Inspection</span> <span class="tag tag-auto">Re-performance</span></td>
+              </tr>
+              <tr>
+                <td>Senior clerk reviews revised pay rates and <strong>signs the payroll listing</strong></td>
+                <td>Inspect the payroll listing for the period of the pay rate change and confirm the senior clerk's signature is present. Agree the revised rates on the listing to the authorised communication received from HR/management.</td>
+                <td><span class="tag tag-detect">Inspection</span></td>
+              </tr>
+              <tr>
+                <td>Two staff prepare and re-count cash packets; both sign the weekly payroll listing</td>
+                <td>For a sample of weekly payroll listings, inspect for the signatures of both members of staff, confirming the segregation of duties was observed.</td>
+                <td><span class="tag tag-detect">Inspection</span></td>
+              </tr>
+              <tr>
+                <td>Clock card system automatically records hours worked; used to calculate pay</td>
+                <td>For a sample of employees, agree the hours on clock card records to the hours used in the payroll calculation to confirm the system linkage is operating correctly.</td>
+                <td><span class="tag tag-detect">Inspection</span> <span class="tag tag-auto">Re-performance</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="callout callout-gold">
+        <div class="callout-title">💡 Exam Technique — How to Write a Test of Control</div>
+        <p>Your test must always answer three things:<br>
+        <strong>(1) What will you look at?</strong> (e.g., payslips, payroll listing, GRNs)<br>
+        <strong>(2) How will you select it?</strong> (e.g., "for a sample of...")<br>
+        <strong>(3) What are you checking for?</strong> (e.g., signature present, amounts agree, sequence complete)</p>
+        <br>
+        <p>❌ Weak: <em>"Check the payroll."</em><br>
+        ✅ Strong: <em>"For a sample of weekly payroll listings, inspect for the signatures of both members of staff responsible for preparing and re-counting the cash pay packets."</em></p>
+      </div>
+
+      <div class="callout callout-green">
+        <div class="callout-title">📌 Don't Confuse Test of Control with Substantive Procedure</div>
+        <p>A <strong>test of control</strong> checks whether a CONTROL worked. A <strong>substantive procedure</strong> checks whether the underlying FIGURE is correct.<br><br>
+        Test of control: <em>"Inspect payslip for supervisor's signature."</em><br>
+        Substantive procedure: <em>"Reperform the payroll calculation for a sample of employees and agree to the amount paid."</em><br><br>
+        The exam often asks for one or the other — read the question carefully!</p>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- SECTION 6: CONTROL DEFICIENCIES -->
+    <section class="section" id="s6">
+      <div class="section-num">Section 06</div>
+      <h2>Control Deficiencies</h2>
+
+      <h3 id="s6a">How to Spot a Deficiency</h3>
+      <p>A <span class="highlight">control deficiency</span> exists when a control is absent, inadequate, or is not operating effectively. When reading a scenario, ask yourself: <strong>"What could go wrong here that no one would catch?"</strong> Where you find no control (or a weak one), there is a deficiency.</p>
+
+      <div class="callout callout-red">
+        <div class="callout-title">🔍 The Deficiency Detection Checklist</div>
+        <p>When reading a scenario, look for these red flags:</p>
+        <ul class="notes-list red" style="margin-top:10px">
+          <li><strong>No segregation of duties</strong> — one person does everything from start to finish with no check</li>
+          <li><strong>No authorisation</strong> — things happen without approval from an appropriate person</li>
+          <li><strong>No independent check / review</strong> — no one verifies what another person has done</li>
+          <li><strong>No sequence check</strong> — documents aren't numbered, so gaps can't be identified</li>
+          <li><strong>Over-broad access</strong> — too many people can access/change sensitive records</li>
+          <li><strong>No periodic review</strong> — standing data (credit limits, pay rates, supplier files) is never revisited</li>
+          <li><strong>Discretion without oversight</strong> — employees can make decisions (e.g., discounts) with no review</li>
+        </ul>
+      </div>
+
+      <h3 id="s6b">Common Deficiency Patterns — Tested in AA</h3>
+
+      <table>
+        <thead><tr><th>Area</th><th>Deficiency</th><th>Why It's a Problem</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Sales</td>
+            <td>Credit limits are only reviewed when the customer requests an increase</td>
+            <td>Credit limits may become outdated; no proactive monitoring of customer risk; irrecoverable debts may arise undetected</td>
+          </tr>
+          <tr>
+            <td>Sales</td>
+            <td>Sales staff can grant discounts up to 8% with <strong>no review undertaken</strong></td>
+            <td>Discounts may be given to friends/family, or used as kickbacks; revenue is understated and no one would know</td>
+          </tr>
+          <tr>
+            <td>Purchases</td>
+            <td>All members of the purchasing department have <strong>full access</strong> to the supplier master file</td>
+            <td>Any employee could set up a fictitious supplier and authorise payments — classic fraud risk</td>
+          </tr>
+          <tr>
+            <td>Purchases</td>
+            <td>GRNs filed in warehouse but not matched to purchase invoices before payment</td>
+            <td>Invoices could be paid for goods never received; no 3-way match</td>
+          </tr>
+          <tr>
+            <td>Payroll</td>
+            <td>Pay rates entered by a clerk with no independent authorisation prior to change</td>
+            <td>Unauthorised rate increases could be entered; overpayment would go undetected</td>
+          </tr>
+          <tr>
+            <td>General</td>
+            <td>One person both initiates and approves a transaction</td>
+            <td>No segregation of duties — fraud risk high; errors cannot be caught</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 id="s6c">Recommendations — How to Write Them</h3>
+      <p>For every deficiency, you need a <strong>practical recommendation</strong>. The recommendation should directly fix the specific deficiency identified. It should be realistic and specific to the company's context.</p>
+
+      <div class="example">
+        <div class="example-header">Deficiency → Recommendation Examples</div>
+        <div class="example-body">
+          <table>
+            <thead><tr><th>Deficiency</th><th>Recommendation</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>Sales staff grant discounts up to 8% with no review</td>
+                <td>A regular review (e.g., monthly) of all discounts granted should be performed by the sales manager or finance director. A report of all discounts given should be generated from the system and reviewed for unusual patterns.</td>
+              </tr>
+              <tr>
+                <td>Credit limits only reviewed on customer request</td>
+                <td>Credit limits should be reviewed periodically (e.g., annually) for all customers, or more frequently for customers with large balances or overdue accounts. The finance director should sign off all limit reviews.</td>
+              </tr>
+              <tr>
+                <td>All purchasing staff have full access to supplier master file</td>
+                <td>Access to the supplier master file should be restricted to a designated administrator only — no one who also raises or approves purchase orders. Any changes to the file should require a second authorisation from a senior manager.</td>
+              </tr>
+              <tr>
+                <td>GRNs filed in warehouse without being matched to invoices</td>
+                <td>A three-way matching process should be implemented: purchase order, GRN, and supplier invoice must all be matched before payment is authorised. Payables ledger clerks should perform this match and only process invoices where all three documents agree.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- SECTION 7: SUBSTANTIVE PROCEDURES -->
+    <section class="section" id="s7">
+      <div class="section-num">Section 07</div>
+      <h2>Substantive Procedures — Purchases &amp; Expenses</h2>
+      <p>Even when controls are good, the auditor must perform <span class="highlight">substantive procedures</span> — these directly verify the figures in the financial statements. For purchases and other expenses, the auditor is checking that:</p>
+      <ul class="notes-list">
+        <li>Expenses are <strong>complete</strong> — all liabilities are recorded</li>
+        <li>Expenses are <strong>accurate</strong> — the amounts are correct</li>
+        <li>Expenses are <strong>valid/occurrence</strong> — they relate to real business transactions</li>
+        <li>Expenses are <strong>cut-off</strong> — recorded in the right period</li>
+        <li>Expenses are correctly <strong>classified</strong> — shown in the right line of the accounts</li>
+      </ul>
+
+      <div class="example">
+        <div class="example-header">Standard Substantive Procedures for Purchases &amp; Expenses</div>
+        <div class="example-body">
+          <table>
+            <thead><tr><th>Procedure</th><th>Assertion Tested</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>Obtain a schedule of purchases/expenses and cast (add up) to agree to the trial balance</td>
+                <td>Completeness, Accuracy</td>
+              </tr>
+              <tr>
+                <td>For a sample of purchase invoices, agree the amount per invoice to the payables ledger entry</td>
+                <td>Accuracy, Occurrence</td>
+              </tr>
+              <tr>
+                <td>For a sample of GRNs, trace to the corresponding purchase invoice and payables ledger — confirm all goods received have been recorded as a liability</td>
+                <td>Completeness</td>
+              </tr>
+              <tr>
+                <td>For a sample of purchase invoices, inspect to confirm they are authorised by an appropriate manager</td>
+                <td>Occurrence, Authorisation</td>
+              </tr>
+              <tr>
+                <td>Test cut-off: review invoices received just before and just after year end; confirm recorded in the correct period</td>
+                <td>Cut-off</td>
+              </tr>
+              <tr>
+                <td>Review for any unusual or one-off expenses; obtain explanation from management and inspect supporting documentation</td>
+                <td>Occurrence, Accuracy</td>
+              </tr>
+              <tr>
+                <td>Obtain a schedule of accruals; agree to supporting documentation (e.g., invoices received after year end for services in the period)</td>
+                <td>Completeness, Accuracy</td>
+              </tr>
+              <tr>
+                <td>Compare expense categories as a percentage of revenue to prior year and investigate significant variances (analytical procedure)</td>
+                <td>Completeness, Accuracy</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- SECTION 8: EXAM TECHNIQUE -->
+    <section class="section" id="s8">
+      <div class="section-num">Section 08</div>
+      <h2>Key Exam Techniques for Questions Like Petra</h2>
+
+      <div class="callout callout-blue">
+        <div class="callout-title">Part (a) — List Control Objectives</div>
+        <p>You need <strong>4 distinct objectives</strong> for the sales system. Each should be one clear sentence starting with <em>"To ensure that..."</em> or <em>"To prevent..."</em>. Cover the whole cycle: order → credit check → dispatch → invoicing → collection. Avoid repeating the same idea in different words.</p>
+      </div>
+
+      <div class="callout callout-gold">
+        <div class="callout-title">Part (b) — Direct Controls &amp; Tests of Control (Payroll)</div>
+        <p>The question asks for <strong>3 direct controls</strong> and <strong>a test of control for each</strong>. The marks are split equally — 1 mark per direct control, 1 mark per test = 6 marks total.<br><br>
+        For each control: <strong>describe clearly what the control does</strong> and why it is relevant.<br>
+        For each test: <strong>say what document you inspect, how you select the sample, and what you verify</strong>.</p>
+      </div>
+
+      <div class="callout callout-green">
+        <div class="callout-title">Part (c) — 5 Deficiencies + 5 Recommendations (Sales &amp; Purchases)</div>
+        <p>10 marks split equally = 1 mark per deficiency + 1 mark per recommendation. Cover both systems — don't just focus on one.<br><br>
+        For deficiencies: <strong>describe what is missing AND explain why it is a problem</strong> (what risk arises).<br>
+        For recommendations: <strong>be specific and practical</strong> — don't just say "implement controls."</p>
+      </div>
+
+      <div class="callout callout-red">
+        <div class="callout-title">Part (d) — Substantive Procedures for Purchases</div>
+        <p>4 marks. Write 4 clear, distinct procedures. Each procedure should state: <strong>what you obtain / select → what you agree it to → what you are verifying</strong>. Use the word "obtain," "inspect," "agree," "cast," "review," "trace."</p>
+      </div>
+
+      <hr>
+
+      <h3>A Final Word on Answering Style</h3>
+      <div class="scenario">
+        <div class="scenario-title">The Golden Rule for AA Written Questions</div>
+        <p>Always <strong>relate your answer back to the scenario</strong>. Generic textbook answers score poorly. If the question is about Petra Co's payroll system, your answer must reference <em>clock cards</em>, <em>cash pay packets</em>, <em>payroll supervisor</em>, etc. The examiner is testing whether you can <em>apply</em> your knowledge, not just recall it.</p>
+        <br>
+        <p>Use the facts in the scenario as your anchor — <strong>every point you make should connect to something specific mentioned about Petra Co</strong>.</p>
+      </div>
+
+      <div class="callout callout-gold">
+        <div class="callout-title">🏁 You're Ready</div>
+        <p>Go back to Question 222 and read the scenario carefully. For each part, use the frameworks from these notes. Remember: the scenario contains all the information you need — your job is to <strong>spot the clues, apply the concepts, and write in clear, specific language</strong>. Good luck!</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+</body>
+</html>

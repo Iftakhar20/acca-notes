@@ -1,0 +1,2220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ACCA AA – Audit Reports | Complete Tutorial</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0f2c4e;
+      --royal: #1a4b8c;
+      --sky: #2d7dd2;
+      --ice: #d6e9ff;
+      --pale: #eef5ff;
+      --white: #ffffff;
+      --mist: #f4f8ff;
+      --slate: #5b7a9e;
+      --text: #1c2e42;
+      --subtext: #4a6080;
+      --green: #1a7a4a;
+      --green-bg: #e8f7ef;
+      --red: #b03030;
+      --red-bg: #fdeaea;
+      --amber: #7a5200;
+      --amber-bg: #fff4d6;
+      --purple: #5a2d7a;
+      --purple-bg: #f2eaff;
+      --teal: #0e6b6b;
+      --teal-bg: #e2f6f6;
+      --border: #c8daf5;
+      --shadow: rgba(26, 75, 140, 0.10);
+      --max-width: 980px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Sora', sans-serif;
+      background: var(--mist);
+      color: var(--text);
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    /* ── TOP BANNER ── */
+    .top-banner {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--royal) 60%, var(--sky) 100%);
+      color: white;
+      padding: 44px 32px 36px;
+      text-align: center;
+    }
+
+    .top-banner .pill {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 5px 16px;
+      margin-bottom: 16px;
+    }
+
+    .top-banner h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .top-banner p {
+      color: var(--ice);
+      font-size: 1.05rem;
+      opacity: 0.87;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* ── TOC ── */
+    .toc-wrapper {
+      max-width: var(--max-width);
+      margin: 32px auto 0;
+      padding: 0 24px;
+    }
+
+    .toc {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 32px;
+      box-shadow: 0 2px 12px var(--shadow);
+    }
+
+    .toc h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--royal);
+      margin-bottom: 16px;
+    }
+
+    .toc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 32px;
+    }
+
+    .toc a {
+      color: var(--sky);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 0;
+    }
+
+    .toc a:hover {
+      color: var(--navy);
+    }
+
+    .toc-num {
+      background: var(--ice);
+      color: var(--royal);
+      border-radius: 50%;
+      width: 22px;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ── MAIN CONTENT ── */
+    .content {
+      max-width: var(--max-width);
+      margin: 32px auto 60px;
+      padding: 0 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    /* ── SECTION CARD ── */
+    .card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 14px var(--shadow);
+    }
+
+    .card-header {
+      background: linear-gradient(90deg, var(--royal) 0%, var(--sky) 100%);
+      color: white;
+      padding: 18px 28px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .section-num {
+      background: rgba(255, 255, 255, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      letter-spacing: 0.5px;
+      flex-shrink: 0;
+    }
+
+    .card-header h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .card-body {
+      padding: 28px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* ── TYPOGRAPHY ── */
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--ice);
+    }
+
+    h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--royal);
+      margin-bottom: 8px;
+      margin-top: 4px;
+    }
+
+    p {
+      font-size: 0.97rem;
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    ul,
+    ol {
+      padding-left: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    li {
+      font-size: 0.97rem;
+      line-height: 1.7;
+    }
+
+    li strong {
+      color: var(--navy);
+    }
+
+    /* ── CALLOUT BOXES ── */
+    .callout {
+      border-radius: 10px;
+      padding: 16px 20px;
+      font-size: 0.95rem;
+      line-height: 1.75;
+    }
+
+    .callout-label {
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .callout.info {
+      background: var(--pale);
+      border-left: 4px solid var(--sky);
+      color: var(--text);
+    }
+
+    .callout.info .callout-label {
+      color: var(--sky);
+    }
+
+    .callout.success {
+      background: var(--green-bg);
+      border-left: 4px solid var(--green);
+      color: var(--text);
+    }
+
+    .callout.success .callout-label {
+      color: var(--green);
+    }
+
+    .callout.warning {
+      background: var(--amber-bg);
+      border-left: 4px solid #c87800;
+      color: var(--text);
+    }
+
+    .callout.warning .callout-label {
+      color: var(--amber);
+    }
+
+    .callout.danger {
+      background: var(--red-bg);
+      border-left: 4px solid var(--red);
+      color: var(--text);
+    }
+
+    .callout.danger .callout-label {
+      color: var(--red);
+    }
+
+    .callout.purple {
+      background: var(--purple-bg);
+      border-left: 4px solid var(--purple);
+      color: var(--text);
+    }
+
+    .callout.purple .callout-label {
+      color: var(--purple);
+    }
+
+    .callout.teal {
+      background: var(--teal-bg);
+      border-left: 4px solid var(--teal);
+      color: var(--text);
+    }
+
+    .callout.teal .callout-label {
+      color: var(--teal);
+    }
+
+    /* ── DECISION TABLE ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    thead th {
+      background: var(--royal);
+      color: white;
+      padding: 12px 16px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.88rem;
+    }
+
+    tbody tr:nth-child(even) {
+      background: var(--mist);
+    }
+
+    tbody tr:nth-child(odd) {
+      background: white;
+    }
+
+    td {
+      padding: 11px 16px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.65;
+    }
+
+    td:first-child {
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .badge {
+      display: inline-block;
+      border-radius: 20px;
+      padding: 2px 12px;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .badge-green {
+      background: var(--green-bg);
+      color: var(--green);
+    }
+
+    .badge-amber {
+      background: var(--amber-bg);
+      color: var(--amber);
+    }
+
+    .badge-red {
+      background: var(--red-bg);
+      color: var(--red);
+    }
+
+    .badge-purple {
+      background: var(--purple-bg);
+      color: var(--purple);
+    }
+
+    .badge-sky {
+      background: var(--ice);
+      color: var(--royal);
+    }
+
+    .badge-navy {
+      background: var(--navy);
+      color: white;
+    }
+
+    /* ── EXAMPLE BLOCKS ── */
+    .example {
+      background: var(--pale);
+      border: 1px solid var(--ice);
+      border-radius: 10px;
+      padding: 18px 22px;
+    }
+
+    .example-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 10px;
+    }
+
+    .example p,
+    .example li {
+      font-size: 0.95rem;
+    }
+
+    /* ── EXAM Q BLOCKS ── */
+    .exam-q {
+      background: white;
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .exam-q-header {
+      background: var(--navy);
+      color: white;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .exam-q-body {
+      padding: 18px 20px;
+      font-size: 0.95rem;
+      background: #f8fbff;
+    }
+
+    .exam-q-body p {
+      margin-bottom: 8px;
+    }
+
+    .answer-toggle {
+      margin-top: 12px;
+      display: inline-block;
+      background: var(--royal);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 18px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s;
+    }
+
+    .answer-toggle:hover {
+      background: var(--navy);
+    }
+
+    .answer-box {
+      display: none;
+      margin-top: 14px;
+      background: var(--green-bg);
+      border: 1px solid #a8d8bf;
+      border-radius: 8px;
+      padding: 16px 18px;
+      font-size: 0.93rem;
+    }
+
+    .answer-box.open {
+      display: block;
+    }
+
+    .answer-box strong {
+      color: var(--green);
+    }
+
+    /* ── REPORT STRUCTURE ── */
+    .report-element {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 12px 0;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    .report-element:last-child {
+      border-bottom: none;
+    }
+
+    .re-num {
+      background: var(--royal);
+      color: white;
+      border-radius: 6px;
+      padding: 3px 10px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .re-content h4 {
+      margin-bottom: 4px;
+      margin-top: 0;
+    }
+
+    .re-content p {
+      font-size: 0.93rem;
+    }
+
+    /* ── DECISION FLOWCHART ── */
+    .flow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      padding: 8px 0;
+    }
+
+    .flow-node {
+      border-radius: 10px;
+      padding: 12px 24px;
+      font-size: 0.93rem;
+      font-weight: 600;
+      text-align: center;
+      max-width: 420px;
+      width: 100%;
+      position: relative;
+    }
+
+    .flow-node.question {
+      background: var(--royal);
+      color: white;
+      border-radius: 6px;
+    }
+
+    .flow-node.outcome-green {
+      background: var(--green-bg);
+      color: var(--green);
+      border: 2px solid var(--green);
+    }
+
+    .flow-node.outcome-amber {
+      background: var(--amber-bg);
+      color: #7a4a00;
+      border: 2px solid #c87800;
+    }
+
+    .flow-node.outcome-red {
+      background: var(--red-bg);
+      color: var(--red);
+      border: 2px solid var(--red);
+    }
+
+    .flow-node.outcome-purple {
+      background: var(--purple-bg);
+      color: var(--purple);
+      border: 2px solid var(--purple);
+    }
+
+    .flow-arrow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    .flow-arrow-line {
+      width: 2px;
+      height: 18px;
+      background: var(--slate);
+    }
+
+    .flow-arrow-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--slate);
+      letter-spacing: 0.5px;
+    }
+
+    .flow-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 20px;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+
+    .flow-branch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .flow-branch-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--slate);
+      margin-bottom: 4px;
+    }
+
+    /* ── COLUMNS ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .col-box {
+      border-radius: 10px;
+      padding: 16px 18px;
+      border: 1px solid var(--border);
+    }
+
+    .col-box h4 {
+      margin-bottom: 8px;
+    }
+
+    .col-box ul {
+      padding-left: 18px;
+    }
+
+    /* ── ISA REFERENCE ── */
+    .isa-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--navy);
+      color: white;
+      border-radius: 5px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px 10px;
+      margin-right: 6px;
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
+    /* ── KEY POINT STRIP ── */
+    .key-strip {
+      background: linear-gradient(90deg, var(--navy), var(--royal));
+      color: white;
+      border-radius: 10px;
+      padding: 14px 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .key-strip-icon {
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    /* ── SECTION ANCHOR ── */
+    .section-anchor {
+      scroll-margin-top: 20px;
+    }
+
+    /* ── QUICK REFERENCE TABLE ── */
+    .qr-table td:nth-child(1) {
+      width: 22%;
+    }
+
+    .qr-table td:nth-child(2) {
+      width: 20%;
+    }
+
+    .qr-table td:nth-child(3) {
+      width: 30%;
+    }
+
+    .qr-table td:nth-child(4) {
+      width: 28%;
+    }
+
+    @media (max-width: 700px) {
+      .toc-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .card-body {
+        padding: 20px 18px;
+      }
+
+      .top-banner h1 {
+        font-size: 1.9rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- BANNER -->
+  <div class="top-banner">
+    <div class="pill">ACCA AA · June 2026</div>
+    <h1>Audit Reports</h1>
+    <p>Complete exam-focused tutorial — from structure to opinions, going concern, KAMs, and every question type you'll
+      face</p>
+  </div>
+
+  <!-- TABLE OF CONTENTS -->
+  <div class="toc-wrapper">
+    <div class="toc">
+      <h2>📋 Contents</h2>
+      <div class="toc-grid">
+        <a href="#s1"><span class="toc-num">1</span>Why Audit Reports Matter</a>
+        <a href="#s2"><span class="toc-num">2</span>Structure of the Auditor's Report</a>
+        <a href="#s3"><span class="toc-num">3</span>Unmodified Opinion</a>
+        <a href="#s4"><span class="toc-num">4</span>Modified Opinions (ISA 705)</a>
+        <a href="#s5"><span class="toc-num">5</span>The Decision Framework</a>
+        <a href="#s6"><span class="toc-num">6</span>Going Concern & Reporting (ISA 570)</a>
+        <a href="#s7"><span class="toc-num">7</span>Emphasis of Matter & Other Matter</a>
+        <a href="#s8"><span class="toc-num">8</span>Key Audit Matters (ISA 701)</a>
+        <a href="#s9"><span class="toc-num">9</span>Other Information (ISA 720)</a>
+        <a href="#s10"><span class="toc-num">10</span>The Complete Decision Map</a>
+        <a href="#s11"><span class="toc-num">11</span>Worked Exam Scenarios</a>
+        <a href="#s12"><span class="toc-num">12</span>Quick Reference & Exam Tips</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="content">
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 1 – WHY IT MATTERS                -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="card section-anchor" id="s1">
+      <div class="card-header">
+        <span class="section-num">01</span>
+        <h2>Why Audit Reports Matter — The Big Picture</h2>
+      </div>
+      <div class="card-body">
+        <p>The auditor's report is the <strong>final product of the entire audit</strong>. Everything we do — risk
+          assessment, evidence gathering, sampling — feeds into this one document. Users of financial statements (banks,
+          investors, regulators) read it to decide whether they can trust the accounts.</p>
+
+        <div class="callout info">
+          <div class="callout-label">Core Concept</div>
+          The auditor's job is to express an opinion on whether the financial statements give a <strong>true and fair
+            view</strong> (or are presented fairly in all material respects) in accordance with the applicable financial
+          reporting framework.
+        </div>
+
+        <h3>The Key ISAs for This Topic</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>ISA</th>
+              <th>Topic</th>
+              <th>What it covers</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="isa-tag">ISA 700</span></td>
+              <td>Forming and Expressing an Opinion</td>
+              <td>Content and structure of the auditor's report; conditions for unmodified opinion</td>
+            </tr>
+            <tr>
+              <td><span class="isa-tag">ISA 705</span></td>
+              <td>Modifications to the Opinion</td>
+              <td>Qualified, Adverse, Disclaimer — when and why</td>
+            </tr>
+            <tr>
+              <td><span class="isa-tag">ISA 706</span></td>
+              <td>Emphasis of Matter &amp; Other Matter Paragraphs</td>
+              <td>Additional communications within unmodified reports</td>
+            </tr>
+            <tr>
+              <td><span class="isa-tag">ISA 570</span></td>
+              <td>Going Concern</td>
+              <td>Auditor's responsibilities; impact on report when issues arise</td>
+            </tr>
+            <tr>
+              <td><span class="isa-tag">ISA 701</span></td>
+              <td>Key Audit Matters</td>
+              <td>Communication of KAMs for listed entities</td>
+            </tr>
+            <tr>
+              <td><span class="isa-tag">ISA 720</span></td>
+              <td>Other Information</td>
+              <td>Auditor's responsibility for information in annual reports outside the FS</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 2 – STRUCTURE                     -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="card section-anchor" id="s2">
+      <div class="card-header">
+        <span class="section-num">02</span>
+        <h2>Structure of the Auditor's Report (ISA 700)</h2>
+      </div>
+      <div class="card-body">
+
+        <div class="callout warning">
+          <div class="callout-label">⚠️ Exam Alert</div>
+          Questions ask you to match <strong>elements to their purpose</strong> (Q179 in the Kaplan kit) or identify
+          what should/shouldn't be included. Learn all elements and their purpose precisely.
+        </div>
+
+        <h3>Required Elements — Know All of These</h3>
+
+        <div class="report-element">
+          <span class="re-num">1</span>
+          <div class="re-content">
+            <h4>Title</h4>
+            <p>Must clearly state "Independent Auditor's Report" — confirms independence from the entity and identifies
+              the document type.</p>
+          </div>
+        </div>
+        <div class="report-element">
+          <span class="re-num">2</span>
+          <div class="re-content">
+            <h4>Addressee</h4>
+            <p>Identifies <em>who</em> the report is directed to (typically shareholders or members). Defines the
+              intended users and limits liability exposure.</p>
+          </div>
+        </div>
+        <div class="report-element">
+          <span class="re-num">3</span>
+          <div class="re-content">
+            <h4>Auditor's Opinion</h4>
+            <p>The core conclusion — states whether the financial statements give a true and fair view. Uses specific
+              wording depending on opinion type.</p>
+          </div>
+        </div>
+        <div class="report-element">
+          <span class="re-num">4</span>
+          <div class="re-content">
+            <h4>Basis for Opinion</h4>
+            <p>Describes the professional standards applied (ISAs), confirms independence, and confirms sufficient
+              appropriate evidence was obtained. This gives users confidence the report can be relied upon.</p>
+          </div>
+        </div>
+        <div class="report-element">
+          <span class="re-num">5</span>
+          <div class="re-content">
+            <h4>Material Uncertainty Related to Going Concern (if applicable)</h4>
+            <p>Required when there is a material uncertainty about going concern that is adequately disclosed in the
+              financial statements. Appears separately from the opinion.</p>
+          </div>
+        </div>
+        <div class="report-element">
+          <span class="re-num">6</span>
+          <div class="re-content">
+            <h4>Key Audit Matters (listed entities only)</h4>
+            <p>Communicates the most significant matters from the audit. Draws attention to significant matters
+              discussed with those charged with governance. Required by ISA 701 for listed company audits.</p>
+          </div>
+        </div>
+        <div class="report-element">
+          <span class="re-num">7</span>
+          <div class="re-content">
+            <h4>Other Information</h4>
+            <p>Describes the auditor's responsibilities regarding other information in the annual report (e.g. chair's
+              statement). The auditor reads it but does not audit it.</p>
+          </div>
+        </div>
+        <div class="report-element">
+          <span class="re-num">8</span>
+          <div class="re-content">
+            <h4>Responsibilities of Management</h4>
+            <p>Explains that management (directors) are responsible for preparing the financial statements and for
+              internal control.</p>
+          </div>
+        </div>
+        <div class="report-element">
+          <span class="re-num">9</span>
+          <div class="re-content">
+            <h4>Auditor's Responsibilities</h4>
+            <p>Describes what the auditor does — obtain reasonable assurance, apply professional judgement, assess
+              risks, etc.</p>
+          </div>
+        </div>
+        <div class="report-element">
+          <span class="re-num">10</span>
+          <div class="re-content">
+            <h4>Name of Engagement Partner</h4>
+            <p>Identifies the individual responsible for the audit opinion — allows users to know who to contact with
+              queries and increases accountability.</p>
+          </div>
+        </div>
+        <div class="report-element">
+          <span class="re-num">11</span>
+          <div class="re-content">
+            <h4>Auditor's Signature, Address &amp; Date</h4>
+            <p>The date is critical — it indicates the point up to which subsequent events procedures were performed.
+              The report cannot be dated before the financial statements are approved.</p>
+          </div>
+        </div>
+
+        <div class="callout success">
+          <div class="callout-label">✅ Exam Tip — Q179 type question</div>
+          Know these matchings: <strong>Title → "Clearly identifies as Independent Auditor's Report"</strong> |
+          <strong>Addressee → "Identifies intended user"</strong> | <strong>Basis for Opinion → "Describes professional
+            standards applied; confidence in reliability"</strong> | <strong>KAMs → "Significant matters discussed with
+            those charged with governance"</strong> | <strong>Engagement partner name → "Person responsible for the
+            opinion"</strong>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 3 – UNMODIFIED OPINION            -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="card section-anchor" id="s3">
+      <div class="card-header">
+        <span class="section-num">03</span>
+        <h2>The Unmodified Opinion — "Clean" Report</h2>
+      </div>
+      <div class="card-body">
+
+        <p>An <strong>unmodified opinion</strong> is the best possible outcome. It means the auditor is satisfied that
+          the financial statements give a true and fair view. This is what most audits conclude with.</p>
+
+        <div class="callout success">
+          <div class="callout-label">✅ Conditions for Unmodified Opinion</div>
+          <ul>
+            <li>The financial statements are prepared in accordance with the applicable financial reporting framework
+              (e.g. IFRS)</li>
+            <li>No material misstatements exist (or any identified have been corrected by management)</li>
+            <li>The auditor has obtained sufficient appropriate audit evidence</li>
+          </ul>
+        </div>
+
+        <h3>The Exact Wording — Learn This</h3>
+        <div class="example">
+          <div class="example-label">Unmodified Opinion Wording</div>
+          <p
+            style="font-family: 'Lora', serif; font-style: italic; color: var(--navy); font-size: 1rem; line-height: 1.9;">
+            "In our opinion, the financial statements give a <strong>true and fair view</strong> of the financial
+            position of [Entity] as at [Date] and of its financial performance and cash flows for the year then ended in
+            accordance with [IFRS / applicable framework]."
+          </p>
+        </div>
+
+        <h3>Important: What Doesn't Modify the Opinion</h3>
+        <p>Several additional elements can appear in a report WITHOUT modifying the opinion:</p>
+        <ul>
+          <li>Material Uncertainty Related to Going Concern section</li>
+          <li>Emphasis of Matter paragraph</li>
+          <li>Other Matter paragraph</li>
+          <li>Key Audit Matters section</li>
+          <li>Other Information section</li>
+        </ul>
+        <p style="margin-top: 8px;">These are <em>additional communications</em>, not modifications. The opinion
+          paragraph itself still says "true and fair view."</p>
+
+        <div class="callout warning">
+          <div class="callout-label">⚠️ Common Exam Trap</div>
+          Students confuse "unmodified with going concern section" with a "modified opinion." They are different. The
+          <strong>opinion paragraph</strong> is only modified when the auditor issues a Qualified, Adverse, or
+          Disclaimer opinion.
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 4 – MODIFIED OPINIONS             -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="card section-anchor" id="s4">
+      <div class="card-header">
+        <span class="section-num">04</span>
+        <h2>Modified Opinions (ISA 705) — The Three Types</h2>
+      </div>
+      <div class="card-body">
+
+        <p>A modification to the opinion is needed in one of two circumstances:</p>
+        <div class="two-col">
+          <div class="col-box" style="background:var(--red-bg); border-color:#e0b0b0;">
+            <h4 style="color:var(--red);">Circumstance A: Material Misstatement</h4>
+            <p>The auditor has obtained sufficient evidence but concludes the financial statements ARE materially
+              misstated (management has refused to correct).</p>
+          </div>
+          <div class="col-box" style="background:var(--amber-bg); border-color:#e0cc80;">
+            <h4 style="color:var(--amber);">Circumstance B: Inability to Obtain Evidence</h4>
+            <p>The auditor cannot obtain sufficient appropriate evidence — for whatever reason — and therefore cannot
+              conclude whether the statements are free from material misstatement.</p>
+          </div>
+        </div>
+
+        <h3 style="margin-top: 8px;">The Three Modified Opinions — Key Differences</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Opinion Type</th>
+              <th>Cause</th>
+              <th>Nature of Issue</th>
+              <th>Wording Used</th>
+              <th>Report Section Changed</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="badge badge-amber">Qualified</span></td>
+              <td>Material misstatement OR inability to obtain evidence</td>
+              <td><strong>Material but NOT pervasive</strong> — affects specific areas only</td>
+              <td>"Except for…"</td>
+              <td>Basis for Qualified Opinion + Opinion</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-red">Adverse</span></td>
+              <td>Material misstatement only</td>
+              <td><strong>Material AND pervasive</strong> — affects the statements as a whole</td>
+              <td>"Do not give a true and fair view"</td>
+              <td>Basis for Adverse Opinion + Opinion</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-purple">Disclaimer</span></td>
+              <td>Inability to obtain evidence only</td>
+              <td><strong>Material AND pervasive</strong> — potential effect is so significant auditor cannot form any
+                opinion</td>
+              <td>"Do not express an opinion"</td>
+              <td>Basis for Disclaimer + Opinion (no opinion)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Understanding "Pervasive" — This is the Key Decision</h3>
+        <p>Pervasive means the effects are not limited to a specific element — they affect many parts of the financial
+          statements, or represent a substantial proportion. Think of it as: would someone reading the financials be
+          fundamentally misled about the company as a whole?</p>
+
+        <div class="two-col">
+          <div class="col-box" style="background:var(--amber-bg);">
+            <h4 style="color:var(--amber);">Material but NOT Pervasive → Qualified</h4>
+            <ul>
+              <li>One specific balance is wrong (e.g. inventory overstated by 6% of profit)</li>
+              <li>One audit area has no evidence (e.g. can't verify opening stock)</li>
+              <li>The rest of the financial statements are fine</li>
+            </ul>
+          </div>
+          <div class="col-box" style="background:var(--red-bg);">
+            <h4 style="color:var(--red);">Material AND Pervasive → Adverse or Disclaimer</h4>
+            <ul>
+              <li>Error is enormous relative to the financial statements (e.g. 86% of profit)</li>
+              <li>Affects multiple interconnected areas throughout the statements</li>
+              <li>If unable to evidence — the entire audit basis is undermined</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>The Wording Matrix — Memorise This</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Opinion</th>
+              <th>Exact wording used</th>
+              <th>What it means to a reader</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="badge badge-green">Unmodified</span></td>
+              <td>"…give a true and fair view"</td>
+              <td>Financial statements are reliable — no material issues</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-amber">Qualified</span></td>
+              <td>"Except for [the issue], …give a true and fair view"</td>
+              <td>Mostly reliable, but there is a specific problem you should know about</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-red">Adverse</span></td>
+              <td>"…do NOT give a true and fair view"</td>
+              <td>Statements are fundamentally unreliable as a whole — do not rely on them</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-purple">Disclaimer</span></td>
+              <td>"We do NOT express an opinion"</td>
+              <td>We could not obtain enough evidence — we simply cannot say anything</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout danger">
+          <div class="callout-label">⚠️ Exam Trap — Q180</div>
+          A common MCQ asks you to match opinion type with wording. The trap is confusing Adverse and Qualified wording.
+          Adverse = "do NOT give a true and fair view." Qualified = "EXCEPT FOR [X], give a true and fair view."
+          Disclaimer = "do NOT express an opinion."
+        </div>
+
+        <h3>What Changes in a Modified Report?</h3>
+        <ul>
+          <li>The "Basis for Opinion" section becomes "Basis for Qualified/Adverse/Disclaimer Opinion" and
+            <strong>describes the issue in detail</strong>
+          </li>
+          <li>The "Opinion" section uses the modified wording</li>
+          <li>For a Disclaimer, the Auditor's Responsibilities section is also amended</li>
+        </ul>
+
+        <h3>Worked Example — Materiality Calculation for Opinion</h3>
+        <div class="example">
+          <div class="example-label">🧮 Example: Paddington Co (from Kaplan Kit)</div>
+          <p><strong>Profit before tax: $29m</strong></p>
+          <table style="margin-top:10px;">
+            <thead>
+              <tr>
+                <th>Issue</th>
+                <th>Amount</th>
+                <th>% of Profit</th>
+                <th>Material?</th>
+                <th>Pervasive?</th>
+                <th>Opinion if uncorrected</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Lawsuit (contingent liability not disclosed)</td>
+                <td>$3m</td>
+                <td>10.3%</td>
+                <td><span class="badge badge-amber">Yes (material)</span></td>
+                <td><span class="badge badge-green">No</span></td>
+                <td>Qualified</td>
+              </tr>
+              <tr>
+                <td>Warranty provision not recognised</td>
+                <td>$25m</td>
+                <td>86.2%</td>
+                <td><span class="badge badge-red">Yes (highly material)</span></td>
+                <td><span class="badge badge-red">Yes (pervasive)</span></td>
+                <td><strong>Adverse</strong></td>
+              </tr>
+              <tr>
+                <td>Depreciation not charged</td>
+                <td>$1m</td>
+                <td>3.4%</td>
+                <td><span class="badge badge-green">Not material</span></td>
+                <td><span class="badge badge-green">No</span></td>
+                <td>Unmodified (immaterial)</td>
+              </tr>
+              <tr>
+                <td>Intangible assets overstated</td>
+                <td>$12m</td>
+                <td>41.4%</td>
+                <td><span class="badge badge-red">Yes (very material)</span></td>
+                <td><span class="badge badge-amber">Borderline</span></td>
+                <td>Qualified or Adverse</td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="margin-top:12px; color:var(--red); font-weight:600;">The warranty provision at 86% of profit =
+            material AND pervasive → Adverse opinion</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 5 – DECISION FRAMEWORK           -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="card section-anchor" id="s5">
+      <div class="card-header">
+        <span class="section-num">05</span>
+        <h2>The Opinion Decision Framework — Step by Step</h2>
+      </div>
+      <div class="card-body">
+        <p>When the exam gives you a scenario and asks "what opinion should be issued?" — use this process:</p>
+
+        <div
+          style="background:var(--pale); border-radius:12px; padding:24px; display:flex; flex-direction:column; gap:14px; align-items:center;">
+
+          <div
+            style="background:var(--royal); color:white; border-radius:8px; padding:12px 24px; font-weight:700; text-align:center; width:100%; max-width:500px;">
+            STEP 1: Is there an issue with the financial statements?
+          </div>
+          <div style="display:flex; gap:40px;">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+              <div style="font-size:0.8rem;font-weight:700;color:var(--green);">NO</div>
+              <div style="width:2px;height:20px;background:var(--green);"></div>
+              <div
+                style="background:var(--green-bg);color:var(--green);border:2px solid var(--green);border-radius:8px;padding:8px 16px;font-weight:700;text-align:center;">
+                UNMODIFIED OPINION</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+              <div style="font-size:0.8rem;font-weight:700;color:var(--red);">YES</div>
+              <div style="width:2px;height:20px;background:var(--red);"></div>
+              <div
+                style="background:var(--royal);color:white;border-radius:8px;padding:12px 24px;font-weight:700;text-align:center;max-width:300px;">
+                STEP 2: Is the issue material?</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:40px;">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+              <div style="font-size:0.8rem;font-weight:700;color:var(--green);">NOT MATERIAL</div>
+              <div style="width:2px;height:20px;background:var(--green);"></div>
+              <div
+                style="background:var(--green-bg);color:var(--green);border:2px solid var(--green);border-radius:8px;padding:8px 16px;font-weight:700;text-align:center;">
+                UNMODIFIED OPINION</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+              <div style="font-size:0.8rem;font-weight:700;color:var(--red);">MATERIAL</div>
+              <div style="width:2px;height:20px;background:var(--red);"></div>
+              <div
+                style="background:var(--royal);color:white;border-radius:8px;padding:12px 24px;font-weight:700;text-align:center;max-width:340px;">
+                STEP 3: What type of issue is it?</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:24px;flex-wrap:wrap;justify-content:center;">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:6px;max-width:200px;">
+              <div style="font-size:0.8rem;font-weight:700;color:var(--amber);">MISSTATEMENT</div>
+              <div style="width:2px;height:20px;background:var(--amber);"></div>
+              <div
+                style="background:var(--royal);color:white;border-radius:8px;padding:10px 16px;font-weight:700;text-align:center;font-size:0.9rem;">
+                Is it pervasive?</div>
+              <div style="display:flex;gap:16px;margin-top:6px;">
+                <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+                  <div style="font-size:0.75rem;font-weight:700;color:var(--amber);">NOT pervasive</div>
+                  <div
+                    style="background:var(--amber-bg);color:#7a4a00;border:2px solid #c87800;border-radius:8px;padding:7px 12px;font-weight:700;font-size:0.85rem;">
+                    QUALIFIED</div>
+                </div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+                  <div style="font-size:0.75rem;font-weight:700;color:var(--red);">Pervasive</div>
+                  <div
+                    style="background:var(--red-bg);color:var(--red);border:2px solid var(--red);border-radius:8px;padding:7px 12px;font-weight:700;font-size:0.85rem;">
+                    ADVERSE</div>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:6px;max-width:200px;">
+              <div style="font-size:0.8rem;font-weight:700;color:var(--purple);">LACK OF EVIDENCE</div>
+              <div style="width:2px;height:20px;background:var(--purple);"></div>
+              <div
+                style="background:var(--royal);color:white;border-radius:8px;padding:10px 16px;font-weight:700;text-align:center;font-size:0.9rem;">
+                Is it pervasive?</div>
+              <div style="display:flex;gap:16px;margin-top:6px;">
+                <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+                  <div style="font-size:0.75rem;font-weight:700;color:var(--amber);">NOT pervasive</div>
+                  <div
+                    style="background:var(--amber-bg);color:#7a4a00;border:2px solid #c87800;border-radius:8px;padding:7px 12px;font-weight:700;font-size:0.85rem;">
+                    QUALIFIED</div>
+                </div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+                  <div style="font-size:0.75rem;font-weight:700;color:var(--purple);">Pervasive</div>
+                  <div
+                    style="background:var(--purple-bg);color:var(--purple);border:2px solid var(--purple);border-radius:8px;padding:7px 12px;font-weight:700;font-size:0.85rem;">
+                    DISCLAIMER</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout info">
+          <div class="callout-label">💡 Remember</div>
+          <strong>Adverse</strong> can ONLY come from a misstatement (you've got evidence, it's just wrong).
+          <strong>Disclaimer</strong> can ONLY come from inability to obtain evidence. If management refuses to correct
+          a material pervasive error → Adverse. If you simply can't get the evidence → Disclaimer.
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 6 – GOING CONCERN                -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="card section-anchor" id="s6">
+      <div class="card-header">
+        <span class="section-num">06</span>
+        <h2>Going Concern and the Auditor's Report (ISA 570)</h2>
+      </div>
+      <div class="card-body">
+
+        <h3>Responsibilities — Directors vs Auditors</h3>
+        <div class="two-col">
+          <div class="col-box" style="background:var(--pale);">
+            <h4>Directors' Responsibilities</h4>
+            <ul>
+              <li>Assess whether the company can continue to trade for the foreseeable future (at least 12 months from
+                the date of financial statements)</li>
+              <li>Prepare cash flow forecasts and scenarios</li>
+              <li>Disclose any material uncertainties in the financial statements</li>
+              <li>Decide the basis of preparation (going concern vs break-up)</li>
+            </ul>
+          </div>
+          <div class="col-box" style="background:var(--ice);">
+            <h4>Auditor's Responsibilities</h4>
+            <ul>
+              <li>Evaluate management's going concern assessment</li>
+              <li>Assess whether the period assessed is adequate (must be ≥12 months from the balance sheet date)</li>
+              <li>Obtain sufficient evidence about the appropriateness of the going concern basis</li>
+              <li>Determine the impact on the auditor's report based on findings</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout warning">
+          <div class="callout-label">⚠️ Key Exam Point — Q171 type</div>
+          Only <strong>directors</strong> disclose going concern in the financial statements. The auditor <strong>does
+            not</strong> make disclosure in the financial statements — the auditor <em>highlights</em> the disclosure in
+          the auditor's report. Also: directors assess 12 months from the <strong>balance sheet date</strong>, not from
+          when the statements are issued.
+        </div>
+
+        <h3>Going Concern Indicators</h3>
+        <div class="two-col">
+          <div class="col-box" style="background:var(--red-bg);">
+            <h4 style="color:var(--red);">Financial Indicators</h4>
+            <ul>
+              <li>Net current liabilities / negative working capital</li>
+              <li>Significant operating losses</li>
+              <li>Overdraft facility due for renewal and uncertain outcome</li>
+              <li>Significant cash outflows forecast</li>
+              <li>Loan repayments falling due that may not be met</li>
+              <li>Inability to pay suppliers on time (extended payables)</li>
+              <li>Suppliers withdrawing credit terms</li>
+            </ul>
+          </div>
+          <div class="col-box" style="background:var(--amber-bg);">
+            <h4 style="color:var(--amber);">Operational Indicators</h4>
+            <ul>
+              <li>Loss of key management / staff with no replacements</li>
+              <li>Loss of major customer or supplier</li>
+              <li>Main supplier ceasing to trade</li>
+              <li>New competitor taking significant market share</li>
+              <li>Major court case likely to succeed against the company</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>Audit Procedures for Going Concern Assessment</h3>
+        <div class="callout teal">
+          <div class="callout-label">Procedures (ISA 570)</div>
+          <ul>
+            <li>Review cash flow forecasts prepared by management and assess reasonableness of assumptions</li>
+            <li>Inspect correspondence with the bank regarding overdraft or loan facility renewal</li>
+            <li>Inspect board minutes for discussions on going concern, financing plans, and management's strategy</li>
+            <li>Enquire of management whether alternative sources of finance have been explored</li>
+            <li>Review the terms of any financing agreements for covenant breaches</li>
+            <li>Perform analytical procedures (ratios) — quick ratio, gearing, interest cover</li>
+            <li>Review post-year-end management accounts for evidence of improvement or deterioration</li>
+            <li>Obtain a written representation from management confirming their going concern assessment and plans</li>
+            <li>Review legal correspondence for claims that could affect liquidity</li>
+          </ul>
+        </div>
+
+        <h3>Impact on the Auditor's Report — The Key Grid</h3>
+        <p>This grid is directly examined in MCQ format (Q173 in the kit). Memorise it exactly.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Situation</th>
+              <th>Going Concern Basis Appropriate?</th>
+              <th>Disclosures Adequate?</th>
+              <th>Opinion</th>
+              <th>Report Impact</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Material uncertainty exists — well disclosed</td>
+              <td><span class="badge badge-green">Yes</span></td>
+              <td><span class="badge badge-green">Yes</span></td>
+              <td><span class="badge badge-green">Unmodified</span></td>
+              <td><strong>Material Uncertainty Related to Going Concern section</strong> added to the report</td>
+            </tr>
+            <tr>
+              <td>Material uncertainty exists — NOT adequately disclosed</td>
+              <td><span class="badge badge-green">Yes</span></td>
+              <td><span class="badge badge-red">No</span></td>
+              <td><span class="badge badge-amber">Qualified or Adverse</span></td>
+              <td>Financial statements are materially misstated → modified opinion (usually qualified; adverse if
+                pervasive)</td>
+            </tr>
+            <tr>
+              <td>Going concern basis is NOT appropriate (should be break-up basis) — management uses it anyway</td>
+              <td><span class="badge badge-red">No</span></td>
+              <td>N/A</td>
+              <td><span class="badge badge-red">Adverse</span></td>
+              <td>Fundamental departure from framework → adverse opinion (material and pervasive)</td>
+            </tr>
+            <tr>
+              <td>No material uncertainty exists</td>
+              <td><span class="badge badge-green">Yes</span></td>
+              <td>N/A</td>
+              <td><span class="badge badge-green">Unmodified</span></td>
+              <td>No additional communication needed — standard report</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout info">
+          <div class="callout-label">💡 Plain English — The Going Concern Logic</div>
+          <p>Think of it this way: if the company is struggling but the directors have <em>told us about it
+              properly</em> in the notes, we write an unmodified opinion (they've done their job) but we <em>highlight
+              the uncertainty</em> with a special paragraph. If they've <em>hidden the problem</em> or not disclosed it
+            adequately, the financial statements are misleading → we modify the opinion. If the whole going concern
+            basis is wrong (company is already effectively dead) → we say the statements are completely wrong → adverse.
+          </p>
+        </div>
+
+        <h3>When Should the Break-Up Basis Be Used?</h3>
+        <div class="callout danger">
+          <div class="callout-label">Break-Up Basis Required When:</div>
+          <ul>
+            <li>The company has <strong>already ceased to trade</strong></li>
+            <li>A decision has been made to <strong>close or wind up</strong> the company</li>
+            <li>The company has <strong>no realistic alternative but to cease trading</strong> (e.g. can't pay debts
+              when they fall due and has no rescue options)</li>
+          </ul>
+          <p style="margin-top:8px;">NOT when there are merely uncertainties about going concern — in that case, going
+            concern basis still applies with disclosure.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 7 – EOM AND OTHER MATTER          -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="card section-anchor" id="s7">
+      <div class="card-header">
+        <span class="section-num">07</span>
+        <h2>Emphasis of Matter &amp; Other Matter Paragraphs (ISA 706)</h2>
+      </div>
+      <div class="card-body">
+
+        <p>These are <strong>additional paragraphs</strong> in an otherwise <em>unmodified</em> report. They do not
+          change the opinion — they draw attention to important matters.</p>
+
+        <h3>Emphasis of Matter (EoM)</h3>
+        <div class="callout success">
+          <div class="callout-label">Definition & When Used</div>
+          <p>An EoM paragraph is used when the auditor wishes to draw users' attention to a matter that is
+            <strong>already adequately disclosed in the financial statements</strong> and which is <strong>fundamental
+              to users' understanding</strong> of those statements.
+          </p>
+        </div>
+        <h4>Examples of when EoM is appropriate:</h4>
+        <ul>
+          <li>Uncertainty relating to a significant pending litigation (if adequately disclosed)</li>
+          <li>Early application of a new accounting standard that has a major effect</li>
+          <li>A major catastrophe after the balance sheet date that is disclosed in the notes</li>
+          <li>Significant uncertainty that management has disclosed properly</li>
+        </ul>
+        <div class="callout warning">
+          <div class="callout-label">⚠️ Note</div>
+          EoM is NOT used for going concern uncertainties — those get their own specific "Material Uncertainty Related
+          to Going Concern" section. EoM is for other fundamental matters.
+        </div>
+
+        <h3>Other Matter Paragraph</h3>
+        <div class="callout purple">
+          <div class="callout-label">Definition & When Used</div>
+          <p>An Other Matter paragraph refers to a matter that is <strong>not presented or disclosed in the financial
+              statements</strong> but which the auditor considers necessary to communicate — typically matters relating
+            to the <strong>auditor's own responsibilities</strong>.</p>
+        </div>
+        <h4>Examples of when Other Matter is appropriate:</h4>
+        <ul>
+          <li>Restricting the use or liability of the auditor's report to specific parties</li>
+          <li>Explaining that the prior year was audited by a different firm</li>
+          <li>Additional reporting responsibilities required by regulators</li>
+          <li>Matters relevant to users' understanding of the audit or auditor's role</li>
+        </ul>
+
+        <h3>The Critical Distinction — Q169 type MCQ</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Paragraph Type</th>
+              <th>Where the matter is disclosed</th>
+              <th>What it relates to</th>
+              <th>Modifies opinion?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Emphasis of Matter</td>
+              <td>Already in the financial statements (adequately disclosed)</td>
+              <td>Matters fundamental to users' understanding of the FS</td>
+              <td><span class="badge badge-green">No</span></td>
+            </tr>
+            <tr>
+              <td>Other Matter</td>
+              <td>NOT in the financial statements</td>
+              <td>Auditor's responsibilities or other non-FS matters</td>
+              <td><span class="badge badge-green">No</span></td>
+            </tr>
+            <tr>
+              <td>Material Uncertainty Related to Going Concern</td>
+              <td>Adequately disclosed in the FS</td>
+              <td>Specifically going concern uncertainties</td>
+              <td><span class="badge badge-green">No</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout info">
+          <div class="callout-label">💡 Memory Trick</div>
+          EoM = "I want to <em>emphasise</em> something <em>already in the accounts</em>." Other Matter = "I have
+          something to say that is NOT in the accounts — about my own role/report."
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 8 – KEY AUDIT MATTERS            -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="card section-anchor" id="s8">
+      <div class="card-header">
+        <span class="section-num">08</span>
+        <h2>Key Audit Matters (ISA 701) — Listed Entities Only</h2>
+      </div>
+      <div class="card-body">
+
+        <div class="callout info">
+          <div class="callout-label">When Does ISA 701 Apply?</div>
+          KAMs are required only for <strong>listed entities</strong> (companies listed on a stock exchange). They are
+          not required for private companies, though auditors may voluntarily include them.
+        </div>
+
+        <h3>What Is a KAM?</h3>
+        <p>A Key Audit Matter is one of the matters communicated to those charged with governance (the audit committee /
+          board) that, in the auditor's professional judgement, required the most significant attention during the
+          audit.</p>
+
+        <h3>How the Auditor Determines KAMs — Factors Considered</h3>
+        <p>These factors are directly examined — you need to know them for parts (d)(i) of Section B questions:</p>
+        <div class="callout teal">
+          <div class="callout-label">ISA 701 Criteria — Factors that make something a KAM</div>
+          <ul>
+            <li>Areas of <strong>higher assessed risk of material misstatement</strong> or significant risks identified
+              in the audit</li>
+            <li>Areas involving <strong>significant management judgement</strong> or estimation uncertainty (e.g.
+              provisions, fair values, going concern)</li>
+            <li>The <strong>effect on the audit</strong> of significant events or transactions in the period</li>
+            <li>Areas where <strong>significant auditor judgement</strong> was required (e.g. evaluating complex
+              accounting treatments)</li>
+            <li>Matters that required <strong>significant auditor attention</strong> — large or complex balances,
+              significant misstatements found and corrected</li>
+            <li>Whether the matter was <strong>communicated to those charged with governance</strong> (this is a
+              prerequisite)</li>
+          </ul>
+        </div>
+
+        <h3>Content of a KAM Section in the Auditor's Report — Part (d)(ii)</h3>
+        <p>For each KAM, the report must describe:</p>
+        <ol>
+          <li><strong>Why the matter was determined to be a KAM</strong> — what made it require significant attention
+          </li>
+          <li><strong>How the auditor addressed the matter</strong> — the key audit procedures performed, judgements
+            made, and evidence obtained</li>
+          <li>A reference to the relevant disclosure in the financial statements (if any)</li>
+        </ol>
+
+        <div class="example">
+          <div class="example-label">📝 Worked Example — Latte Co / Spinach Co KAM (from Kaplan Kit)</div>
+          <p><strong>Scenario:</strong> A provision was significantly increased (e.g. legal claim provision increased
+            from $0.25m to $0.6m, or inventory written down significantly). The engagement partner determines this is a
+            KAM.</p>
+          <br>
+          <p><strong>Why it is a KAM:</strong></p>
+          <ul>
+            <li>The provision involved significant management judgement in estimating the likely outcome of the legal
+              claim / the net realisable value of inventory</li>
+            <li>It represented a significant risk of material misstatement — the original estimate was materially
+              understated</li>
+            <li>The matter required significant auditor attention — specialist input, legal correspondence review, and
+              judgement about adequacy of the provision</li>
+            <li>The issue was discussed and communicated to those charged with governance</li>
+          </ul>
+          <br>
+          <p><strong>Content of the KAM Section:</strong></p>
+          <ul>
+            <li><em>Description of the KAM:</em> The valuation of the provision for the legal claim (or inventory
+              write-down) as at [year end]</li>
+            <li><em>Why the matter was considered a KAM:</em> The provision required significant judgement and was a
+              significant risk in the audit</li>
+            <li><em>How the matter was addressed:</em> Procedures performed — reviewed legal correspondence, discussed
+              with management, evaluated assumptions, compared to external evidence</li>
+            <li><em>Reference to disclosures:</em> See Note X to the financial statements</li>
+          </ul>
+        </div>
+
+        <h3>What KAMs Are NOT</h3>
+        <div class="callout warning">
+          <div class="callout-label">⚠️ Common Misconceptions</div>
+          <ul>
+            <li>KAMs are NOT a modification to the opinion — they appear in an unmodified report</li>
+            <li>KAMs are NOT all matters communicated to those charged with governance — only the most significant ones
+            </li>
+            <li>KAMs are NOT all matters that were material — they require significant auditor <em>attention</em>
+              specifically</li>
+            <li>KAMs are NOT used in place of a modified opinion when misstatements exist — a separate qualified/adverse
+              opinion is needed</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 9 – OTHER INFORMATION (ISA 720)   -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="card section-anchor" id="s9">
+      <div class="card-header">
+        <span class="section-num">09</span>
+        <h2>Other Information in the Annual Report (ISA 720)</h2>
+      </div>
+      <div class="card-body">
+
+        <p>"Other information" means information included in the annual report <em>other than the financial statements
+            and auditor's report</em> — for example, a chairman's statement, director's report, or investor presentation
+          sections.</p>
+
+        <h3>Auditor's Responsibilities Under ISA 720</h3>
+        <div class="callout info">
+          <div class="callout-label">What the Auditor Does</div>
+          <ul>
+            <li><strong>Read</strong> the other information to identify whether there are material inconsistencies
+              between it and:
+              <ul style="margin-top:6px;">
+                <li>The audited financial statements</li>
+                <li>The auditor's knowledge obtained during the audit</li>
+              </ul>
+            </li>
+            <li><strong>Does NOT audit</strong> the other information — the auditor expresses no assurance opinion on it
+            </li>
+            <li>The report includes an <strong>"Other Information" section</strong> describing the auditor's
+              responsibilities</li>
+          </ul>
+        </div>
+
+        <h3>What Happens When There is an Inconsistency?</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Scenario</th>
+              <th>Auditor's Action</th>
+              <th>Impact on Report</th>
+              <th>Impact on Opinion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Chair's statement contradicts the financial statements</td>
+              <td>Discuss with management, request correction. If management refuses...</td>
+              <td><strong>Describe the inconsistency in the Other Information section</strong></td>
+              <td><span class="badge badge-green">Opinion not modified</span> — the FS themselves are fine</td>
+            </tr>
+            <tr>
+              <td>Other information appears to misstate a fact known from the audit</td>
+              <td>Report the misstatement in the Other Information section of the report</td>
+              <td>Description in Other Information section</td>
+              <td><span class="badge badge-green">Opinion not modified</span></td>
+            </tr>
+            <tr>
+              <td>Other information causes the auditor to reconsider whether the FS are misstated</td>
+              <td>Revise FS audit work as needed; if FS are now believed misstated, modify opinion</td>
+              <td>May lead to modified opinion</td>
+              <td><span class="badge badge-amber">May modify opinion</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout success">
+          <div class="callout-label">✅ Key Point — Q163/Q164 type</div>
+          <p>An inconsistency in the chair's statement → handled in the <strong>Other Information section</strong> of
+            the report, NOT an Emphasis of Matter, NOT a modification. The audit opinion covers the financial statements
+            only, not the chair's statement. Failing to highlight the inconsistency would mislead users and undermine
+            the credibility of the audit.</p>
+        </div>
+
+        <h3>Why Does the Auditor Read Other Information at All?</h3>
+        <ul>
+          <li>Users of annual reports read the whole document, not just the FS — they could be misled by contradictory
+            information</li>
+          <li>If inconsistencies are not highlighted, users may believe the auditor approved all the content</li>
+          <li>It protects the credibility of the auditor's report itself</li>
+        </ul>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 10 – COMPLETE DECISION MAP        -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="card section-anchor" id="s10">
+      <div class="card-header">
+        <span class="section-num">10</span>
+        <h2>The Complete Audit Report Decision Map</h2>
+      </div>
+      <div class="card-body">
+        <p>Use this master reference to map any exam scenario to the correct report outcome.</p>
+
+        <table class="qr-table">
+          <thead>
+            <tr>
+              <th>Issue Type</th>
+              <th>Severity</th>
+              <th>Opinion</th>
+              <th>Report Addition</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>No issues found</td>
+              <td>—</td>
+              <td><span class="badge badge-green">Unmodified</span></td>
+              <td>Standard report only</td>
+            </tr>
+            <tr>
+              <td>Misstatement — management corrects all issues</td>
+              <td>Any</td>
+              <td><span class="badge badge-green">Unmodified</span></td>
+              <td>Standard report only</td>
+            </tr>
+            <tr>
+              <td>Misstatement — uncorrected, material but NOT pervasive</td>
+              <td>Material</td>
+              <td><span class="badge badge-amber">Qualified</span></td>
+              <td>Basis for Qualified Opinion</td>
+            </tr>
+            <tr>
+              <td>Misstatement — uncorrected, material AND pervasive</td>
+              <td>Pervasive</td>
+              <td><span class="badge badge-red">Adverse</span></td>
+              <td>Basis for Adverse Opinion</td>
+            </tr>
+            <tr>
+              <td>Lack of evidence — material but NOT pervasive</td>
+              <td>Material</td>
+              <td><span class="badge badge-amber">Qualified</span></td>
+              <td>Basis for Qualified Opinion</td>
+            </tr>
+            <tr>
+              <td>Lack of evidence — material AND pervasive</td>
+              <td>Pervasive</td>
+              <td><span class="badge badge-purple">Disclaimer</span></td>
+              <td>Basis for Disclaimer (no opinion)</td>
+            </tr>
+            <tr>
+              <td>Going concern uncertainty — adequately disclosed in FS</td>
+              <td>Material uncertainty</td>
+              <td><span class="badge badge-green">Unmodified</span></td>
+              <td><strong>Material Uncertainty Related to Going Concern</strong> section</td>
+            </tr>
+            <tr>
+              <td>Going concern uncertainty — NOT adequately disclosed in FS</td>
+              <td>Material</td>
+              <td><span class="badge badge-amber">Qualified or Adverse</span></td>
+              <td>Basis for Qualified/Adverse Opinion</td>
+            </tr>
+            <tr>
+              <td>Going concern basis wrong (should be break-up basis)</td>
+              <td>Pervasive</td>
+              <td><span class="badge badge-red">Adverse</span></td>
+              <td>Basis for Adverse Opinion</td>
+            </tr>
+            <tr>
+              <td>Fundamental matter — adequately disclosed in FS (non-GC)</td>
+              <td>Fundamental importance</td>
+              <td><span class="badge badge-green">Unmodified</span></td>
+              <td>Emphasis of Matter paragraph</td>
+            </tr>
+            <tr>
+              <td>Matter about auditor's role / responsibilities</td>
+              <td>Any</td>
+              <td><span class="badge badge-green">Unmodified</span></td>
+              <td>Other Matter paragraph</td>
+            </tr>
+            <tr>
+              <td>Inconsistency in other information (e.g. chair's statement)</td>
+              <td>Any</td>
+              <td><span class="badge badge-green">Unmodified (usually)</span></td>
+              <td>Other Information section — describe inconsistency</td>
+            </tr>
+            <tr>
+              <td>Listed company — significant audit area required major attention</td>
+              <td>Significant</td>
+              <td><span class="badge badge-green">Unmodified (usually)</span></td>
+              <td>Key Audit Matters section</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 11 – WORKED EXAM SCENARIOS        -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="card section-anchor" id="s11">
+      <div class="card-header">
+        <span class="section-num">11</span>
+        <h2>Worked Exam Scenarios — Kaplan Kit Style</h2>
+      </div>
+      <div class="card-body">
+
+        <h3>Objective Test (MCQ) Type Scenarios</h3>
+
+        <!-- Q1 -->
+        <div class="exam-q">
+          <div class="exam-q-header">
+            <span>📝 Q1 — Opinion type (based on Kaplan Q180)</span>
+            <span style="opacity:0.7; font-size:0.8rem;">2 marks</span>
+          </div>
+          <div class="exam-q-body">
+            <p>Match each opinion type to the correct wording:</p>
+            <table style="margin-top:8px;">
+              <thead>
+                <tr>
+                  <th>Opinion</th>
+                  <th>Wording</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Unmodified</td>
+                  <td>A – "Except for…"</td>
+                </tr>
+                <tr>
+                  <td>Qualified</td>
+                  <td>B – "Do not express an opinion"</td>
+                </tr>
+                <tr>
+                  <td>Adverse</td>
+                  <td>C – "Give a true and fair view"</td>
+                </tr>
+                <tr>
+                  <td>Disclaimer</td>
+                  <td>D – "Do not give a true and fair view"</td>
+                </tr>
+              </tbody>
+            </table>
+            <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('open')">Show
+              Answer</button>
+            <div class="answer-box">
+              <strong>Unmodified → C | Qualified → A | Adverse → D | Disclaimer → B</strong><br><br>
+              Unmodified = "give a true and fair view" (clean opinion)<br>
+              Qualified = "except for [issue], give a true and fair view" (isolated problem)<br>
+              Adverse = "do NOT give a true and fair view" (fundamentally wrong)<br>
+              Disclaimer = "do NOT express an opinion" (can't form a view at all)
+            </div>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="exam-q">
+          <div class="exam-q-header">
+            <span>📝 Q2 — Going Concern Report Impact (based on Kaplan Q155/Q173)</span>
+            <span style="opacity:0.7; font-size:0.8rem;">2 marks</span>
+          </div>
+          <div class="exam-q-body">
+            <p>MMT Travel Agency has a material uncertainty about going concern due to uncertain overdraft renewal. The
+              directors have agreed to include adequate disclosure in the financial statements. The engagement partner
+              confirms the going concern basis is appropriate.</p>
+            <p style="margin-top:8px;"><strong>What is the correct opinion and additional report communication?</strong>
+            </p>
+            <ul style="margin-top:8px;">
+              <li>A — Unmodified opinion with no additional communication</li>
+              <li>B — Unmodified opinion with Material Uncertainty Related to Going Concern section</li>
+              <li>C — Modified opinion with Emphasis of Matter paragraph</li>
+              <li>D — Modified opinion with Key Audit Matters</li>
+            </ul>
+            <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('open')">Show
+              Answer</button>
+            <div class="answer-box">
+              <strong>Answer: B</strong><br><br>
+              Going concern basis is appropriate (partner confirmed this) + adequate disclosures made =
+              <strong>unmodified opinion</strong>.<br>
+              However, because the matter is fundamental to users' understanding, the report must include a separate
+              <strong>"Material Uncertainty Related to Going Concern"</strong> section. This is NOT an Emphasis of
+              Matter — it's its own specific section under ISA 570.<br>
+              The opinion paragraph itself is still unmodified.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="exam-q">
+          <div class="exam-q-header">
+            <span>📝 Q3 — Adverse Opinion Identification (based on Kaplan Q175/Q176)</span>
+            <span style="opacity:0.7; font-size:0.8rem;">2 marks</span>
+          </div>
+          <div class="exam-q-body">
+            <p>During the audit of Paddington Co (profit before tax $29m), the following issues remain uncorrected:</p>
+            <ul style="margin-top:8px;">
+              <li>Warranty provision not recognised: $25m (86% of profit)</li>
+              <li>Lawsuit contingent liability not disclosed: $3m (10.3% of profit)</li>
+              <li>Depreciation not charged: $1m (3.4% of profit)</li>
+            </ul>
+            <p style="margin-top:8px;"><strong>Which issue is most likely to lead to an ADVERSE opinion?</strong></p>
+            <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('open')">Show
+              Answer</button>
+            <div class="answer-box">
+              <strong>Answer: Warranty provision ($25m, 86% of profit)</strong><br><br>
+              At 86% of profit, this is material AND pervasive — it fundamentally misrepresents the company's financial
+              position. A pervasive misstatement means the financial statements are unreliable as a whole →
+              <strong>adverse opinion</strong>.<br><br>
+              The lawsuit (10.3%) is material but not pervasive → qualified.<br>
+              The depreciation (3.4%) is not material → unmodified (no action needed).
+            </div>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="exam-q">
+          <div class="exam-q-header">
+            <span>📝 Q4 — Other Information / Chair's Statement (based on Kaplan Q163)</span>
+            <span style="opacity:0.7; font-size:0.8rem;">2 marks</span>
+          </div>
+          <div class="exam-q-body">
+            <p>During the audit of Mississippi Co, the auditor identifies that the Chair's statement in the annual
+              report contradicts the financial statements (it claims a profit when the FS show a loss). Management
+              refuses to amend the Chair's statement.</p>
+            <p style="margin-top:8px;"><strong>How should this inconsistency be addressed in the auditor's
+                report?</strong></p>
+            <ul style="margin-top:8px;">
+              <li>A — Within the Other Information section</li>
+              <li>B — Within an Emphasis of Matter paragraph</li>
+              <li>C — Within an Other Matter paragraph</li>
+              <li>D — Within the Auditor's Opinion section</li>
+            </ul>
+            <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('open')">Show
+              Answer</button>
+            <div class="answer-box">
+              <strong>Answer: A — Other Information section</strong><br><br>
+              The Chair's statement is "other information" — it is not part of the audited financial statements. The
+              auditor does not audit it but must read it.<br>
+              If there is an inconsistency with the FS, this must be described in the <strong>Other Information
+                section</strong> of the auditor's report.<br>
+              The audit opinion covers the financial statements only, so the <strong>opinion itself is not
+                modified</strong>.<br>
+              EoM (B) is for matters in the FS themselves. Other Matter (C) is for auditor's responsibilities. Neither
+              fits here.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="exam-q">
+          <div class="exam-q-header">
+            <span>📝 Q5 — Inability to Obtain Evidence (based on Kaplan Q260 Violet & Co)</span>
+            <span style="opacity:0.7; font-size:0.8rem;">2 marks</span>
+          </div>
+          <div class="exam-q-body">
+            <p>Daisy Co: Revenue $15.6m, receivables $3.4m, profit before tax $2m. The sales ledger was corrupted by a
+              virus after year end. No backups are available. The audit team cannot test revenue or year-end receivables
+              (combined = $19m = highly material and pervasive).</p>
+            <p style="margin-top:8px;"><strong>What is the impact on the auditor's report if this issue remains
+                unresolved?</strong></p>
+            <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('open')">Show
+              Answer</button>
+            <div class="answer-box">
+              <strong>Answer: Disclaimer of opinion</strong><br><br>
+              This is a case of <strong>inability to obtain sufficient appropriate audit evidence</strong>.<br>
+              Revenue ($15.6m) and receivables ($3.4m) combined are extremely material. Revenue is typically the single
+              largest figure in the FS — not being able to audit it is pervasive.<br>
+              Lack of evidence + pervasive = <strong>Disclaimer of opinion</strong> (not Qualified — that would be for
+              material but not pervasive).<br>
+              The "Basis for Disclaimer" section would explain why no opinion could be formed.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="exam-q">
+          <div class="exam-q-header">
+            <span>📝 Q6 — KAM Section B Type (based on Kaplan Q65d, Q69d)</span>
+            <span style="opacity:0.7; font-size:0.8rem;">5 marks — Section B style</span>
+          </div>
+          <div class="exam-q-body">
+            <p>You are auditing Spinach Co (listed). During the audit, the team identified five slow-moving product
+              lines where NRV was below cost. A significant inventory write-down was required under IAS 2. The
+              engagement partner has determined this is a KAM.</p>
+            <p style="margin-top:8px;"><strong>(i)</strong> Describe the factors the engagement partner considered in
+              determining this is a KAM. <em>(2.5 marks)</em></p>
+            <p style="margin-top:4px;"><strong>(ii)</strong> Describe the content of the KAM section for Spinach Co.
+              <em>(2.5 marks)</em>
+            </p>
+            <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('open')">Show
+              Answer</button>
+            <div class="answer-box">
+              <strong>Part (i) — Factors:</strong><br>
+              • The inventory valuation involved <strong>significant management judgement</strong> — estimating NRV
+              required assumptions about future selling prices and demand for slow-moving items<br>
+              • Inventory is a <strong>significant risk of material misstatement</strong> — valuing at the lower of cost
+              and NRV requires assessment of each product line<br>
+              • The write-down was a <strong>significant event in the period</strong> — it had a material impact on
+              profit<br>
+              • The matter required <strong>significant auditor attention</strong> — the team needed to challenge
+              management's NRV estimates and inspect supporting evidence<br>
+              • The issue was <strong>communicated to those charged with governance</strong> — prerequisite for KAM
+              designation<br><br>
+              <strong>Part (ii) — Content of KAM section:</strong><br>
+              • <em>Title/Description:</em> "Valuation of Inventory — Net Realisable Value of slow-moving product
+              lines"<br>
+              • <em>Why a KAM:</em> Inventory valuation at year end involved significant management judgement in
+              estimating NRV of five slow-moving product lines, representing a significant risk area<br>
+              • <em>How the auditor addressed it:</em> Procedures performed — reviewed management's NRV estimates,
+              compared estimated selling prices to actual post-year-end sales, assessed reasonableness of assumptions,
+              tested a sample of lines against sales records<br>
+              • <em>Reference:</em> See Note X — Accounting Policies and Note Y — Inventories in the financial
+              statements
+            </div>
+          </div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="exam-q">
+          <div class="exam-q-header">
+            <span>📝 Q7 — Going Concern Procedures (based on Kaplan Q77d)</span>
+            <span style="opacity:0.7; font-size:0.8rem;">Section B style — 5 marks</span>
+          </div>
+          <div class="exam-q-body">
+            <p>Jasmine Co: overdraft of $5.1m (up from $1.2m), facility due for renewal in August. Directors are
+              confident it will be renewed. Post-year-end, the bank has stated they will not decide until after the
+              auditor's report is signed.</p>
+            <p style="margin-top:8px;"><strong>Describe audit procedures to assess whether Jasmine Co is a going
+                concern, AND describe the impact on the auditor's report if (a) adequate disclosures are made and (b)
+                disclosures are inadequate.</strong></p>
+            <button class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('open')">Show
+              Answer</button>
+            <div class="answer-box">
+              <strong>Procedures:</strong><br>
+              • Inspect <strong>correspondence with the bank</strong> about overdraft renewal — assess likelihood of
+              renewal and any conditions<br>
+              • Review the <strong>cash flow forecast</strong> and stress-test assumptions — what happens if overdraft
+              is not renewed?<br>
+              • Enquire whether <strong>alternative financing</strong> has been explored (e.g. other banks, equity,
+              asset sales)<br>
+              • Review <strong>board minutes</strong> for discussions about the overdraft and management's contingency
+              plans<br>
+              • Obtain <strong>written representations</strong> from directors about their assessment and plans<br>
+              • Perform <strong>analytical procedures</strong> — calculate key ratios (quick ratio, gearing) to identify
+              deteriorating trends<br>
+              • Review <strong>post-year-end management accounts</strong> to assess whether the financial position is
+              worsening<br><br>
+              <strong>Report Impact:</strong><br>
+              <em>If adequate disclosures made:</em> The auditor is satisfied the going concern basis is appropriate.
+              Issue an <strong>unmodified opinion</strong> + include a <strong>Material Uncertainty Related to Going
+                Concern section</strong> in the report highlighting the overdraft renewal uncertainty.<br><br>
+              <em>If disclosures are inadequate (directors refuse to disclose):</em> The financial statements are
+              <strong>materially misstated</strong> due to insufficient disclosure. Issue a <strong>qualified
+                opinion</strong> (or adverse if the omission is so significant it is pervasive). The "Basis for
+              Qualified Opinion" section explains the inadequacy of disclosure.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 12 – QUICK REFERENCE             -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="card section-anchor" id="s12">
+      <div class="card-header">
+        <span class="section-num">12</span>
+        <h2>Quick Reference &amp; Exam Technique</h2>
+      </div>
+      <div class="card-body">
+
+        <h3>The "5 Big Questions" for Any Audit Report Scenario</h3>
+        <ol style="font-size:1rem; gap:12px;">
+          <li><strong>Is there an issue at all?</strong> If no → unmodified, done.</li>
+          <li><strong>Is the issue material?</strong> Apply materiality benchmarks (5-10% profit, 1-2% assets, ½-1%
+            revenue). If not material → unmodified, done.</li>
+          <li><strong>Is it a misstatement or a lack of evidence?</strong> Misstatement = know the number is wrong. Lack
+            of evidence = can't verify.</li>
+          <li><strong>Is it pervasive?</strong> Does it affect the statements as a whole? If not pervasive → Qualified.
+            If pervasive → Adverse (misstatement) or Disclaimer (no evidence).</li>
+          <li><strong>Are there any additional communications needed?</strong> Going concern? EoM? KAM (listed only)?
+            Other information inconsistency?</li>
+        </ol>
+
+        <h3 style="margin-top:8px;">Materiality Benchmarks</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Benchmark</th>
+              <th>Range</th>
+              <th>When primarily used</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Profit before income taxes</td>
+              <td>5% – 10%</td>
+              <td>Profit-oriented entities</td>
+            </tr>
+            <tr>
+              <td>Revenue / Turnover</td>
+              <td>½% – 1%</td>
+              <td>When profit is low, nil, or negative</td>
+            </tr>
+            <tr>
+              <td>Total assets</td>
+              <td>1% – 2%</td>
+              <td>Asset-heavy businesses, financial institutions</td>
+            </tr>
+            <tr>
+              <td>Total expenditure</td>
+              <td>½% – 1%</td>
+              <td>Not-for-profit entities</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="margin-top:8px; font-size:0.9rem; color:var(--subtext);">Note: A single figure can be material by
+          <em>nature</em> (e.g. directors' remuneration, related party transactions) even if below the size thresholds.
+        </p>
+
+        <h3>Mnemonics to Memorise</h3>
+        <div class="two-col">
+          <div class="col-box" style="background:var(--pale);">
+            <h4>Opinion Ladder (best to worst)</h4>
+            <p style="font-family:'IBM Plex Mono', monospace; font-size:0.9rem; line-height:2;">
+              <span class="badge badge-green">UNMODIFIED</span> → True &amp; fair ✓<br>
+              <span class="badge badge-amber">QUALIFIED</span> → Except for X ↑<br>
+              <span class="badge badge-red">ADVERSE</span> → NOT true &amp; fair ✗<br>
+              <span class="badge badge-purple">DISCLAIMER</span> → Can't say anything ??
+            </p>
+          </div>
+          <div class="col-box" style="background:var(--ice);">
+            <h4>Modified Opinion Grid</h4>
+            <p style="font-family:'IBM Plex Mono', monospace; font-size:0.88rem; line-height:2.1;">
+              Misstatement + Not pervasive → <strong>QUALIFIED</strong><br>
+              Misstatement + Pervasive → <strong>ADVERSE</strong><br>
+              No evidence + Not pervasive → <strong>QUALIFIED</strong><br>
+              No evidence + Pervasive → <strong>DISCLAIMER</strong>
+            </p>
+          </div>
+        </div>
+
+        <h3>Common Exam Errors to Avoid</h3>
+        <div class="callout danger">
+          <div class="callout-label">🚫 Do NOT Make These Mistakes</div>
+          <ul>
+            <li><strong>Confusing "no additional communication" with "EoM"</strong> — An immaterial matter needs no
+              additional paragraph. EoM is only for <em>fundamental</em> matters.</li>
+            <li><strong>Using EoM for going concern</strong> — Going concern has its own specific section ("Material
+              Uncertainty Related to Going Concern"), not EoM.</li>
+            <li><strong>Modifying opinion for other information inconsistency</strong> — Chair's statement issues go in
+              the Other Information section; the financial statement opinion is unaffected.</li>
+            <li><strong>Thinking KAMs = modified opinion</strong> — KAMs appear in reports with unmodified opinions.
+              They don't change the opinion.</li>
+            <li><strong>Applying KAMs to non-listed entities</strong> — ISA 701 KAMs are required only for listed
+              entities.</li>
+            <li><strong>Saying directors assess 12 months from financial statement date</strong> — It's 12 months from
+              the balance sheet <em>date</em>, not the date of issue.</li>
+          </ul>
+        </div>
+
+        <h3>Section B Answer Tips — Audit Report Questions</h3>
+        <div class="callout success">
+          <div class="callout-label">✅ Technique</div>
+          <ul>
+            <li>For <strong>"Discuss the issue and impact on the auditor's report"</strong>: (1) Calculate materiality,
+              (2) State whether it is material/pervasive, (3) State the opinion type and why, (4) Name the new section
+              in the report</li>
+            <li>For <strong>KAM parts</strong>: Part (i) = factors → always include "significant auditor attention",
+              "significant judgement", "significant risk", "communicated to TCWG." Part (ii) = content → description,
+              why KAM, how addressed, reference to FS disclosure</li>
+            <li>For <strong>going concern procedures</strong>: Focus on forward-looking evidence — cash flow forecasts,
+              bank correspondence, board minutes, post-year-end management accounts. Always include written
+              representations.</li>
+            <li>For <strong>going concern report impact</strong>: State the opinion AND the additional section clearly.
+              Don't just say "modified" — specify qualified/adverse.</li>
+          </ul>
+        </div>
+
+        <div class="key-strip">
+          <span class="key-strip-icon">🎯</span>
+          <div>
+            <strong>Final Exam Reminder:</strong> The auditor's report topic tests your ability to take a scenario,
+            assess materiality and pervasiveness, and select the correct opinion and communications. Practice the
+            decision framework until it is automatic. In the exam, always show your materiality calculation — even a
+            quick "at 8% of profit this is material" earns marks.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div
+    style="max-width:var(--max-width); margin:0 auto; padding:0 24px 40px; text-align:center; color:var(--slate); font-size:0.87rem; font-family:'IBM Plex Mono', monospace;">
+    ACCA AA · Audit Reports Tutorial · June 2026 · Prepared for exam preparation purposes
+  </div>
+
+  <script>
+    // Smooth scroll for TOC links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const el = document.querySelector(a.getAttribute('href'));
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  </script>
+
+</body>
+
+</html>

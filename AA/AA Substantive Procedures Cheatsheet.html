@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACCA AA — Substantive Procedures Cheatsheet</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #f4f9f4;
+    --surface:   #ffffff;
+    --surface2:  #edf5ed;
+    --border:    #c8e0c8;
+    --border2:   #b0d0b0;
+
+    --green-dark:   #1e5c2e;
+    --green-mid:    #2e7d3e;
+    --green-light:  #4caf6a;
+    --green-pale:   #d6eedd;
+    --green-pale2:  #e8f5e9;
+
+    --accent-gold:  #b97c00;
+    --accent-red:   #c0392b;
+    --accent-blue:  #1a5276;
+    --accent-purple:#6c3483;
+
+    --tod-color:    #1a6b35;
+    --tod-bg:       #e6f5eb;
+    --tod-border:   #a8d5b5;
+
+    --sap-color:    #7a5800;
+    --sap-bg:       #fff8e1;
+    --sap-border:   #f0c040;
+
+    --text:         #1a2e1a;
+    --text-mid:     #3a5a3a;
+    --text-muted:   #6a8a6a;
+
+    --base-font: 15.5px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: var(--base-font);
+    line-height: 1.65;
+  }
+
+  .header {
+    background: linear-gradient(135deg, #1e5c2e 0%, #2e7d3e 60%, #388e4a 100%);
+    padding: 52px 48px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    right: -60px; top: -60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+  }
+  .header-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #d4f5d4;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 3px;
+    margin-bottom: 18px;
+  }
+  .header h1 {
+    font-family: 'Lora', serif;
+    font-size: 44px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+  .header h1 span { color: #a8e6b8; }
+  .header-sub { color: rgba(255,255,255,0.75); font-size: 14px; font-weight: 300; }
+
+  .legend {
+    display: flex;
+    gap: 28px;
+    padding: 14px 48px;
+    background: var(--green-pale);
+    border-bottom: 2px solid var(--border);
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .legend-label { color: var(--text-muted); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; font-family: 'JetBrains Mono', monospace; }
+  .legend-item { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--text-mid); }
+
+  .badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    padding: 3px 9px;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .badge-tod { background: var(--tod-bg); color: var(--tod-color); border: 1px solid var(--tod-border); }
+  .badge-sap { background: var(--sap-bg); color: var(--sap-color); border: 1px solid var(--sap-border); }
+
+  .container { padding: 36px 48px 60px; max-width: 1440px; margin: 0 auto; }
+
+  .section-title {
+    font-family: 'Lora', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--green-dark);
+    margin: 44px 0 18px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    padding: 2px 10px;
+    border-radius: 3px;
+  }
+
+  .rules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 16px; margin-bottom: 8px; }
+  .rule-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 20px 22px; border-left: 4px solid var(--green-light); }
+  .rule-card.yellow { border-left-color: #e6ac00; }
+  .rule-card.red    { border-left-color: var(--accent-red); }
+  .rule-card.blue   { border-left-color: var(--accent-blue); }
+  .rule-title { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--green-mid); margin-bottom: 12px; font-weight: 500; }
+  .rule-card.yellow .rule-title { color: var(--accent-gold); }
+  .rule-card.red    .rule-title { color: var(--accent-red); }
+  .rule-card.blue   .rule-title { color: var(--accent-blue); }
+  .rule-card ul { list-style: none; }
+  .rule-card ul li { font-size: 14.5px; color: var(--text-mid); padding: 5px 0 5px 18px; border-bottom: 1px solid var(--green-pale); position: relative; line-height: 1.5; }
+  .rule-card ul li:last-child { border-bottom: none; }
+  .rule-card ul li::before { content: '›'; position: absolute; left: 4px; color: var(--green-light); font-size: 16px; line-height: 1.4; }
+
+  .proc-table { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: 8px; overflow: hidden; border: 1px solid var(--border); margin-bottom: 8px; }
+  .proc-table thead tr { background: var(--green-pale2); border-bottom: 2px solid var(--border); }
+  .proc-table thead th { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--green-mid); padding: 11px 18px; text-align: left; font-weight: 500; }
+  .proc-table tbody tr { border-bottom: 1px solid var(--green-pale); transition: background 0.12s; }
+  .proc-table tbody tr:last-child { border-bottom: none; }
+  .proc-table tbody tr:hover { background: var(--green-pale2); }
+  .proc-table td { padding: 12px 18px; vertical-align: top; }
+  .proc-table td:first-child { width: 74px; }
+  .proc-table td:last-child { font-size: 15px; color: var(--text-mid); line-height: 1.6; }
+
+  .pit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 8px; }
+  .pit-card { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent-gold); border-radius: 8px; padding: 18px 20px; }
+  .pit-area { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent-gold); margin-bottom: 10px; font-weight: 500; }
+  .pit-formula { background: var(--sap-bg); border: 1px solid var(--sap-border); border-radius: 4px; padding: 9px 13px; font-family: 'JetBrains Mono', monospace; font-size: 13.5px; color: var(--text); margin-bottom: 10px; line-height: 1.7; }
+  .pit-card p { font-size: 14px; color: var(--text-muted); line-height: 1.55; }
+
+  .assertions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 8px; }
+  .assertion-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px 18px; }
+  .assertion-name { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; color: var(--green-dark); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 7px; padding-bottom: 6px; border-bottom: 1px solid var(--green-pale); }
+  .assertion-card p { font-size: 14px; color: var(--text-mid); line-height: 1.55; }
+  .assertion-card .example { font-size: 13px; color: var(--text-muted); margin-top: 6px; font-style: italic; }
+
+  .ias37-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 8px; }
+  .ias37-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 20px; text-align: center; }
+  .ias37-outcome { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 500; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--green-pale); }
+  .ias37-card.probable { border-top: 4px solid var(--accent-red); }
+  .ias37-card.probable .ias37-outcome { color: var(--accent-red); }
+  .ias37-card.possible { border-top: 4px solid var(--accent-gold); }
+  .ias37-card.possible .ias37-outcome { color: var(--accent-gold); }
+  .ias37-card.remote { border-top: 4px solid var(--green-light); }
+  .ias37-card.remote .ias37-outcome { color: var(--green-mid); }
+  .ias37-card p { font-size: 14.5px; color: var(--text-mid); line-height: 1.6; }
+  .ias37-card strong { color: var(--text); }
+
+  .report-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 8px; }
+  .report-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 20px 22px; }
+  .report-card-title { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; padding-bottom: 9px; border-bottom: 1px solid var(--green-pale); }
+  .report-card.unmodified { border-top: 4px solid var(--green-light); }
+  .report-card.unmodified .report-card-title { color: var(--green-mid); }
+  .report-card.eom        { border-top: 4px solid var(--accent-blue); }
+  .report-card.eom        .report-card-title { color: var(--accent-blue); }
+  .report-card.qualified  { border-top: 4px solid var(--accent-gold); }
+  .report-card.qualified  .report-card-title { color: var(--accent-gold); }
+  .report-card.adverse    { border-top: 4px solid var(--accent-red); }
+  .report-card.adverse    .report-card-title { color: var(--accent-red); }
+  .report-card.disclaimer { border-top: 4px solid var(--accent-purple); }
+  .report-card.disclaimer .report-card-title { color: var(--accent-purple); }
+  .report-card p { font-size: 14.5px; color: var(--text-mid); line-height: 1.6; margin-bottom: 6px; }
+  .report-card p strong { color: var(--text); font-weight: 600; }
+
+  .traps-list { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent-red); border-radius: 8px; padding: 22px 26px; margin-bottom: 8px; list-style: none; }
+  .traps-list li { font-size: 15px; color: var(--text-mid); padding: 8px 0 8px 28px; border-bottom: 1px solid var(--green-pale); position: relative; line-height: 1.6; }
+  .traps-list li:last-child { border-bottom: none; }
+  .traps-list li::before { content: '⚠'; position: absolute; left: 0; font-size: 13px; color: var(--accent-red); top: 10px; }
+  .traps-list li strong { color: var(--accent-red); font-weight: 600; }
+
+  .footer { margin-top: 56px; padding: 22px 48px; border-top: 2px solid var(--border); text-align: center; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 1px; background: var(--green-pale2); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-badge">ACCA AA · June 2026</div>
+  <h1>Substantive Procedures <span>&</span> Audit Cheatsheet</h1>
+  <div class="header-sub">Tests of Detail &nbsp;·&nbsp; Substantive Analytical &nbsp;·&nbsp; Audit Reports &nbsp;·&nbsp; Assertions &nbsp;·&nbsp; IAS 37 &nbsp;·&nbsp; Exam Traps &nbsp;·&nbsp; Key Standards</div>
+</div>
+
+<div class="legend">
+  <span class="legend-label">Key:</span>
+  <div class="legend-item"><span class="badge badge-tod">ToD</span> Test of Detail — item by item, traced to source documents</div>
+  <div class="legend-item"><span class="badge badge-sap">SAP</span> Substantive Analytical — build expectation, compare, investigate variance</div>
+</div>
+
+<div class="container">
+
+  <div class="section-title"><span class="section-number">00</span> When to Use ToD vs SAP</div>
+  <div class="rules-grid">
+    <div class="rule-card">
+      <div class="rule-title">Use ToD When…</div>
+      <ul>
+        <li>High risk or judgemental balance</li>
+        <li>Small number of high-value items</li>
+        <li>Specific misstatement already identified</li>
+        <li>Provisions, one-off transactions, related party</li>
+        <li>Existence or rights assertion is at risk</li>
+      </ul>
+    </div>
+    <div class="rule-card yellow">
+      <div class="rule-title">Use SAP When…</div>
+      <ul>
+        <li>Predictable, routine, high-volume balance</li>
+        <li>You can build a reliable independent expectation</li>
+        <li>Payroll, interest, depreciation, rental income</li>
+        <li>Accuracy or completeness at aggregate level</li>
+        <li>Low to medium risk area needing efficient coverage</li>
+      </ul>
+    </div>
+    <div class="rule-card blue">
+      <div class="rule-title">SAP — Always State 3 Things</div>
+      <ul>
+        <li>The inputs you are using to build the expectation</li>
+        <li>What you compare the result to (the recorded figure)</li>
+        <li>What you do if a material difference is found</li>
+      </ul>
+    </div>
+    <div class="rule-card red">
+      <div class="rule-title">Weak Evidence — Never Use Alone</div>
+      <ul>
+        <li>Enquiry of management — always pair with inspect or written confirmation</li>
+        <li>Observation — proves existence only, not valuation</li>
+        <li>"Compare to prior year" without independent expectation is not a SAP</li>
+        <li>Tracing in wrong direction loses the mark every time</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-title"><span class="section-number">01</span> Payroll / Wages</div>
+  <table class="proc-table">
+    <thead><tr><th>Type</th><th>Procedure</th></tr></thead>
+    <tbody>
+      <tr><td><span class="badge badge-sap">SAP</span></td><td>Multiply headcount by average salary to develop an expected payroll figure; compare to the recorded wages expense and investigate any material variance.</td></tr>
+      <tr><td><span class="badge badge-sap">SAP</span></td><td>Compare total payroll expense to prior year; obtain management explanation for any significant increase and assess whether it is consistent with known headcount or pay changes.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>For a sample of employees, agree gross pay per payroll records to contracted salary in HR files to confirm accuracy.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>Trace a sample of net pay amounts from payroll records to bank transfer listings to confirm payments were made to real employees and not fictitious ones.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>For hourly-paid staff, recalculate gross pay by multiplying authorised hours on the timesheet by the hourly rate and agree to payroll records.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>Agree total payroll per the payroll records to the wages and salaries expense in the income statement to confirm completeness.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>Review the payroll listing before and after year end for unusual joiners, leavers, or salary changes that may indicate fictitious employees or unauthorised increases.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-title"><span class="section-number">02</span> Trade Receivables</div>
+  <table class="proc-table">
+    <thead><tr><th>Type</th><th>Procedure</th></tr></thead>
+    <tbody>
+      <tr><td><span class="badge badge-sap">SAP</span></td><td>Calculate receivables days for current and prior year; investigate any significant increase that is inconsistent with the company's stated credit terms.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>Send positive confirmation letters to a sample of customers and obtain direct written confirmation of their year-end balances — tests existence.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>For balances where no confirmation is received, review post year-end cash receipts to confirm subsequent payment has been made.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>Review the aged receivables listing; for balances overdue beyond credit terms, assess recoverability and whether a write-down is required.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>For customers in financial difficulty or administration, inspect post year-end correspondence and the administrator's report to assess the expected recovery amount.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>Obtain management's ECL provision calculation, reperform it, and assess whether the methodology and inputs comply with IFRS 9.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-title"><span class="section-number">03</span> Inventory</div>
+  <table class="proc-table">
+    <thead><tr><th>Type</th><th>Procedure</th></tr></thead>
+    <tbody>
+      <tr><td><span class="badge badge-sap">SAP</span></td><td>Calculate inventory holding days for current and prior year; investigate significant increases which may indicate slow-moving or obsolete inventory.</td></tr>
+      <tr><td><span class="badge badge-sap">SAP</span></td><td>Compare gross profit margin to prior year; an unexplained fall may indicate inventory is recorded above NRV or cost of sales is overstated.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>For a sample of inventory items, agree the cost per unit to supplier purchase invoices to confirm items are recorded at cost in line with IAS 2.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>For slow-moving or aged items, compare cost to post year-end selling price less costs to sell to confirm inventory is held at the lower of cost and NRV.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>Review count sheets from the physical inventory count and trace a sample of items to the final inventory listing to confirm completeness.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>For items with expiry dates, physically inspect the dates on a sample of products and assess whether any require write-down or write-off.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>For unlabelled or unidentified items noted at the count, trace to purchase records or GRNs to confirm they belong to the company and are correctly valued.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-title"><span class="section-number">04</span> Trade Payables &amp; Accruals</div>
+  <table class="proc-table">
+    <thead><tr><th>Type</th><th>Procedure</th></tr></thead>
+    <tbody>
+      <tr><td><span class="badge badge-sap">SAP</span></td><td>Calculate payables days for current and prior year; investigate an unexpected decrease which may indicate understatement of payables — completeness risk.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>Obtain a sample of supplier statements and reconcile to the payables ledger; investigate items on the supplier statement that do not appear in the ledger.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>Review purchase invoices received after year end; confirm whether the related goods were received before year end and a payable or GRNI accrual has been recorded.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>For a sample of GRNs dated before year end, confirm the related invoice or GRNI accrual is recorded in the correct accounting period — tests cut-off.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>Review post year-end bank payments and trace back to confirm the corresponding payable was included in year-end balances.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>Inspect and reperform any correcting journal entries to the payables ledger; confirm each journal is properly authorised and mathematically correct.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-title"><span class="section-number">05</span> Revenue</div>
+  <table class="proc-table">
+    <thead><tr><th>Type</th><th>Procedure</th></tr></thead>
+    <tbody>
+      <tr><td><span class="badge badge-sap">SAP</span></td><td>Compare revenue by product line to prior year; develop an expectation and investigate any line that is materially above or below that expectation without explanation.</td></tr>
+      <tr><td><span class="badge badge-sap">SAP</span></td><td>Compare revenue by store to prior year on a per-store basis; for any new store, build an expectation based on average revenue pro-rated for the months it was open.</td></tr>
+      <tr><td><span class="badge badge-sap">SAP</span></td><td>Calculate overall revenue growth as a percentage and assess whether it is consistent with known factors such as new stores, new products, or price changes.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>For a sample of sales transactions around year end, agree the date of delivery to the sales invoice to confirm revenue is recorded in the correct period — tests cut-off.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>For a sample of credit notes issued after year end, trace back to assess whether the related revenue should have been reversed at year end.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>For long-term contracts, agree the stage of completion and estimated total costs to supporting documentation; recalculate revenue recognised and compare to the recorded amount.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-title"><span class="section-number">06</span> Property, Plant &amp; Equipment (PPE)</div>
+  <table class="proc-table">
+    <thead><tr><th>Type</th><th>Procedure</th></tr></thead>
+    <tbody>
+      <tr><td><span class="badge badge-sap">SAP</span></td><td>Perform a proof in total of the depreciation charge by applying the rate and useful life to the carrying amount, adjusted for the period in use; compare to the recorded charge and investigate variances.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>For a sample of additions, agree the cost to supplier invoices and confirm the item meets the IAS 16 capitalisation criteria — future economic benefits and control by the entity.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>Inspect invoices for capitalised items and confirm that maintenance costs, staff training costs, and ongoing service fees have been correctly expensed rather than capitalised.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>For a sample of disposals, agree the proceeds to bank statements and recalculate the profit or loss on disposal; confirm it is correctly presented in the income statement.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>Physically inspect a sample of PPE items to confirm they exist, are in working condition, and are still in use by the company at year end.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>For revalued assets, assess the independence and competence of the valuer and agree the revalued amount to the formal valuation report.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-title"><span class="section-number">07</span> Provisions &amp; Contingencies</div>
+  <table class="proc-table">
+    <thead><tr><th>Type</th><th>Procedure</th></tr></thead>
+    <tbody>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>Obtain written confirmation from the company's lawyers on the probability of the claim succeeding and their estimate of the total liability amount.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>Inspect individual claims received from claimants and agree the amounts to the provision schedule to assess whether the total provision is reasonable.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>Review post year-end legal correspondence and any court developments to assess whether they support or contradict the provision amount recorded.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>Inspect board minutes for evidence that management have considered all known claims and that the provision methodology is consistent with IAS 37.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>Confirm whether IAS 37 criteria are met — present obligation, probable outflow, reliable estimate — or whether contingent liability disclosure is more appropriate.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>For post year-end settlements actually paid, agree amounts to bank statements and use these to benchmark the reasonableness of the year-end provision.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-title"><span class="section-number">08</span> Interest Expense &amp; Bank Loans</div>
+  <table class="proc-table">
+    <thead><tr><th>Type</th><th>Procedure</th></tr></thead>
+    <tbody>
+      <tr><td><span class="badge badge-sap">SAP</span></td><td>Perform a proof in total: multiply each loan balance by its interest rate and the applicable time period; compare expected interest to the recorded charge and investigate any material variance.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>Agree the interest rate, loan balance, and repayment terms to the signed loan agreement and confirm interest has been correctly calculated and charged in the right period.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>Obtain a direct bank confirmation letter confirming year-end loan balances, facilities, interest rates, and any security or charges held over company assets.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>Review loan covenant requirements; recalculate the relevant ratios (e.g. interest cover) from the draft financial statements and assess whether any covenant breach exists.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>Confirm accrued interest at year end by calculating the amount outstanding from the last payment date to year end and agree to the accruals balance in the ledger.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-title"><span class="section-number">09</span> Bank &amp; Cash</div>
+  <table class="proc-table">
+    <thead><tr><th>Type</th><th>Procedure</th></tr></thead>
+    <tbody>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>Obtain the bank reconciliation and reperform it; agree the balance per the reconciliation to the year-end bank statement and to the cash book.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>Obtain a direct bank confirmation letter from the bank confirming year-end balances, overdrafts, loans, and any security or charges over company assets.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>Investigate any long-outstanding reconciling items in the bank reconciliation and obtain management explanation; assess whether any adjustment is required.</td></tr>
+      <tr><td><span class="badge badge-tod">ToD</span></td><td>Review post year-end bank statements for any unusual or large payments or receipts that may indicate year-end balances are misstated.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-title"><span class="section-number">10</span> Proof in Total — Quick Formulas</div>
+  <div class="pit-grid">
+    <div class="pit-card">
+      <div class="pit-area">Payroll</div>
+      <div class="pit-formula">Headcount × Average Salary<br>= Expected Wages Expense</div>
+      <p>Compare to recorded wages; investigate if variance is material and unexplained.</p>
+    </div>
+    <div class="pit-card">
+      <div class="pit-area">Interest Expense</div>
+      <div class="pit-formula">Loan Balance × Rate × (Months / 12)<br>= Expected Interest</div>
+      <p>Use the exact months the loan was active in the year. Compare to P&amp;L charge.</p>
+    </div>
+    <div class="pit-card">
+      <div class="pit-area">Depreciation</div>
+      <div class="pit-formula">Cost ÷ Useful Life × (Months in use / 12)<br>= Expected Depreciation</div>
+      <p>Always check the asset's start date — full year vs part year is a common trap.</p>
+    </div>
+    <div class="pit-card">
+      <div class="pit-area">Rental Income</div>
+      <div class="pit-formula">No. of Properties × Annual Rent<br>= Expected Rental Income</div>
+      <p>Adjust for any known vacancies or rent-free periods during the year.</p>
+    </div>
+    <div class="pit-card">
+      <div class="pit-area">Revenue (Retail)</div>
+      <div class="pit-formula">Existing Stores × Avg Revenue per Store<br>+ New Store × (Months open / 12)</div>
+      <p>Build the expectation first; then compare to the recorded total revenue figure.</p>
+    </div>
+    <div class="pit-card">
+      <div class="pit-area">VAT / Sales Tax</div>
+      <div class="pit-formula">Revenue × Tax Rate<br>= Expected Tax Liability</div>
+      <p>Compare to balance on VAT return; investigate any unexplained gap.</p>
+    </div>
+  </div>
+
+  <div class="section-title"><span class="section-number">11</span> Financial Statement Assertions</div>
+  <div class="assertions-grid">
+    <div class="assertion-card">
+      <div class="assertion-name">Occurrence</div>
+      <p>Recorded transactions actually happened and relate to the entity.</p>
+      <p class="example">Risk: Revenue recorded for goods never delivered.</p>
+    </div>
+    <div class="assertion-card">
+      <div class="assertion-name">Completeness</div>
+      <p>All transactions and balances that should be recorded are included.</p>
+      <p class="example">Risk: Payables understated — invoices not yet processed.</p>
+    </div>
+    <div class="assertion-card">
+      <div class="assertion-name">Accuracy</div>
+      <p>Amounts are recorded at correct values without arithmetical errors.</p>
+      <p class="example">Risk: Depreciation miscalculated due to wrong rate applied.</p>
+    </div>
+    <div class="assertion-card">
+      <div class="assertion-name">Cut-off</div>
+      <p>Transactions are recorded in the correct accounting period.</p>
+      <p class="example">Risk: Revenue for December delivery recorded in January.</p>
+    </div>
+    <div class="assertion-card">
+      <div class="assertion-name">Valuation</div>
+      <p>Assets, liabilities, income and expenses are at appropriate amounts.</p>
+      <p class="example">Risk: Inventory above NRV; receivables not written down.</p>
+    </div>
+    <div class="assertion-card">
+      <div class="assertion-name">Existence</div>
+      <p>Assets and liabilities actually exist at the balance sheet date.</p>
+      <p class="example">Risk: PPE on ledger was scrapped but not removed from books.</p>
+    </div>
+    <div class="assertion-card">
+      <div class="assertion-name">Rights &amp; Obligations</div>
+      <p>Entity holds rights to assets and obligations for liabilities recorded.</p>
+      <p class="example">Risk: Leased asset recorded as owned PPE.</p>
+    </div>
+    <div class="assertion-card">
+      <div class="assertion-name">Classification</div>
+      <p>Items are disclosed in the correct category in the financial statements.</p>
+      <p class="example">Risk: Long-term loan not reclassified to current on covenant breach.</p>
+    </div>
+    <div class="assertion-card">
+      <div class="assertion-name">Presentation</div>
+      <p>Items are appropriately described and disclosed in the financial statements.</p>
+      <p class="example">Risk: Contingent liability not disclosed in the notes.</p>
+    </div>
+  </div>
+
+  <div class="section-title"><span class="section-number">12</span> IAS 37 — Provisions vs Contingencies</div>
+  <div class="ias37-grid">
+    <div class="ias37-card probable">
+      <div class="ias37-outcome">Probable (&gt;50%)</div>
+      <p>Recognise a <strong>provision</strong> in the financial statements.<br><br>Must have: present obligation + probable outflow + reliable estimate of amount.</p>
+    </div>
+    <div class="ias37-card possible">
+      <div class="ias37-outcome">Possible (not probable)</div>
+      <p>Disclose as a <strong>contingent liability</strong> in the notes.<br><br>Do not recognise on the face of the statements. Describe nature and estimate if possible.</p>
+    </div>
+    <div class="ias37-card remote">
+      <div class="ias37-outcome">Remote (&lt;5%)</div>
+      <p><strong>No action required.</strong><br><br>No provision, no note in the financial statements. Do nothing.</p>
+    </div>
+  </div>
+
+  <div class="section-title"><span class="section-number">13</span> Audit Report — Decision Guide</div>
+  <div class="report-grid">
+    <div class="report-card unmodified">
+      <div class="report-card-title">✓ Unmodified Opinion</div>
+      <p><strong>When:</strong> Financial statements give a true and fair view. No material misstatements found.</p>
+      <p><strong>Extra sections?</strong> Going concern (if disclosed adequately), or KAM for listed entities only.</p>
+    </div>
+    <div class="report-card eom">
+      <div class="report-card-title">~ Emphasis of Matter</div>
+      <p><strong>When:</strong> A matter is <em>properly disclosed</em> in the financial statements but the auditor wants to draw users' attention to it.</p>
+      <p><strong>Opinion stays unmodified.</strong> Not used for disagreements or misstatements — this is the most common exam trap.</p>
+    </div>
+    <div class="report-card qualified">
+      <div class="report-card-title">! Qualified — Except For</div>
+      <p><strong>When:</strong> Material misstatement OR limitation on scope — but the effect is <em>not pervasive</em> to the financial statements overall.</p>
+      <p><strong>Disagreement:</strong> Provision understated and management refuses to adjust.</p>
+      <p><strong>Limitation:</strong> Auditor unable to obtain evidence over one specific balance.</p>
+    </div>
+    <div class="report-card adverse">
+      <div class="report-card-title">✗ Adverse Opinion</div>
+      <p><strong>When:</strong> Misstatement is both <em>material AND pervasive</em> to the financial statements.</p>
+      <p><strong>Meaning:</strong> The financial statements do not give a true and fair view overall.</p>
+    </div>
+    <div class="report-card disclaimer">
+      <div class="report-card-title">— Disclaimer of Opinion</div>
+      <p><strong>When:</strong> Limitation on scope that is <em>material AND pervasive</em> — auditor cannot form any opinion at all.</p>
+      <p><strong>Example:</strong> Appointed after year end with no accounting records available.</p>
+    </div>
+  </div>
+
+  <div class="section-title"><span class="section-number">14</span> Materiality — Quick Benchmarks</div>
+  <table class="proc-table">
+    <thead><tr><th>Benchmark</th><th>Typical Range</th><th>When Used</th></tr></thead>
+    <tbody>
+      <tr><td style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--green-dark);font-weight:500;">Profit before tax</td><td style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--accent-gold);font-weight:500;">5% – 10%</td><td style="font-size:15px;color:var(--text-mid);">Most profit-making entities — most common benchmark in AA exam questions.</td></tr>
+      <tr><td style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--green-dark);font-weight:500;">Revenue</td><td style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--accent-gold);font-weight:500;">0.5% – 1%</td><td style="font-size:15px;color:var(--text-mid);">Where profit is volatile, very low, or the entity is loss-making.</td></tr>
+      <tr><td style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--green-dark);font-weight:500;">Total assets</td><td style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--accent-gold);font-weight:500;">1% – 2%</td><td style="font-size:15px;color:var(--text-mid);">Asset-heavy entities such as banks or property companies.</td></tr>
+      <tr><td style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--green-dark);font-weight:500;">Performance materiality</td><td style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--accent-gold);font-weight:500;">50% – 75%</td><td style="font-size:15px;color:var(--text-mid);">Set lower than overall materiality to reduce risk of aggregate misstatements exceeding the threshold.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-title"><span class="section-number">15</span> Exam Traps — Know These Cold</div>
+  <ul class="traps-list">
+    <li><strong>Wrong direction of testing:</strong> Completeness = go from outside the ledger into the ledger (GRN → ledger). Occurrence = go from ledger back to source document (ledger → invoice).</li>
+    <li><strong>Enquiry alone scores poorly:</strong> Always pair enquiry with "inspect," "obtain written confirmation," or "recalculate." Enquiry is the weakest form of audit evidence.</li>
+    <li><strong>Emphasis of Matter ≠ disagreement:</strong> EoM is only for undisputed, properly disclosed matters. Management refusing to adjust = qualified or adverse. Never EoM.</li>
+    <li><strong>Wrong assertion for the risk:</strong> Fictitious transactions = occurrence (not completeness). Missing transactions = completeness (not occurrence). Always state the direction of misstatement.</li>
+    <li><strong>Depreciation direction error:</strong> Full year charged on a half-year asset → depreciation overstated → PPE carrying amount understated. State the direction clearly every time.</li>
+    <li><strong>"Compare to prior year" is not a SAP:</strong> A proper SAP requires building an independent expectation first. Simply comparing two recorded numbers is insufficient.</li>
+    <li><strong>Too few procedures:</strong> 5-mark question = minimum 5 clear, specific, scenario-linked points. Do not write 2 procedures for a 5-mark requirement.</li>
+    <li><strong>Wrong IAS reference:</strong> Provisions = IAS 37. PPE = IAS 16. Inventory = IAS 2. Impairment = IAS 36. Revenue = IFRS 15. ECL = IFRS 9. Do not mix these up.</li>
+    <li><strong>Importing facts from another question:</strong> Before writing each procedure, ask "is this fact actually in this scenario?" Do not carry over details from earlier practice questions.</li>
+    <li><strong>SAP-only question answered with ToD:</strong> If the requirement says "substantive analytical procedures," writing "select a sample and vouch to invoices" scores zero — that is a test of detail.</li>
+  </ul>
+
+  <div class="section-title"><span class="section-number">16</span> Key Standards — Quick Reference</div>
+  <table class="proc-table">
+    <thead><tr><th>Standard</th><th>Topic</th><th>Key Rule to Remember</th></tr></thead>
+    <tbody>
+      <tr><td style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--green-dark);font-weight:500;">IAS 2</td><td style="font-size:15px;color:var(--text);font-weight:500;">Inventory</td><td style="font-size:15px;color:var(--text-mid);">Lower of cost and NRV. FIFO or weighted average only — LIFO is not permitted.</td></tr>
+      <tr><td style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--green-dark);font-weight:500;">IAS 16</td><td style="font-size:15px;color:var(--text);font-weight:500;">PPE</td><td style="font-size:15px;color:var(--text-mid);">Capitalise purchase price plus directly attributable costs. Expense maintenance, training, and ongoing service fees.</td></tr>
+      <tr><td style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--green-dark);font-weight:500;">IAS 36</td><td style="font-size:15px;color:var(--text);font-weight:500;">Impairment</td><td style="font-size:15px;color:var(--text-mid);">Recoverable amount = higher of FV less costs to sell and value in use. Write down if carrying amount exceeds this.</td></tr>
+      <tr><td style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--green-dark);font-weight:500;">IAS 37</td><td style="font-size:15px;color:var(--text);font-weight:500;">Provisions</td><td style="font-size:15px;color:var(--text-mid);">Probable + present obligation + reliable estimate = provision. Possible = disclose. Remote = nothing.</td></tr>
+      <tr><td style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--green-dark);font-weight:500;">IFRS 9</td><td style="font-size:15px;color:var(--text);font-weight:500;">Financial Instruments</td><td style="font-size:15px;color:var(--text-mid);">ECL model — recognise expected credit losses on trade receivables from day one, not only when a loss event occurs.</td></tr>
+      <tr><td style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--green-dark);font-weight:500;">IFRS 15</td><td style="font-size:15px;color:var(--text);font-weight:500;">Revenue</td><td style="font-size:15px;color:var(--text-mid);">Recognise revenue when (or as) each performance obligation is satisfied. Follow the 5-step model.</td></tr>
+      <tr><td style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--green-dark);font-weight:500;">ISA 240</td><td style="font-size:15px;color:var(--text);font-weight:500;">Fraud</td><td style="font-size:15px;color:var(--text-mid);">Auditor responsible for detecting material misstatement due to fraud. Must discuss susceptibility with the full audit team.</td></tr>
+      <tr><td style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--green-dark);font-weight:500;">ISA 315</td><td style="font-size:15px;color:var(--text);font-weight:500;">Risk Assessment</td><td style="font-size:15px;color:var(--text-mid);">Identify and assess risks of material misstatement through understanding the entity, its environment, and internal controls.</td></tr>
+      <tr><td style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--green-dark);font-weight:500;">ISA 330</td><td style="font-size:15px;color:var(--text);font-weight:500;">Responses to Risk</td><td style="font-size:15px;color:var(--text-mid);">Design and perform further procedures — tests of controls and/or substantive — in response to assessed risks.</td></tr>
+      <tr><td style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--green-dark);font-weight:500;">ISA 570</td><td style="font-size:15px;color:var(--text);font-weight:500;">Going Concern</td><td style="font-size:15px;color:var(--text-mid);">Evaluate management's going concern assessment; consider events and conditions up to the date of the auditor's report.</td></tr>
+      <tr><td style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--green-dark);font-weight:500;">ISA 701</td><td style="font-size:15px;color:var(--text);font-weight:500;">KAM</td><td style="font-size:15px;color:var(--text-mid);">Communicate key audit matters for listed entities only. Matters of most significance in the current period audit.</td></tr>
+    </tbody>
+  </table>
+
+</div>
+
+<div class="footer">ACCA AA &nbsp;·&nbsp; Substantive Procedures Cheatsheet &nbsp;·&nbsp; June 2026 &nbsp;·&nbsp; For revision use only</div>
+
+</body>
+</html>

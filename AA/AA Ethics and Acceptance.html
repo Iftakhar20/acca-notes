@@ -1,0 +1,3062 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AA – Ethics, Acceptance & Threats | ACCA June 2026</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #f0f4f8;
+        --surface: #ffffff;
+        --surface2: #e8eef5;
+        --surface3: #dde6f0;
+        --border: #c8d8e8;
+        --border-light: #dce9f4;
+        --primary: #1a4f82;
+        --primary-mid: #2563a8;
+        --primary-light: #3d7fc1;
+        --accent: #0891b2;
+        --accent-light: #e0f2fe;
+        --accent2: #0f766e;
+        --accent2-light: #ccfbf1;
+        --warn: #b45309;
+        --warn-light: #fef3c7;
+        --danger: #b91c1c;
+        --danger-light: #fee2e2;
+        --success: #15803d;
+        --success-light: #dcfce7;
+        --purple: #7c3aed;
+        --purple-light: #ede9fe;
+        --text: #1e293b;
+        --text-mid: #334155;
+        --text-light: #64748b;
+        --text-xlight: #94a3b8;
+        --heading-font: "Lora", Georgia, serif;
+        --body-font: "DM Sans", system-ui, sans-serif;
+        --mono-font: "DM Mono", monospace;
+        --radius: 12px;
+        --radius-sm: 8px;
+        --shadow: 0 2px 12px rgba(26, 79, 130, 0.1);
+        --shadow-lg: 0 6px 32px rgba(26, 79, 130, 0.13);
+        --max-width: 980px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--body-font);
+        background: var(--bg);
+        color: var(--text);
+        font-size: 17px;
+        line-height: 1.75;
+        min-height: 100vh;
+      }
+
+      /* ── HEADER ── */
+      header {
+        background: linear-gradient(
+          135deg,
+          #0f2d52 0%,
+          #1a4f82 50%,
+          #2563a8 100%
+        );
+        color: white;
+        padding: 48px 32px 40px;
+        position: relative;
+        overflow: hidden;
+      }
+      header::before {
+        content: "";
+        position: absolute;
+        top: -60px;
+        right: -60px;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(
+          circle,
+          rgba(59, 130, 246, 0.25) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+      }
+      header::after {
+        content: "";
+        position: absolute;
+        bottom: -40px;
+        left: 10%;
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(
+          circle,
+          rgba(14, 165, 233, 0.18) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+      }
+      .header-inner {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+      .header-badge {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: #bfdbfe;
+        font-size: 12.5px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 4px 14px;
+        border-radius: 20px;
+        margin-bottom: 16px;
+      }
+      header h1 {
+        font-family: var(--heading-font);
+        font-size: 2.3rem;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 12px;
+        color: #ffffff;
+      }
+      header p {
+        color: #bfdbfe;
+        font-size: 1rem;
+        max-width: 600px;
+        line-height: 1.6;
+      }
+      .header-tags {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+      .header-tag {
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #e0f2fe;
+        font-size: 12px;
+        padding: 3px 12px;
+        border-radius: 20px;
+        font-weight: 500;
+      }
+
+      /* ── NAV ── */
+      nav {
+        background: var(--surface);
+        border-bottom: 2px solid var(--border);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 8px rgba(26, 79, 130, 0.08);
+      }
+      .nav-inner {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 24px;
+        display: flex;
+        gap: 4px;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+      .nav-inner::-webkit-scrollbar {
+        display: none;
+      }
+      .nav-link {
+        display: block;
+        padding: 14px 16px;
+        color: var(--text-light);
+        text-decoration: none;
+        font-size: 13.5px;
+        font-weight: 500;
+        white-space: nowrap;
+        border-bottom: 3px solid transparent;
+        transition: all 0.2s;
+      }
+      .nav-link:hover {
+        color: var(--primary-mid);
+        border-bottom-color: var(--border);
+      }
+      .nav-link.active {
+        color: var(--primary);
+        border-bottom-color: var(--primary);
+      }
+
+      /* ── LAYOUT ── */
+      main {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 40px 24px 80px;
+      }
+
+      section {
+        margin-bottom: 56px;
+        scroll-margin-top: 60px;
+      }
+
+      /* ── SECTION HEADER ── */
+      .section-header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 28px;
+        padding-bottom: 16px;
+        border-bottom: 2px solid var(--border-light);
+      }
+      .section-icon {
+        width: 48px;
+        height: 48px;
+        background: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-light)
+        );
+        border-radius: var(--radius-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        flex-shrink: 0;
+        box-shadow: 0 3px 10px rgba(26, 79, 130, 0.25);
+      }
+      .section-title {
+        font-family: var(--heading-font);
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: var(--primary);
+        line-height: 1.3;
+      }
+      .section-subtitle {
+        font-size: 0.9rem;
+        color: var(--text-light);
+        margin-top: 3px;
+        font-weight: 400;
+      }
+
+      /* ── CARD ── */
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border-light);
+        border-radius: var(--radius);
+        padding: 28px 32px;
+        margin-bottom: 20px;
+        box-shadow: var(--shadow);
+      }
+      .card-title {
+        font-family: var(--heading-font);
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .card-title .dot {
+        width: 8px;
+        height: 8px;
+        background: var(--primary-light);
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      /* ── CALLOUT BOXES ── */
+      .callout {
+        border-radius: var(--radius-sm);
+        padding: 18px 22px;
+        margin: 18px 0;
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+        font-size: 0.95rem;
+        line-height: 1.7;
+      }
+      .callout-icon {
+        font-size: 1.2rem;
+        flex-shrink: 0;
+        margin-top: 1px;
+      }
+      .callout-body {
+        flex: 1;
+      }
+      .callout-body strong {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .callout.info {
+        background: var(--accent-light);
+        border-left: 4px solid var(--accent);
+      }
+      .callout.info .callout-body strong {
+        color: var(--accent);
+      }
+      .callout.warn {
+        background: var(--warn-light);
+        border-left: 4px solid var(--warn);
+      }
+      .callout.warn .callout-body strong {
+        color: var(--warn);
+      }
+      .callout.danger {
+        background: var(--danger-light);
+        border-left: 4px solid var(--danger);
+      }
+      .callout.danger .callout-body strong {
+        color: var(--danger);
+      }
+      .callout.success {
+        background: var(--success-light);
+        border-left: 4px solid var(--success);
+      }
+      .callout.success .callout-body strong {
+        color: var(--success);
+      }
+      .callout.purple {
+        background: var(--purple-light);
+        border-left: 4px solid var(--purple);
+      }
+      .callout.purple .callout-body strong {
+        color: var(--purple);
+      }
+
+      /* ── TABLES ── */
+      .table-wrap {
+        overflow-x: auto;
+        margin: 20px 0;
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.92rem;
+      }
+      thead th {
+        background: linear-gradient(
+          to right,
+          var(--primary),
+          var(--primary-mid)
+        );
+        color: white;
+        padding: 13px 16px;
+        text-align: left;
+        font-weight: 600;
+        font-size: 0.85rem;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+      }
+      tbody tr:nth-child(even) {
+        background: var(--surface2);
+      }
+      tbody tr:hover {
+        background: #dce9f5;
+        transition: background 0.15s;
+      }
+      tbody td {
+        padding: 12px 16px;
+        border-bottom: 1px solid var(--border-light);
+        vertical-align: top;
+        line-height: 1.6;
+      }
+      tbody tr:last-child td {
+        border-bottom: none;
+      }
+      .tag {
+        display: inline-block;
+        padding: 2px 9px;
+        border-radius: 12px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+      }
+      .tag-blue {
+        background: #dbeafe;
+        color: #1d4ed8;
+      }
+      .tag-red {
+        background: #fee2e2;
+        color: #b91c1c;
+      }
+      .tag-green {
+        background: #dcfce7;
+        color: #15803d;
+      }
+      .tag-amber {
+        background: #fef3c7;
+        color: #92400e;
+      }
+      .tag-purple {
+        background: #ede9fe;
+        color: #6d28d9;
+      }
+      .tag-teal {
+        background: #ccfbf1;
+        color: #0f766e;
+      }
+
+      /* ── THREAT CARDS ── */
+      .threats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 16px;
+        margin: 20px 0;
+      }
+      .threat-card {
+        background: var(--surface);
+        border: 1px solid var(--border-light);
+        border-radius: var(--radius-sm);
+        padding: 20px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .threat-card:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+      }
+      .threat-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+      }
+      .threat-card.self-interest::before {
+        background: linear-gradient(to right, #f59e0b, #d97706);
+      }
+      .threat-card.self-review::before {
+        background: linear-gradient(to right, #3b82f6, #1d4ed8);
+      }
+      .threat-card.advocacy::before {
+        background: linear-gradient(to right, #10b981, #059669);
+      }
+      .threat-card.familiarity::before {
+        background: linear-gradient(to right, #8b5cf6, #6d28d9);
+      }
+      .threat-card.intimidation::before {
+        background: linear-gradient(to right, #ef4444, #b91c1c);
+      }
+
+      .threat-name {
+        font-family: var(--heading-font);
+        font-size: 1.05rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      .threat-card.self-interest .threat-name {
+        color: #92400e;
+      }
+      .threat-card.self-review .threat-name {
+        color: #1e40af;
+      }
+      .threat-card.advocacy .threat-name {
+        color: #065f46;
+      }
+      .threat-card.familiarity .threat-name {
+        color: #5b21b6;
+      }
+      .threat-card.intimidation .threat-name {
+        color: #991b1b;
+      }
+
+      .threat-def {
+        font-size: 0.88rem;
+        color: var(--text-mid);
+        margin-bottom: 12px;
+        line-height: 1.6;
+      }
+      .threat-examples {
+        font-size: 0.83rem;
+      }
+      .threat-examples strong {
+        display: block;
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--text-xlight);
+        margin-bottom: 5px;
+      }
+      .threat-examples ul {
+        list-style: none;
+        padding: 0;
+      }
+      .threat-examples ul li {
+        padding: 2px 0 2px 14px;
+        position: relative;
+        color: var(--text-mid);
+      }
+      .threat-examples ul li::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--text-xlight);
+        font-size: 0.8rem;
+      }
+
+      /* ── PRINCIPLES ── */
+      .principles-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 14px;
+        margin: 20px 0;
+      }
+      .principle-card {
+        background: var(--surface);
+        border: 1px solid var(--border-light);
+        border-radius: var(--radius-sm);
+        padding: 20px;
+        box-shadow: var(--shadow);
+      }
+      .principle-letter {
+        font-family: var(--heading-font);
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--primary-light);
+        opacity: 0.4;
+        line-height: 1;
+        margin-bottom: 4px;
+      }
+      .principle-name {
+        font-weight: 700;
+        font-size: 0.95rem;
+        color: var(--primary);
+        margin-bottom: 6px;
+      }
+      .principle-desc {
+        font-size: 0.87rem;
+        color: var(--text-mid);
+        line-height: 1.6;
+      }
+
+      /* ── EXAM Q ── */
+      .exam-q {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        margin: 24px 0;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+      .exam-q-header {
+        background: linear-gradient(to right, #0f2d52, #1a4f82);
+        color: white;
+        padding: 12px 20px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .exam-q-marks {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 2px 10px;
+        border-radius: 12px;
+        font-size: 0.75rem;
+      }
+      .exam-q-scenario {
+        background: #f8fafc;
+        padding: 18px 22px;
+        font-size: 0.92rem;
+        line-height: 1.75;
+        border-bottom: 1px solid var(--border-light);
+        color: var(--text-mid);
+        font-style: italic;
+      }
+      .exam-q-body {
+        padding: 20px 22px;
+      }
+      .exam-q-question {
+        font-size: 0.97rem;
+        font-weight: 500;
+        color: var(--text);
+        margin-bottom: 14px;
+        line-height: 1.65;
+      }
+      .options {
+        list-style: none;
+        padding: 0;
+      }
+      .options li {
+        padding: 10px 14px;
+        border: 1px solid var(--border-light);
+        border-radius: 6px;
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+      }
+      .options li:hover {
+        border-color: var(--primary-light);
+        background: var(--surface2);
+      }
+      .options li.correct {
+        background: #dcfce7;
+        border-color: #16a34a;
+        color: #14532d;
+      }
+      .options li.wrong {
+        background: #fee2e2;
+        border-color: #dc2626;
+        color: #7f1d1d;
+      }
+      .option-letter {
+        min-width: 24px;
+        height: 24px;
+        background: var(--surface2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.78rem;
+        font-weight: 700;
+        color: var(--text-light);
+        flex-shrink: 0;
+      }
+      .options li.correct .option-letter {
+        background: #16a34a;
+        color: white;
+      }
+      .options li.wrong .option-letter {
+        background: #dc2626;
+        color: white;
+      }
+
+      .answer-reveal {
+        margin-top: 14px;
+        padding: 16px 18px;
+        background: #f0fdf4;
+        border: 1px solid #bbf7d0;
+        border-radius: var(--radius-sm);
+        font-size: 0.9rem;
+        line-height: 1.7;
+        color: #14532d;
+        display: none;
+      }
+      .answer-reveal.visible {
+        display: block;
+      }
+      .answer-reveal .ans-label {
+        font-size: 0.78rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: #16a34a;
+        margin-bottom: 6px;
+      }
+
+      .show-answer-btn {
+        margin-top: 14px;
+        background: var(--primary);
+        color: white;
+        border: none;
+        padding: 9px 20px;
+        border-radius: var(--radius-sm);
+        font-size: 0.87rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s;
+        font-family: var(--body-font);
+      }
+      .show-answer-btn:hover {
+        background: var(--primary-mid);
+      }
+
+      /* ── NUMBERED LIST ── */
+      .step-list {
+        list-style: none;
+        padding: 0;
+        counter-reset: steps;
+      }
+      .step-list li {
+        counter-increment: steps;
+        padding: 12px 16px 12px 52px;
+        position: relative;
+        margin-bottom: 10px;
+        background: var(--surface2);
+        border-radius: var(--radius-sm);
+        font-size: 0.95rem;
+        line-height: 1.65;
+      }
+      .step-list li::before {
+        content: counter(steps);
+        position: absolute;
+        left: 14px;
+        top: 12px;
+        width: 26px;
+        height: 26px;
+        background: var(--primary);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.78rem;
+        font-weight: 700;
+      }
+
+      /* ── BULLET LIST ── */
+      .bullet-list {
+        list-style: none;
+        padding: 0;
+        margin: 12px 0;
+      }
+      .bullet-list li {
+        padding: 6px 0 6px 22px;
+        position: relative;
+        font-size: 0.95rem;
+        line-height: 1.65;
+        color: var(--text-mid);
+      }
+      .bullet-list li::before {
+        content: "◆";
+        position: absolute;
+        left: 0;
+        color: var(--primary-light);
+        font-size: 0.55rem;
+        top: 11px;
+      }
+
+      /* ── MNEMONIC ── */
+      .mnemonic {
+        background: linear-gradient(135deg, #1e3a5f, #1a4f82);
+        color: white;
+        border-radius: var(--radius);
+        padding: 24px 28px;
+        margin: 20px 0;
+      }
+      .mnemonic-label {
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #93c5fd;
+        margin-bottom: 10px;
+      }
+      .mnemonic-word {
+        font-family: var(--heading-font);
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 12px;
+        color: #bfdbfe;
+        letter-spacing: 0.05em;
+      }
+      .mnemonic-items {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .mnemonic-item {
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 0.88rem;
+      }
+      .mnemonic-item strong {
+        color: #60a5fa;
+        margin-right: 4px;
+      }
+
+      /* ── FLOW BOX ── */
+      .flow {
+        display: flex;
+        align-items: center;
+        gap: 0;
+        flex-wrap: wrap;
+        margin: 18px 0;
+      }
+      .flow-step {
+        background: var(--primary);
+        color: white;
+        padding: 10px 16px;
+        border-radius: 6px;
+        font-size: 0.87rem;
+        font-weight: 600;
+        text-align: center;
+        flex: 1;
+        min-width: 100px;
+        line-height: 1.4;
+      }
+      .flow-arrow {
+        font-size: 1.1rem;
+        color: var(--primary-light);
+        padding: 0 6px;
+        flex-shrink: 0;
+      }
+
+      /* ── SUMMARY BOX ── */
+      .summary-box {
+        background: linear-gradient(135deg, var(--surface), var(--surface2));
+        border: 2px solid var(--primary-light);
+        border-radius: var(--radius);
+        padding: 24px 28px;
+        margin: 24px 0;
+      }
+      .summary-box h4 {
+        font-family: var(--heading-font);
+        font-size: 1.05rem;
+        color: var(--primary);
+        margin-bottom: 14px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      /* ── PILL PAIR ── */
+      .pill-pair {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin: 12px 0;
+      }
+      .pill {
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+
+      /* ── DIVIDER ── */
+      .divider {
+        border: none;
+        border-top: 2px dashed var(--border);
+        margin: 32px 0;
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 660px) {
+        header h1 {
+          font-size: 1.6rem;
+        }
+        .card {
+          padding: 20px;
+        }
+        .threats-grid {
+          grid-template-columns: 1fr;
+        }
+        .principles-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        main {
+          padding: 28px 16px 60px;
+        }
+      }
+
+      p {
+        margin-bottom: 10px;
+      }
+      p:last-child {
+        margin-bottom: 0;
+      }
+      strong {
+        color: var(--text);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-inner">
+        <div class="header-badge">ACCA AA · June 2026</div>
+        <h1>Ethics, Acceptance &amp; Ethical Threats</h1>
+        <p>
+          A complete tutorial covering the ACCA Code of Ethics, the five
+          fundamental principles, all ethical threats and safeguards, and
+          engagement acceptance — with worked exam questions from the Kaplan
+          kit.
+        </p>
+        <div class="header-tags">
+          <span class="header-tag">ACCA Code of Ethics</span>
+          <span class="header-tag">5 Fundamental Principles</span>
+          <span class="header-tag">5 Ethical Threats</span>
+          <span class="header-tag">Safeguards</span>
+          <span class="header-tag">Engagement Acceptance</span>
+          <span class="header-tag">Fee Issues</span>
+          <span class="header-tag">Non-Audit Services</span>
+        </div>
+      </div>
+    </header>
+
+    <nav>
+      <div class="nav-inner">
+        <a href="#overview" class="nav-link">Overview</a>
+        <a href="#principles" class="nav-link">5 Principles</a>
+        <a href="#threats" class="nav-link">Threats</a>
+        <a href="#safeguards" class="nav-link">Safeguards</a>
+        <a href="#specific-issues" class="nav-link">Specific Issues</a>
+        <a href="#acceptance" class="nav-link">Acceptance</a>
+        <a href="#exam-qs" class="nav-link">Exam Practice</a>
+        <a href="#cheatsheet" class="nav-link">Quick Reference</a>
+      </div>
+    </nav>
+
+    <main>
+      <!-- ══════════════════════════════════════════════════════════ -->
+      <section id="overview">
+        <div class="section-header">
+          <div class="section-icon">📋</div>
+          <div>
+            <div class="section-title">
+              Overview: Why Ethics Matters in Audit
+            </div>
+            <div class="section-subtitle">
+              The conceptual framework approach · ACCA Code of Ethics
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <span class="dot"></span>Two Approaches to Ethics
+          </div>
+          <p>
+            The ACCA Code uses a <strong>conceptual framework approach</strong>,
+            not a rulebook. Understanding the difference is an exam question in
+            itself.
+          </p>
+
+          <div class="table-wrap" style="margin-top: 16px">
+            <table>
+              <thead>
+                <tr>
+                  <th>Aspect</th>
+                  <th>Rulebook Approach</th>
+                  <th>Conceptual Framework Approach (ACCA)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Nature</strong></td>
+                  <td>Clearly defined laws; black and white rules</td>
+                  <td>Principles-based guidelines; judgement applied</td>
+                </tr>
+                <tr>
+                  <td><strong>Flexibility</strong></td>
+                  <td>Rigid — fixed for specific situations</td>
+                  <td>Flexible — useful in a dynamic environment</td>
+                </tr>
+                <tr>
+                  <td><strong>Ease of use</strong></td>
+                  <td>Easy to know what is or is not allowed</td>
+                  <td>Requires professional judgement to apply</td>
+                </tr>
+                <tr>
+                  <td><strong>Coverage</strong></td>
+                  <td>Only covers situations specifically listed</td>
+                  <td>Can handle new or unusual situations</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout info">
+            <span class="callout-icon">📌</span>
+            <div class="callout-body">
+              <strong>Exam Tip</strong>
+              The conceptual framework is
+              <em>useful in a dynamic environment</em> — that phrase is an exam
+              answer. Rulebook is easy to follow but inflexible. ACCA's approach
+              is conceptual framework.
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <span class="dot"></span>The Conceptual Framework Process
+          </div>
+          <p>
+            When an ethical issue arises, the auditor works through this thought
+            process:
+          </p>
+          <ol class="step-list">
+            <li>
+              Identify the <strong>threat</strong> to the fundamental principles
+              (e.g. familiarity, self-interest)
+            </li>
+            <li>
+              Evaluate the <strong>significance</strong> of the threat — is it
+              trivial or significant?
+            </li>
+            <li>
+              Apply <strong>safeguards</strong> to eliminate or reduce the
+              threat to an acceptable level
+            </li>
+            <li>
+              If no safeguards can reduce the threat —
+              <strong>resign</strong> from the engagement
+            </li>
+          </ol>
+
+          <div class="callout warn">
+            <span class="callout-icon">⚠️</span>
+            <div class="callout-body">
+              <strong>Key principle</strong>
+              Resignation is always the <em>last resort</em> — only when all
+              other safeguards have been considered and none can reduce the
+              threat to an acceptable level.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════════ -->
+      <section id="principles">
+        <div class="section-header">
+          <div class="section-icon">⚖️</div>
+          <div>
+            <div class="section-title">The Five Fundamental Principles</div>
+            <div class="section-subtitle">
+              ACCA Code of Ethics and Conduct — every auditor must uphold all
+              five
+            </div>
+          </div>
+        </div>
+
+        <div class="mnemonic">
+          <div class="mnemonic-label">Mnemonic to remember all five</div>
+          <div class="mnemonic-word">IPCCO</div>
+          <div class="mnemonic-items">
+            <span class="mnemonic-item"><strong>I</strong>ntegrity</span>
+            <span class="mnemonic-item"
+              ><strong>P</strong>rofessional competence &amp; due care</span
+            >
+            <span class="mnemonic-item"><strong>C</strong>onfidentiality</span>
+            <span class="mnemonic-item"
+              ><strong>C</strong>onduct (professional behaviour)</span
+            >
+            <span class="mnemonic-item"><strong>O</strong>bjectivity</span>
+          </div>
+        </div>
+
+        <div class="principles-grid">
+          <div class="principle-card">
+            <div class="principle-letter">I</div>
+            <div class="principle-name">Integrity</div>
+            <div class="principle-desc">
+              Be straightforward and honest in all professional and business
+              relationships. Do not associate with misleading information or
+              false statements.
+            </div>
+          </div>
+          <div class="principle-card">
+            <div class="principle-letter">O</div>
+            <div class="principle-name">Objectivity</div>
+            <div class="principle-desc">
+              Do not allow bias, conflicts of interest, or undue influence to
+              override professional judgements. This is the core of auditor
+              independence.
+            </div>
+          </div>
+          <div class="principle-card">
+            <div class="principle-letter">P</div>
+            <div class="principle-name">
+              Professional Competence &amp; Due Care
+            </div>
+            <div class="principle-desc">
+              Maintain professional knowledge and skill at the level required.
+              Act diligently and in accordance with applicable standards.
+            </div>
+          </div>
+          <div class="principle-card">
+            <div class="principle-letter">C</div>
+            <div class="principle-name">Confidentiality</div>
+            <div class="principle-desc">
+              Do not disclose client information to third parties without proper
+              authority, unless there is a legal or professional right or duty
+              to do so.
+            </div>
+          </div>
+          <div class="principle-card">
+            <div class="principle-letter">C</div>
+            <div class="principle-name">Professional Behaviour</div>
+            <div class="principle-desc">
+              Comply with laws and regulations. Avoid any action that discredits
+              the profession. Do not make disparaging remarks about other
+              professionals.
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <span class="dot"></span>When is Confidentiality Overridden?
+          </div>
+          <p>
+            Confidentiality is a fundamental principle, but it is
+            <strong>not absolute</strong>. There are three situations when
+            disclosure is permitted or required:
+          </p>
+          <ul class="bullet-list">
+            <li>
+              <strong>Required by law</strong> — e.g. reporting money laundering
+              (POCA 2002), or court order. The legal duty overrides
+              confidentiality.
+            </li>
+            <li>
+              <strong>Permitted by law and authorised by the client</strong> —
+              e.g. responding to a bank reference with client consent.
+            </li>
+            <li>
+              <strong>Public interest</strong> — e.g. the client is breaching
+              laws and regulations and the breach is a public interest matter
+              (environmental, safety). If the client refuses to self-report, the
+              auditor may report to the appropriate authority.
+            </li>
+          </ul>
+          <div class="callout danger">
+            <span class="callout-icon">❌</span>
+            <div class="callout-body">
+              <strong>Common Exam Trap</strong>
+              Management sometimes claims that reporting a breach of laws is a
+              "breach of confidentiality." This is <strong>false</strong>. When
+              non-compliance is a public interest matter and management refuses
+              to report, the auditor <em>must</em> report to the appropriate
+              authority.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════════ -->
+      <section id="threats">
+        <div class="section-header">
+          <div class="section-icon">⚡</div>
+          <div>
+            <div class="section-title">The Five Ethical Threats</div>
+            <div class="section-subtitle">
+              Situations that create a risk to the fundamental principles
+            </div>
+          </div>
+        </div>
+
+        <div class="callout info">
+          <span class="callout-icon">💡</span>
+          <div class="callout-body">
+            <strong>Memory Aid — SAFFI</strong>
+            <strong>S</strong>elf-interest · <strong>A</strong>dvocacy ·
+            <strong>F</strong>amiliarity · <strong>F</strong>ear (Intimidation)
+            · <strong>I</strong>nspection (Self-review)
+          </div>
+        </div>
+
+        <div class="threats-grid">
+          <div class="threat-card self-interest">
+            <div class="threat-name">🔶 Self-Interest</div>
+            <div class="threat-def">
+              The auditor has a financial or other personal interest in the
+              outcome of the audit. The auditor might be tempted to make
+              favourable judgements to protect that interest.
+            </div>
+            <div class="threat-examples">
+              <strong>Common Exam Examples</strong>
+              <ul>
+                <li>Holding shares in an audit client</li>
+                <li>Overdue fees owed by client</li>
+                <li>Fee dependency (fees &gt;15% of income)</li>
+                <li>Contingent fee arrangement</li>
+                <li>Close family member has financial interest in client</li>
+                <li>Partner's son receives shares in client as remuneration</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="threat-card self-review">
+            <div class="threat-name">🔷 Self-Review</div>
+            <div class="threat-def">
+              The auditor is asked to review their own work. They may not be
+              objective about detecting errors or be reluctant to admit
+              mistakes.
+            </div>
+            <div class="threat-examples">
+              <strong>Common Exam Examples</strong>
+              <ul>
+                <li>Auditor also prepares the financial statements</li>
+                <li>
+                  Auditor provides payroll / bookkeeping services, then audits
+                  payroll figures
+                </li>
+                <li>
+                  Audit senior seconded to client, then assigned to audit of
+                  that client
+                </li>
+                <li>
+                  Previous audit team member joins client (if high seniority)
+                </li>
+                <li>Tax advice (not preparation of the return itself)</li>
+                <li>Internal audit outsourced to external auditor</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="threat-card advocacy">
+            <div class="threat-name">🟢 Advocacy</div>
+            <div class="threat-def">
+              The auditor promotes or represents the client's position to the
+              point where objectivity is compromised. The auditor appears to be
+              acting as an agent for the client rather than independently.
+            </div>
+            <div class="threat-examples">
+              <strong>Common Exam Examples</strong>
+              <ul>
+                <li>Auditor liaises with tax authority on client's behalf</li>
+                <li>Acting as solicitor in litigation on behalf of client</li>
+                <li>Promoting the client's shares to investors</li>
+                <li>Auditor acting as an advocate in a legal dispute</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="threat-card familiarity">
+            <div class="threat-name">🟣 Familiarity</div>
+            <div class="threat-def">
+              The auditor becomes too close to the client and too trusting of
+              their work. Long relationships, friendships, or family ties reduce
+              professional scepticism.
+            </div>
+            <div class="threat-examples">
+              <strong>Common Exam Examples</strong>
+              <ul>
+                <li>
+                  Partner on audit for 7+ years (listed) / long association
+                </li>
+                <li>
+                  Partner socialises / goes on holiday with finance director
+                </li>
+                <li>Ex-audit team member joins as financial controller</li>
+                <li>
+                  Close friendship between audit manager and new finance
+                  director
+                </li>
+                <li>Family member of audit team works at client</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="threat-card intimidation">
+            <div class="threat-name">🔴 Intimidation</div>
+            <div class="threat-def">
+              The auditor is pressured or threatened by the client, creating
+              fear that affects professional judgement. The auditor may back
+              down from a correct audit opinion to avoid conflict.
+            </div>
+            <div class="threat-examples">
+              <strong>Common Exam Examples</strong>
+              <ul>
+                <li>
+                  Client threatens to remove auditor unless they change opinion
+                </li>
+                <li>Client threatens legal action against auditor</li>
+                <li>Dominant personality of client management</li>
+                <li>Client threatens to withhold future business</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <hr class="divider" />
+
+        <div class="card">
+          <div class="card-title">
+            <span class="dot"></span>Tricky Distinctions the Exam Tests
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Situation</th>
+                  <th>Correct Threat</th>
+                  <th>Why — Not the Other?</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Overdue fees still owed by client</td>
+                  <td><span class="tag tag-amber">Self-Interest</span></td>
+                  <td>
+                    Auditor has a financial interest in keeping client happy to
+                    recover money. <em>Also can be intimidation</em> — client
+                    uses debt as leverage. Both can apply.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Partner/FD go on holiday together</td>
+                  <td><span class="tag tag-purple">Familiarity</span></td>
+                  <td>
+                    Long personal relationship creates over-trust.
+                    <em>Not intimidation</em> — no threat of consequences;
+                    <em>not self-interest</em> — no financial angle.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Audit senior moves to client as FD</td>
+                  <td><span class="tag tag-purple">Familiarity</span></td>
+                  <td>
+                    Old audit team colleagues may be too trusting of
+                    ex-colleague. <em>Also self-review</em> if senior did audit
+                    work that FD now oversees. Significance depends on
+                    seniority.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Preparing tax return for audit client</td>
+                  <td>❌ No self-review threat</td>
+                  <td>
+                    Mechanical process — does not involve judgements affecting
+                    the financial statements. But tax <em>advice</em> does
+                    create a self-review threat.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Tax adviser liaises with HMRC on client's behalf</td>
+                  <td><span class="tag tag-green">Advocacy</span></td>
+                  <td>
+                    Auditor is promoting/representing the client's interests to
+                    a third party.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Payroll services provided to audit client</td>
+                  <td><span class="tag tag-blue">Self-Review</span></td>
+                  <td>
+                    Auditor will then audit the payroll figures in the financial
+                    statements — reviewing their own work.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Assistance selecting a new NED</td>
+                  <td><span class="tag tag-amber">Self-Interest</span></td>
+                  <td>
+                    Auditor is involved in appointing someone who has
+                    significant influence over the financial statements and
+                    audit.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════════ -->
+      <section id="safeguards">
+        <div class="section-header">
+          <div class="section-icon">🛡️</div>
+          <div>
+            <div class="section-title">Safeguards</div>
+            <div class="section-subtitle">
+              Actions that eliminate or reduce threats to an acceptable level
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <span class="dot"></span>Two Categories of Safeguards
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Examples</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong
+                      >Safeguards created by the profession, legislation or
+                      regulation</strong
+                    >
+                  </td>
+                  <td>
+                    Partner rotation requirements (7 years for listed
+                    companies)<br />
+                    Mandatory continuing professional education<br />
+                    Corporate governance regulations<br />
+                    Regulatory oversight of the profession
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong
+                      >Safeguards within the work environment (firm / engagement
+                      level)</strong
+                    >
+                  </td>
+                  <td>
+                    Engagement quality reviewer (EQR / second partner review)<br />
+                    Pre- or post-issuance review by external accountant<br />
+                    Removing individual from audit team<br />
+                    Using separate teams for audit and non-audit work<br />
+                    Disclosure to those charged with governance<br />
+                    Professional advice from ACCA or ethics partner<br />
+                    Discussing with client management<br />
+                    Confidentiality agreements between team members<br />
+                    Secure data filing / information barriers
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <span class="dot"></span>Threat-Specific Safeguards
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Threat</th>
+                  <th>Most Common Safeguards</th>
+                  <th>When Must You Resign?</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Self-Interest (shares)</strong></td>
+                  <td>Dispose of the shares. Remove person from team.</td>
+                  <td>
+                    If the person with the financial interest cannot be removed
+                    and shares cannot be disposed of quickly.
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Self-Interest (overdue fees)</strong></td>
+                  <td>
+                    Request payment. Do not sign auditor's report until fees are
+                    paid. Independent review of audit.
+                  </td>
+                  <td>
+                    If fees remain outstanding and significant — threat cannot
+                    be managed.
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Self-Review (non-audit services)</strong></td>
+                  <td>
+                    Use separate teams. Ensure client management makes all
+                    decisions (not the auditor). EQR.
+                  </td>
+                  <td>
+                    If the auditor would effectively be reviewing their own
+                    significant judgements (e.g., if auditor prepared the
+                    financial statements themselves and is also auditing).
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Familiarity (long association)</strong></td>
+                  <td>
+                    Partner rotation. Remove individual from team. Assign
+                    different audit manager. Change team composition.
+                  </td>
+                  <td>
+                    If a <em>partner</em> joins the client — e.g. as NED or
+                    director — resignation usually required.
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Familiarity (social relationship)</strong></td>
+                  <td>
+                    Remove the individual (e.g. partner). Restructure
+                    responsibilities.
+                  </td>
+                  <td>
+                    If threat is so significant and no suitable replacement
+                    partner available.
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Intimidation</strong></td>
+                  <td>
+                    Discuss with management. Escalate to those charged with
+                    governance. Involve ethics partner.
+                  </td>
+                  <td>
+                    If threat is unresolvable — auditor's opinion is
+                    compromised.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Fee Dependency (&gt;15% of income, listed)</strong>
+                  </td>
+                  <td>
+                    Disclose to those charged with governance. Pre-issuance
+                    review. EQR.
+                  </td>
+                  <td>Only if safeguards cannot reduce the threat.</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong
+                      >Conflict of interest (two competing clients)</strong
+                    >
+                  </td>
+                  <td>
+                    Inform both clients. Obtain consent. Separate teams.
+                    Confidentiality agreements. Information barriers. EQR.
+                  </td>
+                  <td>If consent cannot be obtained from both clients.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════════ -->
+      <section id="specific-issues">
+        <div class="section-header">
+          <div class="section-icon">🔍</div>
+          <div>
+            <div class="section-title">Specific Ethical Issues in Detail</div>
+            <div class="section-subtitle">
+              Fee dependency · Partner rotation · Non-audit services · Gifts ·
+              Secondments
+            </div>
+          </div>
+        </div>
+
+        <!-- FEE DEPENDENCY -->
+        <div class="card">
+          <div class="card-title">
+            <span class="dot"></span>Fee Dependency — The Numbers You Must Know
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Threshold</th>
+                  <th>Client Type</th>
+                  <th>Consequence &amp; Action Required</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong>≥15% of total fee income</strong> (for 2 consecutive
+                    years)
+                  </td>
+                  <td><span class="tag tag-red">Listed</span></td>
+                  <td>
+                    Significant self-interest threat. Must disclose to those
+                    charged with governance. Carry out a pre-issuance review
+                    (before signing audit opinion). Consider whether non-audit
+                    services should continue.
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>≥15% of total fee income</strong></td>
+                  <td><span class="tag tag-blue">Non-listed</span></td>
+                  <td>
+                    Threat exists. Disclose and consider whether additional
+                    safeguards needed (e.g. pre/post-issuance review).
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>≥30% of total fee income</strong> (5 consecutive
+                    years)
+                  </td>
+                  <td><span class="tag tag-blue">Non-listed</span></td>
+                  <td>
+                    Independence is threatened. Pre- or post-issuance review
+                    must be carried out. Consider increasing client base.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout warn">
+            <span class="callout-icon">⚠️</span>
+            <div class="callout-body">
+              <strong>Important</strong>
+              Resignation is <em>not</em> the required response to fee
+              dependency — safeguards are applied first. The firm should only
+              consider resignation if no safeguards can reduce the threat. Fee
+              dependency is a <strong>self-interest</strong> threat.
+            </div>
+          </div>
+        </div>
+
+        <!-- PARTNER ROTATION -->
+        <div class="card">
+          <div class="card-title">
+            <span class="dot"></span>Partner Rotation (Long Association)
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Rule</th>
+                  <th>Listed Clients</th>
+                  <th>Non-Listed Clients</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Maximum time as engagement partner</td>
+                  <td><span class="tag tag-red">7 years</span></td>
+                  <td>
+                    No mandatory rotation, but familiarity threat assessed
+                  </td>
+                </tr>
+                <tr>
+                  <td>Cooling-off period after rotation</td>
+                  <td>
+                    <span class="tag tag-red">5 years</span> before returning to
+                    same client in any capacity
+                  </td>
+                  <td>N/A (no mandatory rule)</td>
+                </tr>
+                <tr>
+                  <td>Can rotated partner be EQR?</td>
+                  <td>
+                    <strong>No</strong> — must serve 5-year cooling-off period
+                    first
+                  </td>
+                  <td>Assess familiarity threat</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout success">
+            <span class="callout-icon">✅</span>
+            <div class="callout-body">
+              <strong>Exam Scenario — Jane Leaf (Foliage Co)</strong>
+              Jane Leaf has completed 7 years as engagement partner. She must
+              rotate. She cannot immediately become Engagement Quality Reviewer
+              — she must wait <strong>5 years</strong> before taking any role on
+              the engagement.
+            </div>
+          </div>
+        </div>
+
+        <!-- NON-AUDIT SERVICES -->
+        <div class="card">
+          <div class="card-title">
+            <span class="dot"></span>Non-Audit Services — What's Allowed?
+          </div>
+          <p>
+            Providing non-audit services to an audit client creates threats
+            (mainly self-review). The key principle is:
+            <strong>management must make all decisions</strong> — the auditor
+            must not assume management responsibility.
+          </p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Service</th>
+                  <th>Threat Created</th>
+                  <th>Rules / Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Preparing tax returns</td>
+                  <td>❌ Generally no self-review threat</td>
+                  <td>
+                    Mechanical — auditor is not making judgements on the
+                    figures, just completing the form. Allowed.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Tax advice</td>
+                  <td><span class="tag tag-blue">Self-Review</span></td>
+                  <td>
+                    Auditor's advice could affect figures in financial
+                    statements. If advice is wrong, auditor may be reluctant to
+                    admit it. Significant threat — use separate teams.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Liaising with tax authority on client's behalf</td>
+                  <td><span class="tag tag-green">Advocacy</span></td>
+                  <td>
+                    Auditor is representing / promoting client's interests to a
+                    third party.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Payroll services (routine)</td>
+                  <td><span class="tag tag-blue">Self-Review</span></td>
+                  <td>
+                    Payroll is audited in the financial statements. Allowed for
+                    non-listed clients if mechanical/routine and client
+                    management makes all decisions.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Bookkeeping services</td>
+                  <td><span class="tag tag-blue">Self-Review</span></td>
+                  <td>
+                    Allowed if routine and mechanical for non-listed. Prohibited
+                    for listed if significant judgement involved.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Advice on accounting policies</td>
+                  <td><span class="tag tag-blue">Self-Review</span></td>
+                  <td>
+                    Allowed if <strong>client makes all decisions</strong> on
+                    which policies to use. Auditor can advise, not decide.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Assistance recruiting a NED</td>
+                  <td><span class="tag tag-amber">Self-Interest</span></td>
+                  <td>
+                    Reviewing qualifications/competence is OK — no management
+                    decision made. If auditor <em>selects</em> or appoints, it
+                    becomes a management responsibility = self-review threat.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Internal audit services (outsourced)</td>
+                  <td><span class="tag tag-blue">Self-Review</span></td>
+                  <td>
+                    If the same firm provides both internal and external audit,
+                    external auditor will rely on their own work = self-review.
+                    Auditor must not assume management responsibility over IA.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Contingent fee for non-assurance work</td>
+                  <td><span class="tag tag-amber">Self-Interest</span></td>
+                  <td>
+                    Fee tied to outcome (e.g. tax saving, profit). Not allowed
+                    if fee is material/significant to the firm. Never allowed
+                    for assurance work.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout danger">
+            <span class="callout-icon">🚫</span>
+            <div class="callout-body">
+              <strong>Management Responsibility Rule</strong>
+              If the external auditor is making decisions that management should
+              make, they are assuming management responsibility. This creates a
+              self-review threat that cannot be safeguarded. Examples: designing
+              internal controls, deciding which internal audit recommendations
+              to implement, determining the scope of internal audit work,
+              selecting which accounting policies to use.
+            </div>
+          </div>
+        </div>
+
+        <!-- GIFTS -->
+        <div class="card">
+          <div class="card-title">
+            <span class="dot"></span>Gifts and Hospitality
+          </div>
+          <p>
+            Gifts and hospitality from audit clients create a
+            <strong>self-interest</strong> threat and potentially a
+            <strong>familiarity</strong> threat.
+          </p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Scenario</th>
+                  <th>Action</th>
+                  <th>Reasoning</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    Gift is trivial and inconsequential,
+                    <em>offered innocently</em>
+                  </td>
+                  <td>May accept</td>
+                  <td>Threat is at an acceptable level</td>
+                </tr>
+                <tr>
+                  <td>
+                    Gift is offered as an <em>inducement</em> to influence
+                    behaviour (even if trivial)
+                  </td>
+                  <td><strong>Must decline</strong></td>
+                  <td>
+                    Intent to influence makes even small gifts unacceptable. The
+                    code is clear on this.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Gift is not trivial (e.g. 40% discount on luxury goods)
+                  </td>
+                  <td>Must decline</td>
+                  <td>
+                    Not trivial — creates significant self-interest threat
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout warn">
+            <span class="callout-icon">⚠️</span>
+            <div class="callout-body">
+              <strong>Exam Trick</strong>
+              A 10% discount on phone accessories was described as "trivial" by
+              the partner — but the finance director said it was "to keep the
+              audit team on side." Answer: must <strong>decline</strong> because
+              it is an inducement, regardless of the trivial value.
+            </div>
+          </div>
+        </div>
+
+        <!-- SECONDMENTS -->
+        <div class="card">
+          <div class="card-title">
+            <span class="dot"></span>Staff Secondments &amp; Ex-Employees
+            Joining Clients
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Situation</th>
+                  <th>Threat(s)</th>
+                  <th>Action Required</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    Audit senior seconded to client, then assigned to audit of
+                    that client
+                  </td>
+                  <td>
+                    <span class="tag tag-blue">Self-Review</span> +
+                    <span class="tag tag-purple">Familiarity</span>
+                  </td>
+                  <td>
+                    Audit senior <strong>must not</strong> be assigned to the
+                    audit of LV Fones Co. Self-review (may have caused the
+                    problems they now audit) + familiarity (friendships formed
+                    during secondment).
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Audit senior joins client as financial controller (junior
+                    level)
+                  </td>
+                  <td>
+                    <span class="tag tag-purple">Familiarity</span> (low
+                    significance)
+                  </td>
+                  <td>
+                    Review and change audit team composition where needed.
+                    Significant threat if more senior role. Firm
+                    <em>cannot prevent</em> the individual from taking the job.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Audit manager (or higher) joins client as FD/controller
+                  </td>
+                  <td>
+                    <span class="tag tag-purple">Familiarity</span>
+                    (significant)
+                  </td>
+                  <td>
+                    Change audit team — appoint a <em>different</em> audit
+                    manager. Make audit approach unpredictable (not predictable
+                    to the ex-employee).
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Audit staff member joins client: what should they have done
+                    first?
+                  </td>
+                  <td>ACCA Code requirement</td>
+                  <td>
+                    Must <strong>notify the firm</strong> immediately so they
+                    can be removed from the audit team. They should not have
+                    applied without notifying the firm.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- CONFLICT OF INTEREST -->
+        <div class="card">
+          <div class="card-title">
+            <span class="dot"></span>Conflict of Interest — Two Competing
+            Clients
+          </div>
+          <p>
+            When the audit firm has two clients who are competitors (e.g. Winnie
+            Co and Piglet Co), a conflict of interest exists. Both clients may
+            be concerned that commercially sensitive information will be
+            disclosed to their competitor.
+          </p>
+
+          <div class="flow">
+            <div class="flow-step">Identify the conflict of interest</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">Inform both clients</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">Obtain consent from both</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">Implement safeguards</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">Engagement quality review</div>
+          </div>
+
+          <div class="callout success">
+            <span class="callout-icon">✅</span>
+            <div class="callout-body">
+              <strong>Correct Order (Exam Question)</strong>
+              4 → 2 → 3 → 1: <strong>Inform</strong> both clients first, then
+              <strong>obtain consent</strong>, then
+              <strong>implement safeguards</strong>, then perform
+              <strong>engagement quality review</strong>.
+            </div>
+          </div>
+
+          <p style="margin-top: 14px">
+            Key safeguards for conflict of interest:
+          </p>
+          <ul class="bullet-list">
+            <li>
+              Separate engagement teams and separate engagement partners for
+              each client
+            </li>
+            <li>Confidentiality agreements signed by each engagement team</li>
+            <li>
+              Information barriers / secure data filing to prevent disclosure
+            </li>
+            <li>Monitoring by engagement quality reviewer</li>
+            <li>
+              <em>Not:</em> requiring every employee of the firm to sign a
+              confidentiality agreement — that is disproportionate
+            </li>
+          </ul>
+
+          <div class="callout warn">
+            <span class="callout-icon">⚠️</span>
+            <div class="callout-body">
+              <strong>Important</strong>
+              The firm does not have to resign from the <em>existing</em> client
+              to take on the new one. They may choose to resign from either
+              engagement, but neither is compulsory if safeguards can manage the
+              threat. However, if consent is not given by both clients, the firm
+              must choose.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════════ -->
+      <section id="acceptance">
+        <div class="section-header">
+          <div class="section-icon">📝</div>
+          <div>
+            <div class="section-title">Engagement Acceptance</div>
+            <div class="section-subtitle">
+              What the firm must consider before accepting a new audit
+              engagement
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <span class="dot"></span>Pre-Acceptance Procedures
+          </div>
+          <p>
+            Before accepting a new audit engagement, the firm must consider the
+            following:
+          </p>
+
+          <ol class="step-list">
+            <li>
+              <strong>Client integrity</strong> — Does management appear to lack
+              integrity? (Red flag: previous auditor resigned without notice;
+              other firms declined the engagement)
+            </li>
+            <li>
+              <strong>Professional competence</strong> — Does the firm have the
+              skills and expertise to perform the audit? (Specialist industry,
+              tight deadline, resource availability)
+            </li>
+            <li>
+              <strong>Independence and ethical threats</strong> — Can all
+              threats be reduced to an acceptable level? (e.g. existing client
+              who is a competitor creates conflict of interest)
+            </li>
+            <li>
+              <strong>Communication with predecessor auditor</strong> — Contact
+              the previous auditor (with client permission) to ask if there are
+              any professional reasons not to accept
+            </li>
+            <li>
+              <strong>Resources</strong> — Does the firm have enough staff and
+              time to do the work properly?
+            </li>
+            <li>
+              <strong>Fee</strong> — Is the proposed fee adequate for the level
+              of work required?
+            </li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <span class="dot"></span>Red Flags that Increase Risk of Accepting
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Red Flag</th>
+                  <th>What it Signals</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Previous auditor resigned without notice</td>
+                  <td>
+                    Management may lack integrity; something serious may have
+                    happened
+                  </td>
+                </tr>
+                <tr>
+                  <td>Several other audit firms have declined</td>
+                  <td>
+                    Strong signal that management lacks integrity or there are
+                    unresolvable issues
+                  </td>
+                </tr>
+                <tr>
+                  <td>Very tight deadline for completing the audit</td>
+                  <td>
+                    Insufficient time to gather appropriate evidence — risk to
+                    audit quality
+                  </td>
+                </tr>
+                <tr>
+                  <td>Client is a competitor of an existing client</td>
+                  <td>
+                    Conflict of interest — threats to objectivity and
+                    confidentiality
+                  </td>
+                </tr>
+                <tr>
+                  <td>Highly specialised or unfamiliar industry</td>
+                  <td>
+                    Professional competence concern — firm may lack knowledge
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout purple">
+            <span class="callout-icon">🎯</span>
+            <div class="callout-body">
+              <strong>Exam Scenario — Mickey Co</strong>
+              Mickey Co: previous auditor resigned without notice + several
+              firms declined = management integrity risk (reason E). Tight
+              deadline (must file by 30 Sept) = resource/time risk (reason D).
+              Mickey is a competitor of Goofy Co (existing client) = conflict of
+              interest / objectivity and confidentiality risk (reason A).
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <span class="dot"></span>Engagement Letters
+          </div>
+          <p>
+            Once a firm accepts an audit engagement, it must issue an
+            <strong>engagement letter</strong> (ISA 210). This is a contract
+            between the auditor and the client. Key contents:
+          </p>
+          <ul class="bullet-list">
+            <li>The objective and scope of the audit</li>
+            <li>The responsibilities of the auditor</li>
+            <li>
+              The responsibilities of management (for the financial statements
+              and for providing access)
+            </li>
+            <li>The basis for fee calculation</li>
+            <li>The form of any reports to be issued</li>
+            <li>
+              Identification of the applicable financial reporting framework
+            </li>
+          </ul>
+          <div class="callout info">
+            <span class="callout-icon">📌</span>
+            <div class="callout-body">
+              <strong>When to Reissue</strong>
+              A new engagement letter should be issued when there is a
+              significant change in circumstances (e.g. change in scope, change
+              in management, change in financial reporting framework, or after a
+              gap in audit appointments).
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════════ -->
+      <section id="exam-qs">
+        <div class="section-header">
+          <div class="section-icon">📚</div>
+          <div>
+            <div class="section-title">Exam Practice Questions</div>
+            <div class="section-subtitle">
+              Based on Kaplan Exam Kit scenarios — click "Show Answer" for full
+              explanation
+            </div>
+          </div>
+        </div>
+
+        <!-- Q1 -->
+        <div class="exam-q">
+          <div class="exam-q-header">
+            <span
+              >Question 1 · Bark &amp; Co / Foliage Co — Rulebook vs Conceptual
+              Framework</span
+            >
+            <span class="exam-q-marks">2 marks</span>
+          </div>
+          <div class="exam-q-body">
+            <div class="exam-q-question">
+              Select whether the following statements describe a
+              <em>rulebook approach</em> or a
+              <em>conceptual framework approach</em> to ethics.
+            </div>
+            <div class="table-wrap" style="margin-bottom: 14px">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Statement</th>
+                    <th>Answer</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Clearly defined laws for the auditor to follow</td>
+                    <td><span class="tag tag-amber">Rulebook</span></td>
+                  </tr>
+                  <tr>
+                    <td>Useful in a dynamic environment</td>
+                    <td>
+                      <span class="tag tag-blue">Conceptual Framework</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      A set of guidelines with which the auditor uses judgement
+                      to apply to specific circumstances
+                    </td>
+                    <td>
+                      <span class="tag tag-blue">Conceptual Framework</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Easy to know what is allowed and not allowed</td>
+                    <td><span class="tag tag-amber">Rulebook</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="answer-reveal visible">
+              <div class="ans-label">✅ Explanation</div>
+              The conceptual framework provides
+              <strong
+                >guidelines with the objective that the auditor chooses the most
+                appropriate course of action</strong
+              >
+              in the circumstances. This allows flexibility to deal with all
+              possible situations — useful in a dynamic environment. The
+              guidelines are professional guidance but are not law. Laws
+              (rulebook) clearly outline what is acceptable and unacceptable in
+              specific circumstances — hence easy to follow but inflexible.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="exam-q">
+          <div class="exam-q-header">
+            <span
+              >Question 2 · Bark &amp; Co / Foliage Co — Jane Leaf as EQR</span
+            >
+            <span class="exam-q-marks">2 marks</span>
+          </div>
+          <div class="exam-q-scenario">
+            Jane Leaf has been audit engagement partner for Foliage Co (a listed
+            company) for eight years. As she has completed seven years, she has
+            recently been rotated off the engagement. The new partner Chang
+            Petiole suggests Jane should undertake the Engagement Quality Review
+            this year to maintain a close relationship.
+          </div>
+          <div class="exam-q-body">
+            <div class="exam-q-question">
+              What is the most appropriate response to the suggestion that Jane
+              Leaf takes on the role of Engagement Quality Reviewer?
+            </div>
+            <ul class="options">
+              <li>
+                <span class="option-letter">A</span> Jane Leaf could take the
+                review role immediately
+              </li>
+              <li>
+                <span class="option-letter">B</span> Jane Leaf could take the
+                review role immediately but additional safeguards will be
+                required
+              </li>
+              <li class="correct">
+                <span class="option-letter">C</span> Jane Leaf should not serve
+                as the EQR for a period of at least five years
+              </li>
+              <li>
+                <span class="option-letter">D</span> Bark &amp; Co will need to
+                consider resigning as auditor of Foliage Co
+              </li>
+            </ul>
+            <div class="answer-reveal visible">
+              <div class="ans-label">
+                ✅ Answer: C — 5-year cooling-off period
+              </div>
+              As Foliage Co is a <strong>listed company</strong>, Jane Leaf must
+              not serve as the Engagement Quality Reviewer until a cooling-off
+              period of <strong>five years</strong> has passed since she was
+              engagement partner. She cannot return to the engagement in any
+              capacity (partner, EQR, etc.) during this period. Resignation
+              would not be required — this is a manageable threat.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="exam-q">
+          <div class="exam-q-header">
+            <span
+              >Question 3 · Milberry Co — Threats from Friendship and
+              Outstanding Fees</span
+            >
+            <span class="exam-q-marks">2 marks</span>
+          </div>
+          <div class="exam-q-scenario">
+            The audit engagement partner and the finance director of Milberry Co
+            have known each other socially for many years and went on holiday
+            together last summer. As a result, the partner has not spoken to the
+            client about the fee for last year's audit, 20% of which is still
+            outstanding.
+          </div>
+          <div class="exam-q-body">
+            <div class="exam-q-question">
+              Select which threat to objectivity is created by each piece of
+              information.
+            </div>
+            <div class="table-wrap" style="margin-bottom: 14px">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Situation</th>
+                    <th>Threat</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      The partner and FD have known each other socially for many
+                      years
+                    </td>
+                    <td><span class="tag tag-purple">Familiarity</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      40% of the fee for last year's audit is still outstanding
+                    </td>
+                    <td><span class="tag tag-amber">Self-Interest</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="answer-reveal visible">
+              <div class="ans-label">✅ Explanation</div>
+              The <strong>social relationship</strong> gives rise to a
+              <strong>familiarity threat</strong> — the partner may be too
+              trusting of someone they know personally.
+              <strong>Outstanding fees</strong> create a
+              <strong>self-interest</strong> threat (and can also create
+              intimidation) — the auditor has a financial interest in
+              maintaining the relationship to recover the money, which may bias
+              judgements. Note: the question says 20% still outstanding — this
+              IS significant and should be addressed.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="exam-q">
+          <div class="exam-q-header">
+            <span
+              >Question 4 · Milberry Co — Outstanding Fees: Most Appropriate
+              Response</span
+            >
+            <span class="exam-q-marks">2 marks</span>
+          </div>
+          <div class="exam-q-body">
+            <div class="exam-q-question">
+              Which is the MOST appropriate response to the outstanding fees
+              from Milberry Co?
+            </div>
+            <ul class="options">
+              <li>
+                <span class="option-letter">A</span> The auditor should resign
+                from the client
+              </li>
+              <li>
+                <span class="option-letter">B</span> The auditor should report
+                the client to the ACCA
+              </li>
+              <li>
+                <span class="option-letter">C</span> Continue working but ensure
+                the credit control department is informed
+              </li>
+              <li class="correct">
+                <span class="option-letter">D</span> The auditor's report for
+                this year should not be issued until the fees have been paid
+              </li>
+            </ul>
+            <div class="answer-reveal visible">
+              <div class="ans-label">✅ Answer: D</div>
+              The audit firm must
+              <strong>request payment of the outstanding fees</strong>. The
+              <strong>auditor's report must not be issued</strong> until the
+              fees have been paid. This is the correct and proportionate
+              safeguard. Resignation is a last resort. Reporting to ACCA is not
+              appropriate — this is an internal commercial issue. Simply
+              informing credit control (Option C) is insufficient — the report
+              should not be signed off while fees are outstanding.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="exam-q">
+          <div class="exam-q-header">
+            <span
+              >Question 5 · Milberry Co — Tax Return vs Tax Advice
+              (Self-Review?)</span
+            >
+            <span class="exam-q-marks">2 marks</span>
+          </div>
+          <div class="exam-q-scenario">
+            Milberry Co's finance director has asked if the firm will prepare
+            the company's tax return and provide tax advice to minimise the
+            amount of tax payable.
+          </div>
+          <div class="exam-q-body">
+            <div class="exam-q-question">
+              Select the option which correctly identifies whether a self-review
+              threat is likely to arise in relation to the tax services
+              requested.
+            </div>
+            <div class="table-wrap" style="margin-bottom: 14px">
+              <table>
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Tax Return</th>
+                    <th>Tax Advice</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Option A</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                  </tr>
+                  <tr>
+                    <td>Option B</td>
+                    <td>No</td>
+                    <td>No</td>
+                  </tr>
+                  <tr>
+                    <td>Option C</td>
+                    <td>Yes</td>
+                    <td>No</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Option D ✓</strong></td>
+                    <td><strong>No</strong></td>
+                    <td><strong>Yes</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="answer-reveal visible">
+              <div class="ans-label">✅ Answer: D</div>
+              <strong>Tax return preparation:</strong> Generally does
+              <em>not</em> create a self-review threat. It is mechanical in
+              nature — the auditor is completing the form, not making judgements
+              on figures that affect the financial statements.<br /><br />
+              <strong>Tax advice:</strong> Creates a
+              <em>significant</em> self-review threat. The advice could affect
+              the figures in the financial statements, and if the advice later
+              turns out to be incorrect, the auditor may be reluctant to admit
+              or highlight this. This could compromise the audit of the related
+              figures.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="exam-q">
+          <div class="exam-q-header">
+            <span
+              >Question 6 · Winnie Co / Piglet Co — Conflict of Interest</span
+            >
+            <span class="exam-q-marks">2 marks</span>
+          </div>
+          <div class="exam-q-scenario">
+            Tigger &amp; Co is the auditor of Winnie Co. Piglet Co — Winnie Co's
+            main competitor — has approached Tigger &amp; Co to act as auditor
+            due to the firm's expertise in the car manufacturing industry.
+          </div>
+          <div class="exam-q-body">
+            <div class="exam-q-question">
+              Which TWO of the following statements are TRUE in respect of the
+              conflict of interest?
+            </div>
+            <ul class="options">
+              <li>
+                <span class="option-letter">A</span> Tigger &amp; Co must
+                decline the audit engagement of Piglet Co
+              </li>
+              <li class="correct">
+                <span class="option-letter">B</span> Winnie Co and Piglet Co may
+                be concerned that commercially sensitive information may be
+                disclosed by Tigger &amp; Co to their competitor
+              </li>
+              <li>
+                <span class="option-letter">C</span> Tigger &amp; Co must ask
+                permission of ACCA before accepting the audit of Piglet Co
+              </li>
+              <li class="correct">
+                <span class="option-letter">D</span> Tigger &amp; Co must obtain
+                consent of both clients before continuing with the engagements
+              </li>
+            </ul>
+            <div class="answer-reveal visible">
+              <div class="ans-label">✅ Answers: B and D</div>
+              The firm does <strong>not</strong> have to decline Piglet Co's
+              engagement outright (A is false) — it can act for both with
+              safeguards. There is no requirement to consult ACCA (C is false).
+              The correct actions are: both clients may worry about confidential
+              information being leaked (B is true), and the firm must obtain
+              consent from <strong>both</strong> clients before continuing (D is
+              true). If either refuses, the firm must choose.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="exam-q">
+          <div class="exam-q-header">
+            <span
+              >Question 7 · Sycamore &amp; Co / Fir Co — Non-Audit Service
+              Threats</span
+            >
+            <span class="exam-q-marks">2 marks</span>
+          </div>
+          <div class="exam-q-scenario">
+            Fir Co has asked Sycamore &amp; Co to provide: (1) Routine
+            maintenance of payroll records, (2) Assistance with the selection of
+            a new non-executive director, (3) Tax services whereby Sycamore
+            &amp; Co would liaise with the tax authority on Fir Co's behalf.
+          </div>
+          <div class="exam-q-body">
+            <div class="exam-q-question">
+              Identify the threats to independence from providing the non-audit
+              services.
+            </div>
+            <div class="table-wrap" style="margin-bottom: 14px">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Service</th>
+                    <th>Threat</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Routine maintenance of payroll records</td>
+                    <td><span class="tag tag-blue">Self-Review</span></td>
+                  </tr>
+                  <tr>
+                    <td>Assistance with selection of a new NED</td>
+                    <td><span class="tag tag-amber">Self-Interest</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Tax services — liaise with tax authority on client's
+                      behalf
+                    </td>
+                    <td><span class="tag tag-green">Advocacy</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="answer-reveal visible">
+              <div class="ans-label">✅ Explanation</div>
+              <strong>Payroll → Self-Review:</strong> The auditor prepares the
+              payroll figures, then audits those same figures in the financial
+              statements.<br /><br />
+              <strong>NED recruitment → Self-Interest:</strong> The auditor
+              would be involved in selecting an officer of the company who has
+              significant influence over the financial statements and the audit.
+              Note: merely reviewing qualifications (not selecting) is
+              acceptable — no threat.<br /><br />
+              <strong>Tax liaison → Advocacy:</strong> The auditor is promoting
+              and representing Fir Co's interests when liaising with the tax
+              authority — this is an advocacy threat.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="exam-q">
+          <div class="exam-q-header">
+            <span>Question 8 · Mickey Co — Acceptance Considerations</span>
+            <span class="exam-q-marks">2 marks</span>
+          </div>
+          <div class="exam-q-scenario">
+            Mickey Co's previous auditor resigned without prior notice. Mickey
+            Co has approached several other firms who all declined. The audit
+            must be completed by 30 September 20X5 (approx. 3 months). Mickey Co
+            is a main competitor of Goofy Co, NAB &amp; Co's existing client.
+          </div>
+          <div class="exam-q-body">
+            <div class="exam-q-question">
+              Match the acceptance considerations with the MOST appropriate
+              reason for why they should be considered.
+            </div>
+            <div class="table-wrap" style="margin-bottom: 14px">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Consideration</th>
+                    <th>Reason</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      1. Previous auditor resigned; several firms declined
+                    </td>
+                    <td><strong>E — Management may lack integrity</strong></td>
+                  </tr>
+                  <tr>
+                    <td>2. Audit must be completed before 30 Sept 20X5</td>
+                    <td>
+                      <strong>D — Firm may not have enough resources</strong>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      3. Mickey Co is a competitor of Goofy Co (existing client)
+                    </td>
+                    <td>
+                      <strong
+                        >A — Threats to objectivity and confidentiality</strong
+                      >
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="answer-reveal visible">
+              <div class="ans-label">✅ Answers: 1E, 2D, 3A</div>
+              <strong>1E:</strong> Difficulties retaining/obtaining an audit
+              firm typically indicates that management lacks integrity and firms
+              are not willing to take on the engagement. This is a strong
+              warning sign.<br /><br />
+              <strong>2D:</strong> Three months to complete the full acceptance
+              process, planning, fieldwork and sign-off is tight. The firm needs
+              sufficient resources and must assess whether this is
+              achievable.<br /><br />
+              <strong>3A:</strong> As Mickey Co is a main competitor of Goofy
+              Co, a conflict of interest arises that creates threats to
+              objectivity and confidentiality — both clients may worry about
+              their sensitive information being disclosed.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="exam-q">
+          <div class="exam-q-header">
+            <span
+              >Question 9 · Eeyore Co — Laws &amp; Regulations, Public Interest
+              Reporting</span
+            >
+            <span class="exam-q-marks">2 marks</span>
+          </div>
+          <div class="exam-q-scenario">
+            During the audit of Eeyore Co, the audit team discovered that the
+            company had developed a device giving false readings during
+            government emissions tests. The engagement partner advised
+            management to report this to the regulator. Management refused,
+            stating that the auditor has a duty of confidentiality.
+          </div>
+          <div class="exam-q-body">
+            <div class="exam-q-question">
+              Select whether the following statements are TRUE or FALSE.
+            </div>
+            <div class="table-wrap" style="margin-bottom: 14px">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Statement</th>
+                    <th>Answer</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      Senior management is correct that reporting would
+                      constitute a breach of confidentiality
+                    </td>
+                    <td><span class="tag tag-red">FALSE</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Tigger &amp; Co must report to the appropriate authority
+                      if the client refuses
+                    </td>
+                    <td><span class="tag tag-green">TRUE</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Tigger &amp; Co must report as it is a public interest
+                      matter
+                    </td>
+                    <td><span class="tag tag-green">TRUE</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Tigger &amp; Co must report to the parent company and the
+                      parent's auditors
+                    </td>
+                    <td><span class="tag tag-green">TRUE</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="answer-reveal visible">
+              <div class="ans-label">✅ Explanation — ISA 250 (Revised)</div>
+              Management's claim about confidentiality is
+              <strong>wrong</strong>. Under ISA 250 (Revised), when the auditor
+              identifies non-compliance that is likely to be a
+              <strong>public interest matter</strong>, and management refuses to
+              report it themselves, the auditor has a duty to report to the
+              appropriate authority.<br /><br />
+              False environmental emissions readings affecting government tests
+              = clear public interest issue. As Eeyore Co is a subsidiary of a
+              global company, the matter must also be reported to the
+              <strong>parent company and the parent's auditors</strong>.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="exam-q">
+          <div class="exam-q-header">
+            <span>Question 10 · Weed Co — Fee Dependency: Listed Client</span>
+            <span class="exam-q-marks">2 marks</span>
+          </div>
+          <div class="exam-q-scenario">
+            Weed Co is a listed company. Last year fees were $1.2m (16.6% of
+            Horti &amp; Co's total income). This year fees are expected to be
+            $1.3m (18.1% of total income). Both years exceed 15% of total fee
+            income.
+          </div>
+          <div class="exam-q-body">
+            <div class="exam-q-question">
+              Which of the following actions should Horti &amp; Co take to
+              maintain its objectivity?
+            </div>
+            <ul class="options">
+              <li class="correct">
+                <span class="option-letter">A</span> Disclose to those charged
+                with governance AND request a pre-issuance review
+              </li>
+              <li>
+                <span class="option-letter">B</span> Request payment of the
+                current year's audit fee in advance
+              </li>
+              <li>
+                <span class="option-letter">C</span> Use separate teams for
+                audit and non-audit services
+              </li>
+              <li><span class="option-letter">D</span> All of the above</li>
+            </ul>
+            <div class="answer-reveal visible">
+              <div class="ans-label">
+                ✅ Answer: A (Disclosure + Pre-issuance review)
+              </div>
+              Weed Co is <strong>listed</strong> and fees have exceeded
+              <strong>15% for two consecutive years</strong>. The required
+              actions are: (1) <strong>Disclose</strong> to those charged with
+              governance at Weed Co, and (2) carry out a
+              <strong>pre-issuance review</strong> (before the audit opinion is
+              signed) by an external accountant. Using separate teams (Option C)
+              addresses self-review from non-audit services but does not reduce
+              the fee dependency threat. Requesting payment in advance (B) does
+              not address fee dependency.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════════ -->
+      <section id="cheatsheet">
+        <div class="section-header">
+          <div class="section-icon">⚡</div>
+          <div>
+            <div class="section-title">Quick Reference Cheat Sheet</div>
+            <div class="section-subtitle">
+              Everything you need to remember — condensed for final revision
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <span class="dot"></span>The 5 Threats — One Line Each
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Threat</th>
+                  <th>One-Line Definition</th>
+                  <th>Key Trigger Words</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="tag tag-amber">Self-Interest</span></td>
+                  <td>
+                    Auditor has a financial or personal stake in the client
+                  </td>
+                  <td>
+                    Shares, fees, overdue fees, contingent fee, financial
+                    interest, secondment fee income
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="tag tag-blue">Self-Review</span></td>
+                  <td>Auditor reviews their own previous work</td>
+                  <td>
+                    Payroll, bookkeeping, previous employee, secondment, tax
+                    advice, internal audit
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="tag tag-green">Advocacy</span></td>
+                  <td>
+                    Auditor promotes/represents client's interests to third
+                    parties
+                  </td>
+                  <td>
+                    Liaise with HMRC/tax authority, legal proceedings on behalf
+                    of client, promoting shares
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="tag tag-purple">Familiarity</span></td>
+                  <td>Auditor is too close to/trusting of client</td>
+                  <td>
+                    Social friendship, holiday together, long association (7+
+                    years), ex-employee at client
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="tag tag-red">Intimidation</span></td>
+                  <td>Auditor is threatened or pressured by client</td>
+                  <td>
+                    Threatens to remove auditor, legal action, dominant
+                    management, pressure to change opinion
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <span class="dot"></span>Critical Numbers
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Rule</th>
+                  <th>Number</th>
+                  <th>Context</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Partner rotation (listed)</td>
+                  <td><strong>7 years</strong></td>
+                  <td>Maximum time as engagement partner for listed client</td>
+                </tr>
+                <tr>
+                  <td>Cooling-off period after rotation (listed)</td>
+                  <td><strong>5 years</strong></td>
+                  <td>
+                    Must pass before partner can return to client in any role
+                  </td>
+                </tr>
+                <tr>
+                  <td>Fee dependency — listed client</td>
+                  <td><strong>15% for 2 consecutive years</strong></td>
+                  <td>Triggers disclosure + pre-issuance review</td>
+                </tr>
+                <tr>
+                  <td>Fee dependency — non-listed client</td>
+                  <td><strong>30% for 5 consecutive years</strong></td>
+                  <td>Triggers pre/post-issuance review</td>
+                </tr>
+                <tr>
+                  <td>NED independence — board service</td>
+                  <td><strong>9 years</strong></td>
+                  <td>
+                    After 9 years on board, NED no longer considered independent
+                  </td>
+                </tr>
+                <tr>
+                  <td>Audit committee</td>
+                  <td><strong>Independent NEDs only</strong></td>
+                  <td>
+                    Executive directors cannot sit on audit committee; board
+                    chair excluded
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <span class="dot"></span>Golden Rules for Exam Answers
+          </div>
+          <ol class="step-list">
+            <li>
+              <strong>Resignation is ALWAYS the last resort</strong> — only when
+              no safeguards can work. Never say "must resign" unless the threat
+              is truly irresolvable.
+            </li>
+            <li>
+              <strong>Preparing a tax return ≠ self-review threat</strong>
+              (mechanical). Tax advice = self-review threat.
+            </li>
+            <li>
+              <strong>Reviewing qualifications for NED recruitment = OK</strong
+              >. Actually selecting/appointing = management responsibility =
+              self-review threat.
+            </li>
+            <li>
+              <strong>Gift as inducement must be declined</strong> regardless of
+              size. Trivial gift offered genuinely may be accepted.
+            </li>
+            <li>
+              <strong>Confidentiality is not absolute</strong> — overridden by
+              law (e.g. money laundering, public interest matters).
+            </li>
+            <li>
+              <strong>Both clients must consent</strong> before the firm acts
+              for two competing clients. The firm does not have to choose its
+              existing client.
+            </li>
+            <li>
+              <strong>Familiarity from ex-employee depends on seniority</strong>
+              — low seniority (audit senior) = manageable; high seniority (audit
+              manager, partner) = significant.
+            </li>
+            <li>
+              <strong>Fee dependency safeguard for listed clients</strong> =
+              disclose to those charged with governance + pre-issuance review.
+              Not resignation.
+            </li>
+          </ol>
+        </div>
+
+        <div class="summary-box">
+          <h4>📌 Scenario Pattern Recognition — What to Look For</h4>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Clue in Scenario</th>
+                  <th>Threat to Identify</th>
+                  <th>Safeguard to Suggest</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>"Went on holiday together", "good friends for years"</td>
+                  <td>Familiarity</td>
+                  <td>
+                    Remove partner from audit / restructure responsibilities
+                  </td>
+                </tr>
+                <tr>
+                  <td>"Fees still outstanding", "20% unpaid"</td>
+                  <td>Self-interest (+ intimidation)</td>
+                  <td>
+                    Request payment; do not sign auditor's report until paid;
+                    independent review
+                  </td>
+                </tr>
+                <tr>
+                  <td>"Fee represents X% of total income"</td>
+                  <td>Self-interest (fee dependency)</td>
+                  <td>
+                    Check % against 15%/30% thresholds; disclose + pre-issuance
+                    review if listed 2 years
+                  </td>
+                </tr>
+                <tr>
+                  <td>"Partner for 7+ years" (listed)</td>
+                  <td>Familiarity (long association)</td>
+                  <td>Partner rotation; 5-year cooling-off period</td>
+                </tr>
+                <tr>
+                  <td>"Seconded to client" or "ex-audit team joins client"</td>
+                  <td>Self-review + familiarity</td>
+                  <td>
+                    Do not assign to audit of that client; change team
+                    composition
+                  </td>
+                </tr>
+                <tr>
+                  <td>"Prepare payroll/bookkeeping"</td>
+                  <td>Self-review</td>
+                  <td>
+                    Separate teams; client makes all decisions; must not be for
+                    listed client where significant
+                  </td>
+                </tr>
+                <tr>
+                  <td>"Liaise with tax authority"</td>
+                  <td>Advocacy</td>
+                  <td>Decline or use separate team; inform client of threat</td>
+                </tr>
+                <tr>
+                  <td>"Contingent fee" (based on profit/tax saving)</td>
+                  <td>Self-interest</td>
+                  <td>
+                    Reject — not allowed for assurance work; not allowed if
+                    significant for non-assurance
+                  </td>
+                </tr>
+                <tr>
+                  <td>"Previous auditor resigned; other firms declined"</td>
+                  <td>Integrity concern (acceptance)</td>
+                  <td>
+                    Contact predecessor auditor; assess management integrity
+                    before accepting
+                  </td>
+                </tr>
+                <tr>
+                  <td>"Partner joining client as NED/director"</td>
+                  <td>Self-interest + self-review (severe)</td>
+                  <td>Resign as auditor — no safeguards available</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // Nav active highlighting on scroll
+      const sections = document.querySelectorAll("section[id]");
+      const navLinks = document.querySelectorAll(".nav-link");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              navLinks.forEach((link) => {
+                link.classList.remove("active");
+                if (link.getAttribute("href") === "#" + entry.target.id) {
+                  link.classList.add("active");
+                }
+              });
+            }
+          });
+        },
+        { rootMargin: "-20% 0px -70% 0px" },
+      );
+
+      sections.forEach((section) => observer.observe(section));
+    </script>
+  </body>
+</html>

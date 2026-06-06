@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AA | Automated Tools & Techniques</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Lora:ital,wght@0,600;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-dark:   #2d6a4f;
+    --green-mid:    #40916c;
+    --green-light:  #74c69d;
+    --green-pale:   #d8f3dc;
+    --green-ultra:  #f0faf3;
+    --accent-gold:  #e9c46a;
+    --accent-amber: #f4a261;
+    --accent-red:   #e76f51;
+    --neutral-900:  #1a1a2e;
+    --neutral-700:  #3d3d5c;
+    --neutral-500:  #6b7280;
+    --neutral-200:  #e5e7eb;
+    --neutral-50:   #f9fafb;
+    --white:        #ffffff;
+    --shadow-sm: 0 1px 4px rgba(45,106,79,.10);
+    --shadow-md: 0 4px 16px rgba(45,106,79,.12);
+    --radius: 14px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    line-height: 1.75;
+    background: var(--green-ultra);
+    color: var(--neutral-900);
+    padding: 0 0 60px;
+  }
+
+  /* ─── HEADER ─────────────────────────────────────── */
+  header {
+    background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%);
+    color: var(--white);
+    padding: 42px 40px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    right: -60px; top: -60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.06);
+  }
+  .header-badge {
+    display: inline-block;
+    background: var(--accent-gold);
+    color: var(--neutral-900);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+  }
+  header h1 {
+    font-family: 'Lora', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  header p {
+    font-size: 15px;
+    opacity: .85;
+    max-width: 600px;
+  }
+
+  /* ─── SYLLABUS STRIP ──────────────────────────────── */
+  .syllabus-bar {
+    background: var(--green-pale);
+    border-left: 5px solid var(--green-mid);
+    padding: 16px 40px;
+    font-size: 14px;
+    color: var(--green-dark);
+    font-weight: 700;
+  }
+  .syllabus-bar span { font-weight: 400; color: var(--neutral-700); }
+
+  /* ─── MAIN CONTENT ────────────────────────────────── */
+  main { max-width: 980px; margin: 0 auto; padding: 36px 24px 0; }
+
+  /* ─── SECTION CARD ────────────────────────────────── */
+  .card {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    margin-bottom: 32px;
+    overflow: hidden;
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--green-dark);
+    padding: 18px 26px;
+    color: var(--white);
+  }
+  .card-header .icon {
+    font-size: 1.6rem;
+    line-height: 1;
+  }
+  .card-header h2 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: .3px;
+  }
+  .card-header .syl-ref {
+    margin-left: auto;
+    background: rgba(255,255,255,.18);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .card-body { padding: 26px 28px; }
+
+  /* ─── INTRO TEXT ─────────────────────────────────── */
+  .intro-text {
+    font-size: 16px;
+    color: var(--neutral-700);
+    background: var(--green-ultra);
+    border-left: 4px solid var(--green-light);
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin-bottom: 22px;
+  }
+
+  /* ─── DEFINITION BOX ─────────────────────────────── */
+  .def-box {
+    background: var(--green-pale);
+    border: 1.5px solid var(--green-light);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 16px 0;
+  }
+  .def-box .label {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--green-mid);
+    margin-bottom: 6px;
+  }
+  .def-box p { font-size: 16px; color: var(--neutral-900); }
+
+  /* ─── TOOL TYPE BLOCKS ───────────────────────────── */
+  .tool-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 18px;
+  }
+  .tool-card {
+    border-radius: 12px;
+    padding: 22px 22px 18px;
+    border: 1.5px solid transparent;
+  }
+  .tool-card.audit-sw { background: #edf7f0; border-color: var(--green-light); }
+  .tool-card.test-data { background: #fff8e8; border-color: var(--accent-gold); }
+  .tool-card.data-an { background: #fff3ee; border-color: var(--accent-amber); }
+
+  .tool-card .tc-label {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .audit-sw .tc-label { color: var(--green-dark); }
+  .test-data .tc-label { color: #b5850a; }
+  .data-an .tc-label { color: #c25d30; }
+
+  .tool-card h3 {
+    font-size: 1.05rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: var(--neutral-900);
+  }
+  .tool-card p { font-size: 15px; color: var(--neutral-700); margin-bottom: 12px; }
+
+  /* ─── EXAMPLE BOX ─────────────────────────────────── */
+  .example-box {
+    background: #f0faf3;
+    border-left: 4px solid var(--green-mid);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 15px;
+  }
+  .example-box .ex-label {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--green-mid);
+    margin-bottom: 5px;
+  }
+
+  .example-box.gold { background: #fffbea; border-left-color: var(--accent-gold); }
+  .example-box.gold .ex-label { color: #9a6b00; }
+
+  .example-box.amber { background: #fff7f0; border-left-color: var(--accent-amber); }
+  .example-box.amber .ex-label { color: #c05300; }
+
+  /* ─── COMPARE TABLE ───────────────────────────────── */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+    margin-top: 18px;
+  }
+  .compare-table th {
+    background: var(--green-dark);
+    color: var(--white);
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .compare-table td {
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--neutral-200);
+    vertical-align: top;
+  }
+  .compare-table tr:nth-child(even) td { background: var(--green-ultra); }
+  .compare-table tr:last-child td { border-bottom: none; }
+
+  /* ─── PROS/CONS SPLIT ─────────────────────────────── */
+  .split-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 18px;
+  }
+  @media(max-width:640px){ .split-grid { grid-template-columns: 1fr; } }
+
+  .split-block { border-radius: 12px; padding: 20px; }
+  .split-block.pros { background: var(--green-pale); border: 1.5px solid var(--green-light); }
+  .split-block.cons { background: #fff3f0; border: 1.5px solid #f4a07b; }
+  .split-block h4 { font-size: 15px; font-weight: 800; margin-bottom: 12px; }
+  .split-block.pros h4 { color: var(--green-dark); }
+  .split-block.cons h4 { color: #b94a2c; }
+
+  /* ─── BULLET LIST ─────────────────────────────────── */
+  .bullet-list { list-style: none; padding: 0; margin: 12px 0; }
+  .bullet-list li {
+    padding: 7px 0 7px 28px;
+    position: relative;
+    font-size: 15.5px;
+    border-bottom: 1px solid var(--neutral-200);
+  }
+  .bullet-list li:last-child { border-bottom: none; }
+  .bullet-list li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: var(--green-mid);
+    font-size: 12px;
+    top: 10px;
+  }
+  .bullet-list.amber li::before { color: var(--accent-amber); }
+  .bullet-list.red li::before { color: var(--accent-red); content: '✖'; }
+  .bullet-list.gold li::before { color: #b5850a; content: '★'; }
+
+  /* ─── MEMORY HOOK ─────────────────────────────────── */
+  .hook {
+    background: linear-gradient(135deg, #fff8e1, #fffde7);
+    border: 2px dashed var(--accent-gold);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin: 18px 0;
+  }
+  .hook .hook-label {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #9a6b00;
+    margin-bottom: 6px;
+  }
+  .hook p { font-size: 16px; font-weight: 700; color: var(--neutral-900); }
+  .hook .hook-detail { font-size: 14.5px; font-weight: 400; color: var(--neutral-700); margin-top: 6px; }
+
+  /* ─── EXAM TIP ────────────────────────────────────── */
+  .exam-tip {
+    background: linear-gradient(135deg, #fff0ea, #ffe8de);
+    border: 1.5px solid var(--accent-red);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin: 20px 0;
+  }
+  .exam-tip .et-label {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--accent-red);
+    margin-bottom: 6px;
+  }
+  .exam-tip p { font-size: 15.5px; color: var(--neutral-900); }
+
+  /* ─── SCENARIO STRIP ──────────────────────────────── */
+  .scenario {
+    background: var(--neutral-50);
+    border: 1.5px solid var(--neutral-200);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin: 18px 0;
+    font-size: 15px;
+  }
+  .scenario .sc-label {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--neutral-500);
+    margin-bottom: 8px;
+  }
+  .scenario .sc-title { font-weight: 800; font-size: 15.5px; margin-bottom: 8px; color: var(--green-dark); }
+
+  /* ─── SUBHEADING ─────────────────────────────────── */
+  h3.sub {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--green-dark);
+    margin: 22px 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  h3.sub::before {
+    content: '';
+    display: inline-block;
+    width: 4px; height: 20px;
+    background: var(--green-mid);
+    border-radius: 4px;
+  }
+
+  /* ─── TAG ────────────────────────────────────────── */
+  .tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    margin: 2px 4px 2px 0;
+  }
+  .tag.green { background: var(--green-pale); color: var(--green-dark); }
+  .tag.gold { background: #fff0b0; color: #7a5c00; }
+  .tag.amber { background: #ffe4cc; color: #8b3a0f; }
+  .tag.red { background: #ffe0d8; color: #a02010; }
+
+  /* ─── FOOTER ─────────────────────────────────────── */
+  footer {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--neutral-500);
+    padding-bottom: 20px;
+  }
+
+  /* ─── QUESTION PRACTICE ──────────────────────────── */
+  .qbox {
+    background: #f5fbf7;
+    border: 1.5px solid var(--green-light);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin: 16px 0;
+  }
+  .qbox .q-label {
+    font-size: 11px; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 1.2px; color: var(--green-mid); margin-bottom: 8px;
+  }
+  .qbox p { font-size: 15.5px; color: var(--neutral-900); font-weight: 600; }
+  .qbox .ans { 
+    margin-top: 12px; padding-top: 12px; 
+    border-top: 1px dashed var(--green-light);
+    font-weight: 400; font-size: 15px; color: var(--neutral-700);
+  }
+  .qbox .ans strong { color: var(--green-dark); }
+
+  .divider { height: 2px; background: var(--green-pale); margin: 10px 0 20px; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════ HEADER ══════════════════ -->
+<header>
+  <div class="header-badge">ACCA AA · June 2026</div>
+  <h1>Automated Tools &amp; Techniques</h1>
+  <p>Syllabus Section D5 · Audit Evidence · Kaplan Exam Kit aligned</p>
+</header>
+
+<div class="syllabus-bar">
+  Syllabus ref: D5 (a) (b) (c) &nbsp;|&nbsp;
+  <span>Explain use · Discuss with examples · Evaluate benefits &amp; challenges · Level [1] &amp; [2]</span>
+</div>
+
+<main>
+
+<!-- ══════════════════ 1. OVERVIEW ══════════════════ -->
+<div class="card">
+  <div class="card-header">
+    <span class="icon">🔍</span>
+    <h2>1. What Are Automated Tools &amp; Techniques?</h2>
+    <span class="syl-ref">D5(a)</span>
+  </div>
+  <div class="card-body">
+    <div class="intro-text">
+      Modern clients store almost all their financial data electronically. Auditors use <strong>automated tools and techniques (ATT)</strong> to access, interrogate and analyse that data — rather than testing paper records manually.
+    </div>
+
+    <div class="def-box">
+      <div class="label">Definition</div>
+      <p>Automated tools and techniques are computer-based methods used by auditors to obtain audit evidence. They allow large volumes of data to be tested quickly and consistently, helping the auditor form conclusions about controls and account balances.</p>
+    </div>
+
+    <p style="font-size:16px; margin-top:18px;">There are <strong>three main types</strong> you must know:</p>
+    <div class="tool-grid">
+      <div class="tool-card audit-sw">
+        <div class="tc-label">Type 1</div>
+        <h3>🖥️ Audit Software</h3>
+        <p>Programs that <strong>interrogate the client's data</strong> to perform substantive tests. The auditor runs their own software against the client's live or copied files.</p>
+        <div class="tag green">Substantive</div>
+        <div class="tag green">Large populations</div>
+      </div>
+      <div class="tool-card test-data">
+        <div class="tc-label">Type 2</div>
+        <h3>🧪 Test Data</h3>
+        <p>Dummy transactions <strong>input into the client's system</strong> to check whether programmed controls are working as expected.</p>
+        <div class="tag gold">Controls testing</div>
+        <div class="tag gold">Programmed controls</div>
+      </div>
+      <div class="tool-card data-an">
+        <div class="tc-label">Type 3</div>
+        <h3>📊 Data Analytics</h3>
+        <p>Tools to <strong>analyse patterns, trends and anomalies</strong> across entire data sets — going beyond sampling to test 100% of transactions.</p>
+        <div class="tag amber">Risk assessment</div>
+        <div class="tag amber">Full population</div>
+      </div>
+    </div>
+
+    <div class="hook">
+      <div class="hook-label">🧠 Memory Hook</div>
+      <p>"Audit Software FINDS it. Test Data TESTS it. Data Analytics SPOTS it."</p>
+      <div class="hook-detail">Audit Software → finds errors in the data. Test Data → tests whether controls catch bad inputs. Data Analytics → spots unusual patterns across all transactions.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ 2. AUDIT SOFTWARE ══════════════════ -->
+<div class="card">
+  <div class="card-header">
+    <span class="icon">🖥️</span>
+    <h2>2. Audit Software — In Detail</h2>
+    <span class="syl-ref">D5(b)</span>
+  </div>
+  <div class="card-body">
+
+    <div class="def-box">
+      <div class="label">What it does</div>
+      <p>Audit software is applied to the client's data files (usually a copy) to perform computations, select samples, identify exceptions, and run analytical checks — all automatically.</p>
+    </div>
+
+    <h3 class="sub">What Can Audit Software Do?</h3>
+    <ul class="bullet-list">
+      <li><strong>Cast (add up) ledger totals</strong> — e.g. verify the receivables ledger adds up correctly</li>
+      <li><strong>Stratify data</strong> — e.g. split receivables into size bands (£0–£1k, £1k–£10k, over £10k)</li>
+      <li><strong>Select samples</strong> — e.g. use monetary unit sampling to pick items for detailed testing</li>
+      <li><strong>Recalculate figures</strong> — e.g. recompute depreciation or accruals across all assets</li>
+      <li><strong>Age a balance</strong> — e.g. produce an aged receivables or payables analysis</li>
+      <li><strong>Identify duplicates</strong> — e.g. flag duplicate invoice numbers in payables</li>
+      <li><strong>Compare to limits</strong> — e.g. find receivables exceeding their credit limit</li>
+      <li><strong>Trace and match</strong> — e.g. match purchase orders to GRNs to invoices (three-way match)</li>
+    </ul>
+
+    <div class="example-box">
+      <div class="ex-label">📋 Exam Example — Receivables (Delphic Co)</div>
+      Audit software applied to the receivables ledger can: <strong>(1)</strong> cast the whole ledger, <strong>(2)</strong> compare each balance to its credit limit, <strong>(3)</strong> stratify balances and select a sample using MUS, and <strong>(4)</strong> produce an aged receivables analysis to identify potentially irrecoverable debts. All four are valid uses.
+    </div>
+
+    <div class="example-box gold">
+      <div class="ex-label">📋 Exam Example — Payables (Airsoft Co)</div>
+      Where there is a risk of <strong>completeness of payables</strong>, audit software can: search for GRNs with no matching invoice (unrecorded liabilities), recalculate accruals for goods received not yet invoiced (GRNI), and calculate the payables payment period for use in analytical procedures.
+    </div>
+
+    <div class="example-box amber">
+      <div class="ex-label">📋 Exam Example — Inventory (Lily Window Glass Co)</div>
+      For inventory, audit software can: <strong>(1)</strong> recalculate the cost of inventory by multiplying unit quantities by cost prices, <strong>(2)</strong> compare cost to net realisable value to flag NRV write-downs needed, <strong>(3)</strong> stratify inventory by value to select high-value items for testing, and <strong>(4)</strong> identify slow-moving inventory by comparing last-movement dates.
+    </div>
+
+    <div class="exam-tip">
+      <div class="et-label">⚠️ Exam Trap</div>
+      <p>Test data is NOT the same as audit software. A common error is confusing them. <strong>Test data = dummy input into client's system to test controls.</strong> Audit software = the auditor's own program run against the client's data. If a question says "inputting dummy purchase invoices to see if processed correctly" — that is TEST DATA, not audit software.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ 3. TEST DATA ══════════════════ -->
+<div class="card">
+  <div class="card-header">
+    <span class="icon">🧪</span>
+    <h2>3. Test Data — In Detail</h2>
+    <span class="syl-ref">D5(b)</span>
+  </div>
+  <div class="card-body">
+
+    <div class="def-box">
+      <div class="label">What it does</div>
+      <p>The auditor creates fake (dummy) transactions and inputs them into the client's own IT system to see whether the <strong>programmed controls</strong> in that system work as intended.</p>
+    </div>
+
+    <h3 class="sub">How It Works — Step by Step</h3>
+    <ul class="bullet-list">
+      <li><strong>Step 1:</strong> Auditor creates both valid and deliberately invalid dummy transactions</li>
+      <li><strong>Step 2:</strong> They are input into the client's live or parallel system</li>
+      <li><strong>Step 3:</strong> The auditor checks: did the system accept valid ones and reject invalid ones?</li>
+      <li><strong>Step 4:</strong> Results are compared to expected outcomes — any difference means a control failure</li>
+    </ul>
+
+    <h3 class="sub">Examples of What Test Data Can Test</h3>
+
+    <div class="example-box">
+      <div class="ex-label">📋 Example — Sales System</div>
+      Input a dummy sales order <strong>exceeding the customer's credit limit</strong>. The system should automatically block it. If it processes the order anyway, the credit limit control is failing.
+    </div>
+
+    <div class="example-box gold">
+      <div class="ex-label">📋 Example — Payroll System</div>
+      Input a dummy payroll entry with a <strong>pay rate above the authorised maximum</strong>. The system should reject it. If it processes the payment, this shows the programmed payroll control is ineffective.
+    </div>
+
+    <div class="example-box amber">
+      <div class="ex-label">📋 Example — Purchases System (Lily Window Glass)</div>
+      Input dummy purchase invoices with missing supplier codes, or duplicate invoice numbers, to check whether the system's validation controls flag and reject these as errors.
+    </div>
+
+    <div class="hook">
+      <div class="hook-label">🧠 Quick Distinction</div>
+      <p>Test Data = "I put a <u>fake transaction IN</u> and watch what the system does."<br>Audit Software = "I take the <u>real data OUT</u> and analyse it myself."</p>
+      <div class="hook-detail">Think of it like this: Test Data is like testing a smoke alarm with fake smoke. Audit Software is like reviewing the alarm log to see how many times it fired.</div>
+    </div>
+
+    <div class="scenario">
+      <div class="sc-label">🗂️ Exam Kit Question Reference</div>
+      <div class="sc-title">Q110 — Viola &amp; Co / Poppy Co</div>
+      "Inputting dummy purchase invoices into the client system to see if processed correctly" → <strong>TEST DATA</strong> ✓<br>
+      "Selecting a sample of supplier balances using MUS" → <strong>AUDIT SOFTWARE</strong> ✓<br>
+      "Recalculating ageing of trade payables" → <strong>AUDIT SOFTWARE</strong> ✓<br>
+      "Calculating trade payables payment period for analytical procedures" → <strong>AUDIT SOFTWARE</strong> ✓
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ 4. DATA ANALYTICS ══════════════════ -->
+<div class="card">
+  <div class="card-header">
+    <span class="icon">📊</span>
+    <h2>4. Data Analytics — In Detail</h2>
+    <span class="syl-ref">D5(b)</span>
+  </div>
+  <div class="card-body">
+
+    <div class="def-box">
+      <div class="label">What it does</div>
+      <p>Data analytics tools allow auditors to analyse entire data sets (not just a sample) to identify patterns, trends, and anomalies. This provides deeper insight into risk and stronger evidence than traditional sampling alone.</p>
+    </div>
+
+    <h3 class="sub">What Data Analytics Can Do</h3>
+    <ul class="bullet-list">
+      <li><strong>Identify unusual transactions</strong> — e.g. sales transactions at unusual times (midnight sales) which may indicate fraud</li>
+      <li><strong>Visualise trends</strong> — e.g. chart monthly revenue to spot seasonal anomalies or sudden spikes</li>
+      <li><strong>Highlight outliers</strong> — e.g. a supplier paid at a rate far above all others</li>
+      <li><strong>Test 100% of the population</strong> — rather than a sample, every transaction is reviewed</li>
+      <li><strong>Correlate data sets</strong> — e.g. compare hours worked per employee to payroll payments to identify ghost employees</li>
+      <li><strong>Benchmark against prior years</strong> — e.g. compare gross margin % month by month across two years</li>
+    </ul>
+
+    <div class="example-box">
+      <div class="ex-label">📋 Example — Revenue Testing</div>
+      Using data analytics, the auditor can plot all 12 months of revenue and compare to prior year. Any month that looks unusual (e.g. December revenue 40% higher than the same month last year when no business reason exists) is flagged for further investigation — far quicker than manually reviewing invoices.
+    </div>
+
+    <div class="example-box gold">
+      <div class="ex-label">📋 Example — Payroll Fraud Detection</div>
+      Analytics can compare the employee master file at the start of the year to the end of the year. Any employee added and removed within the same year, or any bank account receiving multiple pay transfers, can be automatically flagged — potentially identifying ghost employees.
+    </div>
+
+    <div class="example-box amber">
+      <div class="ex-label">📋 Example — Inventory (Lily Window Glass)</div>
+      Analytics can identify all inventory items where the recorded quantity has not moved for more than 180 days — highlighting potentially obsolete stock requiring an NRV write-down. No manual review of hundreds of lines needed.
+    </div>
+
+    <div class="exam-tip">
+      <div class="et-label">⚠️ Key Point for Exam</div>
+      <p>Data analytics is distinct from traditional audit software in that it focuses on <strong>pattern recognition and anomaly detection</strong> across 100% of data, rather than just recalculating or recasting numbers. Auditors still need professional judgement to <strong>interpret the results</strong> — the tool flags; the auditor concludes.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ 5. BENEFITS ══════════════════ -->
+<div class="card">
+  <div class="card-header">
+    <span class="icon">⚖️</span>
+    <h2>5. Benefits &amp; Challenges — Full List</h2>
+    <span class="syl-ref">D5(c)</span>
+  </div>
+  <div class="card-body">
+
+    <p style="font-size:16px; color:var(--neutral-700); margin-bottom:6px;">This is the highest-exam-frequency part of this topic. Both sides must be learned — questions ask for advantages <em>and</em> disadvantages together.</p>
+
+    <div class="split-grid">
+      <div class="split-block pros">
+        <h4>✅ Benefits / Advantages</h4>
+        <ul class="bullet-list">
+          <li><strong>Speed &amp; efficiency</strong> — large volumes of data processed quickly, saving auditor time</li>
+          <li><strong>100% coverage</strong> — entire population tested rather than a sample, reducing sampling risk</li>
+          <li><strong>Objectivity</strong> — the software applies the same rule to every item, no human inconsistency</li>
+          <li><strong>Complex calculations</strong> — recalculations done accurately across thousands of records simultaneously</li>
+          <li><strong>Better risk identification</strong> — data analytics can spot unusual patterns a manual review would miss</li>
+          <li><strong>Ongoing/continuous auditing</strong> — data can be monitored throughout the year, not just at year end</li>
+          <li><strong>Cost-effective long-term</strong> — once set up, software can be reused each year at minimal additional cost</li>
+          <li><strong>Stratification and sampling</strong> — more precise sample selection reduces audit risk</li>
+          <li><strong>Fraud detection</strong> — analytics can flag transactions inconsistent with normal patterns</li>
+        </ul>
+      </div>
+      <div class="split-block cons">
+        <h4>❌ Challenges / Disadvantages</h4>
+        <ul class="bullet-list red">
+          <li><strong>High setup costs</strong> — designing and configuring audit software can be expensive, especially for complex or old systems</li>
+          <li><strong>Staff training</strong> — audit team must be trained to use the tools, which takes time and money</li>
+          <li><strong>Systems compatibility</strong> — software may not work with the client's IT systems, especially older or bespoke systems</li>
+          <li><strong>System documentation needed</strong> — auditor needs full documentation of the client's system; if unavailable, set-up fails</li>
+          <li><strong>Client access restrictions</strong> — client may only provide copied files, not live access, limiting what can be tested</li>
+          <li><strong>Data quality risk</strong> — if the client's data is incomplete or corrupted, results from automated tools will be unreliable (garbage in, garbage out)</li>
+          <li><strong>System changes</strong> — if the client upgrades its system mid-year, the audit software may need to be completely redesigned</li>
+          <li><strong>Test data risk (live system)</strong> — test data input into live systems must be completely reversed, or dummy entries may corrupt actual records</li>
+          <li><strong>Slowing client systems</strong> — running audit software on client systems may slow down their operations</li>
+          <li><strong>Professional judgement still needed</strong> — automated tools highlight anomalies but cannot reach audit conclusions</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="hook">
+      <div class="hook-label">🧠 Exam Tip — Tailored Answers</div>
+      <p>In a scenario question, always tie advantages and disadvantages back to the specific company facts given.</p>
+      <div class="hook-detail">E.g. If the client has 600 customers → advantage: audit software is highly efficient for large populations. If the client uses a 20-year-old bespoke system → disadvantage: compatibility issues and documentation may not be available. Generic lists alone will not score full marks.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ 6. COMPARISON TABLE ══════════════════ -->
+<div class="card">
+  <div class="card-header">
+    <span class="icon">📋</span>
+    <h2>6. Quick Comparison — Three Tools Side by Side</h2>
+    <span class="syl-ref">D5(a)(b)</span>
+  </div>
+  <div class="card-body">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>🖥️ Audit Software</th>
+          <th>🧪 Test Data</th>
+          <th>📊 Data Analytics</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Purpose</strong></td>
+          <td>Test account balances and transactions</td>
+          <td>Test programmed controls in IT system</td>
+          <td>Identify patterns, trends, anomalies</td>
+        </tr>
+        <tr>
+          <td><strong>Type of procedure</strong></td>
+          <td>Substantive</td>
+          <td>Tests of controls</td>
+          <td>Both / analytical</td>
+        </tr>
+        <tr>
+          <td><strong>Who provides data?</strong></td>
+          <td>Client data; auditor's software</td>
+          <td>Auditor creates dummy transactions</td>
+          <td>Client data; auditor uses analytics tools</td>
+        </tr>
+        <tr>
+          <td><strong>Coverage</strong></td>
+          <td>Large population; can be 100%</td>
+          <td>Selected control scenarios only</td>
+          <td>100% of dataset</td>
+        </tr>
+        <tr>
+          <td><strong>What it proves</strong></td>
+          <td>Accuracy, completeness, valuation of data</td>
+          <td>Controls are operating effectively</td>
+          <td>Whether data is unusual or consistent</td>
+        </tr>
+        <tr>
+          <td><strong>Key risk</strong></td>
+          <td>System compatibility; data quality</td>
+          <td>Must reverse test entries from live system</td>
+          <td>Tool flags; auditor still must judge</td>
+        </tr>
+        <tr>
+          <td><strong>Example</strong></td>
+          <td>Cast receivables ledger; produce aged analysis</td>
+          <td>Input invoice above authorised limit to test rejection</td>
+          <td>Plot monthly revenue; flag midnight transactions</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ══════════════════ 7. AUDITING AROUND vs THROUGH ══════════════════ -->
+<div class="card">
+  <div class="card-header">
+    <span class="icon">💡</span>
+    <h2>7. Auditing Through vs Around the Computer</h2>
+    <span class="syl-ref">D5(a)</span>
+  </div>
+  <div class="card-body">
+
+    <div class="split-grid">
+      <div class="split-block pros">
+        <h4>✅ Auditing THROUGH the Computer</h4>
+        <p style="font-size:15px; margin-bottom:10px;">Uses ATT — audit software or test data — to actually test the system and data <em>inside</em> the computer. The auditor gains direct evidence about what the system is doing.</p>
+        <ul class="bullet-list" style="margin:0;">
+          <li>Direct evidence of programmed controls operating</li>
+          <li>Can test 100% of transactions</li>
+          <li>More reliable for computer-dependent clients</li>
+        </ul>
+      </div>
+      <div class="split-block cons">
+        <h4>⚠️ Auditing AROUND the Computer</h4>
+        <p style="font-size:15px; margin-bottom:10px;">Treating the computer as a "black box" — only testing inputs and outputs, ignoring what happens inside the system.</p>
+        <ul class="bullet-list red" style="margin:0;">
+          <li>No direct evidence programs are working correctly</li>
+          <li>If errors found reconciling inputs to outputs, cause is unknown</li>
+          <li>Audit risk is <strong>higher</strong> — this approach is insufficient for complex IT systems</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exam-tip">
+      <div class="et-label">⚠️ Exam Question — Q126 Kaplan (Auditing Around)</div>
+      <p>Both statements are valid reasons why audit risk is HIGHER when auditing around: (1) actual programs are not tested so no direct evidence, and (2) if errors are found between inputs and outputs, it may be impossible to determine why they occurred.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ 8. EXAM PRACTICE QUESTIONS ══════════════════ -->
+<div class="card">
+  <div class="card-header">
+    <span class="icon">✍️</span>
+    <h2>8. Practice &amp; Exam Application</h2>
+    <span class="syl-ref">D5 All</span>
+  </div>
+  <div class="card-body">
+
+    <div class="qbox">
+      <div class="q-label">Practice — Classify the procedure</div>
+      <p>The auditor selects a sample of supplier balances using monetary unit sampling from the payables ledger. Is this: <em>(A) Test Data, or (B) Audit Software?</em></p>
+      <div class="ans"><strong>Answer: (B) Audit Software.</strong> MUS sample selection is performed by running the auditor's software against the client's data — it does not involve inputting dummy transactions.</div>
+    </div>
+
+    <div class="qbox">
+      <div class="q-label">Practice — Classify the procedure</div>
+      <p>The auditor inputs a dummy purchase invoice with a missing purchase order number to see if the system blocks it. Is this: <em>(A) Test Data, or (B) Audit Software?</em></p>
+      <div class="ans"><strong>Answer: (A) Test Data.</strong> This involves creating a fake (dummy) transaction and inputting it into the client's system to test whether a programmed control (requiring a valid PO number) works correctly.</div>
+    </div>
+
+    <div class="qbox">
+      <div class="q-label">Practice — Advantage in context</div>
+      <p>Delphic Co has over 600 customers. How does this fact support the use of audit software?</p>
+      <div class="ans"><strong>Answer:</strong> With 600 customers, manually reviewing every balance would be time-consuming and expensive. Audit software can cast the entire ledger, produce an aged analysis, stratify all balances, and select a statistically valid sample in minutes — the large population makes automation highly efficient and effective.</div>
+    </div>
+
+    <div class="qbox">
+      <div class="q-label">Practice — Disadvantage in context</div>
+      <p>Delphic Co uses old IT systems and full system documentation is not available. What disadvantage of audit software is relevant here?</p>
+      <div class="ans"><strong>Answer:</strong> Audit software must be configured specifically for the client's system. Without full documentation, it may be impossible or very costly to develop audit software that correctly reads and processes Delphic Co's files. The lack of documentation represents a significant practical obstacle to using automated tools.</div>
+    </div>
+
+    <div class="qbox">
+      <div class="q-label">Practice — 4-mark question style (Lily Window Glass)</div>
+      <p>Describe FOUR audit procedures for inventory that could be carried out using automated tools and techniques.</p>
+      <div class="ans">
+        <strong>1. Audit Software — Valuation:</strong> Recalculate the cost of finished goods inventory by multiplying unit quantities per the inventory listing by unit cost prices, and compare to cost per the system to confirm accuracy.<br><br>
+        <strong>2. Data Analytics — NRV:</strong> Compare recorded cost of each inventory line against current selling price to identify any items where cost exceeds NRV, flagging lines requiring a write-down.<br><br>
+        <strong>3. Audit Software — Slow-moving:</strong> Filter inventory lines by last movement date to identify items not moved within the past 12 months, which may be obsolete and require a provision.<br><br>
+        <strong>4. Test Data — Controls:</strong> Input a dummy inventory receipt with an invalid product code into the inventory system to test whether the system's validation controls reject unrecognised stock codes.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════ 9. SUMMARY ══════════════════ -->
+<div class="card">
+  <div class="card-header">
+    <span class="icon">📌</span>
+    <h2>9. Summary — Everything in One Place</h2>
+    <span class="syl-ref">D5 Full</span>
+  </div>
+  <div class="card-body">
+
+    <table class="compare-table">
+      <thead>
+        <tr><th colspan="2">📌 Key Facts to Remember</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Audit software tests</strong></td><td>Account balances &amp; transactions (substantive)</td></tr>
+        <tr><td><strong>Test data tests</strong></td><td>Programmed controls (control testing) — uses dummy transactions</td></tr>
+        <tr><td><strong>Data analytics focuses on</strong></td><td>Patterns, trends and anomalies across 100% of data</td></tr>
+        <tr><td><strong>Biggest advantage</strong></td><td>Speed, efficiency and ability to test entire population</td></tr>
+        <tr><td><strong>Biggest disadvantage</strong></td><td>Setup cost, systems compatibility and need for client data access</td></tr>
+        <tr><td><strong>Test data key risk</strong></td><td>Dummy entries in live system must be completely reversed</td></tr>
+        <tr><td><strong>Large population → use</strong></td><td>Audit software (advantage)</td></tr>
+        <tr><td><strong>Old / undocumented system</strong></td><td>Disadvantage for audit software setup</td></tr>
+        <tr><td><strong>Auditing around computer</strong></td><td>Higher audit risk — programs not directly tested</td></tr>
+        <tr><td><strong>Professional judgement</strong></td><td>Still required — tools flag issues but cannot reach conclusions</td></tr>
+      </tbody>
+    </table>
+
+    <div class="hook" style="margin-top:24px;">
+      <div class="hook-label">🧠 Final Exam Reminder</div>
+      <p>In scenario questions: always tailor answers to the specific client facts given. Generic lists alone will not score well. Link every point to the scenario.</p>
+      <div class="hook-detail">E.g. "As Lily Window Glass has a large inventory with hundreds of product lines, audit software will allow the auditor to recalculate inventory valuations across the entire population efficiently, rather than selecting a limited sample manually."</div>
+    </div>
+
+  </div>
+</div>
+
+</main>
+
+<footer>
+  ACCA AA · June 2026 · Automated Tools &amp; Techniques · Kaplan Exam Kit aligned · Syllabus D5(a)(b)(c)
+</footer>
+
+</body>
+</html>

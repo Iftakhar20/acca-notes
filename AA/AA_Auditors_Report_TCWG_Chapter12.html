@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AA Chapter 12 — Auditor's Report & Communication with TCWG</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+  /* ===== DESIGN SYSTEM — READABILITY FIRST ===== */
+  :root {
+    --bg:        #ffffff;
+    --surface:   #f7f8fa;
+    --surface2:  #eef0f4;
+    --border:    #d8dce4;
+
+    --text:      #1a1d23;       /* near-black — high contrast */
+    --text-muted:#4a5568;       /* medium grey for secondary */
+    --text-light:#6b7590;       /* lighter labels */
+
+    --navy:      #1e3a5f;       /* primary accent */
+    --red:       #c0392b;       /* warning/error */
+    --green:     #1a6b3c;       /* success/tick */
+    --amber:     #b45309;       /* caution */
+    --teal:      #0d6e6e;       /* info */
+    --purple:    #5b3fa6;       /* special */
+
+    --navy-bg:   #eaf0f8;
+    --red-bg:    #fdf2f1;
+    --green-bg:  #eef6f1;
+    --amber-bg:  #fef8ec;
+    --teal-bg:   #edf7f7;
+    --purple-bg: #f3f0fc;
+
+    --radius: 6px;
+    --shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+
+  /* ===== BASE ===== */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;           /* BASE — deliberately large */
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== HEADER ===== */
+  .header {
+    background: var(--navy);
+    color: #fff;
+    padding: 52px 40px 44px;
+  }
+  .header-inner { max-width: 820px; margin: 0 auto; }
+
+  .chapter-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.9);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 18px;
+  }
+  .header h1 {
+    font-family: 'Lora', serif;
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 17px;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.5;
+  }
+  .isa-tags {
+    margin-top: 22px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .isa-tag {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: rgba(255,255,255,0.88);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 5px 14px;
+    border-radius: 4px;
+  }
+
+  /* ===== NAV ===== */
+  .toc {
+    background: var(--surface);
+    border-bottom: 2px solid var(--border);
+    padding: 0 40px;
+    overflow-x: auto;
+  }
+  .toc-inner {
+    max-width: 820px;
+    margin: 0 auto;
+    display: flex;
+    gap: 4px;
+  }
+  .toc a {
+    display: inline-block;
+    padding: 15px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .toc a:hover { color: var(--navy); border-bottom-color: var(--navy); }
+
+  /* ===== LAYOUT ===== */
+  .page { max-width: 820px; margin: 0 auto; padding: 0 40px; }
+
+  section {
+    padding: 52px 0 44px;
+    border-bottom: 1.5px solid var(--border);
+  }
+  section:last-child { border-bottom: none; }
+
+  /* ===== TYPOGRAPHY ===== */
+  .section-tag {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-family: 'Lora', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.25;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 32px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--surface2);
+  }
+
+  h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 20px 0 6px;
+  }
+
+  p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--text);
+    margin-bottom: 16px;
+  }
+
+  ul, ol {
+    padding-left: 24px;
+    margin-bottom: 18px;
+  }
+  li {
+    font-size: 17px;
+    line-height: 1.75;
+    margin-bottom: 9px;
+    color: var(--text);
+  }
+  li strong { color: var(--navy); }
+
+  /* ===== CALLOUT BOXES ===== */
+  .box {
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin: 22px 0;
+    border-left: 5px solid;
+  }
+  .box-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .box p, .box li { font-size: 16px; margin-bottom: 8px; }
+  .box p:last-child { margin-bottom: 0; }
+  .box ul, .box ol { margin-bottom: 0; }
+
+  .box-navy  { background: var(--navy-bg);   border-color: var(--navy);   }
+  .box-red   { background: var(--red-bg);    border-color: var(--red);    }
+  .box-green { background: var(--green-bg);  border-color: var(--green);  }
+  .box-amber { background: var(--amber-bg);  border-color: var(--amber);  }
+  .box-teal  { background: var(--teal-bg);   border-color: var(--teal);   }
+  .box-purple{ background: var(--purple-bg); border-color: var(--purple); }
+
+  .box-navy  .box-title { color: var(--navy);   }
+  .box-red   .box-title { color: var(--red);    }
+  .box-green .box-title { color: var(--green);  }
+  .box-amber .box-title { color: var(--amber);  }
+  .box-teal  .box-title { color: var(--teal);   }
+  .box-purple .box-title{ color: var(--purple); }
+
+  /* ===== EXAM TIP ===== */
+  .exam-tip {
+    background: var(--navy);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin: 24px 0;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .exam-tip .icon { font-size: 22px; flex-shrink: 0; padding-top: 2px; }
+  .exam-tip .et-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 5px;
+  }
+  .exam-tip p { font-size: 16px; color: rgba(255,255,255,0.92); margin: 0; line-height: 1.65; }
+  .exam-tip strong { color: #fff; }
+
+  /* ===== TABLES ===== */
+  .table-wrap { overflow-x: auto; margin: 22px 0; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+  }
+  thead { background: var(--navy); }
+  thead th {
+    padding: 13px 16px;
+    text-align: left;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  tbody tr { border-bottom: 1px solid var(--border); }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--surface); }
+  tbody td {
+    padding: 12px 16px;
+    vertical-align: top;
+    line-height: 1.6;
+    color: var(--text);
+  }
+  .td-head { font-weight: 700; color: var(--navy); }
+
+  /* Opinion badges */
+  .badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .badge-green  { background: #d1fae5; color: #065f46; }
+  .badge-orange { background: #fef3c7; color: #92400e; }
+  .badge-red    { background: #fee2e2; color: #991b1b; }
+  .badge-grey   { background: #e5e7eb; color: #374151; }
+
+  /* ===== CARD GRID ===== */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 22px 0;
+  }
+  .card {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: var(--shadow);
+  }
+  .card-num {
+    font-family: 'Lora', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--border);
+    margin-bottom: 6px;
+    line-height: 1;
+  }
+  .card h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0 0 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+  .card p { font-size: 15px; margin: 0; color: var(--text-muted); line-height: 1.6; }
+
+  /* ===== DECISION MATRIX ===== */
+  .matrix {
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin: 22px 0;
+  }
+  .matrix-header {
+    background: var(--navy);
+    color: #fff;
+    padding: 14px 20px;
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .matrix-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.2fr;
+    border-bottom: 1px solid var(--border);
+  }
+  .matrix-row:last-child { border-bottom: none; }
+  .matrix-row.header-row {
+    background: var(--surface2);
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .matrix-cell {
+    padding: 14px 18px;
+    font-size: 16px;
+    line-height: 1.5;
+    border-right: 1px solid var(--border);
+  }
+  .matrix-cell:last-child { border-right: none; }
+  .matrix-row:nth-child(even):not(.header-row) { background: var(--surface); }
+
+  /* ===== ELEMENTS TABLE special ===== */
+  .element-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px; height: 28px;
+    background: var(--navy);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-right: 10px;
+  }
+  .element-row {
+    display: flex;
+    align-items: flex-start;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    gap: 4px;
+  }
+  .element-row:last-child { border-bottom: none; }
+  .element-content { flex: 1; }
+  .element-content .el-title { font-weight: 700; font-size: 17px; margin-bottom: 4px; color: var(--navy); }
+  .element-content .el-desc { font-size: 16px; color: var(--text-muted); line-height: 1.6; }
+
+  /* ===== TWO COL ===== */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin: 18px 0;
+  }
+  @media(max-width: 620px) { .two-col { grid-template-columns: 1fr; } }
+
+  /* ===== FLOW STEPS ===== */
+  .steps { margin: 20px 0; }
+  .step {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 18px;
+    align-items: flex-start;
+  }
+  .step-num {
+    width: 36px; height: 36px;
+    min-width: 36px;
+    background: var(--navy);
+    color: #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700;
+    font-size: 16px;
+    margin-top: 2px;
+  }
+  .step-body h4 { font-size: 17px; margin: 0 0 4px; }
+  .step-body p  { font-size: 16px; margin: 0; color: var(--text-muted); }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.55);
+    text-align: center;
+    padding: 28px 20px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+  footer span { color: rgba(255,255,255,0.85); }
+
+  /* ===== PRINT ===== */
+  @media print {
+    .toc, .exam-tip { break-inside: avoid; }
+    section { break-before: auto; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-inner">
+    <div class="chapter-badge">ACCA AA · June 2026 · Chapter 12</div>
+    <h1>The Independent Auditor's Report &amp;<br>Communication with TCWG</h1>
+    <p class="subtitle">Syllabus Section E5 · ISA 700 · ISA 701 · ISA 705 · ISA 706 · ISA 260</p>
+    <div class="isa-tags">
+      <span class="isa-tag">ISA 700 – Forming an Opinion</span>
+      <span class="isa-tag">ISA 701 – Key Audit Matters</span>
+      <span class="isa-tag">ISA 705 – Modifications</span>
+      <span class="isa-tag">ISA 706 – Emphasis &amp; Other Matter</span>
+      <span class="isa-tag">ISA 260 – TCWG</span>
+    </div>
+  </div>
+</div>
+
+<!-- TABLE OF CONTENTS NAV -->
+<div class="toc">
+  <div class="toc-inner">
+    <a href="#syllabus">Syllabus</a>
+    <a href="#elements">Report Elements</a>
+    <a href="#unmodified">Unmodified Opinion</a>
+    <a href="#modified">Modified Opinions</a>
+    <a href="#extra-paras">Extra Paragraphs</a>
+    <a href="#tcwg">TCWG</a>
+    <a href="#summary">Quick Summary</a>
+  </div>
+</div>
+
+<div class="page">
+
+<!-- ===== SYLLABUS ===== -->
+<section id="syllabus">
+  <div class="section-tag">Syllabus Reference · Section E5</div>
+  <h2>What the Syllabus Requires</h2>
+
+  <p>This chapter covers <strong>Syllabus Area E5 — The Independent Auditor's Report</strong>. All outcomes are at Intellectual Level 2 (Application and Analysis), meaning you need to be able to apply and discuss, not just define.</p>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-num">a</div>
+      <h4>E5(a)</h4>
+      <p>Identify and describe the <strong>basic elements</strong> contained in the independent auditor's report.</p>
+    </div>
+    <div class="card">
+      <div class="card-num">b</div>
+      <h4>E5(b)</h4>
+      <p>Explain <strong>unmodified audit opinions</strong> in the auditor's report.</p>
+    </div>
+    <div class="card">
+      <div class="card-num">c</div>
+      <h4>E5(c)</h4>
+      <p>Explain the <strong>circumstances</strong> in which a modified audit opinion may be issued.</p>
+    </div>
+    <div class="card">
+      <div class="card-num">d</div>
+      <h4>E5(d)</h4>
+      <p>Explain the <strong>impact on the report</strong> when a modified opinion is issued.</p>
+    </div>
+    <div class="card">
+      <div class="card-num">e</div>
+      <h4>E5(e)</h4>
+      <p>Describe the format and content of <strong>KAM, Emphasis of Matter and Other Matter</strong> paragraphs.</p>
+    </div>
+  </div>
+
+  <div class="box box-navy">
+    <div class="box-title">📌 Key ISAs for This Chapter</div>
+    <ul>
+      <li><strong>ISA 700</strong> — Forming an Opinion and Reporting on Financial Statements</li>
+      <li><strong>ISA 701</strong> — Communicating Key Audit Matters (listed companies only)</li>
+      <li><strong>ISA 705</strong> — Modifications to the Opinion in the Independent Auditor's Report</li>
+      <li><strong>ISA 706</strong> — Emphasis of Matter Paragraphs and Other Matter Paragraphs</li>
+      <li><strong>ISA 260</strong> — Communication with Those Charged with Governance</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== ELEMENTS OF THE REPORT ===== -->
+<section id="elements">
+  <div class="section-tag">Section E5(a) · ISA 700</div>
+  <h2>Basic Elements of the Independent Auditor's Report</h2>
+
+  <p>ISA 700 sets out the required elements that must appear in every auditor's report. These are commonly tested in MCQ format — you need to know what each element is and what purpose it serves.</p>
+
+  <div class="element-row">
+    <div class="element-num">1</div>
+    <div class="element-content">
+      <div class="el-title">Title</div>
+      <div class="el-desc">Must clearly state <em>Independent Auditor's Report</em>. The word "independent" distinguishes it from reports issued by others (e.g. internal audit). This signals to users the report can be relied upon.</div>
+    </div>
+  </div>
+  <div class="element-row">
+    <div class="element-num">2</div>
+    <div class="element-content">
+      <div class="el-title">Addressee</div>
+      <div class="el-desc">Identifies the intended users of the report — typically the <strong>shareholders</strong> of the company (those who appointed the auditor). It is not addressed to management or directors.</div>
+    </div>
+  </div>
+  <div class="element-row">
+    <div class="element-num">3</div>
+    <div class="element-content">
+      <div class="el-title">Auditor's Opinion</div>
+      <div class="el-desc">The conclusion of the entire audit — whether the financial statements give a <strong>true and fair view</strong> in accordance with the applicable financial reporting framework. This is the most important element.</div>
+    </div>
+  </div>
+  <div class="element-row">
+    <div class="element-num">4</div>
+    <div class="element-content">
+      <div class="el-title">Basis for Opinion</div>
+      <div class="el-desc">Explains that the audit was conducted in accordance with <strong>International Standards on Auditing (ISAs)</strong>. Confirms auditor independence and that the auditor believes sufficient appropriate evidence was obtained. Provides users confidence the report can be relied upon.</div>
+    </div>
+  </div>
+  <div class="element-row">
+    <div class="element-num">5</div>
+    <div class="element-content">
+      <div class="el-title">Going Concern Section (if applicable)</div>
+      <div class="el-desc">Required when there is a Material Uncertainty Related to Going Concern. Describes the uncertainty and refers to the relevant disclosures in the financial statements. Included in an <strong>unmodified</strong> report when disclosure is adequate.</div>
+    </div>
+  </div>
+  <div class="element-row">
+    <div class="element-num">6</div>
+    <div class="element-content">
+      <div class="el-title">Key Audit Matters (listed companies only)</div>
+      <div class="el-desc">Under ISA 701, required for <strong>listed companies</strong>. Draws attention to matters that required significant auditor attention and were communicated to TCWG. Does <em>not</em> result in a modified opinion — these are just areas of focus, not problems.</div>
+    </div>
+  </div>
+  <div class="element-row">
+    <div class="element-num">7</div>
+    <div class="element-content">
+      <div class="el-title">Responsibilities of Management &amp; TCWG</div>
+      <div class="el-desc">Describes management's responsibility for preparing the financial statements and for internal control. Confirms it is management, not the auditor, who prepares the financial statements.</div>
+    </div>
+  </div>
+  <div class="element-row">
+    <div class="element-num">8</div>
+    <div class="element-content">
+      <div class="el-title">Auditor's Responsibilities</div>
+      <div class="el-desc">Explains the auditor's objective: to obtain <strong>reasonable assurance</strong> (not absolute assurance) that the financial statements are free from <strong>material misstatement</strong> whether due to fraud or error. Describes key audit procedures performed.</div>
+    </div>
+  </div>
+  <div class="element-row">
+    <div class="element-num">9</div>
+    <div class="element-content">
+      <div class="el-title">Other Reporting Responsibilities / Other Information</div>
+      <div class="el-desc">Covers the auditor's responsibilities regarding <strong>other information</strong> (e.g. Chair's statement, directors' report) included alongside the financial statements. The auditor reads this for consistency but does not audit it.</div>
+    </div>
+  </div>
+  <div class="element-row">
+    <div class="element-num">10</div>
+    <div class="element-content">
+      <div class="el-title">Name of Engagement Partner</div>
+      <div class="el-desc">Identifies the individual responsible for the audit opinion, so that users can make queries. Required for listed company audits.</div>
+    </div>
+  </div>
+  <div class="element-row">
+    <div class="element-num">11</div>
+    <div class="element-content">
+      <div class="el-title">Auditor's Signature, Address and Date</div>
+      <div class="el-desc">The report is signed in the name of the <strong>audit firm</strong>. The date is the date the auditor signs the report — this is important as it defines the auditor's responsibilities for subsequent events.</div>
+    </div>
+  </div>
+
+  <div class="exam-tip">
+    <div class="icon">🎯</div>
+    <div>
+      <div class="et-label">Exam Trap — Q179 Style (Matching)</div>
+      <p>Know these pairings: <strong>Title → "clearly identifies the report as an IAR"</strong> · <strong>Addressee → "identifies the intended user"</strong> · <strong>Basis for opinion → "describes professional standards applied"</strong> · <strong>KAM → "draws attention to significant matters discussed with TCWG"</strong> · <strong>Engagement partner name → "identifies person responsible in case of queries"</strong>. These come up as matching MCQs.</p>
+    </div>
+  </div>
+
+  <h3>Important Wording to Memorise (ISA 700)</h3>
+  <div class="box box-amber">
+    <div class="box-title">⚠️ Correct ISA 700 Wording — Q195 Style Trap</div>
+    <p>Three common errors the examiner tests:</p>
+    <ul>
+      <li>Correct: <strong>"in accordance with International Standards on Auditing"</strong> — NOT "applicable to this audit"</li>
+      <li>Correct: <strong>"reasonable assurance"</strong> — NOT "maximum assurance"</li>
+      <li>Correct: <strong>"fraud or error"</strong> — NOT "deliberate manipulation or error"</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== UNMODIFIED OPINION ===== -->
+<section id="unmodified">
+  <div class="section-tag">Section E5(b) · ISA 700</div>
+  <h2>Unmodified Opinion</h2>
+
+  <p>An <strong>unmodified (clean) opinion</strong> is issued when the auditor concludes that the financial statements give a <strong>true and fair view</strong> in accordance with the applicable financial reporting framework, and no material misstatements exist.</p>
+
+  <div class="box box-green">
+    <div class="box-title">✅ Unmodified Opinion — Key Facts</div>
+    <ul>
+      <li>Wording: <strong>"In our opinion, the financial statements give a true and fair view..."</strong></li>
+      <li>This is the <em>most common</em> opinion in practice</li>
+      <li>Does NOT mean the financial statements are perfect — the auditor has only obtained <em>reasonable assurance</em></li>
+      <li>An unmodified opinion can still have additional paragraphs (KAM, Emphasis of Matter, Going Concern section) added to it</li>
+    </ul>
+  </div>
+
+  <h3>When Can You Still Get an Unmodified Opinion?</h3>
+  <p>A clean opinion can be issued even if issues exist — provided they are correctly treated and disclosed:</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Situation</th>
+          <th>Opinion</th>
+          <th>Additional Communication</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>No issues found</td>
+          <td><span class="badge badge-green">Unmodified</span></td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Material uncertainty re going concern — <strong>adequately disclosed</strong></td>
+          <td><span class="badge badge-green">Unmodified</span></td>
+          <td>Material Uncertainty Related to Going Concern section</td>
+        </tr>
+        <tr>
+          <td>Contingent liability — <strong>correctly disclosed</strong> in notes</td>
+          <td><span class="badge badge-green">Unmodified</span></td>
+          <td>Emphasis of Matter paragraph (to highlight)</td>
+        </tr>
+        <tr>
+          <td>Listed company — significant audit areas</td>
+          <td><span class="badge badge-green">Unmodified</span></td>
+          <td>Key Audit Matters section</td>
+        </tr>
+        <tr>
+          <td>Inconsistency in Chair's statement vs financial statements</td>
+          <td><span class="badge badge-green">Unmodified</span></td>
+          <td>Other Information section (describes inconsistency)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="exam-tip">
+    <div class="icon">💡</div>
+    <div>
+      <div class="et-label">Key Distinction</div>
+      <p>Additional paragraphs (KAM, Emphasis of Matter, Going Concern section) do <strong>not modify the opinion</strong>. An unmodified opinion with a KAM section is still an unmodified opinion. These are <em>communications</em>, not <em>modifications</em>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MODIFIED OPINIONS ===== -->
+<section id="modified">
+  <div class="section-tag">Section E5(c)(d) · ISA 705</div>
+  <h2>Modified Opinions</h2>
+
+  <p>A <strong>modified opinion</strong> is issued when something is wrong with the financial statements or the audit has been limited. ISA 705 governs this area. There are <strong>three types</strong> of modified opinion, and knowing which applies in which scenario is one of the most heavily tested areas in AA.</p>
+
+  <h3>The Two Reasons for Modification</h3>
+
+  <div class="two-col">
+    <div class="box box-red" style="margin:0;">
+      <div class="box-title">🚨 Reason 1 — Material Misstatement</div>
+      <p>The financial statements contain a misstatement that is <strong>material</strong>. The auditor has evidence that something is wrong.</p>
+      <ul>
+        <li>Wrong accounting treatment</li>
+        <li>Missing provision</li>
+        <li>Incorrect disclosure</li>
+        <li>Going concern basis wrong</li>
+      </ul>
+    </div>
+    <div class="box box-amber" style="margin:0;">
+      <div class="box-title">⚠️ Reason 2 — Inability to Obtain Evidence</div>
+      <p>The auditor <strong>cannot obtain sufficient appropriate evidence</strong> to form a conclusion. This is a limitation of scope.</p>
+      <ul>
+        <li>Corrupted records</li>
+        <li>Management refuses access</li>
+        <li>Refusal to provide written representations</li>
+        <li>Auditor appointed after inventory count</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>The Three Modified Opinions — The Key Decision Matrix</h3>
+
+  <div class="matrix">
+    <div class="matrix-header">ISA 705 — Choosing the Right Opinion</div>
+    <div class="matrix-row header-row">
+      <div class="matrix-cell">Reason</div>
+      <div class="matrix-cell">Materiality Level</div>
+      <div class="matrix-cell">Opinion</div>
+    </div>
+    <div class="matrix-row">
+      <td class="matrix-cell td-head">Material Misstatement</td>
+      <td class="matrix-cell"><strong>Material but NOT pervasive</strong><br><span style="font-size:14px;color:var(--text-muted)">Affects specific area only</span></td>
+      <td class="matrix-cell"><span class="badge badge-orange">Qualified</span><br><span style="font-size:14px;color:var(--text-muted)">Wording: "Except for..."</span></td>
+    </div>
+    <div class="matrix-row">
+      <td class="matrix-cell td-head">Material Misstatement</td>
+      <td class="matrix-cell"><strong>Material AND pervasive</strong><br><span style="font-size:14px;color:var(--text-muted)">FS as a whole unreliable</span></td>
+      <td class="matrix-cell"><span class="badge badge-red">Adverse</span><br><span style="font-size:14px;color:var(--text-muted)">Wording: "Do not give a true and fair view"</span></td>
+    </div>
+    <div class="matrix-row">
+      <td class="matrix-cell td-head">Inability to Obtain Evidence</td>
+      <td class="matrix-cell"><strong>Material but NOT pervasive</strong><br><span style="font-size:14px;color:var(--text-muted)">Limited scope — specific area</span></td>
+      <td class="matrix-cell"><span class="badge badge-orange">Qualified</span><br><span style="font-size:14px;color:var(--text-muted)">Wording: "Except for..."</span></td>
+    </div>
+    <div class="matrix-row">
+      <td class="matrix-cell td-head">Inability to Obtain Evidence</td>
+      <td class="matrix-cell"><strong>Material AND pervasive</strong><br><span style="font-size:14px;color:var(--text-muted)">Cannot form any opinion</span></td>
+      <td class="matrix-cell"><span class="badge badge-grey">Disclaimer</span><br><span style="font-size:14px;color:var(--text-muted)">Wording: "Do not express an opinion"</span></td>
+    </div>
+  </div>
+
+  <div class="exam-tip">
+    <div class="icon">🔑</div>
+    <div>
+      <div class="et-label">Memory Framework — 2×2 Grid</div>
+      <p>Think of a 2×2 grid: <strong>Rows</strong> = Reason (Misstatement vs Can't get evidence). <strong>Columns</strong> = Severity (Material not pervasive vs Material and pervasive). This gives you 4 cells → Qualified / Adverse / Qualified / Disclaimer. <strong>Adverse is only ever for confirmed misstatements.</strong> Disclaimer is only ever when you CAN'T form an opinion at all.</p>
+    </div>
+  </div>
+
+  <h3>What Pervasive Means</h3>
+  <p>Pervasive means the effect is so widespread that the financial statements as a whole are unreliable. A misstatement or limitation is pervasive if it:</p>
+  <ul>
+    <li>Is not confined to specific elements — it affects the FS as a whole, OR</li>
+    <li>If confined to specific elements, those elements represent or could represent a substantial proportion of the FS, OR</li>
+    <li>Relates to disclosures fundamental to users' understanding of the FS</li>
+  </ul>
+
+  <div class="box box-navy">
+    <div class="box-title">📋 Practical Guide to Materiality &amp; Pervasiveness</div>
+    <ul>
+      <li><strong>Not material</strong> (&lt;5% of profit, &lt;1% of revenue, &lt;1% of assets) → <strong>No modification needed</strong> but ISA 450 requires auditor to ask management to correct it</li>
+      <li><strong>Material (5–10% of profit or 1–2% of assets)</strong>, limited to one area → likely <strong>Qualified</strong></li>
+      <li><strong>Highly material (&gt;10% of profit)</strong> or affecting core FS elements → likely <strong>Adverse / Disclaimer</strong></li>
+      <li>These are guidelines — always read the exam scenario for clues about pervasiveness</li>
+    </ul>
+  </div>
+
+  <h3>Impact on the Report When Modified</h3>
+  <p>When the opinion is modified, the structure of the report changes:</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Opinion Type</th>
+          <th>Section Name Changes To</th>
+          <th>What It Contains</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="badge badge-orange">Qualified</span></td>
+          <td>"Basis for Qualified Opinion"</td>
+          <td>Explains the specific matter causing the qualification</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-red">Adverse</span></td>
+          <td>"Basis for Adverse Opinion"</td>
+          <td>Explains why the FS are materially and pervasively misstated</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-grey">Disclaimer</span></td>
+          <td>"Basis for Disclaimer of Opinion"</td>
+          <td>Explains the limitation on scope that prevented forming an opinion</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box box-red">
+    <div class="box-title">🚨 Common Exam Errors to Avoid</div>
+    <ul>
+      <li>Do NOT say "Adverse" when the issue is inability to obtain evidence — that is a Disclaimer situation</li>
+      <li>Do NOT say "Qualified" when the misstatement is pervasive — that requires Adverse</li>
+      <li>An Adverse opinion still means the FS are presented — the auditor just says they don't give a TFV</li>
+      <li>A Disclaimer means the auditor gives NO opinion at all</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== EXTRA PARAGRAPHS ===== -->
+<section id="extra-paras">
+  <div class="section-tag">Section E5(e) · ISA 701 · ISA 706</div>
+  <h2>Key Audit Matters, Emphasis of Matter &amp; Other Matter Paragraphs</h2>
+
+  <p>Beyond the opinion itself, the auditor's report can include additional paragraphs to communicate important information to users. These do <strong>not modify the opinion</strong> but add context and transparency.</p>
+
+  <h3>1. Key Audit Matters (KAM) — ISA 701</h3>
+
+  <div class="box box-purple">
+    <div class="box-title">📌 What Are Key Audit Matters?</div>
+    <p>KAMs are matters that, in the auditor's professional judgement, were of <strong>most significance in the audit</strong> of the current period's financial statements. They are selected from matters communicated to TCWG.</p>
+  </div>
+
+  <h4>When Is a KAM Section Required?</h4>
+  <p>Only for <strong>listed companies</strong> — required by ISA 701. Not required for non-listed (private) companies, though auditors may include them voluntarily.</p>
+
+  <h4>How Are KAMs Selected?</h4>
+  <p>The auditor selects KAMs from matters communicated to TCWG, choosing those that <strong>required significant auditor attention</strong> due to:</p>
+  <ul>
+    <li>Areas of higher assessed risk of material misstatement</li>
+    <li>Significant auditor judgement relating to management's judgements</li>
+    <li>Effect on the audit of significant events or transactions during the period</li>
+  </ul>
+
+  <h4>What Does a KAM Section Contain?</h4>
+  <ul>
+    <li>A description of <em>why</em> the matter was considered a KAM</li>
+    <li>How the auditor <em>responded</em> to the matter</li>
+    <li>A reference to relevant disclosures in the FS (if any)</li>
+  </ul>
+
+  <div class="exam-tip">
+    <div class="icon">🎯</div>
+    <div>
+      <div class="et-label">Exam Trap — Q159 Style</div>
+      <p>KAMs are matters that <strong>"required significant auditor attention"</strong> — NOT all matters communicated to TCWG, NOT all material matters, NOT matters that resulted in a modification. That answer (Option 1 in Q159) is key.</p>
+    </div>
+  </div>
+
+  <h3>2. Emphasis of Matter Paragraph — ISA 706</h3>
+
+  <div class="box box-teal">
+    <div class="box-title">📋 Emphasis of Matter — Definition and Use</div>
+    <p>A paragraph added to draw users' attention to a matter that is <strong>already disclosed in the financial statements</strong> and which the auditor considers is fundamental to users' understanding. The FS treat the matter correctly — the auditor simply wants to highlight it.</p>
+  </div>
+
+  <h4>When Is an Emphasis of Matter Paragraph Used?</h4>
+  <ul>
+    <li>A material uncertainty related to a contingent liability that has been <strong>properly disclosed</strong></li>
+    <li>A significant subsequent event that has been <strong>properly reflected</strong> in the FS</li>
+    <li>Early application of a new accounting standard that has a significant effect</li>
+    <li>Any matter that is fundamental to user understanding and <strong>adequately disclosed</strong></li>
+  </ul>
+
+  <div class="box box-amber">
+    <div class="box-title">⚠️ Critical Rule — Emphasis of Matter</div>
+    <ul>
+      <li>The matter <strong>must already be disclosed</strong> in the FS — the EOM does not replace disclosure</li>
+      <li>The opinion is still <strong>unmodified</strong> — EOM is not a modification</li>
+      <li>Placed <strong>after</strong> the Basis for Opinion paragraph</li>
+      <li>EOM paragraph title: <em>"Emphasis of Matter"</em></li>
+    </ul>
+  </div>
+
+  <h3>3. Other Matter Paragraph — ISA 706</h3>
+
+  <div class="box box-navy">
+    <div class="box-title">📋 Other Matter — Definition and Use</div>
+    <p>A paragraph that refers to a matter <strong>not presented or disclosed in the financial statements</strong> that the auditor considers relevant to users' understanding of the audit, the auditor's responsibilities, or the auditor's report.</p>
+  </div>
+
+  <h4>When Is an Other Matter Paragraph Used?</h4>
+  <ul>
+    <li>To explain auditor's responsibilities further (e.g. restriction on liability)</li>
+    <li>When reporting under local regulations in addition to ISAs</li>
+    <li>To communicate something relevant to users that is <em>not</em> about the FS themselves</li>
+  </ul>
+
+  <h3>Comparing the Three Paragraphs</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Matter Relates To</th>
+          <th>Disclosed in FS?</th>
+          <th>Modifies Opinion?</th>
+          <th>Listed Only?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Key Audit Matters</strong></td>
+          <td>Most significant audit areas</td>
+          <td>Usually yes</td>
+          <td>No</td>
+          <td><span class="badge badge-orange">Yes</span></td>
+        </tr>
+        <tr>
+          <td><strong>Emphasis of Matter</strong></td>
+          <td>Fundamental matters in the FS</td>
+          <td>Yes — must be</td>
+          <td>No</td>
+          <td><span class="badge badge-green">No</span></td>
+        </tr>
+        <tr>
+          <td><strong>Other Matter</strong></td>
+          <td>Auditor's responsibilities / other info</td>
+          <td>No — not in FS</td>
+          <td>No</td>
+          <td><span class="badge badge-green">No</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>The Other Information Section</h3>
+  <p>Separate from the above — the auditor's report must include an <strong>Other Information section</strong> that describes what the auditor does with other information (e.g. the Chair's statement, directors' report) issued alongside the FS. Key rules:</p>
+  <ul>
+    <li>The auditor <strong>reads</strong> other information for consistency — does <strong>not audit</strong> it</li>
+    <li>No assurance conclusion is expressed on other information</li>
+    <li>If inconsistency is found between other information and the FS, it is described in the <strong>Other Information section</strong> — not an EOM or Other Matter paragraph</li>
+    <li>The auditor's opinion on the FS is <strong>not modified</strong> due to an inconsistency in other information</li>
+  </ul>
+
+  <div class="exam-tip">
+    <div class="icon">💡</div>
+    <div>
+      <div class="et-label">Scenario Trick — Chair's Statement</div>
+      <p>Chair's statement contradicts the FS → <strong>Other Information section</strong> of the report describes the inconsistency. Opinion stays <strong>unmodified</strong>. This is NOT an Emphasis of Matter and NOT an Other Matter paragraph. Q163 in the Exam Kit tests exactly this.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TCWG ===== -->
+<section id="tcwg">
+  <div class="section-tag">ISA 260 · Syllabus Area C4</div>
+  <h2>Communication with Those Charged with Governance (TCWG)</h2>
+
+  <p><strong>Those Charged with Governance (TCWG)</strong> are those responsible for overseeing the strategic direction of the entity and its accountability obligations — typically the <strong>board of directors</strong> and/or the <strong>audit committee</strong>. Communication with TCWG is governed by <strong>ISA 260</strong>.</p>
+
+  <h3>Why Does the Auditor Communicate with TCWG?</h3>
+
+  <div class="box box-navy">
+    <div class="box-title">📌 Purpose of Communication (ISA 260)</div>
+    <ul>
+      <li>To assist TCWG in fulfilling their oversight responsibilities</li>
+      <li>To give the auditor information relevant to the audit</li>
+      <li>To promote effective two-way communication throughout the audit</li>
+      <li>To inform TCWG of significant audit findings and any issues encountered</li>
+    </ul>
+  </div>
+
+  <h3>What Must the Auditor Communicate to TCWG?</h3>
+  <p>ISA 260 requires the auditor to communicate a wide range of matters:</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>Auditor's Responsibilities</h4>
+        <p>The overall audit strategy and planned scope — communicating the nature, timing and extent of planned audit work.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>Significant Findings from the Audit</h4>
+        <p>Qualitative aspects of accounting practices including accounting policies and estimates; disagreements with management; significant difficulties encountered; uncorrected misstatements; any expected modifications to the auditor's report.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>Auditor Independence</h4>
+        <p>Where ISAs require it, the auditor must communicate about independence — particularly any threats to independence and the safeguards applied.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h4>Significant Deficiencies in Internal Control</h4>
+        <p>Under ISA 265, any significant deficiencies in internal control identified during the audit must be communicated to TCWG in writing.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <h4>Other Required Communications</h4>
+        <p>Fraud (ISA 240), non-compliance with laws and regulations (ISA 250), going concern issues (ISA 570), and any expected modifications to the auditor's report.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>Form and Timing of Communication</h3>
+  <div class="two-col">
+    <div class="box box-green" style="margin:0;">
+      <div class="box-title">📅 Timing</div>
+      <ul>
+        <li>Must be <strong>timely</strong> — enables TCWG to take action</li>
+        <li>May be communicated during or after the audit</li>
+        <li>Significant matters communicated as they are identified — don't wait until the end</li>
+      </ul>
+    </div>
+    <div class="box box-teal" style="margin:0;">
+      <div class="box-title">📝 Form</div>
+      <ul>
+        <li>Can be <strong>oral or written</strong></li>
+        <li>Significant matters should be in <strong>writing</strong></li>
+        <li>Where communicated orally, it should be documented in the audit file</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Link to Key Audit Matters (ISA 701)</h3>
+  <p>Key Audit Matters in the auditor's report are selected from matters <strong>communicated to TCWG</strong>. The chain is:</p>
+  <ul>
+    <li>Auditor identifies significant audit areas during the audit</li>
+    <li>These are communicated to TCWG under ISA 260</li>
+    <li>From those communicated matters, the auditor selects those that required <strong>most significant attention</strong></li>
+    <li>Those are reported publicly as KAMs in the auditor's report (listed companies)</li>
+  </ul>
+
+  <div class="exam-tip">
+    <div class="icon">🔗</div>
+    <div>
+      <div class="et-label">Connection to the Wider Syllabus</div>
+      <p>TCWG communication also links to the <strong>internal control chapter</strong> (C4) — significant deficiencies in internal controls must be reported to TCWG in writing (ISA 265). The management letter / report to management covers control deficiencies found during the audit. TCWG communication is therefore a theme across the whole audit, not just at the reporting stage.</p>
+    </div>
+  </div>
+
+  <h3>Who Are TCWG in Practice?</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Entity Type</th>
+          <th>TCWG typically are...</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Listed company</td>
+          <td>Audit committee (preferred) — or full board if no audit committee</td>
+        </tr>
+        <tr>
+          <td>Private company with governance structure</td>
+          <td>Board of directors</td>
+        </tr>
+        <tr>
+          <td>Small/owner-managed business</td>
+          <td>The owner-manager themselves (though management = TCWG overlap)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== QUICK SUMMARY ===== -->
+<section id="summary">
+  <div class="section-tag">Exam Preparation</div>
+  <h2>Quick Reference Summary</h2>
+
+  <h3>The Four Opinions — One-Line Memory</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Opinion</th><th>Wording</th><th>When</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="badge badge-green">Unmodified</span></td>
+          <td>"...give a true and fair view"</td>
+          <td>No issues, or issues treated/disclosed correctly</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-orange">Qualified</span></td>
+          <td>"Except for... give a true and fair view"</td>
+          <td>Material misstatement OR scope limitation — but NOT pervasive</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-red">Adverse</span></td>
+          <td>"Do NOT give a true and fair view"</td>
+          <td>Material AND pervasive <strong>misstatement</strong> only</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-grey">Disclaimer</span></td>
+          <td>"Do NOT express an opinion"</td>
+          <td>Material AND pervasive <strong>scope limitation</strong> only</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>What Goes In the Report — Decision Guide</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Situation</th><th>What to Include</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Listed company — significant audit areas</td><td>Key Audit Matters section</td></tr>
+        <tr><td>Properly disclosed material contingent liability</td><td>Emphasis of Matter paragraph</td></tr>
+        <tr><td>Going concern uncertainty — adequately disclosed</td><td>Material Uncertainty Related to Going Concern section</td></tr>
+        <tr><td>Going concern uncertainty — NOT disclosed</td><td>Qualified or Adverse opinion</td></tr>
+        <tr><td>Inconsistency in Chair's statement</td><td>Other Information section</td></tr>
+        <tr><td>Auditor restricting liability</td><td>Other Matter paragraph</td></tr>
+        <tr><td>Scope limitation — material, not pervasive</td><td>Qualified opinion + Basis for Qualified Opinion</td></tr>
+        <tr><td>Scope limitation — material and pervasive</td><td>Disclaimer + Basis for Disclaimer</td></tr>
+        <tr><td>Misstatement — material, not pervasive</td><td>Qualified opinion + Basis for Qualified Opinion</td></tr>
+        <tr><td>Misstatement — material and pervasive</td><td>Adverse opinion + Basis for Adverse Opinion</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="exam-tip">
+    <div class="icon">🏆</div>
+    <div>
+      <div class="et-label">Your June 1 AA Exam — Focus Areas</div>
+      <p>For this chapter, expect <strong>4–8 marks in Section A</strong>. Priority topics: (1) the 4 opinion types and when to use each, (2) what KAMs are and who they apply to, (3) Emphasis of Matter vs Other Matter vs Other Information — which is used when, (4) what TCWG communication covers. MCQs often give you a scenario and ask you to pick the opinion or the additional communication type. Practise Q163–Q200 in the Kaplan Exam Kit.</p>
+    </div>
+  </div>
+</section>
+
+</div><!-- /page -->
+
+<footer>
+  <p><span>ACCA AA · Chapter 12 · Auditor's Report &amp; TCWG</span> &nbsp;|&nbsp; June 2026 Exam Window</p>
+  <p style="margin-top:6px;">Syllabus E5(a–e) · ISA 700 · ISA 701 · ISA 705 · ISA 706 · ISA 260 &nbsp;|&nbsp; For educational use only</p>
+</footer>
+
+</body>
+</html>

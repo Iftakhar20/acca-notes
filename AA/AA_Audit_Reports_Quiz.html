@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AA – Audit Reports Quiz</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --paper: #f5f0e8;
+    --paper-dark: #ede7d8;
+    --accent: #c0392b;
+    --gold: #b8860b;
+    --correct: #1a6b3a;
+    --wrong: #c0392b;
+    --muted: #6b6560;
+    --border: #c8bfae;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    min-height: 100vh;
+    padding: 0;
+  }
+
+  /* Subtle paper texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page-wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 48px;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 32px;
+  }
+  .header-eyebrow {
+    font-family: 'Source Serif 4', serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 5vw, 44px);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+  .header h1 span { color: var(--accent); }
+  .header-sub {
+    font-style: italic;
+    font-size: 15px;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  /* Progress bar */
+  .progress-wrap {
+    margin-bottom: 36px;
+  }
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .progress-track {
+    height: 3px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: width 0.5s ease;
+  }
+
+  /* Question card */
+  .question-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 36px 40px;
+    margin-bottom: 24px;
+    box-shadow: 3px 3px 0 var(--border);
+    display: none;
+    animation: fadeSlide 0.35s ease forwards;
+  }
+  .question-card.active { display: block; }
+
+  @keyframes fadeSlide {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .q-number {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .q-number::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* Tag */
+  .q-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border: 1px solid currentColor;
+    margin-bottom: 16px;
+    border-radius: 1px;
+  }
+  .tag-modified { color: var(--accent); }
+  .tag-unmodified { color: #2563ab; }
+  .tag-emphasis { color: var(--gold); }
+  .tag-kam { color: #5b2d8e; }
+
+  .scenario-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  .scenario-text {
+    font-size: 15.5px;
+    line-height: 1.75;
+    color: var(--ink);
+    margin-bottom: 28px;
+    padding: 20px 24px;
+    background: var(--paper);
+    border-left: 3px solid var(--ink);
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .stem {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  /* Options */
+  .options { display: flex; flex-direction: column; gap: 10px; }
+
+  .option {
+    padding: 16px 20px;
+    border: 1.5px solid var(--border);
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--ink);
+    background: white;
+    text-align: left;
+    transition: border-color 0.15s, background 0.15s, transform 0.1s;
+    font-family: 'Source Serif 4', serif;
+    position: relative;
+    padding-left: 48px;
+  }
+  .option::before {
+    content: attr(data-letter);
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--muted);
+    font-family: 'Playfair Display', serif;
+  }
+  .option:hover:not(:disabled) {
+    border-color: var(--ink);
+    background: var(--paper);
+    transform: translateX(2px);
+  }
+  .option:disabled { cursor: default; }
+  .option.correct {
+    border-color: var(--correct);
+    background: #f0faf4;
+    color: var(--correct);
+  }
+  .option.correct::before { color: var(--correct); }
+  .option.wrong {
+    border-color: var(--wrong);
+    background: #fdf0ef;
+    color: var(--wrong);
+    text-decoration: line-through;
+    opacity: 0.7;
+  }
+  .option.wrong::before { color: var(--wrong); }
+  .option.reveal {
+    border-color: var(--correct);
+    background: #f0faf4;
+    color: var(--correct);
+    font-weight: 600;
+  }
+  .option.reveal::before { color: var(--correct); }
+
+  /* Explanation */
+  .explanation {
+    margin-top: 24px;
+    padding: 20px 24px;
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    display: none;
+    animation: fadeSlide 0.3s ease forwards;
+  }
+  .explanation.show { display: block; }
+  .explanation-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+    color: var(--ink);
+  }
+  .explanation-title.correct-title { color: var(--correct); }
+  .explanation-title.wrong-title { color: var(--wrong); }
+  .explanation p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #3a3530;
+    margin-bottom: 6px;
+  }
+  .explanation p:last-child { margin-bottom: 0; }
+  .explanation strong { color: var(--ink); }
+
+  /* Next button */
+  .next-btn {
+    margin-top: 20px;
+    padding: 13px 32px;
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    border-radius: 2px;
+    font-family: 'Source Serif 4', serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    display: none;
+    transition: background 0.15s, transform 0.1s;
+  }
+  .next-btn.show { display: inline-block; }
+  .next-btn:hover { background: #2e2e4a; transform: translateY(-1px); }
+
+  /* Score screen */
+  .score-screen {
+    display: none;
+    text-align: center;
+    padding: 60px 40px;
+    background: white;
+    border: 1px solid var(--border);
+    box-shadow: 3px 3px 0 var(--border);
+    animation: fadeSlide 0.4s ease forwards;
+  }
+  .score-screen.show { display: block; }
+
+  .score-badge {
+    font-family: 'Playfair Display', serif;
+    font-size: 88px;
+    font-weight: 900;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .score-badge span { color: var(--accent); }
+  .score-label {
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 32px;
+  }
+  .score-verdict {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+  .score-note {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 480px;
+    margin: 0 auto 36px;
+  }
+  .retry-btn {
+    padding: 14px 40px;
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    font-family: 'Source Serif 4', serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background 0.15s;
+  }
+  .retry-btn:hover { background: var(--accent); }
+
+  @media (max-width: 600px) {
+    .question-card { padding: 24px 20px; }
+    .option { font-size: 13.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <div class="header">
+    <div class="header-eyebrow">ACCA Audit & Assurance · June 2026</div>
+    <h1>Audit <span>Reports</span><br>Opinion Quiz</h1>
+    <p class="header-sub">Read each scenario, then select the correct report language or opinion type</p>
+  </div>
+
+  <div class="progress-wrap" id="progressWrap">
+    <div class="progress-label">
+      <span id="progressText">Question 1 of 5</span>
+      <span id="scoreText">Score: 0</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill" style="width:0%"></div>
+    </div>
+  </div>
+
+  <div id="quizContainer"></div>
+  <div class="score-screen" id="scoreScreen"></div>
+
+</div>
+
+<script>
+const questions = [
+  {
+    id: 1,
+    tag: "Modified Opinion — Qualified",
+    tagClass: "tag-modified",
+    scenario: "During the audit of Belmont Ltd for the year ended 31 March 2026, you discover that the company has not depreciated its fleet of delivery vehicles (carrying value £2.4m) on the grounds that the directors believe the vehicles maintain their value. This is not in accordance with IAS 16. The misstatement is material but does not affect every element of the financial statements.",
+    stem: "Which of the following most accurately describes the appropriate auditor's opinion and the paragraph that should appear in the auditor's report?",
+    options: [
+      { letter: "A", text: "An unmodified opinion should be issued. The auditor should include a Key Audit Matter paragraph describing the depreciation policy as a significant risk." },
+      { letter: "B", text: "A qualified opinion should be issued. The opinion paragraph should state: 'In our opinion, except for the effects of the matter described in the Basis for Qualified Opinion section, the financial statements give a true and fair view…'" },
+      { letter: "C", text: "An adverse opinion should be issued. The opinion paragraph should state: 'In our opinion, because of the significance of the matter described in the Basis for Adverse Opinion section, the financial statements do not give a true and fair view…'" },
+      { letter: "D", text: "A disclaimer of opinion should be issued because the auditor is unable to obtain sufficient appropriate audit evidence about the depreciation policy." },
+    ],
+    correct: 1,
+    explanation: {
+      why: "The misstatement (non-depreciation of vehicles) is material but <strong>not pervasive</strong> — it does not affect every element of the financial statements. This means a <strong>qualified opinion</strong> is appropriate (the 'except for' opinion). The standard 'except for' language in option B is the correct ISA 705 wording for a qualified opinion.",
+      wrongA: "An unmodified opinion is not appropriate when there is a material misstatement. KAMs (ISA 701) are only for listed entities and do not replace modifying the opinion.",
+      wrongC: "An adverse opinion is reserved for misstatements that are <strong>material AND pervasive</strong> — affecting the financial statements as a whole. This misstatement relates only to one asset class.",
+      wrongD: "A disclaimer arises when the auditor cannot obtain sufficient audit evidence (a limitation of scope) — not when a misstatement is identified. Here, the evidence is clear; the accounting treatment is simply wrong.",
+      standard: "ISA 705 (Modifications to the Opinion in the Independent Auditor's Report)"
+    }
+  },
+  {
+    id: 2,
+    tag: "Modified Opinion — Adverse",
+    tagClass: "tag-modified",
+    scenario: "Oakfield Group plc prepared its consolidated financial statements excluding a major subsidiary, Oakfield Finance Ltd, on the grounds that it operates in a different industry. This is not permitted under IFRS 10, which requires consolidation of all subsidiaries. Oakfield Finance Ltd accounts for 55% of the group's total revenue and 60% of total assets. The directors refuse to amend the financial statements.",
+    stem: "Which opinion paragraph wording should appear in the auditor's report?",
+    options: [
+      { letter: "A", text: "'In our opinion, except for the effects of the matter described in the Basis for Qualified Opinion section, the consolidated financial statements give a true and fair view…'" },
+      { letter: "B", text: "'In our opinion, the consolidated financial statements give a true and fair view… We draw attention to Note 7, which describes the group's decision to exclude Oakfield Finance Ltd from the consolidation.'" },
+      { letter: "C", text: "'In our opinion, because of the significance of the matter described in the Basis for Adverse Opinion section, the consolidated financial statements do not give a true and fair view of the financial position of Oakfield Group plc…'" },
+      { letter: "D", text: "'Because of the matters described in the Basis for Disclaimer of Opinion section, we have not been able to obtain sufficient appropriate audit evidence to provide a basis for an audit opinion on these consolidated financial statements.'" },
+    ],
+    correct: 2,
+    explanation: {
+      why: "The exclusion of a subsidiary representing 55% of revenue and 60% of assets is both <strong>material and pervasive</strong> — the misstatement affects the financial statements as a whole, not just one element. Under ISA 705, a <strong>material and pervasive</strong> misstatement requires an <strong>adverse opinion</strong>. Option C uses the exact ISA 705 wording for an adverse opinion.",
+      wrongA: "A qualified 'except for' opinion is too weak when the effect is pervasive across the entire group's financial statements. A misstatement affecting 55% of revenue cannot be described as isolated.",
+      wrongB: "An Emphasis of Matter paragraph (option B's approach) is used to draw attention to a matter already properly disclosed — it cannot be used to draw attention to a misstatement. You cannot issue an unmodified opinion here.",
+      wrongD: "A disclaimer is a scope limitation (inability to obtain evidence). Here there is no scope limitation — the auditor has all the evidence and knows the treatment is wrong.",
+      standard: "ISA 705 — material AND pervasive misstatement → adverse opinion"
+    }
+  },
+  {
+    id: 3,
+    tag: "Going Concern — Emphasis of Matter",
+    tagClass: "tag-emphasis",
+    scenario: "During the audit of Fenwick Retail Ltd for the year ended 31 December 2025, you identify a material uncertainty about going concern. The company has significant debt repayable in four months and is negotiating refinancing. The directors have disclosed the going concern uncertainty fully and appropriately in the notes to the financial statements, and they have a credible plan. You are satisfied the going concern basis is appropriate given the disclosures.",
+    stem: "What should the auditor's report contain in relation to this matter?",
+    options: [
+      { letter: "A", text: "A qualified opinion, because there is a material uncertainty about going concern which makes the financial statements potentially misleading." },
+      { letter: "B", text: "An unmodified opinion. A separate 'Material Uncertainty Related to Going Concern' section must be included in the report, prominently drawing attention to the note in the financial statements describing the uncertainty." },
+      { letter: "C", text: "An adverse opinion, because a going concern uncertainty means the financial statements do not give a true and fair view." },
+      { letter: "D", text: "An unmodified opinion with no additional paragraphs, since the directors have already disclosed the matter in the notes." },
+    ],
+    correct: 1,
+    explanation: {
+      why: "Under ISA 570 (Going Concern), when a <strong>material uncertainty exists but is adequately disclosed</strong> by management, the auditor issues an <strong>unmodified opinion</strong> but must include a dedicated <strong>'Material Uncertainty Related to Going Concern'</strong> section in the report. This section explicitly refers to the relevant note and states that the auditor's opinion is not modified in respect of this matter. Option B is correct.",
+      wrongA: "A qualified opinion is not appropriate here — there is no misstatement and no scope limitation. The disclosure is adequate. Modifying the opinion for a going concern uncertainty that is properly disclosed would be incorrect.",
+      wrongC: "An adverse opinion would only be appropriate if the going concern basis is wrong (e.g. the entity clearly cannot continue) or if there is a material and pervasive misstatement. Adequate disclosure = unmodified opinion.",
+      wrongD: "Silence is not an option where a material uncertainty exists. ISA 570 specifically requires the separate 'Material Uncertainty Related to Going Concern' section even when the opinion is unmodified.",
+      standard: "ISA 570 (Revised) — Going Concern"
+    }
+  },
+  {
+    id: 4,
+    tag: "Disclaimer of Opinion",
+    tagClass: "tag-modified",
+    scenario: "You are auditing Creston Holdings Ltd. The company has not maintained proper accounting records for a significant portion of the year due to a cyberattack that destroyed financial data. Transactions totalling approximately £18m (out of total revenue of £22m) cannot be verified by any alternative audit procedures. The directors are unable to provide reconstructed records. The potential effects are material and pervasive.",
+    stem: "Which opinion wording correctly reflects the auditor's position?",
+    options: [
+      { letter: "A", text: "'In our opinion, except for the possible effects of the matter described in the Basis for Qualified Opinion section, the financial statements give a true and fair view…'" },
+      { letter: "B", text: "'In our opinion, because of the significance of the matter described in the Basis for Adverse Opinion section, the financial statements do not give a true and fair view…'" },
+      { letter: "C", text: "'Because of the matters described in the Basis for Disclaimer of Opinion section, we have not been able to obtain sufficient appropriate audit evidence to provide a basis for an audit opinion on these financial statements.'" },
+      { letter: "D", text: "'In our opinion, the financial statements give a true and fair view. We draw attention to the note describing the impact of the cyberattack on the accounting records.'" },
+    ],
+    correct: 2,
+    explanation: {
+      why: "This is a <strong>limitation of scope</strong> — the auditor cannot obtain sufficient appropriate audit evidence because records are destroyed and alternative procedures are unavailable. The limitation is <strong>material and pervasive</strong> (£18m out of £22m revenue). Under ISA 705, a material and pervasive scope limitation requires a <strong>disclaimer of opinion</strong>. Option C uses the exact ISA 705 disclaimer wording.",
+      wrongA: "A qualified 'except for possible effects' opinion is appropriate for a material but <strong>not pervasive</strong> scope limitation. Here the limitation is pervasive — 82% of revenue cannot be verified.",
+      wrongB: "An adverse opinion is for a <strong>misstatement</strong> that is material and pervasive. A disclaimer is for a <strong>scope limitation</strong> that is material and pervasive. These are different situations requiring different opinions.",
+      wrongD: "Issuing an unmodified opinion with an EOM paragraph is not acceptable when the auditor has been unable to obtain sufficient evidence on a pervasive portion of the financial statements. This would be misleading.",
+      standard: "ISA 705 — scope limitation, material and pervasive → disclaimer of opinion"
+    }
+  },
+  {
+    id: 5,
+    tag: "Key Audit Matter (KAM)",
+    tagClass: "tag-kam",
+    scenario: "You are the audit partner for Harlow Pharma plc, a listed entity, for the year ended 31 March 2026. The company has capitalised £12m of internally-generated development costs under IAS 38. This required significant management judgement in assessing technical feasibility, future economic benefits, and the intention to complete the project. The amount is material and was the subject of significant auditor focus during the engagement.",
+    stem: "Regarding this matter, which statement most accurately reflects the requirements of ISA 701?",
+    options: [
+      { letter: "A", text: "Because the capitalisation of development costs complies with IAS 38, no additional disclosure is required in the auditor's report beyond the standard opinion paragraph." },
+      { letter: "B", text: "The auditor must include a Key Audit Matter (KAM) section describing: why the matter was considered a KAM, and a summary of how the auditor addressed it. The opinion itself remains unmodified assuming no misstatement is found." },
+      { letter: "C", text: "The auditor should include an Emphasis of Matter paragraph drawing attention to the significant judgement involved in capitalising development costs." },
+      { letter: "D", text: "The auditor should qualify the opinion because the high degree of judgement in the capitalisation creates a material uncertainty in the financial statements." },
+    ],
+    correct: 1,
+    explanation: {
+      why: "Under ISA 701 (Communicating Key Audit Matters), for <strong>listed entities</strong>, the auditor must include a KAM section for matters that: (a) were of most significance in the audit, (b) required significant auditor judgement. The KAM section describes <strong>why</strong> it was a KAM and <strong>how</strong> the auditor addressed it. Crucially, the presence of a KAM does not modify the opinion — option B is correct.",
+      wrongA: "ISA 701 requires disclosure of KAMs for listed entities regardless of whether the accounting treatment is correct. The KAM section is mandatory; silence is not permitted for matters of this significance.",
+      wrongC: "An Emphasis of Matter (EOM) paragraph is used to draw attention to matters <strong>already disclosed in the financial statements</strong> that are fundamental to users' understanding — e.g. going concern, or a significant uncertainty. It is <strong>not</strong> the mechanism for communicating audit focus areas; that is what KAMs are for.",
+      wrongD: "The existence of significant management judgement does not, by itself, create a modified opinion. If the auditor is satisfied the capitalisation meets IAS 38 criteria, the opinion is unmodified. The judgement is reported via the KAM section, not by modifying the opinion.",
+      standard: "ISA 701 — Key Audit Matters (applies to listed entities only)"
+    }
+  }
+];
+
+let current = 0;
+let score = 0;
+let answered = [];
+
+function render() {
+  const container = document.getElementById('quizContainer');
+  container.innerHTML = '';
+  questions.forEach((q, i) => {
+    const card = document.createElement('div');
+    card.className = 'question-card' + (i === 0 ? ' active' : '');
+    card.id = 'q' + i;
+
+    card.innerHTML = `
+      <div class="q-number">Question ${q.id} of ${questions.length}</div>
+      <div class="q-tag ${q.tagClass}">${q.tag}</div>
+      <div class="scenario-label">Scenario</div>
+      <div class="scenario-text">${q.scenario}</div>
+      <div class="stem">${q.stem}</div>
+      <div class="options" id="opts${i}">
+        ${q.options.map((o, oi) => `
+          <button class="option" data-letter="${o.letter}" data-index="${oi}" onclick="answer(${i}, ${oi})">${o.text}</button>
+        `).join('')}
+      </div>
+      <div class="explanation" id="exp${i}"></div>
+      <button class="next-btn" id="next${i}" onclick="nextQ(${i})">${i < questions.length - 1 ? 'Next Question →' : 'See Results →'}</button>
+    `;
+    container.appendChild(card);
+  });
+}
+
+function answer(qIdx, optIdx) {
+  if (answered[qIdx]) return;
+  answered[qIdx] = true;
+
+  const q = questions[qIdx];
+  const opts = document.querySelectorAll(`#opts${qIdx} .option`);
+  opts.forEach(o => o.disabled = true);
+
+  const chosen = opts[optIdx];
+  const correct = q.correct;
+  const isCorrect = optIdx === correct;
+
+  opts[optIdx].classList.add(isCorrect ? 'correct' : 'wrong');
+  if (!isCorrect) opts[correct].classList.add('reveal');
+
+  if (isCorrect) score++;
+  updateProgress(qIdx + 1);
+
+  const exp = document.getElementById('exp' + qIdx);
+  const e = q.explanation;
+
+  let wrongParts = '';
+  if (!isCorrect) {
+    wrongParts = `<p><strong>Your answer was wrong because:</strong> ${e['wrong' + q.options[optIdx].letter] || 'See the correct explanation above.'}</p>`;
+  }
+
+  exp.innerHTML = `
+    <div class="explanation-title ${isCorrect ? 'correct-title' : 'wrong-title'}">${isCorrect ? '✓ Correct' : '✗ Incorrect'}</div>
+    <p><strong>Why this is right:</strong> ${e.why}</p>
+    ${wrongParts}
+    <p style="margin-top:10px; font-size:13px; color:var(--muted);"><em>Standard: ${e.standard}</em></p>
+  `;
+  exp.classList.add('show');
+
+  document.getElementById('next' + qIdx).classList.add('show');
+}
+
+function nextQ(qIdx) {
+  document.getElementById('q' + qIdx).classList.remove('active');
+  const nextIdx = qIdx + 1;
+  if (nextIdx < questions.length) {
+    document.getElementById('q' + nextIdx).classList.add('active');
+    document.getElementById('q' + nextIdx).scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } else {
+    showScore();
+  }
+}
+
+function updateProgress(done) {
+  const pct = (done / questions.length) * 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressText').textContent = done < questions.length ? `Question ${done + 1} of ${questions.length}` : 'Complete';
+  document.getElementById('scoreText').textContent = `Score: ${score}`;
+}
+
+function showScore() {
+  document.getElementById('progressWrap').style.display = 'none';
+  const screen = document.getElementById('scoreScreen');
+
+  const verdicts = [
+    [5, "Outstanding — full marks.", "You have a thorough command of audit report types and ISA language. Excellent exam preparation."],
+    [4, "Very strong — one slip.", "Near-perfect. Review the question you missed and make sure you can articulate the pervasive vs material distinction clearly."],
+    [3, "Solid pass territory.", "Good foundation. Focus on the distinctions: qualified vs adverse (misstatement) and qualified vs disclaimer (scope limitation)."],
+    [2, "Needs more work.", "The key framework to revisit: Is the issue a misstatement or a scope limitation? Is the effect material but not pervasive, or material and pervasive? That 2×2 grid determines the opinion type."],
+    [0, "Keep going — the logic is learnable.", "Start with the decision tree: misstatement or scope limitation → then material/not pervasive vs material/pervasive. Drill that framework and re-attempt."],
+  ];
+
+  let verdict = verdicts[4];
+  if (score === 5) verdict = verdicts[0];
+  else if (score === 4) verdict = verdicts[1];
+  else if (score === 3) verdict = verdicts[2];
+  else if (score >= 1) verdict = verdicts[3];
+
+  screen.innerHTML = `
+    <div class="score-badge">${score}<span>/5</span></div>
+    <div class="score-label">Final Score</div>
+    <div class="score-verdict">${verdict[1]}</div>
+    <p class="score-note">${verdict[2]}</p>
+    <button class="retry-btn" onclick="restart()">Retry Quiz</button>
+  `;
+  screen.classList.add('show');
+  screen.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function restart() {
+  current = 0; score = 0; answered = [];
+  document.getElementById('progressWrap').style.display = '';
+  document.getElementById('scoreScreen').classList.remove('show');
+  updateProgress(0);
+  render();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+render();
+updateProgress(0);
+</script>
+</body>
+</html>

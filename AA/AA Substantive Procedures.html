@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACCA AA | Substantive Procedures – Complete Tutorial</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sand-50: #fdf8f0;
+    --sand-100: #f5ecd8;
+    --sand-200: #e8d9bc;
+    --sand-300: #d4bc92;
+    --sand-400: #b89a6a;
+    --sand-500: #9a7c4f;
+    --sand-600: #7d6240;
+    --sand-700: #5c4830;
+    --teal: #1a7a6e;
+    --teal-light: #e6f4f2;
+    --teal-border: #9dcfc9;
+    --amber: #b86a00;
+    --amber-light: #fff4e0;
+    --amber-border: #f5c26b;
+    --red: #c0392b;
+    --red-light: #fdf0ef;
+    --red-border: #f1a59e;
+    --blue: #1a5fa8;
+    --blue-light: #eaf3fc;
+    --blue-border: #8bbce6;
+    --green: #1e7b3a;
+    --green-light: #edf7f1;
+    --green-border: #85cda0;
+    --purple: #5c3fa0;
+    --purple-light: #f0ecfb;
+    --purple-border: #b59ce0;
+    --text: #2c2418;
+    --text-muted: #6b5a40;
+    --text-light: #9a8570;
+    --bg: #fdf8f0;
+    --bg-card: #fffdf8;
+    --border: #e0d0b8;
+    --max-width: 920px;
+    --font-body: 'Source Sans 3', sans-serif;
+    --font-head: 'Lora', Georgia, serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text);
+    background: var(--bg);
+    padding: 0 1rem;
+  }
+
+  .page-wrapper {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2.5rem 0 5rem;
+  }
+
+  /* ── Header ── */
+  .doc-header {
+    background: linear-gradient(135deg, var(--sand-700) 0%, var(--sand-500) 100%);
+    color: #fffdf8;
+    border-radius: 16px;
+    padding: 2.5rem 2.5rem 2rem;
+    margin-bottom: 2.5rem;
+  }
+  .doc-header .label {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.75;
+    margin-bottom: 0.5rem;
+  }
+  .doc-header h1 {
+    font-family: var(--font-head);
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+  }
+  .doc-header p {
+    font-size: 15px;
+    opacity: 0.85;
+  }
+  .header-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 1.25rem;
+  }
+  .header-tags span {
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 20px;
+    font-size: 13px;
+    padding: 3px 12px;
+  }
+
+  /* ── TOC ── */
+  .toc {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--sand-400);
+    border-radius: 10px;
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 3rem;
+  }
+  .toc h2 {
+    font-family: var(--font-head);
+    font-size: 1.1rem;
+    color: var(--sand-700);
+    margin-bottom: 1rem;
+  }
+  .toc ol {
+    padding-left: 1.25rem;
+    color: var(--teal);
+    font-size: 15.5px;
+  }
+  .toc ol li { margin-bottom: 4px; }
+  .toc a { color: var(--teal); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+
+  /* ── Section headings ── */
+  .section {
+    margin-bottom: 3.5rem;
+  }
+  .section-title {
+    font-family: var(--font-head);
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--sand-700);
+    border-bottom: 2px solid var(--sand-200);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .section-title .section-num {
+    color: var(--sand-400);
+    margin-right: 0.4rem;
+    font-size: 1.2rem;
+  }
+  .subsection-title {
+    font-family: var(--font-head);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--sand-600);
+    margin: 1.75rem 0 0.75rem;
+  }
+
+  /* ── Prose ── */
+  p { margin-bottom: 1rem; }
+
+  /* ── Callout boxes ── */
+  .box {
+    border-radius: 10px;
+    padding: 1.1rem 1.4rem;
+    margin: 1.25rem 0;
+    font-size: 16px;
+  }
+  .box-def   { background: var(--teal-light);   border-left: 4px solid var(--teal);   }
+  .box-rule  { background: var(--amber-light);  border-left: 4px solid var(--amber);  }
+  .box-warn  { background: var(--red-light);    border-left: 4px solid var(--red);    }
+  .box-tip   { background: var(--blue-light);   border-left: 4px solid var(--blue);   }
+  .box-green { background: var(--green-light);  border-left: 4px solid var(--green);  }
+  .box-purple{ background: var(--purple-light); border-left: 4px solid var(--purple); }
+
+  .box-label {
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+  .box-def .box-label   { color: var(--teal);   }
+  .box-rule .box-label  { color: var(--amber);  }
+  .box-warn .box-label  { color: var(--red);    }
+  .box-tip .box-label   { color: var(--blue);   }
+  .box-green .box-label { color: var(--green);  }
+  .box-purple .box-label{ color: var(--purple); }
+
+  /* ── Tables ── */
+  .tbl-wrap { overflow-x: auto; margin: 1.25rem 0; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15.5px;
+  }
+  th {
+    background: var(--sand-200);
+    color: var(--sand-700);
+    font-weight: 600;
+    padding: 10px 14px;
+    text-align: left;
+    border: 1px solid var(--border);
+  }
+  td {
+    padding: 9px 14px;
+    border: 1px solid var(--border);
+    vertical-align: top;
+    background: var(--bg-card);
+  }
+  tr:nth-child(even) td { background: var(--sand-50); }
+
+  /* ── Assertion pill table ── */
+  .assert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 12px;
+    margin: 1.25rem 0;
+  }
+  .assert-card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--bg-card);
+  }
+  .assert-card .ac-head {
+    padding: 8px 14px;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+  }
+  .assert-card .ac-body {
+    padding: 10px 14px;
+    font-size: 14.5px;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+  .ac-teal { background: var(--teal-light); color: var(--teal); border-bottom: 1px solid var(--teal-border); }
+  .ac-amber { background: var(--amber-light); color: var(--amber); border-bottom: 1px solid var(--amber-border); }
+  .ac-blue  { background: var(--blue-light); color: var(--blue); border-bottom: 1px solid var(--blue-border); }
+  .ac-green { background: var(--green-light); color: var(--green); border-bottom: 1px solid var(--green-border); }
+  .ac-purple{ background: var(--purple-light); color: var(--purple); border-bottom: 1px solid var(--purple-border); }
+  .ac-red   { background: var(--red-light); color: var(--red); border-bottom: 1px solid var(--red-border); }
+
+  /* ── Procedure lists ── */
+  .proc-list {
+    margin: 0.75rem 0 1rem;
+    padding-left: 0;
+    list-style: none;
+  }
+  .proc-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--sand-100);
+    font-size: 16px;
+    line-height: 1.55;
+  }
+  .proc-list li:last-child { border-bottom: none; }
+  .proc-num {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    background: var(--sand-200);
+    color: var(--sand-700);
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3px;
+  }
+
+  /* ── Exam technique badge ── */
+  .exam-box {
+    background: #f9f5ff;
+    border: 2px solid var(--purple-border);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .exam-box .exam-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--purple);
+    margin-bottom: 0.5rem;
+  }
+  .exam-box h3 {
+    font-family: var(--font-head);
+    font-size: 1.05rem;
+    color: var(--purple);
+    margin-bottom: 0.5rem;
+  }
+  .exam-box ul {
+    padding-left: 1.2rem;
+    font-size: 15.5px;
+    color: var(--text);
+  }
+  .exam-box ul li { margin-bottom: 4px; }
+
+  /* ── Practice Q ── */
+  .pq {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--sand-500);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .pq .pq-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--sand-500);
+    margin-bottom: 0.5rem;
+  }
+  .pq p { font-size: 15.5px; margin-bottom: 0.5rem; }
+  .pq .pq-q { font-weight: 600; color: var(--sand-700); }
+
+  details {
+    margin-top: 1rem;
+  }
+  summary {
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--teal);
+    padding: 6px 0;
+    user-select: none;
+    list-style: none;
+  }
+  summary::before {
+    content: "▶ ";
+    font-size: 10px;
+  }
+  details[open] summary::before {
+    content: "▼ ";
+  }
+  .answer {
+    margin-top: 0.75rem;
+    background: var(--green-light);
+    border-left: 3px solid var(--green);
+    border-radius: 0 8px 8px 0;
+    padding: 1rem 1.25rem;
+    font-size: 15px;
+  }
+  .answer ul { padding-left: 1.2rem; }
+  .answer ul li { margin-bottom: 5px; }
+
+  /* ── FSLI section headers ── */
+  .fsli-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--sand-200);
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin: 2rem 0 1rem;
+  }
+  .fsli-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+    font-weight: 700;
+    color: #fff;
+  }
+  .fsli-header h3 {
+    font-family: var(--font-head);
+    font-size: 1.15rem;
+    color: var(--sand-700);
+    margin: 0;
+  }
+
+  /* ── Keyword pill ── */
+  .kw {
+    display: inline-block;
+    background: var(--sand-200);
+    color: var(--sand-700);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 2px 9px;
+    border-radius: 20px;
+    margin: 0 2px;
+  }
+
+  /* ── Divider ── */
+  .divider {
+    border: none;
+    border-top: 2px solid var(--sand-200);
+    margin: 2.5rem 0;
+  }
+
+  /* ── Footer ── */
+  .doc-footer {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid var(--sand-200);
+    font-size: 13.5px;
+    color: var(--text-light);
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="page-wrapper">
+
+<!-- ══════════ HEADER ══════════ -->
+<header class="doc-header">
+  <div class="label">ACCA AA · June 2026 Exam</div>
+  <h1>Substantive Procedures<br>Complete Tutorial &amp; Exam Guide</h1>
+  <p>Syllabus Area D2 · D4 &nbsp;|&nbsp; Based on ACCA Jun-26 Syllabus &amp; Kaplan Exam Kit</p>
+  <div class="header-tags">
+    <span>Tests of Detail</span>
+    <span>Analytical Procedures</span>
+    <span>Assertions</span>
+    <span>Receivables · Inventory · Payables</span>
+    <span>Bank · NCAs · Provisions</span>
+    <span>Share Capital</span>
+    <span>Exam Technique</span>
+  </div>
+</header>
+
+<!-- ══════════ TOC ══════════ -->
+<nav class="toc">
+  <h2>📋 Contents</h2>
+  <ol>
+    <li><a href="#s1">What are Substantive Procedures? (and why they matter)</a></li>
+    <li><a href="#s2">Tests of Controls vs Substantive Procedures</a></li>
+    <li><a href="#s3">The Two Types of Substantive Procedures</a></li>
+    <li><a href="#s4">Financial Statement Assertions – the Core Framework</a></li>
+    <li><a href="#s5">Receivables (Trade Debtors)</a></li>
+    <li><a href="#s6">Inventory</a></li>
+    <li><a href="#s7">Payables &amp; Accruals</a></li>
+    <li><a href="#s8">Bank &amp; Cash</a></li>
+    <li><a href="#s9">Non-Current Assets (Tangible &amp; Intangible)</a></li>
+    <li><a href="#s10">Non-Current Liabilities, Provisions &amp; Contingencies</a></li>
+    <li><a href="#s11">Share Capital, Reserves &amp; Directors' Remuneration</a></li>
+    <li><a href="#s12">Revenue &amp; Analytical Procedures</a></li>
+    <li><a href="#s13">Accounting Estimates</a></li>
+    <li><a href="#s14">Exam Technique Master Guide</a></li>
+  </ol>
+</nav>
+
+<!-- ══════════ S1 ══════════ -->
+<section class="section" id="s1">
+  <h2 class="section-title"><span class="section-num">1.</span> What Are Substantive Procedures?</h2>
+
+  <div class="box box-def">
+    <div class="box-label">Core Definition</div>
+    <strong>Substantive procedures</strong> are audit procedures designed to detect <em>material misstatements at the assertion level</em> in financial statement balances, transactions, and disclosures. They provide direct evidence that the numbers in the financial statements are correct (or not).
+  </div>
+
+  <p>Think of it this way: once you understand the company and its controls, substantive procedures are how you actually <em>prove</em> the numbers are right. They answer the question: "Is this figure in the accounts free from material error?"</p>
+
+  <p>The word "substantive" literally means dealing with the substance (the facts). You are testing whether amounts, transactions and disclosures are materially correct – not whether controls are working.</p>
+
+  <div class="box box-tip">
+    <div class="box-label">Why They Always Exist</div>
+    No matter how strong a company's controls are, ISA 330 requires auditors to perform <strong>some</strong> substantive procedures on every material balance and class of transactions. You can never audit purely through tests of controls – you must always get some direct evidence about the numbers themselves.
+  </div>
+</section>
+
+<!-- ══════════ S2 ══════════ -->
+<section class="section" id="s2">
+  <h2 class="section-title"><span class="section-num">2.</span> Tests of Controls vs Substantive Procedures</h2>
+
+  <p>This distinction comes up frequently in Section A (objective test) questions. Know it cold.</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Tests of Controls</th>
+          <th>Substantive Procedures</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Purpose</strong></td>
+          <td>Evaluate whether a control is operating effectively</td>
+          <td>Detect material misstatements in the financial statements</td>
+        </tr>
+        <tr>
+          <td><strong>What they test</strong></td>
+          <td>The process / system</td>
+          <td>The number / transaction itself</td>
+        </tr>
+        <tr>
+          <td><strong>Example</strong></td>
+          <td>Inspect bank transfer list for finance director's signature confirming approval</td>
+          <td>Recalculate the total of the bank transfer list</td>
+        </tr>
+        <tr>
+          <td><strong>When performed</strong></td>
+          <td>When auditor plans to rely on controls (interim stage)</td>
+          <td>Always – required on all material items</td>
+        </tr>
+        <tr>
+          <td><strong>Effect of strong controls</strong></td>
+          <td>Auditor performs tests of controls</td>
+          <td>Allows reduced substantive testing (smaller samples, analytical procedures instead of detailed tests)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box box-warn">
+    <div class="box-label">Common Exam Trap</div>
+    Reviewing board minutes for approval of useful lives = <strong>Test of control</strong>. Comparing depreciation charge to prior year using a "proof in total" = <strong>Substantive analytical procedure</strong>. The exam loves mixing these up. Ask yourself: "Am I checking a process worked, or checking the number is right?"
+  </div>
+
+  <div class="pq">
+    <div class="pq-label">Quick Test – Section A Style</div>
+    <p class="pq-q">Which of the following is a SUBSTANTIVE procedure for payroll?</p>
+    <p>A. Inspect payslips for evidence of line manager authorisation<br>
+    B. Review procedures to ensure payroll files are kept secure<br>
+    C. For a sample of employees, agree salary details in standing data to the payslip calculation<br>
+    D. Review exception reports produced by the payroll system</p>
+    <details>
+      <summary>Show answer &amp; explanation</summary>
+      <div class="answer">
+        <p><strong>C is correct.</strong></p>
+        <ul>
+          <li>C tests whether the salary <em>amount</em> in the financial statements is correct — that is a substantive test of detail.</li>
+          <li>A tests whether an authorisation <em>control</em> operated — test of control.</li>
+          <li>B tests whether a physical/logical <em>security control</em> is in place — test of control.</li>
+          <li>D tests whether the exception reporting <em>control</em> is being used — test of control.</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ══════════ S3 ══════════ -->
+<section class="section" id="s3">
+  <h2 class="section-title"><span class="section-num">3.</span> The Two Types of Substantive Procedures</h2>
+
+  <div class="assert-grid">
+    <div class="assert-card">
+      <div class="ac-head ac-teal">Type 1: Tests of Detail</div>
+      <div class="ac-body">
+        Direct examination of individual transactions, balances or disclosures. Examples: agreeing a receivable balance to an invoice, confirming a bank balance with the bank, physically counting inventory, recalculating depreciation.
+        <br><br>
+        <em>Best for: existence, rights, accuracy of specific items.</em>
+      </div>
+    </div>
+    <div class="assert-card">
+      <div class="ac-head ac-amber">Type 2: Substantive Analytical Procedures</div>
+      <div class="ac-body">
+        Using relationships between data to identify misstatements. Examples: comparing revenue to prior year, using a "proof in total" for depreciation, comparing gross margin % to industry or prior year.
+        <br><br>
+        <em>Best for: completeness, overall reasonableness, plausibility.</em>
+      </div>
+    </div>
+  </div>
+
+  <div class="box box-tip">
+    <div class="box-label">Exam Keyword Alert</div>
+    When a question asks for <strong>"SUBSTANTIVE ANALYTICAL procedures"</strong> (capitals in Kaplan questions), you must only write ratio/comparison-based procedures — not tests of detail. If it asks for "substantive procedures" generally, you can use both types.
+  </div>
+
+  <h3 class="subsection-title">Key Analytical Procedure Techniques</h3>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Technique</th><th>What it involves</th><th>Best assertion</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Proof in total</strong></td><td>Calculate expected figure independently and compare to recorded figure. E.g. average salary × headcount = expected payroll cost.</td><td>Accuracy / Completeness</td></tr>
+        <tr><td><strong>Prior year comparison</strong></td><td>Compare current year balance/ratio to prior year. Investigate significant unexplained movements.</td><td>Completeness / Occurrence</td></tr>
+        <tr><td><strong>Trend analysis</strong></td><td>Compare monthly or quarterly data to identify unusual spikes or drops.</td><td>Occurrence / Completeness</td></tr>
+        <tr><td><strong>Ratio analysis</strong></td><td>Compute key ratios (gross margin %, receivables days, inventory days) and compare to prior year / industry benchmarks.</td><td>Valuation / Completeness</td></tr>
+        <tr><td><strong>Reasonableness test</strong></td><td>Use non-financial data to test a financial figure. E.g. number of hotel rooms × average occupancy × average rate = expected revenue.</td><td>Completeness / Accuracy</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══════════ S4 ══════════ -->
+<section class="section" id="s4">
+  <h2 class="section-title"><span class="section-num">4.</span> Financial Statement Assertions – The Core Framework</h2>
+
+  <p>Every substantive procedure you design should be linked to a specific <strong>assertion</strong>. Assertions are the claims management makes about items in the financial statements. The examiner loves asking you to match procedures to assertions.</p>
+
+  <h3 class="subsection-title">Assertions for Classes of Transactions &amp; Events (Income Statement / P&amp;L items)</h3>
+  <div class="assert-grid">
+    <div class="assert-card">
+      <div class="ac-head ac-teal">Occurrence</div>
+      <div class="ac-body">Transactions actually happened and relate to the entity. (Anti-fraud assertion — no fictional revenue.)</div>
+    </div>
+    <div class="assert-card">
+      <div class="ac-head ac-amber">Completeness</div>
+      <div class="ac-body">All transactions that should have been recorded have been. (No missing purchases / expenses.)</div>
+    </div>
+    <div class="assert-card">
+      <div class="ac-head ac-blue">Accuracy</div>
+      <div class="ac-body">Transactions have been recorded at the correct amounts.</div>
+    </div>
+    <div class="assert-card">
+      <div class="ac-head ac-green">Cut-off</div>
+      <div class="ac-body">Transactions are recorded in the correct accounting period.</div>
+    </div>
+    <div class="assert-card">
+      <div class="ac-head ac-purple">Classification</div>
+      <div class="ac-body">Transactions are recorded in the correct account (e.g., capex not expensed as repairs).</div>
+    </div>
+  </div>
+
+  <h3 class="subsection-title">Assertions for Account Balances (Balance Sheet items)</h3>
+  <div class="assert-grid">
+    <div class="assert-card">
+      <div class="ac-head ac-teal">Existence</div>
+      <div class="ac-body">Assets and liabilities actually exist at the period end. (Prevents phantom assets.)</div>
+    </div>
+    <div class="assert-card">
+      <div class="ac-head ac-amber">Completeness</div>
+      <div class="ac-body">All assets and liabilities that should be recorded have been. (Prevents understated liabilities.)</div>
+    </div>
+    <div class="assert-card">
+      <div class="ac-head ac-blue">Rights &amp; Obligations</div>
+      <div class="ac-body">Entity owns or controls assets; liabilities are the entity's obligations.</div>
+    </div>
+    <div class="assert-card">
+      <div class="ac-head ac-green">Accuracy, Valuation &amp; Allocation</div>
+      <div class="ac-body">Balances are recorded at appropriate amounts, including adjustments for impairment, depreciation, NRV, etc.</div>
+    </div>
+  </div>
+
+  <div class="box box-rule">
+    <div class="box-label">Golden Rules for the Exam</div>
+    <ul style="padding-left:1.2rem; font-size:15.5px;">
+      <li><strong>Existence</strong> = test from records → physical world (e.g., trace invoice to goods receipt)</li>
+      <li><strong>Completeness</strong> = test from physical world → records (e.g., trace goods received note to invoice recorded)</li>
+      <li>Completeness and occurrence/existence point in <em>opposite directions</em></li>
+      <li><strong>Occurrence</strong> = relevant to transactions (did this sale happen?)</li>
+      <li><strong>Existence</strong> = relevant to balances (does this asset actually exist?)</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════ S5 ══════════ -->
+<section class="section" id="s5">
+  <h2 class="section-title"><span class="section-num">5.</span> Receivables (Trade Debtors)</h2>
+
+  <div class="fsli-header">
+    <div class="fsli-icon" style="background:var(--teal);">AR</div>
+    <h3>Trade Receivables &amp; Revenue – Key Audit Concerns</h3>
+  </div>
+
+  <p>Receivables carry the risk of <strong>overstatement</strong> (management wants to show high debtors / high revenue). Main assertions are existence, valuation, rights, and completeness of revenue.</p>
+
+  <h3 class="subsection-title">5a. Receivables Circularisation (Direct Confirmation)</h3>
+
+  <p>A circularisation sends letters directly to customers asking them to confirm their outstanding balance. This is the <strong>most reliable</strong> evidence for existence (it comes from an independent third party).</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Feature</th><th>Positive Circularisation</th><th>Negative Circularisation</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Request</strong></td><td>Please confirm your balance or tell us if it differs</td><td>Only reply if the balance is wrong</td></tr>
+        <tr><td><strong>Evidence strength</strong></td><td>Stronger – response required regardless</td><td>Weaker – silence assumed to mean agreement</td></tr>
+        <tr><td><strong>When used</strong></td><td>Higher risk situations, larger balances</td><td>Large number of small, low-risk balances</td></tr>
+        <tr><td><strong>Non-responses</strong></td><td>Must follow up with alternative procedures</td><td>No follow-up required (but risky)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="subsection-title">Steps in a Positive Circularisation (Exam Favourite)</h3>
+  <ul class="proc-list">
+    <li><span class="proc-num">1</span>Obtain the year-end receivables ledger and agree the total to the trial balance / financial statements.</li>
+    <li><span class="proc-num">2</span>Select a sample of balances to circularise (usually including large and overdue balances).</li>
+    <li><span class="proc-num">3</span>Prepare confirmation letters on the audit firm's letterhead, stating the balance per the client's records and asking the customer to confirm or disagree.</li>
+    <li><span class="proc-num">4</span>Ensure the letters are sent directly by the audit team (not through the client) and that replies come back directly to the auditor.</li>
+    <li><span class="proc-num">5</span>For non-responses, send a second letter and, if still no response, perform alternative procedures (see below).</li>
+    <li><span class="proc-num">6</span>For differences (disputes), investigate to determine whether there is a misstatement in the financial statements.</li>
+    <li><span class="proc-num">7</span>Conclude on the overall evidence obtained from the circularisation.</li>
+  </ul>
+
+  <h3 class="subsection-title">5b. Alternative Procedures (When No Circularisation)</h3>
+
+  <div class="box box-rule">
+    <div class="box-label">Scenario Alert</div>
+    The client may refuse a circularisation (customers complained, low response rate historically). The examiner will ask you for "substantive procedures other than a receivables circularisation." Learn these well!
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Assertion</th><th>Procedure (without circularisation)</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Existence</strong></td>
+          <td>
+            <ul style="padding-left:1rem; font-size:15px;">
+              <li>Perform a receivables circularisation on a sample (if possible)</li>
+              <li>Review post-year-end cash receipts from customers – if cash received after year end, the balance existed</li>
+              <li>Agree balances to sales invoices, delivery notes and orders</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Valuation (recoverability)</strong></td>
+          <td>
+            <ul style="padding-left:1rem; font-size:15px;">
+              <li>Review post-year-end cash receipts – largest test of recoverability</li>
+              <li>Review aged receivables listing and identify balances overdue</li>
+              <li>Inspect correspondence with customers for evidence of disputes or financial difficulty</li>
+              <li>Review industry news / press for customers experiencing financial problems (e.g. Albatross Co)</li>
+              <li>Recalculate the allowance for credit losses and assess reasonableness</li>
+              <li>Compare allowance % to prior year and investigate significant changes</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Completeness</strong></td>
+          <td>
+            <ul style="padding-left:1rem; font-size:15px;">
+              <li>Agree the receivables ledger total to the control account and trial balance</li>
+              <li>Review credit notes issued after year end (may indicate unrecorded returns reducing receivables)</li>
+              <li>Test sales cut-off around year end</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Rights &amp; Obligations</strong></td>
+          <td>
+            <ul style="padding-left:1rem; font-size:15px;">
+              <li>Review sales agreements for any factoring or assignment of receivables (entity may no longer have rights)</li>
+              <li>Confirm no receivables have been pledged as security</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="subsection-title">5c. Revenue – Completeness and Occurrence</h3>
+  <ul class="proc-list">
+    <li><span class="proc-num">1</span><strong>Occurrence:</strong> Select a sample of recorded revenue transactions. Agree each to despatch records, delivery notes and customer orders. Confirm the sale relates to the entity.</li>
+    <li><span class="proc-num">2</span><strong>Completeness:</strong> Test cut-off – select a sample of goods despatched notes around the year end and confirm revenue is recognised in the correct period.</li>
+    <li><span class="proc-num">3</span><strong>Analytical:</strong> Compare revenue by month / product line to prior year. Investigate unexplained variances exceeding a set threshold. Calculate gross margin % and compare to prior year and budget.</li>
+    <li><span class="proc-num">4</span><strong>Reasonableness:</strong> If relevant, calculate expected revenue using non-financial data (e.g. hotel rooms × occupancy rate × room rate).</li>
+  </ul>
+
+  <div class="pq">
+    <div class="pq-label">Exam Question – Section B Style (Kaplan: Hawthorn Enterprises)</div>
+    <p class="pq-q">Required: Describe substantive procedures to verify EXISTENCE and VALUATION of receivables (no circularisation allowed).</p>
+    <details>
+      <summary>Show model answer</summary>
+      <div class="answer">
+        <p><strong>Existence:</strong></p>
+        <ul>
+          <li>Obtain the aged receivables listing and agree the total to the trial balance to confirm completeness of the ledger.</li>
+          <li>For a sample of balances, agree to the supporting sales invoices and delivery notes to confirm the sale occurred and relates to the entity.</li>
+          <li>Review post-year-end cash receipts – if the customer has paid after the year end, the balance existed at the year end.</li>
+        </ul>
+        <p style="margin-top:0.75rem;"><strong>Valuation (recoverability):</strong></p>
+        <ul>
+          <li>Review the aged receivables listing for balances significantly overdue and discuss recoverability with management.</li>
+          <li>Inspect correspondence files for evidence of disputes, customer complaints or intimation of inability to pay.</li>
+          <li>Review post-year-end cash receipts to confirm amounts have been received.</li>
+          <li>Recalculate the allowance for credit losses and assess whether it is sufficient given the aged profile.</li>
+          <li>Compare the allowance as a % of gross receivables to prior year and investigate significant increases or decreases.</li>
+        </ul>
+        <p style="margin-top:0.5rem; font-style:italic; color:var(--green);">Note: The receivables balance increased from $1.4m to $2.3m — this is a specific risk factor the examiner flagged. Your answer should address this by noting you'd focus on the new/increased balances.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ══════════ S6 ══════════ -->
+<section class="section" id="s6">
+  <h2 class="section-title"><span class="section-num">6.</span> Inventory</h2>
+
+  <div class="fsli-header">
+    <div class="fsli-icon" style="background:var(--amber);">INV</div>
+    <h3>Inventory – Key Audit Concerns</h3>
+  </div>
+
+  <p>Inventory carries risks of both overstatement (inflated to boost profits) and understatement. Key assertions: existence, completeness, valuation (lower of cost and NRV).</p>
+
+  <h3 class="subsection-title">6a. Attendance at Inventory Count (Critical Procedure)</h3>
+
+  <p>The auditor's attendance at the year-end count is the primary way to gain evidence over existence and completeness. ISA 501 deals with this.</p>
+
+  <h4 style="margin:1rem 0 0.5rem; font-size:1rem; color:var(--sand-600);">Before the Count</h4>
+  <ul class="proc-list">
+    <li><span class="proc-num">1</span>Obtain and review the client's count instructions to assess adequacy.</li>
+    <li><span class="proc-num">2</span>Confirm the count includes all inventory locations, including third-party warehouses.</li>
+    <li><span class="proc-num">3</span>Assess whether the client's procedures address: slow-moving items, damaged goods, items held for third parties.</li>
+  </ul>
+
+  <h4 style="margin:1rem 0 0.5rem; font-size:1rem; color:var(--sand-600);">During the Count</h4>
+  <ul class="proc-list">
+    <li><span class="proc-num">1</span>Observe the client's count procedures to assess whether they are being followed.</li>
+    <li><span class="proc-num">2</span>Perform test counts in both directions: records → floor (existence) and floor → records (completeness).</li>
+    <li><span class="proc-num">3</span>Note the last goods received number and last despatch note number for cut-off testing.</li>
+    <li><span class="proc-num">4</span>Identify any damaged, obsolete or slow-moving items and note details for valuation purposes.</li>
+    <li><span class="proc-num">5</span>Confirm that items held for third parties are segregated and excluded from the count.</li>
+  </ul>
+
+  <h3 class="subsection-title">6b. Cut-Off Testing</h3>
+  <ul class="proc-list">
+    <li><span class="proc-num">1</span>Record the last GRN and despatch note numbers at the count.</li>
+    <li><span class="proc-num">2</span>Confirm that goods received before year end are included in inventory and the corresponding purchase is accrued.</li>
+    <li><span class="proc-num">3</span>Confirm that goods despatched before year end are excluded from inventory and revenue has been recognised.</li>
+  </ul>
+
+  <h3 class="subsection-title">6c. Valuation (Lower of Cost and NRV)</h3>
+
+  <div class="box box-rule">
+    <div class="box-label">IAS 2 Principle</div>
+    Inventory must be valued at the <strong>lower of cost and net realisable value (NRV)</strong>. NRV = estimated selling price less estimated costs of completion and costs to sell. If NRV is below cost, a write-down is required.
+  </div>
+
+  <ul class="proc-list">
+    <li><span class="proc-num">1</span>Obtain the inventory valuation report and agree totals to the trial balance.</li>
+    <li><span class="proc-num">2</span>For a sample of inventory lines, agree the cost figure to purchase invoices or standard costing records.</li>
+    <li><span class="proc-num">3</span>Review the aged inventory report — items with no movement for 6+ months may be slow-moving or obsolete.</li>
+    <li><span class="proc-num">4</span>For potentially obsolete items (e.g. Remy Gusteau products in Kaplan's Cookit Co question), obtain post-year-end sales prices and compare to cost — if NRV is below cost, a write-down is needed.</li>
+    <li><span class="proc-num">5</span>Review post-year-end sales of inventory items to obtain evidence of NRV.</li>
+    <li><span class="proc-num">6</span>Compare overall inventory days ratio to prior year; a significant increase may suggest obsolete inventory.</li>
+    <li><span class="proc-num">7</span>For damaged goods noted at count, obtain evidence of their NRV (scrap values, repairs cost).</li>
+  </ul>
+
+  <h3 class="subsection-title">6d. Inventory Held by Third Parties</h3>
+  <ul class="proc-list">
+    <li><span class="proc-num">1</span>Obtain direct written confirmation from the third party of the quantity and condition of inventory held on behalf of the client.</li>
+    <li><span class="proc-num">2</span>Review the contractual agreement to confirm the entity's rights to the inventory.</li>
+    <li><span class="proc-num">3</span>If practicable, attend the third-party count.</li>
+  </ul>
+
+  <div class="pq">
+    <div class="pq-label">Practice Question (Kaplan: Cookit Co – Inventory Valuation)</div>
+    <p class="pq-q">Cookit Co includes Remy Gusteau-branded products at cost $1.7m in total inventory of $4.25m. Demand has collapsed following cancellation of the TV show. Describe substantive procedures for the VALUATION of Cookit Co's inventory.</p>
+    <details>
+      <summary>Show model answer</summary>
+      <div class="answer">
+        <ul>
+          <li>Obtain the inventory valuation report from Cookit Co and agree the total to the trial balance.</li>
+          <li>Agree the cost of Remy Gusteau products ($1.7m) to the purchase invoices or standard costing records to confirm the cost figure is accurate.</li>
+          <li>Obtain post-year-end selling prices for Remy Gusteau products by reviewing sales after the year end. Compare selling price to cost — if NRV is below $1.7m, a write-down is required.</li>
+          <li>Review the aged inventory report to identify how long Remy Gusteau products have been held; if there have been no sales since March 20X5, the NRV may be negligible.</li>
+          <li>Enquire of management about any planned promotional activities, price reductions or disposal routes for the Remy Gusteau stock.</li>
+          <li>Calculate the expected write-down and assess whether management's provision (if any) is reasonable.</li>
+          <li>Review board minutes for any discussion of the Remy Gusteau stock write-down policy.</li>
+          <li>For the remainder of inventory, agree a sample of cost figures to purchase invoices and compare NRV to post-year-end selling prices to confirm lower of cost and NRV.</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ══════════ S7 ══════════ -->
+<section class="section" id="s7">
+  <h2 class="section-title"><span class="section-num">7.</span> Payables &amp; Accruals</h2>
+
+  <div class="fsli-header">
+    <div class="fsli-icon" style="background:var(--red);">PAY</div>
+    <h3>Trade Payables – Key Audit Concern: Completeness (Understatement)</h3>
+  </div>
+
+  <p>The main risk for payables is <strong>understatement</strong> — management may want to show lower liabilities. Always think "completeness" first for payables.</p>
+
+  <h3 class="subsection-title">7a. Supplier Statement Reconciliations</h3>
+  <ul class="proc-list">
+    <li><span class="proc-num">1</span>Obtain supplier statements for a sample of major suppliers and reconcile each statement to the balance on the payables ledger.</li>
+    <li><span class="proc-num">2</span>Investigate differences — these may indicate timing differences (invoices in transit) or unrecorded liabilities.</li>
+    <li><span class="proc-num">3</span>For suppliers where no statement is available, request one from the supplier directly.</li>
+    <li><span class="proc-num">4</span>Agree the total payables ledger to the control account and to the financial statements.</li>
+  </ul>
+
+  <h3 class="subsection-title">7b. Completeness of Payables</h3>
+  <ul class="proc-list">
+    <li><span class="proc-num">1</span>Review invoices received after the year end (unrecorded liabilities search) — identify invoices dated before the year end that have not been recorded and assess whether an accrual is needed.</li>
+    <li><span class="proc-num">2</span>Review GRN records for goods received before year end with no matching invoice — confirm an accrual has been raised (GRNI).</li>
+    <li><span class="proc-num">3</span>Compare the payables payment period (payables days) to prior year — a significant decrease (e.g. 72 days to 53 days in Cookit Co) may indicate understatement.</li>
+    <li><span class="proc-num">4</span>Compare the payables balance as a % of cost of sales to prior year.</li>
+    <li><span class="proc-num">5</span>Review board minutes and management accounts for references to significant creditors not reflected in the accounts.</li>
+  </ul>
+
+  <h3 class="subsection-title">7c. Payables Circularisation (Less Common)</h3>
+  <p>Direct confirmation with suppliers is used less often than receivables circularisation because supplier statements are usually available. However, if statements are unavailable, the auditor may send confirmation requests.</p>
+
+  <div class="pq">
+    <div class="pq-label">Exam Question – Completeness (Kaplan: Cookit Co – Trade Payables)</div>
+    <p class="pq-q">Payables days have fallen from 72 to 53 days; no supplier statement reconciliations since December 20X4. Describe substantive procedures for COMPLETENESS of payables.</p>
+    <details>
+      <summary>Show model answer</summary>
+      <div class="answer">
+        <ul>
+          <li>Obtain supplier statements from major suppliers and reconcile to balances on the payables ledger. Investigate any differences as these may represent unrecorded liabilities.</li>
+          <li>Perform an unrecorded liabilities search: review invoices received in the weeks after year end and determine whether any relate to goods received before the year end — if so, an accrual should have been raised.</li>
+          <li>Review GRN records for the period just before year end to identify goods received without a corresponding purchase invoice — confirm that an accrual (GRNI) has been raised for each.</li>
+          <li>Calculate the payables payment period for the current year (53 days) and compare to the prior year (72 days). Investigate the reasons for the significant decrease — this may indicate omitted liabilities.</li>
+          <li>Compare total payables as a percentage of cost of sales to the prior year figure and investigate significant decreases.</li>
+          <li>Review minutes of board meetings for references to significant suppliers or liabilities not reflected in the accounts.</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ══════════ S8 ══════════ -->
+<section class="section" id="s8">
+  <h2 class="section-title"><span class="section-num">8.</span> Bank &amp; Cash</h2>
+
+  <div class="fsli-header">
+    <div class="fsli-icon" style="background:var(--blue);">BNK</div>
+    <h3>Bank – Existence, Valuation, Rights, Completeness</h3>
+  </div>
+
+  <h3 class="subsection-title">8a. Bank Confirmation Report (Bank Letter)</h3>
+  <ul class="proc-list">
+    <li><span class="proc-num">1</span>Obtain written confirmation directly from the bank of all balances held (current accounts, savings accounts, overdrafts, loans) as at the year end.</li>
+    <li><span class="proc-num">2</span>Agree confirmed balances to the bank reconciliation and the trial balance.</li>
+    <li><span class="proc-num">3</span>Confirm whether any assets have been pledged as security for borrowings.</li>
+    <li><span class="proc-num">4</span>Request confirmation of any contingent liabilities, guarantees or off-balance sheet arrangements.</li>
+  </ul>
+
+  <h3 class="subsection-title">8b. Auditing the Bank Reconciliation</h3>
+
+  <div class="box box-rule">
+    <div class="box-label">What a Bank Reconciliation Does</div>
+    It reconciles the balance per the bank statement to the balance per the cashbook (general ledger). Main differences: timing (unpresented cheques, outstanding lodgements). Any other items may indicate fraud or error.
+  </div>
+
+  <ul class="proc-list">
+    <li><span class="proc-num">1</span>Obtain the bank reconciliation prepared by management and check its arithmetic.</li>
+    <li><span class="proc-num">2</span>Agree the balance per the bank statement to the bank confirmation letter (direct external evidence).</li>
+    <li><span class="proc-num">3</span>Agree the balance per the cashbook to the trial balance and financial statements.</li>
+    <li><span class="proc-num">4</span>Agree outstanding lodgements (deposits in transit) to the subsequent bank statement — confirm they have cleared promptly after the year end.</li>
+    <li><span class="proc-num">5</span>Agree unpresented cheques to the subsequent bank statement — confirm they have cleared after the year end. Investigate any long-outstanding unpresented cheques (may need to be reversed).</li>
+    <li><span class="proc-num">6</span>Review for any unusual reconciling items — if post-year-end cheques are included, this may indicate cut-off manipulation (as in the Hawthorn Enterprises scenario where cheques were processed early to reduce payables).</li>
+    <li><span class="proc-num">7</span>Confirm there are no large reconciling items not explained by timing differences.</li>
+  </ul>
+
+  <div class="pq">
+    <div class="pq-label">Section B Style – Bank Reconciliation (Kaplan: Hawthorn Enterprises)</div>
+    <p class="pq-q">Last year, significant cut-off errors were found (post-year-end cheques processed early). Describe substantive procedures for the bank reconciliation.</p>
+    <details>
+      <summary>Show model answer</summary>
+      <div class="answer">
+        <ul>
+          <li>Obtain the year-end bank reconciliation and verify its arithmetical accuracy.</li>
+          <li>Agree the bank balance per the statement to the bank confirmation letter obtained directly from the bank.</li>
+          <li>Agree the cashbook balance to the trial balance / financial statements.</li>
+          <li>Trace all outstanding lodgements (deposits in transit) to the post-year-end bank statement to confirm they cleared promptly — lodgements not clearing within a few days may be fictitious.</li>
+          <li>Trace all unpresented cheques to the post-year-end bank statement to confirm clearance. Investigate any cheques that remain unpresented for an unreasonable period (may need to be reversed).</li>
+          <li>Given the prior year issue, specifically inspect the bank statement in the days surrounding the year end — identify any cheques dated after the year end that were presented to the bank before the year end (window dressing).</li>
+          <li>Review correspondence with the bank for any additional accounts, overdrafts or contingent liabilities not included in the reconciliation.</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ══════════ S9 ══════════ -->
+<section class="section" id="s9">
+  <h2 class="section-title"><span class="section-num">9.</span> Non-Current Assets (Tangible &amp; Intangible)</h2>
+
+  <div class="fsli-header">
+    <div class="fsli-icon" style="background:var(--purple);">NCA</div>
+    <h3>Property, Plant &amp; Equipment / Intangibles – Existence, Valuation, Completeness</h3>
+  </div>
+
+  <h3 class="subsection-title">9a. Additions to Property, Plant &amp; Equipment</h3>
+  <ul class="proc-list">
+    <li><span class="proc-num">1</span>Obtain the non-current asset register (NCAR) and agree total additions to the trial balance.</li>
+    <li><span class="proc-num">2</span>For a sample of additions, agree the cost to purchase invoices, contracts and bank payments.</li>
+    <li><span class="proc-num">3</span>Physically inspect major new assets to confirm existence.</li>
+    <li><span class="proc-num">4</span><strong>Capitalisation:</strong> Review the nature of costs capitalised — confirm only costs directly attributable to bringing the asset to its intended use are included. Training costs, refundable taxes, and administration costs should be expensed (common exam issue — Heron Co question).</li>
+    <li><span class="proc-num">5</span>Confirm assets are recognised from the date they are available for use (depreciation starts correctly).</li>
+  </ul>
+
+  <h3 class="subsection-title">9b. Depreciation</h3>
+  <ul class="proc-list">
+    <li><span class="proc-num">1</span>Review management's depreciation policy and assess reasonableness against useful lives.</li>
+    <li><span class="proc-num">2</span>Perform a "proof in total" — recalculate expected depreciation (cost × rate) and compare to the recorded charge. Investigate differences exceeding a materiality threshold.</li>
+    <li><span class="proc-num">3</span>Compare depreciation as a % of cost to prior year and investigate significant changes.</li>
+    <li><span class="proc-num">4</span>Confirm useful lives assigned to new assets are reasonable based on industry norms or management assessment.</li>
+  </ul>
+
+  <h3 class="subsection-title">9c. Disposals</h3>
+  <ul class="proc-list">
+    <li><span class="proc-num">1</span>Obtain the disposal schedule and agree proceeds to bank receipts or legal documentation.</li>
+    <li><span class="proc-num">2</span>Agree cost and accumulated depreciation of disposed assets to the NCAR.</li>
+    <li><span class="proc-num">3</span>Recalculate the profit or loss on disposal and agree to the income statement.</li>
+    <li><span class="proc-num">4</span>Confirm the asset has been removed from the NCAR.</li>
+  </ul>
+
+  <h3 class="subsection-title">9d. Revaluations</h3>
+  <p>When assets are revalued (as in the Elounda Co question – a related valuer), the auditor must:</p>
+  <ul class="proc-list">
+    <li><span class="proc-num">1</span>Assess the competence, capability and objectivity of the valuer used. If the valuer is related to management (e.g. the finance director's sibling), objectivity is called into question.</li>
+    <li><span class="proc-num">2</span>Agree the revalued amount to the valuation report.</li>
+    <li><span class="proc-num">3</span>Review the methodology used by the valuer and assess reasonableness.</li>
+    <li><span class="proc-num">4</span>Confirm the revaluation surplus has been correctly credited to the revaluation reserve (OCI) and any deferred tax liability recognised.</li>
+    <li><span class="proc-num">5</span>Confirm the date of the valuation is appropriate (close to year end).</li>
+  </ul>
+
+  <h3 class="subsection-title">9e. Intangible Assets</h3>
+  <p>Common scenario: research &amp; development expenditure (IAS 38). Only development costs meeting strict criteria can be capitalised; research costs must be expensed.</p>
+  <ul class="proc-list">
+    <li><span class="proc-num">1</span>Review the classification of expenditure between research and development and assess whether the entity's categorisation is appropriate.</li>
+    <li><span class="proc-num">2</span>For development costs capitalised, confirm all six IAS 38 capitalisation criteria are met (technical feasibility, intention, ability, adequate resources, probable future economic benefits, ability to reliably measure).</li>
+    <li><span class="proc-num">3</span>Agree amounts to invoices and payroll records.</li>
+    <li><span class="proc-num">4</span>Assess amortisation policy and recalculate the amortisation charge.</li>
+  </ul>
+</section>
+
+<!-- ══════════ S10 ══════════ -->
+<section class="section" id="s10">
+  <h2 class="section-title"><span class="section-num">10.</span> Non-Current Liabilities, Provisions &amp; Contingencies</h2>
+
+  <div class="fsli-header">
+    <div class="fsli-icon" style="background:var(--red);">PROV</div>
+    <h3>Provisions &amp; Contingencies – Valuation is the Key Risk</h3>
+  </div>
+
+  <div class="box box-def">
+    <div class="box-label">IAS 37 Reminder</div>
+    A <strong>provision</strong> is recognised when: (1) a present obligation exists from a past event, (2) it is <em>probable</em> the obligation will require an outflow, and (3) a reliable estimate can be made. A <strong>contingent liability</strong> is disclosed only (not recognised) when the outflow is <em>possible but not probable</em>.
+  </div>
+
+  <h3 class="subsection-title">10a. Provisions (e.g. Legal Claims, Redundancy)</h3>
+  <ul class="proc-list">
+    <li><span class="proc-num">1</span>Obtain a schedule of all provisions and agree totals to the trial balance.</li>
+    <li><span class="proc-num">2</span>Review correspondence with the company's legal advisors — obtain a letter from lawyers confirming the status of claims, the likelihood of an outflow, and a best estimate of the amount.</li>
+    <li><span class="proc-num">3</span>Assess whether a present obligation exists at the year end by reviewing documents confirming the triggering event occurred before year end (e.g. announcement of shop closure before year end for redundancy provision).</li>
+    <li><span class="proc-num">4</span>For redundancy provisions: agree the number of employees affected to HR records; agree salary details to payroll records; recalculate the provision based on statutory redundancy pay entitlements.</li>
+    <li><span class="proc-num">5</span>Review board minutes for evidence of management's intention and supporting estimates.</li>
+    <li><span class="proc-num">6</span>Review post-year-end settlements of claims to assess the adequacy of the provision.</li>
+    <li><span class="proc-num">7</span>Assess management's judgement and compare the provision estimate to the auditor's independent calculation.</li>
+  </ul>
+
+  <h3 class="subsection-title">10b. Bank Loans</h3>
+  <ul class="proc-list">
+    <li><span class="proc-num">1</span>Obtain the bank confirmation letter — confirm loan balance, interest rate, repayment terms and any covenants.</li>
+    <li><span class="proc-num">2</span>Agree balance to the loan agreement / trust deed.</li>
+    <li><span class="proc-num">3</span>Confirm correct split between current and non-current portions (amounts due within and beyond 12 months).</li>
+    <li><span class="proc-num">4</span>Recalculate interest charge for the year and agree accrued interest at year end.</li>
+    <li><span class="proc-num">5</span>Review loan covenants and assess whether they have been complied with (non-compliance could be a going concern indicator).</li>
+  </ul>
+
+  <div class="pq">
+    <div class="pq-label">Exam Question (Kaplan: Dashing Co – Redundancy Provision)</div>
+    <p class="pq-q">Describe substantive procedures for the redundancy provision at the year end.</p>
+    <details>
+      <summary>Show model answer</summary>
+      <div class="answer">
+        <ul>
+          <li>Confirm that the provision meets IAS 37 criteria: review board minutes and staff communications to confirm the formal plan was approved and announced before the year end, giving rise to a constructive obligation.</li>
+          <li>Obtain a schedule of employees included in the provision — agree the number of employees to HR records and redundancy notices.</li>
+          <li>Agree salary details of employees to payroll records to confirm the input data to the provision calculation is accurate.</li>
+          <li>Recalculate the provision independently using statutory redundancy pay entitlements (or contractual terms if more generous) and compare to management's figure.</li>
+          <li>Review post-year-end events — have any redundancy payments been made? If so, compare to the provision amount.</li>
+          <li>Review any correspondence with employees' legal representatives regarding the terms of redundancy.</li>
+          <li>Review management accounts produced after year end to assess whether the actual redundancy costs are tracking to the provision.</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ══════════ S11 ══════════ -->
+<section class="section" id="s11">
+  <h2 class="section-title"><span class="section-num">11.</span> Share Capital, Reserves &amp; Directors' Remuneration</h2>
+
+  <div class="fsli-header">
+    <div class="fsli-icon" style="background:var(--teal);">EQT</div>
+    <h3>Share Capital – Rights, Valuation, Completeness</h3>
+  </div>
+
+  <h3 class="subsection-title">11a. Issue of Share Capital</h3>
+  <ul class="proc-list">
+    <li><span class="proc-num">1</span>Obtain a copy of the board resolution authorising the share issue and confirm it was properly approved.</li>
+    <li><span class="proc-num">2</span>Agree proceeds received to bank statements and cash receipts.</li>
+    <li><span class="proc-num">3</span>Confirm the correct split between nominal value (share capital) and premium (share premium account).</li>
+    <li><span class="proc-num">4</span>Agree details of the new shares to the statutory register of members and the company's Articles of Association.</li>
+    <li><span class="proc-num">5</span>Confirm disclosures in the financial statements are complete and correct (number of shares issued, authorised share capital, share premium).</li>
+  </ul>
+
+  <h3 class="subsection-title">11b. Directors' Remuneration</h3>
+  <ul class="proc-list">
+    <li><span class="proc-num">1</span>Agree total directors' remuneration to the payroll records for the year.</li>
+    <li><span class="proc-num">2</span>Confirm individual emoluments to service contracts and board resolutions authorising pay.</li>
+    <li><span class="proc-num">3</span>Confirm disclosures meet legal requirements (highest paid director, aggregate emoluments).</li>
+    <li><span class="proc-num">4</span>Agree pension contributions to pension scheme documentation.</li>
+  </ul>
+</section>
+
+<!-- ══════════ S12 ══════════ -->
+<section class="section" id="s12">
+  <h2 class="section-title"><span class="section-num">12.</span> Revenue &amp; Substantive Analytical Procedures</h2>
+
+  <div class="fsli-header">
+    <div class="fsli-icon" style="background:var(--green);">REV</div>
+    <h3>Revenue – Occurrence, Completeness, Accuracy, Cut-Off</h3>
+  </div>
+
+  <div class="box box-warn">
+    <div class="box-label">Know the Difference</div>
+    Substantive <strong>analytical</strong> procedures = ratios, comparisons, proof in total. They cannot test classification. Tests of <strong>detail</strong> = tracing individual transactions. The examiner tests whether you know which is which.
+  </div>
+
+  <h3 class="subsection-title">Substantive Analytical Procedures for Revenue</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Procedure</th><th>Assertion Tested</th><th>What to Look For</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Compare monthly/quarterly revenue to prior year and budget; investigate variances &gt; materiality threshold</td>
+          <td>Occurrence, Completeness</td>
+          <td>Unexplained spikes (fictitious sales?) or drops (missing revenue?)</td>
+        </tr>
+        <tr>
+          <td>Calculate gross profit margin % and compare to prior year and industry benchmarks</td>
+          <td>Accuracy, Occurrence</td>
+          <td>Margin increase may signal revenue overstatement; margin fall may indicate cost mis-allocation</td>
+        </tr>
+        <tr>
+          <td>Calculate receivables days and compare to prior year</td>
+          <td>Occurrence, Valuation</td>
+          <td>Large increase may indicate fictitious revenue or uncollectible debts</td>
+        </tr>
+        <tr>
+          <td>Perform a "proof in total" using non-financial data (rooms × occupancy × rate; units × price)</td>
+          <td>Completeness, Accuracy</td>
+          <td>Large difference between expected and recorded revenue requires investigation</td>
+        </tr>
+        <tr>
+          <td>Compare revenue per business segment / product line to prior year</td>
+          <td>Completeness, Occurrence</td>
+          <td>Unexplained decline in a segment could indicate omitted transactions</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="exam-box">
+    <div class="exam-label">Exam Technique</div>
+    <h3>When the question says "SUBSTANTIVE ANALYTICAL procedures only"</h3>
+    <ul>
+      <li>Only write ratio/comparison/proof-in-total procedures.</li>
+      <li>Do NOT write "inspect sales invoices", "trace to despatch notes" — those are tests of detail.</li>
+      <li>A good analytical procedure answer states: (1) what to calculate, (2) what to compare it to, (3) what the result would indicate.</li>
+      <li>Example: <em>"Calculate gross margin % for the current year and compare to the prior year figure. A significant increase may indicate revenue is overstated or cost of sales is understated."</em></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════ S13 ══════════ -->
+<section class="section" id="s13">
+  <h2 class="section-title"><span class="section-num">13.</span> Accounting Estimates</h2>
+
+  <p>Accounting estimates are inherently uncertain. ISA 540 deals with the audit of estimates. Common examples: bad debt allowance, depreciation, warranty provisions, inventory NRV write-downs, fair value of investments.</p>
+
+  <h3 class="subsection-title">Problems with Estimates</h3>
+  <ul class="proc-list">
+    <li><span class="proc-num">1</span><strong>Management bias</strong> — estimates may be biased to achieve a profit target or debt covenant compliance. Auditors must look for indicators of management bias in the assumptions used.</li>
+    <li><span class="proc-num">2</span><strong>Uncertainty range</strong> — a wide range of acceptable outcomes makes it hard to determine if the recorded estimate is reasonable.</li>
+    <li><span class="proc-num">3</span><strong>Complexity</strong> — complex valuation models are hard to audit without specialist expertise.</li>
+  </ul>
+
+  <h3 class="subsection-title">Three Approaches for Auditing Estimates</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Approach</th><th>How</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Review subsequent events</strong></td>
+          <td>Look at what actually happened after the year end — if a provision was for $500k and the case settled for $800k, the provision is understated.</td>
+        </tr>
+        <tr>
+          <td><strong>Develop an independent estimate</strong></td>
+          <td>Auditor makes their own estimate using the same inputs and compares to management's figure. Significant differences require investigation.</td>
+        </tr>
+        <tr>
+          <td><strong>Test management's assumptions</strong></td>
+          <td>Audit the underlying data and assumptions used by management — challenge key inputs, assess reasonableness of assumptions.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══════════ S14 ══════════ -->
+<section class="section" id="s14">
+  <h2 class="section-title"><span class="section-num">14.</span> Exam Technique Master Guide</h2>
+
+  <div class="exam-box">
+    <div class="exam-label">The Golden Formula for Every Procedure Answer</div>
+    <h3>A well-structured substantive procedure contains:</h3>
+    <ul>
+      <li><strong>Verb</strong> – Obtain / Agree / Inspect / Recalculate / Confirm / Compare / Review</li>
+      <li><strong>Document/source</strong> – aged receivables listing, bank confirmation, NCAR, legal correspondence</li>
+      <li><strong>To what</strong> – the trial balance, the supporting invoice, prior year figure</li>
+      <li><strong>Purpose / what to look for</strong> – to confirm existence, to identify unrecorded liabilities, to confirm misstatement if different</li>
+    </ul>
+    <p style="margin-top:0.6rem; font-size:15px;"><em>Example: "Agree the balance confirmed in the bank letter <strong>[verb + document]</strong> to the balance per the bank reconciliation <strong>[to what]</strong> to confirm the accuracy of the reconciliation opening balance <strong>[purpose]</strong>."</em></p>
+  </div>
+
+  <h3 class="subsection-title">Key Verbs and What They Mean</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Verb</th><th>Meaning in an Audit Context</th></tr></thead>
+      <tbody>
+        <tr><td><span class="kw">Obtain</span></td><td>Get hold of a document (obtain the bank reconciliation, obtain the aged receivables listing)</td></tr>
+        <tr><td><span class="kw">Agree / Trace</span></td><td>Match one document to another (agree invoice amount to the bank payment)</td></tr>
+        <tr><td><span class="kw">Inspect</span></td><td>Read and examine a document closely (inspect the loan agreement for repayment terms)</td></tr>
+        <tr><td><span class="kw">Recalculate</span></td><td>Redo the maths independently (recalculate depreciation charge)</td></tr>
+        <tr><td><span class="kw">Confirm</span></td><td>Get written external confirmation (confirm bank balance with the bank; confirm legal claim with lawyers)</td></tr>
+        <tr><td><span class="kw">Review</span></td><td>Critically examine for reasonableness (review aged receivables report for overdue balances)</td></tr>
+        <tr><td><span class="kw">Compare</span></td><td>Analytical — set two figures or ratios side by side and investigate differences</td></tr>
+        <tr><td><span class="kw">Enquire</span></td><td>Ask management or staff a question (enquire of management as to reasons for the fall in payables days)</td></tr>
+        <tr><td><span class="kw">Observe</span></td><td>Watch a process happen (observe the inventory count)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="subsection-title">Assertion → Direction of Testing Cheat Sheet</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Assertion</th><th>Risk (Over or Under?)</th><th>Direction of Test</th><th>Typical Procedure</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Existence / Occurrence</td>
+          <td>Overstatement (inflated assets / revenues)</td>
+          <td>Records → Physical world</td>
+          <td>Inspect asset, agree to external confirmation, agree sale to despatch note</td>
+        </tr>
+        <tr>
+          <td>Completeness</td>
+          <td>Understatement (missing liabilities / expenses)</td>
+          <td>Physical world → Records</td>
+          <td>GRN → purchase invoice; unrecorded liabilities search; supplier statement</td>
+        </tr>
+        <tr>
+          <td>Valuation</td>
+          <td>Either direction</td>
+          <td>Recalculate / compare</td>
+          <td>Recalculate depreciation, assess NRV, review post-year-end cash receipts</td>
+        </tr>
+        <tr>
+          <td>Cut-off</td>
+          <td>Either direction</td>
+          <td>Around year end</td>
+          <td>Test GRNs / despatches around year end; review post-year-end bank clearances</td>
+        </tr>
+        <tr>
+          <td>Rights &amp; Obligations</td>
+          <td>Overstatement</td>
+          <td>Review legal docs</td>
+          <td>Review title deeds, lease agreements, factoring agreements</td>
+        </tr>
+        <tr>
+          <td>Classification</td>
+          <td>Either</td>
+          <td>Review of account coding</td>
+          <td>Review nature of costs capitalised; confirm asset/liability split current vs non-current</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="subsection-title">Common Ways Marks Are Lost – and How to Avoid Them</h3>
+
+  <div class="assert-grid">
+    <div class="assert-card">
+      <div class="ac-head ac-red">❌ Too vague</div>
+      <div class="ac-body">"Review the receivables balance." This scores zero. You must say what document, what to compare it to, and what you're looking for.</div>
+    </div>
+    <div class="assert-card">
+      <div class="ac-head ac-red">❌ Repeating the same point</div>
+      <div class="ac-body">"Inspect invoices" then "check invoices" then "look at invoices" = 1 mark not 3. Each bullet must be a genuinely different procedure.</div>
+    </div>
+    <div class="assert-card">
+      <div class="ac-head ac-red">❌ Wrong type of procedure</div>
+      <div class="ac-body">Answering a "substantive analytical" question with tests of detail. Read the requirement word for word.</div>
+    </div>
+    <div class="assert-card">
+      <div class="ac-head ac-red">❌ Ignoring the scenario</div>
+      <div class="ac-body">The scenario contains specific risk flags (e.g., a related valuer, a known fraud risk, a collapsing product line). Your procedures should address the specific risk, not just generic ones.</div>
+    </div>
+    <div class="assert-card">
+      <div class="ac-head ac-green">✓ Scenario-specific procedures</div>
+      <div class="ac-body">Use the facts given. If Cookit Co's Remy Gusteau products have no demand, explicitly test NRV by reviewing post-year-end sales (or lack of) for those specific items.</div>
+    </div>
+    <div class="assert-card">
+      <div class="ac-head ac-green">✓ Explain what you expect to find</div>
+      <div class="ac-body">End each procedure with what a problem looks like: "…a difference would indicate a possible unrecorded liability." This shows you understand the audit objective.</div>
+    </div>
+  </div>
+
+  <h3 class="subsection-title">Quick-Reference Procedure Bank</h3>
+
+  <div class="box box-tip">
+    <div class="box-label">The Six Most Reliable Audit Procedures (by source)</div>
+    <ol style="padding-left:1.2rem; font-size:15.5px; line-height:2;">
+      <li><strong>External confirmation</strong> – bank letter, solicitor's letter, trade receivable circularisation</li>
+      <li><strong>Physical inspection</strong> – inventory count attendance, inspecting tangible assets</li>
+      <li><strong>Recalculation</strong> – depreciation proof in total, payroll calculation, redundancy provision</li>
+      <li><strong>Subsequent events review</strong> – post-year-end receipts, settlements, bank clearances</li>
+      <li><strong>Third-party documents</strong> – supplier invoices, title deeds, loan agreements</li>
+      <li><strong>Analytical procedures</strong> – ratio analysis, trend analysis, proof in total</li>
+    </ol>
+  </div>
+
+  <div class="exam-box">
+    <div class="exam-label">Time Allocation Tip</div>
+    <h3>Section B: Managing your time on procedure questions</h3>
+    <ul>
+      <li>Each procedure question typically earns 1 mark per valid, different point. A 5-mark question requires 5–6 well-developed points.</li>
+      <li>Aim for one sentence per bullet: verb + document + comparison + what it shows.</li>
+      <li>Spend ~1.8 minutes per mark. A 5-mark question = ~9 minutes max.</li>
+      <li>If stuck: think through OEVRCA (Occurrence, Existence, Valuation, Rights, Completeness, Accuracy) — what could go wrong with this balance?</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="divider">
+
+<footer class="doc-footer">
+  ACCA AA &nbsp;|&nbsp; Substantive Procedures Tutorial &nbsp;|&nbsp; Prepared for June 2026 Exam Window &nbsp;|&nbsp; Based on ACCA Syllabus &amp; Kaplan Exam Kit 2025/26
+</footer>
+
+</div>
+</body>
+</html>
