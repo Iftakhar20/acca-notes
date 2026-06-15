@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CGT Reliefs & Exemptions – ACCA TX (FA2025) | June 2026</title>
+<style>
+  :root {
+    --mint:    #1EFFBC;
+    --azure:   #1F01B9;
+    --ygreen:  #B4E33D;
+    --steel:   #7C9299;
+    --flame:   #FC440F;
+
+    --bg:      #F5FEFA;
+    --surface: #FFFFFF;
+    --border:  #D4F5E8;
+    --text:    #0D1F1A;
+    --muted:   #4A5E57;
+    --accent-bg: #E8FFF6;
+    --azure-light: #EAE7FF;
+    --flame-light: #FFF0EB;
+    --ygreen-light: #F4FFD6;
+    --steel-light: #EEF1F2;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  /* ── Header ── */
+  header {
+    background: var(--azure);
+    color: white;
+    padding: 40px 32px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -80px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: var(--mint);
+    opacity: 0.15;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 40%;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: var(--ygreen);
+    opacity: 0.1;
+  }
+  .badge {
+    display: inline-block;
+    background: var(--mint);
+    color: var(--azure);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+  }
+  header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  header p {
+    color: rgba(255,255,255,0.75);
+    font-size: 15px;
+    max-width: 640px;
+    position: relative;
+  }
+
+  /* ── Nav bar ── */
+  nav {
+    background: var(--surface);
+    border-bottom: 3px solid var(--mint);
+    padding: 0 32px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  nav a {
+    display: inline-block;
+    padding: 14px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--steel);
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -3px;
+    transition: color .2s, border-color .2s;
+  }
+  nav a:hover { color: var(--azure); border-bottom-color: var(--azure); }
+
+  /* ── Layout ── */
+  main {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  /* ── Section titles ── */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 56px 0 24px;
+  }
+  .section-num {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--azure);
+    color: white;
+    font-size: 16px;
+    font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .section-header h2 {
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: var(--azure);
+  }
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 28px 0 12px;
+    padding-left: 14px;
+    border-left: 4px solid var(--mint);
+  }
+
+  /* ── Boxes ── */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 24px;
+    margin: 18px 0;
+  }
+  .card-title {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    margin-bottom: 12px;
+  }
+
+  .box-mint   { background: var(--accent-bg);   border-left: 5px solid var(--mint);  padding: 16px 20px; border-radius: 8px; margin: 18px 0; }
+  .box-azure  { background: var(--azure-light);  border-left: 5px solid var(--azure); padding: 16px 20px; border-radius: 8px; margin: 18px 0; }
+  .box-flame  { background: var(--flame-light);  border-left: 5px solid var(--flame); padding: 16px 20px; border-radius: 8px; margin: 18px 0; }
+  .box-ygreen { background: var(--ygreen-light); border-left: 5px solid var(--ygreen); padding: 16px 20px; border-radius: 8px; margin: 18px 0; }
+  .box-steel  { background: var(--steel-light);  border-left: 5px solid var(--steel); padding: 16px 20px; border-radius: 8px; margin: 18px 0; }
+
+  .box-title {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .box-mint .box-title   { color: #007a55; }
+  .box-azure .box-title  { color: var(--azure); }
+  .box-flame .box-title  { color: var(--flame); }
+  .box-ygreen .box-title { color: #5a7200; }
+  .box-steel .box-title  { color: #3a5059; }
+
+  /* ── Tables ── */
+  .tbl-wrap { overflow-x: auto; margin: 18px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+  th {
+    background: var(--azure);
+    color: white;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 700;
+  }
+  td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #F8FFFC; }
+  .tick { color: #007a55; font-weight: 700; }
+  .cross { color: var(--flame); font-weight: 700; }
+
+  /* ── Computation box ── */
+  .comp {
+    background: #f0fdf8;
+    border: 1px solid #b2e8d0;
+    border-radius: 10px;
+    padding: 20px 24px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    margin: 18px 0;
+  }
+  .comp table { font-family: 'Courier New', monospace; }
+  .comp th { background: #007a55; }
+  .comp td { padding: 5px 14px; border-bottom: 1px dashed #c8e8d8; }
+  .comp tr:last-child td { border-bottom: none; font-weight: 700; border-top: 2px solid #007a55; }
+  .comp-title {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #007a55;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+
+  /* ── Example blocks ── */
+  .example {
+    background: var(--surface);
+    border: 1px solid var(--mint);
+    border-radius: 10px;
+    margin: 22px 0;
+    overflow: hidden;
+  }
+  .example-header {
+    background: var(--mint);
+    color: var(--azure);
+    font-size: 13px;
+    font-weight: 800;
+    padding: 8px 18px;
+    letter-spacing: .5px;
+  }
+  .example-body { padding: 18px 20px; }
+
+  /* ── Conditions grid ── */
+  .cond-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .cond-item {
+    background: var(--azure-light);
+    border-radius: 8px;
+    padding: 14px 16px;
+    border-top: 4px solid var(--azure);
+  }
+  .cond-item .num {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--azure);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .cond-item .label {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--azure);
+  }
+  .cond-item p { font-size: 13.5px; color: var(--muted); }
+
+  /* ── Mnemonic ── */
+  .mnemonic {
+    background: var(--ygreen-light);
+    border: 2px dashed var(--ygreen);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin: 18px 0;
+  }
+  .mnemonic-word {
+    font-size: 24px;
+    font-weight: 900;
+    color: #3a5a00;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+  }
+
+  /* ── Timeline ── */
+  .timeline { margin: 18px 0; }
+  .tl-item {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 4px;
+  }
+  .tl-dot {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--azure);
+    color: white;
+    font-size: 12px;
+    font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+  .tl-body { padding-bottom: 20px; border-left: 2px dashed #c5e8d8; padding-left: 0; }
+  .tl-body-inner { padding: 0 0 0 10px; }
+
+  /* ── Quiz section ── */
+  .quiz-wrap { margin-top: 60px; }
+  .quiz-header {
+    background: var(--azure);
+    color: white;
+    border-radius: 12px 12px 0 0;
+    padding: 24px 28px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .quiz-header h2 { font-size: 1.4rem; font-weight: 800; }
+  .q-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: none;
+    padding: 22px 26px;
+    border-bottom: none;
+  }
+  .q-block:last-child { border-radius: 0 0 12px 12px; border-bottom: 1px solid var(--border); }
+  .q-num {
+    display: inline-block;
+    background: var(--azure);
+    color: white;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    text-align: center; line-height: 30px;
+    font-size: 13px; font-weight: 700;
+    margin-right: 10px;
+    flex-shrink: 0;
+  }
+  .q-text { font-weight: 600; font-size: 15px; margin-bottom: 14px; }
+  .q-options { list-style: none; display: grid; gap: 8px; }
+  .q-options li {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 14.5px;
+    cursor: pointer;
+    transition: background .2s, border-color .2s;
+  }
+  .q-options li:hover { background: var(--accent-bg); border-color: var(--mint); }
+  .q-options li.correct { background: #d4f7e5 !important; border-color: #00a85a !important; }
+  .q-options li.wrong   { background: var(--flame-light) !important; border-color: var(--flame) !important; }
+  .q-explain {
+    display: none;
+    margin-top: 14px;
+    background: var(--azure-light);
+    border-left: 4px solid var(--azure);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+  .q-divider { height: 1px; background: var(--border); margin: 0; }
+
+  /* ── Misc ── */
+  p { margin-bottom: 10px; }
+  ul, ol { padding-left: 22px; margin-bottom: 10px; }
+  li { margin-bottom: 4px; }
+  strong { font-weight: 700; }
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    margin-left: 6px;
+  }
+  .tag-defer  { background: var(--azure-light); color: var(--azure); }
+  .tag-reduce { background: var(--ygreen-light); color: #3a5a00; }
+  .tag-exempt { background: var(--accent-bg); color: #007a55; }
+
+  /* ── Comparison grid ── */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .compare-card {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .compare-card-header {
+    padding: 12px 18px;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .compare-card-body { padding: 14px 18px; font-size: 14px; }
+  .compare-card-body ul { padding-left: 18px; }
+  .compare-card-body li { margin-bottom: 6px; }
+
+  .rc1 .compare-card-header { background: var(--mint); color: var(--azure); }
+  .rc2 .compare-card-header { background: var(--azure); color: white; }
+  .rc3 .compare-card-header { background: var(--ygreen); color: #2a4000; }
+  .rc4 .compare-card-header { background: var(--steel); color: white; }
+
+  footer {
+    text-align: center;
+    padding: 32px;
+    font-size: 13px;
+    color: var(--steel);
+    border-top: 2px solid var(--border);
+    margin-top: 60px;
+  }
+
+  @media (max-width: 640px) {
+    header h1 { font-size: 1.5rem; }
+    main { padding: 24px 16px 60px; }
+    .section-header h2 { font-size: 1.25rem; }
+    nav a { padding: 10px 10px; font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="badge">ACCA TX-UK · FA2025 · June 2026</div>
+  <h1>CGT Reliefs &amp; Exemptions</h1>
+  <p>Comprehensive study notes covering every examinable relief — rollover, gift holdover, BADR, investors' relief, PRR, and planning. Full worked examples + 20 exam-style MCQs.</p>
+</header>
+
+<nav>
+  <a href="#s1">1. Overview</a>
+  <a href="#s2">2. Rollover</a>
+  <a href="#s3">3. Gift Holdover</a>
+  <a href="#s4">4. BADR</a>
+  <a href="#s5">5. Investors' Relief</a>
+  <a href="#s6">6. PRR</a>
+  <a href="#s7">7. Letting Relief</a>
+  <a href="#s8">8. Planning</a>
+  <a href="#mcq">20 MCQs</a>
+</nav>
+
+<main>
+
+<!-- ═══════════════════════════════════════ SECTION 1 ═══════════════════════════════════════ -->
+<div class="section-header" id="s1">
+  <div class="section-num">1</div>
+  <h2>Overview of CGT Reliefs</h2>
+</div>
+
+<p>There are two types of tax-saving tools in CGT. Understanding which category a relief belongs to is the first step to applying it correctly in the exam.</p>
+
+<div class="tbl-wrap">
+<table>
+  <tr><th>Category</th><th>What it does</th><th>Effect</th><th>Reliefs in scope</th></tr>
+  <tr><td><strong>Deferral reliefs</strong></td><td>Postpone the gain — it becomes payable later</td><td><span class="tag tag-defer">Defer</span></td><td>Rollover relief, Gift holdover relief</td></tr>
+  <tr><td><strong>Reduction reliefs</strong></td><td>Reduce the rate of tax on the gain</td><td><span class="tag tag-reduce">Reduce rate</span></td><td>BADR (14%), Investors' Relief (14%)</td></tr>
+  <tr><td><strong>Exemptions</strong></td><td>Eliminate the gain entirely</td><td><span class="tag tag-exempt">Exempt</span></td><td>PRR (full or partial), AEA £3,000, exempt assets</td></tr>
+</table>
+</div>
+
+<div class="box-flame">
+  <div class="box-title">⚠️ Exam Trap — Order Matters!</div>
+  <p>Always apply reliefs in this order:</p>
+  <ol>
+    <li>Exemptions first (PRR, AEA)</li>
+    <li>Then check deferral reliefs (rollover, holdover)</li>
+    <li>Then check rate-reduction reliefs (BADR, IR)</li>
+  </ol>
+  <p>You cannot apply BADR to a gain that has already been held over. And once a gain is deferred, you pay the tax later — usually at standard rates (not BADR) unless conditions are re-met on the replacement asset disposal.</p>
+</div>
+
+<div class="box-mint">
+  <div class="box-title">📋 Quick Reference — Relief at a Glance</div>
+  <div class="tbl-wrap">
+  <table>
+    <tr><th>Relief</th><th>Who can claim</th><th>Asset type</th><th>Tax rate saved</th><th>Deadline to claim</th></tr>
+    <tr><td>Rollover relief</td><td>Individuals &amp; companies</td><td>Business assets → reinvested in qualifying assets</td><td>Deferred (normal rate later)</td><td>4 years from end of accounting period of disposal</td></tr>
+    <tr><td>Gift holdover relief</td><td>Individuals (donor + donee joint claim)</td><td>Business assets; shares in trading companies</td><td>Deferred (donee pays on future sale)</td><td>4 years from end of tax year of gift</td></tr>
+    <tr><td>BADR</td><td>Individuals only</td><td>Business interests, shares in personal trading companies</td><td>14% (vs 18%/24%)</td><td>1st anniversary of 31 Jan after tax year end</td></tr>
+    <tr><td>Investors' Relief</td><td>Individuals (not employees)</td><td>Newly issued unlisted trading company shares (held ≥ 3 yrs)</td><td>14% on up to £1m lifetime</td><td>Same as BADR</td></tr>
+    <tr><td>PRR</td><td>Individuals</td><td>Residential property used as main home</td><td>Proportion of gain exempt</td><td>With tax return / self-assessment</td></tr>
+    <tr><td>Letting relief</td><td>Individuals</td><td>Part of a let property while owner also lives there</td><td>Up to £40,000 of gain</td><td>With PRR claim</td></tr>
+  </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ SECTION 2 ═══════════════════════════════════════ -->
+<div class="section-header" id="s2">
+  <div class="section-num">2</div>
+  <h2>Rollover Relief</h2>
+</div>
+
+<p><strong>Think of it like this:</strong> You sell a business asset and make a big gain. Instead of paying CGT now, you "roll" the gain into the cost of the new asset. Tax is deferred until you eventually sell the new asset.</p>
+
+<h3>Conditions — All 5 Must Be Met</h3>
+
+<div class="cond-grid">
+  <div class="cond-item">
+    <div class="num">1</div>
+    <div class="label">Both assets must qualify</div>
+    <p>The old AND new asset must both be qualifying assets (see table below).</p>
+  </div>
+  <div class="cond-item">
+    <div class="num">2</div>
+    <div class="label">Used in trade</div>
+    <p>Both assets must be used for trading purposes (not investment).</p>
+  </div>
+  <div class="cond-item">
+    <div class="num">3</div>
+    <div class="label">Timing window</div>
+    <p>New asset must be acquired: <strong>1 year before</strong> OR <strong>3 years after</strong> the date of disposal of the old asset.</p>
+  </div>
+  <div class="cond-item">
+    <div class="num">4</div>
+    <div class="label">Full reinvestment for full relief</div>
+    <p>ALL of the proceeds must be reinvested for full rollover. Partial reinvestment = partial deferral.</p>
+  </div>
+  <div class="cond-item">
+    <div class="num">5</div>
+    <div class="label">Same business</div>
+    <p>The assets must be used in the <em>same</em> trade (individuals) or by the same company or group.</p>
+  </div>
+</div>
+
+<h3>Qualifying Assets for Rollover Relief</h3>
+
+<div class="tbl-wrap">
+<table>
+  <tr><th>Asset</th><th>Qualifies?</th><th>Notes</th></tr>
+  <tr><td>Land and buildings</td><td class="tick">✔ Yes</td><td>Most common exam asset</td></tr>
+  <tr><td>Fixed plant &amp; machinery</td><td class="tick">✔ Yes</td><td><strong>Fixed only</strong> — must not be movable</td></tr>
+  <tr><td>Goodwill</td><td class="tick">✔ Yes</td><td>But <strong>only for sole traders/partnerships</strong> — NOT for companies</td></tr>
+  <tr><td>Movable plant &amp; machinery</td><td class="cross">✘ No</td><td>Classic exam trap — <em>movable</em> P&amp;M does NOT qualify</td></tr>
+  <tr><td>Shares</td><td class="cross">✘ No</td><td>Shares never qualify for rollover relief</td></tr>
+  <tr><td>Inventory / stock</td><td class="cross">✘ No</td><td>Not a fixed asset</td></tr>
+</table>
+</div>
+
+<div class="box-flame">
+  <div class="box-title">⚠️ Exam Trap — Movable vs Fixed Plant!</div>
+  <p>The exam frequently lists <strong>movable plant and machinery</strong> as an answer option to catch you out. Always check — only <strong>fixed</strong> plant qualifies.</p>
+</div>
+
+<h3>How Rollover Relief Works — The Mechanics</h3>
+
+<div class="tbl-wrap">
+<table>
+  <tr><th>Situation</th><th>Effect on gain</th><th>Effect on new asset cost</th></tr>
+  <tr><td>Full reinvestment (proceeds fully spent)</td><td>Entire gain deferred</td><td>Cost reduced by full gain deferred</td></tr>
+  <tr><td>Partial reinvestment (some proceeds not spent)</td><td>Gain chargeable = lower of: (a) unspent proceeds or (b) total gain</td><td>Cost reduced by gain deferred (= total gain − gain chargeable now)</td></tr>
+  <tr><td>No reinvestment</td><td>Full gain chargeable immediately</td><td>No adjustment — claim not possible</td></tr>
+</table>
+</div>
+
+<div class="example">
+  <div class="example-header">📝 Example 1 — Full Rollover Relief</div>
+  <div class="example-body">
+    <p>Jasmine sells her factory (a qualifying asset) for <strong>£270,000</strong> on 1 March 2025. The factory cost £231,000. She buys a replacement warehouse for <strong>£290,000</strong> (fully reinvested, acquired within 3 years).</p>
+    <div class="comp">
+      <div class="comp-title">Gain on Factory</div>
+      <table>
+        <tr><td>Proceeds</td><td style="text-align:right">£270,000</td></tr>
+        <tr><td>Less: Cost</td><td style="text-align:right">(£231,000)</td></tr>
+        <tr><td>Chargeable gain before rollover</td><td style="text-align:right">£39,000</td></tr>
+        <tr><td>Less: Rollover relief (full — all proceeds reinvested)</td><td style="text-align:right">(£39,000)</td></tr>
+        <tr><td>Gain chargeable NOW</td><td style="text-align:right"><strong>£NIL</strong></td></tr>
+      </table>
+    </div>
+    <div class="comp">
+      <div class="comp-title">Base Cost of Replacement Warehouse</div>
+      <table>
+        <tr><td>Actual cost paid</td><td style="text-align:right">£290,000</td></tr>
+        <tr><td>Less: Gain rolled over</td><td style="text-align:right">(£39,000)</td></tr>
+        <tr><td>Base cost for future sale</td><td style="text-align:right"><strong>£251,000</strong></td></tr>
+      </table>
+    </div>
+    <div class="box-azure"><strong>Result:</strong> No CGT now. When Jasmine eventually sells the warehouse, she will have a higher gain due to the reduced base cost — the tax is deferred, not cancelled.</div>
+  </div>
+</div>
+
+<div class="example">
+  <div class="example-header">📝 Example 2 — Partial Rollover Relief (Proceeds Not Fully Reinvested)</div>
+  <div class="example-body">
+    <p>Tariq sells his office premises for <strong>£184,000</strong> making a gain of <strong>£38,600</strong>. He buys a replacement for <strong>£143,000</strong>. He does NOT fully reinvest all the proceeds.</p>
+    <div class="comp">
+      <div class="comp-title">Partial Rollover Calculation</div>
+      <table>
+        <tr><td>Total chargeable gain</td><td style="text-align:right">£38,600</td></tr>
+        <tr><td>Proceeds NOT reinvested (£184,000 − £143,000)</td><td style="text-align:right">£41,000</td></tr>
+        <tr><td>Gain chargeable NOW = lower of gain (£38,600) OR unspent proceeds (£41,000)</td><td style="text-align:right"><strong>£38,600</strong></td></tr>
+        <tr><td>Gain deferred (rollover)</td><td style="text-align:right"><strong>£NIL</strong></td></tr>
+      </table>
+    </div>
+    <div class="box-flame"><strong>Key insight:</strong> Since the unspent proceeds (£41,000) exceed the total gain (£38,600), the <em>entire</em> gain is immediately chargeable and no rollover is possible! The formula always uses the <strong>lower of</strong> the two amounts as the immediately chargeable portion.</div>
+  </div>
+</div>
+
+<div class="example">
+  <div class="example-header">📝 Example 3 — Partial Rollover (Some Relief Available)</div>
+  <div class="example-body">
+    <p>Sara sells her factory for <strong>£300,000</strong> making a gain of <strong>£90,000</strong>. She reinvests <strong>£240,000</strong> in a new qualifying asset.</p>
+    <div class="comp">
+      <div class="comp-title">Partial Rollover</div>
+      <table>
+        <tr><td>Total gain</td><td style="text-align:right">£90,000</td></tr>
+        <tr><td>Proceeds NOT reinvested (£300,000 − £240,000)</td><td style="text-align:right">£60,000</td></tr>
+        <tr><td>Gain chargeable NOW = lower of: £90,000 or £60,000</td><td style="text-align:right"><strong>£60,000</strong></td></tr>
+        <tr><td>Gain deferred (£90,000 − £60,000)</td><td style="text-align:right"><strong>£30,000</strong></td></tr>
+      </table>
+    </div>
+    <div class="comp">
+      <div class="comp-title">Adjusted Base Cost of New Asset</div>
+      <table>
+        <tr><td>Actual cost</td><td style="text-align:right">£240,000</td></tr>
+        <tr><td>Less: Gain deferred</td><td style="text-align:right">(£30,000)</td></tr>
+        <tr><td>Base cost for future CGT computation</td><td style="text-align:right"><strong>£210,000</strong></td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<h3>Rollover Relief — Time Limit to Claim</h3>
+<div class="box-mint">
+  <div class="box-title">⏰ Deadline</div>
+  <p><strong>4 years</strong> from the end of the later of:</p>
+  <ul>
+    <li>The accounting period in which the <em>old asset</em> was sold, OR</li>
+    <li>The accounting period in which the <em>new asset</em> was acquired</li>
+  </ul>
+</div>
+
+<!-- ═══════════════════════════════════════ SECTION 3 ═══════════════════════════════════════ -->
+<div class="section-header" id="s3">
+  <div class="section-num">3</div>
+  <h2>Gift Holdover Relief</h2>
+</div>
+
+<p><strong>Think of it like this:</strong> You give away a business asset. There are no actual proceeds, but HMRC deems the disposal at market value — creating a large paper gain. Gift holdover relief lets you "hold over" (defer) that gain. The donor pays no CGT now; the donee inherits a lower base cost and pays CGT when they eventually sell.</p>
+
+<div class="box-azure">
+  <div class="box-title">📌 Key Principle</div>
+  <p>Gift holdover relief does NOT eliminate the gain — it <strong>transfers</strong> the tax liability from the donor to the donee by reducing the donee's base cost.</p>
+  <p><strong>Donee's base cost = Market value at gift date − holdover relief claimed</strong></p>
+</div>
+
+<h3>Qualifying Assets for Gift Holdover Relief</h3>
+<div class="tbl-wrap">
+<table>
+  <tr><th>Asset type</th><th>Qualifies?</th><th>Notes</th></tr>
+  <tr><td>Assets used in a trade/profession/vocation (business assets)</td><td class="tick">✔ Yes</td><td>E.g. factory, equipment used in sole trader's business</td></tr>
+  <tr><td>Shares/securities in <strong>unquoted trading companies</strong></td><td class="tick">✔ Yes</td><td>Company must be a trading company (not investment)</td></tr>
+  <tr><td>Shares/securities in <strong>quoted trading companies</strong> (if donor owns ≥5%)</td><td class="tick">✔ Yes (restricted)</td><td>Donor must hold at least 5% of voting rights</td></tr>
+  <tr><td>Agricultural property</td><td class="tick">✔ Yes</td><td>Within scope for exam</td></tr>
+  <tr><td>Shares in non-trading / investment companies</td><td class="cross">✘ No</td><td>Company must be <em>trading</em></td></tr>
+  <tr><td>A private residence (main home)</td><td class="cross">✘ No</td><td>Holdover does not apply to personal use assets</td></tr>
+</table>
+</div>
+
+<div class="box-flame">
+  <div class="box-title">⚠️ Exam Trap — "No Minimum Ownership Period"</div>
+  <p>Gift holdover relief has <strong>no minimum ownership period</strong> — unlike BADR which requires 2 years. This is frequently tested in the exam as a true/false question.</p>
+</div>
+
+<h3>How Gift Holdover Relief Works</h3>
+
+<div class="example">
+  <div class="example-header">📝 Example 4 — Simple Gift Holdover (Full Relief)</div>
+  <div class="example-body">
+    <p>Faisal gifts shares in his unquoted trading company to his daughter Leila. Market value = <strong>£150,000</strong>. Faisal's original cost = <strong>£40,000</strong>. Both make a joint claim for holdover relief.</p>
+    <div class="comp">
+      <div class="comp-title">Faisal (Donor)</div>
+      <table>
+        <tr><td>Deemed proceeds (MV)</td><td style="text-align:right">£150,000</td></tr>
+        <tr><td>Less: Cost</td><td style="text-align:right">(£40,000)</td></tr>
+        <tr><td>Gain before relief</td><td style="text-align:right">£110,000</td></tr>
+        <tr><td>Less: Gift holdover relief</td><td style="text-align:right">(£110,000)</td></tr>
+        <tr><td>Gain chargeable now</td><td style="text-align:right"><strong>£NIL</strong></td></tr>
+      </table>
+    </div>
+    <div class="comp">
+      <div class="comp-title">Leila (Donee) — Adjusted Base Cost</div>
+      <table>
+        <tr><td>Market value at date of gift</td><td style="text-align:right">£150,000</td></tr>
+        <tr><td>Less: Gain held over</td><td style="text-align:right">(£110,000)</td></tr>
+        <tr><td>Leila's base cost for future sale</td><td style="text-align:right"><strong>£40,000</strong></td></tr>
+      </table>
+    </div>
+    <p>When Leila later sells, her gain will be: Proceeds − £40,000. The deferred gain is now "locked in" to her cost.</p>
+  </div>
+</div>
+
+<h3>Gift Holdover + Sale at Undervalue</h3>
+<p>When the donor sells at BELOW market value (but above cost), <strong>not all of the gain can be held over</strong>. The excess of actual proceeds over cost is immediately chargeable.</p>
+
+<div class="example">
+  <div class="example-header">📝 Example 5 — Sale at Undervalue (Partial Holdover)</div>
+  <div class="example-body">
+    <p>Michael gifts shares in Minnow Ltd (unquoted trading company) to his son but charges him <strong>£53,000</strong> (below MV of £98,000). Michael's cost = <strong>£41,500</strong>.</p>
+    <div class="comp">
+      <div class="comp-title">Michael (Donor)</div>
+      <table>
+        <tr><td>Deemed proceeds (MV)</td><td style="text-align:right">£98,000</td></tr>
+        <tr><td>Less: Cost</td><td style="text-align:right">(£41,500)</td></tr>
+        <tr><td>Gain before relief</td><td style="text-align:right">£56,500</td></tr>
+        <tr><td>Less: Gift holdover relief (W)</td><td style="text-align:right">(£45,000)</td></tr>
+        <tr><td>Gain chargeable now (actual proceeds − cost = £53,000 − £41,500)</td><td style="text-align:right"><strong>£11,500</strong></td></tr>
+      </table>
+    </div>
+    <div class="box-mint"><strong>Rule:</strong> The immediately chargeable gain = <strong>actual proceeds received MINUS cost</strong>. The rest can be deferred via holdover relief.</div>
+  </div>
+</div>
+
+<h3>Restriction — Company with Non-Business Assets</h3>
+<p>If the shares are in a <strong>personal trading company</strong> (i.e. donor owns ≥5%) AND the company owns non-business (investment) assets, gift holdover relief is <strong>restricted</strong>:</p>
+<div class="box-steel">
+  <div class="box-title">Formula — Restricted Holdover Relief</div>
+  <p><strong>Holdover relief = Total gain × (Chargeable Business Assets / Total Chargeable Assets)</strong></p>
+  <p>Chargeable Business Assets = assets used in the trade. Investment assets are excluded from the numerator.</p>
+</div>
+
+<div class="example">
+  <div class="example-header">📝 Example 6 — Restricted Gift Holdover (Company with Investments)</div>
+  <div class="example-body">
+    <p>Jerome (owns 60% of Minnow Ltd, an unquoted trading company) gifts shares. Gain before relief = <strong>£92,500</strong>. Company's chargeable business assets = <strong>£200,000</strong>. Total chargeable assets = <strong>£250,000</strong>.</p>
+    <div class="comp">
+      <div class="comp-title">Restricted Holdover</div>
+      <table>
+        <tr><td>Gain × Business assets / Total assets</td><td style="text-align:right">£92,500 × £200,000 / £250,000</td></tr>
+        <tr><td>Gift holdover relief available</td><td style="text-align:right"><strong>£74,000</strong></td></tr>
+        <tr><td>Gain immediately chargeable (£92,500 − £74,000)</td><td style="text-align:right"><strong>£18,500</strong></td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<h3>Joint Claim Requirement</h3>
+<div class="box-azure">
+  <div class="box-title">📌 Both Donor AND Donee Must Claim</div>
+  <ul>
+    <li>Both parties must <strong>jointly elect</strong> for gift holdover relief.</li>
+    <li>Claim deadline: <strong>4 years from the end of the tax year</strong> in which the gift is made.</li>
+    <li>E.g. Gift made in 2025/26 → claim by <strong>5 April 2030</strong>.</li>
+  </ul>
+</div>
+
+<!-- ═══════════════════════════════════════ SECTION 4 ═══════════════════════════════════════ -->
+<div class="section-header" id="s4">
+  <div class="section-num">4</div>
+  <h2>Business Asset Disposal Relief (BADR)</h2>
+</div>
+
+<p><strong>Think of it like this:</strong> You've built a business. When you sell it, HMRC rewards you for your entrepreneurship with a lower CGT rate of just 14% — instead of 18% or 24%.</p>
+
+<div class="box-mint">
+  <div class="box-title">📌 BADR at a Glance — FA2025</div>
+  <ul>
+    <li>Rate: <strong>14%</strong> on qualifying gains (up from 10% in prior years)</li>
+    <li>Lifetime limit: <strong>£1,000,000</strong> per individual</li>
+    <li>Once the £1m is used up, any further gains are taxed at standard CGT rates (18%/24%)</li>
+  </ul>
+</div>
+
+<h3>BADR — Type 1: Disposal of an Unincorporated Business (or part of it)</h3>
+
+<div class="cond-grid">
+  <div class="cond-item">
+    <div class="num">1</div>
+    <div class="label">Trading business</div>
+    <p>The business must be a trading business — not an investment business.</p>
+  </div>
+  <div class="cond-item">
+    <div class="num">2</div>
+    <div class="label">2 years' ownership</div>
+    <p>The business must have been owned by the individual for at least <strong>2 years</strong> prior to disposal.</p>
+  </div>
+  <div class="cond-item">
+    <div class="num">3</div>
+    <div class="label">Whole or substantial part</div>
+    <p>You must dispose of the <strong>whole business</strong> OR a <strong>substantial part</strong> (not just an individual asset).</p>
+  </div>
+</div>
+
+<div class="box-flame">
+  <div class="box-title">⚠️ Exam Trap — Disposal of Single Asset vs Business</div>
+  <p>Selling a single business asset (e.g. a warehouse the business no longer needs) does NOT qualify for BADR. You need to dispose of the business or a substantial part of it. Rollover relief, however, IS available for individual business asset sales.</p>
+</div>
+
+<div class="example">
+  <div class="example-header">📝 Example 7 — BADR on Sole Trader Business Disposal</div>
+  <div class="example-body">
+    <p>Michael sells his wholesale business. Assets disposed of:</p>
+    <div class="comp">
+      <div class="comp-title">BADR Computation — 2025/26</div>
+      <table>
+        <tr><td>Goodwill</td><td style="text-align:right">£60,000</td></tr>
+        <tr><td>Freehold property</td><td style="text-align:right">£64,000</td></tr>
+        <tr><td>Storage unit (loss)</td><td style="text-align:right">(£13,000)</td></tr>
+        <tr><td>Net chargeable gains qualifying for BADR</td><td style="text-align:right">£111,000</td></tr>
+        <tr><td>CGT @ 14%</td><td style="text-align:right"><strong>£15,540</strong></td></tr>
+      </table>
+    </div>
+    <div class="box-mint"><strong>Key rule:</strong> Losses on assets within the same qualifying BADR disposal are netted against the gains. You cannot separate them out.</div>
+  </div>
+</div>
+
+<h3>BADR — Type 2: Disposal of Shares in a Personal Trading Company</h3>
+
+<div class="cond-grid">
+  <div class="cond-item">
+    <div class="num">1</div>
+    <div class="label">Trading company</div>
+    <p>The company must be a <strong>trading company</strong> (or holding company of a trading group).</p>
+  </div>
+  <div class="cond-item">
+    <div class="num">2</div>
+    <div class="label">At least 5% shareholding</div>
+    <p>The individual must hold at least <strong>5% of the ordinary share capital</strong> AND at least 5% of the voting rights.</p>
+  </div>
+  <div class="cond-item">
+    <div class="num">3</div>
+    <div class="label">Employee or officer</div>
+    <p>The individual must be an <strong>employee or director</strong> of the company. Does not need to be full-time.</p>
+  </div>
+  <div class="cond-item">
+    <div class="num">4</div>
+    <div class="label">2 years</div>
+    <p>All 3 conditions above must have been met for at least <strong>2 years</strong> before the disposal date.</p>
+  </div>
+</div>
+
+<div class="box-ygreen">
+  <div class="box-title">🧠 Mnemonic — BADR Conditions for Shares: "TESTT"</div>
+  <div class="mnemonic">
+    <div class="mnemonic-word">T · E · S · T · T</div>
+    <ul>
+      <li><strong>T</strong>rading company</li>
+      <li><strong>E</strong>mployee or director (any role — not just full-time)</li>
+      <li><strong>S</strong>hares = minimum 5%</li>
+      <li><strong>T</strong>wo year holding period</li>
+      <li><strong>T</strong>axed at 14% (up to £1m lifetime)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="example">
+  <div class="example-header">📝 Example 8 — BADR on Share Disposal (Pass vs Fail)</div>
+  <div class="example-body">
+    <p>Four individuals each sell shares in Cinnamon Ltd, an unquoted trading company:</p>
+    <div class="tbl-wrap">
+    <table>
+      <tr><th>Person</th><th>Shareholding</th><th>Role</th><th>Period held</th><th>BADR?</th><th>Reason</th></tr>
+      <tr><td>Innocent</td><td>20%</td><td>Managing Director</td><td>5 years</td><td class="tick">✔ Yes</td><td>All conditions met: 5%+, officer, 2 years</td></tr>
+      <tr><td>Amin</td><td>10%</td><td>Investor only</td><td>6 years</td><td class="cross">✘ No</td><td>Never worked for the company — fails employee condition</td></tr>
+      <tr><td>Camilla</td><td>15%</td><td>Director</td><td>3 months</td><td class="cross">✘ No</td><td>Has not held shares for 2 years</td></tr>
+      <tr><td>Dimitri</td><td>3%</td><td>Director</td><td>4 years</td><td class="cross">✘ No</td><td>Below 5% threshold</td></tr>
+    </table>
+    </div>
+  </div>
+</div>
+
+<h3>BADR — Does it Need Enough Lifetime Limit?</h3>
+<div class="box-steel">
+  <div class="box-title">📌 Partial BADR is Possible</div>
+  <p>If only <strong>some</strong> of the lifetime limit remains, BADR applies to that portion at 14%. The remainder is taxed at 18% or 24%.</p>
+  <p>Example: Lifetime limit used = £600,000. Gain this year = £700,000. BADR applies to £400,000 at 14%. Remaining £300,000 taxed at 18%/24%.</p>
+</div>
+
+<h3>BADR Claim Deadline</h3>
+<div class="box-mint">
+  <div class="box-title">⏰ Deadline</div>
+  <p>Claim by <strong>1st anniversary of 31 January</strong> following the tax year of disposal.</p>
+  <p>Example: Disposal in 2025/26 → claim by <strong>31 January 2028</strong>.</p>
+</div>
+
+<!-- ═══════════════════════════════════════ SECTION 5 ═══════════════════════════════════════ -->
+<div class="section-header" id="s5">
+  <div class="section-num">5</div>
+  <h2>Investors' Relief (IR)</h2>
+</div>
+
+<p><strong>Think of it like this:</strong> BADR rewards business <em>owners who work in their company</em>. Investors' Relief rewards external investors who put money into new trading companies but don't work there.</p>
+
+<div class="box-azure">
+  <div class="box-title">📌 Key Facts — Investors' Relief FA2025</div>
+  <ul>
+    <li>Rate: <strong>14%</strong> (same as BADR)</li>
+    <li>Lifetime limit: <strong>£1,000,000</strong> (separate from BADR lifetime limit)</li>
+    <li>The £1m limit was reduced from £10m effective 30 October 2024 — the exam uses the new £1m limit</li>
+  </ul>
+</div>
+
+<h3>IR — Conditions</h3>
+
+<div class="tbl-wrap">
+<table>
+  <tr><th>Condition</th><th>Requirement</th><th>BADR equivalent?</th></tr>
+  <tr><td>Company type</td><td>Unlisted trading company (or holding company of trading group). AIM shares count as unlisted.</td><td>Same</td></tr>
+  <tr><td>New shares only</td><td>The investor must have <strong>subscribed for</strong> (i.e. received newly issued shares). Buying shares from an existing shareholder does NOT count.</td><td>No equivalent — BADR allows secondary purchases</td></tr>
+  <tr><td>Holding period</td><td>Shares must have been held for <strong>at least 3 years</strong> (longer than BADR's 2 years)</td><td>BADR = 2 years</td></tr>
+  <tr><td>Must NOT be an employee/officer</td><td>The investor must <strong>not</strong> be an employee, director, or officer of the company</td><td>Opposite of BADR!</td></tr>
+  <tr><td>Date of issue</td><td>Shares must have been issued on or after 17 March 2016</td><td>N/A</td></tr>
+</table>
+</div>
+
+<div class="box-flame">
+  <div class="box-title">⚠️ Classic Exam Trap — Employee Cannot Claim IR</div>
+  <p>Even if all other conditions are met, an employee or director of the company <strong>cannot</strong> claim IR. They should look at BADR instead. If they don't meet BADR conditions either (e.g. under 5%), they get no relief at all.</p>
+</div>
+
+<div class="example">
+  <div class="example-header">📝 Example 9 — IR vs BADR Comparison</div>
+  <div class="example-body">
+    <p>Compare Siobhan and Nigel, both selling shares in the same unquoted trading company:</p>
+    <div class="tbl-wrap">
+    <table>
+      <tr><th></th><th>Siobhan</th><th>Nigel</th></tr>
+      <tr><td>Shares held</td><td>3% (newly subscribed)</td><td>3% (bought from third party)</td></tr>
+      <tr><td>Role</td><td>External investor — not an employee</td><td>Part-time director</td></tr>
+      <tr><td>Holding period</td><td>4 years</td><td>4 years</td></tr>
+      <tr><td>BADR?</td><td class="cross">✘ No — below 5%</td><td class="cross">✘ No — below 5%</td></tr>
+      <tr><td>Investors' Relief?</td><td class="tick">✔ Yes — subscribed, not employee, held 3+ yrs</td><td class="cross">✘ No — did not subscribe for shares (bought from third party)</td></tr>
+      <tr><td>Rate</td><td>14% on gain (up to £1m limit)</td><td>18% or 24% (no relief)</td></tr>
+    </table>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ SECTION 6 ═══════════════════════════════════════ -->
+<div class="section-header" id="s6">
+  <div class="section-num">6</div>
+  <h2>Private Residence Relief (PRR)</h2>
+</div>
+
+<p><strong>Think of it like this:</strong> Your main home is generally not taxed when you sell it. PRR shelters the proportion of your ownership period during which the house was your main residence.</p>
+
+<div class="box-mint">
+  <div class="box-title">📌 PRR Formula</div>
+  <p><strong>PRR = Total gain × (Qualifying months / Total months of ownership)</strong></p>
+  <p>Qualifying months = Periods of actual occupation + Deemed occupation periods</p>
+</div>
+
+<h3>The Final 9 Months Rule</h3>
+<div class="box-azure">
+  <div class="box-title">📌 Last 9 Months — Always Exempt</div>
+  <p>The <strong>final 9 months of ownership</strong> are always treated as qualifying (deemed occupation), provided the property was the individual's main residence at <strong>some point during ownership</strong>.</p>
+  <p>This applies even if the individual is not actually living there in the final 9 months — for example, if they've moved into a new home before selling the old one.</p>
+</div>
+
+<h3>Periods of Deemed Occupation (Exempt Even Though Not Living There)</h3>
+<div class="tbl-wrap">
+<table>
+  <tr><th>Absence reason</th><th>Max period covered</th><th>Condition</th></tr>
+  <tr><td>Any reason (the "3-year rule")</td><td>Up to <strong>3 years</strong> total</td><td>Must be <strong>preceded AND followed</strong> by actual occupation</td></tr>
+  <tr><td>Working overseas (any employer)</td><td><strong>Unlimited</strong></td><td>Must be preceded AND followed by actual occupation</td></tr>
+  <tr><td>Required to work elsewhere in UK</td><td>Up to <strong>4 years</strong></td><td>Must be preceded AND followed by actual occupation</td></tr>
+  <tr><td>Final 9 months</td><td>9 months</td><td>Property must have been main residence at some point</td></tr>
+</table>
+</div>
+
+<div class="box-flame">
+  <div class="box-title">⚠️ Critical Rule — "Followed by Occupation"</div>
+  <p>The "any reason" and "working elsewhere" periods only count as exempt if the individual <strong>actually returns to live in the property</strong> after the absence. If the property is sold without returning, those periods are <strong>NOT deemed occupation</strong> (except the final 9 months which always applies regardless).</p>
+</div>
+
+<div class="example">
+  <div class="example-header">📝 Example 10 — PRR with Periods of Absence</div>
+  <div class="example-body">
+    <p>Lily bought her house in April 2012 and sold it in March 2026 (168 months total). Her occupation history:</p>
+    <div class="tbl-wrap">
+    <table>
+      <tr><th>Period</th><th>Duration</th><th>Reason</th><th>Qualifying?</th><th>Months qualifying</th></tr>
+      <tr><td>Apr 2012 – Mar 2017</td><td>60 months</td><td>Actual occupation</td><td class="tick">✔</td><td>60</td></tr>
+      <tr><td>Apr 2017 – Mar 2019</td><td>24 months</td><td>Employed overseas (followed by actual occ)</td><td class="tick">✔</td><td>24</td></tr>
+      <tr><td>Apr 2019 – Mar 2020</td><td>12 months</td><td>Actual occupation</td><td class="tick">✔</td><td>12</td></tr>
+      <tr><td>Apr 2020 – Jun 2025</td><td>63 months</td><td>Empty — NOT followed by occupation</td><td class="cross">✘ (except final 9)</td><td>9 (final months)</td></tr>
+      <tr><td></td><td><strong>168 months</strong></td><td></td><td></td><td><strong>105 months</strong></td></tr>
+    </table>
+    </div>
+    <div class="comp">
+      <div class="comp-title">PRR Calculation</div>
+      <table>
+        <tr><td>Total gain</td><td style="text-align:right">£168,000</td></tr>
+        <tr><td>PRR = £168,000 × 105/168</td><td style="text-align:right">(£105,000)</td></tr>
+        <tr><td>Chargeable gain after PRR</td><td style="text-align:right"><strong>£63,000</strong></td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<h3>Multiple Residences — Election</h3>
+<div class="box-steel">
+  <div class="box-title">📌 Two Homes at the Same Time</div>
+  <p>If an individual owns two homes simultaneously, they can elect which one is their "main residence" for PRR purposes. The election must be made within <strong>2 years</strong> of acquiring the second property. If no election is made, HMRC decides on the facts.</p>
+</div>
+
+<h3>Business Use of Home</h3>
+<div class="box-ygreen">
+  <div class="box-title">📌 Exclusive Business Use — PRR Restricted</div>
+  <p>If part of the property is used <strong>exclusively</strong> for business at <em>all times</em>, PRR is restricted proportionately. For example, if 1 room out of 4 is always a dedicated office, only 3/4 of the gain qualifies for PRR.</p>
+  <p>However, the final 9-month exempt period applies to the whole property only for rooms that have been used residentially at some point. If one room was <em>always</em> business-only, the final 9 months does NOT apply to that portion.</p>
+</div>
+
+<!-- ═══════════════════════════════════════ SECTION 7 ═══════════════════════════════════════ -->
+<div class="section-header" id="s7">
+  <div class="section-num">7</div>
+  <h2>Letting Relief</h2>
+</div>
+
+<p>Letting relief reduces the chargeable gain arising from periods when a property was let out, but <strong>only if the owner was also living in the property at the same time</strong>.</p>
+
+<div class="box-flame">
+  <div class="box-title">⚠️ Critical — Shared Occupancy Required</div>
+  <p>Letting relief is only available if the owner lives in part of the property while the rest is let. If the owner moves out entirely and rents the whole property, letting relief is <strong>NOT available</strong>.</p>
+</div>
+
+<h3>Letting Relief — The Three-Way Cap</h3>
+<p>Letting relief is the <strong>lowest</strong> of three amounts:</p>
+
+<div class="tbl-wrap">
+<table>
+  <tr><th>#</th><th>Amount</th><th>Notes</th></tr>
+  <tr><td><strong>1</strong></td><td>Maximum statutory limit: <strong>£40,000</strong></td><td>Hard cap — cannot exceed this</td></tr>
+  <tr><td><strong>2</strong></td><td>PRR already claimed</td><td>Letting relief cannot exceed the amount of PRR given</td></tr>
+  <tr><td><strong>3</strong></td><td>The gain attributable to the letting period</td><td>You can't claim relief for more gain than actually arose during letting</td></tr>
+</table>
+</div>
+
+<div class="example">
+  <div class="example-header">📝 Example 11 — Letting Relief Calculation</div>
+  <div class="example-body">
+    <p>Masuma owns a 10-room house. She always lives in 6 rooms. She has let 4 rooms throughout her 10-year ownership. Gain before reliefs = <strong>£120,000</strong>.</p>
+    <div class="comp">
+      <div class="comp-title">Step 1 — PRR (6 rooms used by owner throughout)</div>
+      <table>
+        <tr><td>PRR = £120,000 × 6/10</td><td style="text-align:right">£72,000</td></tr>
+        <tr><td>Gain after PRR</td><td style="text-align:right">£48,000</td></tr>
+      </table>
+    </div>
+    <div class="comp">
+      <div class="comp-title">Step 2 — Letting Relief (lowest of 3)</div>
+      <table>
+        <tr><td>① Maximum = £40,000</td><td style="text-align:right">£40,000</td></tr>
+        <tr><td>② PRR given = £72,000</td><td style="text-align:right">£72,000</td></tr>
+        <tr><td>③ Gain on letting = £48,000</td><td style="text-align:right">£48,000</td></tr>
+        <tr><td>Letting relief = lowest → <strong>£40,000</strong></td><td style="text-align:right"></td></tr>
+      </table>
+    </div>
+    <div class="comp">
+      <div class="comp-title">Final Chargeable Gain</div>
+      <table>
+        <tr><td>Gain before reliefs</td><td style="text-align:right">£120,000</td></tr>
+        <tr><td>Less: PRR</td><td style="text-align:right">(£72,000)</td></tr>
+        <tr><td>Less: Letting relief</td><td style="text-align:right">(£40,000)</td></tr>
+        <tr><td>Chargeable gain</td><td style="text-align:right"><strong>£8,000</strong></td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ SECTION 8 ═══════════════════════════════════════ -->
+<div class="section-header" id="s8">
+  <div class="section-num">8</div>
+  <h2>CGT Planning &amp; Interaction of Reliefs</h2>
+</div>
+
+<h3>Gift Holdover + BADR — A Critical Interaction</h3>
+<div class="box-azure">
+  <div class="box-title">📌 The Key Conflict</div>
+  <p>If holdover relief is claimed on a gift, the gain is deferred into the donee's base cost. When the donee sells, they will not normally qualify for BADR (unless they independently meet all BADR conditions — e.g. have worked in the company for 2 years, own 5%+).</p>
+  <p>Therefore, it may be better for the donor to <strong>NOT claim holdover relief</strong>, so the donor can claim BADR on the full gain at 14%. This is a frequent exam planning question.</p>
+</div>
+
+<div class="example">
+  <div class="example-header">📝 Example 12 — Holdover vs No Holdover: Which is Better?</div>
+  <div class="example-body">
+    <p>Bill gifts shares in High Rise Ltd (qualifying for BADR) to daughter Belle. Gain = <strong>£148,000</strong>. Bill's cost = £112,000.</p>
+    <p>Belle sells the shares shortly after for £262,000. Belle has held the shares for less than 2 years — she does NOT qualify for BADR.</p>
+    <div class="tbl-wrap">
+    <table>
+      <tr><th></th><th>Option A: Holdover claimed</th><th>Option B: No holdover</th></tr>
+      <tr><td>Bill's CGT</td><td>£3,033 (only on restricted gain, taxed at 14% BADR)</td><td>£20,300 (full gain at BADR 14%)</td></tr>
+      <tr><td>Belle's CGT</td><td>£29,360 (large gain, 24% — no BADR)</td><td>£0 (tiny gain — proceeds almost = cost)</td></tr>
+      <tr><td><strong>Total CGT</strong></td><td><strong>£32,393</strong></td><td><strong>£20,300</strong></td></tr>
+      <tr><td>Best option?</td><td class="cross">✘ Higher total tax</td><td class="tick">✔ Saves £12,093 overall</td></tr>
+    </table>
+    </div>
+    <div class="box-ygreen"><strong>Lesson:</strong> From a family total perspective, Option B (no holdover, Bill uses BADR) saves £12,093. However, Bill personally may prefer Option A because his own bill is lower — the best answer depends on whose perspective you're asked about.</div>
+  </div>
+</div>
+
+<h3>Spouse Transfers — CGT Planning</h3>
+<div class="box-steel">
+  <div class="box-title">📌 Why Transfer to a Spouse Before Selling?</div>
+  <ul>
+    <li>Transfers between spouses = no gain/no loss → no CGT on transfer</li>
+    <li>The receiving spouse gets their own AEA (£3,000) and their own basic rate band</li>
+    <li>If one spouse has remaining BRB, the gain taxed at 18% instead of 24%</li>
+    <li>If one spouse has CGT losses, they can be used</li>
+  </ul>
+  <p><strong>Example:</strong> Splitting ownership 50:50 before selling a property could save significant CGT by using both partners' AEAs and lower bands.</p>
+</div>
+
+<h3>Annual Exempt Amount (AEA) — Don't Waste It</h3>
+<div class="tbl-wrap">
+<table>
+  <tr><th>Tax year 2025/26</th><th>Amount</th></tr>
+  <tr><td>Annual Exempt Amount per individual</td><td><strong>£3,000</strong></td></tr>
+  <tr><td>Companies</td><td>No AEA — companies do not get AEA</td></tr>
+</table>
+</div>
+
+<div class="box-mint">
+  <div class="box-title">📌 Rules for AEA</div>
+  <ul>
+    <li>AEA is applied <strong>after</strong> current year losses</li>
+    <li>AEA is applied <strong>before</strong> brought-forward losses</li>
+    <li>AEA cannot be carried forward — use it or lose it each year</li>
+    <li>Brought-forward losses are restricted so as NOT to waste AEA</li>
+  </ul>
+</div>
+
+<h3>Summary Comparison — All Reliefs</h3>
+
+<div class="compare-grid">
+  <div class="compare-card rc1">
+    <div class="compare-card-header">Rollover Relief</div>
+    <div class="compare-card-body">
+      <ul>
+        <li>Defers gain on business asset sales</li>
+        <li>Must reinvest in qualifying asset within window</li>
+        <li>Partial reinvestment = partial relief</li>
+        <li>Applies to individuals &amp; companies</li>
+        <li>No minimum ownership period</li>
+      </ul>
+    </div>
+  </div>
+  <div class="compare-card rc2">
+    <div class="compare-card-header">Gift Holdover Relief</div>
+    <div class="compare-card-body">
+      <ul>
+        <li>Defers gain on gift of business asset</li>
+        <li>Joint claim by donor and donee</li>
+        <li>No min ownership period</li>
+        <li>Restricted if company has non-business assets</li>
+        <li>Conflict with BADR — plan carefully</li>
+      </ul>
+    </div>
+  </div>
+  <div class="compare-card rc3">
+    <div class="compare-card-header">BADR</div>
+    <div class="compare-card-body">
+      <ul>
+        <li>14% rate on qualifying gains</li>
+        <li>£1m lifetime limit per person</li>
+        <li>Must be employee/director + 5%+ shares + 2 years</li>
+        <li>Whole/substantial business or share disposal</li>
+        <li>Individuals only</li>
+      </ul>
+    </div>
+  </div>
+  <div class="compare-card rc4">
+    <div class="compare-card-header">Investors' Relief</div>
+    <div class="compare-card-body">
+      <ul>
+        <li>14% rate, separate £1m lifetime limit</li>
+        <li>Must subscribe for NEW shares (not buy secondhand)</li>
+        <li>Must NOT be employee or officer</li>
+        <li>Hold for 3 years (longer than BADR)</li>
+        <li>Unlisted trading company shares only</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ MCQ SECTION ═══════════════════════════════════════ -->
+<div class="quiz-wrap" id="mcq">
+  <div class="quiz-header">
+    <div style="font-size:28px;">🎯</div>
+    <div>
+      <h2>20 Exam-Style MCQs — CGT Reliefs &amp; Exemptions</h2>
+      <p style="font-size:14px;opacity:.8;">Attempt each question independently before clicking to reveal the answer.</p>
+    </div>
+  </div>
+
+  <!-- Q1 -->
+  <div class="q-block">
+    <div class="q-text"><span class="q-num">1</span>Alex sells his factory for £320,000 making a gain of £75,000. He reinvests £280,000 in a replacement warehouse (a qualifying asset) within 3 years. How much of the gain is chargeable immediately?</div>
+    <ul class="q-options">
+      <li onclick="answer(this,'wrong','The gain chargeable = lower of: (a) unspent proceeds £40,000 or (b) total gain £75,000 → £40,000.')">A. £75,000</li>
+      <li onclick="answer(this,'correct','Correct! Unspent proceeds = £320,000 − £280,000 = £40,000. Chargeable now = lower of £40,000 or £75,000 = £40,000.')">B. £40,000</li>
+      <li onclick="answer(this,'wrong','The gain chargeable = lower of: (a) unspent proceeds £40,000 or (b) total gain £75,000 → £40,000.')">C. £35,000</li>
+      <li onclick="answer(this,'wrong','The gain chargeable = lower of: (a) unspent proceeds £40,000 or (b) total gain £75,000 → £40,000.')">D. NIL</li>
+    </ul>
+    <div class="q-explain" id="exp1"></div>
+  </div><div class="q-divider"></div>
+
+  <!-- Q2 -->
+  <div class="q-block">
+    <div class="q-text"><span class="q-num">2</span>Which TWO of the following assets qualify for rollover relief?<br><em>(Select both correct options — consider each separately)</em></div>
+    <ul class="q-options">
+      <li onclick="answer(this,'correct','Correct! Freehold premises (land &amp; buildings) is a qualifying asset for rollover relief.')">A. Freehold premises used in a trade</li>
+      <li onclick="answer(this,'wrong','Shares NEVER qualify for rollover relief — this is a classic exam trap.')">B. Shares in a quoted trading company</li>
+      <li onclick="answer(this,'correct','Correct! Fixed plant &amp; machinery qualifies. Only MOVABLE plant &amp; machinery is excluded.')">C. Fixed plant and machinery used in a trade</li>
+      <li onclick="answer(this,'wrong','Movable plant and machinery does NOT qualify for rollover relief. Only FIXED P&amp;M qualifies.')">D. Movable plant and machinery used in a trade</li>
+    </ul>
+    <div class="q-explain" id="exp2"></div>
+  </div><div class="q-divider"></div>
+
+  <!-- Q3 -->
+  <div class="q-block">
+    <div class="q-text"><span class="q-num">3</span>Sam gifts shares in an unquoted trading company to his brother. Sam's cost = £30,000. Market value at gift = £90,000. Both make a joint claim for gift holdover relief. What is his brother's base cost for future CGT purposes?</div>
+    <ul class="q-options">
+      <li onclick="answer(this,'wrong','The brother&apos;s base cost = MV at gift (£90,000) − holdover relief (£60,000) = £30,000 — i.e., Sam&apos;s original cost.')">A. £90,000</li>
+      <li onclick="answer(this,'wrong','The brother&apos;s base cost = MV at gift (£90,000) − holdover relief (£60,000) = £30,000.')">B. £60,000</li>
+      <li onclick="answer(this,'correct','Correct! Donee&apos;s base cost = MV (£90,000) − gain held over (£60,000) = £30,000 = Sam&apos;s original cost.')">C. £30,000</li>
+      <li onclick="answer(this,'wrong','The brother&apos;s base cost = MV at gift (£90,000) − holdover relief (£60,000) = £30,000.')">D. NIL</li>
+    </ul>
+    <div class="q-explain" id="exp3"></div>
+  </div><div class="q-divider"></div>
+
+  <!-- Q4 -->
+  <div class="q-block">
+    <div class="q-text"><span class="q-num">4</span>Which of the following statements about gift holdover relief is TRUE?</div>
+    <ul class="q-options">
+      <li onclick="answer(this,'wrong','Gift holdover relief has NO minimum ownership period — this is a key distinction from BADR.')">A. The donor must have owned the asset for at least 2 years</li>
+      <li onclick="answer(this,'wrong','Gift holdover relief CAN be claimed on quoted company shares if the donor owns at least 5% of voting rights.')">B. Gift holdover relief is never available on shares in a quoted company</li>
+      <li onclick="answer(this,'correct','Correct! Only the DONOR and DONEE can make the claim jointly. Both must sign.')">C. The claim must be made jointly by both the donor and the donee</li>
+      <li onclick="answer(this,'wrong','Gift holdover relief IS available on shares in trading companies, both quoted (if ≥5%) and unquoted.')">D. Gift holdover relief is only available on assets used in a trade, not on shares</li>
+    </ul>
+    <div class="q-explain" id="exp4"></div>
+  </div><div class="q-divider"></div>
+
+  <!-- Q5 -->
+  <div class="q-block">
+    <div class="q-text"><span class="q-num">5</span>Rachel sells shares in her personal trading company. She has held 8% of the shares for 18 months and has been a part-time director for 18 months. Does she qualify for BADR?</div>
+    <ul class="q-options">
+      <li onclick="answer(this,'correct','Correct! Rachel fails the 2-year holding period condition — she has only held the shares for 18 months. All THREE conditions (5%, employee/director, 2 years) must be met simultaneously for 2 years.')">A. No — she has not met the 2-year condition</li>
+      <li onclick="answer(this,'wrong','Rachel does NOT qualify. Although she meets the 5% and employee/director tests, she has only held the shares for 18 months — under the 2-year minimum.')">B. Yes — she is a director and holds over 5%</li>
+      <li onclick="answer(this,'wrong','Part-time is sufficient for BADR, but that is not the problem here. The 2-year condition is not met.')">C. No — she must be a full-time director</li>
+      <li onclick="answer(this,'wrong','BADR requires 5% of ordinary shares and voting rights, but the problem here is the 2-year holding period.')">D. No — she needs to hold at least 10%</li>
+    </ul>
+    <div class="q-explain" id="exp5"></div>
+  </div><div class="q-divider"></div>
+
+  <!-- Q6 -->
+  <div class="q-block">
+    <div class="q-text"><span class="q-num">6</span>Tom disposes of his entire unincorporated business (a trading business he has owned for 5 years). The disposal results in a net chargeable gain of £800,000. He has already used £400,000 of his BADR lifetime limit. What is his CGT liability (assume he is a higher rate taxpayer)?</div>
+    <ul class="q-options">
+      <li onclick="answer(this,'wrong','BADR applies to the remaining £600,000 lifetime limit — so £600,000 of the gain qualifies, not all £800,000.')">A. £800,000 × 14% = £112,000</li>
+      <li onclick="answer(this,'correct','Correct! Remaining BADR limit = £1,000,000 − £400,000 = £600,000. CGT = (£600,000 × 14%) + (£200,000 × 24%) = £84,000 + £48,000 = £132,000.')">B. £132,000</li>
+      <li onclick="answer(this,'wrong','£192,000 would be the answer if no BADR applied at all (£800,000 × 24%). But BADR applies to £600,000.')">C. £192,000</li>
+      <li onclick="answer(this,'wrong','This would apply if BADR could only cover gains not exceeding the limit and the rest is at 18%.')">D. £120,000</li>
+    </ul>
+    <div class="q-explain" id="exp6"></div>
+  </div><div class="q-divider"></div>
+
+  <!-- Q7 -->
+  <div class="q-block">
+    <div class="q-text"><span class="q-num">7</span>Nina subscribed for new shares in an unquoted trading company in July 2022. She sold them in September 2025 (over 3 years later). She has never been an employee or director. Which relief applies?</div>
+    <ul class="q-options">
+      <li onclick="answer(this,'wrong','BADR requires the individual to BE an employee or director. Nina is neither — so BADR is not available.')">A. BADR — taxed at 14%</li>
+      <li onclick="answer(this,'correct','Correct! Investors&apos; Relief applies: subscribed for new shares in unlisted trading company, held 3+ years, not an employee/director. Rate = 14% on up to £1m.')">B. Investors' Relief — taxed at 14%</li>
+      <li onclick="answer(this,'wrong','Gift holdover relief is not relevant here — there is no gift; Nina is selling to a third party.')">C. Gift holdover relief</li>
+      <li onclick="answer(this,'wrong','Rollover relief does not apply to share disposals.')">D. Rollover relief</li>
+    </ul>
+    <div class="q-explain" id="exp7"></div>
+  </div><div class="q-divider"></div>
+
+  <!-- Q8 -->
+  <div class="q-block">
+    <div class="q-text"><span class="q-num">8</span>Oscar bought a house in April 2012 and has always lived in it as his main home. He sells it in April 2026. He has earned £50,000 profit (gain). What is the CGT?</div>
+    <ul class="q-options">
+      <li onclick="answer(this,'wrong','If PRR applies in full, the gain is completely exempt — no CGT.')">A. £50,000 × 24% = £12,000</li>
+      <li onclick="answer(this,'wrong','Full PRR means the gain is EXEMPT — no AEA needed, no CGT.')">B. (£50,000 − £3,000 AEA) × 18% = £8,460</li>
+      <li onclick="answer(this,'correct','Correct! The property was Oscar&apos;s main home throughout the entire period. Full PRR applies → the gain is completely exempt. CGT = NIL.')">C. NIL — full PRR applies</li>
+      <li onclick="answer(this,'wrong','PRR is not restricted in this scenario — Oscar lived there throughout.')">D. £50,000 × 18% = £9,000</li>
+    </ul>
+    <div class="q-explain" id="exp8"></div>
+  </div><div class="q-divider"></div>
+
+  <!-- Q9 -->
+  <div class="q-block">
+    <div class="q-text"><span class="q-num">9</span>Priya lived in her house from January 2012 to December 2016 (5 years). She then worked abroad until December 2019 (3 years), then returned home and lived there until she sold it in December 2021 (2 years). Total ownership = 10 years. What fraction of the gain qualifies for PRR?</div>
+    <ul class="q-options">
+      <li onclick="answer(this,'wrong','You need to count: actual occupation (5 yrs) + working abroad (3 yrs — followed by actual occupation, unlimited exemption) + actual occupation (2 yrs) = 10/10.')">A. 7/10</li>
+      <li onclick="answer(this,'wrong','You need to count: actual occupation (5 yrs) + working abroad (3 yrs) + actual occupation (2 yrs) = 10/10.')">B. 8/10</li>
+      <li onclick="answer(this,'wrong','Working abroad is exempt for UNLIMITED period, provided the individual returns to actually occupy the property afterwards. Priya did return for 2 years — so all 3 years overseas are exempt.')">C. 9/10</li>
+      <li onclick="answer(this,'correct','Correct! Actual occupation: 5+2=7 yrs. Working abroad: 3 yrs (unlimited, followed by actual occupation). Total qualifying = 10 years = 10/10. Entire gain exempt!')">D. 10/10 — full PRR (entire gain exempt)</li>
+    </ul>
+    <div class="q-explain" id="exp9"></div>
+  </div><div class="q-divider"></div>
+
+  <!-- Q10 -->
+  <div class="q-block">
+    <div class="q-text"><span class="q-num">10</span>Charlotte lets out 3 rooms of her 6-room house (she lives in the other 3). She has always occupied part of the house. Total gain = £80,000. PRR = £40,000. Gain attributable to let rooms = £40,000. What is the letting relief?</div>
+    <ul class="q-options">
+      <li onclick="answer(this,'wrong','Letting relief = lowest of: ① £40,000 max, ② PRR £40,000, ③ gain on letting £40,000. All three are equal — so letting relief = £40,000.')">A. £80,000</li>
+      <li onclick="answer(this,'correct','Correct! Lowest of: ① £40,000 cap, ② PRR of £40,000, ③ gain on let rooms £40,000 = £40,000.')">B. £40,000</li>
+      <li onclick="answer(this,'wrong','Letting relief = lowest of three amounts. The maximum is £40,000, not £20,000.')">C. £20,000</li>
+      <li onclick="answer(this,'wrong','Letting relief applies here because Charlotte occupies the property simultaneously — shared occupancy qualifies.')">D. NIL — letting relief is not available</li>
+    </ul>
+    <div class="q-explain" id="exp10"></div>
+  </div><div class="q-divider"></div>
+
+  <!-- Q11 -->
+  <div class="q-block">
+    <div class="q-text"><span class="q-num">11</span>For gift holdover relief on shares in a personal trading company (donor owns 8%), the company has: chargeable business assets £300,000 and investment assets £100,000 (total chargeable assets £400,000). Gain = £120,000. What is the gift holdover relief available?</div>
+    <ul class="q-options">
+      <li onclick="answer(this,'wrong','Because the company has non-business assets and the donor owns ≥5%, the relief is restricted by business/total ratio.')">A. £120,000</li>
+      <li onclick="answer(this,'correct','Correct! Restricted holdover = £120,000 × £300,000/£400,000 = £90,000.')">B. £90,000</li>
+      <li onclick="answer(this,'wrong','The restriction uses chargeable business assets (£300,000) / total chargeable assets (£400,000), not just investment assets.')">C. £30,000</li>
+      <li onclick="answer(this,'wrong','Gift holdover IS available — the company is a trading company; the restriction reduces but does not eliminate the relief.')">D. NIL</li>
+    </ul>
+    <div class="q-explain" id="exp11"></div>
+  </div><div class="q-divider"></div>
+
+  <!-- Q12 -->
+  <div class="q-block">
+    <div class="q-text"><span class="q-num">12</span>Barry sells his warehouse (used in his sole trader business) for £450,000. The warehouse cost £270,000. Barry has not yet found a replacement property. By what latest date must he purchase a replacement qualifying asset to claim rollover relief?</div>
+    <ul class="q-options">
+      <li onclick="answer(this,'wrong','Rollover relief allows 1 year BEFORE or 3 years AFTER disposal. Not 1 year after.')">A. 1 year after the date of disposal</li>
+      <li onclick="answer(this,'correct','Correct! The replacement must be acquired within 1 year before OR 3 years after the disposal date. 3 years after disposal is the latest.')">B. 3 years after the date of disposal</li>
+      <li onclick="answer(this,'wrong','Rollover gives 3 years after disposal — not 4 years.')">C. 4 years after the date of disposal</li>
+      <li onclick="answer(this,'wrong','Rollover gives 3 years after disposal — not 5 years. The 4-year period refers to the time limit to submit the claim, not acquire the asset.')">D. 5 years after the date of disposal</li>
+    </ul>
+    <div class="q-explain" id="exp12"></div>
+  </div><div class="q-divider"></div>
+
+  <!-- Q13 -->
+  <div class="q-block">
+    <div class="q-text"><span class="q-num">13</span>Kim gives away shares in a quoted company (plc) to her nephew. She owns 3% of the shares. She wants to claim gift holdover relief. Is this available?</div>
+    <ul class="q-options">
+      <li onclick="answer(this,'wrong','For QUOTED companies, the donor must own at least 5%. Kim owns only 3% — she fails this condition.')">A. Yes — the company must only be a trading company for holdover to apply</li>
+      <li onclick="answer(this,'wrong','For quoted companies, the threshold is 5% (not 10%).')">B. No — she needs to hold at least 10% in a quoted company</li>
+      <li onclick="answer(this,'correct','Correct! For a quoted company (plc), the donor must hold at least 5% of voting rights to claim holdover. Kim has only 3% — so holdover is not available.')">C. No — for a quoted company, the donor must hold at least 5% of voting rights</li>
+      <li onclick="answer(this,'wrong','Gift holdover relief IS potentially available on quoted company shares, but only if the donor owns ≥5%.')">D. No — gift holdover relief is never available on quoted company shares</li>
+    </ul>
+    <div class="q-explain" id="exp13"></div>
+  </div><div class="q-divider"></div>
+
+  <!-- Q14 -->
+  <div class="q-block">
+    <div class="q-text"><span class="q-num">14</span>Greta owned a house for 120 months in total. She lived in it for 40 months, was then absent for any reason (not working) for 60 months (did NOT return), then sold it. How many months qualify for PRR?</div>
+    <ul class="q-options">
+      <li onclick="answer(this,'wrong','The "any reason" exemption covers up to 3 years, but ONLY if followed by actual occupation. Greta did not return. So it is NOT deemed occupation. Only actual occupation (40) + final 9 months qualify.')">A. 100 months (40 actual + 60 any reason)</li>
+      <li onclick="answer(this,'wrong','The "any reason" period is NOT exempt here because Greta did not return. Only 40 + 9 = 49 months qualify.')">B. 76 months (40 actual + 36 any reason max)</li>
+      <li onclick="answer(this,'correct','Correct! The "any reason" exemption requires return to actual occupation afterwards. No return = not exempt. Only 40 months actual + 9 final months = 49 months qualify.')">C. 49 months (40 actual + 9 final months)</li>
+      <li onclick="answer(this,'wrong','The final 9 months are always exempt if the property was ever a main residence — so at least 49 months qualify.')">D. 40 months (actual occupation only)</li>
+    </ul>
+    <div class="q-explain" id="exp14"></div>
+  </div><div class="q-divider"></div>
+
+  <!-- Q15 -->
+  <div class="q-block">
+    <div class="q-text"><span class="q-num">15</span>In 2025/26, David sells his office building (sole trader) for a gain of £60,000 and also sells shares in a trading company (in which he holds 8% and is a director for 3 years) for a gain of £900,000. His BADR lifetime limit is unused. What is his total CGT payable (assume higher rate taxpayer)?</div>
+    <ul class="q-options">
+      <li onclick="answer(this,'wrong','The office building alone does not qualify for BADR (it is not a disposal of the whole/substantial business). Rollover might apply if reinvested, but BADR is not available on a single asset sale.')">A. (£60,000 + £900,000) × 14% = £134,400</li>
+      <li onclick="answer(this,'correct','Correct! Shares qualify for BADR (5%+, director, 2+ years): £900,000 × 14% = £126,000. Office building alone does not qualify for BADR — gain of £60,000 × 24% = £14,400. Total = £140,400.')">B. (£900,000 × 14%) + (£60,000 × 24%) = £140,400</li>
+      <li onclick="answer(this,'wrong','Both gains are not taxed at 24%. The shares qualify for BADR at 14%.')">C. £960,000 × 24% = £230,400</li>
+      <li onclick="answer(this,'wrong','Only the share disposal qualifies for BADR — not the single asset (office building) sale.')">D. (£900,000 + £60,000) × 14% = £134,400</li>
+    </ul>
+    <div class="q-explain" id="exp15"></div>
+  </div><div class="q-divider"></div>
+
+  <!-- Q16 -->
+  <div class="q-block">
+    <div class="q-text"><span class="q-num">16</span>True or False: Investors' Relief and BADR share the same £1,000,000 lifetime limit.</div>
+    <ul class="q-options">
+      <li onclick="answer(this,'wrong','BADR and IR have SEPARATE £1m lifetime limits. A person could potentially claim up to £2m in total (£1m BADR + £1m IR) if both sets of conditions are met.')">A. True</li>
+      <li onclick="answer(this,'correct','Correct! They are SEPARATE limits — £1m for BADR and £1m for IR. Both at 14%. A person can use both limits if qualifying for each type.')">B. False — they have separate £1,000,000 lifetime limits</li>
+    </ul>
+    <div class="q-explain" id="exp16"></div>
+  </div><div class="q-divider"></div>
+
+  <!-- Q17 -->
+  <div class="q-block">
+    <div class="q-text"><span class="q-num">17</span>Angela sells her factory for £500,000 making a gain of £120,000. She plans to buy a new factory for £380,000 (within the 3-year window). What is Angela's base cost of the new factory?</div>
+    <ul class="q-options">
+      <li onclick="answer(this,'wrong','Unspent proceeds = £500,000 − £380,000 = £120,000. Gain chargeable = lower of £120,000 (unspent) or £120,000 (total gain) = £120,000. Nothing is deferred! Base cost = £380,000 as paid.')">A. £260,000 (£380,000 − £120,000)</li>
+      <li onclick="answer(this,'wrong','The base cost would only be reduced if some gain was deferred. Since the full gain is chargeable now, no rollover occurs.')">B. £380,000 − £80,000 = £300,000</li>
+      <li onclick="answer(this,'correct','Correct! Unspent proceeds = £120,000 ≥ total gain £120,000. So the ENTIRE gain is immediately chargeable (no deferral). Base cost of new factory = £380,000 (actual cost, no reduction).')">C. £380,000 — no rollover, no base cost adjustment</li>
+      <li onclick="answer(this,'wrong','£500,000 is the sale proceeds from the old factory, not the base cost of the new one.')">D. £500,000</li>
+    </ul>
+    <div class="q-explain" id="exp17"></div>
+  </div><div class="q-divider"></div>
+
+  <!-- Q18 -->
+  <div class="q-block">
+    <div class="q-text"><span class="q-num">18</span>Harry and his wife Meghan each own 50% of a rental flat (not their main home). Gain on sale = £100,000. Harry has already used his AEA. Meghan has not used her AEA. Harry's taxable income = £60,000 (higher rate). Meghan's taxable income = £20,000 (still within BRB). What is the optimal CGT strategy?</div>
+    <ul class="q-options">
+      <li onclick="answer(this,'wrong','Selling in Harry&apos;s name alone wastes Meghan&apos;s AEA and her lower CGT rate.')">A. Sell entirely in Harry's name — £100,000 × 24% = £24,000</li>
+      <li onclick="answer(this,'correct','Correct! Each owns 50%. Harry: £50,000 gain, no AEA → £50,000 × 24% = £12,000. Meghan: £50,000 − £3,000 AEA = £47,000. She has remaining BRB — taxed at 18% = £8,460. Total = £20,460.')">B. Split 50:50 as current ownership — use Meghan's AEA and lower rate</li>
+      <li onclick="answer(this,'wrong','Transferring 100% to Meghan only makes sense if the entire gain falls within her basic rate band, but £100,000 is too large.')">C. Transfer entirely to Meghan before sale to use just her lower rate</li>
+      <li onclick="answer(this,'wrong','Rollover relief requires reinvestment in qualifying business assets — a rental flat is not a qualifying business asset used in a trade.')">D. Claim rollover relief on the gain</li>
+    </ul>
+    <div class="q-explain" id="exp18"></div>
+  </div><div class="q-divider"></div>
+
+  <!-- Q19 -->
+  <div class="q-block">
+    <div class="q-text"><span class="q-num">19</span>Joel gifts business assets to his daughter Amy. The market value = £200,000, actual proceeds received = £70,000, cost = £50,000. What is the gain immediately chargeable (before any AEA)?</div>
+    <ul class="q-options">
+      <li onclick="answer(this,'wrong','The full gain (MV − cost = £150,000) would only be chargeable if no holdover was claimed. When some consideration is received, the excess of actual proceeds over cost is immediately chargeable.')">A. £150,000</li>
+      <li onclick="answer(this,'wrong','The immediately chargeable gain = actual proceeds minus cost = £70,000 − £50,000 = £20,000.')">B. £130,000 (gain after deducting consideration)</li>
+      <li onclick="answer(this,'correct','Correct! Immediately chargeable = actual proceeds (£70,000) − cost (£50,000) = £20,000. The remaining £130,000 can be held over.')">C. £20,000 (actual proceeds − cost)</li>
+      <li onclick="answer(this,'wrong','NIL would only apply if it were a pure gift with no proceeds, and full holdover was available.')">D. NIL</li>
+    </ul>
+    <div class="q-explain" id="exp19"></div>
+  </div><div class="q-divider"></div>
+
+  <!-- Q20 -->
+  <div class="q-block">
+    <div class="q-text"><span class="q-num">20</span>Which of the following is correct regarding the BADR claim deadline for a gain arising in tax year 2025/26?</div>
+    <ul class="q-options">
+      <li onclick="answer(this,'wrong','BADR has a specific deadline: 1st anniversary of 31 January following the tax year end. For 2025/26, that is 31 January 2028 (not 2027).')">A. 31 January 2027</li>
+      <li onclick="answer(this,'wrong','BADR must be claimed by 31 January 2028 — not 5 April 2030. The 4-year window applies to holdover relief, not BADR.')">B. 5 April 2030 (4 years from end of tax year)</li>
+      <li onclick="answer(this,'correct','Correct! BADR claim deadline = 1st anniversary of 31 January following tax year end. 2025/26 → tax return due 31 Jan 2027 → BADR claim deadline = 31 January 2028.')">C. 31 January 2028</li>
+      <li onclick="answer(this,'wrong','31 January 2029 would be the 2nd anniversary — too late.')">D. 31 January 2029</li>
+    </ul>
+    <div class="q-explain" id="exp20"></div>
+  </div>
+
+</div><!-- /quiz-wrap -->
+
+</main>
+
+<footer>
+  ACCA TX-UK · FA2025 · June 2026 exam window · Based on Kaplan Exam Kit FA2025 &amp; ACCA Syllabus and Study Guide 2026–2027
+</footer>
+
+<script>
+function answer(el, result, explanation) {
+  const block = el.closest('.q-block');
+  const opts = block.querySelectorAll('li');
+  opts.forEach(o => o.style.pointerEvents = 'none');
+  el.classList.add(result);
+
+  const qNum = Array.from(document.querySelectorAll('.q-block')).indexOf(block) + 1;
+  const expEl = document.getElementById('exp' + qNum);
+  if (expEl) {
+    expEl.style.display = 'block';
+    expEl.textContent = explanation;
+    if (result === 'correct') {
+      expEl.style.borderLeftColor = '#00a85a';
+      expEl.style.background = '#d4f7e5';
+    } else {
+      expEl.style.borderLeftColor = '#FC440F';
+      expEl.style.background = '#FFF0EB';
+    }
+  }
+}
+</script>
+
+</body>
+</html>
