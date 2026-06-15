@@ -3,339 +3,567 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ACCA Study Notes — Iftekhar</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<title>ACCA Study Notes — Iftekhar | June 2026</title>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;700&display=swap');
 
   :root {
-    --cream: #faf8f4;
-    --cream-mid: #f3efe8;
-    --cream-border: #e8e2d8;
-    --ink: #1c1a17;
-    --ink-mid: #4a4540;
-    --ink-muted: #8c877f;
-    --ink-dim: #b8b2a8;
-
-    --tx: #c0440e;
-    --tx-bg: #fef3ee;
-    --tx-border: #f0c4ae;
-    --tx-mid: #e8703a;
-
-    --fm: #1a5fa8;
-    --fm-bg: #eef5fd;
-    --fm-border: #b0cef0;
-    --fm-mid: #3a82cc;
-
-    --aa: #1a7a52;
-    --aa-bg: #eef8f3;
-    --aa-border: #a0dcc0;
-    --aa-mid: #2ea06e;
+    --mint:   #1EFFBC;
+    --azure:  #1F01B9;
+    --ygreen: #B4E33D;
+    --steel:  #7C9299;
+    --flame:  #FC440F;
+    --bg:     #F0F4FF;
+    --white:  #FFFFFF;
   }
 
-  html { scroll-behavior: smooth; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
-    font-family: 'Outfit', sans-serif;
-    background-color: var(--cream);
-    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
     min-height: 100vh;
     overflow-x: hidden;
   }
 
-  .bg-layer { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
-  .bg-blob { position: absolute; border-radius: 50%; filter: blur(100px); }
-  .blob-1 { width: 700px; height: 500px; top: -200px; right: -150px; background: rgba(192,68,14,0.06); }
-  .blob-2 { width: 600px; height: 600px; bottom: -200px; left: -150px; background: rgba(26,95,168,0.05); }
-  .blob-3 { width: 400px; height: 400px; top: 40%; left: 50%; background: rgba(26,122,82,0.04); }
-  .bg-dots {
-    position: absolute; inset: 0;
-    background-image: radial-gradient(circle, rgba(28,26,23,0.07) 1px, transparent 1px);
-    background-size: 28px 28px;
+  /* ─── Animated background blobs ─── */
+  .blob-bg {
+    position: fixed; inset: 0; z-index: 0;
+    overflow: hidden; pointer-events: none;
+  }
+  .blob {
+    position: absolute; border-radius: 50%;
+    filter: blur(80px); opacity: 0.25;
+    animation: floatBlob 12s ease-in-out infinite;
+  }
+  .blob1 { width:500px;height:500px;background:var(--mint);  top:-150px;left:-100px; animation-delay:0s; }
+  .blob2 { width:400px;height:400px;background:var(--azure); bottom:-100px;right:-80px; animation-delay:3s; }
+  .blob3 { width:300px;height:300px;background:var(--ygreen);top:40%;left:50%; animation-delay:6s; }
+  @keyframes floatBlob {
+    0%,100% { transform:translate(0,0) scale(1); }
+    33%      { transform:translate(30px,-40px) scale(1.05); }
+    66%      { transform:translate(-20px,30px) scale(0.95); }
   }
 
-  .page { position: relative; z-index: 1; max-width: 980px; margin: 0 auto; padding: 0 1.5rem 5rem; }
+  /* ─── Header ─── */
+  header {
+    position:relative; z-index:10;
+    background:var(--azure); padding:0 32px;
+    display:flex; align-items:center; justify-content:space-between;
+    height:68px; box-shadow:0 4px 24px rgba(31,1,185,0.3);
+  }
+  .logo {
+    font-family:'Space Grotesk',sans-serif; font-size:20px; font-weight:700;
+    color:white; display:flex; align-items:center; gap:10px;
+  }
+  .logo-icon {
+    width:36px;height:36px; background:var(--mint); border-radius:10px;
+    display:flex;align-items:center;justify-content:center; font-size:18px;
+  }
+  .exam-badge {
+    background:var(--mint); color:var(--azure);
+    font-size:12px; font-weight:800; letter-spacing:1px;
+    padding:6px 14px; border-radius:20px; text-transform:uppercase;
+  }
 
+  /* ─── Hero ─── */
   .hero {
-    padding: 5rem 0 3rem;
-    display: flex; flex-direction: column; align-items: center; text-align: center;
-    animation: fadeUp 0.7s ease both;
+    position:relative; z-index:10;
+    text-align:center; padding:64px 24px 48px;
   }
   .hero-eyebrow {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
-    color: var(--ink-muted); border: 1px solid var(--cream-border);
-    background: white; padding: 5px 18px; border-radius: 100px;
-    margin-bottom: 1.75rem; box-shadow: 0 1px 4px rgba(28,26,23,0.06);
+    display:inline-block; font-size:12px; font-weight:700;
+    letter-spacing:2px; text-transform:uppercase; color:var(--azure);
+    background:white; border:2px solid var(--azure);
+    padding:4px 16px; border-radius:20px; margin-bottom:20px;
   }
   .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(40px, 7vw, 68px);
-    font-weight: 700; line-height: 1.08; color: var(--ink); margin-bottom: 1rem;
+    font-family:'Space Grotesk',sans-serif;
+    font-size:clamp(2rem,5vw,3.4rem); font-weight:800;
+    color:var(--azure); line-height:1.1; margin-bottom:16px;
   }
-  .hero h1 em {
-    font-style: italic; font-weight: 500;
-    background: linear-gradient(135deg, var(--tx-mid), var(--fm-mid));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  .hero h1 span {
+    background:linear-gradient(135deg,var(--mint),var(--ygreen));
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
   }
-  .hero-sub { font-size: 15px; color: var(--ink-muted); font-weight: 300; letter-spacing: 0.04em; margin-bottom: 2.5rem; }
-  .hero-divider { width: 60px; height: 2px; background: linear-gradient(90deg, var(--tx-mid), var(--fm-mid), var(--aa-mid)); border-radius: 2px; }
+  .hero p { font-size:17px; color:#445; max-width:520px; margin:0 auto 32px; line-height:1.6; }
+  .hero-stats { display:flex; justify-content:center; gap:40px; flex-wrap:wrap; }
+  .stat { text-align:center; }
+  .stat-num { font-size:28px; font-weight:800; color:var(--azure); font-family:'Space Grotesk',sans-serif; }
+  .stat-label { font-size:12px; color:var(--steel); font-weight:600; text-transform:uppercase; letter-spacing:1px; }
 
+  /* ─── Nav pills ─── */
   .nav-pills {
-    display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;
-    margin: 2.5rem 0 3.5rem; animation: fadeUp 0.7s 0.12s ease both;
+    position:relative; z-index:10;
+    display:flex; justify-content:center; gap:10px; flex-wrap:wrap;
+    padding:0 24px 16px;
   }
-  .pill {
-    font-size: 12px; font-weight: 500; letter-spacing: 0.04em;
-    padding: 8px 22px; border-radius: 100px; cursor: pointer;
-    border: 1.5px solid; text-decoration: none; transition: all 0.18s; background: white;
+  .nav-pill {
+    font-size:13px; font-weight:700; padding:9px 22px; border-radius:20px;
+    text-decoration:none; transition:transform .15s, box-shadow .15s;
+    border:2px solid transparent;
   }
-  .pill-tx { color: var(--tx); border-color: var(--tx-border); }
-  .pill-fm { color: var(--fm); border-color: var(--fm-border); }
-  .pill-aa { color: var(--aa); border-color: var(--aa-border); }
-  .pill-tx:hover { background: var(--tx-bg); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(192,68,14,0.12); }
-  .pill-fm:hover { background: var(--fm-bg); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(26,95,168,0.12); }
-  .pill-aa:hover { background: var(--aa-bg); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(26,122,82,0.12); }
+  .nav-pill:hover { transform:translateY(-2px); box-shadow:0 6px 18px rgba(0,0,0,0.15); }
+  .np-tx { background:var(--flame);  color:white; }
+  .np-fm { background:var(--azure);  color:white; }
+  .np-aa { background:#1a7a52;       color:white; }
 
-  .section { margin-bottom: 3rem; animation: fadeUp 0.6s ease both; }
-  .section-label { display: flex; align-items: center; gap: 14px; margin-bottom: 1.25rem; }
-  .exam-badge {
-    font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
-    padding: 5px 14px; border-radius: 6px; border: 1.5px solid; white-space: nowrap;
+  /* ─── Section wrapper ─── */
+  .section-wrap {
+    position:relative; z-index:10;
+    max-width:1160px; margin:0 auto; padding:0 24px 80px;
   }
-  .badge-tx { color: var(--tx); border-color: var(--tx-border); background: var(--tx-bg); }
-  .badge-fm { color: var(--fm); border-color: var(--fm-border); background: var(--fm-bg); }
-  .badge-aa { color: var(--aa); border-color: var(--aa-border); background: var(--aa-bg); }
-  .section-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 500; color: var(--ink); }
-  .section-line { flex: 1; height: 1px; background: var(--cream-border); }
+  .section-label {
+    display:flex; align-items:center; gap:14px; margin:44px 0 24px;
+  }
+  .section-label-pill {
+    font-size:11px; font-weight:800; letter-spacing:1.5px;
+    text-transform:uppercase; padding:5px 14px; border-radius:20px; color:white;
+  }
+  .slp-tx { background:var(--flame); }
+  .slp-fm { background:var(--azure); }
+  .slp-aa { background:#1a7a52; }
+  .section-label h2 {
+    font-size:1.35rem; font-weight:800; color:var(--azure);
+    font-family:'Space Grotesk',sans-serif;
+  }
+  .section-label::after {
+    content:''; flex:1; height:2px;
+    background:linear-gradient(to right,rgba(31,1,185,0.2),transparent);
+    border-radius:2px;
+  }
 
-  .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(195px, 1fr)); gap: 12px; }
+  /* ─── CARD GRID ─── */
+  .card-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+    gap:20px;
+  }
+
+  /* ─── THE CARD ─── */
   .card {
-    display: flex; flex-direction: column;
-    background: white; border: 1.5px solid var(--cream-border);
-    border-radius: 14px; padding: 20px 18px 16px;
-    text-decoration: none; color: var(--ink);
-    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
-    animation: fadeUp 0.5s ease both;
+    background:var(--white); border-radius:20px;
+    padding:26px 24px 22px; cursor:pointer;
+    text-decoration:none; display:block;
+    position:relative; overflow:hidden;
+    border:2px solid transparent;
+    transition:transform .18s cubic-bezier(.34,1.56,.64,1),
+               box-shadow .18s ease, border-color .18s ease;
+    box-shadow:0 4px 20px rgba(31,1,185,0.08);
   }
-  .card:hover { transform: translateY(-4px); }
-  .card-tx:hover { border-color: var(--tx-border); box-shadow: 0 8px 24px rgba(192,68,14,0.10); }
-  .card-fm:hover { border-color: var(--fm-border); box-shadow: 0 8px 24px rgba(26,95,168,0.10); }
-  .card-aa:hover { border-color: var(--aa-border); box-shadow: 0 8px 24px rgba(26,122,82,0.10); }
 
-  .card-icon { width: 36px; height: 36px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 17px; margin-bottom: 14px; flex-shrink: 0; }
-  .icon-tx { background: var(--tx-bg); }
-  .icon-fm { background: var(--fm-bg); }
-  .icon-aa { background: var(--aa-bg); }
-
-  .card-name { font-size: 13px; font-weight: 400; line-height: 1.45; color: var(--ink); flex: 1; }
-  .card-footer {
-    display: flex; align-items: center; justify-content: space-between;
-    margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--cream-border);
+  @keyframes wiggle {
+    0%   { transform:translateY(-6px) scale(1.025) rotate(0deg); }
+    20%  { transform:translateY(-6px) scale(1.025) rotate(-1.8deg); }
+    40%  { transform:translateY(-6px) scale(1.025) rotate(1.8deg); }
+    60%  { transform:translateY(-6px) scale(1.025) rotate(-0.9deg); }
+    80%  { transform:translateY(-6px) scale(1.025) rotate(0.9deg); }
+    100% { transform:translateY(-6px) scale(1.025) rotate(0deg); }
   }
-  .card-label { font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.45; }
-  .card-arrow { font-size: 14px; color: var(--ink-dim); transition: transform 0.18s, color 0.18s; }
-  .card:hover .card-arrow { transform: translateX(3px); }
-  .card-tx:hover .card-arrow { color: var(--tx); }
-  .card-fm:hover .card-arrow { color: var(--fm); }
-  .card-aa:hover .card-arrow { color: var(--aa); }
+  .card:hover { animation:wiggle 0.5s ease forwards; }
 
-  .footer { text-align: center; padding-top: 2.5rem; margin-top: 1rem; border-top: 1px solid var(--cream-border); font-size: 12px; color: var(--ink-dim); letter-spacing: 0.05em; }
+  .card::before {
+    content:''; position:absolute; top:0;left:0;right:0;
+    height:5px; border-radius:20px 20px 0 0;
+  }
+  .card::after {
+    content:''; position:absolute; bottom:-30px;right:-30px;
+    width:110px;height:110px; border-radius:50%;
+    opacity:0.08; transition:opacity .2s;
+  }
+  .card:hover::after { opacity:0.15; }
 
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-  .section:nth-child(1) { animation-delay: 0.1s; }
-  .section:nth-child(2) { animation-delay: 0.2s; }
-  .section:nth-child(3) { animation-delay: 0.3s; }
-  .cards-grid .card:nth-child(1)  { animation-delay: 0.05s; }
-  .cards-grid .card:nth-child(2)  { animation-delay: 0.10s; }
-  .cards-grid .card:nth-child(3)  { animation-delay: 0.15s; }
-  .cards-grid .card:nth-child(4)  { animation-delay: 0.20s; }
-  .cards-grid .card:nth-child(5)  { animation-delay: 0.25s; }
-  .cards-grid .card:nth-child(6)  { animation-delay: 0.30s; }
-  .cards-grid .card:nth-child(7)  { animation-delay: 0.35s; }
-  .cards-grid .card:nth-child(8)  { animation-delay: 0.40s; }
-  .cards-grid .card:nth-child(9)  { animation-delay: 0.45s; }
-  .cards-grid .card:nth-child(10) { animation-delay: 0.50s; }
+  /* ── Colour themes ── */
+  .c-green  { background:#EDFFF8; }
+  .c-green::before  { background:linear-gradient(to right,var(--mint),#00e5a0); }
+  .c-green::after   { background:var(--mint); }
+  .c-green:hover    { border-color:var(--mint); box-shadow:0 16px 48px rgba(30,255,188,0.25); }
 
-  @media (max-width: 600px) {
-    .hero { padding: 3rem 0 2rem; }
-    .cards-grid { grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 10px; }
+  .c-blue   { background:#EEEAFF; }
+  .c-blue::before   { background:linear-gradient(to right,var(--azure),#5b3fff); }
+  .c-blue::after    { background:var(--azure); }
+  .c-blue:hover     { border-color:var(--azure); box-shadow:0 16px 48px rgba(31,1,185,0.2); }
+
+  .c-yellow { background:#F8FFE0; }
+  .c-yellow::before { background:linear-gradient(to right,var(--ygreen),#d4f53c); }
+  .c-yellow::after  { background:var(--ygreen); }
+  .c-yellow:hover   { border-color:var(--ygreen); box-shadow:0 16px 48px rgba(180,227,61,0.25); }
+
+  .c-steel  { background:#EEF4F6; }
+  .c-steel::before  { background:linear-gradient(to right,var(--steel),#a0b8c0); }
+  .c-steel::after   { background:var(--steel); }
+  .c-steel:hover    { border-color:var(--steel); box-shadow:0 16px 48px rgba(124,146,153,0.25); }
+
+  .c-flame  { background:#FFF1EE; }
+  .c-flame::before  { background:linear-gradient(to right,var(--flame),#ff7043); }
+  .c-flame::after   { background:var(--flame); }
+  .c-flame:hover    { border-color:var(--flame); box-shadow:0 16px 48px rgba(252,68,15,0.2); }
+
+  .c-pink   { background:#FFF0F9; }
+  .c-pink::before   { background:linear-gradient(to right,#E91E8C,#ff69b4); }
+  .c-pink::after    { background:#E91E8C; }
+  .c-pink:hover     { border-color:#E91E8C; box-shadow:0 16px 48px rgba(233,30,140,0.2); }
+
+  .c-teal   { background:#E8FFF8; }
+  .c-teal::before   { background:linear-gradient(to right,#00897B,#26C6A6); }
+  .c-teal::after    { background:#00897B; }
+  .c-teal:hover     { border-color:#00897B; box-shadow:0 16px 48px rgba(0,137,123,0.2); }
+
+  .c-purple { background:#F3EEFF; }
+  .c-purple::before { background:linear-gradient(to right,#7B1FA2,#AB47BC); }
+  .c-purple::after  { background:#7B1FA2; }
+  .c-purple:hover   { border-color:#7B1FA2; box-shadow:0 16px 48px rgba(123,31,162,0.2); }
+
+  /* Card internals */
+  .card-emoji {
+    font-size:34px; margin-bottom:14px; display:block;
+    filter:drop-shadow(0 2px 4px rgba(0,0,0,0.12));
+    transition:transform .2s;
+  }
+  .card:hover .card-emoji { transform:scale(1.15) rotate(-6deg); }
+
+  .card-tag {
+    display:inline-block; font-size:10px; font-weight:800;
+    letter-spacing:1.5px; text-transform:uppercase;
+    padding:3px 10px; border-radius:20px; margin-bottom:10px;
+  }
+  .c-green  .card-tag { background:rgba(30,255,188,0.25); color:#006a47; }
+  .c-blue   .card-tag { background:rgba(31,1,185,0.12);   color:var(--azure); }
+  .c-yellow .card-tag { background:rgba(180,227,61,0.3);  color:#4a6600; }
+  .c-steel  .card-tag { background:rgba(124,146,153,0.2); color:#3a5059; }
+  .c-flame  .card-tag { background:rgba(252,68,15,0.12);  color:#b02a00; }
+  .c-pink   .card-tag { background:rgba(233,30,140,0.12); color:#8a0050; }
+  .c-teal   .card-tag { background:rgba(0,137,123,0.12);  color:#004d44; }
+  .c-purple .card-tag { background:rgba(123,31,162,0.12); color:#4a0060; }
+
+  .card-title {
+    font-size:15px; font-weight:800; color:#0d1730;
+    margin-bottom:8px; font-family:'Space Grotesk',sans-serif; line-height:1.25;
+  }
+  .card-desc { font-size:13px; color:#556; line-height:1.55; margin-bottom:18px; }
+
+  .card-arrow {
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:13px; font-weight:700; border-radius:20px; padding:7px 16px;
+    transition:gap .2s;
+  }
+  .card:hover .card-arrow { gap:10px; }
+  .c-green  .card-arrow { background:var(--mint);   color:var(--azure); }
+  .c-blue   .card-arrow { background:var(--azure);  color:white; }
+  .c-yellow .card-arrow { background:var(--ygreen); color:#3a5000; }
+  .c-steel  .card-arrow { background:var(--steel);  color:white; }
+  .c-flame  .card-arrow { background:var(--flame);  color:white; }
+  .c-pink   .card-arrow { background:#E91E8C;        color:white; }
+  .c-teal   .card-arrow { background:#00897B;        color:white; }
+  .c-purple .card-arrow { background:#7B1FA2;        color:white; }
+
+  /* NEW badge */
+  .new-badge {
+    position:absolute; top:18px;right:18px;
+    background:var(--flame); color:white;
+    font-size:10px; font-weight:800; letter-spacing:1px;
+    padding:3px 9px; border-radius:20px; text-transform:uppercase;
+    animation:badgePulse 1.8s ease-in-out infinite;
+  }
+  @keyframes badgePulse {
+    0%,100% { transform:scale(1); box-shadow:0 0 0 0 rgba(252,68,15,0.4); }
+    50%      { transform:scale(1.06); box-shadow:0 0 0 6px rgba(252,68,15,0); }
+  }
+
+  /* Entry fade-up */
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(28px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  .card { animation:fadeUp 0.5s ease both; }
+  .card:nth-child(1)  { animation-delay:.05s; }
+  .card:nth-child(2)  { animation-delay:.10s; }
+  .card:nth-child(3)  { animation-delay:.15s; }
+  .card:nth-child(4)  { animation-delay:.20s; }
+  .card:nth-child(5)  { animation-delay:.25s; }
+  .card:nth-child(6)  { animation-delay:.30s; }
+  .card:nth-child(7)  { animation-delay:.35s; }
+  .card:nth-child(8)  { animation-delay:.40s; }
+  .card:nth-child(9)  { animation-delay:.45s; }
+  .card:nth-child(10) { animation-delay:.50s; }
+  .card:nth-child(11) { animation-delay:.55s; }
+  .card:nth-child(12) { animation-delay:.60s; }
+
+  footer {
+    position:relative; z-index:10; text-align:center;
+    padding:32px; font-size:13px; color:var(--steel);
+    border-top:2px solid rgba(31,1,185,0.1); margin-top:20px;
+  }
+  footer strong { color:var(--azure); }
+
+  @media(max-width:600px){
+    header { padding:0 16px; }
+    .hero  { padding:40px 16px 32px; }
+    .section-wrap { padding:0 16px 60px; }
+    .card-grid { grid-template-columns:1fr; }
+    .nav-pills  { padding:0 16px 16px; }
   }
 </style>
 </head>
 <body>
 
-<div class="bg-layer" aria-hidden="true">
-  <div class="bg-dots"></div>
-  <div class="bg-blob blob-1"></div>
-  <div class="bg-blob blob-2"></div>
-  <div class="bg-blob blob-3"></div>
+<div class="blob-bg">
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
 </div>
 
-<div class="page">
+<header>
+  <div class="logo">
+    <div class="logo-icon">📚</div>
+    ACCA Notes
+  </div>
+  <div class="exam-badge">June 2026 Exam Window</div>
+</header>
 
-  <header class="hero">
-    <div class="hero-eyebrow">June 2026 Exam Session</div>
-    <h1>ACCA Study<br><em>Notes & Revision</em></h1>
-    <p class="hero-sub">TX · FM · AA &nbsp;·&nbsp; ACCA Candidate</p>
-    <div class="hero-divider"></div>
-  </header>
-
-  <nav class="nav-pills">
-    <a href="#tx" class="pill pill-tx">Taxation TX</a>
-    <a href="#fm" class="pill pill-fm">Financial Management FM</a>
-    <a href="#aa" class="pill pill-aa">Audit &amp; Assurance AA</a>
-  </nav>
-
-  <!-- TX — files are in TX/ folder -->
-  <section id="tx" class="section">
-    <div class="section-label">
-      <span class="exam-badge badge-tx">TX</span>
-      <span class="section-title">Taxation — Finance Act 2025</span>
-      <div class="section-line"></div>
-    </div>
-    <div class="cards-grid">
-      <a class="card card-tx" href="TX/CGT Notes ACCA TX June2026.html">
-        <div class="card-icon icon-tx">📊</div>
-        <span class="card-name">Capital Gains Tax Notes</span>
-        <div class="card-footer"><span class="card-label">TX</span><span class="card-arrow">→</span></div>
-      </a>
-      <a class="card card-tx" href="TX/TX Corporation Tax Notes.html">
-        <div class="card-icon icon-tx">🏢</div>
-        <span class="card-name">Corporation Tax Notes</span>
-        <div class="card-footer"><span class="card-label">TX</span><span class="card-arrow">→</span></div>
-      </a>
-      <a class="card card-tx" href="TX/TX Employment Benefits.html">
-        <div class="card-icon icon-tx">👔</div>
-        <span class="card-name">Employment Benefits</span>
-        <div class="card-footer"><span class="card-label">TX</span><span class="card-arrow">→</span></div>
-      </a>
-      <a class="card card-tx" href="TX/TX Inheretence Tax Notes.html">
-        <div class="card-icon icon-tx">🏛️</div>
-        <span class="card-name">Inheritance Tax Notes</span>
-        <div class="card-footer"><span class="card-label">TX</span><span class="card-arrow">→</span></div>
-      </a>
-      <a class="card card-tx" href="TX/TX Key Dates Notes.html">
-        <div class="card-icon icon-tx">📅</div>
-        <span class="card-name">Key Dates</span>
-        <div class="card-footer"><span class="card-label">TX</span><span class="card-arrow">→</span></div>
-      </a>
-      <a class="card card-tx" href="TX/TX Pension &amp; NIC.html">
-        <div class="card-icon icon-tx">🔐</div>
-        <span class="card-name">Pension &amp; NIC</span>
-        <div class="card-footer"><span class="card-label">TX</span><span class="card-arrow">→</span></div>
-      </a>
-      <a class="card card-tx" href="TX/TX Refresher Notes.html">
-        <div class="card-icon icon-tx">🔁</div>
-        <span class="card-name">Refresher Notes</span>
-        <div class="card-footer"><span class="card-label">TX</span><span class="card-arrow">→</span></div>
-      </a>
-      <a class="card card-tx" href="TX/TX Revision Cheatsheet       .html">
-        <div class="card-icon icon-tx">⚡</div>
-        <span class="card-name">Revision Cheatsheet</span>
-        <div class="card-footer"><span class="card-label">TX</span><span class="card-arrow">→</span></div>
-      </a>
-      <a class="card card-tx" href="TX/TX Trading Income Notes.html">
-        <div class="card-icon icon-tx">📈</div>
-        <span class="card-name">Trading Income Notes</span>
-        <div class="card-footer"><span class="card-label">TX</span><span class="card-arrow">→</span></div>
-      </a>
-      <a class="card card-tx" href="TX/TX VAT Notes.html">
-        <div class="card-icon icon-tx">🧾</div>
-        <span class="card-name">VAT Notes</span>
-        <div class="card-footer"><span class="card-label">TX</span><span class="card-arrow">→</span></div>
-      </a>
-    </div>
-  </section>
-
-  <!-- FM — files are in FM/ folder -->
-  <section id="fm" class="section">
-    <div class="section-label">
-      <span class="exam-badge badge-fm">FM</span>
-      <span class="section-title">Financial Management</span>
-      <div class="section-line"></div>
-    </div>
-    <div class="cards-grid">
-      <a class="card card-fm" href="FM/FM Financial Management Function.html">
-        <div class="card-icon icon-fm">🎯</div>
-        <span class="card-name">Financial Management Function</span>
-        <div class="card-footer"><span class="card-label">FM</span><span class="card-arrow">→</span></div>
-      </a>
-      <a class="card card-fm" href="FM/FM Investment Appraisal Notes.html">
-        <div class="card-icon icon-fm">💹</div>
-        <span class="card-name">Investment Appraisal Notes</span>
-        <div class="card-footer"><span class="card-label">FM</span><span class="card-arrow">→</span></div>
-      </a>
-    </div>
-  </section>
-
-  <!-- AA — files are in AA/ folder -->
-  <section id="aa" class="section">
-    <div class="section-label">
-      <span class="exam-badge badge-aa">AA</span>
-      <span class="section-title">Audit &amp; Assurance</span>
-      <div class="section-line"></div>
-    </div>
-    <div class="cards-grid">
-      <a class="card card-aa" href="AA/AA Audit Reports.html">
-        <div class="card-icon icon-aa">📋</div>
-        <span class="card-name">Audit Reports</span>
-        <div class="card-footer"><span class="card-label">AA</span><span class="card-arrow">→</span></div>
-      </a>
-      <a class="card card-aa" href="AA/AA_Audit_Reports_Quiz.html">
-        <div class="card-icon icon-aa">❓</div>
-        <span class="card-name">Audit Reports Quiz</span>
-        <div class="card-footer"><span class="card-label">AA</span><span class="card-arrow">→</span></div>
-      </a>
-      <a class="card card-aa" href="AA/AA_Auditors_Report_TCWG_Chapter12.html">
-        <div class="card-icon icon-aa">📝</div>
-        <span class="card-name">Auditor's Report — TCWG (Ch.12)</span>
-        <div class="card-footer"><span class="card-label">AA</span><span class="card-arrow">→</span></div>
-      </a>
-      <a class="card card-aa" href="AA/AA Automated Tools Techniques.html">
-        <div class="card-icon icon-aa">🤖</div>
-        <span class="card-name">Automated Tools &amp; Techniques</span>
-        <div class="card-footer"><span class="card-label">AA</span><span class="card-arrow">→</span></div>
-      </a>
-      <a class="card card-aa" href="AA/AA Controls Testing Notes.html">
-        <div class="card-icon icon-aa">🔍</div>
-        <span class="card-name">Controls Testing Notes</span>
-        <div class="card-footer"><span class="card-label">AA</span><span class="card-arrow">→</span></div>
-      </a>
-      <a class="card card-aa" href="AA/AA Ethics and Acceptance.html">
-        <div class="card-icon icon-aa">⚖️</div>
-        <span class="card-name">Ethics and Acceptance</span>
-        <div class="card-footer"><span class="card-label">AA</span><span class="card-arrow">→</span></div>
-      </a>
-      <a class="card card-aa" href="AA/AA Revision Cheatsheet______.html">
-        <div class="card-icon icon-aa">⚡</div>
-        <span class="card-name">Revision Cheatsheet</span>
-        <div class="card-footer"><span class="card-label">AA</span><span class="card-arrow">→</span></div>
-      </a>
-      <a class="card card-aa" href="AA/AA Substantive Procedures.html">
-        <div class="card-icon icon-aa">🔬</div>
-        <span class="card-name">Substantive Procedures</span>
-        <div class="card-footer"><span class="card-label">AA</span><span class="card-arrow">→</span></div>
-      </a>
-      <a class="card card-aa" href="AA/AA Substantive Procedures Cheatsheet.html">
-        <div class="card-icon icon-aa">📌</div>
-        <span class="card-name">Substantive Procedures Cheatsheet</span>
-        <div class="card-footer"><span class="card-label">AA</span><span class="card-arrow">→</span></div>
-      </a>
-      <a class="card card-aa" href="AA/AA_Written_Representations_Tutorial.html">
-        <div class="card-icon icon-aa">✍️</div>
-        <span class="card-name">Written Representations Tutorial</span>
-        <div class="card-footer"><span class="card-label">AA</span><span class="card-arrow">→</span></div>
-      </a>
-    </div>
-  </section>
-
-  <footer class="footer">
-    ACCA Study Portal &nbsp;·&nbsp; GitHub Pages &nbsp;·&nbsp; Hosted on GitHub Pages
-  </footer>
-
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-eyebrow">FA2025 · Applied Skills Level</div>
+  <h1>Your ACCA<br><span>Study Hub</span></h1>
+  <p>Comprehensive exam-focused notes for TX-UK, AA and FM. Built to help you pass with confidence in June 2026.</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">3</div><div class="stat-label">Subjects</div></div>
+    <div class="stat"><div class="stat-num">25+</div><div class="stat-label">Note Sets</div></div>
+    <div class="stat"><div class="stat-num">100%</div><div class="stat-label">FA2025</div></div>
+    <div class="stat"><div class="stat-num">Jun 26</div><div class="stat-label">Exam Date</div></div>
+  </div>
 </div>
+
+<!-- Nav pills -->
+<div class="nav-pills">
+  <a href="#tx" class="nav-pill np-tx">📊 Taxation TX</a>
+  <a href="#fm" class="nav-pill np-fm">💹 Financial Management FM</a>
+  <a href="#aa" class="nav-pill np-aa">🔍 Audit &amp; Assurance AA</a>
+</div>
+
+<div class="section-wrap">
+
+  <!-- ══════════════ TX ══════════════ -->
+  <div class="section-label" id="tx">
+    <div class="section-label-pill slp-tx">TX-UK</div>
+    <h2>Taxation — United Kingdom (FA2025)</h2>
+  </div>
+
+  <div class="card-grid">
+
+    <a class="card c-green" href="TX/CGT Notes ACCA TX June2026.html">
+      <span class="card-emoji">📊</span>
+      <div class="card-tag">CGT · Core</div>
+      <div class="card-title">Capital Gains Tax Notes</div>
+      <div class="card-desc">Chargeable gains computation, chattels, shares (share pool), part disposals and CGT rates.</div>
+      <div class="card-arrow">Open Notes →</div>
+    </a>
+
+    <a class="card c-flame" href="TX/CGT_Reliefs_Exemptions_ACCA_TX_June2026.html">
+      <div class="new-badge">NEW</div>
+      <span class="card-emoji">🛡️</span>
+      <div class="card-tag">CGT · Reliefs</div>
+      <div class="card-title">CGT Reliefs &amp; Exemptions</div>
+      <div class="card-desc">Rollover, Gift Holdover, BADR, Investors' Relief, PRR &amp; Letting Relief — with 20 MCQs.</div>
+      <div class="card-arrow">Open Notes →</div>
+    </a>
+
+    <a class="card c-yellow" href="TX/TX Corporation Tax Notes.html">
+      <span class="card-emoji">🏢</span>
+      <div class="card-tag">Corp Tax</div>
+      <div class="card-title">Corporation Tax Notes</div>
+      <div class="card-desc">TTP computation, rates, marginal relief, losses, groups and chargeable gains for companies.</div>
+      <div class="card-arrow">Open Notes →</div>
+    </a>
+
+    <a class="card c-blue" href="TX/TX Employment Benefits.html">
+      <span class="card-emoji">👔</span>
+      <div class="card-tag">Income Tax</div>
+      <div class="card-title">Employment Benefits</div>
+      <div class="card-desc">Employment income, benefits-in-kind, cars, vans, loans and exempt benefits fully covered.</div>
+      <div class="card-arrow">Open Notes →</div>
+    </a>
+
+    <a class="card c-pink" href="TX/TX Inheretence Tax Notes.html">
+      <span class="card-emoji">🏛️</span>
+      <div class="card-tag">IHT</div>
+      <div class="card-title">Inheritance Tax Notes</div>
+      <div class="card-desc">PETs, CLTs, death estate, NRB, RNRB, taper relief and SANG exemptions.</div>
+      <div class="card-arrow">Open Notes →</div>
+    </a>
+
+    <a class="card c-steel" href="TX/TX Key Dates Notes.html">
+      <span class="card-emoji">📅</span>
+      <div class="card-tag">Admin</div>
+      <div class="card-title">Key Dates &amp; Deadlines</div>
+      <div class="card-desc">Payment dates, filing deadlines, POA dates — all the admin rules on one page.</div>
+      <div class="card-arrow">Open Notes →</div>
+    </a>
+
+    <a class="card c-blue" href="TX/TX Pension &amp; NIC.html">
+      <span class="card-emoji">🔐</span>
+      <div class="card-tag">Income Tax</div>
+      <div class="card-title">Pension &amp; NIC</div>
+      <div class="card-desc">Pension contribution rules, annual allowance, and Class 1, 1A, 2 &amp; 4 NIC computations.</div>
+      <div class="card-arrow">Open Notes →</div>
+    </a>
+
+    <a class="card c-yellow" href="TX/TX Refresher Notes.html">
+      <span class="card-emoji">🔁</span>
+      <div class="card-tag">Foundations</div>
+      <div class="card-title">TX Refresher Notes</div>
+      <div class="card-desc">Core building blocks and computation frameworks for the whole TX syllabus.</div>
+      <div class="card-arrow">Open Notes →</div>
+    </a>
+
+    <a class="card c-green" href="TX/TX Revision Cheatsheet .html">
+      <span class="card-emoji">⚡</span>
+      <div class="card-tag">Quick Ref</div>
+      <div class="card-title">TX Revision Cheatsheet</div>
+      <div class="card-desc">All key rates, bands, thresholds and formulas — your last-minute one-pager.</div>
+      <div class="card-arrow">Open Notes →</div>
+    </a>
+
+    <a class="card c-flame" href="TX/TX Trading Income Notes.html">
+      <span class="card-emoji">🏪</span>
+      <div class="card-tag">Income Tax</div>
+      <div class="card-title">Trading Income Notes</div>
+      <div class="card-desc">Adjusting profits, capital allowances, AIA, WDA and basis period rules for sole traders.</div>
+      <div class="card-arrow">Open Notes →</div>
+    </a>
+
+    <a class="card c-steel" href="TX/TX VAT Notes.html">
+      <span class="card-emoji">🧾</span>
+      <div class="card-tag">VAT</div>
+      <div class="card-title">VAT Notes</div>
+      <div class="card-desc">Registration, input/output tax, special schemes, invoices and tax points.</div>
+      <div class="card-arrow">Open Notes →</div>
+    </a>
+
+  </div>
+
+  <!-- ══════════════ FM ══════════════ -->
+  <div class="section-label" id="fm">
+    <div class="section-label-pill slp-fm">FM</div>
+    <h2>Financial Management</h2>
+  </div>
+
+  <div class="card-grid">
+
+    <a class="card c-blue" href="FM/FM Financial Management Function.html">
+      <span class="card-emoji">🎯</span>
+      <div class="card-tag">FM · Core</div>
+      <div class="card-title">Financial Management Function</div>
+      <div class="card-desc">Objectives of FM, financial goals, stakeholders and the role of the finance function.</div>
+      <div class="card-arrow">Open Notes →</div>
+    </a>
+
+    <a class="card c-yellow" href="FM/FM Investment Appraisal Notes.html">
+      <span class="card-emoji">💹</span>
+      <div class="card-tag">FM · Appraisal</div>
+      <div class="card-title">Investment Appraisal Notes</div>
+      <div class="card-desc">NPV, IRR, payback, discounted cash flows and investment decision techniques.</div>
+      <div class="card-arrow">Open Notes →</div>
+    </a>
+
+  </div>
+
+  <!-- ══════════════ AA ══════════════ -->
+  <div class="section-label" id="aa">
+    <div class="section-label-pill slp-aa">AA</div>
+    <h2>Audit &amp; Assurance</h2>
+  </div>
+
+  <div class="card-grid">
+
+    <a class="card c-teal" href="AA/AA Audit Reports.html">
+      <span class="card-emoji">📋</span>
+      <div class="card-tag">AA · Reports</div>
+      <div class="card-title">Audit Reports</div>
+      <div class="card-desc">Modified and unmodified opinions, EoM, MURGC, KAM and auditor's report structure.</div>
+      <div class="card-arrow">Open Notes →</div>
+    </a>
+
+    <a class="card c-green" href="AA/AA_Audit_Reports_Quiz.html">
+      <span class="card-emoji">❓</span>
+      <div class="card-tag">AA · Quiz</div>
+      <div class="card-title">Audit Reports Quiz</div>
+      <div class="card-desc">Interactive MCQs to test your knowledge of audit opinion types and report structure.</div>
+      <div class="card-arrow">Open Quiz →</div>
+    </a>
+
+    <a class="card c-purple" href="AA/AA_Auditors_Report_TCWG_Chapter12.html">
+      <span class="card-emoji">📝</span>
+      <div class="card-tag">AA · Reports</div>
+      <div class="card-title">Auditor's Report — TCWG (Ch.12)</div>
+      <div class="card-desc">Communication with those charged with governance, written representations and TCWG duties.</div>
+      <div class="card-arrow">Open Notes →</div>
+    </a>
+
+    <a class="card c-steel" href="AA/AA Automated Tools Techniques.html">
+      <span class="card-emoji">🤖</span>
+      <div class="card-tag">AA · Evidence</div>
+      <div class="card-title">Automated Tools &amp; Techniques</div>
+      <div class="card-desc">CAATs, data analytics, audit software and automated testing techniques.</div>
+      <div class="card-arrow">Open Notes →</div>
+    </a>
+
+    <a class="card c-blue" href="AA/AA Controls Testing Notes.html">
+      <span class="card-emoji">🔍</span>
+      <div class="card-tag">AA · Controls</div>
+      <div class="card-title">Controls Testing Notes</div>
+      <div class="card-desc">Tests of control vs substantive procedures, CRIME components and ISA 315 control activities.</div>
+      <div class="card-arrow">Open Notes →</div>
+    </a>
+
+    <a class="card c-yellow" href="AA/AA Ethics and Acceptance.html">
+      <span class="card-emoji">⚖️</span>
+      <div class="card-tag">AA · Ethics</div>
+      <div class="card-title">Ethics and Acceptance</div>
+      <div class="card-desc">SAFFI threats, IPCCO principles, pre-acceptance procedures and professional ethics.</div>
+      <div class="card-arrow">Open Notes →</div>
+    </a>
+
+    <a class="card c-flame" href="AA/AA Revision Cheatsheet______.html">
+      <span class="card-emoji">⚡</span>
+      <div class="card-tag">AA · Quick Ref</div>
+      <div class="card-title">AA Revision Cheatsheet</div>
+      <div class="card-desc">All key ISAs, mnemonics, frameworks and assertion rules — your last-minute one-pager.</div>
+      <div class="card-arrow">Open Notes →</div>
+    </a>
+
+    <a class="card c-teal" href="AA/AA Substantive Procedures.html">
+      <span class="card-emoji">🔬</span>
+      <div class="card-tag">AA · Evidence</div>
+      <div class="card-title">Substantive Procedures</div>
+      <div class="card-desc">Audit procedures for each balance sheet and P&amp;L area — assertions and direction rules.</div>
+      <div class="card-arrow">Open Notes →</div>
+    </a>
+
+    <a class="card c-green" href="AA/AA Substantive Procedures Cheatsheet.html">
+      <span class="card-emoji">📌</span>
+      <div class="card-tag">AA · Evidence</div>
+      <div class="card-title">Substantive Procedures Cheatsheet</div>
+      <div class="card-desc">Quick-reference table of procedures by assertion — perfect for exam question planning.</div>
+      <div class="card-arrow">Open Notes →</div>
+    </a>
+
+    <a class="card c-purple" href="AA/AA_Written_Representations_Tutorial.html">
+      <span class="card-emoji">✍️</span>
+      <div class="card-tag">AA · Completion</div>
+      <div class="card-title">Written Representations Tutorial</div>
+      <div class="card-desc">ISA 580, when written representations are required and their limitations as evidence.</div>
+      <div class="card-arrow">Open Notes →</div>
+    </a>
+
+  </div>
+
+</div><!-- /section-wrap -->
+
+<footer>
+  Built by <strong>Iftekhar</strong> · ACCA TX-UK, AA &amp; FM · FA2025 · June 2026 Exam Window<br>
+  <span style="font-size:11px;opacity:.6;margin-top:4px;display:block">Based on Kaplan FA2025 materials &amp; ACCA Syllabus 2026–2027 · Hosted on GitHub Pages</span>
+</footer>
+
 </body>
 </html>
