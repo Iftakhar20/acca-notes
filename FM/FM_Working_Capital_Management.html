@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ACCA FM — Week 1: Working Capital Management (Syllabus Section C)</title>
+<style>
+  :root{
+    --cream:#FBF7EF;
+    --cream2:#F4EDE0;
+    --navy:#1E3A5F;
+    --navy-soft:#33547C;
+    --ink:#2B2B2B;
+    --teal:#1F6F6B;
+    --amber:#9A6B10;
+    --rose:#8C3A46;
+    --green:#2F6B3C;
+    --line:#DFD3BE;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+    font-size:18px;
+    line-height:1.75;
+  }
+  header.hero{
+    background:var(--navy);
+    color:var(--cream);
+    padding:38px 28px 30px;
+  }
+  header.hero .wrap{max-width:980px;margin:0 auto;}
+  header.hero .kicker{
+    font-size:15px;letter-spacing:.16em;text-transform:uppercase;
+    color:#B9CBE0;margin:0 0 10px;
+  }
+  header.hero h1{margin:0 0 10px;font-size:38px;line-height:1.2;}
+  header.hero p{margin:0;font-size:19px;color:#DCE6F0;}
+
+  nav.sticky{
+    position:sticky;top:0;z-index:50;
+    background:var(--cream2);
+    border-bottom:1px solid var(--line);
+    padding:10px 16px;
+  }
+  nav.sticky .wrap{
+    max-width:980px;margin:0 auto;
+    display:flex;flex-wrap:wrap;gap:6px;
+  }
+  nav.sticky a{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:14px;
+    text-decoration:none;
+    color:var(--navy);
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:5px 12px;
+  }
+  nav.sticky a:hover{background:var(--navy);color:#fff;}
+
+  main{max-width:980px;margin:0 auto;padding:34px 24px 90px;}
+
+  section{margin:0 0 54px;scroll-margin-top:76px;}
+  h2{
+    font-size:31px;color:var(--navy);
+    border-bottom:3px solid var(--line);
+    padding-bottom:8px;margin:0 0 6px;
+  }
+  h2 .sylref{
+    display:block;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:13px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--navy-soft);font-weight:600;margin-top:6px;
+  }
+  h3{font-size:24px;color:var(--navy-soft);margin:30px 0 8px;}
+  h4{font-size:20px;color:var(--ink);margin:22px 0 6px;}
+  p{margin:0 0 14px;}
+  ul,ol{margin:0 0 16px;padding-left:26px;}
+  li{margin-bottom:8px;}
+
+  .box{border-radius:10px;padding:18px 22px;margin:20px 0;border-left:7px solid;}
+  .def{background:#EEF3F8;border-color:var(--navy);}
+  .def .lbl{color:var(--navy);}
+  .formula{background:#EAF4F3;border-color:var(--teal);}
+  .formula .lbl{color:var(--teal);}
+  .example{background:#F6F0E2;border-color:var(--amber);}
+  .example .lbl{color:var(--amber);}
+  .warn{background:#F8EDEE;border-color:var(--rose);}
+  .warn .lbl{color:var(--rose);}
+  .tip{background:#EDF4EE;border-color:var(--green);}
+  .tip .lbl{color:var(--green);}
+  .lbl{
+    display:block;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    margin-bottom:8px;
+  }
+  .box p:last-child,.box ul:last-child,.box ol:last-child,.box table:last-child{margin-bottom:0;}
+
+  .eq{
+    background:#fff;border:1px solid var(--line);border-radius:8px;
+    padding:14px 18px;margin:12px 0;
+    font-family:"Courier New",monospace;font-size:18px;
+    color:var(--navy);text-align:center;
+  }
+
+  table{
+    width:100%;border-collapse:collapse;margin:18px 0;
+    background:#fff;font-size:17px;
+  }
+  th,td{border:1px solid var(--line);padding:10px 13px;text-align:left;vertical-align:top;}
+  th{background:var(--navy);color:#fff;font-weight:600;}
+  tbody tr:nth-child(even){background:#FAF6EE;}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;}
+  tr.total td{font-weight:700;background:#F1E9D8;border-top:2px solid var(--navy-soft);}
+
+  .lvl{
+    display:inline-block;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:12px;font-weight:700;letter-spacing:.06em;
+    padding:2px 9px;border-radius:5px;margin-left:8px;vertical-align:middle;
+  }
+  .lvl1{background:#E3EDF6;color:var(--navy);}
+  .lvl2{background:#F3E3D2;color:var(--amber);}
+
+  /* MCQ */
+  .mcq{background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin:18px 0;}
+  .mcq .q{font-weight:600;margin-bottom:12px;}
+  .mcq button{
+    display:block;width:100%;text-align:left;
+    font-family:inherit;font-size:17px;
+    background:var(--cream);border:1px solid var(--line);border-radius:7px;
+    padding:10px 14px;margin-bottom:8px;cursor:pointer;color:var(--ink);
+  }
+  .mcq button:hover{background:var(--cream2);}
+  .mcq button.right{background:#DDF0E1;border-color:var(--green);color:var(--green);font-weight:700;}
+  .mcq button.wrong{background:#F8DFE2;border-color:var(--rose);color:var(--rose);}
+  .mcq .fb{display:none;margin-top:10px;padding:12px 14px;background:#F6F0E2;border-left:5px solid var(--amber);border-radius:6px;font-size:17px;}
+
+  footer{background:var(--navy);color:#DCE6F0;padding:26px;text-align:center;font-size:16px;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">ACCA Financial Management · September 2026 sitting · Week 1</p>
+    <h1>Working Capital Management</h1>
+    <p>Syllabus Section C — the biggest single scoring opportunity in the paper</p>
+  </div>
+</header>
+
+<nav class="sticky">
+  <div class="wrap">
+    <a href="#why">Why it matters</a>
+    <a href="#nature">1. Nature &amp; objectives</a>
+    <a href="#cycle">2. Cycle &amp; ratios</a>
+    <a href="#level">3. Investment level</a>
+    <a href="#inventory">4. Inventory</a>
+    <a href="#receivables">5. Receivables</a>
+    <a href="#payables">6. Payables</a>
+    <a href="#cash">7. Cash</a>
+    <a href="#funding">8. Funding strategies</a>
+    <a href="#overtrading">9. Overtrading</a>
+    <a href="#formulae">Formulae</a>
+    <a href="#exam">Exam strategy</a>
+    <a href="#test">Test yourself</a>
+  </div>
+</nav>
+
+<main>
+
+<section id="why">
+  <h2>Why this week matters more than any other
+    <span class="sylref">ACCA FM Syllabus 2026–27 · Section C · Study Text Chapters 7–10</span>
+  </h2>
+
+  <div class="box warn">
+    <span class="lbl">Read this before anything else</span>
+    <p>Section C of the FM exam is <strong>two constructed-response questions of 20 marks each = 40% of the paper</strong>. ACCA states these two questions will <strong>mainly come from working capital management, investment appraisal and business finance</strong>.</p>
+    <p>You have already covered investment appraisal (Section D). Working capital is therefore the second of the three "Section C engines". Master it and you have realistically covered a large chunk of the 40 marks that decide pass or fail — plus a steady stream of Section A and B objective questions on top.</p>
+  </div>
+
+  <p>There is a second reason this topic is the right place to start: <strong>you already do this for a living.</strong> As an FP&amp;A analyst at Dubai Health, cash forecasting, supplier payment terms, inventory of medical consumables, and the tension between holding liquidity and deploying it are not abstract exam constructs. Everything below is deliberately framed in that world.</p>
+
+  <p><strong>Time budget for this week:</strong> roughly 12–15 hours. Read a section, then immediately do the linked Exam Kit questions. Do not read all the notes and then start practising — you will forget the first half.</p>
+</section>
+
+<section id="nature">
+  <h2>1. The nature, elements and importance of working capital
+    <span class="sylref">Syllabus C1(a)–(c) · Study Text Ch 7</span>
+  </h2>
+
+  <div class="box def">
+    <span class="lbl">Definitions to learn word-for-word</span>
+    <p><strong>Working capital</strong> is the capital available for conducting the day-to-day operations of an organisation — normally the excess of current assets over current liabilities.</p>
+    <p><strong>Working capital management</strong> is the management of all aspects of both current assets and current liabilities, in order to <em>minimise the risk of insolvency while maximising the return on assets</em>.</p>
+  </div>
+
+  <h3>The four elements <span class="lvl lvl1">Level 1 — knowledge</span></h3>
+
+  <table>
+    <thead>
+      <tr><th>Element</th><th>Type</th><th>What "managing it" means</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Inventory</strong></td><td>Current asset</td><td>Hold enough to avoid stock-outs, not so much that cash is dead on a shelf</td></tr>
+      <tr><td><strong>Receivables</strong></td><td>Current asset</td><td>Grant credit to win business, but collect it quickly and avoid bad debts</td></tr>
+      <tr><td><strong>Cash</strong></td><td>Current asset</td><td>Hold enough for obligations, invest the surplus</td></tr>
+      <tr><td><strong>Payables</strong></td><td>Current liability</td><td>A <em>free source of finance</em> — take the credit, but don't damage supplier relationships</td></tr>
+    </tbody>
+  </table>
+
+  <h3>The central conflict: liquidity vs profitability <span class="lvl lvl2">Level 2 — application</span></h3>
+
+  <p>This single idea generates more discussion marks than almost anything else in Section C. Understand it properly and you can write three or four marks' worth on demand.</p>
+
+  <table>
+    <thead>
+      <tr><th>If you hold <em>more</em> working capital…</th><th>If you hold <em>less</em> working capital…</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Liquidity is <strong>safe</strong>. Bills get paid. No stock-outs. Customers happy with generous credit.</td>
+        <td>Liquidity is <strong>at risk</strong>. Stock-outs, missed supplier payments, potential insolvency.</td>
+      </tr>
+      <tr>
+        <td>Profitability <strong>falls</strong>. Cash is tied up in inventory and receivables, earning nothing. That capital has a funding cost (overdraft interest) or an opportunity cost (foregone investments).</td>
+        <td>Profitability <strong>rises</strong>. Less capital employed, lower financing cost, higher return on assets.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="box example">
+    <span class="lbl">Dubai Health illustration</span>
+    <p>Suppose the pharmacy stores unit is asked to cut its consumables inventory from 60 days to 35 days of cost of sales, releasing AED 8m of cash.</p>
+    <ul>
+      <li><strong>Profitability effect:</strong> AED 8m no longer needs funding. At an overdraft rate of 6%, that saves AED 480,000 a year. Return on capital employed rises because the denominator has shrunk.</li>
+      <li><strong>Liquidity/operational effect:</strong> the buffer against supply disruption is thinner. A single delayed shipment of a critical drug now becomes a clinical incident, not an inconvenience.</li>
+    </ul>
+    <p><strong>The exam point:</strong> the "correct" level of working capital is not zero and it is not infinite. It is the level at which the cost of holding capital is balanced against the cost of running out. In healthcare, the cost of running out is unusually high — which is precisely the kind of industry-specific reasoning that scores marks.</p>
+  </div>
+
+  <h3>Why it's central to financial management</h3>
+  <p>Three arguments to have ready:</p>
+  <ol>
+    <li><strong>Insolvency is a cash event, not a profit event.</strong> Profitable companies fail because they run out of cash. Working capital management is the direct defence against that.</li>
+    <li><strong>It is a large investment.</strong> For most trading businesses, working capital is a bigger balance-sheet number than the next capital project. It deserves the same appraisal discipline.</li>
+    <li><strong>It is fast-acting.</strong> A five-day reduction in receivable days releases cash this quarter. A new investment project takes years to pay back.</li>
+  </ol>
+</section>
+
+<section id="cycle">
+  <h2>2. The cash operating cycle and working capital ratios
+    <span class="sylref">Syllabus C2(a)–(b) · Study Text Ch 7</span>
+  </h2>
+
+  <div class="box def">
+    <span class="lbl">Definition</span>
+    <p>The <strong>cash operating cycle</strong> (also called the working capital cycle or cash conversion cycle) is the length of time between paying cash to suppliers and receiving cash from customers.</p>
+  </div>
+
+  <div class="box formula">
+    <span class="lbl">The cycle — learn this cold</span>
+    <div class="eq">Inventory days + Receivables days − Payables days = Cash operating cycle</div>
+    <p>Think of it physically: you buy goods (inventory days start), you pay the supplier at some point (payables days), you sell the goods on credit (receivables days start), and finally the customer pays you. The gap between cash <em>out</em> and cash <em>in</em> is the cycle. <strong>The longer the cycle, the more working capital the business must fund.</strong></p>
+  </div>
+
+  <h3>The component ratios <span class="lvl lvl2">Level 2 — you must be able to calculate <em>and</em> interpret</span></h3>
+
+  <table>
+    <thead>
+      <tr><th>Ratio</th><th>Formula</th><th>Watch out for</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Inventory days</strong><br>(inventory turnover period)</td>
+        <td>Inventory ÷ Cost of sales × 365</td>
+        <td>Denominator is <strong>cost of sales</strong>, not revenue. If the question only gives revenue, say so and state your assumption.</td>
+      </tr>
+      <tr>
+        <td><strong>Receivables days</strong><br>(average collection period)</td>
+        <td>Receivables ÷ <strong>Credit</strong> sales × 365</td>
+        <td>Use <em>credit</em> sales if given separately. Cash sales never sit in receivables.</td>
+      </tr>
+      <tr>
+        <td><strong>Payables days</strong><br>(average payment period)</td>
+        <td>Payables ÷ <strong>Credit</strong> purchases × 365</td>
+        <td>If purchases aren't given, cost of sales is the accepted proxy — <em>state the assumption.</em></td>
+      </tr>
+      <tr>
+        <td><strong>Current ratio</strong></td>
+        <td>Current assets ÷ Current liabilities</td>
+        <td>A crude liquidity measure. A "high is good" reading is naive — see the trap below.</td>
+      </tr>
+      <tr>
+        <td><strong>Quick ratio</strong><br>(acid test)</td>
+        <td>(Current assets − Inventory) ÷ Current liabilities</td>
+        <td>Strips out the least liquid current asset. More meaningful for slow-moving inventory.</td>
+      </tr>
+      <tr>
+        <td><strong>Sales revenue / net working capital</strong></td>
+        <td>Revenue ÷ (Current assets − Current liabilities)</td>
+        <td>How hard the working capital is working. A very high figure can signal <em>overtrading</em>.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="box warn">
+    <span class="lbl">The classic trap</span>
+    <p>Students write "the current ratio has risen from 1.4 to 2.1, so liquidity has improved." Often it has <em>not</em>. The rise may be caused by inventory piling up because it cannot be sold, or receivables ballooning because customers are not paying. Both are <strong>bad</strong> news dressed up as a good ratio.</p>
+    <p><strong>Always interrogate the driver.</strong> Which component moved, and why? That is where the marks are — not in the arithmetic.</p>
+  </div>
+
+  <div class="box example">
+    <span class="lbl">Worked example — Cash operating cycle</span>
+    <p>Medco Supplies LLC, a Dubai-based medical consumables distributor, reports the following for the year ended 31 December (AED 000):</p>
+    <table>
+      <tbody>
+        <tr><td>Revenue (all on credit)</td><td class="num">48,000</td></tr>
+        <tr><td>Cost of sales</td><td class="num">32,000</td></tr>
+        <tr><td>Inventory</td><td class="num">5,600</td></tr>
+        <tr><td>Trade receivables</td><td class="num">9,200</td></tr>
+        <tr><td>Trade payables</td><td class="num">4,400</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Required:</strong> calculate the cash operating cycle.</p>
+    <p><strong>Solution</strong></p>
+    <table>
+      <thead><tr><th>Component</th><th>Working</th><th class="num">Days</th></tr></thead>
+      <tbody>
+        <tr><td>Inventory days</td><td>5,600 ÷ 32,000 × 365</td><td class="num">63.9</td></tr>
+        <tr><td>Receivables days</td><td>9,200 ÷ 48,000 × 365</td><td class="num">70.0</td></tr>
+        <tr><td>Payables days</td><td>4,400 ÷ 32,000 × 365 <em>(purchases not given — cost of sales used as proxy)</em></td><td class="num">(50.2)</td></tr>
+        <tr class="total"><td>Cash operating cycle</td><td></td><td class="num">83.7 days</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Interpretation (this is where the marks are):</strong> Medco funds roughly 84 days of operations out of its own pocket. Every AED of annual cost of sales requires about 84/365 = 23% of a year's funding. If receivables days could be pulled from 70 to 55, the receivables balance would fall to 48,000 × 55/365 = AED 7,233k, releasing almost AED 2m of cash immediately.</p>
+  </div>
+
+  <div class="box tip">
+    <span class="lbl">Exam tip</span>
+    <p>In Section C, a "calculate the cash operating cycle" requirement is almost always followed by "<em>discuss</em>". Budget your time so that the discussion gets written. The calculation might be 5 marks; the discussion is often 8–10. Students routinely produce a beautiful cycle calculation and then run out of time — that is how you get 11/20 instead of 16/20.</p>
+  </div>
+</section>
+
+<section id="level">
+  <h2>3. Determining the level of working capital investment
+    <span class="sylref">Syllabus C3(a) · Study Text Ch 7</span>
+  </h2>
+
+  <div class="box formula">
+    <span class="lbl">Working capital investment</span>
+    <div class="eq">Investment in working capital = Inventory + Receivables − Payables</div>
+    <p>Payables are subtracted because they are a <strong>free source of finance</strong>. Only the net figure needs funding — from an overdraft, a loan, or equity, all of which carry a cost.</p>
+  </div>
+
+  <div class="box example">
+    <span class="lbl">Worked example — Level of investment and its cost</span>
+    <p>A distributor forecasts annual revenue of AED 60m and cost of sales of AED 40m. Its target policy is: inventory 45 days, receivables 60 days, payables 40 days. Its overdraft rate is 7%.</p>
+    <table>
+      <thead><tr><th>Element</th><th>Working</th><th class="num">AED 000</th></tr></thead>
+      <tbody>
+        <tr><td>Inventory</td><td>40,000 × 45/365</td><td class="num">4,932</td></tr>
+        <tr><td>Receivables</td><td>60,000 × 60/365</td><td class="num">9,863</td></tr>
+        <tr><td>Payables</td><td>40,000 × 40/365</td><td class="num">(4,384)</td></tr>
+        <tr class="total"><td>Net working capital investment</td><td></td><td class="num">10,411</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Annual funding cost</strong> = 10,411 × 7% = <strong>AED 729k</strong>.</p>
+    <p><strong>Note the direction of the drivers:</strong> receivables and inventory are driven by <em>sales</em> and <em>cost of sales</em> respectively. Get the denominator wrong and the whole answer collapses — receivables use <strong>revenue</strong>, inventory and payables use <strong>cost of sales / purchases</strong>.</p>
+  </div>
+
+  <h3>What determines the right level? <span class="lvl lvl2">Level 2</span></h3>
+  <ol>
+    <li><strong>Length of the working capital cycle and terms of trade.</strong> A business that must offer 90-day credit to compete simply needs more working capital than one selling for cash.</li>
+    <li><strong>The organisation's policy on investment in current assets.</strong> Aggressive (lean) versus conservative (generous) — see below.</li>
+    <li><strong>The industry.</strong> A supermarket has near-zero receivables and fast inventory; a shipbuilder has enormous work-in-progress. Comparing ratios across industries is meaningless.</li>
+  </ol>
+
+  <h3>Investment policy: aggressive vs conservative</h3>
+  <p>Careful — this is the <em>investment</em> policy, which is about <em>how much</em> current assets you hold. It is a different question from the <em>funding</em> policy (Section 8), which is about <em>how you pay for them</em>. Examiners deliberately test whether you can tell them apart.</p>
+
+  <table>
+    <thead>
+      <tr><th></th><th>Aggressive investment policy</th><th>Conservative investment policy</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Level of current assets</strong></td><td>Low</td><td>High</td></tr>
+      <tr><td><strong>Inventory</strong></td><td>Minimal buffer, JIT</td><td>Generous buffer stock</td></tr>
+      <tr><td><strong>Receivables</strong></td><td>Tight credit terms, aggressive collection</td><td>Generous credit to attract customers</td></tr>
+      <tr><td><strong>Cash</strong></td><td>Low balances</td><td>Large precautionary balances</td></tr>
+      <tr><td><strong>Result</strong></td><td>Higher profitability, higher risk of stock-outs and lost customers</td><td>Lower profitability, lower operational risk</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="inventory">
+  <h2>4. Managing inventory: EOQ, discounts, EBQ and JIT
+    <span class="sylref">Syllabus C2(c) · Study Text Ch 8</span>
+  </h2>
+
+  <h3>The three costs of inventory</h3>
+  <ul>
+    <li><strong>Purchase cost</strong> — the price paid. Irrelevant to EOQ <em>unless</em> bulk discounts are offered.</li>
+    <li><strong>Ordering cost (C<sub>o</sub>)</strong> — cost <em>per order</em>: admin, delivery, inspection. Fewer, bigger orders reduce this.</li>
+    <li><strong>Holding cost (C<sub>h</sub>)</strong> — cost per unit <em>per year</em>: storage, insurance, obsolescence, cost of capital tied up. Fewer, bigger orders <em>increase</em> this.</li>
+  </ul>
+  <p>Ordering cost and holding cost pull in opposite directions. The EOQ is the order size at which their total is minimised.</p>
+
+  <div class="box formula">
+    <span class="lbl">Economic Order Quantity — provided on the exam formula sheet</span>
+    <div class="eq">EOQ = √( 2 × C<sub>o</sub> × D ÷ C<sub>h</sub> )</div>
+    <p>where C<sub>o</sub> = cost per order, D = annual demand in units, C<sub>h</sub> = holding cost per unit per year.</p>
+    <p><strong>Related quantities you will need:</strong></p>
+    <ul>
+      <li>Number of orders per year = D ÷ Q</li>
+      <li>Total annual ordering cost = C<sub>o</sub> × D ÷ Q</li>
+      <li>Total annual holding cost = C<sub>h</sub> × Q ÷ 2 &nbsp; <em>(average inventory is Q/2 with no buffer)</em></li>
+      <li>With <strong>buffer inventory</strong> b: average inventory = (Q/2) + b, so holding cost = C<sub>h</sub> × (Q/2 + b)</li>
+    </ul>
+  </div>
+
+  <div class="box warn">
+    <span class="lbl">Two traps that cost real marks</span>
+    <p><strong>Trap 1 — units of C<sub>h</sub>.</strong> The question may give holding cost <em>per month</em>. The formula needs it <em>per year</em>. Multiply by 12.</p>
+    <p><strong>Trap 2 — buffer inventory does not change the EOQ.</strong> Buffer stock is held all year regardless of order size, so it does not affect the trade-off the EOQ is solving. It <em>does</em> add to total holding cost. Many students wrongly try to build it into the square root.</p>
+  </div>
+
+  <div class="box example">
+    <span class="lbl">Worked example — EOQ with buffer inventory</span>
+    <p>A hospital stores unit uses 300,000 units of a surgical consumable each year. The cost of holding one unit for <strong>a month</strong> is AED 0.25. Each order costs AED 90 to place. A buffer inventory of 25,000 units is held at all times.</p>
+    <p><strong>Step 1 — annualise the holding cost:</strong> C<sub>h</sub> = 0.25 × 12 = <strong>AED 3.00 per unit per year</strong></p>
+    <p><strong>Step 2 — EOQ:</strong></p>
+    <div class="eq">EOQ = √( 2 × 90 × 300,000 ÷ 3.00 ) = √18,000,000 = <strong>4,243 units</strong></div>
+    <p><strong>Step 3 — total annual cost (excluding purchase price):</strong></p>
+    <table>
+      <thead><tr><th>Cost</th><th>Working</th><th class="num">AED</th></tr></thead>
+      <tbody>
+        <tr><td>Ordering</td><td>90 × 300,000 / 4,243</td><td class="num">6,364</td></tr>
+        <tr><td>Holding — cycle stock</td><td>3.00 × 4,243 / 2</td><td class="num">6,365</td></tr>
+        <tr><td>Holding — buffer stock</td><td>3.00 × 25,000</td><td class="num">75,000</td></tr>
+        <tr class="total"><td>Total</td><td></td><td class="num">87,729</td></tr>
+      </tbody>
+    </table>
+    <p>Notice that at the EOQ, <strong>ordering cost ≈ cycle holding cost</strong>. That is a free check on your arithmetic — if they are wildly different, you have made an error.</p>
+  </div>
+
+  <h3>EOQ with bulk discounts <span class="lvl lvl2">Level 2 — a common Section C sub-requirement</span></h3>
+
+  <p>When a supplier offers a discount for ordering more, the EOQ may no longer be optimal, because the <strong>purchase cost now varies with order size</strong>. The method is mechanical — follow it exactly:</p>
+
+  <ol>
+    <li>Calculate the <strong>EOQ ignoring discounts</strong>. Compute total annual cost = purchase cost + ordering cost + holding cost.</li>
+    <li>For <strong>each discount threshold</strong> above the EOQ, compute the total annual cost at the <em>minimum order size that qualifies</em> for that discount.</li>
+    <li>Compare the total costs. Choose the lowest.</li>
+  </ol>
+
+  <div class="box warn">
+    <span class="lbl">Critical detail</span>
+    <p>If holding cost is expressed as a <strong>percentage of purchase price</strong> (e.g. "holding cost is 10% of purchase price per year"), then the discount <em>reduces the holding cost too</em>. Recalculate C<sub>h</sub> at each discount level. If holding cost is a fixed AED amount per unit, it does not change.</p>
+  </div>
+
+  <div class="box example">
+    <span class="lbl">Worked example — Bulk discount</span>
+    <p>Annual demand 24,000 units. Ordering cost AED 200 per order. Purchase price AED 20 per unit. Holding cost is 10% of purchase price per year. The supplier offers a <strong>2% discount on orders of 4,000 units or more</strong>.</p>
+
+    <p><strong>Option 1 — order at the EOQ (no discount)</strong></p>
+    <p>C<sub>h</sub> = 10% × 20 = AED 2.00</p>
+    <div class="eq">EOQ = √( 2 × 200 × 24,000 ÷ 2.00 ) = √4,800,000 = 2,191 units</div>
+    <table>
+      <thead><tr><th>Cost</th><th>Working</th><th class="num">AED</th></tr></thead>
+      <tbody>
+        <tr><td>Purchase</td><td>24,000 × 20.00</td><td class="num">480,000</td></tr>
+        <tr><td>Ordering</td><td>200 × 24,000 / 2,191</td><td class="num">2,191</td></tr>
+        <tr><td>Holding</td><td>2.00 × 2,191 / 2</td><td class="num">2,191</td></tr>
+        <tr class="total"><td>Total</td><td></td><td class="num">484,382</td></tr>
+      </tbody>
+    </table>
+
+    <p><strong>Option 2 — order 4,000 units and take the 2% discount</strong></p>
+    <p>New price = 20 × 0.98 = AED 19.60. New C<sub>h</sub> = 10% × 19.60 = AED 1.96</p>
+    <table>
+      <thead><tr><th>Cost</th><th>Working</th><th class="num">AED</th></tr></thead>
+      <tbody>
+        <tr><td>Purchase</td><td>24,000 × 19.60</td><td class="num">470,400</td></tr>
+        <tr><td>Ordering</td><td>200 × 24,000 / 4,000</td><td class="num">1,200</td></tr>
+        <tr><td>Holding</td><td>1.96 × 4,000 / 2</td><td class="num">3,920</td></tr>
+        <tr class="total"><td>Total</td><td></td><td class="num">475,520</td></tr>
+      </tbody>
+    </table>
+
+    <p><strong>Conclusion:</strong> ordering 4,000 units saves AED 8,862 per year. <strong>Take the discount.</strong> The purchase-price saving of AED 9,600 comfortably outweighs the AED 1,729 net increase in holding cost, and ordering costs fall as well.</p>
+    <p><em>Non-financial caveat worth a mark:</em> a larger order size means more storage space and, for medical consumables, a greater risk of expiry and obsolescence. Mention it.</p>
+  </div>
+
+  <h3>Economic Batch Quantity (EBQ) <span class="lvl lvl2">Level 2</span></h3>
+  <p>Used when inventory is <strong>produced internally at a finite rate</strong> rather than delivered all at once. Because units are consumed while the batch is still being made, average inventory never reaches the full batch size.</p>
+
+  <div class="box formula">
+    <span class="lbl">EBQ — provided on the exam formula sheet</span>
+    <div class="eq">EBQ = √[ 2 × C<sub>o</sub> × D ÷ ( C<sub>h</sub> × (1 − D/R) ) ]</div>
+    <p>where R = annual replenishment (production) rate, D = annual demand. Average inventory = (Q/2) × (1 − D/R).</p>
+    <p><strong>Note:</strong> R must exceed D, otherwise the business cannot meet demand. C<sub>o</sub> here is the <em>set-up cost per batch</em>.</p>
+  </div>
+
+  <h3>Just-in-Time (JIT) <span class="lvl lvl2">Level 2 — usually a discussion requirement</span></h3>
+  <p>JIT aims to hold <strong>near-zero inventory</strong>, with materials arriving exactly when needed. It is a philosophy, not a formula.</p>
+
+  <table>
+    <thead><tr><th>Advantages</th><th>Disadvantages / requirements</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>
+          <ul>
+            <li>Holding costs virtually eliminated</li>
+            <li>Cash released from inventory</li>
+            <li>Less obsolescence and waste</li>
+            <li>Quality problems surface immediately rather than being buried in a stockpile</li>
+            <li>Less warehouse space required</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li><strong>Zero buffer</strong> — any supply disruption halts operations immediately</li>
+            <li>Requires highly reliable suppliers, close to the site, with guaranteed quality</li>
+            <li>Bulk discounts are lost; ordering costs rise (many small deliveries)</li>
+            <li>Vulnerable to demand spikes</li>
+            <li>Needs stable, predictable demand</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="box tip">
+    <span class="lbl">How to score the discussion marks</span>
+    <p>Never list JIT's pros and cons generically. <strong>Apply them to the scenario.</strong> For a healthcare provider, a JIT policy on critical drugs and blood products is close to indefensible — the cost of a stock-out is a patient harm event, not a lost sale. But JIT on office consumables or non-clinical supplies is entirely sensible. Making that <em>distinction within the scenario</em> is the difference between a generic 3 marks and a strong 6.</p>
+  </div>
+</section>
+
+<section id="receivables">
+  <h2>5. Managing accounts receivable
+    <span class="sylref">Syllabus C2(d) · Study Text Ch 9</span>
+  </h2>
+
+  <h3>The receivables management framework <span class="lvl lvl1">Level 1</span></h3>
+  <ol>
+    <li><strong>Assess creditworthiness</strong> before granting credit — trade references, bank references, published accounts, credit agency reports, analysis of the customer's own ratios, past payment history.</li>
+    <li><strong>Set credit limits and terms</strong> appropriate to the assessed risk.</li>
+    <li><strong>Monitor</strong> — aged receivables analysis, days-sales-outstanding trend.</li>
+    <li><strong>Collect</strong> — invoice promptly and accurately, systematic reminder sequence, escalation, ultimately legal action or debt collection agency.</li>
+  </ol>
+
+  <h3>Early settlement discounts <span class="lvl lvl2">Level 2 — HIGH probability of examination</span></h3>
+
+  <p>Offering "2/10 net 30" (2% off if paid in 10 days, otherwise full payment in 30) costs the company money. Is it worth it? There are two ways this is examined — <strong>know both, and read the question to see which is wanted.</strong></p>
+
+  <h4>Method A — the annualised cost of the discount</h4>
+
+  <div class="box formula">
+    <span class="lbl">Annualised cost of a discount</span>
+    <div class="eq">Annual cost = [ 1 + d ÷ (100 − d) ] <sup>(365 ÷ n)</sup> − 1</div>
+    <p>where <strong>d</strong> = the discount percentage, and <strong>n</strong> = the number of days <em>earlier</em> the customer pays (i.e. normal credit period − discount period).</p>
+    <p>Compare the result with the company's cost of short-term finance. <strong>If the annualised cost exceeds the borrowing rate, the discount is too expensive to offer.</strong></p>
+    <p><em>Why <code>d ÷ (100 − d)</code> and not <code>d ÷ 100</code>? Because you are giving up d in order to receive (100 − d) earlier. The cost is measured against what you actually receive.</em></p>
+  </div>
+
+  <div class="box example">
+    <span class="lbl">Worked example — Annualised cost of a discount</span>
+    <p>A company offers a <strong>2% discount for payment within 10 days</strong>, against normal terms of <strong>40 days</strong>. Its overdraft rate is 9%. Should it offer the discount?</p>
+    <p>d = 2, n = 40 − 10 = 30 days</p>
+    <div class="eq">[ 1 + 2/98 ]<sup>365/30</sup> − 1 = (1.020408)<sup>12.167</sup> − 1 = 1.2793 − 1 = <strong>27.9%</strong></div>
+    <p><strong>Conclusion:</strong> the discount effectively costs the company 27.9% per year, far above its 9% cost of borrowing. <strong>Do not offer it</strong> — the company would be better off simply funding the receivable on the overdraft.</p>
+  </div>
+
+  <div class="box example">
+    <span class="lbl">Worked example — Full cost/benefit of a discount (the harder, more common Section C version)</span>
+    <p>Al Waha Medical Supplies has annual credit sales of AED 36m and its customers currently take an average of <strong>75 days</strong> to pay. It is considering offering a <strong>1% discount for payment within 30 days</strong>. It estimates <strong>60% of customers</strong> (by value) would take up the discount; the rest continue at 75 days. The overdraft rate is <strong>8%</strong>. Assume 360 days. Administration savings of AED 20,000 are expected.</p>
+
+    <p><strong>Step 1 — current receivables balance</strong></p>
+    <div class="eq">36,000,000 × 75 / 360 = AED 7,500,000</div>
+
+    <p><strong>Step 2 — revised receivables balance</strong></p>
+    <table>
+      <thead><tr><th>Customer group</th><th>Working</th><th class="num">AED</th></tr></thead>
+      <tbody>
+        <tr><td>60% pay in 30 days</td><td>36,000,000 × 60% × 30/360</td><td class="num">1,800,000</td></tr>
+        <tr><td>40% pay in 75 days</td><td>36,000,000 × 40% × 75/360</td><td class="num">3,000,000</td></tr>
+        <tr class="total"><td>Revised receivables</td><td></td><td class="num">4,800,000</td></tr>
+      </tbody>
+    </table>
+
+    <p><strong>Step 3 — evaluate</strong></p>
+    <table>
+      <thead><tr><th>Item</th><th>Working</th><th class="num">AED</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Benefit</strong> — interest saved on reduced receivables</td><td>(7,500,000 − 4,800,000) × 8%</td><td class="num">216,000</td></tr>
+        <tr><td><strong>Benefit</strong> — administration savings</td><td></td><td class="num">20,000</td></tr>
+        <tr><td><strong>Cost</strong> — discount given</td><td>36,000,000 × 60% × 1%</td><td class="num">(216,000)</td></tr>
+        <tr class="total"><td>Net benefit</td><td></td><td class="num">20,000</td></tr>
+      </tbody>
+    </table>
+
+    <p><strong>Conclusion:</strong> the discount produces a net annual benefit of AED 20,000 and is therefore <em>marginally</em> worthwhile — but the entire benefit comes from the administration saving, which is an estimate. The interest saving and the discount cost cancel exactly. <strong>The decision is finely balanced and highly sensitive to the assumed 60% take-up rate.</strong> Writing that sentence earns marks; a bare "accept" does not.</p>
+  </div>
+
+  <div class="box tip">
+    <span class="lbl">Exam tip — always sensitise</span>
+    <p>Whenever a working capital decision comes out close to breakeven, say so and identify the key driver. Examiners are explicitly looking for evidence that you understand the <em>fragility</em> of the answer, not just the arithmetic.</p>
+  </div>
+
+  <h3>Factoring and invoice discounting <span class="lvl lvl2">Level 2</span></h3>
+
+  <table>
+    <thead>
+      <tr><th></th><th>Factoring</th><th>Invoice discounting</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>What it is</strong></td><td>The factor takes over the sales ledger and collects the debts</td><td>The company borrows against the value of its invoices; it keeps collecting them itself</td></tr>
+      <tr><td><strong>Who collects?</strong></td><td>The factor</td><td>The company</td></tr>
+      <tr><td><strong>Customer aware?</strong></td><td>Yes (unless confidential factoring)</td><td>No — confidential</td></tr>
+      <tr><td><strong>Three services</strong></td><td><strong>Administration</strong> of the ledger, <strong>finance</strong> (typically 80% advanced), and optionally <strong>credit insurance</strong> (bad debt protection)</td><td>Finance only</td></tr>
+      <tr><td><strong>Cost</strong></td><td>Service fee (% of revenue) + interest on the advance</td><td>Interest on the advance + a smaller fee</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box def">
+    <span class="lbl">Recourse vs non-recourse — learn the distinction</span>
+    <p><strong>With recourse:</strong> if the customer never pays, the <em>company</em> bears the bad debt.<br>
+    <strong>Without recourse (non-recourse):</strong> the <em>factor</em> bears the bad debt. This is credit insurance, and it is more expensive.</p>
+  </div>
+
+  <div class="box example">
+    <span class="lbl">Worked example — Should we factor?</span>
+    <p>Credit sales AED 20m; receivables days currently 80. A factor offers a <strong>non-recourse</strong> service that will reduce receivables days to <strong>50</strong>, advance <strong>80%</strong> of receivables at <strong>9%</strong>, and charge a service fee of <strong>1.5% of credit sales</strong>. The company would save AED 90,000 in administration costs and eliminate bad debts currently running at <strong>0.6% of credit sales</strong>. The company's overdraft rate is <strong>10%</strong>. Assume 365 days.</p>
+
+    <p><strong>Step 1 — receivables balances</strong></p>
+    <ul>
+      <li>Current: 20,000,000 × 80/365 = AED 4,383,562</li>
+      <li>With factor: 20,000,000 × 50/365 = AED 2,739,726</li>
+    </ul>
+
+    <p><strong>Step 2 — evaluate annually</strong></p>
+    <table>
+      <thead><tr><th>Item</th><th>Working</th><th class="num">AED</th></tr></thead>
+      <tbody>
+        <tr><td>Benefit: overdraft interest saved on lower receivables</td><td>(4,383,562 − 2,739,726) × 10%</td><td class="num">164,384</td></tr>
+        <tr><td>Benefit: administration cost saved</td><td></td><td class="num">90,000</td></tr>
+        <tr><td>Benefit: bad debts eliminated (non-recourse)</td><td>20,000,000 × 0.6%</td><td class="num">120,000</td></tr>
+        <tr><td>Cost: factor's service fee</td><td>20,000,000 × 1.5%</td><td class="num">(300,000)</td></tr>
+        <tr><td>Cost: net interest on the 80% advance</td><td>2,739,726 × 80% × (9% − 10%)</td><td class="num">21,918</td></tr>
+        <tr class="total"><td>Net benefit of factoring</td><td></td><td class="num">96,302</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Conclusion:</strong> factoring produces a net annual benefit of about AED 96,300 and should be accepted.</p>
+    <p><strong>Note the interest line carefully.</strong> The factor advances 80% at 9%; that 80% would otherwise have been funded on a 10% overdraft. Because the factor's rate is <em>cheaper</em>, this is a small <em>saving</em>, not a cost. If the factor's rate had been <em>higher</em> than the overdraft rate, it would be a cost. <strong>Always compare the factor's rate to the company's existing rate — never just charge the full 9% as a cost.</strong> This is the most commonly botched line in the whole topic.</p>
+  </div>
+
+  <h3>Managing foreign accounts receivable <span class="lvl lvl2">Level 2</span></h3>
+  <p>Foreign receivables carry two extra problems: <strong>longer collection periods</strong> (distance, different legal systems, slower banking) and <strong>foreign exchange risk</strong>. Techniques:</p>
+  <ul>
+    <li><strong>Letters of credit</strong> — the customer's bank guarantees payment. Very secure, but slow and expensive.</li>
+    <li><strong>Bills of exchange</strong> — a written order to pay on a specified date; can be discounted for early cash.</li>
+    <li><strong>Documentary collections</strong> — documents of title released only against payment or acceptance.</li>
+    <li><strong>Export factoring / forfaiting</strong> — sell the receivable to a specialist.</li>
+    <li><strong>Export credit insurance</strong> — cover against non-payment.</li>
+    <li><strong>Currency hedging</strong> — forward contracts, money market hedges (this links forward to Section G, which you'll cover in Week 6).</li>
+    <li><strong>Invoicing in the home currency</strong> — transfers the FX risk to the customer, but may lose the sale.</li>
+  </ul>
+  <p><em>Relevant to Dubai: because the AED is pegged to the USD, receivables invoiced in USD carry almost no practical FX risk for a UAE entity — but receivables in EUR, GBP or INR very much do. That's an application point worth making if a scenario allows it.</em></p>
+</section>
+
+<section id="payables">
+  <h2>6. Managing accounts payable
+    <span class="sylref">Syllabus C2(e) · Study Text Ch 9</span>
+  </h2>
+
+  <h3>Using trade credit effectively <span class="lvl lvl1">Level 1</span></h3>
+  <p>Trade credit is normally the <strong>cheapest source of short-term finance available — it is free</strong>, provided no discount is being forgone and no penalty is incurred.</p>
+
+  <table>
+    <thead><tr><th>Advantages of taking maximum trade credit</th><th>Dangers of stretching it too far</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>
+          <ul>
+            <li>Free finance — no interest</li>
+            <li>Readily available, informal, no security needed</li>
+            <li>Improves the cash operating cycle directly</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Loss of early settlement discounts</li>
+            <li>Suppliers may withdraw credit, demand cash on delivery, or refuse to supply</li>
+            <li>Damaged relationships → worse prices, lower priority in a shortage</li>
+            <li>Damaged credit rating</li>
+            <li>For a public healthcare body: reputational and potentially regulatory consequences of late payment to suppliers</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Evaluating an early settlement discount <em>offered to us</em> <span class="lvl lvl2">Level 2</span></h3>
+  <p>This is the <strong>mirror image</strong> of the receivables discount. The same formula, but the decision reverses:</p>
+
+  <div class="box formula">
+    <span class="lbl">The decision rule flips</span>
+    <p><strong>As the customer (payables):</strong> if the annualised benefit of taking the discount <strong>exceeds</strong> our cost of borrowing → <strong>TAKE the discount</strong> (borrow on the overdraft if needed and pay early).</p>
+    <p><strong>As the supplier (receivables):</strong> if the annualised cost of the discount <strong>exceeds</strong> our cost of borrowing → <strong>DO NOT OFFER it.</strong></p>
+    <p>Same number, opposite conclusion. Read the question carefully to establish <em>which side of the transaction you are on.</em></p>
+  </div>
+
+  <div class="box example">
+    <span class="lbl">Worked example — Should we take the discount offered by our supplier?</span>
+    <p>A supplier offers <strong>1.5% discount for payment within 15 days</strong>, against normal terms of <strong>60 days</strong>. Our overdraft rate is <strong>10%</strong>.</p>
+    <p>d = 1.5, n = 60 − 15 = 45 days</p>
+    <div class="eq">[ 1 + 1.5/98.5 ]<sup>365/45</sup> − 1 = (1.015228)<sup>8.111</sup> − 1 = 1.1308 − 1 = <strong>13.1%</strong></div>
+    <p><strong>Conclusion:</strong> taking the discount is equivalent to earning 13.1% per year on the funds. Since we can borrow at 10%, we should <strong>borrow on the overdraft and take the discount</strong> — a net gain of about 3.1% per year on the amounts involved.</p>
+  </div>
+
+  <h3>Bulk purchase discounts</h3>
+  <p>Evaluated exactly as in the EOQ-with-discounts method above: compare total annual cost (purchase + ordering + holding) at the EOQ against total annual cost at each discount threshold.</p>
+
+  <h3>Managing foreign accounts payable</h3>
+  <p>The mirror of foreign receivables: an obligation to pay a foreign currency amount in the future creates a <strong>transaction exposure</strong>. If the foreign currency strengthens, the AED cost rises. Manage with forward contracts, money market hedges, or by negotiating to be invoiced in AED/USD. Also note the <strong>working capital implication</strong>: letters of credit tie up banking facilities and may require cash collateral, so a "safer" payment method can be a worse use of working capital.</p>
+</section>
+
+<section id="cash">
+  <h2>7. Managing cash
+    <span class="sylref">Syllabus C2(f) · Study Text Ch 10</span>
+  </h2>
+
+  <h3>Why hold cash at all? The three motives <span class="lvl lvl1">Level 1 — easy MCQ marks</span></h3>
+  <table>
+    <thead><tr><th>Motive</th><th>Meaning</th><th>Dubai Health example</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Transactions</strong></td><td>To meet routine, expected day-to-day payments</td><td>Monthly payroll, utility bills, supplier invoices falling due</td></tr>
+      <tr><td><strong>Precautionary</strong></td><td>A buffer against unexpected outflows or delayed inflows</td><td>An emergency equipment replacement; a delayed government transfer</td></tr>
+      <tr><td><strong>Speculative</strong></td><td>To be able to exploit an opportunity that appears at short notice</td><td>A distressed-price bulk purchase of equipment from an exiting supplier</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Cash budgets / cash flow forecasts <span class="lvl lvl2">Level 2 — very examinable</span></h3>
+
+  <p>A cash budget shows expected receipts and payments period by period, producing a running cash balance. It is the single most practical tool in this chapter — and the one closest to your day job.</p>
+
+  <div class="box warn">
+    <span class="lbl">The golden rule of cash budgets</span>
+    <p><strong>Include only actual cash movements, in the period the cash actually moves.</strong></p>
+    <p>Therefore <strong>EXCLUDE</strong>: depreciation, revaluations, accruals and prepayments adjustments, profit or loss on disposal, bad debt write-offs, and any other non-cash accounting entry.</p>
+    <p><strong>INCLUDE</strong>: share issues, loan receipts and repayments, interest, tax payments, dividends paid, capital expenditure, and asset disposal proceeds.</p>
+    <p>The most common exam trap: a question mentions depreciation of AED X, and students helpfully deduct it. It is <strong>not a cash flow</strong>. Never.</p>
+  </div>
+
+  <div class="box example">
+    <span class="lbl">Worked example — Cash budget with credit-sales timing</span>
+    <p>A clinic forecasts revenue of AED 400,000 in January, 500,000 in February and 600,000 in March. All sales are on credit. Customers pay: <strong>50% in the month of sale, 45% in the following month, 5% written off as bad debts</strong>. December sales were AED 350,000.</p>
+    <p><strong>Cash receipts:</strong></p>
+    <table>
+      <thead><tr><th>Receipt in</th><th>Working</th><th class="num">AED</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="3">January</td><td>50% of January sales: 400,000 × 50%</td><td class="num">200,000</td></tr>
+        <tr><td>45% of December sales: 350,000 × 45%</td><td class="num">157,500</td></tr>
+        <tr class="total"><td>Total January receipts</td><td class="num">357,500</td></tr>
+        <tr><td rowspan="3">February</td><td>50% of February sales: 500,000 × 50%</td><td class="num">250,000</td></tr>
+        <tr><td>45% of January sales: 400,000 × 45%</td><td class="num">180,000</td></tr>
+        <tr class="total"><td>Total February receipts</td><td class="num">430,000</td></tr>
+        <tr><td rowspan="3">March</td><td>50% of March sales: 600,000 × 50%</td><td class="num">300,000</td></tr>
+        <tr><td>45% of February sales: 500,000 × 45%</td><td class="num">225,000</td></tr>
+        <tr class="total"><td>Total March receipts</td><td class="num">525,000</td></tr>
+      </tbody>
+    </table>
+    <p><strong>The 5% bad debts never appear.</strong> They are not a cash flow — they are simply cash that is never received. Do not create a "bad debt" line.</p>
+  </div>
+
+  <div class="box tip">
+    <span class="lbl">What to do with the answer — the discussion marks</span>
+    <p>A cash budget requirement is nearly always followed by "<em>discuss how the company should manage the forecast position</em>". Have these ready:</p>
+    <p><strong>Forecast DEFICIT →</strong> arrange an overdraft; accelerate receivables collection (discounts, chasing, factoring); delay non-essential capital expenditure; negotiate longer supplier credit; reduce inventory; consider a short-term loan if the deficit is sustained rather than temporary.</p>
+    <p><strong>Forecast SURPLUS →</strong> is it <em>short-term</em> or <em>long-term</em>? Short-term surplus: invest in low-risk, highly liquid instruments (treasury bills, money market deposits, short-dated certificates of deposit). Long-term surplus: consider paying down debt, increasing dividends, or a new investment project.</p>
+    <p><strong>The criteria for short-term investment of surplus cash</strong> — remember these three: <strong>risk</strong> (must be low — this is not speculation), <strong>liquidity</strong> (must be convertible to cash when needed), <strong>return</strong> (maximise, but only subject to the first two).</p>
+  </div>
+
+  <h3>Centralised treasury management <span class="lvl lvl2">Level 2</span></h3>
+  <p>Highly relevant to a large, multi-entity organisation — including a health authority with multiple hospitals and clinics.</p>
+  <table>
+    <thead><tr><th>Advantages of centralising</th><th>Disadvantages</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>
+          <ul>
+            <li><strong>Netting off</strong> — one unit's surplus offsets another's deficit, so the group holds a smaller total cash balance</li>
+            <li>Larger pooled balances earn <strong>better deposit rates</strong> and borrow at <strong>finer rates</strong></li>
+            <li>Specialist treasury expertise concentrated in one team</li>
+            <li>Group-wide FX exposures can be netted before hedging — cheaper</li>
+            <li>Better control and standardised policy</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Local units lose autonomy and may become less accountable for cash</li>
+            <li>Local knowledge and relationships with local banks are lost</li>
+            <li>Delays if local units must go to the centre for every decision</li>
+            <li>Cost of running a central function</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Cash management models</h3>
+
+  <h4>The Baumol model <span class="lvl lvl2">Level 2</span></h4>
+  <p>Baumol applies the EOQ logic to cash. It assumes cash is used at a <strong>steady, predictable rate</strong>, and is replenished by selling securities in fixed-size chunks.</p>
+
+  <div class="box formula">
+    <span class="lbl">Baumol — optimum amount to transfer each time</span>
+    <div class="eq">F = √[ 2 × C × D ÷ (r<sub>1</sub> − r<sub>2</sub>) ]</div>
+    <p>where <strong>C</strong> = transaction cost per transfer, <strong>D</strong> = annual cash demand, <strong>r<sub>1</sub></strong> = interest rate on the investment, <strong>r<sub>2</sub></strong> = interest rate on the current account (usually zero).</p>
+  </div>
+
+  <div class="box example">
+    <span class="lbl">Worked example — Baumol</span>
+    <p>A company needs AED 200,000 of cash per year, drawn evenly. It replenishes its non-interest-bearing current account by selling treasury bills earning <strong>6%</strong>. Each sale costs a fixed <strong>AED 15</strong>.</p>
+    <div class="eq">F = √( 2 × 15 × 200,000 ÷ 0.06 ) = √100,000,000 = <strong>AED 10,000</strong></div>
+    <ul>
+      <li>Number of transfers per year = 200,000 ÷ 10,000 = <strong>20</strong></li>
+      <li>Annual transaction cost = 20 × 15 = <strong>AED 300</strong></li>
+      <li>Average cash balance = 10,000 ÷ 2 = AED 5,000; opportunity cost = 5,000 × 6% = <strong>AED 300</strong></li>
+    </ul>
+    <p>Again the two costs are equal at the optimum — your built-in arithmetic check.</p>
+  </div>
+
+  <div class="box warn">
+    <span class="lbl">Baumol's weaknesses — worth 3–4 discussion marks</span>
+    <ul>
+      <li>Assumes cash demand is <strong>constant and known with certainty</strong>. In reality it is lumpy and uncertain — payroll, quarterly tax, seasonal peaks.</li>
+      <li>Assumes transaction cost and interest rates are <strong>constant and known</strong>.</li>
+      <li>Ignores buffer cash for unforeseen events.</li>
+      <li>Assumes no cash <em>inflows</em> during the period.</li>
+    </ul>
+    <p><strong>Because of these, Baumol is rarely useful in practice</strong> — a business with variable cash flows is better served by Miller-Orr. Saying exactly this, applied to the scenario, is a reliable source of marks.</p>
+  </div>
+
+  <h4>The Miller-Orr model <span class="lvl lvl2">Level 2</span></h4>
+  <p>Miller-Orr's advantage over Baumol is that it <strong>accommodates uncertainty</strong> — cash flows fluctuate randomly. It works by setting control limits.</p>
+
+  <div class="box formula">
+    <span class="lbl">Miller-Orr — provided on the exam formula sheet</span>
+    <div class="eq">Spread = 3 × [ ( ¾ × transaction cost × variance of cash flows ) ÷ interest rate ]<sup>⅓</sup></div>
+    <div class="eq">Return point = Lower limit + ( ⅓ × Spread )</div>
+    <div class="eq">Upper limit = Lower limit + Spread</div>
+  </div>
+
+  <p><strong>How it works:</strong></p>
+  <ul>
+    <li>Management <strong>sets the lower limit</strong> (based on its risk appetite and how bad a cash shortfall would be). The model calculates the rest.</li>
+    <li>The cash balance is allowed to <strong>wander freely</strong> between the limits — no action is taken.</li>
+    <li>If the balance hits the <strong>upper limit</strong>: buy securities, moving cash <em>down to the return point</em>. Amount = Upper limit − Return point.</li>
+    <li>If the balance hits the <strong>lower limit</strong>: sell securities, moving cash <em>up to the return point</em>. Amount = Return point − Lower limit.</li>
+  </ul>
+
+  <div class="box warn">
+    <span class="lbl">Three mechanical traps — this is where marks are lost</span>
+    <ol>
+      <li><strong>Variance, not standard deviation.</strong> If the question gives a standard deviation of daily cash flows, you must <strong>square it</strong>.</li>
+      <li><strong>Everything must be in DAILY terms.</strong> If the interest rate is given per year, divide by 365 (or use the daily rate given).</li>
+      <li>The <strong>upper limit is calculated</strong> by the model; the <strong>lower limit is set by management</strong>. Exam MCQs test this the wrong way round constantly.</li>
+    </ol>
+  </div>
+
+  <div class="box example">
+    <span class="lbl">Worked example — Miller-Orr</span>
+    <p>A company's daily cash flows have a <strong>standard deviation of AED 3,000</strong>. Moving cash between the current account and the deposit account costs <strong>AED 25</strong> per transaction. The deposit account earns <strong>7.3% per year</strong>. Management has set a minimum cash balance of <strong>AED 10,000</strong>. Assume 365 days.</p>
+
+    <p><strong>Step 1 — convert to daily terms</strong></p>
+    <ul>
+      <li>Variance = 3,000² = <strong>9,000,000</strong></li>
+      <li>Daily interest rate = 7.3% ÷ 365 = <strong>0.02% = 0.0002</strong></li>
+    </ul>
+
+    <p><strong>Step 2 — spread</strong></p>
+    <div class="eq">Spread = 3 × [ ( 0.75 × 25 × 9,000,000 ) ÷ 0.0002 ]<sup>⅓</sup></div>
+    <div class="eq">= 3 × [ 168,750,000 ÷ 0.0002 ]<sup>⅓</sup> = 3 × ( 843,750,000,000 )<sup>⅓</sup></div>
+    <div class="eq">= 3 × 9,455 = <strong>AED 28,365</strong> (≈ AED 28,000)</div>
+
+    <p><strong>Step 3 — the limits</strong></p>
+    <table>
+      <thead><tr><th>Limit</th><th>Working</th><th class="num">AED</th></tr></thead>
+      <tbody>
+        <tr><td>Lower limit</td><td>Set by management</td><td class="num">10,000</td></tr>
+        <tr><td>Return point</td><td>10,000 + (⅓ × 28,365)</td><td class="num">19,455</td></tr>
+        <tr><td>Upper limit</td><td>10,000 + 28,365</td><td class="num">38,365</td></tr>
+      </tbody>
+    </table>
+
+    <p><strong>Action:</strong> if the balance reaches AED 38,365, invest (38,365 − 19,455) = <strong>AED 18,910</strong> in securities. If it falls to AED 10,000, sell (19,455 − 10,000) = <strong>AED 9,455</strong> of securities.</p>
+    <p><em>Note the return point sits one-third of the way up, not in the middle. That is deliberate: it is cheaper to correct an excess of cash than a shortage, so the model biases the balance downwards.</em></p>
+  </div>
+</section>
+
+<section id="funding">
+  <h2>8. Working capital funding strategies
+    <span class="sylref">Syllabus C3(b) · Study Text Ch 10</span>
+  </h2>
+
+  <p>Section 3 asked <em>how much</em> current assets to hold. This asks: <strong>how do we pay for them?</strong></p>
+
+  <div class="box def">
+    <span class="lbl">The key distinction — memorise this</span>
+    <p><strong>Permanent current assets</strong> — the <em>minimum</em> level of current assets the business always needs, even at its quietest. A core inventory buffer; a base level of receivables that never goes away because new sales constantly replace collected ones. It looks like a current asset on the balance sheet, but economically it is a <strong>long-term investment</strong>.</p>
+    <p><strong>Fluctuating current assets</strong> — the extra current assets required at seasonal or cyclical peaks. Genuinely temporary.</p>
+  </div>
+
+  <h3>The three funding policies <span class="lvl lvl2">Level 2</span></h3>
+
+  <table>
+    <thead>
+      <tr><th>Policy</th><th>What it does</th><th>Risk</th><th>Return</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Aggressive</strong></td>
+        <td>Uses <strong>short-term</strong> finance for <em>all</em> fluctuating current assets <strong>and part of the permanent</strong> current assets</td>
+        <td><strong>High.</strong> Short-term finance (overdraft) is repayable on demand and its interest rate can move against you. Renewal is not guaranteed.</td>
+        <td><strong>High.</strong> Short-term finance is normally <em>cheaper</em>, so profits and EPS are higher.</td>
+      </tr>
+      <tr>
+        <td><strong>Matching</strong></td>
+        <td>Matches the <strong>duration of the finance to the duration of the asset</strong>. Permanent current assets → long-term finance. Fluctuating → short-term finance.</td>
+        <td><strong>Moderate</strong> — the theoretically "correct" middle ground.</td>
+        <td>Moderate</td>
+      </tr>
+      <tr>
+        <td><strong>Conservative</strong></td>
+        <td>Uses <strong>long-term</strong> finance for permanent current assets <em>and</em> a proportion of the fluctuating ones. Short-term finance is used only for the peaks.</td>
+        <td><strong>Low.</strong> Long-term finance is secure and cannot be withdrawn.</td>
+        <td><strong>Low.</strong> Long-term finance is more expensive; there will be periods of idle surplus cash earning little.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="box warn">
+    <span class="lbl">The one sentence that must be right</span>
+    <p><strong>Short-term finance is CHEAPER but RISKIER. Long-term finance is more EXPENSIVE but SAFER.</strong></p>
+    <p>Why cheaper? Lenders demand less compensation for tying money up for a short period, and an overdraft is only charged on the balance actually used.</p>
+    <p>Why riskier? An overdraft is <strong>repayable on demand</strong>; the rate is <strong>variable</strong>; and renewal of short-term facilities is never guaranteed — as many businesses discovered in credit crises.</p>
+    <p>Get this the wrong way round and every subsequent sentence you write will be wrong. It is the most frequently reversed fact in the entire syllabus.</p>
+  </div>
+
+  <div class="box example">
+    <span class="lbl">Worked example — the risk/return trade-off in numbers</span>
+    <p>Three identical companies. Each has AED 50k non-current assets and AED 50k current assets, funded differently. Long-term debt costs 10%; current liabilities cost 3%. EBIT is AED 15,000; tax 40%. 50,000 shares in issue.</p>
+    <table>
+      <thead><tr><th>AED 000</th><th class="num">Aggressive</th><th class="num">Matching</th><th class="num">Conservative</th></tr></thead>
+      <tbody>
+        <tr><td>Equity</td><td class="num">50</td><td class="num">50</td><td class="num">50</td></tr>
+        <tr><td>Long-term debt @ 10%</td><td class="num">—</td><td class="num">25</td><td class="num">40</td></tr>
+        <tr><td>Current liabilities @ 3%</td><td class="num">50</td><td class="num">25</td><td class="num">10</td></tr>
+        <tr class="total"><td>Total funding</td><td class="num">100</td><td class="num">100</td><td class="num">100</td></tr>
+        <tr><td><strong>Current ratio</strong></td><td class="num"><strong>1 : 1</strong></td><td class="num"><strong>2 : 1</strong></td><td class="num"><strong>5 : 1</strong></td></tr>
+      </tbody>
+    </table>
+    <table>
+      <thead><tr><th>AED</th><th class="num">Aggressive</th><th class="num">Matching</th><th class="num">Conservative</th></tr></thead>
+      <tbody>
+        <tr><td>EBIT</td><td class="num">15,000</td><td class="num">15,000</td><td class="num">15,000</td></tr>
+        <tr><td>Interest</td><td class="num">(1,500)</td><td class="num">(3,250)</td><td class="num">(4,300)</td></tr>
+        <tr><td>Profit before tax</td><td class="num">13,500</td><td class="num">11,750</td><td class="num">10,700</td></tr>
+        <tr><td>Tax @ 40%</td><td class="num">(5,400)</td><td class="num">(4,700)</td><td class="num">(4,280)</td></tr>
+        <tr class="total"><td>Earnings</td><td class="num">8,100</td><td class="num">7,050</td><td class="num">6,420</td></tr>
+        <tr class="total"><td>EPS</td><td class="num">16.2c</td><td class="num">14.1c</td><td class="num">12.84c</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Read the story in the two tables together.</strong> The aggressive company delivers the highest EPS (16.2c) — <em>and</em> the weakest current ratio (1:1). The conservative company is the safest and the least profitable. This is the risk/return trade-off made visible. Neither is "right"; the choice depends on management's attitude to risk.</p>
+  </div>
+
+  <h3>What actually drives the choice in practice?</h3>
+  <ul>
+    <li><strong>Management's attitude to risk</strong> — risk-averse managers lean conservative.</li>
+    <li><strong>Previous funding decisions</strong> — past experience shapes managers' confidence in anticipating working capital swings.</li>
+    <li><strong>Organisation size</strong> — small companies often <em>have no choice</em> but to be aggressive: without a track record, marketable shares, or assets to offer as security, long-term finance is simply unavailable to them.</li>
+    <li><strong>Volatility of the sector's earnings</strong> — volatile earnings push towards conservative funding, to survive the bad years.</li>
+    <li><strong>Willingness of creditors to lend.</strong></li>
+  </ul>
+
+  <h3>Short-term finance: overdraft vs short-term loan <span class="lvl lvl2">Level 2</span></h3>
+  <table>
+    <thead><tr><th></th><th>Overdraft</th><th>Short-term loan</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Advantages</strong></td>
+        <td>
+          <ul>
+            <li><strong>Flexible</strong> — borrow only what you need, when you need it</li>
+            <li>Interest charged only on the amount actually drawn</li>
+            <li>Easy and quick to arrange</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li><strong>Cannot be recalled</strong> during the loan term — certainty of funding</li>
+            <li>Interest rate may be fixed, aiding budgeting</li>
+            <li>Known repayment schedule</li>
+          </ul>
+        </td>
+      </tr>
+      <tr><td><strong>Disadvantages</strong></td>
+        <td>
+          <ul>
+            <li><strong>Repayable on demand</strong> — the bank can withdraw it at any time</li>
+            <li>Variable interest rate</li>
+            <li>May require security; arrangement fees on the whole facility</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Interest paid on the <strong>full amount</strong> even if not all of it is needed</li>
+            <li>Less flexible; early repayment may carry a penalty</li>
+            <li>Arrangement is more formal and slower</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="overtrading">
+  <h2>9. Overtrading (under-capitalisation)
+    <span class="sylref">Frequently examined as a discussion requirement</span>
+  </h2>
+
+  <div class="box def">
+    <span class="lbl">Definition</span>
+    <p><strong>Overtrading</strong> occurs when a business expands its <strong>trading volume rapidly without a corresponding increase in its long-term capital base</strong>. It is growing faster than it can fund. The business may be highly profitable on paper and still collapse for want of cash.</p>
+  </div>
+
+  <h3>The symptoms — learn the list, it's an easy 4–5 marks</h3>
+  <ul>
+    <li><strong>Rapid growth in revenue</strong>, out of proportion to growth in capital employed</li>
+    <li>Sharp rise in the <strong>sales revenue / net working capital ratio</strong></li>
+    <li><strong>Inventory days and receivables days rising</strong> (stretching to support growth)</li>
+    <li><strong>Payables days rising sharply</strong> — the business is leaning on suppliers to fund itself</li>
+    <li><strong>Current and quick ratios falling</strong></li>
+    <li>A rapidly increasing <strong>overdraft</strong>, often near or at its limit</li>
+    <li>Falling <strong>profit margins</strong> (discounting to drive volume)</li>
+    <li>Growth financed almost entirely by <strong>short-term</strong> sources</li>
+  </ul>
+
+  <h3>The remedies</h3>
+  <ol>
+    <li><strong>Introduce new long-term capital</strong> — a share issue or long-term debt. This is the fundamental fix: the capital base must catch up with the trading volume.</li>
+    <li><strong>Improve working capital management</strong> — cut inventory days, chase receivables harder, use factoring.</li>
+    <li><strong>Slow the rate of growth</strong> — reduce the pace of expansion until funding can catch up. Unpalatable, but effective.</li>
+  </ol>
+
+  <div class="box tip">
+    <span class="lbl">Exam tip</span>
+    <p>If a Section C scenario gives you two years of financial data and asks you to "discuss the company's working capital position", <strong>overtrading is very often the answer they are fishing for</strong>. Calculate the ratios for both years, spot the pattern (revenue up sharply, ratios deteriorating, overdraft ballooning), name it explicitly as overtrading, and then give the remedies. That structure — calculate, diagnose, prescribe — is a full-marks answer.</p>
+  </div>
+</section>
+
+<section id="formulae">
+  <h2>Formulae summary — what is given, what you must memorise</h2>
+
+  <div class="box warn">
+    <span class="lbl">Critical</span>
+    <p>The exam provides a formulae sheet, but it does <strong>not</strong> cover everything. Anything in the "must memorise" column below will not appear on the sheet.</p>
+  </div>
+
+  <table>
+    <thead><tr><th>Given on the exam formulae sheet</th><th>You MUST memorise</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>
+          <ul>
+            <li>EOQ = √(2C<sub>o</sub>D / C<sub>h</sub>)</li>
+            <li>EBQ = √[2C<sub>o</sub>D / (C<sub>h</sub>(1 − D/R))]</li>
+            <li>Miller-Orr spread and return point</li>
+            <li>Discount and annuity tables</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li><strong>Cash operating cycle</strong> = inventory days + receivables days − payables days</li>
+            <li><strong>All the working capital ratios</strong> (inventory, receivables, payables days; current; quick; sales/NWC)</li>
+            <li><strong>Baumol:</strong> F = √(2CD / (r<sub>1</sub> − r<sub>2</sub>))</li>
+            <li><strong>Annualised cost of a discount:</strong> [1 + d/(100−d)]<sup>365/n</sup> − 1</li>
+            <li><strong>Working capital investment</strong> = inventory + receivables − payables</li>
+            <li>Average inventory = Q/2 (+ buffer if held)</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="exam">
+  <h2>How this topic is examined</h2>
+
+  <table>
+    <thead><tr><th>Exam section</th><th>What it looks like</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Section A</strong><br>15 × 2-mark OTQs</td>
+        <td>Single-step calculations (an EOQ; a Miller-Orr spread; a receivables balance after a discount) or definitional questions (which motive for holding cash; which policy is aggressive; is the upper limit set by management?).</td>
+      </tr>
+      <tr>
+        <td><strong>Section B</strong><br>3 cases × 5 OTQs</td>
+        <td>A single working capital scenario with five linked objective questions — e.g. calculate the cycle, then a ratio, then evaluate a discount, then identify a funding policy.</td>
+      </tr>
+      <tr>
+        <td><strong>Section C</strong><br>2 × 20-mark CRQs</td>
+        <td><strong>The big one.</strong> Typically: (a) calculate the cash operating cycle / working capital ratios for two years [~7 marks]; (b) evaluate a proposed change — a settlement discount, a factoring offer, an EOQ policy [~7 marks]; (c) discuss — funding strategies, overtrading, liquidity vs profitability [~6 marks]. <strong>Questions in this area routinely draw on several different elements at once.</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="box tip">
+    <span class="lbl">Your Week 1 practice plan — Exam Kit questions</span>
+    <p>Do the reading and the questions <strong>in tandem</strong>, section by section. Suggested order, mapped to the Kaplan Exam Kit:</p>
+    <ol>
+      <li><strong>After sections 1–3:</strong> Q280 (Pumice), part (a) — leave part (b)(ii) until you've done funding strategies.</li>
+      <li><strong>After section 4 (inventory):</strong> Q279 (Dusty) part (a), Q282 (Purdy) part (a).</li>
+      <li><strong>After sections 5–6 (receivables &amp; payables):</strong> Q278 (Oscar) parts (a) and (b); Q275 (KXP) part (a); Q233 (Jeeps) part (a) for a payables calculation.</li>
+      <li><strong>After sections 7–8 (cash &amp; funding):</strong> Q280 (Pumice) part (b)(ii); Q279 (Dusty) part (b); Q277 (Flit) parts (a)–(d) for cash management and forecasting; Q275 (KXP) part (c) to contrast investment vs funding policies.</li>
+      <li><strong>Then</strong> sweep all the Section A/B objective questions on working capital.</li>
+    </ol>
+    <p><strong>Do at least one of these under timed conditions</strong> (1.8 minutes per mark — so 36 minutes for a 20-mark question). Reading about working capital is comfortable; writing a 20-mark answer in 36 minutes is not. Find that out now, not in September.</p>
+  </div>
+
+  <div class="box warn">
+    <span class="lbl">Diary note</span>
+    <p><strong>Standard exam entry for the September 2026 sitting closes on Monday 27 July 2026, 23:59 UK time.</strong> That is inside Week 2 of your plan. Late entry (to 3 August) costs substantially more. Book it now, while you're motivated — do not wait until you "feel ready".</p>
+    <p>FM sits on <strong>Friday 11 September 2026</strong>. Results: 19 October 2026.</p>
+  </div>
+</section>
+
+<section id="test">
+  <h2>Test yourself</h2>
+  <p>Answer before you scroll. If you get one wrong, go back to the relevant section rather than just reading the explanation.</p>
+
+  <div class="mcq" data-answer="1">
+    <p class="q">1. A company has inventory days of 55, receivables days of 68 and payables days of 47. What is its cash operating cycle?</p>
+    <button data-i="0">A — 170 days</button>
+    <button data-i="1">B — 76 days</button>
+    <button data-i="2">C — 34 days</button>
+    <button data-i="3">D — 60 days</button>
+    <div class="fb"><strong>B.</strong> 55 + 68 − 47 = 76 days. Inventory and receivables <em>extend</em> the cycle; payables <em>shorten</em> it because suppliers are financing you.</div>
+  </div>
+
+  <div class="mcq" data-answer="2">
+    <p class="q">2. Which of the following statements is consistent with an <strong>aggressive working capital FUNDING</strong> policy?</p>
+    <button data-i="0">A — Long-term finance is used to fund all permanent current assets and some fluctuating current assets</button>
+    <button data-i="1">B — Large buffer inventories are held to avoid stock-outs</button>
+    <button data-i="2">C — Short-term finance is used to fund all fluctuating current assets and part of the permanent current assets</button>
+    <button data-i="3">D — The duration of finance is matched to the duration of the asset it funds</button>
+    <div class="fb"><strong>C.</strong> Aggressive <em>funding</em> = lean on cheap, risky short-term finance, even for permanent current assets. A is conservative funding; D is matching; B describes an <em>investment</em> policy, not a funding policy — the classic distractor.</div>
+  </div>
+
+  <div class="mcq" data-answer="0">
+    <p class="q">3. In the Miller-Orr model, which statement is TRUE?</p>
+    <button data-i="0">A — The lower limit is set by management and the upper limit is calculated by the model</button>
+    <button data-i="1">B — The upper limit is set by management and the lower limit is calculated by the model</button>
+    <button data-i="2">C — Both limits are set by management</button>
+    <button data-i="3">D — The return point is exactly halfway between the two limits</button>
+    <div class="fb"><strong>A.</strong> Management sets the lower limit based on its risk appetite; the model then derives the spread, and hence the upper limit. D is wrong — the return point sits <em>one third</em> of the way up the spread, not halfway.</div>
+  </div>
+
+  <div class="mcq" data-answer="3">
+    <p class="q">4. Annual demand is 120,000 units, the cost per order is AED 150, and holding cost is AED 4 per unit per year. What is the EOQ?</p>
+    <button data-i="0">A — 2,000 units</button>
+    <button data-i="1">B — 4,500 units</button>
+    <button data-i="2">C — 9,000 units</button>
+    <button data-i="3">D — 3,000 units</button>
+    <div class="fb"><strong>D.</strong> √(2 × 150 × 120,000 ÷ 4) = √9,000,000 = 3,000 units. Check: ordering cost = 150 × 120,000/3,000 = AED 6,000; holding cost = 4 × 3,000/2 = AED 6,000. Equal — so the answer is right.</div>
+  </div>
+
+  <div class="mcq" data-answer="1">
+    <p class="q">5. Which of the following should NOT be included in a cash flow forecast?</p>
+    <button data-i="0">A — Proceeds from the issue of share capital</button>
+    <button data-i="1">B — Revaluation of a non-current asset</button>
+    <button data-i="2">C — Repayment of a bank loan</button>
+    <button data-i="3">D — Dividends received from an investment</button>
+    <div class="fb"><strong>B.</strong> A revaluation is a purely accounting adjustment — no cash moves. Everything else is a genuine cash flow. Depreciation, profit/loss on disposal, and bad debt write-offs belong in the same excluded category.</div>
+  </div>
+
+  <div class="mcq" data-answer="2">
+    <p class="q">6. A supplier offers a 2% discount for payment in 10 days instead of the normal 45 days. Our overdraft rate is 15%. What should we do?</p>
+    <button data-i="0">A — Reject it; the annualised cost of 22.9% exceeds our 15% borrowing rate</button>
+    <button data-i="1">B — Reject it; discounts always destroy value for the payer</button>
+    <button data-i="2">C — Take it; the annualised benefit of about 23% exceeds our 15% borrowing rate</button>
+    <button data-i="3">D — Indifferent; the two rates are approximately equal</button>
+    <div class="fb"><strong>C.</strong> [1 + 2/98]<sup>365/35</sup> − 1 = (1.020408)<sup>10.43</sup> − 1 ≈ 23.4%. We are the <em>customer</em> here, so a high annualised figure is a <em>benefit</em>: borrow at 15% to earn 23.4%. Option A gets the arithmetic right but the direction wrong — which is exactly the trap. Always ask: am I the supplier or the customer?</div>
+  </div>
+
+  <div class="mcq" data-answer="0">
+    <p class="q">7. A company's revenue has grown 60% in a year, receivables days have risen from 45 to 72, payables days from 30 to 65, and the overdraft is at its limit. Profits are healthy. What is the most likely diagnosis?</p>
+    <button data-i="0">A — Overtrading</button>
+    <button data-i="1">B — A conservative working capital investment policy</button>
+    <button data-i="2">C — Successful implementation of JIT</button>
+    <button data-i="3">D — Overcapitalisation</button>
+    <div class="fb"><strong>A.</strong> Rapid revenue growth, deteriorating working capital ratios, and an overdraft at its limit — while remaining profitable — is the textbook signature of overtrading. The business is expanding faster than its long-term capital base can support. Remedy: inject long-term capital, tighten working capital management, or slow the growth.</div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>ACCA Financial Management — Week 1 of 8 · Syllabus Section C (2026–27 syllabus, unchanged from prior year)</p>
+  <p><strong>Next up (Weeks 3–4):</strong> Section E — Business Finance: sources of finance, cost of capital, WACC and CAPM</p>
+</footer>
+
+<script>
+document.querySelectorAll('.mcq').forEach(function(card){
+  var correct = parseInt(card.getAttribute('data-answer'), 10);
+  var fb = card.querySelector('.fb');
+  card.querySelectorAll('button').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      if (card.dataset.done === 'yes') return;
+      card.dataset.done = 'yes';
+      var chosen = parseInt(btn.getAttribute('data-i'), 10);
+      card.querySelectorAll('button').forEach(function(b){
+        var i = parseInt(b.getAttribute('data-i'), 10);
+        if (i === correct) b.classList.add('right');
+        else if (i === chosen) b.classList.add('wrong');
+      });
+      fb.style.display = 'block';
+    });
+  });
+});
+</script>
+
+</body>
+</html>
