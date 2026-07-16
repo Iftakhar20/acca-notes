@@ -6,183 +6,363 @@
 <title>ACCA Study Notes</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --cream: #faf8f4; --cream-border: #e8e2d8; --ink: #1c1a17;
-    --ink-muted: #8c877f; --ink-dim: #b8b2a8;
-    --tx: #c0440e; --tx-bg: #fef3ee; --tx-border: #f0c4ae; --tx-mid: #e8703a;
-    --fm: #1a5fa8; --fm-bg: #eef5fd; --fm-border: #b0cef0; --fm-mid: #3a82cc;
-    --aa: #1a7a52; --aa-bg: #eef8f3; --aa-border: #a0dcc0; --aa-mid: #2ea06e;
-    --other: #6b3fa0; --other-bg: #f3eeff; --other-border: #c9aeee; --other-mid: #8b5fc0;
-  }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Outfit', sans-serif; background-color: var(--cream); color: var(--ink); min-height: 100vh; overflow-x: hidden; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  .bg-layer { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
-  .bg-blob { position: absolute; border-radius: 50%; filter: blur(100px); }
-  .blob-1 { width: 700px; height: 500px; top: -200px; right: -150px; background: rgba(192,68,14,0.06); }
-  .blob-2 { width: 600px; height: 600px; bottom: -200px; left: -150px; background: rgba(26,95,168,0.05); }
-  .blob-3 { width: 400px; height: 400px; top: 40%; left: 50%; background: rgba(26,122,82,0.04); }
-  .bg-dots { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(28,26,23,0.07) 1px, transparent 1px); background-size: 28px 28px; }
+:root {
+  --bg:      #F7F6F2;
+  --white:   #FFFFFF;
+  --ink:     #111110;
+  --ink-2:   #3D3C38;
+  --ink-3:   #8A897F;
+  --rule:    #E2E0D8;
 
-  .page { position: relative; z-index: 1; max-width: 980px; margin: 0 auto; padding: 0 1.5rem 5rem; }
+  --tx:      #D63B1F;
+  --tx-light:#FEF0ED;
+  --tx-mid:  #E8694F;
+  --tx-rule: #F5C4BA;
 
-  .hero { padding: 4.5rem 0 2.5rem; display: flex; flex-direction: column; align-items: center; text-align: center; animation: fadeUp 0.7s ease both; }
-  .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-muted); border: 1px solid var(--cream-border); background: white; padding: 5px 18px; border-radius: 100px; margin-bottom: 1.75rem; box-shadow: 0 1px 4px rgba(28,26,23,0.06); }
-  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(38px, 6vw, 62px); font-weight: 700; line-height: 1.08; color: var(--ink); margin-bottom: 1rem; }
-  .hero h1 em { font-style: italic; font-weight: 500; background: linear-gradient(135deg, var(--tx-mid), var(--fm-mid)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-  .hero-sub { font-size: 15px; color: var(--ink-muted); font-weight: 300; letter-spacing: 0.04em; margin-bottom: 2rem; }
-  .hero-divider { width: 60px; height: 2px; background: linear-gradient(90deg, var(--tx-mid), var(--fm-mid), var(--aa-mid)); border-radius: 2px; }
+  --fm:      #1B4FD8;
+  --fm-light:#EDF1FD;
+  --fm-mid:  #4D78EE;
+  --fm-rule: #BAC9F8;
 
-  .nav-pills { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin: 2rem 0 3rem; animation: fadeUp 0.7s 0.12s ease both; }
-  .pill { font-size: 12px; font-weight: 500; letter-spacing: 0.04em; padding: 8px 22px; border-radius: 100px; cursor: pointer; border: 1.5px solid; text-decoration: none; transition: all 0.18s; background: white; }
-  .pill-tx { color: var(--tx); border-color: var(--tx-border); }
-  .pill-fm { color: var(--fm); border-color: var(--fm-border); }
-  .pill-aa { color: var(--aa); border-color: var(--aa-border); }
-  .pill-tx:hover { background: var(--tx-bg); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(192,68,14,0.12); }
-  .pill-fm:hover { background: var(--fm-bg); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(26,95,168,0.12); }
-  .pill-aa:hover { background: var(--aa-bg); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(26,122,82,0.12); }
+  --aa:      #0F7A4A;
+  --aa-light:#ECF8F2;
+  --aa-mid:  #2EA66E;
+  --aa-rule: #A8DFC3;
+}
 
-  .section { margin-bottom: 3rem; }
-  .section-label { display: flex; align-items: center; gap: 14px; margin-bottom: 1.25rem; }
-  .exam-badge { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 14px; border-radius: 6px; border: 1.5px solid; white-space: nowrap; }
-  .badge-TX { color: var(--tx); border-color: var(--tx-border); background: var(--tx-bg); }
-  .badge-FM { color: var(--fm); border-color: var(--fm-border); background: var(--fm-bg); }
-  .badge-AA { color: var(--aa); border-color: var(--aa-border); background: var(--aa-bg); }
-  .badge-OTHER { color: var(--other); border-color: var(--other-border); background: var(--other-bg); }
-  .section-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 500; color: var(--ink); }
-  .section-line { flex: 1; height: 1px; background: var(--cream-border); }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+}
 
-  .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(195px, 1fr)); gap: 12px; }
-  .card { display: flex; flex-direction: column; background: white; border: 1.5px solid var(--cream-border); border-radius: 14px; padding: 20px 18px 16px; text-decoration: none; color: var(--ink); transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease; }
-  .card:hover { transform: translateY(-4px); }
-  .card-TX:hover { border-color: var(--tx-border); box-shadow: 0 8px 24px rgba(192,68,14,0.10); }
-  .card-FM:hover { border-color: var(--fm-border); box-shadow: 0 8px 24px rgba(26,95,168,0.10); }
-  .card-AA:hover { border-color: var(--aa-border); box-shadow: 0 8px 24px rgba(26,122,82,0.10); }
-  .card-OTHER:hover { border-color: var(--other-border); box-shadow: 0 8px 24px rgba(107,63,160,0.10); }
+/* ── subtle texture ── */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background-image:
+    radial-gradient(circle at 80% 10%, rgba(214,59,31,0.05) 0%, transparent 45%),
+    radial-gradient(circle at 10% 90%, rgba(27,79,216,0.05) 0%, transparent 45%),
+    radial-gradient(circle at 55% 55%, rgba(15,122,74,0.04) 0%, transparent 40%);
+}
 
-  .card-icon { width: 36px; height: 36px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 17px; margin-bottom: 14px; flex-shrink: 0; }
-  .icon-TX { background: var(--tx-bg); }
-  .icon-FM { background: var(--fm-bg); }
-  .icon-AA { background: var(--aa-bg); }
-  .icon-OTHER { background: var(--other-bg); }
+.page {
+  position: relative; z-index: 1;
+  max-width: 1020px; margin: 0 auto;
+  padding: 0 1.5rem 6rem;
+}
 
-  .card-name { font-size: 13px; font-weight: 400; line-height: 1.45; color: var(--ink); flex: 1; }
-  .card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--cream-border); }
-  .card-label { font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.45; }
-  .card-arrow { font-size: 14px; color: var(--ink-dim); transition: transform 0.18s, color 0.18s; }
-  .card:hover .card-arrow { transform: translateX(3px); }
-  .card-TX:hover .card-arrow { color: var(--tx); }
-  .card-FM:hover .card-arrow { color: var(--fm); }
-  .card-AA:hover .card-arrow { color: var(--aa); }
-  .card-OTHER:hover .card-arrow { color: var(--other); }
+/* ══════════════ HERO ══════════════ */
+.hero {
+  padding: 5rem 0 4rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 2rem;
+  border-bottom: 2px solid var(--ink);
+  animation: up 0.7s ease both;
+}
+.hero-left {}
+.hero-tag {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 1.25rem;
+}
+.hero h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(48px, 8vw, 88px);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+.hero h1 .accent-tx { color: var(--tx); }
+.hero h1 .accent-fm { color: var(--fm); }
+.hero h1 .accent-aa { color: var(--aa); }
 
-  .loading { text-align: center; padding: 4rem 0; color: var(--ink-muted); font-size: 14px; }
-  .loading-spinner { width: 32px; height: 32px; border: 2px solid var(--cream-border); border-top-color: var(--fm-mid); border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 1rem; }
-  .error-box { background: #fff5f5; border: 1px solid #fcc; border-radius: 10px; padding: 1rem 1.5rem; color: #c00; font-size: 13px; margin: 2rem 0; }
+.hero-right {
+  text-align: right;
+  padding-bottom: 0.4rem;
+}
+.hero-right p {
+  font-size: 13px; color: var(--ink-3);
+  line-height: 1.7; font-weight: 400;
+}
 
-  .footer { text-align: center; padding-top: 2.5rem; margin-top: 1rem; border-top: 1px solid var(--cream-border); font-size: 12px; color: var(--ink-dim); letter-spacing: 0.05em; }
+/* ══════════════ NAV ══════════════ */
+.nav-row {
+  display: flex; gap: 0;
+  margin: 0 0 3.5rem;
+  animation: up 0.7s 0.1s ease both;
+  border-bottom: 1px solid var(--rule);
+}
+.nav-tab {
+  font-family: 'Syne', sans-serif;
+  font-size: 13px; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 14px 28px;
+  text-decoration: none;
+  color: var(--ink-3);
+  border-bottom: 3px solid transparent;
+  margin-bottom: -1px;
+  transition: color 0.15s, border-color 0.15s;
+}
+.nav-tab:hover { color: var(--ink); }
+.nav-tab.tx:hover { border-color: var(--tx); color: var(--tx); }
+.nav-tab.fm:hover { border-color: var(--fm); color: var(--fm); }
+.nav-tab.aa:hover { border-color: var(--aa); color: var(--aa); }
 
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-  @keyframes spin { to { transform: rotate(360deg); } }
-  @keyframes cardIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
-  .card { animation: cardIn 0.4s ease both; }
+/* ══════════════ SECTION ══════════════ */
+.section { margin-bottom: 4rem; }
 
-  @media (max-width: 600px) {
-    .hero { padding: 3rem 0 2rem; }
-    .cards-grid { grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 10px; }
-  }
+.section-head {
+  display: flex; align-items: stretch; gap: 0;
+  margin-bottom: 1.5rem;
+  overflow: hidden; border-radius: 10px;
+  border: 1.5px solid var(--rule);
+}
+.section-stamp {
+  font-family: 'Syne', sans-serif;
+  font-size: 52px; font-weight: 800;
+  letter-spacing: -0.04em;
+  color: white;
+  padding: 18px 28px;
+  display: flex; align-items: center; justify-content: center;
+  min-width: 110px; line-height: 1;
+}
+.stamp-TX { background: var(--tx); }
+.stamp-FM { background: var(--fm); }
+.stamp-AA { background: var(--aa); }
+
+.section-info {
+  padding: 16px 22px;
+  display: flex; flex-direction: column; justify-content: center;
+  background: white; flex: 1;
+}
+.section-info h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: 20px; font-weight: 700;
+  color: var(--ink); letter-spacing: -0.01em;
+  margin-bottom: 3px;
+}
+.section-info p {
+  font-size: 12px; color: var(--ink-3);
+  font-weight: 400; letter-spacing: 0.01em;
+}
+
+/* ══════════════ CARDS ══════════════ */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 14px;
+}
+.card {
+  display: flex; flex-direction: column;
+  background: var(--white);
+  border: 1.5px solid var(--rule);
+  border-radius: 12px;
+  padding: 22px 20px 18px;
+  text-decoration: none; color: var(--ink);
+  transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
+  animation: cardIn 0.45s ease both;
+  position: relative; overflow: hidden;
+}
+.card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+  opacity: 0; transition: opacity 0.18s;
+}
+.card-TX::before { background: var(--tx); }
+.card-FM::before { background: var(--fm); }
+.card-AA::before { background: var(--aa); }
+.card:hover { transform: translateY(-5px); }
+.card:hover::before { opacity: 1; }
+.card-TX:hover { border-color: var(--tx-rule); box-shadow: 0 10px 30px rgba(214,59,31,0.10); }
+.card-FM:hover { border-color: var(--fm-rule); box-shadow: 0 10px 30px rgba(27,79,216,0.10); }
+.card-AA:hover { border-color: var(--aa-rule); box-shadow: 0 10px 30px rgba(15,122,74,0.10); }
+
+.card-emoji {
+  font-size: 22px; margin-bottom: 14px; display: block; line-height: 1;
+}
+.card-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 16px; font-weight: 700;
+  line-height: 1.3; letter-spacing: -0.01em;
+  color: var(--ink); flex: 1;
+}
+.card-meta {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: 18px; padding-top: 14px;
+  border-top: 1px solid var(--rule);
+}
+.card-subject {
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 3px 8px; border-radius: 4px;
+}
+.subject-TX { color: var(--tx); background: var(--tx-light); }
+.subject-FM { color: var(--fm); background: var(--fm-light); }
+.subject-AA { color: var(--aa); background: var(--aa-light); }
+.card-arrow {
+  font-size: 18px; font-weight: 600;
+  color: var(--rule); transition: color 0.18s, transform 0.18s;
+}
+.card:hover .card-arrow { transform: translateX(4px); }
+.card-TX:hover .card-arrow { color: var(--tx); }
+.card-FM:hover .card-arrow { color: var(--fm); }
+.card-AA:hover .card-arrow { color: var(--aa); }
+
+/* ── loading / error ── */
+.loading {
+  text-align: center; padding: 5rem 0;
+  color: var(--ink-3); font-size: 14px;
+}
+.spinner {
+  width: 30px; height: 30px;
+  border: 2px solid var(--rule);
+  border-top-color: var(--fm);
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+  margin: 0 auto 1rem;
+}
+.error-box {
+  background: #fff5f5; border: 1.5px solid var(--tx-rule);
+  border-radius: 10px; padding: 1.25rem 1.5rem;
+  color: var(--tx); font-size: 13px; margin: 2rem 0;
+}
+
+/* ── footer ── */
+.footer {
+  margin-top: 4rem; padding-top: 2rem;
+  border-top: 2px solid var(--ink);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 1rem;
+}
+.footer-brand {
+  font-family: 'Syne', sans-serif;
+  font-size: 18px; font-weight: 800;
+  letter-spacing: -0.02em; color: var(--ink);
+}
+.footer-note {
+  font-size: 12px; color: var(--ink-3);
+}
+
+/* ── animations ── */
+@keyframes up { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:none; } }
+@keyframes cardIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 640px) {
+  .hero { grid-template-columns: 1fr; gap: 1rem; }
+  .hero-right { text-align: left; }
+  .cards-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .card-name { font-size: 14px; }
+  .section-stamp { font-size: 38px; padding: 14px 20px; min-width: 80px; }
+  .nav-tab { padding: 12px 16px; font-size: 11px; }
+}
 </style>
 </head>
 <body>
-
-<div class="bg-layer" aria-hidden="true">
-  <div class="bg-dots"></div>
-  <div class="bg-blob blob-1"></div>
-  <div class="bg-blob blob-2"></div>
-  <div class="bg-blob blob-3"></div>
-</div>
-
 <div class="page">
 
+  <!-- HERO -->
   <header class="hero">
-    <div class="hero-eyebrow">June 2026 Exam Session</div>
-    <h1>ACCA Study<br><em>Notes & Revision</em></h1>
-    <p class="hero-sub">TX · FM · AA</p>
-    <div class="hero-divider"></div>
+    <div class="hero-left">
+      <span class="hero-tag">June 2026 Exam Session</span>
+      <h1>
+        <span class="accent-tx">T</span><span class="accent-fm">X</span> ·
+        <span class="accent-fm">F</span><span class="accent-aa">M</span> ·
+        <span class="accent-aa">A</span><span class="accent-tx">A</span><br>
+        Study Notes
+      </h1>
+    </div>
+    <div class="hero-right">
+      <p>Taxation<br>Financial Management<br>Audit &amp; Assurance</p>
+    </div>
   </header>
 
-  <nav class="nav-pills" id="navPills">
-    <!-- pills injected by JS -->
+  <!-- NAV -->
+  <nav class="nav-row" id="navRow">
+    <!-- injected -->
   </nav>
 
+  <!-- CONTENT -->
   <div id="content">
     <div class="loading">
-      <div class="loading-spinner"></div>
+      <div class="spinner"></div>
       Loading your notes…
     </div>
   </div>
 
+  <!-- FOOTER -->
   <footer class="footer">
-    ACCA Study Portal &nbsp;·&nbsp; Hosted on GitHub Pages
+    <span class="footer-brand">ACCA Notes</span>
+    <span class="footer-note">Hosted on GitHub Pages</span>
   </footer>
 
 </div>
 
 <script>
-// ─────────────────────────────────────────────
-// CONFIG — update OWNER and REPO if you ever
-// move the repository, nothing else needed
-// ─────────────────────────────────────────────
-const OWNER = 'Iftakhar20';
-const REPO  = 'acca-notes';
+const OWNER  = 'Iftakhar20';
+const REPO   = 'acca-notes';
 const BRANCH = 'main';
 
-// How each subject folder is labelled
 const SUBJECT_META = {
-  TX:    { label: 'Taxation — Finance Act 2025', icon: '📄' },
-  FM:    { label: 'Financial Management',         icon: '📄' },
-  AA:    { label: 'Audit & Assurance',            icon: '📄' },
+  TX: { label: 'Taxation', sub: 'Finance Act 2025' },
+  FM: { label: 'Financial Management', sub: 'Corporate Finance' },
+  AA: { label: 'Audit & Assurance', sub: 'External Audit' },
 };
 
-// Per-filename icons (optional, falls back to subject icon)
 const FILE_ICONS = {
-  'cgt': '📊', 'corporation': '🏢', 'employment': '👔',
-  'inheritance': '🏛️', 'inheretence': '🏛️', 'key dates': '📅',
-  'pension': '🔐', 'nic': '🔐', 'refresher': '🔁',
-  'revision': '⚡', 'cheatsheet': '⚡', 'trading': '📈',
-  'vat': '🧾', 'investment': '💹', 'function': '🎯',
-  'audit report': '📋', 'quiz': '❓', 'tcwg': '📝',
-  'automated': '🤖', 'controls': '🔍', 'ethics': '⚖️',
-  'substantive': '🔬', 'written': '✍️', 'working capital': '💰',
+  'cgt': '📊', 'capital gains': '📊',
+  'corporation': '🏢',
+  'employment': '👔',
+  'inheritance': '🏛️', 'inheretence': '🏛️',
+  'key dates': '📅', 'dates': '📅',
+  'pension': '🔐', 'nic': '🔐',
+  'refresher': '🔁',
+  'revision': '⚡', 'cheatsheet': '⚡',
+  'trading': '📈',
+  'vat': '🧾',
+  'investment': '💹',
+  'function': '🎯', 'management function': '🎯',
+  'audit report': '📋', 'reports': '📋',
+  'quiz': '❓',
+  'tcwg': '📝', 'tcwg_chapter': '📝',
+  'automated': '🤖',
+  'controls': '🔍',
+  'ethics': '⚖️',
+  'substantive': '🔬',
+  'written': '✍️',
+  'working capital': '💰',
   'week': '📅',
 };
 
-function getIcon(filename, subject) {
+function getIcon(filename) {
   const lower = filename.toLowerCase();
   for (const [key, icon] of Object.entries(FILE_ICONS)) {
     if (lower.includes(key)) return icon;
   }
-  return SUBJECT_META[subject]?.icon ?? '📄';
+  return '📄';
 }
 
 function cleanName(filename) {
-  // Remove file extension and leading subject prefix (e.g. "TX ", "FM ", "AA ")
   return filename
     .replace(/\.html$/i, '')
-    .replace(/^(TX|FM|AA)\s+/i, '')
+    .replace(/^(TX|FM|AA)[_\s]+/i, '')
     .replace(/_/g, ' ')
+    .replace(/\s{2,}/g, ' ')
     .trim();
-}
-
-function detectSubject(path) {
-  const upper = path.toUpperCase();
-  if (upper.startsWith('TX/')) return 'TX';
-  if (upper.startsWith('FM/')) return 'FM';
-  if (upper.startsWith('AA/')) return 'AA';
-  return 'OTHER';
 }
 
 async function fetchFolder(folder) {
@@ -196,11 +376,10 @@ async function fetchFolder(folder) {
 }
 
 async function buildPage() {
-  const content  = document.getElementById('content');
-  const navPills = document.getElementById('navPills');
+  const content = document.getElementById('content');
+  const navRow  = document.getElementById('navRow');
 
   try {
-    // Fetch all three folders in parallel
     const [txFiles, fmFiles, aaFiles] = await Promise.all([
       fetchFolder('TX'), fetchFolder('FM'), fetchFolder('AA')
     ]);
@@ -211,43 +390,37 @@ async function buildPage() {
       { key: 'AA', files: aaFiles },
     ].filter(s => s.files.length > 0);
 
-    if (sections.length === 0) {
+    if (!sections.length) {
       content.innerHTML = '<div class="error-box">No HTML files found in TX, FM or AA folders.</div>';
       return;
     }
 
-    // Build nav pills
-    navPills.innerHTML = sections.map(s =>
-      `<a href="#sec-${s.key}" class="pill pill-${s.key}">${
-        s.key === 'TX' ? 'Taxation TX' :
-        s.key === 'FM' ? 'Financial Management FM' :
-        'Audit &amp; Assurance AA'
-      }</a>`
+    // Nav tabs
+    navRow.innerHTML = sections.map(s =>
+      `<a href="#sec-${s.key}" class="nav-tab ${s.key.toLowerCase()}">${s.key} — ${SUBJECT_META[s.key].label}</a>`
     ).join('');
 
-    // Build sections
+    // Sections + cards
     content.innerHTML = sections.map(({ key, files }) => {
-      const meta = SUBJECT_META[key] || { label: key, icon: '📄' };
-      const cards = files.map((f, i) => {
-        const icon  = getIcon(f.name, key);
-        const label = cleanName(f.name);
-        return `
-          <a class="card card-${key}" href="${f.path}" style="animation-delay:${i * 0.05}s">
-            <div class="card-icon icon-${key}">${icon}</div>
-            <span class="card-name">${label}</span>
-            <div class="card-footer">
-              <span class="card-label">${key}</span>
-              <span class="card-arrow">→</span>
-            </div>
-          </a>`;
-      }).join('');
+      const meta = SUBJECT_META[key];
+      const cards = files.map((f, i) => `
+        <a class="card card-${key}" href="${f.path}" style="animation-delay:${i*0.05}s">
+          <span class="card-emoji">${getIcon(f.name)}</span>
+          <span class="card-name">${cleanName(f.name)}</span>
+          <div class="card-meta">
+            <span class="card-subject subject-${key}">${key}</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </a>`).join('');
 
       return `
         <section id="sec-${key}" class="section">
-          <div class="section-label">
-            <span class="exam-badge badge-${key}">${key}</span>
-            <span class="section-title">${meta.label}</span>
-            <div class="section-line"></div>
+          <div class="section-head">
+            <div class="section-stamp stamp-${key}">${key}</div>
+            <div class="section-info">
+              <h2>${meta.label}</h2>
+              <p>${meta.sub}</p>
+            </div>
           </div>
           <div class="cards-grid">${cards}</div>
         </section>`;
@@ -260,6 +433,5 @@ async function buildPage() {
 
 buildPage();
 </script>
-
 </body>
 </html>
