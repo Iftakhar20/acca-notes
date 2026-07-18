@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACCA FM — NPV Complete Notes (Sep 2026)</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FDFBF5;
+  --paper:#FFFFFF;
+  --ink:#2F2A24;
+  --muted:#6B6157;
+  --line:#E6DFD2;
+  --blue:#1F5F8B;
+  --blue-bg:#EAF2F8;
+  --green:#2E7D5B;
+  --green-bg:#E8F4EE;
+  --amber:#9A6B12;
+  --amber-bg:#FBF2DE;
+  --red:#A63D3D;
+  --red-bg:#FBECEA;
+  --purple:#6A4A8C;
+  --purple-bg:#F1EBF7;
+}
+*{box-sizing:border-box;}
+body{
+  font-family:'Nunito','Segoe UI',system-ui,sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  font-size:19px;
+  line-height:1.75;
+  margin:0;
+  padding:0 20px 100px;
+}
+.wrap{max-width:1080px;margin:0 auto;}
+header.hero{
+  background:linear-gradient(135deg,#FFF9EC,#F2F7FB);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:38px 40px;
+  margin:36px 0 30px;
+}
+header.hero h1{font-size:2.5rem;margin:0 0 6px;font-weight:800;letter-spacing:-.5px;}
+header.hero p{margin:6px 0;color:var(--muted);font-size:1.05rem;}
+.badge{display:inline-block;background:var(--blue);color:#fff;padding:4px 14px;border-radius:999px;font-size:.8rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:14px;}
+
+h2{
+  font-size:1.85rem;font-weight:800;margin:56px 0 6px;
+  padding-bottom:10px;border-bottom:3px solid var(--blue);
+}
+h2 .num{color:var(--blue);}
+h3{font-size:1.35rem;font-weight:700;margin:34px 0 10px;color:var(--blue);}
+h4{font-size:1.1rem;font-weight:700;margin:22px 0 6px;}
+p{margin:12px 0;}
+ul,ol{margin:12px 0 12px 4px;padding-left:26px;}
+li{margin:7px 0;}
+strong{font-weight:700;}
+
+.box{border-radius:14px;padding:20px 24px;margin:22px 0;border-left:7px solid;}
+.box h4{margin-top:0;font-size:1.05rem;text-transform:uppercase;letter-spacing:.6px;}
+.def{background:var(--blue-bg);border-color:var(--blue);}
+.def h4{color:var(--blue);}
+.tip{background:var(--green-bg);border-color:var(--green);}
+.tip h4{color:var(--green);}
+.warn{background:var(--red-bg);border-color:var(--red);}
+.warn h4{color:var(--red);}
+.key{background:var(--amber-bg);border-color:var(--amber);}
+.key h4{color:var(--amber);}
+.ctx{background:var(--purple-bg);border-color:var(--purple);}
+.ctx h4{color:var(--purple);}
+
+.formula{
+  background:var(--paper);border:2px dashed var(--blue);
+  border-radius:12px;padding:18px 24px;margin:20px 0;
+  text-align:center;font-size:1.25rem;font-weight:700;color:var(--blue);
+}
+.formula small{display:block;font-size:.8rem;font-weight:600;color:var(--muted);margin-top:8px;}
+
+.example{
+  background:var(--paper);border:2px solid var(--line);
+  border-radius:16px;padding:8px 28px 24px;margin:28px 0;
+  box-shadow:0 2px 10px rgba(0,0,0,.04);
+}
+.example .tag{
+  display:inline-block;background:var(--amber);color:#fff;
+  padding:6px 18px;border-radius:0 0 12px 12px;
+  font-weight:800;font-size:.85rem;letter-spacing:.8px;
+  margin:0 0 14px 0;
+}
+.example h4{color:var(--amber);}
+
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.95rem;background:var(--paper);}
+th,td{border:1px solid var(--line);padding:10px 12px;text-align:right;}
+th{background:#F4EFE4;font-weight:700;text-align:center;}
+td:first-child,th:first-child{text-align:left;}
+tr.total td{font-weight:800;background:#F9F5EA;border-top:2px solid var(--ink);}
+tr.sub td{background:#FBFAF6;}
+.neg{color:var(--red);}
+
+details{
+  background:var(--paper);border:2px solid var(--line);border-radius:12px;
+  padding:14px 20px;margin:14px 0;
+}
+details[open]{border-color:var(--green);background:var(--green-bg);}
+summary{cursor:pointer;font-weight:700;color:var(--blue);list-style:none;}
+summary::-webkit-details-marker{display:none;}
+summary:before{content:"▶  ";color:var(--green);font-size:.8rem;}
+details[open] summary:before{content:"▼  ";}
+details .ans{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);}
+
+.mcq{background:var(--paper);border:2px solid var(--line);border-radius:14px;padding:20px 24px;margin:20px 0;}
+.mcq .q{font-weight:700;margin-bottom:10px;}
+.mcq ol{list-style:upper-alpha;}
+
+.toc{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 30px;margin:24px 0;}
+.toc ol{columns:2;column-gap:40px;}
+.toc a{color:var(--blue);text-decoration:none;font-weight:600;}
+.toc a:hover{text-decoration:underline;}
+
+.pill{display:inline-block;background:#F0EAE0;border-radius:6px;padding:1px 8px;font-size:.85rem;font-weight:700;color:var(--muted);}
+hr{border:none;border-top:1px solid var(--line);margin:40px 0;}
+footer{text-align:center;color:var(--muted);font-size:.9rem;margin-top:70px;}
+@media(max-width:700px){body{font-size:17px;}.toc ol{columns:1;}table{font-size:.82rem;}th,td{padding:6px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <span class="badge">ACCA FM · September 2026 sitting</span>
+  <h1>Net Present Value — Complete Notes</h1>
+  <p><strong>Syllabus coverage:</strong> D1 (Investment appraisal techniques) and D2 (Allowing for inflation and taxation in DCF), plus the sensitivity link into D3.</p>
+  <p>Everything you need on relevant cash flows, discounting mechanics, real vs money rates, tax &amp; tax-allowable depreciation, and working capital — with worked examples in AED set in a healthcare / UAE context.</p>
+</header>
+
+<div class="toc">
+  <h3 style="margin-top:0">Contents</h3>
+  <ol>
+    <li><a href="#s1">Why NPV, and what the syllabus demands</a></li>
+    <li><a href="#s2">Relevant cash flows</a></li>
+    <li><a href="#s3">Discounting mechanics</a></li>
+    <li><a href="#s4">The basic NPV computation</a></li>
+    <li><a href="#s5">Inflation: real vs money (nominal)</a></li>
+    <li><a href="#s6">Taxation in DCF</a></li>
+    <li><a href="#s7">Tax-allowable depreciation (WDA)</a></li>
+    <li><a href="#s8">Working capital</a></li>
+    <li><a href="#s9">The full pro forma — everything together</a></li>
+    <li><a href="#s10">Sensitivity analysis on your NPV</a></li>
+    <li><a href="#s11">NPV vs IRR, payback and ROCE</a></li>
+    <li><a href="#s12">Examiner traps &amp; exam technique</a></li>
+    <li><a href="#s13">MCQ practice bank</a></li>
+    <li><a href="#s14">Kaplan Exam Kit practice plan</a></li>
+  </ol>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="s1"><span class="num">1.</span> Why NPV, and what the syllabus demands</h2>
+
+<div class="box def">
+<h4>Definition</h4>
+<p><strong>Net present value</strong> is the sum of the discounted future cash flows of a project, less the initial investment. It measures the <em>absolute increase in shareholder wealth</em> in today's AED that the project is expected to deliver.</p>
+</div>
+
+<div class="formula">
+NPV = Σ [ CF<sub>t</sub> ÷ (1 + i)<sup>t</sup> ]
+<small>where CF<sub>t</sub> is the net relevant cash flow at time t, and i is the cost of capital</small>
+</div>
+
+<p><strong>Decision rule:</strong> accept if NPV &gt; 0; reject if NPV &lt; 0. Where projects are mutually exclusive, choose the highest positive NPV.</p>
+
+<h3>Why NPV is theoretically superior</h3>
+<ul>
+<li>It uses <strong>cash flows</strong>, not accounting profits, which are subject to policy choices.</li>
+<li>It accounts for the <strong>time value of money</strong> — a dirham today is worth more than a dirham next year because of the opportunity to earn a return, inflation, and risk.</li>
+<li>It considers <strong>all</strong> cash flows over the whole project life (unlike payback).</li>
+<li>It gives an <strong>absolute</strong> measure of wealth added, which is directly consistent with the objective of maximising shareholder wealth.</li>
+<li>Risk can be reflected through a <strong>risk-adjusted discount rate</strong>.</li>
+</ul>
+
+<h3>Drawbacks you must be able to discuss</h3>
+<ul>
+<li>Estimating future cash flows accurately is difficult, especially far out.</li>
+<li>The cost of capital is itself an estimate and may change over the project life.</li>
+<li>Non-financial managers may find it less intuitive than payback or ROCE.</li>
+<li>It assumes cash flows arise at year ends and that intermediate cash can be reinvested at the cost of capital.</li>
+</ul>
+
+<div class="box ctx">
+<h4>Super Health connection</h4>
+<p>In an FP&amp;A role in a public healthcare body, NPV appraisal of a new imaging suite or day-surgery unit is exactly the D1/D2 skill set. Note however that a not-for-profit or public sector body (Syllabus A4) will often supplement NPV with <strong>value for money</strong> criteria — economy, efficiency, effectiveness — because many benefits are non-financial. Examiners love a sentence linking these two areas.</p>
+</div>
+
+<div class="box key">
+<h4>What the Sep 26–Jun 27 syllabus actually says</h4>
+<p><strong>D1(e)</strong> Calculate net present value and discuss its usefulness. <strong>D1(g)</strong> Discuss the superiority of DCF over non-DCF methods. <strong>D1(h)</strong> Discuss the relative merits of NPV and IRR.<br>
+<strong>D2(a)</strong> Apply and discuss the real-terms and nominal-terms approaches. <strong>D2(b)</strong> Calculate the taxation effects of relevant cash flows, including the tax benefits of tax-allowable depreciation and the tax liabilities of taxable profit. <strong>D2(c)</strong> Calculate and apply before- and after-tax discount rates.<br>
+All at <span class="pill">Level 2</span> — application and analysis. This is Section C territory: expect a 20-mark constructed response.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="s2"><span class="num">2.</span> Relevant cash flows</h2>
+
+<p>Before any discounting, you must decide <em>what goes in the table</em>. A relevant cash flow is one that is:</p>
+
+<div class="box def">
+<h4>The three tests</h4>
+<ol>
+<li><strong>Future</strong> — it has not yet happened.</li>
+<li><strong>Incremental</strong> — it arises only because the project goes ahead (the difference between "with" and "without").</li>
+<li><strong>Cash</strong> — it involves an actual movement of money.</li>
+</ol>
+</div>
+
+<h3>Include</h3>
+<ul>
+<li>Initial capital expenditure and any subsequent replacement capex.</li>
+<li>Incremental revenues and incremental cash operating costs.</li>
+<li><strong>Opportunity costs</strong> — the benefit forgone from the next best use of a resource (e.g. rental income lost on a floor of a clinic that will now house the project).</li>
+<li>Tax payments and tax savings.</li>
+<li>Working capital movements.</li>
+<li>Scrap / disposal proceeds.</li>
+</ul>
+
+<h3>Exclude</h3>
+<ul>
+<li><strong>Depreciation</strong> — a book entry, not cash. (Tax-allowable depreciation is different: the <em>tax saving</em> it generates <strong>is</strong> cash.)</li>
+<li><strong>Sunk costs</strong> — already incurred, e.g. a feasibility study already paid for.</li>
+<li><strong>Committed costs</strong> — will be incurred regardless.</li>
+<li><strong>Apportioned fixed overheads</strong> — only genuinely <em>incremental</em> fixed costs are relevant.</li>
+<li><strong>Interest payments and loan repayments</strong> — the cost of finance is already reflected in the discount rate. Including interest double-counts it.</li>
+</ul>
+
+<div class="box warn">
+<h4>Classic examiner trap</h4>
+<p>A question gives you "profit" figures that are stated <em>after</em> charging depreciation and apportioned head office overhead, and includes interest. You must <strong>add back depreciation, add back apportioned overhead, add back interest</strong> to get to the cash flow. Read the note under the table — it is always there.</p>
+</div>
+
+<div class="example">
+<span class="tag">EXAMPLE 1</span>
+<h4>Identifying relevant cash flows</h4>
+<p>Super Health is appraising a new physiotherapy outpatient unit. The finance team has produced the following annual figures:</p>
+<table>
+<tr><th>Item</th><th>AED</th><th>Relevant?</th></tr>
+<tr><td>Incremental patient revenue</td><td>4,200,000</td><td>Yes — future, incremental, cash</td></tr>
+<tr><td>Consumables and staff costs</td><td>(2,600,000)</td><td>Yes</td></tr>
+<tr><td>Depreciation of equipment</td><td>(500,000)</td><td class="neg">No — non-cash</td></tr>
+<tr><td>Share of central HR &amp; IT overhead (apportioned)</td><td>(300,000)</td><td class="neg">No — not incremental</td></tr>
+<tr><td>Additional facilities-management staff hired for the unit</td><td>(180,000)</td><td>Yes — incremental fixed cost</td></tr>
+<tr><td>Market research already paid for</td><td>(120,000)</td><td class="neg">No — sunk</td></tr>
+<tr><td>Rent forgone on the wing to be used</td><td>(250,000)</td><td>Yes — opportunity cost</td></tr>
+<tr><td>Interest on the loan financing the unit</td><td>(400,000)</td><td class="neg">No — in the discount rate</td></tr>
+</table>
+<p><strong>Relevant annual operating cash flow</strong> = 4,200,000 − 2,600,000 − 180,000 − 250,000 = <strong>AED 1,170,000</strong></p>
+</div>
+
+<div class="example">
+<span class="tag">EXAMPLE 2</span>
+<h4>From accounting profit back to cash flow</h4>
+<p>A project's forecast operating profit for year 1 is AED 900,000, after charging depreciation of AED 700,000, apportioned central overhead of AED 250,000, and loan interest of AED 180,000. Additional incremental site security costs of AED 90,000 have been omitted entirely.</p>
+<table>
+<tr><td>Operating profit as stated</td><td>900,000</td></tr>
+<tr><td>Add back depreciation</td><td>700,000</td></tr>
+<tr><td>Add back apportioned overhead</td><td>250,000</td></tr>
+<tr><td>Add back interest</td><td>180,000</td></tr>
+<tr><td>Less omitted incremental cost</td><td class="neg">(90,000)</td></tr>
+<tr class="total"><td>Relevant net cash flow</td><td>1,940,000</td></tr>
+</table>
+</div>
+
+<details>
+<summary>Test yourself: A company owns a plot of land bought five years ago for AED 3m. It could be sold today for AED 8m. It will be used for the project. What is the relevant cash flow?</summary>
+<div class="ans"><p><strong>AED 8m outflow at T0</strong> — the opportunity cost, being the sale proceeds forgone. The AED 3m historic cost is a sunk cost and is irrelevant.</p></div>
+</details>
+
+<!-- ============================================================ -->
+<h2 id="s3"><span class="num">3.</span> Discounting mechanics</h2>
+
+<p>You will be given discount tables in the exam, but the formulae matter for awkward rates (e.g. 10.24%) and for perpetuities, which are <strong>not</strong> in the tables.</p>
+
+<h3>Single sum</h3>
+<div class="formula">
+PV = FV × (1 + r)<sup>−n</sup>
+</div>
+
+<h3>Annuity (equal cash flow, years 1 to n)</h3>
+<div class="formula">
+Annuity factor = [1 − (1 + r)<sup>−n</sup>] ÷ r
+</div>
+
+<h3>Perpetuity (equal cash flow forever, from year 1)</h3>
+<div class="formula">
+PV = Cash flow ÷ r &nbsp;&nbsp;|&nbsp;&nbsp; Growing perpetuity: PV = CF<sub>1</sub> ÷ (r − g)
+</div>
+
+<div class="box key">
+<h4>Timing rules — memorise these</h4>
+<ul style="margin-bottom:0">
+<li><strong>Ordinary annuity:</strong> first flow at T1. Use the annuity factor as given.</li>
+<li><strong>Advanced annuity</strong> (first flow at T0): use the annuity factor for <strong>(n−1)</strong> years and <strong>add 1</strong>.</li>
+<li><strong>Delayed annuity</strong> (first flow at T3, say): use AF for the full span, then subtract the AF for the years with no flow. Alternatively, discount the annuity's PV back by one extra year than you'd instinctively think.</li>
+<li><strong>Advanced perpetuity</strong> (first flow at T0): PV = CF/r <strong>+ CF</strong>.</li>
+<li><strong>Delayed perpetuity</strong> (first flow at T4): PV = (CF/r) × DF for year 3.</li>
+</ul>
+</div>
+
+<div class="example">
+<span class="tag">EXAMPLE 3</span>
+<h4>Four timing variants at 10%</h4>
+<p><em>Table factors: 10% AF 2yr = 1.736; 4yr = 3.170; 7yr = 4.868. DF: yr2 = 0.826; yr3 = 0.751.</em></p>
+
+<p><strong>(a) Ordinary annuity.</strong> AED 200,000 per year, T1–T4.<br>
+PV = 200,000 × 3.170 = <strong>AED 634,000</strong></p>
+
+<p><strong>(b) Advanced annuity.</strong> AED 100,000 per year for 5 years, first payment <em>today</em>.<br>
+AF = 3.170 (4 yr) + 1 = 4.170 → PV = 100,000 × 4.170 = <strong>AED 417,000</strong></p>
+
+<p><strong>(c) Delayed annuity.</strong> AED 200,000 per year, T3 to T7.<br>
+AF = 4.868 (7 yr) − 1.736 (2 yr) = 3.132 → PV = 200,000 × 3.132 = <strong>AED 626,400</strong></p>
+
+<p><strong>(d) Delayed perpetuity.</strong> AED 250,000 per year forever, first receipt at T4, rate 8%.<br>
+PV at T3 = 250,000 ÷ 0.08 = AED 3,125,000<br>
+PV at T0 = 3,125,000 × 0.794 (8% yr 3 DF) = <strong>AED 2,481,250</strong></p>
+</div>
+
+<div class="example">
+<span class="tag">EXAMPLE 4</span>
+<h4>Growing perpetuity</h4>
+<p>A pharmacy licensing arrangement generates AED 600,000 at T1, growing at 3% per annum indefinitely. Cost of capital 11%.</p>
+<p>PV = 600,000 ÷ (0.11 − 0.03) = 600,000 ÷ 0.08 = <strong>AED 7,500,000</strong></p>
+<p><em>Note:</em> the numerator is the <strong>year 1</strong> flow, not the year 0 flow. If told the flow "has just been" AED 600,000 and grows at 3%, the numerator becomes 600,000 × 1.03 = 618,000, giving AED 7,725,000.</p>
+</div>
+
+<details>
+<summary>Test yourself: AED 50,000 per year in perpetuity, first receipt today, discount rate 10%. PV?</summary>
+<div class="ans"><p>50,000 ÷ 0.10 = 500,000, plus the immediate 50,000 = <strong>AED 550,000</strong>.</p></div>
+</details>
+
+<!-- ============================================================ -->
+<h2 id="s4"><span class="num">4.</span> The basic NPV computation</h2>
+
+<div class="example">
+<span class="tag">EXAMPLE 5</span>
+<h4>Straightforward NPV — no tax, no inflation</h4>
+<p>Super Health is considering an MRI scanner costing <strong>AED 3,000,000</strong> now. It will generate net cash inflows of <strong>AED 1,000,000</strong> per year for four years and be sold for <strong>AED 400,000</strong> at the end of year 4. Cost of capital 10%.</p>
+<table>
+<tr><th>AED</th><th>T0</th><th>T1</th><th>T2</th><th>T3</th><th>T4</th></tr>
+<tr><td>Investment</td><td class="neg">(3,000,000)</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Net operating flows</td><td></td><td>1,000,000</td><td>1,000,000</td><td>1,000,000</td><td>1,000,000</td></tr>
+<tr><td>Disposal proceeds</td><td></td><td></td><td></td><td></td><td>400,000</td></tr>
+<tr class="sub"><td>Net cash flow</td><td class="neg">(3,000,000)</td><td>1,000,000</td><td>1,000,000</td><td>1,000,000</td><td>1,400,000</td></tr>
+<tr><td>DF @ 10%</td><td>1.000</td><td>0.909</td><td>0.826</td><td>0.751</td><td>0.683</td></tr>
+<tr class="sub"><td>Present value</td><td class="neg">(3,000,000)</td><td>909,000</td><td>826,000</td><td>751,000</td><td>956,200</td></tr>
+<tr class="total"><td>NPV</td><td colspan="5">+ AED 442,200</td></tr>
+</table>
+<p><strong>Conclusion:</strong> the NPV is positive, so the investment is financially acceptable and should increase the value of the organisation by approximately AED 442,000 in present-value terms.</p>
+</div>
+
+<div class="box tip">
+<h4>Exam tip — always write a conclusion</h4>
+<p>One or two marks in every Section C NPV question are for a <strong>comment</strong>. Say (i) whether NPV is positive/negative, (ii) therefore accept/reject, (iii) at least one caveat about the reliability of the forecasts or the discount rate. If the NPV is small relative to the investment, <strong>sensitise it</strong> — say the conclusion is marginal and small forecasting errors could reverse the decision.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="s5"><span class="num">5.</span> Inflation: real vs money (nominal)</h2>
+
+<p>This is the single biggest source of confusion in D2. Get the vocabulary straight first.</p>
+
+<div class="box def">
+<h4>Four terms</h4>
+<ul style="margin-bottom:0">
+<li><strong>Money (nominal) cash flow</strong> — the actual number of dirhams that will change hands, i.e. <em>including</em> inflation.</li>
+<li><strong>Real cash flow</strong> — expressed in today's purchasing power, i.e. <em>excluding</em> inflation ("current prices", "today's terms").</li>
+<li><strong>Money (nominal) rate</strong> — the return that includes compensation for inflation. Market rates you observe are money rates.</li>
+<li><strong>Real rate</strong> — the return excluding inflation.</li>
+</ul>
+</div>
+
+<h3>The Fisher equation</h3>
+<div class="formula">
+(1 + i) = (1 + r) × (1 + h)
+<small>i = money rate &nbsp;·&nbsp; r = real rate &nbsp;·&nbsp; h = <strong>general</strong> rate of inflation</small>
+</div>
+
+<div class="box warn">
+<h4>Trap: h is the GENERAL inflation rate</h4>
+<p>Never use a specific inflation rate (e.g. "labour costs inflate at 6%") in the Fisher equation. Only the <strong>general</strong> rate of inflation converts between real and money <em>rates</em>. Specific rates are used to inflate individual cash flows.</p>
+</div>
+
+<h3>The golden rule — match the flow to the rate</h3>
+
+<table>
+<tr><th>Approach</th><th>Cash flows</th><th>Discount rate</th></tr>
+<tr><td><strong>Money / nominal</strong></td><td>Inflated to actual money amounts</td><td>Money (nominal) rate</td></tr>
+<tr><td><strong>Real</strong></td><td>Today's prices, uninflated</td><td>Real rate</td></tr>
+</table>
+
+<p>Both give the <strong>same NPV</strong> — but only when every cash flow inflates at the same, general, rate. Mixing them (real flows at a money rate, or vice versa) is an automatic loss of most of the marks.</p>
+
+<div class="box key">
+<h4>When must you use the money method?</h4>
+<p>Use the <strong>money method</strong> whenever any of these appear — which in practice is almost every Section C question:</p>
+<ul style="margin-bottom:0">
+<li><strong>Different cash flows inflate at different specific rates</strong></li>
+<li><strong>Tax</strong> is involved (tax-allowable depreciation is based on the actual money cost of the asset and does not inflate)</li>
+<li><strong>Working capital</strong> is based on inflated sales</li>
+</ul>
+</div>
+
+<div class="example">
+<span class="tag">EXAMPLE 6</span>
+<h4>Real and money give the same answer</h4>
+<p>A project costs <strong>AED 1,200,000</strong> at T0 and generates a contribution of <strong>AED 500,000 per year in current terms</strong> for three years. General inflation is <strong>4%</strong> and it is the only inflation affecting the project. The <strong>real</strong> cost of capital is <strong>6%</strong>.</p>
+
+<h4>Method A — money approach</h4>
+<p>Money rate: (1 + i) = 1.06 × 1.04 = 1.1024 → <strong>i = 10.24%</strong></p>
+<table>
+<tr><th>AED</th><th>T0</th><th>T1</th><th>T2</th><th>T3</th></tr>
+<tr><td>Investment</td><td class="neg">(1,200,000)</td><td></td><td></td><td></td></tr>
+<tr><td>Contribution (inflated 4%)</td><td></td><td>520,000</td><td>540,800</td><td>562,432</td></tr>
+<tr><td>DF @ 10.24%</td><td>1.0000</td><td>0.9071</td><td>0.8228</td><td>0.7464</td></tr>
+<tr class="sub"><td>PV</td><td class="neg">(1,200,000)</td><td>471,692</td><td>444,970</td><td>419,799</td></tr>
+<tr class="total"><td>NPV</td><td colspan="4">+ AED 136,461</td></tr>
+</table>
+<p><em>Working: T1 = 500,000 × 1.04; T2 = 500,000 × 1.04² ; T3 = 500,000 × 1.04³</em></p>
+
+<h4>Method B — real approach</h4>
+<p>Leave the flows in today's terms and discount at the <strong>real</strong> rate of 6%. AF 3 years @ 6% = 2.673.</p>
+<p>PV of contribution = 500,000 × 2.673 = AED 1,336,500<br>
+NPV = 1,336,500 − 1,200,000 = <strong>+ AED 136,500</strong></p>
+<p>The tiny difference is rounding in the tables. <strong>Same answer.</strong></p>
+</div>
+
+<div class="example">
+<span class="tag">EXAMPLE 7</span>
+<h4>Specific inflation rates — the money method is compulsory</h4>
+<p>A Super Health diagnostics project requires <strong>AED 1,500,000</strong> at T0 and runs for three years.</p>
+<ul>
+<li>Revenue: <strong>AED 2,000,000</strong> per year in current prices, inflating at <strong>7%</strong> (specific)</li>
+<li>Cash operating costs: <strong>AED 1,200,000</strong> per year in current prices, inflating at <strong>3%</strong> (specific)</li>
+<li>General inflation: <strong>5%</strong>; real cost of capital: <strong>8%</strong></li>
+</ul>
+<p><strong>Step 1 — money rate.</strong> (1 + i) = 1.08 × 1.05 = 1.134 → <strong>13.4%</strong></p>
+<p><strong>Step 2 — inflate each flow at its own specific rate.</strong></p>
+<table>
+<tr><th>AED</th><th>T1</th><th>T2</th><th>T3</th></tr>
+<tr><td>Revenue (× 1.07<sup>n</sup>)</td><td>2,140,000</td><td>2,289,800</td><td>2,450,086</td></tr>
+<tr><td>Costs (× 1.03<sup>n</sup>)</td><td class="neg">(1,236,000)</td><td class="neg">(1,273,080)</td><td class="neg">(1,311,272)</td></tr>
+<tr class="sub"><td>Net money cash flow</td><td>904,000</td><td>1,016,720</td><td>1,138,814</td></tr>
+<tr><td>DF @ 13.4%</td><td>0.8818</td><td>0.7776</td><td>0.6857</td></tr>
+<tr class="sub"><td>PV</td><td>797,147</td><td>790,601</td><td>780,884</td></tr>
+</table>
+<p>PV of inflows = AED 2,368,632. <strong>NPV = 2,368,632 − 1,500,000 = + AED 868,632.</strong></p>
+<div class="box warn" style="margin-top:16px">
+<h4>Why you could not use the real method here</h4>
+<p>Revenue and costs inflate at different rates, and neither equals the general rate of 5%. There is no single set of "real" cash flows to discount. Attempting a real appraisal would require deflating each money flow by 5% first — extra work for the same answer.</p>
+</div>
+</div>
+
+<h3>The real-terms approach when tax is present (the "Pinks" shortcut)</h3>
+<p>Occasionally a question asks for a real-terms NPV in a question that also has tax — typically for 4 marks. A strictly correct real appraisal from scratch is very long. The accepted approach is:</p>
+<ol>
+<li>Take the <strong>pre-tax money (nominal)</strong> net cash flows you have already calculated.</li>
+<li><strong>Deflate</strong> them by the general inflation rate: real flow = money flow ÷ (1 + h)<sup>n</sup>.</li>
+<li>Apply tax to the deflated flows.</li>
+<li>Discount at the <strong>real</strong> cost of capital.</li>
+</ol>
+
+<div class="example">
+<span class="tag">EXAMPLE 8</span>
+<h4>Deflating money flows to real terms</h4>
+<p>Pre-tax money net cash flows are T1 AED 4,000,000, T2 AED 5,533,400, T3 AED 5,126,311. General inflation is 3%.</p>
+<table>
+<tr><th>AED</th><th>T1</th><th>T2</th><th>T3</th></tr>
+<tr><td>Money cash flow</td><td>4,000,000</td><td>5,533,400</td><td>5,126,311</td></tr>
+<tr><td>÷ (1.03)<sup>n</sup></td><td>÷1.03</td><td>÷1.0609</td><td>÷1.0927</td></tr>
+<tr class="total"><td>Real cash flow</td><td>3,883,495</td><td>5,215,472</td><td>4,691,507</td></tr>
+</table>
+<p>These are then taxed and discounted at the real rate. Note that the <strong>real flows still rise</strong> — because the underlying volumes and specific price increases exceed general inflation.</p>
+</div>
+
+<details>
+<summary>Test yourself: The money cost of capital is 12% and general inflation is 4%. What is the real cost of capital?</summary>
+<div class="ans"><p>1.12 ÷ 1.04 = 1.0769 → <strong>7.7%</strong>. Note it is <em>not</em> 12 − 4 = 8%; subtraction is only an approximation and the examiner marks the Fisher answer.</p></div>
+</details>
+
+<details>
+<summary>Test yourself: Real rate 5%, general inflation 6%, specific inflation on materials 9%. What discount rate do you use in a money-terms appraisal?</summary>
+<div class="ans"><p>1.05 × 1.06 = 1.113 → <strong>11.3%</strong>. The 9% is used only to inflate the materials cash flow line, never in the Fisher equation.</p></div>
+</details>
+
+<!-- ============================================================ -->
+<h2 id="s6"><span class="num">6.</span> Taxation in DCF</h2>
+
+<p>Tax has <strong>two</strong> separate effects in an FM NPV. Set them out as two separate rows; do not net them.</p>
+
+<div class="box def">
+<h4>The two tax effects</h4>
+<ol style="margin-bottom:0">
+<li><strong>Tax on operating cash flows</strong> — an <em>outflow</em>, calculated as tax rate × net taxable operating cash flow.</li>
+<li><strong>Tax saved on tax-allowable depreciation (TAD / capital allowances)</strong> — an <em>inflow</em>, calculated as tax rate × TAD.</li>
+</ol>
+</div>
+
+<h3>Timing of tax</h3>
+<p>The question will say one of two things. Read it carefully — it is worth several marks.</p>
+<ul>
+<li><strong>"Tax is payable in the same year in which the profits arise"</strong> → tax cash flow at T<sub>n</sub>, same column.</li>
+<li><strong>"Tax is payable one year in arrears"</strong> (most common) → tax cash flow at T<sub>n+1</sub>. The table therefore extends <strong>one year beyond</strong> the end of the project.</li>
+</ul>
+
+<div class="box warn">
+<h4>Trap: forgetting the extra column</h4>
+<p>With a one-year delay on a 4-year project, your table runs T0 to T5. The final column usually contains only tax flows and is a <strong>net outflow</strong>. Candidates routinely stop at T4 and lose 3–4 marks.</p>
+</div>
+
+<h3>Before- and after-tax discount rates (D2c)</h3>
+<div class="formula">
+After-tax cost of debt = K<sub>d</sub> × (1 − T)
+</div>
+<p>Because interest is tax-deductible, the company's effective cost of debt is reduced. Where a question gives a <strong>pre-tax</strong> cost of capital and asks for an after-tax appraisal, or in a <strong>lease vs buy</strong> decision, you use the after-tax cost of borrowing. In a standard NPV question the WACC given is already post-tax; do not adjust it again.</p>
+
+<div class="example">
+<span class="tag">EXAMPLE 9</span>
+<h4>Tax on operating flows, one year in arrears</h4>
+<p>A project generates net operating cash inflows of AED 2,000,000 per year for three years. Tax is 20%, payable one year in arrears. Cost of capital 10%.</p>
+<table>
+<tr><th>AED</th><th>T1</th><th>T2</th><th>T3</th><th>T4</th></tr>
+<tr><td>Net operating cash flow</td><td>2,000,000</td><td>2,000,000</td><td>2,000,000</td><td></td></tr>
+<tr><td>Tax @ 20% (1 yr in arrears)</td><td></td><td class="neg">(400,000)</td><td class="neg">(400,000)</td><td class="neg">(400,000)</td></tr>
+<tr class="sub"><td>Net cash flow</td><td>2,000,000</td><td>1,600,000</td><td>1,600,000</td><td class="neg">(400,000)</td></tr>
+<tr><td>DF @ 10%</td><td>0.909</td><td>0.826</td><td>0.751</td><td>0.683</td></tr>
+<tr class="sub"><td>PV</td><td>1,818,000</td><td>1,321,600</td><td>1,201,600</td><td class="neg">(273,200)</td></tr>
+<tr class="total"><td>Total PV</td><td colspan="4">AED 4,068,000</td></tr>
+</table>
+<p>Notice the T4 column exists purely because of the tax delay.</p>
+</div>
+
+<div class="example">
+<span class="tag">EXAMPLE 10</span>
+<h4>Same figures, tax payable in the same year</h4>
+<table>
+<tr><th>AED</th><th>T1</th><th>T2</th><th>T3</th></tr>
+<tr><td>Net operating cash flow</td><td>2,000,000</td><td>2,000,000</td><td>2,000,000</td></tr>
+<tr><td>Tax @ 20% (same year)</td><td class="neg">(400,000)</td><td class="neg">(400,000)</td><td class="neg">(400,000)</td></tr>
+<tr class="sub"><td>Net cash flow</td><td>1,600,000</td><td>1,600,000</td><td>1,600,000</td></tr>
+<tr><td>DF @ 10% (AF 3yr = 2.487)</td><td colspan="3">× 2.487</td></tr>
+<tr class="total"><td>Total PV</td><td colspan="3">AED 3,979,200</td></tr>
+</table>
+<p>The delay is worth about AED 89,000 of extra value — a useful point to make in a discussion requirement: <strong>deferring tax increases NPV.</strong></p>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="s7"><span class="num">7.</span> Tax-allowable depreciation (WDA / capital allowances)</h2>
+
+<p>This is the area you flagged, so we will go slowly. Accounting depreciation is <strong>never</strong> a cash flow. But tax authorities allow a deduction against taxable profit for capital spending, called <strong>tax-allowable depreciation</strong> (TAD), also known as writing-down allowances (WDA) or capital allowances. The <strong>tax saved</strong> is a real cash inflow.</p>
+
+<div class="formula">
+Tax saving in a year = TAD for that year × tax rate
+</div>
+
+<h3>The reducing balance method (the FM default)</h3>
+<ol>
+<li>Start with the <strong>cost</strong> of the asset.</li>
+<li>Each year, claim a fixed percentage (usually 25%) of the <strong>written-down value</strong> (WDV) brought forward.</li>
+<li>Deduct the claim to get the new WDV carried forward.</li>
+<li>In the <strong>final year</strong>, do <em>not</em> claim the normal percentage. Instead compare WDV with disposal proceeds:</li>
+</ol>
+
+<div class="box key">
+<h4>Final year: balancing allowance or balancing charge</h4>
+<ul style="margin-bottom:0">
+<li>If <strong>WDV &gt; proceeds</strong> → the company under-claimed → <strong>balancing allowance</strong> (extra deduction) → <strong>tax saving (inflow)</strong>.</li>
+<li>If <strong>proceeds &gt; WDV</strong> → the company over-claimed → <strong>balancing charge</strong> (taxable amount) → <strong>tax cost (outflow)</strong>.</li>
+</ul>
+<p style="margin-bottom:0"><strong>Sense check that always works:</strong> total TAD claimed over the life must equal <strong>cost − disposal proceeds</strong>. If it doesn't, you have made an error.</p>
+</div>
+
+<div class="box tip">
+<h4>Timing convention</h4>
+<p>Unless told otherwise, assume the asset is bought on the <strong>first day of an accounting period (T0)</strong>, so the <strong>first TAD is claimed at T1</strong>. Then apply the tax delay (if any) on top. So with a 1-year delay, the first tax saving is <strong>received at T2</strong>.</p>
+</div>
+
+<div class="example">
+<span class="tag">EXAMPLE 11</span>
+<h4>TAD with a balancing allowance</h4>
+<p>Super Health buys equipment for <strong>AED 2,000,000</strong> at T0 for a four-year project. TAD is <strong>25% reducing balance</strong>, tax is <strong>25%</strong>, payable <strong>one year in arrears</strong>. The equipment is sold for <strong>AED 500,000</strong> at the end of year 4.</p>
+<table>
+<tr><th>Year</th><th>Working</th><th>TAD (AED)</th><th>Tax saved @25%</th><th>Received</th></tr>
+<tr><td>T0 Cost</td><td>—</td><td>2,000,000</td><td>—</td><td>—</td></tr>
+<tr><td>T1 TAD 25%</td><td>2,000,000 × 25%</td><td>500,000</td><td>125,000</td><td>T2</td></tr>
+<tr><td>&nbsp;&nbsp;WDV c/f</td><td></td><td>1,500,000</td><td></td><td></td></tr>
+<tr><td>T2 TAD 25%</td><td>1,500,000 × 25%</td><td>375,000</td><td>93,750</td><td>T3</td></tr>
+<tr><td>&nbsp;&nbsp;WDV c/f</td><td></td><td>1,125,000</td><td></td><td></td></tr>
+<tr><td>T3 TAD 25%</td><td>1,125,000 × 25%</td><td>281,250</td><td>70,313</td><td>T4</td></tr>
+<tr><td>&nbsp;&nbsp;WDV c/f</td><td></td><td>843,750</td><td></td><td></td></tr>
+<tr><td>T4 Proceeds</td><td></td><td class="neg">(500,000)</td><td></td><td></td></tr>
+<tr class="total"><td>T4 Balancing allowance</td><td></td><td>343,750</td><td>85,938</td><td>T5</td></tr>
+</table>
+<p><strong>Check:</strong> 500,000 + 375,000 + 281,250 + 343,750 = 1,500,000 = cost 2,000,000 − proceeds 500,000. ✓</p>
+<p>The tax saving row in your NPV table therefore reads: T2 125,000 | T3 93,750 | T4 70,313 | T5 85,938.</p>
+</div>
+
+<div class="example">
+<span class="tag">EXAMPLE 12</span>
+<h4>Same asset, but a balancing CHARGE</h4>
+<p>Identical facts, except the equipment sells for <strong>AED 1,000,000</strong> at the end of year 4.</p>
+<p>WDV at the point of sale is still AED 843,750. Proceeds of AED 1,000,000 exceed this, so:</p>
+<table>
+<tr><td>Proceeds</td><td>1,000,000</td></tr>
+<tr><td>Less WDV</td><td class="neg">(843,750)</td></tr>
+<tr class="total"><td>Balancing charge (taxable)</td><td>156,250</td></tr>
+<tr class="total"><td>Tax cost @ 25% — an OUTFLOW at T5</td><td class="neg">(39,063)</td></tr>
+</table>
+<p><strong>Check:</strong> total TAD = 500,000 + 375,000 + 281,250 − 156,250 = 1,000,000 = cost 2,000,000 − proceeds 1,000,000. ✓</p>
+<div class="box warn" style="margin-top:14px">
+<h4>Trap</h4>
+<p>The balancing charge gives a <strong>negative</strong> tax cash flow. Many candidates mechanically show it as a saving. Also remember: the disposal proceeds themselves (AED 1,000,000) are a separate <strong>inflow</strong> in the main cash flow table at T4. Do not confuse the two rows.</p>
+</div>
+</div>
+
+<div class="example">
+<span class="tag">EXAMPLE 13</span>
+<h4>Straight-line TAD</h4>
+<p>Sometimes the question specifies straight-line TAD. An asset costs AED 3,000,000, has a 5-year life, TAD on a straight-line basis, no scrap value, tax 20% paid in the same year.</p>
+<p>Annual TAD = 3,000,000 ÷ 5 = AED 600,000. Annual tax saving = 600,000 × 20% = <strong>AED 120,000</strong> at T1 to T5.</p>
+<p>No balancing figure arises because the WDV falls to nil and proceeds are nil.</p>
+</div>
+
+<div class="example">
+<span class="tag">EXAMPLE 14</span>
+<h4>Tax paid in the same year — the shift disappears</h4>
+<p>Asset AED 2,000,000 bought 1 January 20X5, TAD 25% reducing balance, tax 30% with <strong>no delay</strong>, project ends 31 December 20X6 with proceeds of AED 1,150,000... let us instead use the classic version: sold for nil is unusual, so assume WDV is written off.</p>
+<table>
+<tr><th>Time</th><th>Item</th><th>AED</th><th>Tax @30%</th><th>Timing</th></tr>
+<tr><td>0</td><td>Cost</td><td>2,000,000</td><td></td><td></td></tr>
+<tr><td>1</td><td>TAD 25%</td><td class="neg">(500,000)</td><td>150,000</td><td>T1</td></tr>
+<tr><td></td><td>WDV c/f</td><td>1,500,000</td><td></td><td></td></tr>
+<tr><td>2</td><td>Proceeds</td><td class="neg">(350,000)</td><td></td><td></td></tr>
+<tr class="total"><td>2</td><td>Balancing allowance</td><td>1,150,000</td><td>345,000</td><td>T2</td></tr>
+</table>
+<p>PV at 15% = (150,000 × 0.870) + (345,000 × 0.756) = 130,500 + 260,820 = <strong>AED 391,320</strong></p>
+<p>Because there is no delay, the tax saving falls in the <strong>same</strong> year as the allowance.</p>
+</div>
+
+<details>
+<summary>Test yourself: Asset cost AED 800,000, TAD 25% reducing balance, 3-year project, disposal AED 300,000, tax 20% one year in arrears. Give the TAD tax savings and their timings.</summary>
+<div class="ans">
+<p>T1 TAD = 200,000 → WDV 600,000 → saving 40,000 at T2<br>
+T2 TAD = 150,000 → WDV 450,000 → saving 30,000 at T3<br>
+T3 balancing allowance = 450,000 − 300,000 = 150,000 → saving 30,000 at T4</p>
+<p><strong>Check:</strong> 200,000 + 150,000 + 150,000 = 500,000 = 800,000 − 300,000 ✓</p>
+</div>
+</details>
+
+<details>
+<summary>Test yourself: Why is tax-allowable depreciation NOT inflated in a money-terms appraisal?</summary>
+<div class="ans"><p>Because TAD is calculated on the <strong>historic money cost</strong> actually paid for the asset. That cost is already a money figure. If the asset is purchased at a future date, the <em>purchase price</em> may need inflating first — but once the money cost is fixed, TAD follows from it directly and receives no further uplift.</p></div>
+</details>
+
+<!-- ============================================================ -->
+<h2 id="s8"><span class="num">8.</span> Working capital</h2>
+
+<p>New projects usually tie up cash in inventory and receivables, net of payables. That investment is a real cash outflow even though it is not a cost.</p>
+
+<div class="box def">
+<h4>The four rules</h4>
+<ol style="margin-bottom:0">
+<li>Initial investment in working capital is an <strong>outflow at the start</strong> (usually T0).</li>
+<li>An <strong>increase</strong> in the requirement is an incremental <strong>outflow</strong>.</li>
+<li>A <strong>decrease</strong> in the requirement is an incremental <strong>inflow</strong>.</li>
+<li>At the end of the project, the whole cumulative balance is <strong>released</strong> as an <strong>inflow</strong>.</li>
+</ol>
+</div>
+
+<div class="box key">
+<h4>Two-step method</h4>
+<p><strong>Step 1:</strong> Calculate the <em>absolute</em> working capital balance required at each point in time.<br>
+<strong>Step 2:</strong> Calculate the <em>incremental</em> movement between each point — that is what goes in the NPV table.</p>
+</div>
+
+<div class="box warn">
+<h4>Traps</h4>
+<ul style="margin-bottom:0">
+<li><strong>"In place at the start of each year."</strong> Working capital for year 1 sales is required at <strong>T0</strong>, for year 2 sales at <strong>T1</strong>, and so on. It is a one-year lead.</li>
+<li>If instead the question says working capital is required <em>at the end of each year</em>, the year-1 balance sits at T1.</li>
+<li>Working capital movements are <strong>not taxed</strong> — they are balance sheet movements, not profits.</li>
+<li>Where inflation is present, base working capital on the <strong>inflated (money) sales</strong> figure, unless told otherwise.</li>
+<li>The release at the end is the <strong>total cumulative balance</strong>, not the last year's increment.</li>
+</ul>
+</div>
+
+<div class="example">
+<span class="tag">EXAMPLE 15</span>
+<h4>Working capital with growth, no inflation adjustment needed</h4>
+<p>Sales in year 1 are AED 225,000, growing 5% per year for a 4-year project. Working capital equal to <strong>10% of annual sales</strong> is required <strong>at the start of each year</strong>.</p>
+<p><strong>Step 1 — absolute requirement</strong></p>
+<table>
+<tr><th>AED</th><th>Yr 1</th><th>Yr 2</th><th>Yr 3</th><th>Yr 4</th></tr>
+<tr><td>Sales</td><td>225,000</td><td>236,250</td><td>248,063</td><td>260,466</td></tr>
+<tr><td>WC required (10%)</td><td>22,500</td><td>23,625</td><td>24,806</td><td>26,047</td></tr>
+<tr><td>Required at time…</td><td>T0</td><td>T1</td><td>T2</td><td>T3</td></tr>
+</table>
+<p><strong>Step 2 — incremental cash flows</strong></p>
+<table>
+<tr><th>AED</th><th>T0</th><th>T1</th><th>T2</th><th>T3</th><th>T4</th></tr>
+<tr><td>Movement</td><td class="neg">(22,500)</td><td class="neg">(1,125)</td><td class="neg">(1,181)</td><td class="neg">(1,241)</td><td>26,047</td></tr>
+</table>
+<p>The T4 inflow is the full cumulative balance released: 22,500 + 1,125 + 1,181 + 1,241 = AED 26,047. ✓</p>
+</div>
+
+<div class="example">
+<span class="tag">EXAMPLE 16</span>
+<h4>Working capital where inflation drives sales</h4>
+<p>Volume is a flat 100,000 units per year. Selling price is AED 3.00 per unit in year 1, inflating at <strong>8%</strong> per year over the three-year life. Working capital is <strong>10% of annual sales</strong>, in place at the start of each year.</p>
+<p><strong>Step 1</strong></p>
+<table>
+<tr><th></th><th>Yr 1</th><th>Yr 2</th><th>Yr 3</th></tr>
+<tr><td>Price (AED)</td><td>3.00</td><td>3.24</td><td>3.4992</td></tr>
+<tr><td>Sales value (AED)</td><td>300,000</td><td>324,000</td><td>349,920</td></tr>
+<tr><td>WC required (10%)</td><td>30,000</td><td>32,400</td><td>34,992</td></tr>
+</table>
+<p><strong>Step 2</strong></p>
+<table>
+<tr><th>AED</th><th>T0</th><th>T1</th><th>T2</th><th>T3</th></tr>
+<tr><td>Working</td><td></td><td>32,400 − 30,000</td><td>34,992 − 32,400</td><td>release all</td></tr>
+<tr class="total"><td>WC cash flow</td><td class="neg">(30,000)</td><td class="neg">(2,400)</td><td class="neg">(2,592)</td><td>34,992</td></tr>
+</table>
+<p>Because the last year's requirement is in place at T2, nothing further is invested at T3 and the entire AED 34,992 is released.</p>
+</div>
+
+<details>
+<summary>Test yourself: Working capital is 15% of sales, needed at the END of each year. Sales are AED 1m, 1.2m, 0.9m over a 3-year project. Give the cash flows.</summary>
+<div class="ans">
+<p>Balances: T1 150,000; T2 180,000; T3 135,000 → but T3 is the end of the project so everything is released.</p>
+<p>T1 (150,000) outflow; T2 (30,000) further outflow; T3 +180,000 release.</p>
+<p><em>Note:</em> since the project ends at T3, there is no need to hold a T3 balance — release the cumulative 180,000.</p>
+</div>
+</details>
+
+<!-- ============================================================ -->
+<h2 id="s9"><span class="num">9.</span> The full pro forma — everything together</h2>
+
+<div class="box key">
+<h4>Standard Section C layout — use this every time</h4>
+<table style="margin-top:10px">
+<tr><th>Row</th><th>T0</th><th>T1</th><th>T2</th><th>T3</th><th>T4</th></tr>
+<tr><td>Sales revenue (inflated)</td><td></td><td>X</td><td>X</td><td>X</td><td></td></tr>
+<tr><td>Variable costs (inflated)</td><td></td><td>(X)</td><td>(X)</td><td>(X)</td><td></td></tr>
+<tr><td>Fixed cash costs (inflated)</td><td></td><td>(X)</td><td>(X)</td><td>(X)</td><td></td></tr>
+<tr class="sub"><td><strong>Net operating cash flow</strong></td><td></td><td>X</td><td>X</td><td>X</td><td></td></tr>
+<tr><td>Tax on operating flow</td><td></td><td></td><td>(X)</td><td>(X)</td><td>(X)</td></tr>
+<tr><td>Tax saved on TAD</td><td></td><td></td><td>X</td><td>X</td><td>X</td></tr>
+<tr><td>Capital expenditure</td><td>(X)</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Scrap / disposal proceeds</td><td></td><td></td><td></td><td>X</td><td></td></tr>
+<tr><td>Working capital movement</td><td>(X)</td><td>(X)</td><td>X</td><td>X</td><td></td></tr>
+<tr class="sub"><td><strong>Net cash flow</strong></td><td>(X)</td><td>X</td><td>X</td><td>X</td><td>(X)</td></tr>
+<tr><td>Discount factor @ money rate</td><td>1.000</td><td>0.909</td><td>0.826</td><td>0.751</td><td>0.683</td></tr>
+<tr class="total"><td><strong>Present value</strong></td><td>(X)</td><td>X</td><td>X</td><td>X</td><td>(X)</td></tr>
+</table>
+<p style="margin-bottom:0"><strong>Order of attack:</strong> (1) work out the money discount rate; (2) inflate revenues and costs; (3) compute net operating flow and tax on it; (4) do the TAD working <em>separately</em> below the table; (5) do the working capital working <em>separately</em>; (6) slot both into the main table; (7) discount; (8) conclude.</p>
+</div>
+
+<div class="example">
+<span class="tag">EXAMPLE 17 — THE BIG ONE</span>
+<h4>Full NPV with tax, TAD, specific inflation and working capital</h4>
+
+<p><strong>Scenario.</strong> Super Health is appraising the <em>Al Barsha Day Surgery Unit</em>.</p>
+<ul>
+<li>Equipment and fit-out cost <strong>AED 8,000,000</strong>, payable now. Expected disposal proceeds at the end of year 3: <strong>AED 2,000,000</strong>.</li>
+<li>Procedure volumes: year 1 <strong>4,000</strong>, year 2 <strong>5,000</strong>, year 3 <strong>4,500</strong>.</li>
+<li>Price per procedure <strong>AED 2,000</strong> and variable cost per procedure <strong>AED 800</strong>, both in <strong>current terms</strong>, both inflating at <strong>5%</strong> per year.</li>
+<li>Incremental fixed cash costs <strong>AED 1,000,000</strong> per year in current terms, inflating at <strong>4%</strong> per year.</li>
+<li>Working capital equal to <strong>10% of the year's sales revenue</strong>, required <strong>at the start of each year</strong>, fully recovered at the end.</li>
+<li>Tax at <strong>20%</strong>, payable <strong>one year in arrears</strong>. Tax-allowable depreciation at <strong>25% reducing balance</strong>.</li>
+<li>Real cost of capital <strong>6.8%</strong>; general inflation <strong>3%</strong>.</li>
+</ul>
+
+<h4>(W1) Money discount rate</h4>
+<p>(1 + i) = 1.068 × 1.03 = 1.1000 → <strong>money cost of capital = 10%</strong></p>
+
+<h4>(W2) Revenue and variable costs in money terms</h4>
+<table>
+<tr><th>AED</th><th>T1</th><th>T2</th><th>T3</th></tr>
+<tr><td>Volume (procedures)</td><td>4,000</td><td>5,000</td><td>4,500</td></tr>
+<tr><td>Price (2,000 × 1.05<sup>n</sup>)</td><td>2,100.00</td><td>2,205.00</td><td>2,315.25</td></tr>
+<tr><td><strong>Sales revenue</strong></td><td>8,400,000</td><td>11,025,000</td><td>10,418,625</td></tr>
+<tr><td>VC per unit (800 × 1.05<sup>n</sup>)</td><td>840.00</td><td>882.00</td><td>926.10</td></tr>
+<tr><td><strong>Variable costs</strong></td><td class="neg">(3,360,000)</td><td class="neg">(4,410,000)</td><td class="neg">(4,167,450)</td></tr>
+<tr class="sub"><td>Contribution</td><td>5,040,000</td><td>6,615,000</td><td>6,251,175</td></tr>
+<tr><td>Fixed costs (1,000,000 × 1.04<sup>n</sup>)</td><td class="neg">(1,040,000)</td><td class="neg">(1,081,600)</td><td class="neg">(1,124,864)</td></tr>
+<tr class="total"><td>Net operating cash flow</td><td>4,000,000</td><td>5,533,400</td><td>5,126,311</td></tr>
+</table>
+<p>Tax at 20%, one year in arrears: T2 (800,000); T3 (1,106,680); T4 (1,025,262).</p>
+
+<h4>(W3) Tax-allowable depreciation</h4>
+<table>
+<tr><th>Time</th><th>AED</th><th>Tax saved @20%</th><th>Received</th></tr>
+<tr><td>T0 Cost</td><td>8,000,000</td><td></td><td></td></tr>
+<tr><td>T1 TAD 25%</td><td class="neg">(2,000,000)</td><td>400,000</td><td>T2</td></tr>
+<tr><td>&nbsp;&nbsp;WDV</td><td>6,000,000</td><td></td><td></td></tr>
+<tr><td>T2 TAD 25%</td><td class="neg">(1,500,000)</td><td>300,000</td><td>T3</td></tr>
+<tr><td>&nbsp;&nbsp;WDV</td><td>4,500,000</td><td></td><td></td></tr>
+<tr><td>T3 Proceeds</td><td class="neg">(2,000,000)</td><td></td><td></td></tr>
+<tr class="total"><td>T3 Balancing allowance</td><td>2,500,000</td><td>500,000</td><td>T4</td></tr>
+</table>
+<p><strong>Check:</strong> 2,000,000 + 1,500,000 + 2,500,000 = 6,000,000 = 8,000,000 − 2,000,000 ✓</p>
+
+<h4>(W4) Working capital</h4>
+<table>
+<tr><th>AED</th><th>T0</th><th>T1</th><th>T2</th><th>T3</th></tr>
+<tr><td>Sales for the year ahead</td><td>8,400,000</td><td>11,025,000</td><td>10,418,625</td><td>—</td></tr>
+<tr><td>Balance required (10%)</td><td>840,000</td><td>1,102,500</td><td>1,041,863</td><td>nil</td></tr>
+<tr><td>Working</td><td></td><td>1,102,500−840,000</td><td>1,041,863−1,102,500</td><td>release</td></tr>
+<tr class="total"><td>WC cash flow</td><td class="neg">(840,000)</td><td class="neg">(262,500)</td><td>60,637</td><td>1,041,863</td></tr>
+</table>
+
+<h4>Main NPV table</h4>
+<table>
+<tr><th>AED</th><th>T0</th><th>T1</th><th>T2</th><th>T3</th><th>T4</th></tr>
+<tr><td>Net operating cash flow (W2)</td><td></td><td>4,000,000</td><td>5,533,400</td><td>5,126,311</td><td></td></tr>
+<tr><td>Tax @ 20% (W2)</td><td></td><td></td><td class="neg">(800,000)</td><td class="neg">(1,106,680)</td><td class="neg">(1,025,262)</td></tr>
+<tr><td>Tax saved on TAD (W3)</td><td></td><td></td><td>400,000</td><td>300,000</td><td>500,000</td></tr>
+<tr><td>Capital expenditure</td><td class="neg">(8,000,000)</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Disposal proceeds</td><td></td><td></td><td></td><td>2,000,000</td><td></td></tr>
+<tr><td>Working capital (W4)</td><td class="neg">(840,000)</td><td class="neg">(262,500)</td><td>60,637</td><td>1,041,863</td><td></td></tr>
+<tr class="sub"><td><strong>Net cash flow</strong></td><td class="neg">(8,840,000)</td><td>3,737,500</td><td>5,194,037</td><td>7,361,494</td><td class="neg">(525,262)</td></tr>
+<tr><td>DF @ 10% (W1)</td><td>1.000</td><td>0.909</td><td>0.826</td><td>0.751</td><td>0.683</td></tr>
+<tr class="sub"><td><strong>Present value</strong></td><td class="neg">(8,840,000)</td><td>3,397,388</td><td>4,290,275</td><td>5,528,482</td><td class="neg">(358,754)</td></tr>
+<tr class="total"><td><strong>NPV</strong></td><td colspan="5">+ AED 4,017,391</td></tr>
+</table>
+
+<div class="box tip" style="margin-top:18px">
+<h4>Model conclusion (write something like this)</h4>
+<p>The project has a positive net present value of approximately AED 4.0 million and is therefore financially acceptable, being forecast to increase the value of the organisation by that amount in present-value terms. The NPV is large relative to the initial outlay of AED 8.84 million, so the conclusion is fairly robust — the initial investment could rise by around 45% before the NPV becomes negative. However, the appraisal rests on forecast procedure volumes and inflation rates over three years, and on the assumption that the real cost of capital of 6.8% remains appropriate for a project of this risk. Sensitivity analysis on volumes and on the selling price would strengthen the recommendation, and for a public healthcare provider the financial appraisal should be read alongside non-financial factors such as waiting-list reduction and service accessibility.</p>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="s10"><span class="num">10.</span> Sensitivity analysis on your NPV</h2>
+
+<p>Syllabus D3(b), but it attaches directly to NPV questions and is examined constantly alongside them.</p>
+
+<div class="formula">
+Sensitivity (%) = NPV ÷ PV of the cash flow under consideration × 100
+</div>
+
+<p>The answer is the percentage by which that variable can change adversely before the NPV falls to zero. <strong>The lower the percentage, the more sensitive — and therefore the more critical — the variable.</strong></p>
+
+<div class="box warn">
+<h4>Trap</h4>
+<p>The denominator must be the <strong>post-tax</strong> PV of the flow if tax is present. If the sales price falls, taxable profit falls too, so the tax saving partially cushions the loss. Forgetting this overstates the sensitivity.</p>
+</div>
+
+<div class="example">
+<span class="tag">EXAMPLE 18</span>
+<h4>Sensitivity to the initial investment</h4>
+<p>Using Example 17: NPV = AED 4,017,391; PV of the initial equipment cost = AED 8,000,000 (it is at T0, so no discounting).</p>
+<p>Sensitivity = 4,017,391 ÷ 8,000,000 = <strong>50.2%</strong></p>
+<p>The equipment cost could overrun by more than half before the project became unattractive — not a critical variable.</p>
+</div>
+
+<div class="example">
+<span class="tag">EXAMPLE 19</span>
+<h4>Sensitivity to selling price (post-tax)</h4>
+<p>Continuing Example 17. First find the PV of revenue, then the PV of the tax on that revenue.</p>
+<table>
+<tr><th>AED</th><th>T1</th><th>T2</th><th>T3</th><th>T4</th><th>Total PV</th></tr>
+<tr><td>Revenue</td><td>8,400,000</td><td>11,025,000</td><td>10,418,625</td><td></td><td></td></tr>
+<tr><td>DF @10%</td><td>0.909</td><td>0.826</td><td>0.751</td><td></td><td></td></tr>
+<tr class="sub"><td>PV of revenue</td><td>7,635,600</td><td>9,106,650</td><td>7,824,388</td><td></td><td>24,566,638</td></tr>
+<tr><td>Tax @20% (1 yr late)</td><td></td><td class="neg">(1,680,000)</td><td class="neg">(2,205,000)</td><td class="neg">(2,083,725)</td><td></td></tr>
+<tr><td>DF @10%</td><td></td><td>0.826</td><td>0.751</td><td>0.683</td><td></td></tr>
+<tr class="sub"><td>PV of tax</td><td></td><td class="neg">(1,387,680)</td><td class="neg">(1,655,955)</td><td class="neg">(1,423,184)</td><td class="neg">(4,466,819)</td></tr>
+<tr class="total"><td>Net post-tax PV of revenue</td><td colspan="4"></td><td>20,099,819</td></tr>
+</table>
+<p>Sensitivity = 4,017,391 ÷ 20,099,819 = <strong>20.0%</strong></p>
+<p>Selling price could fall by 20% before the NPV became negative. That is a meaningfully tighter margin than the 50% on capital cost, so <strong>price is the more critical variable</strong> and management should focus attention there.</p>
+<p><em>Note for the exam:</em> strictly, a change in price also changes working capital (10% of sales). Examiners generally accept the simplified treatment above; state the assumption in a bracket and you keep the marks.</p>
+</div>
+
+<div class="example">
+<span class="tag">EXAMPLE 20</span>
+<h4>Sensitivity of the discount rate</h4>
+<p>The sensitivity of the cost of capital is <strong>not</strong> computed with the formula above. Instead it is the difference between the IRR and the current cost of capital.</p>
+<p>If a project's IRR is 18% and the cost of capital is 10%, the discount rate could rise by <strong>8 percentage points</strong>, or 80% in relative terms, before the project became unacceptable.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="s11"><span class="num">11.</span> NPV vs IRR, payback and ROCE</h2>
+
+<div class="box def">
+<h4>IRR</h4>
+<p>The discount rate at which the NPV of a project is zero. Accept if IRR &gt; cost of capital.</p>
+</div>
+
+<div class="formula">
+IRR ≈ L + [ N<sub>L</sub> ÷ (N<sub>L</sub> − N<sub>H</sub>) ] × (H − L)
+<small>L = lower rate, H = higher rate, N<sub>L</sub> and N<sub>H</sub> = the NPVs at those rates (with signs)</small>
+</div>
+
+<div class="example">
+<span class="tag">EXAMPLE 21</span>
+<h4>Interpolating an IRR</h4>
+<p>NPV at 10% = +AED 42,000. NPV at 20% = −AED 22,000.</p>
+<p>IRR = 10 + [42,000 ÷ (42,000 − (−22,000))] × (20 − 10) = 10 + (42,000/64,000) × 10 = 10 + 6.6 = <strong>16.6%</strong></p>
+<p><strong>Watch the signs.</strong> If you treat the −22,000 as positive you get 31.0%, a common wrong answer. If you swap the two NPVs you get 13.4%.</p>
+</div>
+
+<h3>NPV vs IRR — the discussion marks</h3>
+<table>
+<tr><th>Point</th><th>NPV</th><th>IRR</th></tr>
+<tr><td>Measure</td><td>Absolute AED wealth added</td><td>Relative % return</td></tr>
+<tr><td>Reinvestment assumption</td><td>At the cost of capital (realistic)</td><td>At the IRR (often unrealistic)</td></tr>
+<tr><td>Non-conventional cash flows</td><td>Single answer</td><td>Multiple IRRs possible — as many as there are sign changes</td></tr>
+<tr><td>Mutually exclusive projects</td><td>Ranks correctly</td><td>Can rank incorrectly (ignores project scale)</td></tr>
+<tr><td>Changing cost of capital over life</td><td>Can accommodate different rates per year</td><td>Cannot</td></tr>
+<tr><td>Ease of understanding</td><td>Less intuitive to non-financial managers</td><td>A % is easier to communicate</td></tr>
+</table>
+<p><strong>Conclusion to write:</strong> NPV is theoretically superior because it directly measures the change in shareholder wealth, but IRR is popular because a percentage return is easily compared with a target rate and does not require the cost of capital to be known precisely in advance.</p>
+
+<h3>Payback and discounted payback</h3>
+<p><strong>Payback</strong> = time to recover the initial investment from cumulative net cash flows. Simple, and useful as a liquidity/risk screen, but ignores the time value of money and all cash flows after payback. <strong>Discounted payback</strong> fixes the first flaw by using discounted cash flows, but still ignores post-payback flows and gives a longer (more conservative) period.</p>
+
+<div class="example">
+<span class="tag">EXAMPLE 22</span>
+<h4>Discounted payback</h4>
+<table>
+<tr><th>Year</th><th>Cash flow</th><th>DF @10%</th><th>PV</th><th>Cumulative PV</th></tr>
+<tr><td>0</td><td class="neg">(100,000)</td><td>1.000</td><td class="neg">(100,000)</td><td class="neg">(100,000)</td></tr>
+<tr><td>1</td><td>40,000</td><td>0.909</td><td>36,360</td><td class="neg">(63,640)</td></tr>
+<tr><td>2</td><td>20,000</td><td>0.826</td><td>16,520</td><td class="neg">(47,120)</td></tr>
+<tr><td>3</td><td>30,000</td><td>0.751</td><td>22,530</td><td class="neg">(24,590)</td></tr>
+<tr><td>4</td><td>5,000</td><td>0.683</td><td>3,415</td><td class="neg">(21,175)</td></tr>
+<tr class="total"><td>5</td><td>40,000</td><td>0.621</td><td>24,840</td><td>3,665</td></tr>
+</table>
+<p>Discounted payback occurs during <strong>year 5</strong>: 4 + (21,175 ÷ 24,840) = <strong>4.85 years</strong>.</p>
+</div>
+
+<h3>ROCE / ARR</h3>
+<div class="formula">
+ROCE = Average annual accounting profit ÷ Average investment × 100
+<small>Average investment = (initial cost + scrap value) ÷ 2</small>
+</div>
+
+<div class="example">
+<span class="tag">EXAMPLE 23</span>
+<h4>ROCE</h4>
+<p>Profits after depreciation over four years: AED 39,600, 19,600, 22,400, 32,400. Initial investment AED 110,400; scrap value AED 9,600.</p>
+<p>Average profit = (39,600 + 19,600 + 22,400 + 32,400) ÷ 4 = AED 28,500<br>
+Average investment = (110,400 + 9,600) ÷ 2 = AED 60,000<br>
+<strong>ROCE = 28,500 ÷ 60,000 = 47.5%</strong></p>
+<p>Using the <em>initial</em> rather than average investment gives 25.8% — a frequent wrong answer. Read the question for which basis is required.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="s12"><span class="num">12.</span> Examiner traps &amp; exam technique</h2>
+
+<div class="box warn">
+<h4>The twelve most-penalised errors</h4>
+<ol style="margin-bottom:0">
+<li>Discounting <strong>real cash flows at a money rate</strong> (or vice versa).</li>
+<li>Using a <strong>specific</strong> inflation rate in the Fisher equation instead of the general rate.</li>
+<li>Forgetting the <strong>extra year column</strong> when tax is one year in arrears.</li>
+<li>Inflating <strong>tax-allowable depreciation</strong> — it is based on the fixed money cost.</li>
+<li>Claiming the normal 25% in the <strong>final year</strong> instead of computing the balancing figure.</li>
+<li>Treating a <strong>balancing charge</strong> as a saving rather than a tax cost.</li>
+<li>Omitting the <strong>disposal proceeds</strong> from the main cash flow table (they appear in the TAD working <em>and</em> in the main table, for different reasons).</li>
+<li>Failing to <strong>release working capital</strong> at the end, or releasing only the last increment.</li>
+<li><strong>Taxing</strong> working capital movements.</li>
+<li>Including <strong>depreciation</strong> or <strong>interest</strong> as cash flows.</li>
+<li>Placing working capital at T1 when the question says it is required at the <strong>start</strong> of year 1 (= T0).</li>
+<li>Producing a beautiful table and <strong>no conclusion</strong> — throwing away 2 easy marks.</li>
+</ol>
+</div>
+
+<div class="box tip">
+<h4>Technique in the CBE</h4>
+<ul style="margin-bottom:0">
+<li>Build the table in the <strong>spreadsheet</strong> tool with formulae, not hard-coded numbers — it makes corrections fast and earns method marks even if one input is wrong.</li>
+<li>Use <code>=NPV(rate, range)</code> for T1 onwards, then add the T0 flow separately (Excel's NPV function assumes the first value is at T1).</li>
+<li><strong>Label your workings</strong> (W1, W2…) and cross-reference them in the main table. Markers award marks for workings even when the final NPV is wrong.</li>
+<li>Own-figure rule applies: an error early on does not cascade into lost marks later if your method is right and visible.</li>
+<li>Time budget: 20 marks = 36 minutes. Roughly 6 minutes reading and planning, 20 minutes on the table and workings, 10 minutes on the discussion parts. <strong>Do the discussion parts.</strong> They are the easiest marks in the question and are usually attempted last and badly.</li>
+</ul>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="s13"><span class="num">13.</span> MCQ practice bank</h2>
+
+<div class="mcq">
+<p class="q">Q1. The real cost of capital is 7% and general inflation is 5%. Specific inflation on labour is 8%. What money cost of capital should be used?</p>
+<ol><li>12.0%</li><li>12.35%</li><li>15.56%</li><li>11.0%</li></ol>
+<details><summary>Show answer</summary><div class="ans"><p><strong>B — 12.35%.</strong> 1.07 × 1.05 = 1.1235. Option A is the incorrect additive approximation; C wrongly uses the specific labour rate.</p></div></details>
+</div>
+
+<div class="mcq">
+<p class="q">Q2. A machine costs AED 1,200,000. TAD is 25% reducing balance, tax 20% payable in the same year. The machine is sold at the end of year 2 for AED 800,000. What is the tax cash flow arising from TAD in year 2?</p>
+<ol><li>Saving of AED 60,000</li><li>Saving of AED 20,000</li><li>Cost of AED 20,000</li><li>Saving of AED 45,000</li></ol>
+<details><summary>Show answer</summary><div class="ans">
+<p><strong>B — saving of AED 20,000.</strong> T1 TAD = 300,000 → WDV 900,000. At T2, WDV 900,000 exceeds proceeds 800,000, so there is a <strong>balancing allowance</strong> of 100,000 → tax saving 100,000 × 20% = AED 20,000.</p>
+<p>Check: total TAD 300,000 + 100,000 = 400,000 = 1,200,000 − 800,000 ✓</p>
+</div></details>
+</div>
+
+<div class="mcq">
+<p class="q">Q3. Which of the following is NOT a relevant cash flow in an NPV appraisal?</p>
+<ol><li>Rental income forgone on a building used by the project</li><li>Interest payable on the loan raised to fund the project</li><li>Redundancy costs arising because of the project</li><li>Additional inventory required at the start of the project</li></ol>
+<details><summary>Show answer</summary><div class="ans"><p><strong>B.</strong> The cost of finance is captured in the discount rate; including interest double-counts it. A is an opportunity cost, C is an incremental future cash cost, D is a working capital outflow.</p></div></details>
+</div>
+
+<div class="mcq">
+<p class="q">Q4. A project has a money cost of capital of 21% and general inflation is 8%. What is the real cost of capital?</p>
+<ol><li>13.0%</li><li>12.0%</li><li>11.6%</li><li>13.5%</li></ol>
+<details><summary>Show answer</summary><div class="ans"><p><strong>B — 12%.</strong> 1.21 ÷ 1.08 = 1.12. Option A is the additive approximation.</p></div></details>
+</div>
+
+<div class="mcq">
+<p class="q">Q5. Working capital of 10% of sales is required at the start of each year. Sales are AED 500,000 (yr 1), AED 700,000 (yr 2) and AED 400,000 (yr 3). What is the working capital cash flow at T2?</p>
+<ol><li>Outflow AED 40,000</li><li>Inflow AED 30,000</li><li>Outflow AED 70,000</li><li>Inflow AED 110,000</li></ol>
+<details><summary>Show answer</summary><div class="ans">
+<p><strong>B — inflow of AED 30,000.</strong> Balances required: T0 = 50,000; T1 = 70,000; T2 = 40,000. The movement at T2 is 70,000 − 40,000 = a <strong>reduction</strong> of 30,000, hence an inflow. The full 40,000 is then released at T3.</p>
+</div></details>
+</div>
+
+<div class="mcq">
+<p class="q">Q6. An investment has an NPV of AED 480,000. The present value of the post-tax contribution is AED 3,200,000 and the initial investment is AED 2,000,000. What is the sensitivity of the NPV to a change in contribution?</p>
+<ol><li>15%</li><li>24%</li><li>6.7%</li><li>10%</li></ol>
+<details><summary>Show answer</summary><div class="ans"><p><strong>A — 15%.</strong> 480,000 ÷ 3,200,000 = 15%. Option B (24%) uses the initial investment as denominator, which is the sensitivity of the investment, not of contribution.</p></div></details>
+</div>
+
+<div class="mcq">
+<p class="q">Q7. If cash inflows and outflows after time 0 all inflate, but the time 0 outflow does not, what happens to the payback period and the IRR?</p>
+<ol><li>Both increase</li><li>Both decrease</li><li>Payback decreases; IRR increases</li><li>Payback increases; IRR decreases</li></ol>
+<details><summary>Show answer</summary><div class="ans"><p><strong>C.</strong> The T0 outflow is unaffected while later inflows grow in money terms, so the investment is recovered sooner (shorter payback) and the return implied by the cash flow pattern is higher (higher IRR).</p></div></details>
+</div>
+
+<div class="mcq">
+<p class="q">Q8. A project's cash flows change sign twice. Which statement is correct?</p>
+<ol><li>The project has no IRR</li><li>The project has exactly one IRR</li><li>The project may have up to two IRRs</li><li>The NPV will always be negative</li></ol>
+<details><summary>Show answer</summary><div class="ans"><p><strong>C.</strong> A project can have up to as many IRRs as there are sign changes in its cash flows. This multiple-IRR problem is one of the standard arguments for the superiority of NPV.</p></div></details>
+</div>
+
+<div class="mcq">
+<p class="q">Q9. Equipment costing AED 5,000,000 is bought at T0. TAD is 25% reducing balance and tax is payable one year in arrears. When is the FIRST tax saving from TAD received?</p>
+<ol><li>T0</li><li>T1</li><li>T2</li><li>T3</li></ol>
+<details><summary>Show answer</summary><div class="ans"><p><strong>C — T2.</strong> The asset is assumed bought on the first day of an accounting period, so the first TAD is claimed at T1; the one-year delay pushes the cash saving to T2.</p></div></details>
+</div>
+
+<div class="mcq">
+<p class="q">Q10. Which of the following would you NOT inflate before including in a money-terms NPV?</p>
+<ol><li>Sales revenue given in current prices</li><li>Variable costs given in today's terms</li><li>Tax-allowable depreciation on an asset bought at T0</li><li>Fixed cash overheads given in current prices</li></ol>
+<details><summary>Show answer</summary><div class="ans"><p><strong>C.</strong> TAD is computed on the actual money cost paid at T0, which is already a money figure and receives no further inflation.</p></div></details>
+</div>
+
+<div class="mcq">
+<p class="q">Q11. AED 60,000 is receivable annually in perpetuity, with the first receipt in four years' time. The cost of capital is 12%. What is the present value? (12% DF: yr3 = 0.712, yr4 = 0.636)</p>
+<ol><li>AED 500,000</li><li>AED 356,000</li><li>AED 318,000</li><li>AED 560,000</li></ol>
+<details><summary>Show answer</summary><div class="ans"><p><strong>B — AED 356,000.</strong> PV at T3 = 60,000 ÷ 0.12 = 500,000. Discount back three years: 500,000 × 0.712 = AED 356,000. Option C incorrectly discounts four years.</p></div></details>
+</div>
+
+<div class="mcq">
+<p class="q">Q12. Which statement about the real-terms approach to investment appraisal is correct?</p>
+<ol><li>It always gives a different NPV from the money approach</li><li>It is preferable where different cash flows inflate at different rates</li><li>It gives the same NPV as the money approach where all flows inflate at the general rate</li><li>It uses money cash flows discounted at the real rate</li></ol>
+<details><summary>Show answer</summary><div class="ans"><p><strong>C.</strong> The two approaches are mathematically equivalent when a single general inflation rate applies to everything. Where specific rates differ, or where tax or working capital is present, the money method is the practical choice.</p></div></details>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="s14"><span class="num">14.</span> Kaplan Exam Kit practice plan</h2>
+
+<table>
+<tr><th>Stage</th><th>Questions</th><th>Focus</th></tr>
+<tr><td>1. Basics</td><td>102, 103, 107, 117, 118</td><td>The four techniques — ROCE, payback, NPV, IRR — and comparing them. Short questions first.</td></tr>
+<tr><td>2. Core technique</td><td><strong>287(a) Hebac</strong></td><td>Start here for tax and inflation combined. This is the archetype.</td></tr>
+<tr><td>3. Error-spotting</td><td><strong>285 OKM</strong></td><td>Identifying the errors candidates commonly make. Excellent for internalising the traps in Section 12 above.</td></tr>
+<tr><td>4. Stretch</td><td><strong>291 Pinks Co</strong></td><td>Nominal NPV in part (a)(i), then the real-terms approximation in (a)(ii). The exact scenario you asked about.</td></tr>
+<tr><td>5. Risk overlay</td><td>286(a)&amp;(b) Hraxin, 290 Copper, 298 Gini</td><td>Sensitivity and probability analysis attached to DCF.</td></tr>
+<tr><td>6. Specific decisions</td><td>292 Dink, 293 Crocket, 297 Clover</td><td>Lease vs buy, equivalent annual cost, capital rationing (syllabus D4).</td></tr>
+</table>
+
+<div class="box tip">
+<h4>Suggested sequence for this week</h4>
+<ol style="margin-bottom:0">
+<li>Re-work Examples 11, 12 and 17 above without looking at the answers. TAD and the combined pro forma are where your marks are.</li>
+<li>Attempt Exam Kit 287(a) Hebac under timed conditions (about 25 minutes).</li>
+<li>Then 285 OKM — this one will tell you which specific traps you personally fall into.</li>
+<li>Finish with 291 Pinks Co for the real-terms part.</li>
+<li>Only then move on to Working Capital Management (Syllabus C), which is your next planned topic.</li>
+</ol>
+</div>
+
+<hr>
+
+<div class="box key">
+<h4>One-page recall list</h4>
+<ul style="margin-bottom:0">
+<li>(1 + i) = (1 + r)(1 + h), where h is <strong>general</strong> inflation</li>
+<li>Money flows ↔ money rate; real flows ↔ real rate. <strong>Never mix.</strong></li>
+<li>Tax has two rows: tax on operating flows (out), tax saved on TAD (in)</li>
+<li>Total TAD over the life = cost − disposal proceeds</li>
+<li>WDV &gt; proceeds → balancing allowance (saving); proceeds &gt; WDV → balancing charge (cost)</li>
+<li>Tax one year in arrears → the table has one extra column</li>
+<li>Working capital: incremental movements only; released in full at the end; never taxed</li>
+<li>Sensitivity = NPV ÷ PV of the flow; lower % = more critical</li>
+<li>Always conclude, always caveat, always sensitise a marginal result</li>
+</ul>
+</div>
+
+<footer>
+ACCA FM — Syllabus D1 &amp; D2 · September 2026 – June 2027 syllabus · Prepared for FP&amp;A study at Super Health<br>
+All figures illustrative and in AED. Cross-referenced to the Kaplan FM Study Text (chapters 3 and 4) and FM Exam Kit.
+</footer>
+
+</div>
+</body>
+</html>
