@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACCA FM - Investment Appraisal Power Notes</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-light: #dbeafe;
+            --secondary: #059669;
+            --secondary-light: #d1fae5;
+            --accent: #dc2626;
+            --accent-light: #fee2e2;
+            --warning: #d97706;
+            --warning-light: #fef3c7;
+            --purple: #7c3aed;
+            --purple-light: #ede9fe;
+            --bg: #fafafa;
+            --card: #ffffff;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            font-size: 18px;
+            line-height: 1.85;
+            padding-bottom: 60px;
+        }
+        .container { max-width: 1000px; margin: 0 auto; padding: 30px 24px; }
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 30px;
+            text-align: center;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+        }
+        .hero h1 { font-size: 2.8rem; margin-bottom: 12px; font-weight: 800; }
+        .hero p { font-size: 1.3rem; opacity: 0.92; }
+        .hero .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-size: 1rem;
+            margin-top: 16px;
+            font-weight: 600;
+        }
+        .toc {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+        .toc h2 { font-size: 1.6rem; margin-bottom: 20px; color: var(--primary); }
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 12px;
+        }
+        .toc-item {
+            padding: 14px 18px;
+            background: var(--primary-light);
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.2s;
+            border-left: 4px solid var(--primary);
+        }
+        .toc-item:hover { transform: translateX(6px); background: #bfdbfe; }
+        .section {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 35px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 28px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid var(--primary-light);
+        }
+        .section-number {
+            width: 56px; height: 56px;
+            background: var(--primary);
+            color: white;
+            border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; font-weight: 800;
+            flex-shrink: 0;
+        }
+        .section h2 { font-size: 2rem; color: var(--primary); }
+        .section h3 { font-size: 1.5rem; color: var(--secondary); margin: 30px 0 16px; padding-top: 20px; border-top: 2px dashed var(--border); }
+        .section h4 { font-size: 1.25rem; color: var(--purple); margin: 24px 0 12px; }
+        .box {
+            padding: 24px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+        .box-formula { background: var(--purple-light); border-color: var(--purple); }
+        .box-tip { background: var(--secondary-light); border-color: var(--secondary); }
+        .box-warning { background: var(--accent-light); border-color: var(--accent); }
+        .box-note { background: var(--warning-light); border-color: var(--warning); }
+        .box-title { font-weight: 700; font-size: 1.1rem; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+        .example {
+            background: linear-gradient(to right, #f0f9ff, #ffffff);
+            border: 2px solid #bae6fd;
+            border-radius: 14px;
+            padding: 28px;
+            margin: 24px 0;
+        }
+        .example-header {
+            display: flex; align-items: center; gap: 10px;
+            font-size: 1.2rem; font-weight: 700; color: #0369a1;
+            margin-bottom: 16px;
+        }
+        .solution { background: #f8fafc; border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin-top: 16px; }
+        .solution-title { font-weight: 700; color: var(--secondary); margin-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 1rem; }
+        th, td { padding: 14px 16px; text-align: left; border: 1px solid var(--border); }
+        th { background: var(--primary-light); color: var(--primary); font-weight: 700; }
+        tr:nth-child(even) { background: #f8fafc; }
+        td { background: white; }
+        ul, ol { margin: 16px 0 16px 28px; }
+        li { margin: 10px 0; }
+        li::marker { color: var(--primary); font-weight: bold; }
+        .highlight { background: #fef08a; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
+        .formula { background: var(--purple-light); padding: 4px 12px; border-radius: 6px; font-family: 'Courier New', monospace; font-weight: 700; color: var(--purple); }
+        .key-term { color: var(--accent); font-weight: 700; }
+        .steps { counter-reset: step; }
+        .step { position: relative; padding-left: 50px; margin: 18px 0; }
+        .step::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 0; top: 0;
+            width: 36px; height: 36px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+        .comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0; }
+        .comparison-card { padding: 20px; border-radius: 12px; }
+        .comparison-card.pros { background: var(--secondary-light); border: 2px solid var(--secondary); }
+        .comparison-card.cons { background: var(--accent-light); border: 2px solid var(--accent); }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .section { padding: 24px; }
+            body { font-size: 16px; }
+            .comparison { grid-template-columns: 1fr; }
+        }
+        @media print {
+            body { font-size: 14px; }
+            .section { break-inside: avoid; page-break-inside: avoid; }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1>Investment Appraisal</h1>
+            <p>ACCA FM (Financial Management) — Complete Power Notes</p>
+            <div class="badge">Sep 2026 Exam Window</div>
+        </div>
+        <div class="toc">
+            <h2>Quick Navigation</h2>
+            <div class="toc-grid">
+                <a href="#s1" class="toc-item">1. Time Value of Money & Discounting</a>
+                <a href="#s2" class="toc-item">2. Net Present Value (NPV)</a>
+                <a href="#s3" class="toc-item">3. Internal Rate of Return (IRR)</a>
+                <a href="#s4" class="toc-item">4. Payback Period & Discounted Payback</a>
+                <a href="#s5" class="toc-item">5. ROCE / Accounting Rate of Return</a>
+                <a href="#s6" class="toc-item">6. Annuities & Perpetuities</a>
+                <a href="#s7" class="toc-item">7. Taxation in Investment Appraisal</a>
+                <a href="#s8" class="toc-item">8. Working Capital in NPV</a>
+                <a href="#s9" class="toc-item">9. Inflation & Real vs Nominal</a>
+                <a href="#s10" class="toc-item">10. Lease vs Buy Decision</a>
+                <a href="#s11" class="toc-item">11. Asset Replacement</a>
+                <a href="#s12" class="toc-item">12. Capital Rationing</a>
+                <a href="#s13" class="toc-item">13. Risk & Uncertainty</a>
+                <a href="#s14" class="toc-item">14. Key Exam Tips & Summary</a>
+            </div>
+        </div>
+
+        <!-- SECTION 1: TIME VALUE OF MONEY -->
+        <div class="section" id="s1">
+            <div class="section-header">
+                <div class="section-number">1</div>
+                <h2>Time Value of Money & Discounting</h2>
+            </div>
+
+            <h3>1.1 Core Concept</h3>
+            <p>A dollar today is worth <span class="key-term">more</span> than a dollar tomorrow. Why? Because money can be invested to earn interest (opportunity cost). This is the foundation of all investment appraisal.</p>
+
+            <div class="box box-formula">
+                <div class="box-title">Key Formulas</div>
+                <p><strong>Future Value (FV):</strong> <span class="formula">FV = PV x (1 + r)^n</span></p>
+                <p><strong>Present Value (PV):</strong> <span class="formula">PV = FV / (1 + r)^n</span> or <span class="formula">PV = FV x (1 + r)^-n</span></p>
+                <p>Where <strong>r</strong> = discount rate (cost of capital), <strong>n</strong> = number of periods</p>
+            </div>
+
+            <h3>1.2 Discount Factors</h3>
+            <p>A <span class="key-term">discount factor</span> is simply (1 + r)^-n. Exam tables usually provide these, but know how to calculate them!</p>
+
+            <div class="example">
+                <div class="example-header">Example: Basic Discounting</div>
+                <p>You expect to receive $10,000 in 4 years. Your cost of capital is 8% p.a. What is the present value?</p>
+                <div class="solution">
+                    <div class="solution-title">Solution:</div>
+                    <p>PV = $10,000 x (1.08)^-4 = $10,000 x 0.735 = <strong>$7,350</strong></p>
+                    <p>Or using tables: $10,000 x DF(8%, 4y) = $10,000 x 0.735 = $7,350</p>
+                </div>
+            </div>
+
+            <div class="box box-tip">
+                <div class="box-title">Exam Tip</div>
+                <p>Always check whether cash flows occur at the <strong>start</strong> (Time 0) or <strong>end</strong> (Time 1 onwards) of each year. Time 0 = NOW. Time 1 = end of Year 1.</p>
+            </div>
+        </div>
+
+        <!-- SECTION 2: NPV -->
+        <div class="section" id="s2">
+            <div class="section-header">
+                <div class="section-number">2</div>
+                <h2>Net Present Value (NPV)</h2>
+            </div>
+
+            <h3>2.1 What is NPV?</h3>
+            <p>NPV is the <span class="key-term">sum of all discounted future cash flows</span> minus the initial investment. It tells you how much value a project adds (or destroys) in today's money.</p>
+
+            <div class="box box-formula">
+                <div class="box-title">NPV Formula</div>
+                <p style="font-size:1.3rem; text-align:center; margin:16px 0;">
+                    <span class="formula">NPV = Sum [CFt / (1 + r)^t] - Initial Investment</span>
+                </p>
+                <p>If <strong>NPV &gt; 0</strong> -- Accept (adds shareholder wealth)</p>
+                <p>If <strong>NPV &lt; 0</strong> -- Reject (destroys shareholder wealth)</p>
+                <p>If <strong>NPV = 0</strong> -- Indifferent (returns exactly cost of capital)</p>
+            </div>
+
+            <h3>2.2 Step-by-Step NPV Calculation</h3>
+            <div class="steps">
+                <div class="step"><strong>Identify all cash flows</strong> -- initial outlay, annual operating cash flows, scrap value, working capital changes, tax flows.</div>
+                <div class="step"><strong>Determine the timing</strong> -- when does each cash flow occur? (Time 0, 1, 2, 3...)</div>
+                <div class="step"><strong>Apply the correct discount factor</strong> -- use the company's cost of capital (WACC or project-specific).</div>
+                <div class="step"><strong>Calculate PV of each cash flow</strong> -- multiply each cash flow by its discount factor.</div>
+                <div class="step"><strong>Sum all PVs and subtract initial investment</strong> -- this gives NPV.</div>
+                <div class="step"><strong>Decision:</strong> Accept if NPV is positive.</div>
+            </div>
+
+            <div class="example">
+                <div class="example-header">Example 1: Basic NPV</div>
+                <p>A company is considering a project with the following details:</p>
+                <ul>
+                    <li>Initial investment: $50,000 (Time 0)</li>
+                    <li>Annual net cash inflow: $15,000 for 4 years</li>
+                    <li>Scrap value at end of Year 4: $5,000</li>
+                    <li>Cost of capital: 10%</li>
+                </ul>
+                <div class="solution">
+                    <div class="solution-title">Solution:</div>
+                    <table>
+                        <tr><th>Year</th><th>Cash Flow ($)</th><th>DF @ 10%</th><th>PV ($)</th></tr>
+                        <tr><td>0</td><td>(50,000)</td><td>1.000</td><td>(50,000)</td></tr>
+                        <tr><td>1</td><td>15,000</td><td>0.909</td><td>13,635</td></tr>
+                        <tr><td>2</td><td>15,000</td><td>0.826</td><td>12,390</td></tr>
+                        <tr><td>3</td><td>15,000</td><td>0.751</td><td>11,265</td></tr>
+                        <tr><td>4</td><td>20,000*</td><td>0.683</td><td>13,660</td></tr>
+                        <tr><th colspan="3">NPV</th><th><span style="color:var(--secondary);">$950</span></th></tr>
+                    </table>
+                    <p><em>* Year 4 = $15,000 operating + $5,000 scrap value</em></p>
+                    <p><strong>Decision:</strong> NPV is positive ($950). <span class="highlight">Accept the project.</span></p>
+                </div>
+            </div>
+
+            <div class="example">
+                <div class="example-header">Example 2: NPV with Uneven Cash Flows</div>
+                <p>Project X requires $100,000 initial investment. Cash flows are:</p>
+                <ul>
+                    <li>Year 1: $30,000</li>
+                    <li>Year 2: $40,000</li>
+                    <li>Year 3: $50,000</li>
+                    <li>Year 4: $20,000</li>
+                </ul>
+                <p>Cost of capital = 12%</p>
+                <div class="solution">
+                    <div class="solution-title">Solution:</div>
+                    <table>
+                        <tr><th>Year</th><th>Cash Flow ($)</th><th>DF @ 12%</th><th>PV ($)</th></tr>
+                        <tr><td>0</td><td>(100,000)</td><td>1.000</td><td>(100,000)</td></tr>
+                        <tr><td>1</td><td>30,000</td><td>0.893</td><td>26,790</td></tr>
+                        <tr><td>2</td><td>40,000</td><td>0.797</td><td>31,880</td></tr>
+                        <tr><td>3</td><td>50,000</td><td>0.712</td><td>35,600</td></tr>
+                        <tr><td>4</td><td>20,000</td><td>0.636</td><td>12,720</td></tr>
+                        <tr><th colspan="3">NPV</th><th><span style="color:var(--accent);">$6,990</span></th></tr>
+                    </table>
+                    <p><strong>Decision:</strong> NPV is positive. <span class="highlight">Accept.</span></p>
+                </div>
+            </div>
+
+            <div class="box box-tip">
+                <div class="box-title">Why NPV is Superior</div>
+                <ul>
+                    <li>Considers <strong>ALL</strong> cash flows over the project's life</li>
+                    <li>Accounts for <strong>time value of money</strong></li>
+                    <li>Uses an <strong>objective market-based discount rate</strong></li>
+                    <li>Directly measures the <strong>increase in shareholder wealth</strong></li>
+                    <li>Consistent with the goal of <strong>wealth maximization</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SECTION 3: IRR -->
+        <div class="section" id="s3">
+            <div class="section-header">
+                <div class="section-number">3</div>
+                <h2>Internal Rate of Return (IRR)</h2>
+            </div>
+
+            <h3>3.1 What is IRR?</h3>
+            <p>IRR is the <span class="key-term">discount rate at which NPV = 0</span>. It represents the project's inherent rate of return. If IRR &gt; cost of capital, the project creates value.</p>
+
+            <div class="box box-formula">
+                <div class="box-title">IRR Formula (Interpolation)</div>
+                <p style="font-size:1.2rem; text-align:center;">
+                    <span class="formula">IRR = L + [NPV_L / (NPV_L - NPV_H)] x (H - L)</span>
+                </p>
+                <p>Where <strong>L</strong> = lower rate (gives positive NPV), <strong>H</strong> = higher rate (gives negative NPV)</p>
+            </div>
+
+            <h3>3.2 How to Calculate IRR</h3>
+            <div class="steps">
+                <div class="step">Calculate NPV at your <strong>cost of capital</strong> (e.g., 10%).</div>
+                <div class="step">If NPV is positive, pick a <strong>higher rate</strong> (e.g., 15%) and recalculate NPV.</div>
+                <div class="step">If NPV is now negative, you have two rates bracketing zero.</div>
+                <div class="step">Use the interpolation formula to estimate IRR.</div>
+                <div class="step"><strong>Decision:</strong> Accept if IRR &gt; Cost of Capital.</div>
+            </div>
+
+            <div class="example">
+                <div class="example-header">Example: IRR Calculation</div>
+                <p>Initial investment: $40,000. Annual cash inflow: $12,000 for 5 years. Cost of capital = 10%.</p>
+                <div class="solution">
+                    <div class="solution-title">Step 1: NPV at 10%</div>
+                    <p>PV of inflows = $12,000 x 3.791 (Annuity factor, 5y, 10%) = $45,492</p>
+                    <p>NPV = $45,492 - $40,000 = <strong>+$5,492</strong> Positive</p>
+
+                    <div class="solution-title">Step 2: NPV at 15%</div>
+                    <p>PV of inflows = $12,000 x 3.352 (Annuity factor, 5y, 15%) = $40,224</p>
+                    <p>NPV = $40,224 - $40,000 = <strong>+$224</strong> Still positive -- try higher!</p>
+
+                    <div class="solution-title">Step 3: NPV at 16%</div>
+                    <p>PV of inflows = $12,000 x 3.274 = $39,288</p>
+                    <p>NPV = $39,288 - $40,000 = <strong>-$712</strong> Negative!</p>
+
+                    <div class="solution-title">Step 4: Interpolate between 15% and 16%</div>
+                    <p>IRR = 15 + [224 / (224 - (-712))] x (16 - 15)</p>
+                    <p>IRR = 15 + [224 / 936] x 1 = 15 + 0.24 = <strong>15.24%</strong></p>
+
+                    <p><strong>Decision:</strong> IRR (15.24%) &gt; Cost of Capital (10%). <span class="highlight">Accept the project.</span></p>
+                </div>
+            </div>
+
+            <h3>3.3 NPV vs IRR -- Conflicts & Resolution</h3>
+            <table>
+                <tr><th>Scenario</th><th>NPV Says</th><th>IRR Says</th><th>Which to Follow?</th></tr>
+                <tr><td>Conventional project, independent</td><td>Accept</td><td>Accept</td><td>Either</td></tr>
+                <tr><td>Mutually exclusive projects</td><td>Accept higher NPV</td><td>May differ</td><td><strong>NPV wins!</strong></td></tr>
+                <tr><td>Non-conventional cash flows</td><td>One NPV</td><td>Multiple IRRs</td><td><strong>NPV wins!</strong></td></tr>
+                <tr><td>Different project scales</td><td>Absolute $ value</td><td>Percentage</td><td><strong>NPV wins!</strong></td></tr>
+            </table>
+
+            <div class="box box-warning">
+                <div class="box-title">IRR Problems</div>
+                <ul>
+                    <li><strong>Multiple IRRs:</strong> When cash flows change sign more than once, there can be multiple IRRs. NPV is always reliable.</li>
+                    <li><strong>Reinvestment assumption:</strong> IRR assumes reinvestment at IRR itself (unrealistic). NPV assumes reinvestment at cost of capital (more realistic).</li>
+                    <li><strong>Scale ignored:</strong> A small project with 50% IRR may add less value than a large project with 15% IRR.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SECTION 4: PAYBACK -->
+        <div class="section" id="s4">
+            <div class="section-header">
+                <div class="section-number">4</div>
+                <h2>Payback Period & Discounted Payback</h2>
+            </div>
+
+            <h3>4.1 Payback Period</h3>
+            <p>The time taken for <span class="key-term">cumulative cash inflows to equal the initial investment</span>. Simple, but ignores time value of money and cash flows after payback.</p>
+
+            <div class="box box-formula">
+                <div class="box-title">Formula (for even cash flows)</div>
+                <p><span class="formula">Payback = Initial Investment / Annual Cash Inflow</span></p>
+            </div>
+
+            <div class="example">
+                <div class="example-header">Example: Payback Period</div>
+                <p>Initial investment: $50,000. Cash inflows: Year 1 = $20,000, Year 2 = $25,000, Year 3 = $30,000.</p>
+                <div class="solution">
+                    <div class="solution-title">Solution:</div>
+                    <table>
+                        <tr><th>Year</th><th>Cash Flow ($)</th><th>Cumulative ($)</th></tr>
+                        <tr><td>0</td><td>(50,000)</td><td>(50,000)</td></tr>
+                        <tr><td>1</td><td>20,000</td><td>(30,000)</td></tr>
+                        <tr><td>2</td><td>25,000</td><td>(5,000)</td></tr>
+                        <tr><td>3</td><td>30,000</td><td>25,000</td></tr>
+                    </table>
+                    <p>At end of Year 2, still need $5,000. Year 3 provides $30,000.</p>
+                    <p>Fraction of Year 3 needed = $5,000 / $30,000 = 0.17 years</p>
+                    <p><strong>Payback = 2.17 years</strong> (or 2 years 2 months)</p>
+                </div>
+            </div>
+
+            <h3>4.2 Discounted Payback Period</h3>
+            <p>Same concept, but uses <strong>discounted cash flows</strong>. More realistic because it accounts for time value of money.</p>
+
+            <div class="example">
+                <div class="example-header">Example: Discounted Payback</div>
+                <p>Same project as above. Cost of capital = 10%.</p>
+                <div class="solution">
+                    <div class="solution-title">Solution:</div>
+                    <table>
+                        <tr><th>Year</th><th>Cash Flow ($)</th><th>DF @ 10%</th><th>PV ($)</th><th>Cumulative PV ($)</th></tr>
+                        <tr><td>0</td><td>(50,000)</td><td>1.000</td><td>(50,000)</td><td>(50,000)</td></tr>
+                        <tr><td>1</td><td>20,000</td><td>0.909</td><td>18,180</td><td>(31,820)</td></tr>
+                        <tr><td>2</td><td>25,000</td><td>0.826</td><td>20,650</td><td>(11,170)</td></tr>
+                        <tr><td>3</td><td>30,000</td><td>0.751</td><td>22,530</td><td>11,360</td></tr>
+                    </table>
+                    <p>At end of Year 2, still need $11,170. Year 3 provides $22,530 (discounted).</p>
+                    <p>Fraction = $11,170 / $22,530 = 0.50 years</p>
+                    <p><strong>Discounted Payback = 2.50 years</strong></p>
+                    <p><em>Note: Discounted payback is ALWAYS longer than simple payback!</em></p>
+                </div>
+            </div>
+
+            <div class="box box-note">
+                <div class="box-title">Pros & Cons of Payback</div>
+                <div class="comparison">
+                    <div class="comparison-card pros">
+                        <strong>Advantages</strong>
+                        <ul>
+                            <li>Simple to calculate & understand</li>
+                            <li>Useful for liquidity-focused firms</li>
+                            <li>Good for risky/uncertain environments</li>
+                            <li>Emphasizes earlier cash flows</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-card cons">
+                        <strong>Disadvantages</strong>
+                        <ul>
+                            <li>Ignores time value of money (unless discounted)</li>
+                            <li>Ignores cash flows AFTER payback</li>
+                            <li>No objective decision rule (what is "acceptable"?)</li>
+                            <li>Does not measure profitability</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 5: ROCE -->
+        <div class="section" id="s5">
+            <div class="section-header">
+                <div class="section-number">5</div>
+                <h2>ROCE / Accounting Rate of Return (ARR)</h2>
+            </div>
+
+            <h3>5.1 Definition</h3>
+            <p>ROCE (Return on Capital Employed) or ARR measures profitability using <span class="key-term">accounting profits</span>, not cash flows. It is a non-discounting method.</p>
+
+            <div class="box box-formula">
+                <div class="box-title">ROCE Formula</div>
+                <p style="font-size:1.2rem; text-align:center;">
+                    <span class="formula">ROCE = (Average Annual Profit / Average Investment) x 100%</span>
+                </p>
+                <p>Where:</p>
+                <ul>
+                    <li><strong>Average Annual Profit</strong> = Total profit over project life / Number of years</li>
+                    <li><strong>Average Investment</strong> = (Initial Investment + Scrap Value) / 2</li>
+                </ul>
+                <p><em>Alternative: Some exams use Initial Investment as denominator -- READ THE QUESTION!</em></p>
+            </div>
+
+            <div class="example">
+                <div class="example-header">Example: ROCE Calculation</div>
+                <p>A machine costs $80,000 and has a 4-year life with no scrap value. Annual profits are:</p>
+                <ul>
+                    <li>Year 1: $15,000</li>
+                    <li>Year 2: $20,000</li>
+                    <li>Year 3: $25,000</li>
+                    <li>Year 4: $10,000</li>
+                </ul>
+                <div class="solution">
+                    <div class="solution-title">Solution:</div>
+                    <p>Total profit = $15,000 + $20,000 + $25,000 + $10,000 = $70,000</p>
+                    <p>Average annual profit = $70,000 / 4 = <strong>$17,500</strong></p>
+                    <p>Average investment = ($80,000 + $0) / 2 = <strong>$40,000</strong></p>
+                    <p>ROCE = ($17,500 / $40,000) x 100 = <strong>43.75%</strong></p>
+                    <p><strong>Decision:</strong> Compare against target ROCE (e.g., 20%). 43.75% &gt; 20%, so <span class="highlight">Accept.</span></p>
+                </div>
+            </div>
+
+            <div class="box box-warning">
+                <div class="box-title">Why ROCE is Inferior to NPV</div>
+                <ul>
+                    <li>Uses <strong>accounting profit</strong> (subjective, affected by depreciation policy) not cash flow</li>
+                    <li>Ignores <strong>time value of money</strong></li>
+                    <li>Uses <strong>arbitrary target rate</strong> (not market-based)</li>
+                    <li>Average investment method is <strong>mathematically questionable</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SECTION 6: ANNUITIES & PERPETUITIES -->
+        <div class="section" id="s6">
+            <div class="section-header">
+                <div class="section-number">6</div>
+                <h2>Annuities & Perpetuities</h2>
+            </div>
+
+            <h3>6.1 Annuities</h3>
+            <p>An <span class="key-term">annuity</span> is a series of EQUAL cash flows for a FIXED number of periods. Instead of discounting each flow separately, use the <strong>annuity factor</strong> (cumulative discount factor).</p>
+
+            <div class="box box-formula">
+                <div class="box-title">Annuity Formulas</div>
+                <p><strong>PV of Annuity:</strong> <span class="formula">PV = C x [(1 - (1+r)^-n) / r]</span></p>
+                <p><strong>Annuity Factor:</strong> <span class="formula">AF = [1 - (1+r)^-n] / r</span></p>
+                <p>Then: <span class="formula">PV = Cash Flow x AF</span></p>
+            </div>
+
+            <div class="example">
+                <div class="example-header">Example: PV of an Annuity</div>
+                <p>What is the PV of receiving $5,000 per year for 6 years at 8%?</p>
+                <div class="solution">
+                    <div class="solution-title">Solution:</div>
+                    <p>Annuity Factor (8%, 6y) = [1 - (1.08)^-6] / 0.08 = [1 - 0.630] / 0.08 = 4.623</p>
+                    <p>PV = $5,000 x 4.623 = <strong>$23,115</strong></p>
+                    <p><em>From tables: AF(8%, 6) = 4.623</em></p>
+                </div>
+            </div>
+
+            <h3>6.2 Delayed Annuities (Deferred Annuities)</h3>
+            <p>When cash flows do not start immediately. Calculate PV at the period <em>before</em> the first cash flow, then discount back to Time 0.</p>
+
+            <div class="example">
+                <div class="example-header">Example: Delayed Annuity</div>
+                <p>A project generates $8,000 per year from Year 3 to Year 7 (5 years). Cost of capital = 10%.</p>
+                <div class="solution">
+                    <div class="solution-title">Solution:</div>
+                    <p>Step 1: PV at <strong>end of Year 2</strong> (one period before first flow):</p>
+                    <p>PV_2 = $8,000 x AF(10%, 5) = $8,000 x 3.791 = $30,328</p>
+                    <p>Step 2: Discount back to Time 0:</p>
+                    <p>PV_0 = $30,328 x DF(10%, 2) = $30,328 x 0.826 = <strong>$25,051</strong></p>
+                </div>
+            </div>
+
+            <h3>6.3 Perpetuities</h3>
+            <p>A <span class="key-term">perpetuity</span> is an infinite series of equal cash flows. No tables needed -- just one simple formula!</p>
+
+            <div class="box box-formula">
+                <div class="box-title">Perpetuity Formula</div>
+                <p style="font-size:1.3rem; text-align:center;">
+                    <span class="formula">PV = C / r</span>
+                </p>
+                <p>Where <strong>C</strong> = annual cash flow, <strong>r</strong> = discount rate</p>
+            </div>
+
+            <div class="example">
+                <div class="example-header">Example: Perpetuity</div>
+                <p>An investment pays $4,000 per year forever. Cost of capital = 8%.</p>
+                <div class="solution">
+                    <div class="solution-title">Solution:</div>
+                    <p>PV = $4,000 / 0.08 = <strong>$50,000</strong></p>
+                </div>
+            </div>
+
+            <h3>6.4 Growing Perpetuity</h3>
+            <p>Cash flows grow at a constant rate <strong>g</strong> forever.</p>
+            <div class="box box-formula">
+                <div class="box-title">Growing Perpetuity Formula</div>
+                <p style="font-size:1.2rem; text-align:center;">
+                    <span class="formula">PV = C_1 / (r - g)</span>
+                </p>
+                <p>Where <strong>C_1</strong> = cash flow in Year 1, <strong>g</strong> = growth rate (must be &lt; r)</p>
+            </div>
+
+            <div class="example">
+                <div class="example-header">Example: Growing Perpetuity</div>
+                <p>A project generates $10,000 in Year 1, growing at 3% p.a. forever. Cost of capital = 10%.</p>
+                <div class="solution">
+                    <div class="solution-title">Solution:</div>
+                    <p>PV = $10,000 / (0.10 - 0.03) = $10,000 / 0.07 = <strong>$142,857</strong></p>
+                </div>
+            </div>
+
+            <div class="box box-tip">
+                <div class="box-title">Annuity Factor Shortcut</div>
+                <p>AF for years 3-7 = AF(0-7) - AF(0-2). This is useful for "annuity in the middle" questions!</p>
+                <p>Example: AF(10%, years 3-7) = 4.868 - 1.736 = 3.132</p>
+            </div>
+        </div>
+
+        <!-- SECTION 7: TAXATION -->
+        <div class="section" id="s7">
+            <div class="section-header">
+                <div class="section-number">7</div>
+                <h2>Taxation in Investment Appraisal</h2>
+            </div>
+
+            <h3>7.1 Key Principles</h3>
+            <ul>
+                <li>Tax is a <strong>real cash outflow</strong> -- include it in NPV!</li>
+                <li>Tax is usually paid <strong>one year in arrears</strong> (e.g., Year 1 profit -- tax paid in Year 2)</li>
+                <li>Tax reduces operating cash flows</li>
+                <li><strong>Tax-allowable depreciation (TAD)</strong> / Capital Allowances provide a <strong>tax shield</strong> (tax saving)</li>
+            </ul>
+
+            <h3>7.2 Tax on Operating Cash Flows</h3>
+            <p>If a question gives you <strong>operating cash flows before tax</strong>, calculate tax at the given rate and delay by 1 year.</p>
+
+            <h3>7.3 Tax-Allowable Depreciation (TAD) / Capital Allowances</h3>
+            <p>TAD is not a cash flow itself, but it <strong>reduces taxable profit</strong>, creating a tax saving (tax shield).</p>
+
+            <div class="box box-formula">
+                <div class="box-title">TAD Tax Shield Formula</div>
+                <p><span class="formula">Tax Saving = TAD x Tax Rate</span></p>
+                <p>This tax saving is a <strong>cash inflow</strong> (reduction in tax paid).</p>
+            </div>
+
+            <h3>7.4 Common TAD Methods</h3>
+            <table>
+                <tr><th>Method</th><th>Description</th><th>Exam Frequency</th></tr>
+                <tr><td>Straight-line</td><td>(Cost - Scrap) / Life</td><td>Very Common</td></tr>
+                <tr><td>Reducing balance (e.g., 25%)</td><td>Apply % to written down value each year</td><td>Very Common</td></tr>
+                <tr><td>100% first year allowance</td><td>Full deduction in Year 1</td><td>Occasional</td></tr>
+            </table>
+
+            <div class="example">
+                <div class="example-header">Example: NPV with Tax & TAD (Straight-Line)</div>
+                <p>Machine cost: $100,000. Life: 4 years. Scrap: $20,000. Annual pre-tax cash flow: $40,000. Tax rate: 30% (1 year in arrears). Cost of capital: 10%. TAD on straight-line basis.</p>
+                <div class="solution">
+                    <div class="solution-title">Step 1: Calculate TAD & Tax Shield</div>
+                    <p>TAD per year = ($100,000 - $20,000) / 4 = $20,000</p>
+                    <p>Tax saving on TAD = $20,000 x 30% = <strong>$6,000 per year</strong></p>
+
+                    <div class="solution-title">Step 2: Calculate Tax on Operating Cash Flows</div>
+                    <p>Taxable profit = $40,000 - $20,000 = $20,000</p>
+                    <p>Tax = $20,000 x 30% = <strong>$6,000</strong> (paid one year in arrears)</p>
+
+                    <div class="solution-title">Step 3: Build NPV Table</div>
+                    <table>
+                        <tr><th>Year</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+                        <tr><td>Investment</td><td>(100,000)</td><td></td><td></td><td></td><td>20,000</td><td></td></tr>
+                        <tr><td>Operating CF</td><td></td><td>40,000</td><td>40,000</td><td>40,000</td><td>40,000</td><td></td></tr>
+                        <tr><td>Tax on ops (30%)</td><td></td><td></td><td>(12,000)</td><td>(12,000)</td><td>(12,000)</td><td>(12,000)</td></tr>
+                        <tr><td>TAD Tax Shield</td><td></td><td>6,000</td><td>6,000</td><td>6,000</td><td>6,000</td><td></td></tr>
+                        <tr><td>Net Cash Flow</td><td>(100,000)</td><td>46,000</td><td>34,000</td><td>34,000</td><td>54,000</td><td>(12,000)</td></tr>
+                        <tr><td>DF @ 10%</td><td>1.000</td><td>0.909</td><td>0.826</td><td>0.751</td><td>0.683</td><td>0.621</td></tr>
+                        <tr><td>PV</td><td>(100,000)</td><td>41,814</td><td>28,084</td><td>25,534</td><td>36,882</td><td>(7,452)</td></tr>
+                    </table>
+                    <p><strong>NPV = $24,862</strong> -- <span class="highlight">Accept</span></p>
+                </div>
+            </div>
+
+            <div class="example">
+                <div class="example-header">Example: NPV with Reducing Balance TAD</div>
+                <p>Asset cost: $50,000. TAD at 25% reducing balance. Tax rate: 30% (1 year in arrears). Scrap after 4 years: $15,000. Cost of capital: 12%.</p>
+                <div class="solution">
+                    <div class="solution-title">Step 1: Calculate TAD & Tax Shield</div>
+                    <table>
+                        <tr><th>Year</th><th>WDV b/f ($)</th><th>TAD 25% ($)</th><th>Tax Saving @ 30% ($)</th><th>Timing of Tax Saving</th></tr>
+                        <tr><td>1</td><td>50,000</td><td>12,500</td><td>3,750</td><td>Year 2</td></tr>
+                        <tr><td>2</td><td>37,500</td><td>9,375</td><td>2,813</td><td>Year 3</td></tr>
+                        <tr><td>3</td><td>28,125</td><td>7,031</td><td>2,109</td><td>Year 4</td></tr>
+                        <tr><td>4</td><td>21,094</td><td>6,094*</td><td>1,828</td><td>Year 5</td></tr>
+                    </table>
+                    <p><em>* Balancing allowance = $21,094 - $15,000 scrap = $6,094</em></p>
+
+                    <div class="solution-title">Step 2: Tax Shield Cash Flows</div>
+                    <table>
+                        <tr><th>Year</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+                        <tr><td>Tax Shield ($)</td><td>0</td><td>3,750</td><td>2,813</td><td>2,109</td><td>1,828</td></tr>
+                    </table>
+                    <p>These are then discounted at 12% and included in the NPV calculation alongside other cash flows.</p>
+                </div>
+            </div>
+
+            <div class="box box-warning">
+                <div class="box-title">Common Tax Traps</div>
+                <ul>
+                    <li>Do not forget the <strong>balancing charge/allowance</strong> at the end! If scrap &gt; WDV, you pay tax (charge). If scrap &lt; WDV, you get tax relief (allowance).</li>
+                    <li>Tax is almost always <strong>one year in arrears</strong> -- check the question!</li>
+                    <li>If given <strong>profit after tax</strong>, add back non-cash items (depreciation) to get operating cash flow, then calculate tax separately.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SECTION 8: WORKING CAPITAL -->
+        <div class="section" id="s8">
+            <div class="section-header">
+                <div class="section-number">8</div>
+                <h2>Working Capital in NPV</h2>
+            </div>
+
+            <h3>8.1 Key Principles</h3>
+            <ul>
+                <li>Working capital (WC) investment is a <strong>cash outflow</strong> at the start and when it increases</li>
+                <li>WC is <strong>released</strong> at the end of the project (cash inflow)</li>
+                <li>WC is usually expressed as a % of sales/revenue</li>
+                <li>Only the <strong>incremental change</strong> in WC is a cash flow!</li>
+            </ul>
+
+            <div class="box box-formula">
+                <div class="box-title">Working Capital Cash Flows</div>
+                <p><strong>Increase in WC</strong> = Cash OUTFLOW (investment)</p>
+                <p><strong>Decrease in WC</strong> = Cash INFLOW (release)</p>
+                <p><strong>Total WC released at end</strong> = Full recovery of all cumulative WC invested</p>
+            </div>
+
+            <div class="example">
+                <div class="example-header">Example: Working Capital in NPV</div>
+                <p>A 3-year project requires WC equal to 10% of annual sales:</p>
+                <ul>
+                    <li>Year 1 Sales: $200,000</li>
+                    <li>Year 2 Sales: $300,000</li>
+                    <li>Year 3 Sales: $250,000</li>
+                </ul>
+                <p>Cost of capital = 10%</p>
+                <div class="solution">
+                    <div class="solution-title">Step 1: Calculate WC Required Each Year</div>
+                    <table>
+                        <tr><th>Year</th><th>Sales ($)</th><th>WC Required ($)</th><th>Change in WC ($)</th><th>Cash Flow ($)</th><th>Timing</th></tr>
+                        <tr><td>0</td><td></td><td>20,000 (10% of Y1)</td><td>+20,000</td><td>(20,000)</td><td>Time 0</td></tr>
+                        <tr><td>1</td><td>200,000</td><td>30,000 (10% of Y2)</td><td>+10,000</td><td>(10,000)</td><td>End Y1</td></tr>
+                        <tr><td>2</td><td>300,000</td><td>25,000 (10% of Y3)</td><td>-5,000</td><td>+5,000</td><td>End Y2</td></tr>
+                        <tr><td>3</td><td>250,000</td><td>0 (project ends)</td><td>-25,000</td><td>+25,000</td><td>End Y3</td></tr>
+                    </table>
+
+                    <div class="solution-title">Step 2: Check Total</div>
+                    <p>Total WC invested = $20,000 + $10,000 = $30,000</p>
+                    <p>Total WC released = $5,000 + $25,000 = $30,000</p>
+                    <p><em>These cash flows are then included in the NPV calculation and discounted at 10%.</em></p>
+                </div>
+            </div>
+
+            <div class="box box-tip">
+                <div class="box-title">WC Memory Trick</div>
+                <p>"WC is like a loan to the project" -- you put money in at the start, and you get it all back when the project finishes. Only the <strong>changes</strong> between years matter for cash flows!</p>
+            </div>
+        </div>
+
+        <!-- SECTION 9: INFLATION -->
+        <div class="section" id="s9">
+            <div class="section-header">
+                <div class="section-number">9</div>
+                <h2>Inflation & Real vs Nominal Rates</h2>
+            </div>
+
+            <h3>9.1 The Fisher Equation</h3>
+            <p>The relationship between <strong>real</strong> and <strong>nominal</strong> (money) rates:</p>
+
+            <div class="box box-formula">
+                <div class="box-title">Fisher Equation</div>
+                <p style="font-size:1.3rem; text-align:center;">
+                    <span class="formula">(1 + m) = (1 + r) x (1 + i)</span>
+                </p>
+                <p>Or: <span class="formula">m = r + i + (r x i)</span></p>
+                <p>Where <strong>m</strong> = money/nominal rate, <strong>r</strong> = real rate, <strong>i</strong> = inflation rate</p>
+            </div>
+
+            <h3>9.2 Two Approaches to NPV with Inflation</h3>
+            <table>
+                <tr><th>Approach</th><th>Cash Flows</th><th>Discount Rate</th><th>Rule</th></tr>
+                <tr><td><strong>Nominal (Money) Approach</strong></td><td>Inflate cash flows to include inflation</td><td>Nominal (money) cost of capital</td><td>Most common in exams</td></tr>
+                <tr><td><strong>Real Approach</strong></td><td>Keep cash flows at current prices (real)</td><td>Real cost of capital</td><td>Only if all cash flows inflate at same rate</td></tr>
+            </table>
+
+            <div class="box box-warning">
+                <div class="box-title">Golden Rule</div>
+                <p><strong>NEVER mix real cash flows with nominal discount rates, or nominal cash flows with real discount rates!</strong></p>
+                <p>Match nominal with nominal, or real with real.</p>
+            </div>
+
+            <div class="example">
+                <div class="example-header">Example: Real vs Nominal NPV</div>
+                <p>Real cost of capital = 8%. Inflation = 5%. Annual real cash flow = $10,000 for 3 years.</p>
+                <div class="solution">
+                    <div class="solution-title">Method 1: Nominal Approach</div>
+                    <p>Nominal rate = 1.08 x 1.05 - 1 = 13.4%</p>
+                    <table>
+                        <tr><th>Year</th><th>Real CF ($)</th><th>Inflated CF ($)</th><th>DF @ 13.4%</th><th>PV ($)</th></tr>
+                        <tr><td>1</td><td>10,000</td><td>10,500</td><td>0.882</td><td>9,261</td></tr>
+                        <tr><td>2</td><td>10,000</td><td>11,025</td><td>0.778</td><td>8,578</td></tr>
+                        <tr><td>3</td><td>10,000</td><td>11,576</td><td>0.686</td><td>7,941</td></tr>
+                    </table>
+                    <p>Total PV = <strong>$25,780</strong></p>
+
+                    <div class="solution-title">Method 2: Real Approach</div>
+                    <p>Use real cash flows ($10,000) and real rate (8%):</p>
+                    <p>PV = $10,000 x AF(8%, 3) = $10,000 x 2.577 = <strong>$25,770</strong></p>
+                    <p><em>(Small difference due to rounding -- both valid!)</em></p>
+                </div>
+            </div>
+
+            <h3>9.3 Different Inflation Rates</h3>
+            <p>If different cash flows inflate at different rates (e.g., sales at 5%, costs at 3%), you <strong>MUST use the nominal approach</strong>. Inflate each cash flow separately, then discount at the nominal cost of capital.</p>
+
+            <div class="example">
+                <div class="example-header">Example: Different Inflation Rates</div>
+                <p>Real cost of capital = 10%. General inflation = 4%.</p>
+                <p>Sales inflate at 6%, costs inflate at 3%. Current prices:</p>
+                <ul>
+                    <li>Year 1 Sales: $50,000 | Costs: $30,000</li>
+                    <li>Year 2 Sales: $60,000 | Costs: $35,000</li>
+                </ul>
+                <div class="solution">
+                    <div class="solution-title">Solution:</div>
+                    <p>Nominal rate = 1.10 x 1.04 - 1 = 14.4%</p>
+                    <table>
+                        <tr><th>Year</th><th>Inflated Sales ($)</th><th>Inflated Costs ($)</th><th>Net CF ($)</th><th>DF @ 14.4%</th><th>PV ($)</th></tr>
+                        <tr><td>1</td><td>50,000x1.06=53,000</td><td>30,000x1.03=30,900</td><td>22,100</td><td>0.874</td><td>19,315</td></tr>
+                        <tr><td>2</td><td>60,000x1.06^2=67,416</td><td>35,000x1.03^2=37,132</td><td>30,284</td><td>0.764</td><td>23,137</td></tr>
+                    </table>
+                    <p><em>These PVs are then included in the full NPV calculation.</em></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 10: LEASE VS BUY -->
+        <div class="section" id="s10">
+            <div class="section-header">
+                <div class="section-number">10</div>
+                <h2>Lease vs Buy Decision</h2>
+            </div>
+
+            <h3>10.1 Types of Leases</h3>
+            <table>
+                <tr><th>Type</th><th>Description</th><th>Ownership</th><th>Tax Treatment</th></tr>
+                <tr><td><strong>Finance Lease</strong></td><td>Effectively buying asset over time; risks/rewards transferred</td><td>Lessee (eventually)</td><td>Lessee claims TAD + interest tax relief</td></tr>
+                <tr><td><strong>Operating Lease</strong></td><td>Short-term rental; lessor retains risks/rewards</td><td>Lessor</td><td>Lessor claims TAD; lease payments are tax-deductible expense for lessee</td></tr>
+            </table>
+
+            <h3>10.2 Approach: Compare NPV of Costs</h3>
+            <p>Calculate the <strong>PV of costs</strong> for both options and choose the <span class="key-term">LOWER cost</span> (or higher NPV if framed as savings).</p>
+
+            <h3>10.3 Buying Option Cash Flows</h3>
+            <ul>
+                <li>Initial purchase cost (Time 0 outflow)</li>
+                <li>Scrap value (inflow at end)</li>
+                <li>TAD tax shields (inflows, delayed one year)</li>
+                <li>Any maintenance costs (outflows)</li>
+            </ul>
+
+            <h3>10.4 Leasing Option Cash Flows</h3>
+            <ul>
+                <li>Lease payments (outflows)</li>
+                <li>Tax relief on lease payments (inflows, delayed one year)</li>
+                <li>No scrap value (lessor keeps it)</li>
+                <li>No TAD (lessor claims it)</li>
+            </ul>
+
+            <div class="example">
+                <div class="example-header">Example: Lease vs Buy</div>
+                <p>A company needs a machine costing $100,000. It can either buy or lease over 4 years.</p>
+                <p><strong>Buy option:</strong> Scrap value $20,000. TAD at 25% reducing balance. Tax 30% (1 year in arrears). Cost of capital 10%.</p>
+                <p><strong>Lease option:</strong> $28,000 payable at START of each year for 4 years. Tax relief on payments at 30% (1 year in arrears).</p>
+                <div class="solution">
+                    <div class="solution-title">BUY OPTION -- TAD Tax Shields</div>
+                    <table>
+                        <tr><th>Year</th><th>WDV ($)</th><th>TAD 25% ($)</th><th>Tax Saving @ 30% ($)</th><th>Timing</th></tr>
+                        <tr><td>1</td><td>100,000</td><td>25,000</td><td>7,500</td><td>Y2</td></tr>
+                        <tr><td>2</td><td>75,000</td><td>18,750</td><td>5,625</td><td>Y3</td></tr>
+                        <tr><td>3</td><td>56,250</td><td>14,063</td><td>4,219</td><td>Y4</td></tr>
+                        <tr><td>4</td><td>42,187</td><td>22,187*</td><td>6,656</td><td>Y5</td></tr>
+                    </table>
+                    <p><em>* Balancing allowance = $42,187 - $20,000 scrap = $22,187</em></p>
+
+                    <div class="solution-title">BUY OPTION -- NPV of Costs</div>
+                    <table>
+                        <tr><th>Year</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+                        <tr><td>Purchase</td><td>(100,000)</td><td></td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Scrap</td><td></td><td></td><td></td><td></td><td>20,000</td><td></td></tr>
+                        <tr><td>Tax Shield</td><td></td><td></td><td>7,500</td><td>5,625</td><td>4,219</td><td>6,656</td></tr>
+                        <tr><td>Net CF</td><td>(100,000)</td><td>0</td><td>7,500</td><td>5,625</td><td>24,219</td><td>6,656</td></tr>
+                        <tr><td>DF @ 10%</td><td>1.000</td><td>0.909</td><td>0.826</td><td>0.751</td><td>0.683</td><td>0.621</td></tr>
+                        <tr><td>PV</td><td>(100,000)</td><td>0</td><td>6,195</td><td>4,224</td><td>16,542</td><td>4,133</td></tr>
+                    </table>
+                    <p><strong>PV of Buy Costs = $68,906</strong></p>
+
+                    <div class="solution-title">LEASE OPTION -- NPV of Costs</div>
+                    <p>Lease payments: $28,000 at start of Years 1-4 (so Time 0, 1, 2, 3)</p>
+                    <p>Tax relief: 30% of $28,000 = $8,400 at end of Years 1-4 (so Time 1, 2, 3, 4)</p>
+                    <table>
+                        <tr><th>Year</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th></tr>
+                        <tr><td>Lease Payment</td><td>(28,000)</td><td>(28,000)</td><td>(28,000)</td><td>(28,000)</td><td></td></tr>
+                        <tr><td>Tax Relief</td><td></td><td>8,400</td><td>8,400</td><td>8,400</td><td>8,400</td></tr>
+                        <tr><td>Net CF</td><td>(28,000)</td><td>(19,600)</td><td>(19,600)</td><td>(19,600)</td><td>8,400</td></tr>
+                        <tr><td>DF @ 10%</td><td>1.000</td><td>0.909</td><td>0.826</td><td>0.751</td><td>0.683</td></tr>
+                        <tr><td>PV</td><td>(28,000)</td><td>(17,816)</td><td>(16,190)</td><td>(14,720)</td><td>5,737</td></tr>
+                    </table>
+                    <p><strong>PV of Lease Costs = $70,989</strong></p>
+
+                    <div class="solution-title">Decision</div>
+                    <p>PV of Buy Costs ($68,906) &lt; PV of Lease Costs ($70,989)</p>
+                    <p><span class="highlight">BUYING is cheaper by $2,083. Choose to BUY.</span></p>
+                </div>
+            </div>
+
+            <div class="box box-tip">
+                <div class="box-title">Lease vs Buy Exam Tips</div>
+                <ul>
+                    <li>Always use <strong>after-tax cost of debt</strong> as the discount rate for lease vs buy (not WACC). If not given, use cost of capital as instructed.</li>
+                    <li>Watch for <strong>advance vs arrears</strong> lease payments. Advance = start of period. Arrears = end of period.</li>
+                    <li>With <strong>finance leases</strong>, the lessee claims TAD and interest tax relief separately.</li>
+                    <li>With <strong>operating leases</strong>, the full payment is tax-deductible.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SECTION 11: ASSET REPLACEMENT -->
+        <div class="section" id="s11">
+            <div class="section-header">
+                <div class="section-number">11</div>
+                <h2>Asset Replacement Decisions</h2>
+            </div>
+
+            <h3>11.1 The Problem</h3>
+            <p>Should we replace an asset now, or keep it for another year? When should we replace it? We use the <span class="key-term">Equivalent Annual Cost (EAC)</span> method.</p>
+
+            <h3>11.2 Equivalent Annual Cost (EAC)</h3>
+            <p>EAC converts the PV of costs over different lifespans into an <strong>annual equivalent figure</strong>, allowing fair comparison.</p>
+
+            <div class="box box-formula">
+                <div class="box-title">EAC Formula</div>
+                <p style="font-size:1.2rem; text-align:center;">
+                    <span class="formula">EAC = PV of Costs / Annuity Factor (r, n)</span>
+                </p>
+                <p>Where <strong>n</strong> = replacement cycle (e.g., replace every 2 years, 3 years, etc.)</p>
+                <p>Choose the replacement cycle with the <strong>LOWEST EAC</strong>.</p>
+            </div>
+
+            <h3>11.3 Steps for Asset Replacement</h3>
+            <div class="steps">
+                <div class="step">Calculate the <strong>PV of costs</strong> for each possible replacement cycle (e.g., 1 year, 2 years, 3 years).</div>
+                <div class="step">Include: purchase cost, running costs, scrap value, and any tax effects.</div>
+                <div class="step">Divide each PV of costs by the relevant annuity factor to get EAC.</div>
+                <div class="step">Choose the cycle with the <strong>lowest EAC</strong>.</div>
+            </div>
+
+            <div class="example">
+                <div class="example-header">Example: Asset Replacement Cycle</div>
+                <p>A machine costs $50,000. Running costs and scrap values depend on how long we keep it. Cost of capital = 10%.</p>
+                <table>
+                    <tr><th>If replaced after:</th><th>1 year</th><th>2 years</th><th>3 years</th></tr>
+                    <tr><td>Running costs</td><td>$10,000</td><td>$12,000/yr</td><td>$15,000/yr</td></tr>
+                    <tr><td>Scrap value</td><td>$40,000</td><td>$30,000</td><td>$20,000</td></tr>
+                </table>
+                <div class="solution">
+                    <div class="solution-title">Option 1: Replace every 1 year</div>
+                    <table>
+                        <tr><th>Year</th><th>Cash Flow ($)</th><th>DF @ 10%</th><th>PV ($)</th></tr>
+                        <tr><td>0</td><td>(50,000)</td><td>1.000</td><td>(50,000)</td></tr>
+                        <tr><td>1</td><td>(10,000) running</td><td>0.909</td><td>(9,090)</td></tr>
+                        <tr><td>1</td><td>40,000 scrap</td><td>0.909</td><td>36,360</td></tr>
+                        <tr><th colspan="3">PV of Costs</th><th>(22,730)</th></tr>
+                    </table>
+                    <p>EAC = $22,730 / 0.909 = <strong>$25,006 per year</strong></p>
+
+                    <div class="solution-title">Option 2: Replace every 2 years</div>
+                    <table>
+                        <tr><th>Year</th><th>Cash Flow ($)</th><th>DF @ 10%</th><th>PV ($)</th></tr>
+                        <tr><td>0</td><td>(50,000)</td><td>1.000</td><td>(50,000)</td></tr>
+                        <tr><td>1</td><td>(12,000)</td><td>0.909</td><td>(10,908)</td></tr>
+                        <tr><td>2</td><td>(12,000)</td><td>0.826</td><td>(9,912)</td></tr>
+                        <tr><td>2</td><td>30,000 scrap</td><td>0.826</td><td>24,780</td></tr>
+                        <tr><th colspan="3">PV of Costs</th><th>(46,040)</th></tr>
+                    </table>
+                    <p>EAC = $46,040 / 1.736 = <strong>$26,521 per year</strong></p>
+
+                    <div class="solution-title">Option 3: Replace every 3 years</div>
+                    <table>
+                        <tr><th>Year</th><th>Cash Flow ($)</th><th>DF @ 10%</th><th>PV ($)</th></tr>
+                        <tr><td>0</td><td>(50,000)</td><td>1.000</td><td>(50,000)</td></tr>
+                        <tr><td>1</td><td>(15,000)</td><td>0.909</td><td>(13,635)</td></tr>
+                        <tr><td>2</td><td>(15,000)</td><td>0.826</td><td>(12,390)</td></tr>
+                        <tr><td>3</td><td>(15,000)</td><td>0.751</td><td>(11,265)</td></tr>
+                        <tr><td>3</td><td>20,000 scrap</td><td>0.751</td><td>15,020</td></tr>
+                        <tr><th colspan="3">PV of Costs</th><th>(72,270)</th></tr>
+                    </table>
+                    <p>EAC = $72,270 / 2.487 = <strong>$29,059 per year</strong></p>
+
+                    <div class="solution-title">Decision</div>
+                    <p>Lowest EAC is <strong>$25,006</strong> (replace every 1 year).</p>
+                    <p><span class="highlight">Optimal policy: Replace the machine every year.</span></p>
+                </div>
+            </div>
+
+            <div class="box box-warning">
+                <div class="box-title">Common Mistake</div>
+                <p>Do NOT simply compare scrap values or running costs in isolation. Always calculate the <strong>total PV of costs</strong> and convert to EAC. The cheapest year to run is not always the optimal replacement cycle!</p>
+            </div>
+        </div>
+
+        <!-- SECTION 12: CAPITAL RATIONING -->
+        <div class="section" id="s12">
+            <div class="section-header">
+                <div class="section-number">12</div>
+                <h2>Capital Rationing</h2>
+            </div>
+
+            <h3>12.1 What is Capital Rationing?</h3>
+            <p>When a company has <span class="key-term">limited funds</span> available for investment and cannot undertake all positive-NPV projects. We must choose the <strong>best combination</strong> of projects within the budget.</p>
+
+            <h3>12.2 Types of Capital Rationing</h3>
+            <table>
+                <tr><th>Type</th><th>Cause</th><th>Example</th></tr>
+                <tr><td><strong>Hard (External)</strong></td><td>External market constraints -- cannot raise funds</td><td>Bank refuses loan; stock market downturn</td></tr>
+                <tr><td><strong>Soft (Internal)</strong></td><td>Self-imposed limits by management</td><td>Budget cap; risk aversion; no desire for external finance</td></tr>
+            </table>
+
+            <h3>12.3 Single-Period Capital Rationing</h3>
+            <p>When the budget constraint applies to <strong>Year 0 only</strong>. Use the <span class="key-term">Profitability Index (PI)</span> to rank projects.</p>
+
+            <div class="box box-formula">
+                <div class="box-title">Profitability Index (PI)</div>
+                <p style="font-size:1.2rem; text-align:center;">
+                    <span class="formula">PI = PV of Future Cash Flows / Initial Investment</span>
+                </p>
+                <p>Or: <span class="formula">PI = 1 + (NPV / Initial Investment)</span></p>
+                <p>Rank projects by PI (highest first) and select until budget is exhausted.</p>
+            </div>
+
+            <div class="example">
+                <div class="example-header">Example: Single-Period Capital Rationing</div>
+                <p>Budget available: $100,000. Four divisible projects available:</p>
+                <table>
+                    <tr><th>Project</th><th>Initial Investment ($)</th><th>NPV ($)</th><th>PI</th><th>Ranking</th></tr>
+                    <tr><td>A</td><td>40,000</td><td>12,000</td><td>1.30</td><td>2</td></tr>
+                    <tr><td>B</td><td>30,000</td><td>15,000</td><td>1.50</td><td>1</td></tr>
+                    <tr><td>C</td><td>50,000</td><td>10,000</td><td>1.20</td><td>4</td></tr>
+                    <tr><td>D</td><td>20,000</td><td>8,000</td><td>1.40</td><td>3</td></tr>
+                </table>
+                <div class="solution">
+                    <div class="solution-title">Solution:</div>
+                    <p><strong>Step 1:</strong> Rank by PI: B (1.50), D (1.40), A (1.30), C (1.20)</p>
+                    <p><strong>Step 2:</strong> Allocate budget:</p>
+                    <ul>
+                        <li>Project B: $30,000 invested, NPV = $15,000. Remaining: $70,000</li>
+                        <li>Project D: $20,000 invested, NPV = $8,000. Remaining: $50,000</li>
+                        <li>Project A: $40,000 invested, NPV = $12,000. Remaining: $10,000</li>
+                        <li>Project C: Only $10,000 left. Invest 20% of C: NPV = 20% x $10,000 = $2,000</li>
+                    </ul>
+                    <p><strong>Total NPV = $15,000 + $8,000 + $12,000 + $2,000 = $37,000</strong></p>
+                    <p><span class="highlight">Optimal portfolio: B + D + A + 20% of C</span></p>
+                </div>
+            </div>
+
+            <h3>12.4 Multi-Period Capital Rationing</h3>
+            <p>When budget constraints apply in <strong>multiple years</strong>. This requires <strong>Linear Programming</strong> or trial-and-error combinations. In ACCA FM, you typically need to identify the best combination through systematic trial.</p>
+
+            <div class="box box-tip">
+                <div class="box-title">Capital Rationing Key Points</div>
+                <ul>
+                    <li><strong>Divisible projects:</strong> Can invest in fractions. Use PI ranking.</li>
+                    <li><strong>Indivisible projects:</strong> Must invest 100% or 0%. Use trial combinations and calculate total NPV for feasible sets.</li>
+                    <li>With <strong>indivisible projects</strong>, there may be unused budget (surplus funds) -- this is acceptable.</li>
+                    <li>Always check if surplus funds can be invested elsewhere at a known return.</li>
+                </ul>
+            </div>
+
+            <div class="example">
+                <div class="example-header">Example: Indivisible Projects</div>
+                <p>Budget: $50,000. Projects are indivisible:</p>
+                <table>
+                    <tr><th>Project</th><th>Investment ($)</th><th>NPV ($)</th></tr>
+                    <tr><td>X</td><td>30,000</td><td>12,000</td></tr>
+                    <tr><td>Y</td><td>25,000</td><td>10,000</td></tr>
+                    <tr><td>Z</td><td>20,000</td><td>9,000</td></tr>
+                </table>
+                <div class="solution">
+                    <div class="solution-title">Solution: Try all feasible combinations</div>
+                    <table>
+                        <tr><th>Combination</th><th>Total Investment ($)</th><th>Total NPV ($)</th><th>Feasible?</th></tr>
+                        <tr><td>X only</td><td>30,000</td><td>12,000</td><td>Yes</td></tr>
+                        <tr><td>Y only</td><td>25,000</td><td>10,000</td><td>Yes</td></tr>
+                        <tr><td>Z only</td><td>20,000</td><td>9,000</td><td>Yes</td></tr>
+                        <tr><td>X + Y</td><td>55,000</td><td>--</td><td>No (over budget)</td></tr>
+                        <tr><td>X + Z</td><td>50,000</td><td>21,000</td><td>Yes</td></tr>
+                        <tr><td>Y + Z</td><td>45,000</td><td>19,000</td><td>Yes</td></tr>
+                    </table>
+                    <p><span class="highlight">Best combination: X + Z with NPV = $21,000</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 13: RISK & UNCERTAINTY -->
+        <div class="section" id="s13">
+            <div class="section-header">
+                <div class="section-number">13</div>
+                <h2>Risk & Uncertainty in Investment Appraisal</h2>
+            </div>
+
+            <h3>13.1 Risk vs Uncertainty</h3>
+            <table>
+                <tr><th>Risk</th><th>Uncertainty</th></tr>
+                <tr><td>Can be <strong>quantified</strong> using probabilities</td><td>Cannot be quantified -- future is unknown</td></tr>
+                <tr><td>We can assign probabilities to outcomes</td><td>No basis for assigning probabilities</td></tr>
+                <tr><td>Example: 60% chance of success, 40% chance of failure</td><td>Example: New technology -- no precedent</td></tr>
+            </table>
+
+            <h3>13.2 Techniques for Handling Risk & Uncertainty</h3>
+
+            <h4>A. Sensitivity Analysis</h4>
+            <p>Tests how sensitive NPV is to changes in ONE variable at a time.</p>
+            <div class="box box-formula">
+                <div class="box-title">Sensitivity Formula</div>
+                <p><span class="formula">Sensitivity % = (NPV / PV of the variable) x 100%</span></p>
+                <p>Or for initial investment: <span class="formula">Sensitivity = NPV / Initial Investment x 100%</span></p>
+            </div>
+
+            <div class="example">
+                <div class="example-header">Example: Sensitivity Analysis</div>
+                <p>A project has NPV = $20,000. Initial investment = $100,000. Annual cash flow = $30,000 for 5 years (PV = $113,730 at 10%).</p>
+                <div class="solution">
+                    <div class="solution-title">Solution:</div>
+                    <p><strong>Sensitivity to initial investment:</strong></p>
+                    <p>= $20,000 / $100,000 x 100 = <strong>20%</strong></p>
+                    <p>Investment can increase by 20% before NPV = 0.</p>
+
+                    <p><strong>Sensitivity to annual cash flow:</strong></p>
+                    <p>= $20,000 / $113,730 x 100 = <strong>17.6%</strong></p>
+                    <p>Annual cash flow can fall by 17.6% before NPV = 0.</p>
+
+                    <p><strong>Sensitivity to cost of capital:</strong></p>
+                    <p>Requires trial: Find IRR. If IRR = 15.2% and cost of capital = 10%,</p>
+                    <p>Sensitivity = (15.2% - 10%) / 10% x 100 = <strong>52%</strong></p>
+                </div>
+            </div>
+
+            <h4>B. Probability Analysis / Expected NPV</h4>
+            <p>When different outcomes have assigned probabilities, calculate <strong>Expected NPV (ENPV)</strong>.</p>
+            <div class="box box-formula">
+                <div class="box-title">Expected Value Formula</div>
+                <p><span class="formula">Expected Value = Sum (Probability x Outcome)</span></p>
+            </div>
+
+            <div class="example">
+                <div class="example-header">Example: Expected NPV</div>
+                <p>A project has the following possible NPVs:</p>
+                <table>
+                    <tr><th>Scenario</th><th>Probability</th><th>NPV ($)</th></tr>
+                    <tr><td>Optimistic</td><td>0.3</td><td>50,000</td></tr>
+                    <tr><td>Most likely</td><td>0.5</td><td>20,000</td></tr>
+                    <tr><td>Pessimistic</td><td>0.2</td><td>(10,000)</td></tr>
+                </table>
+                <div class="solution">
+                    <div class="solution-title">Solution:</div>
+                    <p>Expected NPV = (0.3 x $50,000) + (0.5 x $20,000) + (0.2 x -$10,000)</p>
+                    <p>= $15,000 + $10,000 - $2,000 = <strong>$23,000</strong></p>
+                    <p><span class="highlight">Since ENPV &gt; 0, accept the project.</span></p>
+                </div>
+            </div>
+
+            <h4>C. Simulation (Monte Carlo)</h4>
+            <p>Uses computer modeling to run thousands of scenarios with random variations in multiple variables simultaneously. Produces a <strong>probability distribution</strong> of possible NPVs.</p>
+            <ul>
+                <li>More sophisticated than sensitivity (varies multiple variables at once)</li>
+                <li>Requires probability distributions for each variable</li>
+                <li>Output shows range of possible outcomes and their likelihoods</li>
+            </ul>
+
+            <h4>D. Decision Trees</h4>
+            <p>A graphical representation of decisions and possible outcomes. Useful for <strong>sequential decisions</strong> where choices at one point affect future options.</p>
+            <ul>
+                <li>Square nodes = Decision points</li>
+                <li>Circle nodes = Chance points (probabilities)</li>
+                <li>Work backwards from right to left (rollback analysis)</li>
+            </ul>
+
+            <h4>E. Adjusted Payback</h4>
+            <p>Use <strong>discounted payback</strong> as a risk indicator. Projects with shorter discounted payback are less risky because cash is recovered faster.</p>
+
+            <div class="box box-note">
+                <div class="box-title">Summary: Which Technique When?</div>
+                <table>
+                    <tr><th>Technique</th><th>Best Used For</th></tr>
+                    <tr><td>Sensitivity Analysis</td><td>Identifying critical variables; simple one-at-a-time testing</td></tr>
+                    <tr><td>Probability/Expected Value</td><td>When probabilities can be reasonably estimated</td></tr>
+                    <tr><td>Simulation</td><td>Complex projects with many interrelated variables</td></tr>
+                    <tr><td>Decision Trees</td><td>Sequential decisions with multiple stages</td></tr>
+                    <tr><td>Discounted Payback</td><td>Quick liquidity/risk screening</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- SECTION 14: EXAM TIPS -->
+        <div class="section" id="s14">
+            <div class="section-header">
+                <div class="section-number">14</div>
+                <h2>Key Exam Tips & Summary</h2>
+            </div>
+
+            <h3>14.1 Method Comparison Summary</h3>
+            <table>
+                <tr><th>Method</th><th>Uses Cash Flows?</th><th>Time Value?</th><th>Decision Rule</th><th>Best For</th></tr>
+                <tr><td><strong>NPV</strong></td><td>Yes</td><td>Yes</td><td>Accept if NPV &gt; 0</td><td>Primary method -- always preferred</td></tr>
+                <tr><td><strong>IRR</strong></td><td>Yes</td><td>Yes</td><td>Accept if IRR &gt; k</td><td>Understanding return %; secondary to NPV</td></tr>
+                <tr><td><strong>Payback</strong></td><td>Yes</td><td>No*</td><td>Accept if &lt; target</td><td>Liquidity screening; risk assessment</td></tr>
+                <tr><td><strong>ROCE/ARR</strong></td><td>No (profit)</td><td>No</td><td>Accept if &gt; target</td><td>Rarely used; inferior method</td></tr>
+            </table>
+            <p><em>* Discounted payback does consider time value</em></p>
+
+            <h3>14.2 Top 10 Exam Traps to Avoid</h3>
+            <div class="steps">
+                <div class="step"><strong>Time 0 confusion:</strong> Initial investment is at Time 0. First operating cash flow is usually at Time 1 (end of Year 1).</div>
+                <div class="step"><strong>Tax timing:</strong> Tax is almost always ONE YEAR IN ARREARS. Do not put it in the same year as the profit!</div>
+                <div class="step"><strong>Balancing allowance/charge:</strong> Always calculate the final year WDV vs scrap. If you forget this, your TAD tax shield will be wrong.</div>
+                <div class="step"><strong>Working capital:</strong> Only the CHANGE in WC is a cash flow. Total WC is released at the END of the project.</div>
+                <div class="step"><strong>Real vs nominal mixing:</strong> Never mix real cash flows with nominal rates. If different inflation rates apply, use the nominal approach.</div>
+                <div class="step"><strong>Annuity timing:</strong> Annuity factor AF(n) gives PV one period BEFORE the first cash flow. Adjust for delayed annuities!</div>
+                <div class="step"><strong>Lease vs Buy discount rate:</strong> Use after-tax cost of debt, not WACC (unless question says otherwise).</div>
+                <div class="step"><strong>Advance vs arrears:</strong> Lease payments in advance = start of period (Time 0, 1, 2...). Arrears = end of period (Time 1, 2, 3...).</div>
+                <div class="step"><strong>NPV vs IRR conflict:</strong> When they conflict, ALWAYS follow NPV. NPV measures absolute wealth creation.</div>
+                <div class="step"><strong>Capital rationing:</strong> For divisible projects, use PI. For indivisible, try combinations. Do not simply rank by NPV!</div>
+            </div>
+
+            <h3>14.3 Quick Formula Reference Sheet</h3>
+            <div class="box box-formula">
+                <div class="box-title">Essential Formulas</div>
+                <ul>
+                    <li><strong>PV:</strong> FV / (1+r)^n</li>
+                    <li><strong>Annuity Factor:</strong> [1 - (1+r)^-n] / r</li>
+                    <li><strong>Perpetuity:</strong> C / r</li>
+                    <li><strong>Growing Perpetuity:</strong> C_1 / (r - g)</li>
+                    <li><strong>Fisher:</strong> (1+m) = (1+r)(1+i)</li>
+                    <li><strong>IRR Interpolation:</strong> L + [NPV_L / (NPV_L - NPV_H)] x (H-L)</li>
+                    <li><strong>EAC:</strong> PV of Costs / AF(r,n)</li>
+                    <li><strong>PI:</strong> PV of Inflows / Initial Investment</li>
+                    <li><strong>Sensitivity:</strong> NPV / PV of Variable</li>
+                </ul>
+            </div>
+
+            <h3>14.4 Exam Strategy</h3>
+            <ul>
+                <li><strong>Read the requirement first</strong> -- know what you are calculating before reading the scenario.</li>
+                <li><strong>Set up a clear table</strong> for NPV calculations. Examiners award marks for method even if arithmetic is slightly off.</li>
+                <li><strong>Show your workings</strong> -- do not just write down final numbers.</li>
+                <li><strong>State your decision clearly</strong> -- "Accept because NPV is positive."</li>
+                <li><strong>Watch the marks</strong> -- a 20-mark NPV question will have 3-4 marks for discussion/decision, not just calculation.</li>
+                <li><strong>Practice timing</strong> -- NPV questions can be time-consuming. Leave enough time for written parts.</li>
+            </ul>
+
+            <div class="box box-tip">
+                <div class="box-title">Final Words</div>
+                <p>Investment Appraisal is the <strong>heart of ACCA FM</strong>. Master NPV with all its complications (tax, WC, inflation), understand why NPV beats IRR, and practice EAC and capital rationing. If you can handle a full 25-mark NPV question confidently, you are well on your way to passing FM!</p>
+                <p style="text-align:center; margin-top:16px; font-size:1.2rem; color:var(--primary); font-weight:700;">Good luck with your Sep 2026 exam!</p>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
