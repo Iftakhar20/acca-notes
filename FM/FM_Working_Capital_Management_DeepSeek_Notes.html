@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACCA FM - Working Capital Management | Complete Study Guide</title>
+    <style>
+        /* ── Reset & Base ── */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+            background: #f5f9fe;
+            color: #1e2b3c;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 20px 60px rgba(0, 40, 80, 0.08);
+            padding: 3rem 3.5rem;
+        }
+
+        /* ── Typography ── */
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(145deg, #0a2f5e, #1a6b8a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.2rem;
+            border-bottom: 4px solid #cbe0f5;
+            padding-bottom: 0.6rem;
+        }
+
+        .subhead {
+            font-size: 1.3rem;
+            color: #3b6a8f;
+            margin-bottom: 2.2rem;
+            font-weight: 400;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .subhead span {
+            background: #e7f0fa;
+            padding: 0.2rem 1.2rem;
+            border-radius: 40px;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #13547a;
+        }
+
+        h2 {
+            font-size: 2.0rem;
+            font-weight: 600;
+            color: #0a3a5a;
+            margin-top: 2.6rem;
+            margin-bottom: 1rem;
+            padding-left: 0.75rem;
+            border-left: 6px solid #2d8fc7;
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a5a7a;
+            margin-top: 2rem;
+            margin-bottom: 0.6rem;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1f6a8a;
+            margin-top: 1.5rem;
+            margin-bottom: 0.4rem;
+        }
+
+        p {
+            font-size: 1.15rem;
+            margin-bottom: 0.9rem;
+        }
+
+        ul,
+        ol {
+            font-size: 1.12rem;
+            padding-left: 1.8rem;
+            margin-bottom: 1.2rem;
+        }
+        li {
+            margin-bottom: 0.35rem;
+        }
+
+        /* ── Cards & Boxes ── */
+        .card {
+            background: #f8fcff;
+            border-radius: 20px;
+            padding: 1.6rem 2rem;
+            margin: 1.6rem 0;
+            border: 1px solid #e1eef9;
+            box-shadow: 0 4px 12px rgba(0, 30, 60, 0.03);
+            transition: box-shadow 0.15s;
+        }
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0, 40, 80, 0.06);
+        }
+
+        .example-box {
+            background: #edf5fd;
+            border-left: 6px solid #2d8fc7;
+            border-radius: 14px;
+            padding: 1.4rem 2rem;
+            margin: 1.4rem 0;
+        }
+        .example-box strong {
+            color: #004d7a;
+            font-size: 1.2rem;
+        }
+        .example-box .label {
+            display: inline-block;
+            background: #2d8fc7;
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 0.1rem 1rem;
+            border-radius: 40px;
+            letter-spacing: 0.4px;
+            margin-bottom: 0.6rem;
+        }
+
+        .tip-box {
+            background: #fef9ee;
+            border-left: 6px solid #f5b342;
+            border-radius: 14px;
+            padding: 1.2rem 2rem;
+            margin: 1.4rem 0;
+        }
+        .tip-box strong {
+            color: #a86f1a;
+            font-size: 1.15rem;
+        }
+        .tip-box .label {
+            display: inline-block;
+            background: #f5b342;
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 0.1rem 1.2rem;
+            border-radius: 40px;
+            letter-spacing: 0.4px;
+            margin-bottom: 0.4rem;
+        }
+
+        .formula-box {
+            background: #eaf3fa;
+            border-radius: 16px;
+            padding: 1.2rem 2rem;
+            margin: 1.2rem 0;
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #003153;
+            border: 1px dashed #75b5d9;
+            font-family: 'Courier New', monospace;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.2rem 0;
+        }
+        @media (max-width: 720px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .key-term {
+            background: #e1eef9;
+            padding: 0.1rem 0.6rem;
+            border-radius: 6px;
+            font-weight: 500;
+            color: #004d7a;
+        }
+
+        /* ── Tables ── */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 1.4rem 0;
+            border-radius: 16px;
+            border: 1px solid #dce8f2;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1.08rem;
+            background: #fafdff;
+        }
+        th {
+            background: #dce8f2;
+            color: #003153;
+            font-weight: 600;
+            padding: 0.8rem 1rem;
+            text-align: left;
+        }
+        td {
+            padding: 0.7rem 1rem;
+            border-bottom: 1px solid #e5edf5;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        tr:hover td {
+            background: #f2f9ff;
+        }
+
+        /* ── Misc ── */
+        .badge {
+            display: inline-block;
+            background: #0a5a7a;
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.75rem;
+            padding: 0.1rem 1rem;
+            border-radius: 40px;
+            letter-spacing: 0.5px;
+            margin-right: 0.5rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #dce8f2;
+            margin: 2.8rem 0 1.8rem;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 640px) {
+            .container {
+                padding: 1.5rem 1.2rem;
+            }
+            h1 {
+                font-size: 2.0rem;
+            }
+            h2 {
+                font-size: 1.6rem;
+            }
+            h3 {
+                font-size: 1.3rem;
+            }
+            p,
+            ul,
+            ol {
+                font-size: 1.02rem;
+            }
+            .formula-box {
+                font-size: 1.1rem;
+                padding: 1rem;
+            }
+            .card,
+            .example-box,
+            .tip-box {
+                padding: 1rem 1.2rem;
+            }
+        }
+
+        /* print-friendly */
+        @media print {
+            body {
+                background: #fff;
+                padding: 0.2in;
+            }
+            .container {
+                box-shadow: none;
+                padding: 0;
+                border-radius: 0;
+            }
+            .card,
+            .example-box,
+            .tip-box {
+                break-inside: avoid;
+                border: 1px solid #ccc;
+            }
+            .tip-box {
+                background: #fef9ee;
+            }
+            .example-box {
+                background: #edf5fd;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- ═══ HEADER ═══ -->
+        <h1>📘 Working Capital Management</h1>
+        <div class="subhead">
+            <span>ACCA FM · Study Guide</span>
+            <span style="font-size:0.95rem; background:transparent; padding:0;">📅 Sep-26 Exam Window</span>
+        </div>
+
+        <p style="font-size:1.25rem; color:#1f5a7a; font-weight:400; margin-top:-0.2rem;">
+            Master the entire <strong>Working Capital</strong> syllabus — from the operating cycle to
+            cash management, receivables, inventory, payables, and short‑term financing.
+            <span style="display:inline-block; background:#d4e6f5; padding:0.1rem 1rem; border-radius:40px; font-size:0.95rem; margin-left:0.5rem;">💡 Exam‑focused</span>
+        </p>
+
+        <hr>
+
+        <!-- ═══ 1. NATURE & SCOPE ═══ -->
+        <h2>1. Nature &amp; Scope of Working Capital</h2>
+
+        <div class="card">
+            <p><strong>Working capital</strong> = the capital available for day‑to‑day operations.
+            It represents the <span class="key-term">excess of current assets over current liabilities</span>.</p>
+            <div style="display:flex; flex-wrap:wrap; gap:0.8rem 2rem; margin-top:0.8rem;">
+                <div><span class="badge">Gross WC</span> Total Current Assets</div>
+                <div><span class="badge">Net WC</span> Current Assets − Current Liabilities</div>
+                <div><span class="badge">Negative WC</span> Current Liabilities &gt; Current Assets</div>
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <div class="card" style="background:#f2f9ff;">
+                <h4 style="margin-top:0;">🔹 Current Assets</h4>
+                <ul style="font-size:1.05rem;">
+                    <li>Inventory (raw materials, WIP, finished goods)</li>
+                    <li>Trade receivables (debtors)</li>
+                    <li>Cash &amp; bank balances</li>
+                    <li>Short‑term investments</li>
+                    <li>Prepayments</li>
+                </ul>
+            </div>
+            <div class="card" style="background:#f2f9ff;">
+                <h4 style="margin-top:0;">🔸 Current Liabilities</h4>
+                <ul style="font-size:1.05rem;">
+                    <li>Trade payables (creditors)</li>
+                    <li>Bank overdraft</li>
+                    <li>Short‑term loans</li>
+                    <li>Accrued expenses</li>
+                    <li>Tax payable</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="tip-box">
+            <div class="label">📌 EXAM TIP</div>
+            <p style="font-size:1.1rem; margin-bottom:0;"><strong>Net working capital</strong> is the key metric.
+            A <em>positive</em> NWC indicates liquidity buffer; <em>negative</em> NWC is common in supermarkets
+            (cash sales &amp; slow payables) but can signal distress in other sectors.</p>
+        </div>
+
+        <!-- ═══ 2. OPERATING CYCLE ═══ -->
+        <h2>2. The Operating (Cash) Cycle</h2>
+
+        <div class="card">
+            <p><strong>Operating cycle</strong> = the time from placing an order for raw materials
+            to collecting cash from customers.</p>
+            <div class="formula-box" style="font-size:1.2rem;">
+                Inventory days + Receivable days − Payable days
+            </div>
+            <p style="margin-top:0.4rem;"><span class="key-term">Cash conversion cycle (CCC)</span> =
+            operating cycle − payables deferral period.</p>
+        </div>
+
+        <div class="example-box">
+            <div class="label">📝 EXAMPLE 1</div>
+            <p><strong>Alpha Ltd</strong> has:</p>
+            <ul>
+                <li>Inventory turnover: 60 days</li>
+                <li>Receivable collection: 45 days</li>
+                <li>Payable payment: 30 days</li>
+            </ul>
+            <p><strong>Operating cycle</strong> = 60 + 45 = <strong>105 days</strong><br>
+            <strong>Cash cycle</strong> = 105 − 30 = <strong>75 days</strong></p>
+            <p style="margin-top:0.4rem; background:#dce8f2; padding:0.2rem 1rem; border-radius:40px; display:inline-block;">
+                💰 The firm needs to finance 75 days of operations before cash comes in.
+            </p>
+        </div>
+
+        <div class="tip-box">
+            <div class="label">📌 EXAM TIP</div>
+            <p style="font-size:1.1rem; margin-bottom:0;">A <strong>shorter cash cycle</strong> is usually better —
+            it reduces the need for external financing. Exam questions often ask you to <em>calculate</em>
+            the cycle from financial statements and <em>interpret</em> the result.</p>
+        </div>
+
+        <!-- ═══ 3. POLICIES ═══ -->
+        <h2>3. Working Capital Investment &amp; Financing Policies</h2>
+
+        <h3>3.1 Investment Policies</h3>
+        <div class="grid-2">
+            <div class="card" style="border-top:4px solid #2d8fc7;">
+                <h4 style="margin-top:0;">🟢 Conservative</h4>
+                <ul>
+                    <li>High levels of current assets</li>
+                    <li>Low risk, low return</li>
+                    <li>Large buffer against uncertainty</li>
+                    <li>Higher holding costs</li>
+                </ul>
+            </div>
+            <div class="card" style="border-top:4px solid #f5b342;">
+                <h4 style="margin-top:0;">🔴 Aggressive</h4>
+                <ul>
+                    <li>Low levels of current assets</li>
+                    <li>High risk, high return</li>
+                    <li>Vulnerable to stock-outs / bad debts</li>
+                    <li>Lower holding costs</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card" style="border-top:4px solid #75b5d9;">
+            <h4 style="margin-top:0;">⚪ Moderate (Matching)</h4>
+            <ul>
+                <li>Balance between risk and return</li>
+                <li>Match asset maturity with funding</li>
+                <li>Most common in practice</li>
+            </ul>
+        </div>
+
+        <h3>3.2 Financing Policies</h3>
+        <div class="grid-2">
+            <div class="card" style="border-top:4px solid #2d8fc7;">
+                <h4 style="margin-top:0;">🟢 Conservative</h4>
+                <ul>
+                    <li>Use long‑term finance for <em>all</em> assets</li>
+                    <li>Low liquidity risk</li>
+                    <li>Higher cost of capital</li>
+                </ul>
+            </div>
+            <div class="card" style="border-top:4px solid #f5b342;">
+                <h4 style="margin-top:0;">🔴 Aggressive</h4>
+                <ul>
+                    <li>Use short‑term finance for <em>some</em> non‑current assets</li>
+                    <li>Higher liquidity risk</li>
+                    <li>Lower cost of capital</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="tip-box">
+            <div class="label">📌 EXAM TIP</div>
+            <p style="font-size:1.1rem; margin-bottom:0;">In the exam, you may be asked to <strong>identify</strong>
+            a firm's policy from data (e.g., current ratio, quick ratio) and <strong>discuss</strong> the
+            risk‑return trade‑off. Always link to the firm's industry and business model.</p>
+        </div>
+
+        <!-- ═══ 4. INVENTORY MANAGEMENT ═══ -->
+        <h2>4. Inventory Management</h2>
+
+        <div class="card">
+            <p><strong>Key models:</strong> EOQ (Economic Order Quantity), JIT (Just‑in‑Time),
+            ABC analysis, reorder levels, buffer (safety) stock.</p>
+        </div>
+
+        <h3>📦 EOQ — Economic Order Quantity</h3>
+        <div class="formula-box">
+            EOQ = √( 2 × D × Cₒ / Cₕ )
+        </div>
+        <ul>
+            <li><strong>D</strong> = annual demand (units)</li>
+            <li><strong>Cₒ</strong> = cost per order (ordering cost)</li>
+            <li><strong>Cₕ</strong> = holding cost per unit per year</li>
+        </ul>
+
+        <div class="example-box">
+            <div class="label">📝 EXAMPLE 2 — EOQ</div>
+            <p><strong>Beta Ltd</strong> uses 24,000 units of a component per year.
+            Ordering cost = $150 per order. Holding cost = $4 per unit per year.</p>
+            <p>EOQ = √( 2 × 24,000 × 150 / 4 ) = √( 7,200,000 / 4 ) = √1,800,000 = <strong>1,342 units</strong></p>
+            <p>📌 <strong>Number of orders</strong> = 24,000 / 1,342 ≈ <strong>18 orders</strong> per year.<br>
+            <strong>Total cost</strong> = (18 × $150) + (1,342/2 × $4) = $2,700 + $2,684 = <strong>$5,384</strong></p>
+        </div>
+
+        <h3>🛡️ Buffer (Safety) Stock</h3>
+        <div class="card">
+            <p><strong>Buffer stock</strong> = extra inventory held to protect against
+            demand variability or supply delays.</p>
+            <div style="display:flex; flex-wrap:wrap; gap:1.5rem; margin-top:0.6rem;">
+                <div><span class="key-term">Reorder level</span> = (max usage × max lead time) + buffer</div>
+                <div><span class="key-term">Min inventory</span> = buffer stock</div>
+                <div><span class="key-term">Max inventory</span> = reorder level + EOQ − (min usage × min lead time)</div>
+            </div>
+        </div>
+
+        <div class="example-box">
+            <div class="label">📝 EXAMPLE 3 — Buffer Stock</div>
+            <p><strong>Gamma Ltd:</strong> Usage 200 units/day (normal), max 250/day.
+            Lead time 5 days (normal), max 8 days. EOQ = 1,200 units.</p>
+            <p><strong>Buffer stock</strong> = (250 × 8) − (200 × 5) = 2,000 − 1,000 = <strong>1,000 units</strong><br>
+            <strong>Reorder level</strong> = (250 × 8) = <strong>2,000 units</strong></p>
+        </div>
+
+        <div class="tip-box">
+            <div class="label">📌 EXAM TIP</div>
+            <p style="font-size:1.1rem; margin-bottom:0;">EOQ questions are <strong>highly examinable</strong>.
+            Be ready to calculate EOQ, number of orders, total cost, and discuss the <strong>assumptions</strong>
+            (constant demand, no quantity discounts, etc.). Also know <strong>JIT</strong> — its benefits
+            (lower holding costs) and risks (supply disruptions).</p>
+        </div>
+
+        <!-- ═══ 5. RECEIVABLES MANAGEMENT ═══ -->
+        <h2>5. Receivables (Debtors) Management</h2>
+
+        <div class="card">
+            <p><strong>Goal:</strong> Optimise the trade‑off between <em>profit</em> (from additional sales)
+            and <em>risk</em> (bad debts, delayed cash).</p>
+            <p><span class="key-term">Key tools:</span> Credit policy, ageing analysis, factoring,
+            invoice discounting, early settlement discounts.</p>
+        </div>
+
+        <h3>📊 Credit Policy Decisions</h3>
+        <div class="card">
+            <p>When a firm <strong>relaxes</strong> credit policy (longer terms, looser checks):</p>
+            <ul>
+                <li>✅ Higher sales revenue</li>
+                <li>✅ Higher contribution / profit</li>
+                <li>❌ Higher investment in receivables (financing cost)</li>
+                <li>❌ Higher bad debts</li>
+                <li>❌ Higher administrative costs</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <div class="label">📝 EXAMPLE 4 — Credit Policy Change</div>
+            <p><strong>Delta Ltd</strong> is considering extending credit terms from 30 to 60 days.</p>
+            <ul>
+                <li>Annual sales: $10m (all credit)</li>
+                <li>Contribution margin: 30%</li>
+                <li>Current receivables: 30 days → $10m × 30/365 = $0.822m</li>
+                <li>New receivables: 60 days → $10m × 60/365 = $1.644m</li>
+                <li>Extra investment: $0.822m</li>
+                <li>Cost of capital: 10% → extra financing cost = $0.082m</li>
+            </ul>
+            <p><strong>Decision:</strong> If the increase in contribution from extra sales &gt; the financing cost + bad debts, <em>relax</em>; otherwise <em>tighten</em>.</p>
+        </div>
+
+        <h3>🏦 Factoring &amp; Invoice Discounting</h3>
+        <div class="grid-2">
+            <div class="card">
+                <h4 style="margin-top:0;">Factoring</h4>
+                <ul>
+                    <li>Sell receivables to a factor</li>
+                    <li>Factor provides <strong>finance</strong> (80‑90%)</li>
+                    <li>Factor also does <strong>credit control</strong> &amp; <strong>bad debt protection</strong></li>
+                    <li>Higher cost but reduces admin</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h4 style="margin-top:0;">Invoice Discounting</h4>
+                <ul>
+                    <li>Borrow against receivables (collateral)</li>
+                    <li><strong>No</strong> sale of receivables</li>
+                    <li>Company retains credit control</li>
+                    <li>Lower cost than factoring</li>
+                    <li>No bad debt protection</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="tip-box">
+            <div class="label">📌 EXAM TIP</div>
+            <p style="font-size:1.1rem; margin-bottom:0;">Questions on <strong>credit policy</strong> often
+            require a <em>cost‑benefit analysis</em>. Always calculate the <strong>incremental
+            profit vs incremental cost</strong>. Also remember the <strong>early settlement discount</strong>
+            formula — compare the cost of discount with the cost of borrowing.</p>
+        </div>
+
+        <!-- ═══ 6. PAYABLES MANAGEMENT ═══ -->
+        <h2>6. Payables (Creditors) Management</h2>
+
+        <div class="card">
+            <p><strong>Trade credit</strong> is a free (or cheap) source of finance if discounts are not taken.
+            But delaying payment can damage supplier relationships and credit rating.</p>
+        </div>
+
+        <div class="example-box">
+            <div class="label">📝 EXAMPLE 5 — Cost of Trade Credit</div>
+            <p><strong>Epsilon Ltd</strong> is offered 2/10, net 30 (2% discount if paid within 10 days,
+            otherwise full payment in 30 days).</p>
+            <p><strong>Cost of not taking discount</strong> = (2 / (100 − 2)) × (365 / (30 − 10))<br>
+            = (2/98) × (365/20) = 0.0204 × 18.25 = <strong>37.2%</strong> per year</p>
+            <p style="margin-top:0.4rem; background:#dce8f2; padding:0.2rem 1rem; border-radius:40px; display:inline-block;">
+                ⚠️ If the firm can borrow at &lt; 37.2%, it should take the discount and pay early.
+            </p>
+        </div>
+
+        <div class="tip-box">
+            <div class="label">📌 EXAM TIP</div>
+            <p style="font-size:1.1rem; margin-bottom:0;">The <strong>cost of trade credit</strong> formula
+            is a favourite in Section C questions. Also be ready to discuss the <strong>benefits of
+            stretching payables</strong> (free finance) vs <strong>risks</strong> (supplier penalties,
+            loss of goodwill).</p>
+        </div>
+
+        <!-- ═══ 7. CASH MANAGEMENT ═══ -->
+        <h2>7. Cash Management</h2>
+
+        <div class="card">
+            <p><strong>Cash</strong> is the most liquid asset. The goal is to <em>optimise</em> cash
+            balances — not too much (idle funds) and not too little (risk of insolvency).</p>
+        </div>
+
+        <h3>📋 Cash Budget</h3>
+        <div class="card">
+            <p>A <strong>cash budget</strong> forecasts cash inflows and outflows over a period.
+            It highlights <em>surpluses</em> (to invest) and <em>deficits</em> (to finance).</p>
+            <p><span class="key-term">Key components:</span> Opening balance, receipts (sales, dividends),
+            payments (suppliers, wages, capex), net cash flow, closing balance.</p>
+        </div>
+
+        <div class="example-box">
+            <div class="label">📝 EXAMPLE 6 — Cash Budget (extract)</div>
+            <table>
+                <thead>
+                    <tr><th>Month</th><th>Receipts ($k)</th><th>Payments ($k)</th><th>Net ($k)</th><th>Closing ($k)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Jan</td><td>120</td><td>100</td><td>+20</td><td>45</td></tr>
+                    <tr><td>Feb</td><td>110</td><td>130</td><td>−20</td><td>25</td></tr>
+                    <tr><td>Mar</td><td>140</td><td>115</td><td>+25</td><td>50</td></tr>
+                </tbody>
+            </table>
+            <p style="margin-top:0.4rem;">Opening balance in Jan = $25k. The firm has a deficit in Feb
+            — could use an <strong>overdraft</strong>.</p>
+        </div>
+
+        <h3>📈 Baumol Model (Cash EOQ)</h3>
+        <div class="formula-box">
+            Optimum cash balance = √( 2 × D × Cₒ / i )
+        </div>
+        <ul>
+            <li><strong>D</strong> = annual cash outflow (disbursements)</li>
+            <li><strong>Cₒ</strong> = cost per conversion (selling investments/borrowing)</li>
+            <li><strong>i</strong> = opportunity cost of holding cash (interest rate)</li>
+        </ul>
+
+        <div class="example-box">
+            <div class="label">📝 EXAMPLE 7 — Baumol</div>
+            <p><strong>Zeta Ltd</strong> has annual cash outflows of $500,000. Cost per conversion = $100.
+            Interest rate = 8%.</p>
+            <p>Optimum cash = √( 2 × 500,000 × 100 / 0.08 ) = √( 100,000,000 / 0.08 ) = √1,250,000,000 = <strong>$35,355</strong></p>
+            <p>Number of conversions = 500,000 / 35,355 ≈ <strong>14</strong> times per year.</p>
+        </div>
+
+        <h3>📊 Miller‑Orr Model</h3>
+        <div class="card">
+            <p>For cash flows that are <em>uncertain</em> (random daily fluctuations).</p>
+            <ul>
+                <li><span class="key-term">Upper limit (U)</span> = return point + 3 × spread</li>
+                <li><span class="key-term">Return point (R)</span> = lower limit + spread</li>
+                <li><span class="key-term">Spread</span> = ( 3 × transaction cost × variance / (4 × interest) )<sup>1/3</sup></li>
+            </ul>
+            <p style="margin-top:0.4rem;">When cash hits the <strong>upper limit</strong>, buy securities to bring back to R.
+            When it hits the <strong>lower limit</strong>, sell securities to bring back to R.</p>
+        </div>
+
+        <div class="tip-box">
+            <div class="label">📌 EXAM TIP</div>
+            <p style="font-size:1.1rem; margin-bottom:0;">You are <strong>not</strong> required to memorise the
+            Miller‑Orr formula in full (it's in the exam formula sheet). But you must <strong>understand</strong>
+            the logic and be able to <em>interpret</em> the results. The <strong>Baumol</strong> model is simpler
+            and more frequently tested in Section A/B.</p>
+        </div>
+
+        <!-- ═══ 8. SHORT‑TERM FINANCING ═══ -->
+        <h2>8. Short‑Term Financing</h2>
+
+        <div class="grid-2">
+            <div class="card">
+                <h4 style="margin-top:0;">🏦 Bank Overdraft</h4>
+                <ul>
+                    <li>Flexible, variable interest</li>
+                    <li>Can be called in at short notice</li>
+                    <li>Cheap for short‑term needs</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h4 style="margin-top:0;">📄 Commercial Paper</h4>
+                <ul>
+                    <li>Unsecured short‑term debt</li>
+                    <li>Issued by large, creditworthy firms</li>
+                    <li>Maturity: 1‑365 days</li>
+                    <li>Lower cost than bank borrowing</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h4 style="margin-top:0;">📦 Trade Credit</h4>
+                <ul>
+                    <li>Suppliers provide goods on credit</li>
+                    <li>"Free" finance if discount not taken</li>
+                    <li>Can be expensive if discount is forgone</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h4 style="margin-top:0;">📈 Short‑Term Loans</h4>
+                <ul>
+                    <li>Fixed term (e.g., 1‑3 years)</li>
+                    <li>Fixed or variable interest</li>
+                    <li>More certain than overdraft</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="tip-box">
+            <div class="label">📌 EXAM TIP</div>
+            <p style="font-size:1.1rem; margin-bottom:0;">Be able to <strong>compare</strong> sources of
+            short‑term finance on <em>cost</em>, <em>flexibility</em>, <em>availability</em>, and <em>risk</em>.
+            Overdrafts are <strong>flexible</strong> but <strong>revocable</strong>; commercial paper is
+            <strong>cheap</strong> but <strong>only for large firms</strong>.</p>
+        </div>
+
+        <!-- ═══ 9. OVERTRADING ═══ -->
+        <h2>9. Overtrading</h2>
+
+        <div class="card">
+            <p><span class="key-term">Overtrading</span> = growing too quickly without sufficient long‑term
+            capital. The firm is <em>under‑capitalised</em>.</p>
+            <p><strong>Signs:</strong></p>
+            <ul>
+                <li>📈 Rapid sales growth (especially on credit)</li>
+                <li>📉 Declining current ratio / quick ratio</li>
+                <li>📈 Increasing receivables &amp; inventory</li>
+                <li>📈 Increasing payables (stretching suppliers)</li>
+                <li>📉 Declining cash balance / high overdraft</li>
+            </ul>
+            <p><strong>Solutions:</strong> Inject equity, reduce dividends, improve collection,
+            sell assets, or slow growth.</p>
+        </div>
+
+        <div class="example-box">
+            <div class="label">📝 EXAMPLE 8 — Overtrading</div>
+            <p><strong>Theta Ltd</strong> has sales growing at 40% p.a. but:</p>
+            <ul>
+                <li>Current ratio: 1.1 (down from 1.8 last year)</li>
+                <li>Receivable days: 75 (up from 45)</li>
+                <li>Inventory days: 90 (up from 60)</li>
+                <li>Overdraft: $2.5m (up from $0.2m)</li>
+            </ul>
+            <p><strong>Conclusion:</strong> Theta is overtrading. It needs to either
+            <em>slow growth</em> or <em>raise long‑term finance</em>.</p>
+        </div>
+
+        <!-- ═══ 10. TREASURY & MISC ═══ -->
+        <h2>10. Treasury &amp; Other Key Areas</h2>
+
+        <div class="card">
+            <p><span class="key-term">Treasury management</span> = the efficient management of
+            an organisation's liquidity, funding, and financial risk.</p>
+            <p><strong>Key functions:</strong> Cash management, funding (short/long‑term),
+            risk management (interest rate, foreign exchange), and banking relationships.</p>
+        </div>
+
+        <h3>📊 Working Capital Ratios (Quick Reference)</h3>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>Ratio</th><th>Formula</th><th>Interpretation</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Current ratio</td><td>CA / CL</td><td>Liquidity buffer (2:1 is "safe")</td></tr>
+                    <tr><td>Quick ratio (acid test)</td><td>(CA − Inv) / CL</td><td>Stricter liquidity (1:1 is "safe")</td></tr>
+                    <tr><td>Receivable days</td><td>Receivables / Credit Sales × 365</td><td>Collection efficiency</td></tr>
+                    <tr><td>Payable days</td><td>Payables / Cost of Sales × 365</td><td>Payment speed</td></tr>
+                    <tr><td>Inventory days</td><td>Inventory / Cost of Sales × 365</td><td>Stock holding period</td></tr>
+                    <tr><td>Cash cycle</td><td>Inv days + Rec days − Pay days</td><td>Days of cash tied up</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tip-box">
+            <div class="label">📌 EXAM TIP</div>
+            <p style="font-size:1.1rem; margin-bottom:0;">In Section C, you will often be given financial
+            statements and asked to <strong>calculate</strong> these ratios, <strong>interpret</strong> them,
+            and <strong>recommend</strong> actions. Always link your recommendations to the <em>risk‑return
+            trade‑off</em> and the firm's <em>business strategy</em>.</p>
+        </div>
+
+        <!-- ═══ FINAL REVISION CHECKLIST ═══ -->
+        <hr>
+
+        <h2>✅ Final Revision Checklist</h2>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; font-size:1.1rem; margin:1.2rem 0;">
+            <div style="background:#f2f9ff; padding:0.8rem 1.2rem; border-radius:12px;">✔ Operating cycle (CCC) calculations</div>
+            <div style="background:#f2f9ff; padding:0.8rem 1.2rem; border-radius:12px;">✔ EOQ — formula &amp; interpretation</div>
+            <div style="background:#f2f9ff; padding:0.8rem 1.2rem; border-radius:12px;">✔ Buffer stock &amp; reorder levels</div>
+            <div style="background:#f2f9ff; padding:0.8rem 1.2rem; border-radius:12px;">✔ Credit policy cost‑benefit analysis</div>
+            <div style="background:#f2f9ff; padding:0.8rem 1.2rem; border-radius:12px;">✔ Cost of trade credit (discount formula)</div>
+            <div style="background:#f2f9ff; padding:0.8rem 1.2rem; border-radius:12px;">✔ Cash budget preparation</div>
+            <div style="background:#f2f9ff; padding:0.8rem 1.2rem; border-radius:12px;">✔ Baumol &amp; Miller‑Orr (concepts)</div>
+            <div style="background:#f2f9ff; padding:0.8rem 1.2rem; border-radius:12px;">✔ Short‑term financing sources</div>
+            <div style="background:#f2f9ff; padding:0.8rem 1.2rem; border-radius:12px;">✔ Investment &amp; financing policies</div>
+            <div style="background:#f2f9ff; padding:0.8rem 1.2rem; border-radius:12px;">✔ Overtrading — signs &amp; remedies</div>
+            <div style="background:#f2f9ff; padding:0.8rem 1.2rem; border-radius:12px;">✔ Factoring vs invoice discounting</div>
+            <div style="background:#f2f9ff; padding:0.8rem 1.2rem; border-radius:12px;">✔ Working capital ratios (all)</div>
+        </div>
+
+        <div style="background:#e1eef9; border-radius:20px; padding:1.8rem 2.2rem; margin:2rem 0 0.4rem; text-align:center;">
+            <p style="font-size:1.5rem; font-weight:500; color:#003153; margin:0;">
+                🎯 <span style="background:#003153; color:#fff; padding:0.1rem 1.2rem; border-radius:40px;">Sep-26</span>
+                &nbsp; You've got this! 💪
+            </p>
+            <p style="font-size:1.05rem; color:#1f5a7a; margin:0.2rem 0 0;">
+                Practice past exam questions and apply these concepts — you'll be ready.
+            </p>
+        </div>
+
+        <p style="text-align:right; font-size:0.9rem; color:#5f7e99; margin-top:1.8rem; border-top:1px solid #dce8f2; padding-top:1rem;">
+            ACCA FM · Working Capital Management · Complete Study Notes
+        </p>
+
+    </div>
+</body>
+</html>
