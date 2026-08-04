@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACCA FM - Working Capital Management Power Notes</title>
+    <style>
+        :root {
+            --primary: #2c5f7c;
+            --secondary: #4a9bb8;
+            --accent: #e67e22;
+            --bg: #fafbfc;
+            --card: #ffffff;
+            --text: #2d3436;
+            --text-light: #636e72;
+            --border: #dfe6e9;
+            --success: #27ae60;
+            --warning: #f39c12;
+            --danger: #e74c3c;
+            --formula-bg: #f0f7ff;
+            --example-bg: #fff9f0;
+            --tip-bg: #e8f8f5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 50px 30px;
+            text-align: center;
+            border-radius: 16px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(44, 95, 124, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.3em;
+            opacity: 0.95;
+        }
+
+        .exam-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 8px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-top: 15px;
+            font-size: 1.1em;
+        }
+
+        .section {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 35px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+        }
+
+        .section h2 {
+            color: var(--primary);
+            font-size: 2em;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section h3 {
+            color: var(--primary);
+            font-size: 1.5em;
+            margin: 30px 0 15px 0;
+        }
+
+        .section h4 {
+            color: var(--secondary);
+            font-size: 1.25em;
+            margin: 25px 0 12px 0;
+        }
+
+        .formula-box {
+            background: var(--formula-bg);
+            border-left: 5px solid var(--secondary);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 0 12px 12px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 1.15em;
+        }
+
+        .formula-box .label {
+            font-family: 'Segoe UI', sans-serif;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 0.95em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .example-box {
+            background: var(--example-bg);
+            border: 2px solid #f0d9b5;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .example-box .example-title {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .example-box .solution {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid var(--success);
+        }
+
+        .tip-box {
+            background: var(--tip-bg);
+            border-left: 5px solid var(--success);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .tip-box::before {
+            content: "💡 EXAM TIP: ";
+            font-weight: 700;
+            color: var(--success);
+        }
+
+        .warning-box {
+            background: #fdf2f2;
+            border-left: 5px solid var(--danger);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .warning-box::before {
+            content: "⚠️ WATCH OUT: ";
+            font-weight: 700;
+            color: var(--danger);
+        }
+
+        ul, ol {
+            margin: 15px 0 15px 30px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 1em;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        th {
+            background: var(--primary);
+            color: white;
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border);
+            background: white;
+        }
+
+        tr:hover td {
+            background: #f8f9fa;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .key-point {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 1px solid #90caf9;
+        }
+
+        .key-point strong {
+            color: var(--primary);
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+            header h1 {
+                font-size: 2em;
+            }
+            body {
+                font-size: 16px;
+            }
+        }
+
+        .step {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .step-number {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-weight: 700;
+            margin-right: 10px;
+            font-size: 0.9em;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .summary-card {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            transition: transform 0.2s;
+        }
+
+        .summary-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .summary-card h4 {
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95em;
+            color: var(--danger);
+        }
+
+        .nav-toc {
+            background: var(--card);
+            padding: 25px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+        }
+
+        .nav-toc h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .nav-toc ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 10px;
+        }
+
+        .nav-toc li {
+            margin: 0;
+        }
+
+        .nav-toc a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+            display: block;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .nav-toc a:hover {
+            background: var(--formula-bg);
+            color: var(--primary);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-light);
+            font-size: 0.95em;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-right: 8px;
+        }
+
+        .badge-imp { background: #ffeaa7; color: #d63031; }
+        .badge-calc { background: #dfe6e9; color: #2d3436; }
+        .badge-theory { background: #a8e6cf; color: #2d3436; }
+
+        .calculation {
+            font-family: 'Courier New', monospace;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            line-height: 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 ACCA FM - Working Capital Management</h1>
+            <p>Comprehensive Power Notes for September 2026 Exam Window</p>
+            <div class="exam-badge">FM Exam Ready</div>
+        </header>
+
+        <div class="nav-toc">
+            <h3>📋 Quick Navigation</h3>
+            <ul>
+                <li><a href="#overview">1. Overview & Policies</a></li>
+                <li><a href="#cash-cycle">2. Cash Operating Cycle</a></li>
+                <li><a href="#inventory">3. Inventory Management</a></li>
+                <li><a href="#receivables">4. Receivables Management</a></li>
+                <li><a href="#payables">5. Payables Management</a></li>
+                <li><a href="#cash">6. Cash Management</a></li>
+                <li><a href="#foreign">7. Foreign Currency WC</a></li>
+                <li><a href="#overtrading">8. Overtrading</a></li>
+                <li><a href="#ratios">9. Key Ratios Summary</a></li>
+            </ul>
+        </div>
+
+        <!-- SECTION 1: OVERVIEW -->
+        <div class="section" id="overview">
+            <h2>1. Working Capital Management Overview</h2>
+
+            <div class="key-point">
+                <strong>Definition:</strong> Working Capital = Current Assets − Current Liabilities<br>
+                <strong>Net Current Assets:</strong> Current Assets minus Current Liabilities (same as working capital)<br>
+                <strong>Objective:</strong> Balance profitability vs. liquidity — enough WC to operate smoothly without holding excessive idle resources.
+            </div>
+
+            <h3>Components of Working Capital</h3>
+            <table>
+                <tr>
+                    <th>Current Assets</th>
+                    <th>Current Liabilities</th>
+                </tr>
+                <tr>
+                    <td>Inventory (Raw materials, WIP, Finished goods)</td>
+                    <td>Trade payables</td>
+                </tr>
+                <tr>
+                    <td>Trade receivables</td>
+                    <td>Bank overdraft</td>
+                </tr>
+                <tr>
+                    <td>Cash and cash equivalents</td>
+                    <td>Short-term loans</td>
+                </tr>
+                <tr>
+                    <td>Short-term investments</td>
+                    <td>Accruals / Tax payable</td>
+                </tr>
+            </table>
+
+            <h3>Working Capital Investment Policies</h3>
+            <div class="two-col">
+                <div>
+                    <h4>🔴 Aggressive Policy</h4>
+                    <ul>
+                        <li>Low levels of inventory, receivables, and cash</li>
+                        <li>Higher profitability (less money tied up)</li>
+                        <li>Higher risk of stock-outs and liquidity problems</li>
+                        <li>Higher RETURN but higher RISK</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>🟢 Conservative Policy</h4>
+                    <ul>
+                        <li>High levels of inventory, receivables, and cash</li>
+                        <li>Lower profitability (more money tied up)</li>
+                        <li>Lower risk — always have buffer stock and cash</li>
+                        <li>Lower RETURN but lower RISK</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Working Capital Financing Policies</h3>
+            <p>Uses the concept of <strong>Permanent Current Assets</strong> (minimum level always needed) vs <strong>Fluctuating Current Assets</strong> (seasonal peaks).</p>
+
+            <table>
+                <tr>
+                    <th>Policy</th>
+                    <th>Permanent CA Financed By</th>
+                    <th>Fluctuating CA Financed By</th>
+                    <th>Risk/Return</th>
+                </tr>
+                <tr>
+                    <td><strong>Matching (Hedging)</strong></td>
+                    <td>Long-term funds</td>
+                    <td>Short-term funds</td>
+                    <td>Moderate risk & return</td>
+                </tr>
+                <tr>
+                    <td><strong>Conservative</strong></td>
+                    <td>Long-term funds</td>
+                    <td>Partly long-term funds (some idle cash)</td>
+                    <td>Low risk, low return</td>
+                </tr>
+                <tr>
+                    <td><strong>Aggressive</strong></td>
+                    <td>Partly short-term funds</td>
+                    <td>Short-term funds</td>
+                    <td>High risk, high return</td>
+                </tr>
+            </table>
+
+            <div class="example-box">
+                <div class="example-title">📖 Example: Financing Policy Identification</div>
+                <p>A company has permanent current assets of $500,000 and fluctuating current assets that vary between $0 and $300,000. It finances $600,000 of total current assets with long-term funds.</p>
+                <div class="solution">
+                    <strong>Solution:</strong><br>
+                    Total CA range = $500,000 to $800,000<br>
+                    Long-term finance = $600,000<br>
+                    This covers all permanent CA ($500k) + $100k of fluctuating CA<br>
+                    → <strong>Conservative policy</strong> because some fluctuating CA is financed by long-term funds (excess cash during low seasons).
+                </div>
+            </div>
+
+            <div class="tip-box">
+                In the exam, always state the policy name AND explain WHY using the numbers given. Don't just name it — justify with the financing mix!
+            </div>
+        </div>
+
+        <!-- SECTION 2: CASH OPERATING CYCLE -->
+        <div class="section" id="cash-cycle">
+            <h2>2. Cash Operating Cycle (Working Capital Cycle)</h2>
+
+            <div class="key-point">
+                The Cash Operating Cycle measures the time between paying cash to suppliers and receiving cash from customers. <strong>Shorter = Better</strong> (less cash tied up).
+            </div>
+
+            <div class="formula-box">
+                <div class="label">Cash Operating Cycle Formula</div>
+                <strong>Cash Operating Cycle = Inventory Days + Receivables Days − Payables Days</strong><br><br>
+                Or expanded:<br>
+                <strong>= Raw Material Days + WIP Days + Finished Goods Days + Receivables Days − Payables Days</strong>
+            </div>
+
+            <div class="formula-box">
+                <div class="label">Component Formulas</div>
+                <strong>Inventory Days</strong> = (Average Inventory / Cost of Sales) × 365<br>
+                <strong>Receivables Days</strong> = (Average Receivables / Credit Sales) × 365<br>
+                <strong>Payables Days</strong> = (Average Payables / Credit Purchases) × 365<br><br>
+                <em>Note: If credit purchases unknown, use Cost of Sales as approximation.</em>
+            </div>
+
+            <div class="example-box">
+                <div class="example-title">📖 Example: Calculating the Cash Operating Cycle</div>
+                <p>Given data for the year:</p>
+                <ul>
+                    <li>Revenue: $2,400,000 (all on credit)</li>
+                    <li>Cost of sales: $1,800,000</li>
+                    <li>Inventory: $300,000</li>
+                    <li>Trade receivables: $400,000</li>
+                    <li>Trade payables: $250,000</li>
+                    <li>Purchases: $1,500,000</li>
+                </ul>
+                <div class="solution">
+                    <strong>Step 1 — Inventory Days:</strong><br>
+                    ($300,000 / $1,800,000) × 365 = <strong>60.8 days</strong><br><br>
+                    <strong>Step 2 — Receivables Days:</strong><br>
+                    ($400,000 / $2,400,000) × 365 = <strong>60.8 days</strong><br><br>
+                    <strong>Step 3 — Payables Days:</strong><br>
+                    ($250,000 / $1,500,000) × 365 = <strong>60.8 days</strong><br><br>
+                    <strong>Step 4 — Cash Operating Cycle:</strong><br>
+                    60.8 + 60.8 − 60.8 = <strong>60.8 days</strong><br><br>
+                    <em>Interpretation: Cash is tied up for approximately 61 days from paying suppliers to receiving from customers.</em>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                Always use <strong>AVERAGE</strong> balances (opening + closing) / 2 when available. If only closing balances given, use those but note the limitation. Never use revenue for inventory/payables calculations — use COS or purchases!
+            </div>
+
+            <h3>How to Reduce the Cash Operating Cycle</h3>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <h4>⬇️ Reduce Inventory Days</h4>
+                    <ul>
+                        <li>JIT inventory systems</li>
+                        <li>Better demand forecasting</li>
+                        <li>Reduce WIP through efficiency</li>
+                        <li>Faster production processes</li>
+                    </ul>
+                </div>
+                <div class="summary-card">
+                    <h4>⬇️ Reduce Receivables Days</h4>
+                    <ul>
+                        <li>Early settlement discounts</li>
+                        <li>Factoring / Invoice discounting</li>
+                        <li>Tighter credit control</li>
+                        <li>Improved collection procedures</li>
+                    </ul>
+                </div>
+                <div class="summary-card">
+                    <h4>⬆️ Increase Payables Days</h4>
+                    <ul>
+                        <li>Negotiate longer credit terms</li>
+                        <li>Take full advantage of credit period</li>
+                        <li>But don't damage supplier relationships!</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 3: INVENTORY MANAGEMENT -->
+        <div class="section" id="inventory">
+            <h2>3. Inventory Management <span class="badge badge-calc">CALCULATION HEAVY</span></h2>
+
+            <h3>Economic Order Quantity (EOQ) Model</h3>
+            <p>The EOQ minimizes total inventory costs (holding + ordering costs).</p>
+
+            <div class="formula-box">
+                <div class="label">EOQ Formula</div>
+                <strong>EOQ = √(2 × C<sub>o</sub> × D / C<sub>h</sub>)</strong><br><br>
+                Where:<br>
+                C<sub>o</sub> = Cost per order (ordering cost)<br>
+                D = Annual demand (units)<br>
+                C<sub>h</sub> = Holding cost per unit per year<br><br>
+                <em>Assumptions: Constant demand, constant lead time, no bulk discounts, instant replenishment.</em>
+            </div>
+
+            <div class="formula-box">
+                <div class="label">Total Annual Inventory Cost</div>
+                <strong>Total Cost = (D/Q × C<sub>o</sub>) + (Q/2 × C<sub>h</sub>)</strong><br><br>
+                Ordering Cost + Holding Cost<br>
+                At EOQ: Ordering Cost = Holding Cost
+            </div>
+
+            <div class="example-box">
+                <div class="example-title">📖 Example: Basic EOQ Calculation</div>
+                <p>A company has annual demand of 10,000 units. Ordering cost is $50 per order. Holding cost is $2 per unit per annum.</p>
+                <div class="solution">
+                    <strong>EOQ = √(2 × 50 × 10,000 / 2)</strong><br>
+                    = √(1,000,000 / 2)<br>
+                    = √500,000<br>
+                    = <strong>707 units (rounded)</strong><br><br>
+                    <strong>Number of orders per year</strong> = 10,000 / 707 = <strong>14.1 orders</strong><br>
+                    <strong>Total annual cost</strong> = (14.1 × $50) + (353.5 × $2) = $705 + $707 = <strong>$1,412</strong>
+                </div>
+            </div>
+
+            <h3>EOQ with Bulk Discounts</h3>
+            <p>When suppliers offer discounts for larger orders, compare total costs at EOQ vs. discount break quantities.</p>
+
+            <div class="step"><span class="step-number">1</span>Calculate EOQ and total cost at EOQ (including purchase cost)</div>
+            <div class="step"><span class="step-number">2</span>Calculate total cost at each discount break quantity</div>
+            <div class="step"><span class="step-number">3</span>Choose the quantity with the LOWEST total cost</div>
+
+            <div class="formula-box">
+                <div class="label">Total Cost with Discounts</div>
+                <strong>Total Cost = Purchase Cost + Ordering Cost + Holding Cost</strong><br><br>
+                Purchase Cost = D × Price per unit<br>
+                Ordering Cost = (D/Q) × C<sub>o</sub><br>
+                Holding Cost = (Q/2) × C<sub>h</sub> &nbsp;&nbsp;[Note: C<sub>h</sub> may include % of purchase price]
+            </div>
+
+            <div class="example-box">
+                <div class="example-title">📖 Example: EOQ with Bulk Discount</div>
+                <p>Annual demand = 10,000 units. Order cost = $100. Holding cost = 10% of purchase price. Normal price = $20/unit.</p>
+                <p>Discounts: 2% for orders ≥ 500 units; 3% for orders ≥ 1,000 units.</p>
+                <div class="solution">
+                    <strong>Step 1 — EOQ at normal price:</strong><br>
+                    C<sub>h</sub> = 10% × $20 = $2<br>
+                    EOQ = √(2 × 100 × 10,000 / 2) = <strong>1,000 units</strong><br><br>
+                    <strong>Step 2 — Total cost at EOQ (1,000 units):</strong><br>
+                    This qualifies for 3% discount! Price = $19.40<br>
+                    Purchase = 10,000 × $19.40 = $194,000<br>
+                    Ordering = (10,000/1,000) × $100 = $1,000<br>
+                    Holding = (1,000/2) × (10% × $19.40) = 500 × $1.94 = $970<br>
+                    <strong>Total = $195,970</strong><br><br>
+                    <strong>Step 3 — Total cost at 500 units (2% discount, price = $19.60):</strong><br>
+                    Purchase = 10,000 × $19.60 = $196,000<br>
+                    Ordering = (10,000/500) × $100 = $2,000<br>
+                    Holding = (500/2) × (10% × $19.60) = 250 × $1.96 = $490<br>
+                    <strong>Total = $198,490</strong><br><br>
+                    <strong>Step 4 — Total cost at 1 unit (no discount):</strong><br>
+                    Not practical, but EOQ = 1,000 gives lowest cost.<br><br>
+                    <strong>Decision: Order 1,000 units — Total cost $195,970</strong>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                When C<sub>h</sub> is expressed as a PERCENTAGE of purchase price, recalculate C<sub>h</sub> at EACH discount level. The holding cost per unit changes with the price!
+            </div>
+
+            <h3>Re-order Level and Safety Inventory</h3>
+            <div class="formula-box">
+                <div class="label">Re-order Level (ROL)</div>
+                <strong>ROL = Maximum Usage × Maximum Lead Time</strong><br><br>
+                Or with buffer stock:<br>
+                <strong>ROL = (Average Usage × Average Lead Time) + Buffer Stock</strong>
+            </div>
+
+            <div class="formula-box">
+                <div class="label">Buffer Stock (Safety Stock)</div>
+                <strong>Buffer Stock = ROL − (Average Usage × Average Lead Time)</strong><br><br>
+                Or:<br>
+                <strong>Buffer Stock = (Max Usage × Max Lead Time) − (Average Usage × Average Lead Time)</strong>
+            </div>
+
+            <div class="formula-box">
+                <div class="label">Maximum Inventory Level</div>
+                <strong>Max Inventory = Buffer Stock + EOQ</strong><br><br>
+                <div class="label">Minimum Inventory Level</div>
+                <strong>Min Inventory = Buffer Stock</strong>
+            </div>
+
+            <div class="example-box">
+                <div class="example-title">📖 Example: ROL and Buffer Stock</div>
+                <p>A company has: Max usage = 120 units/day, Min usage = 60 units/day, Average = 90 units/day. Max lead time = 10 days, Min lead time = 5 days, Average = 7 days. EOQ = 1,000 units.</p>
+                <div class="solution">
+                    <strong>Buffer Stock:</strong><br>
+                    = (Max Usage × Max Lead Time) − (Avg Usage × Avg Lead Time)<br>
+                    = (120 × 10) − (90 × 7) = 1,200 − 630 = <strong>570 units</strong><br><br>
+                    <strong>Re-order Level:</strong><br>
+                    = (Avg Usage × Avg Lead Time) + Buffer Stock<br>
+                    = (90 × 7) + 570 = 630 + 570 = <strong>1,200 units</strong><br><br>
+                    <strong>Maximum Inventory:</strong><br>
+                    = Buffer Stock + EOQ = 570 + 1,000 = <strong>1,570 units</strong><br><br>
+                    <strong>Minimum Inventory:</strong><br>
+                    = <strong>570 units</strong> (the buffer)
+                </div>
+            </div>
+
+            <h3>Just-In-Time (JIT) Inventory System</h3>
+            <ul>
+                <li><strong>Concept:</strong> Inventory arrives just as it is needed in production</li>
+                <li><strong>Goal:</strong> Minimize/zero inventory holding</li>
+                <li><strong>Requirements:</strong> Reliable suppliers, excellent forecasting, flexible production, quality assurance, strong supplier relationships</li>
+                <li><strong>Benefits:</strong> Lower holding costs, less waste, better cash flow, reduced obsolescence</li>
+                <li><strong>Risks:</strong> Production stoppage if supply disrupted, vulnerable to supplier failure, less bulk discount</li>
+            </ul>
+        </div>
+
+        <!-- SECTION 4: RECEIVABLES MANAGEMENT -->
+        <div class="section" id="receivables">
+            <h2>4. Receivables Management <span class="badge badge-calc">CALCULATION HEAVY</span></h2>
+
+            <h3>Credit Policy Evaluation</h3>
+            <p>When considering changes to credit policy, compare:</p>
+            <div class="formula-box">
+                <div class="label">Net Benefit of Credit Policy Change</div>
+                <strong>Net Benefit = Increase in Contribution − Increase in Costs</strong><br><br>
+                Costs to consider:<br>
+                • Incremental finance cost on extra receivables<br>
+                • Incremental bad debts<br>
+                • Cost of early settlement discounts<br>
+                • Additional collection costs
+            </div>
+
+            <div class="example-box">
+                <div class="example-title">📖 Example: Extending Credit Period</div>
+                <p>Current policy: 30 days credit, Sales = $2m, Contribution margin = 30%. Receivables = $200k. Bad debts = 1%.</p>
+                <p>Proposed: 60 days credit, Sales = $2.4m. Bad debts = 2%. Cost of capital = 10%.</p>
+                <div class="solution">
+                    <strong>Current Situation:</strong><br>
+                    Receivables days = ($200k / $2m) × 365 = 36.5 days (close to 30, OK)<br>
+                    Current bad debts = 1% × $2m = $20,000<br><br>
+                    <strong>Proposed Situation:</strong><br>
+                    New receivables = ($2.4m / 365) × 60 = <strong>$394,521</strong><br>
+                    Increase in receivables = $394,521 − $200,000 = <strong>$194,521</strong><br><br>
+                    <strong>Incremental Benefits:</strong><br>
+                    Extra contribution = 30% × ($2.4m − $2m) = <strong>$120,000</strong><br><br>
+                    <strong>Incremental Costs:</strong><br>
+                    Finance cost on extra receivables = 10% × $194,521 = <strong>$19,452</strong><br>
+                    Extra bad debts = (2% × $2.4m) − (1% × $2m) = $48,000 − $20,000 = <strong>$28,000</strong><br>
+                    Total extra costs = $19,452 + $28,000 = <strong>$47,452</strong><br><br>
+                    <strong>Net Benefit = $120,000 − $47,452 = $72,548</strong><br><br>
+                    <strong>Decision: EXTEND the credit period — it is financially beneficial.</strong>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                When calculating finance cost on receivables, use the FULL receivables balance (not just the variable cost portion) unless the question specifically says otherwise. Some older texts use variable cost only, but ACCA FM typically uses the full receivables amount financed at the cost of capital.
+            </div>
+
+            <h3>Early Settlement Discounts</h3>
+            <div class="formula-box">
+                <div class="label">Cost of Early Settlement Discount (Annualised)</div>
+                <strong>Cost = [d / (100 − d)] × [365 / (Normal Period − Discount Period)]</strong><br><br>
+                Where d = discount %<br><br>
+                Compare this cost with the company's <strong>cost of short-term finance</strong>. If cost of discount > cost of finance, DON'T offer it.
+            </div>
+
+            <div class="example-box">
+                <div class="example-title">📖 Example: Evaluating a Discount</div>
+                <p>Terms: 2% discount if paid within 10 days, otherwise 30 days. Cost of capital = 12%.</p>
+                <div class="solution">
+                    <strong>Annualised cost of discount:</strong><br>
+                    = [2 / (100 − 2)] × [365 / (30 − 10)]<br>
+                    = (2 / 98) × (365 / 20)<br>
+                    = 0.0204 × 18.25<br>
+                    = <strong>37.2%</strong><br><br>
+                    <strong>Decision:</strong> 37.2% > 12% cost of capital. The discount is VERY EXPENSIVE for the company.<br>
+                    However, from the CUSTOMER's perspective, NOT taking the discount means paying 37.2% implicit interest — so customers will likely take it!<br><br>
+                    <strong>For the company:</strong> Only offer if the reduced receivables days and improved cash flow justify this high cost.
+                </div>
+            </div>
+
+            <h3>Factoring</h3>
+            <p>Factoring = Selling receivables to a factor (financial institution).</p>
+
+            <table>
+                <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th>Key Feature</th>
+                </tr>
+                <tr>
+                    <td><strong>With Recourse</strong></td>
+                    <td>Factor can claim back from seller if debtor doesn't pay</td>
+                    <td>Lower fee, risk stays with seller</td>
+                </tr>
+                <tr>
+                    <td><strong>Without Recourse</strong></td>
+                    <td>Factor bears bad debt risk</td>
+                    <td>Higher fee, risk transferred</td>
+                </tr>
+                <tr>
+                    <td><strong>Advance Factoring</strong></td>
+                    <td>Factor pays % of invoice value immediately (e.g., 80%)</td>
+                    <td>Immediate cash flow benefit</td>
+                </tr>
+                <tr>
+                    <td><strong>Maturity Factoring</strong></td>
+                    <td>Factor pays on due date</td>
+                    <td>No immediate cash, just admin service</td>
+                </tr>
+            </table>
+
+            <div class="formula-box">
+                <div class="label">Net Benefit of Factoring</div>
+                <strong>Benefits:</strong><br>
+                • Admin cost savings (if factor manages ledger)<br>
+                • Interest saved on reduced receivables (if advance given)<br>
+                • Bad debts saved (if non-recourse)<br><br>
+                <strong>Costs:</strong><br>
+                • Factor fee (% of turnover)<br>
+                • Interest on advances (if applicable)<br><br>
+                <strong>Net Benefit = Benefits − Costs</strong>
+            </div>
+
+            <div class="example-box">
+                <div class="example-title">📖 Example: Factoring Decision</div>
+                <p>Annual credit sales = $6m. Receivables days = 60. Admin costs = $50,000/year. Bad debts = 2%. Cost of capital = 10%.</p>
+                <p>Factor offers: 80% advance at 8% interest. Factor fee = 1.5% of turnover. Will reduce receivables days to 40. Non-recourse (factor bears bad debts). Admin savings = $50,000.</p>
+                <div class="solution">
+                    <strong>Current receivables:</strong> ($6m / 365) × 60 = <strong>$986,301</strong><br>
+                    <strong>New receivables:</strong> ($6m / 365) × 40 = <strong>$657,534</strong><br>
+                    <strong>Reduction:</strong> $986,301 − $657,534 = <strong>$328,767</strong><br><br>
+                    <strong>Benefits:</strong><br>
+                    • Interest saved on reduced receivables = 10% × $328,767 = <strong>$32,877</strong><br>
+                    • Admin cost savings = <strong>$50,000</strong><br>
+                    • Bad debts saved = 2% × $6m = <strong>$120,000</strong><br>
+                    • <strong>Total Benefits = $202,877</strong><br><br>
+                    <strong>Costs:</strong><br>
+                    • Factor fee = 1.5% × $6m = <strong>$90,000</strong><br>
+                    • Interest on advance: 80% of $657,534 = $526,027 advanced<br>
+                    &nbsp;&nbsp;Interest = 8% × $526,027 = <strong>$42,082</strong><br>
+                    • <strong>Total Costs = $132,082</strong><br><br>
+                    <strong>Net Benefit = $202,877 − $132,082 = $70,795</strong><br><br>
+                    <strong>Decision: ACCEPT factoring — positive net benefit.</strong>
+                </div>
+            </div>
+
+            <h3>Invoice Discounting</h3>
+            <ul>
+                <li>Borrowing money using receivables as <strong>security</strong></li>
+                <li>Company retains control of sales ledger</li>
+                <li>Customers don't know about it (confidential)</li>
+                <li>Typically 80% of invoice value advanced</li>
+                <li>Interest charged on amount advanced</li>
+                <li>Good for single large invoices or occasional needs</li>
+            </ul>
+
+            <div class="warning-box">
+                Don't confuse factoring with invoice discounting! Factoring usually involves selling the debt AND administration of the ledger. Invoice discounting is just borrowing against receivables — the company still chases payments.
+            </div>
+        </div>
+
+        <!-- SECTION 5: PAYABLES MANAGEMENT -->
+        <div class="section" id="payables">
+            <h2>5. Payables Management</h2>
+
+            <h3>Cost of NOT Taking Early Payment Discount</h3>
+            <p>This is the SAME formula as the cost of offering a discount — but from the buyer's perspective.</p>
+
+            <div class="formula-box">
+                <div class="label">Annualised Cost of NOT Taking Discount</div>
+                <strong>Cost = [d / (100 − d)] × [365 / (Total Period − Discount Period)]</strong><br><br>
+                If this cost > company's cost of finance → <strong>TAKE THE DISCOUNT</strong> (borrow if necessary to pay early)<br>
+                If this cost < company's cost of finance → <strong>DON'T TAKE THE DISCOUNT</strong> (use the full credit period)
+            </div>
+
+            <div class="example-box">
+                <div class="example-title">📖 Example: Should We Take the Discount?</div>
+                <p>Supplier offers: 1% discount if paid in 10 days, otherwise 45 days. Company's overdraft rate = 8%.</p>
+                <div class="solution">
+                    <strong>Annualised cost of NOT taking discount:</strong><br>
+                    = [1 / (100 − 1)] × [365 / (45 − 10)]<br>
+                    = (1 / 99) × (365 / 35)<br>
+                    = 0.0101 × 10.43<br>
+                    = <strong>10.5%</strong><br><br>
+                    <strong>Decision:</strong> 10.5% > 8% overdraft rate.<br>
+                    It is cheaper to borrow at 8% to pay early and get the 1% discount than to use the full 45 days.<br><br>
+                    <strong>TAKE THE DISCOUNT.</strong>
+                </div>
+            </div>
+
+            <h3>Trade Credit as a Source of Finance</h3>
+            <div class="key-point">
+                <strong>Advantages:</strong> Free (if no discount foregone), flexible, no formal agreement needed, widely available.<br><br>
+                <strong>Disadvantages:</strong> Risk of damaging supplier relationships, may lose discounts, reputation risk if payments delayed too long, suppliers may refuse future credit.
+            </div>
+
+            <h3>Extending Payables Period</h3>
+            <ul>
+                <li>Effectively an interest-free loan from suppliers</li>
+                <li>But risks: damaged credit rating, loss of supplier goodwill, supply interruptions, loss of early payment discounts</li>
+                <li>Ethical considerations — deliberate late payment harms supply chain</li>
+            </ul>
+        </div>
+
+        <!-- SECTION 6: CASH MANAGEMENT -->
+        <div class="section" id="cash">
+            <h2>6. Cash Management <span class="badge badge-calc">CALCULATION HEAVY</span></h2>
+
+            <h3>Reasons for Holding Cash</h3>
+            <ul>
+                <li><strong>Transaction motive:</strong> Day-to-day operations</li>
+                <li><strong>Precautionary motive:</strong> Buffer for unexpected needs</li>
+                <li><strong>Speculative motive:</strong> Take advantage of opportunities</li>
+            </ul>
+
+            <h3>Baumol Model (Cash Management)</h3>
+            <p>Applies EOQ logic to cash management. Assumes cash is used at a STEADY, CONSTANT rate.</p>
+
+            <div class="formula-box">
+                <div class="label">Baumol Model Formula</div>
+                <strong>Optimal Cash Transfer = √(2 × C<sub>t</sub> × T / C<sub>h</sub>)</strong><br><br>
+                Where:<br>
+                C<sub>t</sub> = Fixed cost per transaction (selling investments / withdrawing)<br>
+                T = Total cash needed for the period<br>
+                C<sub>h</sub> = Holding cost (opportunity cost / interest rate)<br><br>
+                <strong>Number of transfers = T / Optimal Transfer</strong><br>
+                <strong>Average cash balance = Optimal Transfer / 2</strong>
+            </div>
+
+            <div class="example-box">
+                <div class="example-title">📖 Example: Baumol Model</div>
+                <p>A company needs $120,000 cash over the next year. Transaction cost = $50 per sale of investments. Interest rate = 6% p.a.</p>
+                <div class="solution">
+                    <strong>Optimal transfer:</strong><br>
+                    = √(2 × 50 × 120,000 / 0.06)<br>
+                    = √(12,000,000 / 0.06)<br>
+                    = √200,000,000<br>
+                    = <strong>$14,142</strong><br><br>
+                    <strong>Number of transfers:</strong> $120,000 / $14,142 = <strong>8.5 → 9 transfers</strong><br>
+                    <strong>Average cash balance:</strong> $14,142 / 2 = <strong>$7,071</strong><br><br>
+                    <strong>Total cost:</strong><br>
+                    Transaction cost = 8.5 × $50 = <strong>$425</strong><br>
+                    Holding cost = $7,071 × 6% = <strong>$424</strong><br>
+                    Total = <strong>$849</strong> (approximately equal, as expected at optimal point)
+                </div>
+            </div>
+
+            <div class="warning-box">
+                Baumol assumes CONSTANT cash usage. In reality, cash flows are unpredictable. The Miller-Orr model is better for volatile cash flows.
+            </div>
+
+            <h3>Miller-Orr Model (Cash Management)</h3>
+            <p>For UNCERTAIN, volatile cash flows. Sets upper and lower limits for cash balance.</p>
+
+            <div class="formula-box">
+                <div class="label">Miller-Orr Formulas</div>
+                <strong>Return Point = Lower Limit + (Spread / 3)</strong><br><br>
+                <strong>Spread = 3 × [ (3/4) × (Transaction Cost × Variance of Cash Flows) / Interest Rate ]^(1/3)</strong><br><br>
+                Or simplified:<br>
+                <strong>Spread = 3 × ∛[(3 × Transaction Cost × Variance) / (4 × Daily Interest Rate)]</strong><br><br>
+                <strong>Upper Limit = Lower Limit + Spread</strong>
+            </div>
+
+            <div class="key-point">
+                <strong>Decision Rules:</strong><br>
+                • If cash hits <strong>Upper Limit</strong> → Buy investments = (Upper Limit − Return Point)<br>
+                • If cash hits <strong>Lower Limit</strong> → Sell investments = (Return Point − Lower Limit)<br>
+                • Cash balance always returns to the <strong>Return Point</strong>
+            </div>
+
+            <div class="example-box">
+                <div class="example-title">📖 Example: Miller-Orr Model</div>
+                <p>Lower limit = $10,000. Transaction cost = $50. Variance of daily cash flows = $625,000. Daily interest rate = 0.02%.</p>
+                <div class="solution">
+                    <strong>Step 1 — Calculate Spread:</strong><br>
+                    Spread = 3 × ∛[(3 × 50 × 625,000) / (4 × 0.0002)]<br>
+                    = 3 × ∛[93,750,000 / 0.0008]<br>
+                    = 3 × ∛117,187,500,000<br>
+                    = 3 × 4,895<br>
+                    = <strong>$14,685</strong><br><br>
+                    <strong>Step 2 — Calculate Return Point:</strong><br>
+                    = $10,000 + ($14,685 / 3)<br>
+                    = $10,000 + $4,895<br>
+                    = <strong>$14,895</strong><br><br>
+                    <strong>Step 3 — Upper Limit:</strong><br>
+                    = $10,000 + $14,685<br>
+                    = <strong>$24,685</strong><br><br>
+                    <strong>Actions:</strong><br>
+                    • Cash hits $24,685 → Buy $9,790 of investments (back to $14,895)<br>
+                    • Cash hits $10,000 → Sell $4,895 of investments (back to $14,895)
+                </div>
+            </div>
+
+            <div class="tip-box">
+                In the exam, variance might be given as "variance of daily cash flows" or you might need to calculate it from standard deviation (Variance = SD²). Make sure you use the correct daily interest rate — if given annual, divide by 365!
+            </div>
+
+            <h3>Cash Budgets</h3>
+            <p>A cash budget forecasts cash receipts and payments over a period.</p>
+
+            <div class="example-box">
+                <div class="example-title">📖 Example: Simple Cash Budget</div>
+                <p>Company has: 40% cash sales, 60% credit sales. Credit customers pay: 50% in month after sale, 50% two months after. Sales: Jan $100k, Feb $120k, Mar $150k.</p>
+                <div class="solution">
+                    <strong>March Cash Receipts:</strong><br>
+                    • Cash sales (40% of Mar): 0.4 × $150,000 = <strong>$60,000</strong><br>
+                    • Credit sales from Feb (50%): 0.6 × $120,000 × 50% = <strong>$36,000</strong><br>
+                    • Credit sales from Jan (50%): 0.6 × $100,000 × 50% = <strong>$30,000</strong><br>
+                    <strong>Total March receipts = $126,000</strong><br><br>
+                    <em>Always track the timing lag carefully — draw a timeline if needed!</em>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 7: FOREIGN CURRENCY -->
+        <div class="section" id="foreign">
+            <h2>7. Foreign Currency Working Capital</h2>
+
+            <h3>Leading and Lagging</h3>
+            <table>
+                <tr>
+                    <th>Technique</th>
+                    <th>When to Use</th>
+                    <th>Action</th>
+                </tr>
+                <tr>
+                    <td><strong>Leading</strong></td>
+                    <td>Expect foreign currency to WEAKEN (you owe foreign currency)</td>
+                    <td>Pay EARLY before currency falls</td>
+                </tr>
+                <tr>
+                    <td><strong>Lagging</strong></td>
+                    <td>Expect foreign currency to STRENGTHEN (you owe foreign currency)</td>
+                    <td>Pay LATE to buy cheaper domestic currency</td>
+                </tr>
+                <tr>
+                    <td><strong>Leading</strong></td>
+                    <td>Expect foreign currency to STRENGTHEN (you are owed foreign currency)</td>
+                    <td>Collect EARLY before currency rises</td>
+                </tr>
+                <tr>
+                    <td><strong>Lagging</strong></td>
+                    <td>Expect foreign currency to WEAKEN (you are owed foreign currency)</td>
+                    <td>Collect LATE hoping currency recovers</td>
+                </tr>
+            </table>
+
+            <div class="example-box">
+                <div class="example-title">📖 Example: Leading and Lagging</div>
+                <p>A UK company owes $100,000 to a US supplier in 3 months. The company expects the USD to strengthen against GBP.</p>
+                <div class="solution">
+                    <strong>Analysis:</strong><br>
+                    If USD strengthens → more GBP needed to buy $100,000 in 3 months.<br>
+                    <strong>Action: LEAD — pay early NOW</strong> to avoid higher GBP cost later.<br><br>
+                    Conversely, if they expected USD to weaken → <strong>LAG — pay late</strong> to buy dollars more cheaply in future.
+                </div>
+            </div>
+
+            <h3>Managing Foreign Receivables & Payables</h3>
+            <ul>
+                <li><strong>Invoice in home currency:</strong> Transfer risk to customer/supplier</li>
+                <li><strong>Netting:</strong> Offset receivables against payables in same currency</li>
+                <li><strong>Matching:</strong> Match foreign currency inflows with outflows</li>
+                <li><strong>Forward contracts:</strong> Lock in exchange rate now for future transaction</li>
+                <li><strong>Money market hedging:</strong> Borrow/deposit in foreign currency to create synthetic forward</li>
+            </ul>
+
+            <div class="tip-box">
+                Leading and lagging is a natural hedge — no transaction costs, but carries risk if exchange rate moves opposite to expectations. It also depends on supplier/customer agreeing to change payment terms.
+            </div>
+        </div>
+
+        <!-- SECTION 8: OVERTRADING -->
+        <div class="section" id="overtrading">
+            <h2>8. Overtrading (Under-capitalisation)</h2>
+
+            <div class="key-point">
+                <strong>Definition:</strong> Overtrading occurs when a company grows its revenue too quickly without adequate long-term capital (equity or long-term debt) to finance the increased working capital needs.
+            </div>
+
+            <h3>Symptoms of Overtrading</h3>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <h4>📉 Financial Signs</h4>
+                    <ul>
+                        <li>Rapid increase in revenue/sales</li>
+                        <li>Rapid increase in current assets</li>
+                        <li>Decreasing profit margins</li>
+                        <li>Decreasing current ratio</li>
+                        <li>Decreasing quick ratio</li>
+                    </ul>
+                </div>
+                <div class="summary-card">
+                    <h4>⚠️ Operational Signs</h4>
+                    <ul>
+                        <li>Increasing overdraft (short-term finance)</li>
+                        <li>Increasing payables days (paying suppliers late)</li>
+                        <li>Decreasing inventory turnover</li>
+                        <li>Increasing receivables days</li>
+                        <li>Longer cash operating cycle</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Solutions to Overtrading</h3>
+            <ol>
+                <li><strong>Inject new long-term capital:</strong> Issue shares or long-term loans</li>
+                <li><strong>Improve working capital management:</strong> Reduce inventory, collect receivables faster, negotiate better payment terms</li>
+                <li><strong>Reduce growth rate:</strong> Slow down expansion to match available finance</li>
+                <li><strong>Improve profitability:</strong> Better margins generate more internal cash</li>
+                <li><strong>Lease assets:</strong> Instead of buying (preserves cash)</li>
+                <li><strong>Factor receivables:</strong> Convert receivables to immediate cash</li>
+            </ol>
+
+            <div class="example-box">
+                <div class="example-title">📖 Example: Identifying Overtrading</div>
+                <p>Compare Year 1 and Year 2 for a company:</p>
+                <table>
+                    <tr><th></th><th>Year 1</th><th>Year 2</th></tr>
+                    <tr><td>Revenue</td><td>$1,000k</td><td>$2,000k</td></tr>
+                    <tr><td>Inventory</td><td>$100k</td><td>$300k</td></tr>
+                    <tr><td>Receivables</td><td>$150k</td><td>$400k</td></tr>
+                    <tr><td>Payables</td><td>$80k</td><td>$250k</td></tr>
+                    <tr><td>Overdraft</td><td>$50k</td><td>$350k</td></tr>
+                    <tr><td>Equity</td><td>$500k</td><td>$500k</td></tr>
+                </table>
+                <div class="solution">
+                    <strong>Analysis:</strong><br>
+                    • Revenue doubled but equity stayed same → no new long-term finance<br>
+                    • Inventory tripled, receivables more than doubled → massive WC increase<br>
+                    • Overdraft increased 7x → relying heavily on short-term finance<br>
+                    • Current ratio: Y1 = ($100+$150)/($80+$50) = 1.92; Y2 = ($300+$400)/($250+$350) = 1.17<br>
+                    • Receivables days: Y1 = 55 days; Y2 = 73 days<br>
+                    • Payables days: Y1 = 29 days; Y2 = 46 days<br><br>
+                    <strong>Conclusion: Clear signs of OVERTRADING.</strong> The company has grown too fast without adequate long-term capital.
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 9: KEY RATIOS -->
+        <div class="section" id="ratios">
+            <h2>9. Key Ratios Summary Sheet</h2>
+
+            <table>
+                <tr>
+                    <th>Ratio</th>
+                    <th>Formula</th>
+                    <th>Interpretation</th>
+                </tr>
+                <tr>
+                    <td>Current Ratio</td>
+                    <td>Current Assets / Current Liabilities</td>
+                    <td>Liquidity. >1 is generally good. Too high = inefficient WC use.</td>
+                </tr>
+                <tr>
+                    <td>Quick (Acid Test) Ratio</td>
+                    <td>(Current Assets − Inventory) / Current Liabilities</td>
+                    <td>Stricter liquidity test. Inventory excluded (least liquid).</td>
+                </tr>
+                <tr>
+                    <td>Inventory Days</td>
+                    <td>(Avg Inventory / COS) × 365</td>
+                    <td>How long inventory held. Industry-dependent.</td>
+                </tr>
+                <tr>
+                    <td>Receivables Days</td>
+                    <td>(Avg Receivables / Credit Sales) × 365</td>
+                    <td>How long customers take to pay. Compare to credit terms.</td>
+                </tr>
+                <tr>
+                    <td>Payables Days</td>
+                    <td>(Avg Payables / Credit Purchases) × 365</td>
+                    <td>How long company takes to pay. Too high = relationship risk.</td>
+                </tr>
+                <tr>
+                    <td>Cash Operating Cycle</td>
+                    <td>Inv Days + Rec Days − Pay Days</td>
+                    <td>Time cash tied up in WC. Shorter = better.</td>
+                </tr>
+                <tr>
+                    <td>Inventory Turnover</td>
+                    <td>COS / Average Inventory</td>
+                    <td>How many times inventory sold/replaced. Higher = more efficient.</td>
+                </tr>
+                <tr>
+                    <td>Receivables Turnover</td>
+                    <td>Credit Sales / Average Receivables</td>
+                    <td>How many times receivables collected per year.</td>
+                </tr>
+                <tr>
+                    <td>Working Capital to Sales</td>
+                    <td>Working Capital / Sales</td>
+                    <td>How much WC needed per $ of sales.</td>
+                </tr>
+            </table>
+
+            <div class="tip-box">
+                In the exam, always calculate ratios for MULTIPLE years or compare to industry averages. A single ratio tells you very little — trend analysis reveals the real story!
+            </div>
+        </div>
+
+        <!-- FINAL TIPS -->
+        <div class="section">
+            <h2>🎯 Final Exam Strategy Tips</h2>
+
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <h4>⏱️ Time Management</h4>
+                    <p>WC questions are often 10-15 marks. Spend proportionate time. Set up formulas clearly before calculating.</p>
+                </div>
+                <div class="summary-card">
+                    <h4>📝 Show Your Workings</h4>
+                    <p>Always show formulas and steps. Even if final answer wrong, method marks are awarded.</p>
+                </div>
+                <div class="summary-card">
+                    <h4>💰 Use Full Receivables</h4>
+                    <p>For finance cost calculations, use full receivables balance × cost of capital unless told otherwise.</p>
+                </div>
+                <div class="summary-card">
+                    <h4>📊 State Assumptions</h4>
+                    <p>If using COS instead of purchases, state it. If using year-end instead of average balances, mention the limitation.</p>
+                </div>
+                <div class="summary-card">
+                    <h4>✅ Always Conclude</h4>
+                    <p>After calculations, always write a clear recommendation: "Accept/Reject" with brief justification using the numbers.</p>
+                </div>
+                <div class="summary-card">
+                    <h4>🔢 Check Units</h4>
+                    <p>Watch for $000s, $millions, days vs. months. Convert everything consistently before calculating.</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>ACCA FM Working Capital Management Power Notes | September 2026 Exam Window</p>
+            <p>Good luck with your exam! 🍀</p>
+        </footer>
+    </div>
+</body>
+</html>
