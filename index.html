@@ -6,497 +6,499 @@
 <title>ACCA Study Notes</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:    #F8F8F6;
-  --white: #FFFFFF;
-  --ink:   #111110;
-  --ink-3: #9A9890;
-  --rule:  #ECEAE4;
+  --bg:        #ECEEF2;
+  --surface:   #FFFFFF;
+  --border:    #E4E6EA;
+  --ink:       #1A1A1A;
+  --ink-2:     #5A5A6A;
+  --ink-3:     #9A9AAA;
 
-  --tx:      #D63B1F; --tx-light: #FEF0ED; --tx-rule: #F5C4BA;
-  --fm:      #1B4FD8; --fm-light: #EDF1FD; --fm-rule: #BAC9F8;
-  --aa:      #0F7A4A; --aa-light: #ECF8F2; --aa-rule: #A8DFC3;
+  --fm:        #4361EE;
+  --fm-soft:   #EEF1FD;
+  --tx:        #E85D04;
+  --tx-soft:   #FEF0E8;
+  --aa:        #2D9E6B;
+  --aa-soft:   #EAF7F1;
 }
 
 html { scroll-behavior: smooth; }
-body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink); min-height: 100vh; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
 
-/* ── PAGE SHELL ── */
-.page { max-width: 1080px; margin: 0 auto; padding: 0 2rem 6rem; }
+/* ── LAYOUT ── */
+.page { max-width: 1100px; margin: 0 auto; padding: 0 2rem 5rem; }
 
 /* ── TOP NAV ── */
 .topnav {
   display: flex; align-items: center; justify-content: space-between;
-  padding: 1.8rem 0 1.8rem;
-  border-bottom: 1px solid var(--rule);
-  animation: up 0.5s ease both;
+  padding: 1.4rem 0;
+  margin-bottom: 2rem;
 }
 .topnav-brand {
-  font-family: 'Syne', sans-serif;
-  font-size: 15px; font-weight: 800;
-  letter-spacing: -0.01em; color: var(--ink);
-  text-decoration: none;
+  font-size: 14px; font-weight: 700;
+  color: var(--ink); text-decoration: none;
+  letter-spacing: -0.01em;
 }
-.topnav-links { display: flex; gap: 0; }
-.topnav-link {
-  font-size: 12px; font-weight: 500; letter-spacing: 0.05em;
-  text-transform: uppercase; text-decoration: none;
-  color: var(--ink-3); padding: 6px 16px;
-  border-bottom: 2px solid transparent;
-  transition: color 0.15s, border-color 0.15s;
+.topnav-pills { display: flex; gap: 6px; }
+.pill {
+  font-size: 12px; font-weight: 500;
+  padding: 5px 14px; border-radius: 20px;
+  text-decoration: none; border: 1.5px solid var(--border);
+  background: var(--surface); color: var(--ink-2);
+  transition: all 0.15s;
 }
-.topnav-link.fm:hover { color: var(--fm); border-color: var(--fm); }
-.topnav-link.tx:hover { color: var(--tx); border-color: var(--tx); }
-.topnav-link.aa:hover { color: var(--aa); border-color: var(--aa); }
+.pill:hover { border-color: transparent; color: #fff; }
+.pill-fm:hover { background: var(--fm); }
+.pill-tx:hover { background: var(--tx); }
+.pill-aa:hover { background: var(--aa); }
 
-/* ── HERO ── */
-.hero {
-  padding: 4rem 0 3rem;
-  border-bottom: 1px solid var(--rule);
-  animation: up 0.6s 0.05s ease both;
+/* ── SECTION HEADER ── */
+.section { margin-bottom: 2rem; }
+.section-head {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 1rem;
 }
-.hero-eyebrow {
-  font-size: 11px; font-weight: 500; letter-spacing: 0.18em;
-  text-transform: uppercase; color: var(--ink-3);
-  margin-bottom: 1rem; display: block;
-}
-.hero h1 {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(52px, 9vw, 100px);
-  font-weight: 800; line-height: 0.92;
-  letter-spacing: -0.04em; color: var(--ink);
-  margin-bottom: 1.5rem;
-}
-.hero-desc {
-  font-size: 15px; font-weight: 300; color: var(--ink-3);
-  max-width: 420px; line-height: 1.6;
-}
-
-/* ── SUBJECT SECTION ── */
-.subject { margin-top: 4rem; animation: up 0.6s ease both; }
-.subject:nth-child(2) { animation-delay: 0.08s; }
-.subject:nth-child(3) { animation-delay: 0.16s; }
-.subject:nth-child(4) { animation-delay: 0.24s; }
-
-.subject-header {
-  display: flex; align-items: baseline; justify-content: space-between;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid var(--rule);
-  margin-bottom: 1.5rem;
-}
-.subject-title {
-  font-family: 'Syne', sans-serif;
-  font-size: 28px; font-weight: 800;
-  letter-spacing: -0.03em; color: var(--ink);
-}
-.subject-title span {
-  display: inline-block;
-  width: 10px; height: 10px; border-radius: 50%;
-  margin-right: 10px; vertical-align: middle;
-  position: relative; top: -2px;
-}
-.dot-fm { background: var(--fm); }
-.dot-tx { background: var(--tx); }
-.dot-aa { background: var(--aa); }
-
-.subject-count {
-  font-size: 12px; color: var(--ink-3); font-weight: 400;
-}
-
-/* ── FEATURED CARD (first card, full width) ── */
-.featured {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-  background: var(--white);
-  border: 1px solid var(--rule);
-  border-radius: 16px;
-  overflow: hidden;
-  margin-bottom: 14px;
-  text-decoration: none; color: var(--ink);
-  transition: box-shadow 0.2s, transform 0.2s;
-}
-.featured:hover { transform: translateY(-3px); }
-.featured-thumb {
-  min-height: 180px;
+.section-left { display: flex; align-items: center; gap: 10px; }
+.section-icon {
+  width: 32px; height: 32px; border-radius: 8px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 56px;
-  position: relative; overflow: hidden;
+  font-size: 14px; font-weight: 700; color: #fff;
+  flex-shrink: 0;
 }
-.featured-thumb::after {
-  content: ''; position: absolute; inset: 0;
-  opacity: 0.15;
-  background: radial-gradient(circle at 30% 50%, white 0%, transparent 70%);
-}
-.thumb-fm { background: linear-gradient(135deg, #1B4FD8 0%, #7B9FF8 100%); }
-.thumb-tx { background: linear-gradient(135deg, #D63B1F 0%, #F8A38A 100%); }
-.thumb-aa { background: linear-gradient(135deg, #0F7A4A 0%, #6DDBA8 100%); }
+.icon-fm { background: var(--fm); }
+.icon-tx { background: var(--tx); }
+.icon-aa { background: var(--aa); }
 
-.featured-body {
-  padding: 28px 28px 24px;
-  display: flex; flex-direction: column; justify-content: space-between;
+.section-title {
+  font-size: 15px; font-weight: 600; color: var(--ink);
 }
-.featured-tag {
-  font-size: 10px; font-weight: 600; letter-spacing: 0.14em;
-  text-transform: uppercase; padding: 3px 9px; border-radius: 4px;
-  display: inline-block; margin-bottom: 14px; width: fit-content;
+.section-sub {
+  font-size: 11px; color: var(--ink-3); margin-top: 1px;
 }
-.tag-fm { color: var(--fm); background: var(--fm-light); }
-.tag-tx { color: var(--tx); background: var(--tx-light); }
-.tag-aa { color: var(--aa); background: var(--aa-light); }
-
-.featured-name {
-  font-family: 'Syne', sans-serif;
-  font-size: 22px; font-weight: 700;
-  letter-spacing: -0.02em; line-height: 1.2;
-  color: var(--ink); flex: 1;
+.section-count {
+  font-size: 12px; color: var(--ink-3);
+  background: var(--bg); border: 1px solid var(--border);
+  padding: 3px 10px; border-radius: 20px;
 }
-.featured-arrow {
-  margin-top: 20px; font-size: 20px;
-  color: var(--rule); transition: color 0.18s, transform 0.18s;
-  display: block;
-}
-.featured:hover .featured-arrow { transform: translateX(5px); }
-.featured-fm:hover { box-shadow: 0 12px 36px rgba(27,79,216,0.12); }
-.featured-fm:hover .featured-arrow { color: var(--fm); }
-.featured-tx:hover { box-shadow: 0 12px 36px rgba(214,59,31,0.12); }
-.featured-tx:hover .featured-arrow { color: var(--tx); }
-.featured-aa:hover { box-shadow: 0 12px 36px rgba(15,122,74,0.12); }
-.featured-aa:hover .featured-arrow { color: var(--aa); }
 
 /* ── CARDS GRID ── */
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
 }
+
+/* ── CARD ── */
 .card {
-  display: flex; flex-direction: column;
-  background: var(--white);
-  border: 1px solid var(--rule);
-  border-radius: 14px;
-  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px 20px 16px;
   text-decoration: none; color: var(--ink);
-  transition: transform 0.18s, box-shadow 0.18s;
+  display: flex; flex-direction: column;
+  transition: box-shadow 0.18s, transform 0.18s;
+  position: relative;
 }
-.card:hover { transform: translateY(-4px); }
-.card-fm:hover { box-shadow: 0 10px 30px rgba(27,79,216,0.10); }
-.card-tx:hover { box-shadow: 0 10px 30px rgba(214,59,31,0.10); }
-.card-aa:hover { box-shadow: 0 10px 30px rgba(15,122,74,0.10); }
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
 
-.card-thumb {
-  height: 90px;
+/* coloured left accent bar */
+.card::before {
+  content: '';
+  position: absolute; left: 0; top: 16px; bottom: 16px;
+  width: 3px; border-radius: 0 3px 3px 0;
+  opacity: 0; transition: opacity 0.18s;
+}
+.card-fm::before { background: var(--fm); }
+.card-tx::before { background: var(--tx); }
+.card-aa::before { background: var(--aa); }
+.card:hover::before { opacity: 1; }
+
+.card-top {
+  display: flex; align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.card-emoji-wrap {
+  width: 40px; height: 40px; border-radius: 10px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 28px; position: relative; overflow: hidden;
+  font-size: 18px; flex-shrink: 0;
 }
-.card-thumb::after {
-  content: ''; position: absolute; inset: 0; opacity: 0.12;
-  background: radial-gradient(circle at 25% 40%, white 0%, transparent 65%);
+.emoji-fm { background: var(--fm-soft); }
+.emoji-tx { background: var(--tx-soft); }
+.emoji-aa { background: var(--aa-soft); }
+
+.card-badge {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 3px 8px; border-radius: 6px;
+}
+.badge-fm { color: var(--fm); background: var(--fm-soft); }
+.badge-tx { color: var(--tx); background: var(--tx-soft); }
+.badge-aa { color: var(--aa); background: var(--aa-soft); }
+
+.card-name {
+  font-size: 14px; font-weight: 600; line-height: 1.4;
+  color: var(--ink); flex: 1; margin-bottom: 16px;
 }
 
-.card-body { padding: 16px 16px 14px; display: flex; flex-direction: column; flex: 1; }
-.card-name {
-  font-family: 'Syne', sans-serif;
-  font-size: 14px; font-weight: 700;
-  line-height: 1.3; letter-spacing: -0.01em;
-  color: var(--ink); flex: 1;
-}
 .card-footer {
   display: flex; align-items: center; justify-content: space-between;
-  margin-top: 14px; padding-top: 10px;
-  border-top: 1px solid var(--rule);
+  padding-top: 12px; border-top: 1px solid var(--border);
 }
-.card-tag {
-  font-size: 10px; font-weight: 600; letter-spacing: 0.12em;
-  text-transform: uppercase; padding: 2px 7px; border-radius: 3px;
+.card-open {
+  font-size: 11px; font-weight: 500; color: var(--ink-3);
 }
 .card-arrow {
-  font-size: 16px; color: var(--rule);
-  transition: color 0.15s, transform 0.15s;
+  width: 28px; height: 28px; border-radius: 8px;
+  background: var(--bg); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; color: var(--ink-3);
+  transition: all 0.15s;
 }
-.card:hover .card-arrow { transform: translateX(3px); }
-.card-fm:hover .card-arrow { color: var(--fm); }
-.card-tx:hover .card-arrow { color: var(--tx); }
-.card-aa:hover .card-arrow { color: var(--aa); }
+.card:hover .card-arrow { transform: translateX(2px); }
+.card-fm:hover .card-arrow { background: var(--fm); border-color: var(--fm); color: #fff; }
+.card-tx:hover .card-arrow { background: var(--tx); border-color: var(--tx); color: #fff; }
+.card-aa:hover .card-arrow { background: var(--aa); border-color: var(--aa); color: #fff; }
 
 /* ── FOOTER ── */
 .footer {
-  margin-top: 5rem; padding-top: 1.5rem;
-  border-top: 1px solid var(--rule);
+  margin-top: 3rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
   display: flex; align-items: center; justify-content: space-between;
   font-size: 12px; color: var(--ink-3);
 }
-.footer-brand { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 14px; color: var(--ink); }
+.footer strong { color: var(--ink); font-weight: 600; }
 
-/* ── ANIM ── */
-@keyframes up { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:none; } }
+/* ── FADE IN ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+.section { animation: fadeUp 0.5s ease both; }
+.section:nth-child(1) { animation-delay: 0.05s; }
+.section:nth-child(2) { animation-delay: 0.12s; }
+.section:nth-child(3) { animation-delay: 0.19s; }
 
-@media (max-width: 640px) {
+@media (max-width: 600px) {
   .page { padding: 0 1rem 4rem; }
-  .featured { grid-template-columns: 1fr; }
-  .featured-thumb { min-height: 120px; }
-  .cards-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-  .hero h1 { font-size: clamp(42px, 12vw, 72px); }
-  .topnav-links { display: none; }
+  .cards-grid { grid-template-columns: 1fr; }
+  .topnav-pills { display: none; }
 }
 </style>
 </head>
 <body>
 <div class="page">
 
-  <!-- TOP NAV -->
+  <!-- NAV -->
   <nav class="topnav">
-    <a href="#" class="topnav-brand">ACCA Notes</a>
-    <div class="topnav-links">
-      <a href="#fm" class="topnav-link fm">FM</a>
-      <a href="#tx" class="topnav-link tx">TX</a>
-      <a href="#aa" class="topnav-link aa">AA</a>
+    <span class="topnav-brand">ACCA Study Notes</span>
+    <div class="topnav-pills">
+      <a href="#fm" class="pill pill-fm">FM</a>
+      <a href="#tx" class="pill pill-tx">TX</a>
+      <a href="#aa" class="pill pill-aa">AA</a>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <header class="hero">
-    <span class="hero-eyebrow">June 2026 Exam Session</span>
-    <h1>The<br>Study<br>Notes</h1>
-    <p class="hero-desc">Financial Management · Taxation · Audit &amp; Assurance — all your revision notes in one place.</p>
-  </header>
-
   <!-- ══════════ FM ══════════ -->
-  <section id="fm" class="subject">
-    <div class="subject-header">
-      <div class="subject-title">
-        <span class="dot-fm"></span>Financial Management
+  <div id="fm" class="section">
+    <div class="section-head">
+      <div class="section-left">
+        <div class="section-icon icon-fm">FM</div>
+        <div>
+          <div class="section-title">Financial Management</div>
+          <div class="section-sub">Corporate Finance · June 2026</div>
+        </div>
       </div>
-      <span class="subject-count">6 notes</span>
+      <span class="section-count">6 notes</span>
     </div>
-
-    <!-- Featured -->
-    <a class="featured featured-fm" href="FM/FM Financial Management Function.html">
-      <div class="featured-thumb thumb-fm">🎯</div>
-      <div class="featured-body">
-        <span class="featured-tag tag-fm">FM</span>
-        <span class="featured-name">Financial Management Function</span>
-        <span class="featured-arrow">→</span>
-      </div>
-    </a>
-
-    <!-- Rest -->
     <div class="cards-grid">
+
+      <a class="card card-fm" href="FM/FM Financial Management Function.html">
+        <div class="card-top">
+          <div class="card-emoji-wrap emoji-fm">🎯</div>
+          <span class="card-badge badge-fm">FM</span>
+        </div>
+        <span class="card-name">Financial Management Function</span>
+        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
+      </a>
+
       <a class="card card-fm" href="FM/FM Investment Appraisal Notes.html">
-        <div class="card-thumb thumb-fm">💹</div>
-        <div class="card-body">
-          <span class="card-name">Investment Appraisal Notes</span>
-          <div class="card-footer"><span class="card-tag tag-fm">FM</span><span class="card-arrow">→</span></div>
+        <div class="card-top">
+          <div class="card-emoji-wrap emoji-fm">💹</div>
+          <span class="card-badge badge-fm">FM</span>
         </div>
+        <span class="card-name">Investment Appraisal Notes</span>
+        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
       </a>
+
       <a class="card card-fm" href="FM/FM_Working_Capital_Management.html">
-        <div class="card-thumb thumb-fm">💰</div>
-        <div class="card-body">
-          <span class="card-name">Working Capital Management</span>
-          <div class="card-footer"><span class="card-tag tag-fm">FM</span><span class="card-arrow">→</span></div>
+        <div class="card-top">
+          <div class="card-emoji-wrap emoji-fm">💰</div>
+          <span class="card-badge badge-fm">FM</span>
         </div>
+        <span class="card-name">Working Capital Management</span>
+        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
       </a>
+
       <a class="card card-fm" href="FM/FM_NPV_Complete_Notes.html">
-        <div class="card-thumb thumb-fm">📐</div>
-        <div class="card-body">
-          <span class="card-name">NPV Complete Notes</span>
-          <div class="card-footer"><span class="card-tag tag-fm">FM</span><span class="card-arrow">→</span></div>
+        <div class="card-top">
+          <div class="card-emoji-wrap emoji-fm">📐</div>
+          <span class="card-badge badge-fm">FM</span>
         </div>
+        <span class="card-name">NPV Complete Notes</span>
+        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
       </a>
+
       <a class="card card-fm" href="FM/Investment Appraisal _ DeepSeek Notes.html">
-        <div class="card-thumb thumb-fm">🔭</div>
-        <div class="card-body">
-          <span class="card-name">Investment Appraisal — DeepSeek Notes</span>
-          <div class="card-footer"><span class="card-tag tag-fm">FM</span><span class="card-arrow">→</span></div>
+        <div class="card-top">
+          <div class="card-emoji-wrap emoji-fm">🔭</div>
+          <span class="card-badge badge-fm">FM</span>
         </div>
+        <span class="card-name">Investment Appraisal — DeepSeek Notes</span>
+        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
       </a>
+
       <a class="card card-fm" href="FM/Investment Appraisal _ Kimi Notes.html">
-        <div class="card-thumb thumb-fm">🧮</div>
-        <div class="card-body">
-          <span class="card-name">Investment Appraisal — Kimi Notes</span>
-          <div class="card-footer"><span class="card-tag tag-fm">FM</span><span class="card-arrow">→</span></div>
+        <div class="card-top">
+          <div class="card-emoji-wrap emoji-fm">🧮</div>
+          <span class="card-badge badge-fm">FM</span>
         </div>
+        <span class="card-name">Investment Appraisal — Kimi Notes</span>
+        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
       </a>
+
     </div>
-  </section>
+  </div>
 
   <!-- ══════════ TX ══════════ -->
-  <section id="tx" class="subject">
-    <div class="subject-header">
-      <div class="subject-title">
-        <span class="dot-tx"></span>Taxation
+  <div id="tx" class="section">
+    <div class="section-head">
+      <div class="section-left">
+        <div class="section-icon icon-tx">TX</div>
+        <div>
+          <div class="section-title">Taxation</div>
+          <div class="section-sub">Finance Act 2025 · June 2026</div>
+        </div>
       </div>
-      <span class="subject-count">10 notes</span>
+      <span class="section-count">10 notes</span>
     </div>
-
-    <a class="featured featured-tx" href="TX/TX Revision Cheatsheet       .html">
-      <div class="featured-thumb thumb-tx">⚡</div>
-      <div class="featured-body">
-        <span class="featured-tag tag-tx">TX</span>
-        <span class="featured-name">Revision Cheatsheet</span>
-        <span class="featured-arrow">→</span>
-      </div>
-    </a>
-
     <div class="cards-grid">
+
       <a class="card card-tx" href="TX/CGT Notes ACCA TX June2026.html">
-        <div class="card-thumb thumb-tx">📊</div>
-        <div class="card-body">
-          <span class="card-name">Capital Gains Tax Notes</span>
-          <div class="card-footer"><span class="card-tag tag-tx">TX</span><span class="card-arrow">→</span></div>
+        <div class="card-top">
+          <div class="card-emoji-wrap emoji-tx">📊</div>
+          <span class="card-badge badge-tx">TX</span>
         </div>
+        <span class="card-name">Capital Gains Tax Notes</span>
+        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
       </a>
+
       <a class="card card-tx" href="TX/TX Corporation Tax Notes.html">
-        <div class="card-thumb thumb-tx">🏢</div>
-        <div class="card-body">
-          <span class="card-name">Corporation Tax Notes</span>
-          <div class="card-footer"><span class="card-tag tag-tx">TX</span><span class="card-arrow">→</span></div>
+        <div class="card-top">
+          <div class="card-emoji-wrap emoji-tx">🏢</div>
+          <span class="card-badge badge-tx">TX</span>
         </div>
+        <span class="card-name">Corporation Tax Notes</span>
+        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
       </a>
+
       <a class="card card-tx" href="TX/TX EMPLOYMENT BENEFITS.html">
-        <div class="card-thumb thumb-tx">👔</div>
-        <div class="card-body">
-          <span class="card-name">Employment Benefits</span>
-          <div class="card-footer"><span class="card-tag tag-tx">TX</span><span class="card-arrow">→</span></div>
+        <div class="card-top">
+          <div class="card-emoji-wrap emoji-tx">👔</div>
+          <span class="card-badge badge-tx">TX</span>
         </div>
+        <span class="card-name">Employment Benefits</span>
+        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
       </a>
+
       <a class="card card-tx" href="TX/TX Inheretence Tax Notes.html">
-        <div class="card-thumb thumb-tx">🏛️</div>
-        <div class="card-body">
-          <span class="card-name">Inheritance Tax Notes</span>
-          <div class="card-footer"><span class="card-tag tag-tx">TX</span><span class="card-arrow">→</span></div>
+        <div class="card-top">
+          <div class="card-emoji-wrap emoji-tx">🏛️</div>
+          <span class="card-badge badge-tx">TX</span>
         </div>
+        <span class="card-name">Inheritance Tax Notes</span>
+        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
       </a>
+
       <a class="card card-tx" href="TX/TX Key Dates Notes.html">
-        <div class="card-thumb thumb-tx">📅</div>
-        <div class="card-body">
-          <span class="card-name">Key Dates</span>
-          <div class="card-footer"><span class="card-tag tag-tx">TX</span><span class="card-arrow">→</span></div>
+        <div class="card-top">
+          <div class="card-emoji-wrap emoji-tx">📅</div>
+          <span class="card-badge badge-tx">TX</span>
         </div>
+        <span class="card-name">Key Dates</span>
+        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
       </a>
+
       <a class="card card-tx" href="TX/TX Pension &amp; NIC.html">
-        <div class="card-thumb thumb-tx">🔐</div>
-        <div class="card-body">
-          <span class="card-name">Pension &amp; NIC</span>
-          <div class="card-footer"><span class="card-tag tag-tx">TX</span><span class="card-arrow">→</span></div>
+        <div class="card-top">
+          <div class="card-emoji-wrap emoji-tx">🔐</div>
+          <span class="card-badge badge-tx">TX</span>
         </div>
+        <span class="card-name">Pension &amp; NIC</span>
+        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
       </a>
+
       <a class="card card-tx" href="TX/TX Refresher Notes.html">
-        <div class="card-thumb thumb-tx">🔁</div>
-        <div class="card-body">
-          <span class="card-name">Refresher Notes</span>
-          <div class="card-footer"><span class="card-tag tag-tx">TX</span><span class="card-arrow">→</span></div>
+        <div class="card-top">
+          <div class="card-emoji-wrap emoji-tx">🔁</div>
+          <span class="card-badge badge-tx">TX</span>
         </div>
+        <span class="card-name">Refresher Notes</span>
+        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
       </a>
+
+      <a class="card card-tx" href="TX/TX Revision Cheatsheet       .html">
+        <div class="card-top">
+          <div class="card-emoji-wrap emoji-tx">⚡</div>
+          <span class="card-badge badge-tx">TX</span>
+        </div>
+        <span class="card-name">Revision Cheatsheet</span>
+        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
+      </a>
+
       <a class="card card-tx" href="TX/TX Trading Income Notes.html">
-        <div class="card-thumb thumb-tx">📈</div>
-        <div class="card-body">
-          <span class="card-name">Trading Income Notes</span>
-          <div class="card-footer"><span class="card-tag tag-tx">TX</span><span class="card-arrow">→</span></div>
+        <div class="card-top">
+          <div class="card-emoji-wrap emoji-tx">📈</div>
+          <span class="card-badge badge-tx">TX</span>
         </div>
+        <span class="card-name">Trading Income Notes</span>
+        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
       </a>
+
       <a class="card card-tx" href="TX/TX VAT Notes.html">
-        <div class="card-thumb thumb-tx">🧾</div>
-        <div class="card-body">
-          <span class="card-name">VAT Notes</span>
-          <div class="card-footer"><span class="card-tag tag-tx">TX</span><span class="card-arrow">→</span></div>
+        <div class="card-top">
+          <div class="card-emoji-wrap emoji-tx">🧾</div>
+          <span class="card-badge badge-tx">TX</span>
         </div>
+        <span class="card-name">VAT Notes</span>
+        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
       </a>
+
     </div>
-  </section>
+  </div>
 
   <!-- ══════════ AA ══════════ -->
-  <section id="aa" class="subject">
-    <div class="subject-header">
-      <div class="subject-title">
-        <span class="dot-aa"></span>Audit &amp; Assurance
+  <div id="aa" class="section">
+    <div class="section-head">
+      <div class="section-left">
+        <div class="section-icon icon-aa">AA</div>
+        <div>
+          <div class="section-title">Audit &amp; Assurance</div>
+          <div class="section-sub">External Audit · June 2026</div>
+        </div>
       </div>
-      <span class="subject-count">10 notes</span>
+      <span class="section-count">10 notes</span>
     </div>
-
-    <a class="featured featured-aa" href="AA/AA Revision Cheatsheet______.html">
-      <div class="featured-thumb thumb-aa">⚡</div>
-      <div class="featured-body">
-        <span class="featured-tag tag-aa">AA</span>
-        <span class="featured-name">Revision Cheatsheet</span>
-        <span class="featured-arrow">→</span>
-      </div>
-    </a>
-
     <div class="cards-grid">
+
       <a class="card card-aa" href="AA/AA Audit Reports.html">
-        <div class="card-thumb thumb-aa">📋</div>
-        <div class="card-body">
-          <span class="card-name">Audit Reports</span>
-          <div class="card-footer"><span class="card-tag tag-aa">AA</span><span class="card-arrow">→</span></div>
+        <div class="card-top">
+          <div class="card-emoji-wrap emoji-aa">📋</div>
+          <span class="card-badge badge-aa">AA</span>
         </div>
+        <span class="card-name">Audit Reports</span>
+        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
       </a>
+
       <a class="card card-aa" href="AA/AA_Audit_Reports_Quiz.html">
-        <div class="card-thumb thumb-aa">❓</div>
-        <div class="card-body">
-          <span class="card-name">Audit Reports Quiz</span>
-          <div class="card-footer"><span class="card-tag tag-aa">AA</span><span class="card-arrow">→</span></div>
+        <div class="card-top">
+          <div class="card-emoji-wrap emoji-aa">❓</div>
+          <span class="card-badge badge-aa">AA</span>
         </div>
+        <span class="card-name">Audit Reports Quiz</span>
+        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
       </a>
+
       <a class="card card-aa" href="AA/AA_Auditors_Report_TCWG_Chapter12.html">
-        <div class="card-thumb thumb-aa">📝</div>
-        <div class="card-body">
-          <span class="card-name">Auditor's Report — TCWG Ch.12</span>
-          <div class="card-footer"><span class="card-tag tag-aa">AA</span><span class="card-arrow">→</span></div>
+        <div class="card-top">
+          <div class="card-emoji-wrap emoji-aa">📝</div>
+          <span class="card-badge badge-aa">AA</span>
         </div>
+        <span class="card-name">Auditor's Report — TCWG Ch.12</span>
+        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
       </a>
+
       <a class="card card-aa" href="AA/AA Automated Tools Techniques.html">
-        <div class="card-thumb thumb-aa">🤖</div>
-        <div class="card-body">
-          <span class="card-name">Automated Tools &amp; Techniques</span>
-          <div class="card-footer"><span class="card-tag tag-aa">AA</span><span class="card-arrow">→</span></div>
+        <div class="card-top">
+          <div class="card-emoji-wrap emoji-aa">🤖</div>
+          <span class="card-badge badge-aa">AA</span>
         </div>
+        <span class="card-name">Automated Tools &amp; Techniques</span>
+        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
       </a>
+
       <a class="card card-aa" href="AA/AA Controls Testing Notes.html">
-        <div class="card-thumb thumb-aa">🔍</div>
-        <div class="card-body">
-          <span class="card-name">Controls Testing Notes</span>
-          <div class="card-footer"><span class="card-tag tag-aa">AA</span><span class="card-arrow">→</span></div>
+        <div class="card-top">
+          <div class="card-emoji-wrap emoji-aa">🔍</div>
+          <span class="card-badge badge-aa">AA</span>
         </div>
+        <span class="card-name">Controls Testing Notes</span>
+        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
       </a>
+
       <a class="card card-aa" href="AA/AA Ethics and Acceptance.html">
-        <div class="card-thumb thumb-aa">⚖️</div>
-        <div class="card-body">
-          <span class="card-name">Ethics and Acceptance</span>
-          <div class="card-footer"><span class="card-tag tag-aa">AA</span><span class="card-arrow">→</span></div>
+        <div class="card-top">
+          <div class="card-emoji-wrap emoji-aa">⚖️</div>
+          <span class="card-badge badge-aa">AA</span>
         </div>
+        <span class="card-name">Ethics and Acceptance</span>
+        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
       </a>
+
+      <a class="card card-aa" href="AA/AA Revision Cheatsheet______.html">
+        <div class="card-top">
+          <div class="card-emoji-wrap emoji-aa">⚡</div>
+          <span class="card-badge badge-aa">AA</span>
+        </div>
+        <span class="card-name">Revision Cheatsheet</span>
+        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
+      </a>
+
       <a class="card card-aa" href="AA/AA Substantive Procedures.html">
-        <div class="card-thumb thumb-aa">🔬</div>
-        <div class="card-body">
-          <span class="card-name">Substantive Procedures</span>
-          <div class="card-footer"><span class="card-tag tag-aa">AA</span><span class="card-arrow">→</span></div>
+        <div class="card-top">
+          <div class="card-emoji-wrap emoji-aa">🔬</div>
+          <span class="card-badge badge-aa">AA</span>
         </div>
+        <span class="card-name">Substantive Procedures</span>
+        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
       </a>
+
       <a class="card card-aa" href="AA/AA Substantive Procedures Cheatsheet.html">
-        <div class="card-thumb thumb-aa">📌</div>
-        <div class="card-body">
-          <span class="card-name">Substantive Procedures Cheatsheet</span>
-          <div class="card-footer"><span class="card-tag tag-aa">AA</span><span class="card-arrow">→</span></div>
+        <div class="card-top">
+          <div class="card-emoji-wrap emoji-aa">📌</div>
+          <span class="card-badge badge-aa">AA</span>
         </div>
+        <span class="card-name">Substantive Procedures Cheatsheet</span>
+        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
       </a>
+
       <a class="card card-aa" href="AA/AA_Written_Representations_Tutorial.html">
-        <div class="card-thumb thumb-aa">✍️</div>
-        <div class="card-body">
-          <span class="card-name">Written Representations Tutorial</span>
-          <div class="card-footer"><span class="card-tag tag-aa">AA</span><span class="card-arrow">→</span></div>
+        <div class="card-top">
+          <div class="card-emoji-wrap emoji-aa">✍️</div>
+          <span class="card-badge badge-aa">AA</span>
         </div>
+        <span class="card-name">Written Representations Tutorial</span>
+        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
       </a>
+
     </div>
-  </section>
+  </div>
 
   <footer class="footer">
-    <span class="footer-brand">ACCA Notes</span>
-    <span>Hosted on GitHub Pages</span>
+    <strong>ACCA Notes</strong>
+    <span>Hosted on GitHub Pages &nbsp;·&nbsp; June 2026 Session</span>
   </footer>
 
 </div>
