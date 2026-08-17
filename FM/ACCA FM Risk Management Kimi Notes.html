@@ -1,453 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACCA FM - Risk Management Complete Study Guide</title>
+<style>
+  :root {
+    --bg-primary: #fdfbf7;
+    --bg-secondary: #f5f0e8;
+    --bg-accent: #e8e0d4;
+    --text-primary: #2c2416;
+    --text-secondary: #5a4d3a;
+    --accent-warm: #c17817;
+    --accent-cool: #2d6a4f;
+    --accent-blue: #1a5276;
+    --border-light: #d4c9b8;
+    --highlight-bg: #fef3c7;
+    --example-bg: #f0fdf4;
+    --warning-bg: #fef2f2;
+    --formula-bg: #eff6ff;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    line-height: 1.85;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    margin: 0;
+    padding: 0;
+  }
+  .container { max-width: 1100px; margin: 0 auto; padding: 30px 40px; }
+  h1 {
+    font-size: 2.8em;
+    color: var(--accent-warm);
+    text-align: center;
+    margin-bottom: 10px;
+    border-bottom: 4px solid var(--accent-warm);
+    padding-bottom: 20px;
+  }
+  h2 {
+    font-size: 2.1em;
+    color: var(--accent-cool);
+    margin-top: 60px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--accent-cool);
+  }
+  h3 {
+    font-size: 1.7em;
+    color: var(--accent-blue);
+    margin-top: 40px;
+    margin-bottom: 15px;
+  }
+  h4 {
+    font-size: 1.4em;
+    color: var(--text-secondary);
+    margin-top: 30px;
+    margin-bottom: 12px;
+  }
+  p { margin-bottom: 18px; text-align: justify; }
+  ul, ol { margin-bottom: 18px; padding-left: 35px; }
+  li { margin-bottom: 10px; }
+  .toc {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-light);
+    border-radius: 12px;
+    padding: 30px;
+    margin: 30px 0;
+  }
+  .toc h2 { margin-top: 0; font-size: 1.8em; text-align: center; border: none; }
+  .toc ul { list-style: none; padding-left: 0; }
+  .toc li { margin: 8px 0; }
+  .toc a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-size: 1.15em;
+    font-weight: 500;
+    display: block;
+    padding: 6px 15px;
+    border-radius: 6px;
+    transition: background 0.2s;
+  }
+  .toc a:hover { background: var(--bg-accent); }
+  .highlight-box {
+    background: var(--highlight-bg);
+    border-left: 5px solid var(--accent-warm);
+    padding: 20px 25px;
+    margin: 25px 0;
+    border-radius: 0 10px 10px 0;
+    font-size: 1.05em;
+  }
+  .example-box {
+    background: var(--example-bg);
+    border: 2px solid #86efac;
+    border-radius: 12px;
+    padding: 25px;
+    margin: 25px 0;
+  }
+  .example-box h4 {
+    color: var(--accent-cool);
+    margin-top: 0;
+    font-size: 1.3em;
+  }
+  .warning-box {
+    background: var(--warning-bg);
+    border-left: 5px solid #ef4444;
+    padding: 20px 25px;
+    margin: 25px 0;
+    border-radius: 0 10px 10px 0;
+  }
+  .formula-box {
+    background: var(--formula-bg);
+    border: 2px solid #93c5fd;
+    border-radius: 12px;
+    padding: 20px 25px;
+    margin: 20px 0;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--accent-blue);
+  }
+  .key-point {
+    background: var(--bg-secondary);
+    border: 2px dashed var(--accent-warm);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+  }
+  .key-point strong { color: var(--accent-warm); font-size: 1.1em; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 1em;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  th {
+    background: var(--accent-cool);
+    color: white;
+    padding: 14px 18px;
+    text-align: left;
+    font-size: 1.1em;
+  }
+  td {
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--border-light);
+  }
+  tr:nth-child(even) { background: var(--bg-secondary); }
+  tr:hover { background: var(--bg-accent); }
+  .calc-step {
+    background: white;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin: 12px 0;
+    font-family: 'Consolas', monospace;
+    font-size: 1.05em;
+  }
+  .section-divider {
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-warm), var(--accent-cool), var(--accent-blue));
+    border-radius: 2px;
+    margin: 50px 0;
+  }
+  .badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 600;
+    margin-right: 8px;
+  }
+  .badge-exam { background: #fee2e2; color: #991b1b; }
+  .badge-formula { background: #dbeafe; color: #1e40af; }
+  .badge-important { background: #fef3c7; color: #92400e; }
+  .top-bar {
+    background: linear-gradient(135deg, var(--accent-warm), #d97706);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 1.1em;
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .top-bar a { color: white; margin: 0 15px; text-decoration: none; }
+  .top-bar a:hover { text-decoration: underline; }
+  @media print {
+    body { font-size: 12pt; }
+    .top-bar { display: none; }
+  }
+</style>
+</head>
+<body>
 
-<h3 id="s5-3">5.3 Internal Hedging Techniques for Interest Rate Risk</h3>
-
-<h4>5.3.1 Matching</h4>
-<p>Match floating-rate assets with floating-rate liabilities, and fixed-rate assets with fixed-rate liabilities. If a company has floating-rate investments and floating-rate borrowings, the interest rate movements may naturally offset each other.</p>
-
-<h4>5.3.2 Smoothing</h4>
-<p>Maintain a mix of fixed-rate and floating-rate debt. This ensures that the company is never fully exposed to either rising or falling interest rates. For example, 50% fixed and 50% floating provides a natural hedge.</p>
-
-<h4>5.3.3 Asset and Liability Management</h4>
-<p>Choose assets and liabilities with matching durations and repricing characteristics. If a company knows it will receive cash in 6 months, it can arrange a loan that reprices or matures at the same time.</p>
-
-<div class="key-point">
-<strong>Advantages of Internal Techniques:</strong> No external costs, no complex documentation, no counterparty risk.<br><br>
-<strong>Disadvantages:</strong> May not perfectly eliminate risk; opportunities may be limited by the company's existing asset/liability structure.
+<div class="top-bar">
+  <a href="#toc">Contents</a>
+  <a href="#forex">Forex Risk</a>
+  <a href="#interest">Interest Rate Risk</a>
+  <a href="#var">VaR</a>
+  <a href="#summary">Summary</a>
 </div>
 
-<h3 id="s5-4">5.4 Forward Rate Agreements (FRAs)</h3>
+<div class="container">
 
-<p>A Forward Rate Agreement is an over-the-counter contract that fixes the interest rate on a <strong>notional principal amount</strong> for a <strong>future period</strong>. It is used to hedge against adverse interest rate movements on planned borrowing or lending.</p>
+<h1>ACCA FM Financial Management</h1>
+<h1 style="font-size:2em; color:var(--accent-cool); border:none; margin-top:-10px;">Risk Management - Complete Study Guide</h1>
+<p style="text-align:center; color:var(--text-secondary); font-size:1.2em; margin-bottom:40px;">
+  <strong>Exam Window: September 2026</strong> | Standalone Revision Notes
+</p>
+
+<div class="toc" id="toc">
+<h2>Table of Contents</h2>
+<ul>
+  <li><a href="#s1">1. Introduction to Risk Management</a></li>
+  <li><a href="#s2">2. Types of Risk</a></li>
+  <li><a href="#s3">3. Foreign Exchange Risk</a>
+    <ul>
+      <li><a href="#s3-1">3.1 Types of Forex Exposure</a></li>
+      <li><a href="#s3-2">3.2 Exchange Rate Quotations</a></li>
+      <li><a href="#s3-3">3.3 Interest Rate Parity (IRP)</a></li>
+      <li><a href="#s3-4">3.4 Purchasing Power Parity (PPP)</a></li>
+      <li><a href="#s3-5">3.5 Forecasting Future Exchange Rates</a></li>
+    </ul>
+  </li>
+  <li><a href="#s4">4. Hedging Foreign Exchange Risk</a>
+    <ul>
+      <li><a href="#s4-1">4.1 Internal Hedging Techniques</a></li>
+      <li><a href="#s4-2">4.2 Forward Contracts</a></li>
+      <li><a href="#s4-3">4.3 Money Market Hedge</a></li>
+      <li><a href="#s4-4">4.4 Currency Futures</a></li>
+      <li><a href="#s4-5">4.5 Currency Options</a></li>
+      <li><a href="#s4-6">4.6 Currency Swaps</a></li>
+      <li><a href="#s4-7">4.7 Choosing the Best Hedge</a></li>
+    </ul>
+  </li>
+  <li><a href="#s5">5. Interest Rate Risk</a>
+    <ul>
+      <li><a href="#s5-1">5.1 Types of Interest Rate Risk</a></li>
+      <li><a href="#s5-2">5.2 The Yield Curve</a></li>
+      <li><a href="#s5-3">5.3 Internal Hedging Techniques</a></li>
+      <li><a href="#s5-4">5.4 Forward Rate Agreements (FRAs)</a></li>
+      <li><a href="#s5-5">5.5 Interest Rate Futures</a></li>
+      <li><a href="#s5-6">5.6 Interest Rate Options</a></li>
+      <li><a href="#s5-7">5.7 Interest Rate Swaps</a></li>
+      <li><a href="#s5-8">5.8 Caps, Floors and Collars</a></li>
+    </ul>
+  </li>
+  <li><a href="#s6">6. Value at Risk (VaR)</a></li>
+  <li><a href="#s7">7. Exam Tips and Common Pitfalls</a></li>
+  <li><a href="#s8">8. Formula Sheet</a></li>
+</ul>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ==================== SECTION 1 ==================== -->
+<h2 id="s1">1. Introduction to Risk Management</h2>
+
+<h3>What is Risk?</h3>
+<p>Risk is the possibility that actual outcomes will differ from expected outcomes. In business and finance, risk refers to the uncertainty surrounding future cash flows, profits, or returns. Every business faces risk, and the key challenge for financial managers is to <strong>identify, measure, and manage</strong> these risks effectively.</p>
 
 <div class="highlight-box">
-<strong>Key Feature:</strong> An FRA is a <strong>binding agreement</strong> on a notional amount. No actual loan takes place. The borrower/lender still deals with their bank, but the FRA provider compensates them if rates move against them (or vice versa).
+<strong>Key Principle:</strong> Risk management does NOT mean eliminating all risk. Some risk is necessary for returns. The goal is to manage risk to an <strong>acceptable level</strong> that aligns with the company's risk appetite.
 </div>
 
-<h4>FRA Notation</h4>
-<p>FRAs are quoted as <strong>3v6, 6v9, 3v9</strong>, etc.</p>
+<h3>Why Do Companies Manage Risk?</h3>
+<ol>
+  <li><strong>Protect cash flows</strong> - Ensure the company can meet its obligations</li>
+  <li><strong>Reduce earnings volatility</strong> - Make financial planning more reliable</li>
+  <li><strong>Protect shareholder value</strong> - Stable earnings lead to higher valuations</li>
+  <li><strong>Avoid financial distress</strong> - Prevent situations where the company cannot pay its debts</li>
+  <li><strong>Support investment decisions</strong> - Certainty about future cash flows improves decision-making</li>
+</ol>
+
+<h3>The Risk Management Process</h3>
+<table>
+  <tr><th>Step</th><th>Action</th><th>Description</th></tr>
+  <tr><td>1</td><td>Identify</td><td>Recognise what risks the company faces</td></tr>
+  <tr><td>2</td><td>Measure</td><td>Quantify the potential impact of each risk</td></tr>
+  <tr><td>3</td><td>Evaluate</td><td>Decide which risks are acceptable and which need managing</td></tr>
+  <tr><td>4</td><td>Manage</td><td>Implement hedging or other risk reduction strategies</td></tr>
+  <tr><td>5</td><td>Monitor</td><td>Regularly review and adjust risk management strategies</td></tr>
+</table>
+
+<div class="section-divider"></div>
+
+<!-- ==================== SECTION 2 ==================== -->
+<h2 id="s2">2. Types of Risk</h2>
+
+<p>Before we can manage risk, we must understand the different types of risk a company faces. In ACCA FM, we focus on <strong>financial risks</strong> - those that directly affect the company's cash flows and financial position.</p>
+
+<h3>2.1 Business Risk vs Financial Risk</h3>
+
+<h4>Business Risk (Operating Risk)</h4>
+<p>This is the risk inherent in the company's operations, even without any debt. It arises from:</p>
 <ul>
-  <li><strong>3v6</strong> = Starts in 3 months, covers a 3-month period (ends in 6 months)</li>
-  <li><strong>6v9</strong> = Starts in 6 months, covers a 3-month period (ends in 9 months)</li>
-  <li><strong>3v9</strong> = Starts in 3 months, covers a 6-month period (ends in 9 months)</li>
+  <li>Variability in sales demand</li>
+  <li>Changes in input prices</li>
+  <li>Competitive pressures</li>
+  <li>Technological changes</li>
+  <li>Regulatory changes</li>
+</ul>
+<p><strong>Business risk is measured by operational gearing:</strong> the proportion of fixed costs in the cost structure. Higher fixed costs = higher business risk.</p>
+
+<h4>Financial Risk</h4>
+<p>This is the additional risk that arises from using debt financing (financial gearing). When a company borrows money, it must make fixed interest payments regardless of profits. This magnifies the variability of returns to shareholders.</p>
+
+<div class="key-point">
+<strong>Remember:</strong> Total Risk = Business Risk + Financial Risk. Business risk exists in ALL companies. Financial risk only exists in companies that use debt.
+</div>
+
+<h3>2.2 Categories of Financial Risk</h3>
+
+<table>
+  <tr><th>Risk Type</th><th>What It Means</th><th>Example</th></tr>
+  <tr>
+    <td><strong>Foreign Exchange Risk</strong></td>
+    <td>The risk that exchange rate movements will affect the value of foreign currency cash flows</td>
+    <td>A UK company importing goods from the US faces the risk that the dollar strengthens, making imports more expensive</td>
+  </tr>
+  <tr>
+    <td><strong>Interest Rate Risk</strong></td>
+    <td>The risk that changes in interest rates will affect borrowing costs or investment returns</td>
+    <td>A company with a variable-rate loan faces higher interest payments if rates rise</td>
+  </tr>
+  <tr>
+    <td><strong>Credit Risk</strong></td>
+    <td>The risk that a counterparty will fail to meet its obligations</td>
+    <td>A company selling goods on credit faces the risk that the customer does not pay</td>
+  </tr>
+  <tr>
+    <td><strong>Liquidity Risk</strong></td>
+    <td>The risk that the company cannot meet its short-term obligations</td>
+    <td>A company cannot pay its suppliers because cash is tied up in inventory</td>
+  </tr>
+  <tr>
+    <td><strong>Commodity Price Risk</strong></td>
+    <td>The risk that changes in commodity prices will affect costs or revenues</td>
+    <td>An airline faces higher fuel costs if oil prices rise</td>
+  </tr>
+</table>
+
+<div class="highlight-box">
+<span class="badge badge-exam">EXAM FOCUS</span> <strong>ACCA FM concentrates heavily on Foreign Exchange Risk and Interest Rate Risk.</strong> You must be able to calculate hedging outcomes using various techniques and recommend the most appropriate method.
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ==================== SECTION 3 ==================== -->
+<h2 id="s3">3. Foreign Exchange Risk</h2>
+
+<p>Foreign exchange (forex) risk is one of the most heavily tested areas in ACCA FM. It arises whenever a company has future cash flows denominated in a foreign currency. Let's build your understanding from the ground up.</p>
+
+<h3 id="s3-1">3.1 Types of Forex Exposure</h3>
+
+<h4>Transaction Exposure</h4>
+<p>This is the risk that the exchange rate will change between the time a transaction is agreed and the time it is settled (cash is actually paid or received).</p>
+
+<div class="example-box">
+<h4>Example: Transaction Exposure</h4>
+<p>On 1 January, a UK company agrees to buy machinery from a German supplier for EUR 500,000, payable on 31 March. The spot rate on 1 January is GBP/EUR 1.20 (meaning GBP 1 = EUR 1.20).</p>
+<p><strong>Expected cost on 1 January:</strong> EUR 500,000 / 1.20 = GBP 416,667</p>
+<p>On 31 March, the spot rate has moved to GBP/EUR 1.15 (the pound has weakened - it buys fewer euros).</p>
+<p><strong>Actual cost on 31 March:</strong> EUR 500,000 / 1.15 = GBP 434,783</p>
+<p><strong>Additional cost due to exchange rate movement:</strong> GBP 434,783 - GBP 416,667 = <strong>GBP 18,116</strong></p>
+<p>This is transaction exposure - the company is exposed to exchange rate movements during the period between agreeing the transaction and making payment.</p>
+</div>
+
+<h4>Translation Exposure</h4>
+<p>This is the risk that the value of a company's foreign assets, liabilities, or subsidiary results will change when translated back into the parent company's reporting currency for consolidation purposes. This is an <strong>accounting risk</strong> - it affects the balance sheet and income statement but does NOT involve actual cash flows.</p>
+
+<div class="example-box">
+<h4>Example: Translation Exposure</h4>
+<p>A UK parent company has a US subsidiary with assets worth USD 10 million. The exchange rate is GBP/USD 1.30.</p>
+<p><strong>Value in GBP:</strong> USD 10,000,000 / 1.30 = GBP 7,692,308</p>
+<p>At year-end, the rate has moved to GBP/USD 1.25.</p>
+<p><strong>New value in GBP:</strong> USD 10,000,000 / 1.25 = GBP 8,000,000</p>
+<p>The GBP value of the subsidiary's net assets has increased by GBP 307,692 due to exchange rate movement. This is a <strong>translation gain</strong> that appears in the group's financial statements but does not involve any actual cash flow.</p>
+</div>
+
+<h4>Economic Exposure</h4>
+<p>This is the long-term risk that exchange rate movements will affect a company's competitive position and future cash flows. It is broader than transaction exposure because it considers the impact on the company's overall market position, not just specific transactions.</p>
+
+<div class="example-box">
+<h4>Example: Economic Exposure</h4>
+<p>A UK-based car manufacturer exports cars to Europe. If the pound strengthens against the euro:</p>
+<ul>
+  <li>UK cars become MORE EXPENSIVE for European buyers</li>
+  <li>The company may lose market share to European competitors</li>
+  <li>Future sales and profits decline</li>
+</ul>
+<p>This is economic exposure - the long-term impact on the company's competitive position and future cash flows, not just a single transaction.</p>
+</div>
+
+<div class="key-point">
+<strong>Key Distinction:</strong>
+<ul>
+  <li><strong>Transaction exposure</strong> = Cash flow risk on specific transactions (short-term)</li>
+  <li><strong>Translation exposure</strong> = Accounting risk on consolidated financial statements (no cash flow)</li>
+  <li><strong>Economic exposure</strong> = Long-term competitive position and future cash flows</li>
+</ul>
+</div>
+
+<h3 id="s3-2">3.2 Exchange Rate Quotations</h3>
+
+<p>Understanding how exchange rates are quoted is absolutely essential. There are two ways to quote exchange rates:</p>
+
+<h4>Direct Quote vs Indirect Quote</h4>
+
+<table>
+  <tr><th>Type</th><th>Format</th><th>Meaning</th><th>Example</th></tr>
+  <tr>
+    <td><strong>Direct Quote</strong></td>
+    <td>Domestic / Foreign</td>
+    <td>How much domestic currency you need to buy ONE unit of foreign currency</td>
+    <td>GBP/USD 0.77 means GBP 0.77 buys USD 1</td>
+  </tr>
+  <tr>
+    <td><strong>Indirect Quote</strong></td>
+    <td>Foreign / Domestic</td>
+    <td>How much foreign currency you get for ONE unit of domestic currency</td>
+    <td>USD/GBP 1.30 means USD 1.30 buys GBP 1</td>
+  </tr>
+</table>
+
+<div class="highlight-box">
+<strong>ACCA Convention:</strong> In ACCA FM, exchange rates are typically quoted as <strong>GBP/EUR</strong> or <strong>GBP/USD</strong>, which means <strong>GBP per unit of foreign currency</strong> (direct quote from a UK perspective). So GBP/EUR 0.85 means GBP 0.85 = EUR 1.
+</div>
+
+<h4>Bid-Offer Spread</h4>
+<p>Banks quote two rates:</p>
+<ul>
+  <li><strong>Bid rate</strong> - The rate at which the bank will BUY the base currency from you</li>
+  <li><strong>Offer (Ask) rate</strong> - The rate at which the bank will SELL the base currency to you</li>
 </ul>
 
 <div class="formula-box">
 <span class="badge badge-formula">FORMULA</span><br>
-<strong>FRA Settlement:</strong><br><br>
-Settlement = Notional x (Reference Rate - FRA Rate) x (Period / 12) / (1 + Reference Rate x Period/12)<br><br>
-If Reference Rate &gt; FRA Rate: Borrower RECEIVES compensation<br>
-If Reference Rate &lt; FRA Rate: Borrower PAYS compensation
+<strong>Bid-Offer Spread:</strong> The bank always wins! They buy low and sell high.<br><br>
+If you are BUYING foreign currency, the bank SELLS it to you at the <strong>offer rate</strong> (higher rate).<br>
+If you are SELLING foreign currency, the bank BUYS it from you at the <strong>bid rate</strong> (lower rate).
 </div>
 
 <div class="example-box">
-<h4>Example: FRA for a Borrower</h4>
-<p><strong>Scenario:</strong> A company plans to borrow GBP 5 million for 6 months, starting in 3 months. It is worried that interest rates will rise.</p>
-<p><strong>Current 3-month rate:</strong> 4%</p>
-<p><strong>FRA rate (3v9):</strong> 5%</p>
-<p><strong>Notional amount:</strong> GBP 5,000,000</p>
-<p><strong>Step 1:</strong> In 3 months, the reference rate (say LIBOR) is 6.5%.</p>
-<p><strong>Step 2:</strong> Calculate the settlement</p>
-<p>Settlement = GBP 5,000,000 x (6.5% - 5%) x (6/12) / (1 + 6.5% x 6/12)</p>
-<p>Settlement = GBP 5,000,000 x 1.5% x 0.5 / 1.0325</p>
-<p>Settlement = GBP 37,500 / 1.0325 = <strong>GBP 36,320</strong></p>
-<p><strong>Step 3:</strong> The company receives GBP 36,320 from the FRA provider.</p>
-<p><strong>Step 4:</strong> The company borrows GBP 5,000,000 at the market rate of 6.5%</p>
-<p>Interest cost = GBP 5,000,000 x 6.5% x 6/12 = GBP 162,500</p>
-<p><strong>Net cost:</strong> GBP 162,500 - GBP 36,320 = <strong>GBP 126,180</strong></p>
-<p><strong>Effective rate:</strong> GBP 126,180 / GBP 5,000,000 x (12/6) = <strong>5.05%</strong> (approximately the FRA rate)</p>
+<h4>Example: Bid-Offer Spread</h4>
+<p>The bank quotes GBP/USD: <strong>0.7680 - 0.7690</strong></p>
+<ul>
+  <li><strong>Bid:</strong> 0.7680 - The bank will buy USD from you at this rate</li>
+  <li><strong>Offer:</strong> 0.7690 - The bank will sell USD to you at this rate</li>
+</ul>
+<p><strong>Scenario 1:</strong> You need to pay USD 100,000 to a US supplier. You are BUYING USD from the bank.</p>
+<p>Cost = USD 100,000 x 0.7690 (offer rate) = <strong>GBP 76,900</strong></p>
+<p><strong>Scenario 2:</strong> You have received USD 100,000 from a US customer. You are SELLING USD to the bank.</p>
+<p>Receipt = USD 100,000 x 0.7680 (bid rate) = <strong>GBP 76,800</strong></p>
+<p><strong>Bank's profit (spread):</strong> GBP 76,900 - GBP 76,800 = <strong>GBP 100</strong></p>
+</div>
+
+<h4>Cross Rates</h4>
+<p>A cross rate is an exchange rate between two currencies calculated using a third currency (usually USD). This is needed when there is no direct market between two currencies.</p>
+
+<div class="formula-box">
+<span class="badge badge-formula">FORMULA</span><br>
+<strong>Cross Rate Calculation:</strong><br>
+If GBP/USD = a and EUR/USD = b, then GBP/EUR = a / b
+</div>
+
+<div class="example-box">
+<h4>Example: Cross Rate</h4>
+<p>Given:</p>
+<ul>
+  <li>GBP/USD = 0.77 (GBP 0.77 = USD 1)</li>
+  <li>EUR/USD = 0.92 (EUR 0.92 = USD 1)</li>
+</ul>
+<p>To find GBP/EUR:</p>
+<p>GBP/EUR = GBP/USD divided by EUR/USD = 0.77 / 0.92 = <strong>0.8369</strong></p>
+<p>So GBP 0.8369 = EUR 1, or equivalently, GBP 1 = EUR 1.195</p>
+</div>
+
+<h3 id="s3-3">3.3 Interest Rate Parity (IRP)</h3>
+
+<p>Interest Rate Parity is a theory that links the <strong>spot exchange rate</strong>, <strong>forward exchange rate</strong>, and <strong>interest rates</strong> in two countries. It explains why forward rates differ from spot rates.</p>
+
+<div class="formula-box">
+<span class="badge badge-formula">FORMULA</span><br>
+<strong>Interest Rate Parity (IRP):</strong><br><br>
+F = S x (1 + i<sub>d</sub>) / (1 + i<sub>f</sub>)<br><br>
+Where:<br>
+F = Forward rate<br>
+S = Spot rate<br>
+i<sub>d</sub> = Domestic interest rate (for the period)<br>
+i<sub>f</sub> = Foreign interest rate (for the period)
+</div>
+
+<div class="highlight-box">
+<strong>Understanding IRP:</strong> If the domestic interest rate is HIGHER than the foreign interest rate, the domestic currency will trade at a <strong>forward discount</strong> (the forward rate will be less favorable than the spot rate). This is because higher interest rates attract capital inflows, which would appreciate the spot rate, but the forward rate adjusts to eliminate arbitrage opportunities.
+</div>
+
+<div class="example-box">
+<h4>Example: Interest Rate Parity</h4>
+<p><strong>Given:</strong></p>
+<ul>
+  <li>Spot rate GBP/USD = 0.77</li>
+  <li>UK interest rate = 5% per year</li>
+  <li>US interest rate = 3% per year</li>
+  <li>Time period = 6 months</li>
+</ul>
+<p><strong>Step 1:</strong> Convert annual rates to 6-month rates</p>
+<p>UK 6-month rate = 5% / 2 = 2.5%</p>
+<p>US 6-month rate = 3% / 2 = 1.5%</p>
+<p><strong>Step 2:</strong> Apply IRP formula</p>
+<p>F = 0.77 x (1 + 0.025) / (1 + 0.015)</p>
+<p>F = 0.77 x 1.025 / 1.015</p>
+<p>F = 0.77 x 1.00985 = <strong>0.7776</strong></p>
+<p><strong>Interpretation:</strong> The 6-month forward rate is GBP/USD 0.7776. Since the UK interest rate is higher, the pound trades at a forward discount (it takes more pounds to buy a dollar in the forward market).</p>
+</div>
+
+<h3 id="s3-4">3.4 Purchasing Power Parity (PPP)</h3>
+
+<p>Purchasing Power Parity is a theory that links exchange rates to <strong>inflation rates</strong>. It states that the exchange rate between two currencies should adjust to reflect differences in inflation rates between the two countries.</p>
+
+<div class="formula-box">
+<span class="badge badge-formula">FORMULA</span><br>
+<strong>Purchasing Power Parity (PPP):</strong><br><br>
+S<sub>1</sub> = S<sub>0</sub> x (1 + i<sub>d</sub>) / (1 + i<sub>f</sub>)<br><br>
+Where:<br>
+S<sub>1</sub> = Expected future spot rate<br>
+S<sub>0</sub> = Current spot rate<br>
+i<sub>d</sub> = Domestic inflation rate<br>
+i<sub>f</sub> = Foreign inflation rate
+</div>
+
+<div class="highlight-box">
+<strong>Understanding PPP:</strong> If a country has HIGHER inflation than another, its currency should DEPRECIATE to maintain purchasing power parity. High inflation erodes the value of money, so you need more of that currency to buy the same goods.
+</div>
+
+<div class="example-box">
+<h4>Example: Purchasing Power Parity</h4>
+<p><strong>Given:</strong></p>
+<ul>
+  <li>Current spot rate GBP/EUR = 0.85</li>
+  <li>UK inflation = 3% per year</li>
+  <li>Eurozone inflation = 1.5% per year</li>
+</ul>
+<p><strong>Step 1:</strong> Apply PPP formula for expected rate in one year</p>
+<p>S<sub>1</sub> = 0.85 x (1 + 0.03) / (1 + 0.015)</p>
+<p>S<sub>1</sub> = 0.85 x 1.03 / 1.015</p>
+<p>S<sub>1</sub> = 0.85 x 1.01478 = <strong>0.8626</strong></p>
+<p><strong>Interpretation:</strong> The expected spot rate in one year is GBP/EUR 0.8626. Since UK inflation is higher, the pound is expected to depreciate (it takes more pounds to buy a euro).</p>
+<p><strong>Important:</strong> PPP is a <strong>long-term</strong> theory. In the short term, exchange rates can deviate significantly from PPP due to speculation, capital flows, and other factors.</p>
+</div>
+
+<h3 id="s3-5">3.5 Forecasting Future Exchange Rates</h3>
+
+<p>In the exam, you may need to forecast future exchange rates using either IRP or PPP. The key is to know which theory to apply:</p>
+
+<table>
+  <tr><th>Theory</th><th>Use When</th><th>Key Input</th></tr>
+  <tr><td>IRP</td><td>Calculating forward rates or when interest rate differentials are given</td><td>Interest rates</td></tr>
+  <tr><td>PPP</td><td>Forecasting long-term spot rates or when inflation differentials are given</td><td>Inflation rates</td></tr>
+</table>
+
+<div class="warning-box">
+<strong>Exam Trap:</strong> Make sure you use the correct rates in the formula. If the rate is quoted as GBP/EUR, then UK is the "domestic" country and Eurozone is the "foreign" country. The domestic rate goes on top, foreign rate goes on the bottom.
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ==================== SECTION 4 ==================== -->
+<h2 id="s4">4. Hedging Foreign Exchange Risk</h2>
+
+<p>Hedging means taking action to reduce or eliminate the risk of adverse exchange rate movements. There are two broad categories:</p>
+<ul>
+  <li><strong>Internal hedging</strong> - Using the company's own resources and operations</li>
+  <li><strong>External hedging</strong> - Using financial instruments and markets</li>
+</ul>
+
+<h3 id="s4-1">4.1 Internal Hedging Techniques</h3>
+
+<h4>4.1.1 Invoice in Home Currency</h4>
+<p>The simplest approach: invoice foreign customers in your own currency and ask foreign suppliers to invoice you in your own currency. This transfers the exchange rate risk to the other party.</p>
+
+<div class="example-box">
+<h4>Example: Invoicing in Home Currency</h4>
+<p>A UK company sells goods to a US customer for USD 100,000. Instead of invoicing in USD, the UK company invoices in GBP 77,000 (at current rate GBP/USD 0.77).</p>
+<p><strong>Advantage:</strong> The UK company knows exactly how much GBP it will receive - GBP 77,000. No exchange rate risk.</p>
+<p><strong>Disadvantage:</strong> The US customer bears the exchange rate risk. The US customer may refuse to deal with the UK company or demand a price discount. Also, the UK company may lose competitive advantage if competitors are willing to invoice in USD.</p>
+</div>
+
+<h4>4.1.2 Leading and Lagging</h4>
+<p>This involves changing the timing of foreign currency payments or receipts based on expected exchange rate movements.</p>
+<ul>
+  <li><strong>Leading:</strong> Pay early if you expect the foreign currency to STRENGTHEN (making future payments more expensive)</li>
+  <li><strong>Lagging:</strong> Delay payment if you expect the foreign currency to WEAKEN (making future payments cheaper)</li>
+</ul>
+
+<div class="example-box">
+<h4>Example: Leading and Lagging</h4>
+<p>A UK company owes EUR 500,000 to a German supplier, due in 3 months. Current spot rate: GBP/EUR 0.85.</p>
+<p><strong>Scenario A:</strong> The UK company expects the euro to strengthen (GBP/EUR rate to increase, meaning more pounds needed per euro).</p>
+<p><strong>Action:</strong> <strong>LEAD</strong> - Pay early to lock in the current favorable rate.</p>
+<p><strong>Scenario B:</strong> The UK company expects the euro to weaken (GBP/EUR rate to decrease).</p>
+<p><strong>Action:</strong> <strong>LAG</strong> - Delay payment hoping the euro weakens, reducing the GBP cost.</p>
+</div>
+
+<h4>4.1.3 Netting</h4>
+<p>If a company has both payables and receivables in the same foreign currency, it can net them off and only hedge the net exposure.</p>
+
+<div class="example-box">
+<h4>Example: Netting</h4>
+<p>A UK company has:</p>
+<ul>
+  <li>EUR payable of EUR 800,000 (to a German supplier)</li>
+  <li>EUR receivable of EUR 500,000 (from a German customer)</li>
+</ul>
+<p><strong>Gross exposure:</strong> EUR 800,000 + EUR 500,000 = EUR 1,300,000</p>
+<p><strong>Net exposure:</strong> EUR 800,000 - EUR 500,000 = <strong>EUR 300,000 payable</strong></p>
+<p>The company only needs to hedge EUR 300,000, not the full EUR 800,000. This reduces hedging costs significantly.</p>
+</div>
+
+<h4>4.1.4 Matching</h4>
+<p>Creating foreign currency assets to match foreign currency liabilities. For example, borrowing in the same currency as your receivables.</p>
+
+<h4>4.1.5 Offsetting Assets and Liabilities</h4>
+<p>Creating a foreign currency asset (like a bank deposit) to offset a foreign currency liability (like a payable).</p>
+
+<div class="key-point">
+<strong>Advantages of Internal Hedging:</strong> No external costs, no complex instruments, easy to implement.<br><br>
+<strong>Disadvantages:</strong> May not be possible for all transactions, may damage supplier/customer relationships, limited effectiveness.
+</div>
+
+<h3 id="s4-2">4.2 Forward Contracts</h3>
+
+<p>A forward contract is an agreement to buy or sell a specific amount of foreign currency at a <strong>predetermined exchange rate</strong> on a <strong>specific future date</strong>.</p>
+
+<div class="highlight-box">
+<strong>Key Feature:</strong> A forward contract is a <strong>binding obligation</strong>. Once entered into, both parties MUST complete the transaction at the agreed rate, regardless of what the spot rate is on the settlement date.
+</div>
+
+<div class="formula-box">
+<span class="badge badge-formula">FORMULA</span><br>
+<strong>Forward Contract Outcome:</strong><br><br>
+Amount in domestic currency = Foreign currency amount x Forward rate<br><br>
+(Remember to use the correct bid or offer rate depending on whether you are buying or selling)
+</div>
+
+<div class="example-box">
+<h4>Example: Forward Contract - Payable</h4>
+<p><strong>Scenario:</strong> A UK company must pay USD 500,000 to a US supplier in 3 months.</p>
+<p><strong>Current spot rate:</strong> GBP/USD 0.7680 - 0.7690</p>
+<p><strong>3-month forward rate:</strong> GBP/USD 0.7650 - 0.7660</p>
+<p><strong>Step 1:</strong> The company needs to BUY USD in 3 months. The bank will SELL USD at the offer rate.</p>
+<p><strong>Step 2:</strong> Use the forward offer rate: GBP/USD 0.7660</p>
+<p><strong>Step 3:</strong> Calculate the guaranteed GBP cost</p>
+<p>GBP cost = USD 500,000 x 0.7660 = <strong>GBP 383,000</strong></p>
+<p><strong>Result:</strong> The company has locked in a cost of GBP 383,000. Regardless of where the spot rate moves in 3 months, the company knows exactly what it will pay.</p>
+</div>
+
+<div class="example-box">
+<h4>Example: Forward Contract - Receivable</h4>
+<p><strong>Scenario:</strong> A UK company will receive EUR 400,000 from a German customer in 6 months.</p>
+<p><strong>Current spot rate:</strong> GBP/EUR 0.8480 - 0.8490</p>
+<p><strong>6-month forward rate:</strong> GBP/EUR 0.8520 - 0.8530</p>
+<p><strong>Step 1:</strong> The company will SELL EUR in 6 months. The bank will BUY EUR at the bid rate.</p>
+<p><strong>Step 2:</strong> Use the forward bid rate: GBP/EUR 0.8520</p>
+<p><strong>Step 3:</strong> Calculate the guaranteed GBP receipt</p>
+<p>GBP receipt = EUR 400,000 x 0.8520 = <strong>GBP 340,800</strong></p>
+<p><strong>Result:</strong> The company has locked in a receipt of GBP 340,800. Even if the euro weakens significantly, the company is protected.</p>
 </div>
 
 <div class="key-point">
-<strong>Advantages of FRAs:</strong>
+<strong>Advantages of Forward Contracts:</strong>
 <ul>
-  <li>Simple and easy to arrange</li>
-  <li>No premium payable</li>
-  <li>Can be tailored to exact amounts and periods</li>
-  <li>Off-balance sheet (no actual loan)</li>
+  <li>Simple and easy to understand</li>
+  <li>Provides certainty - you know exactly what you will pay/receive</li>
+  <li>No upfront premium or cost (the cost is embedded in the forward rate)</li>
+  <li>Can be tailored to exact amounts and dates</li>
 </ul>
 <strong>Disadvantages:</strong>
 <ul>
-  <li>Binding obligation - cannot benefit if rates fall</li>
-  <li>Counterparty risk</li>
-  <li>Only available for major currencies and standard periods</li>
+  <li>Binding obligation - you cannot benefit if the rate moves in your favor</li>
+  <li>May require credit lines or collateral</li>
+  <li>Not available for all currencies or all time periods</li>
+  <li>Counterparty risk (though minimal with banks)</li>
 </ul>
 </div>
 
-<h3 id="s5-5">5.5 Interest Rate Futures</h3>
+<h3 id="s4-3">4.3 Money Market Hedge</h3>
 
-<p>Interest rate futures are standardised exchange-traded contracts to buy or sell a notional short-term deposit at a future date. The price is quoted as <strong>100 minus the implied interest rate</strong>.</p>
+<p>A money market hedge uses the <strong>domestic and foreign money markets</strong> (borrowing and lending) to create a synthetic forward contract. It achieves the same outcome as a forward contract but uses interest rate differentials instead.</p>
 
-<div class="highlight-box">
-<strong>Key Concept:</strong> If interest rates RISE, futures prices FALL. If interest rates FALL, futures prices RISE. This inverse relationship is crucial for determining whether to go LONG or SHORT.
+<h4>Money Market Hedge for a PAYABLE</h4>
+<p>If you owe foreign currency in the future:</p>
+<ol>
+  <li>Calculate the <strong>present value</strong> of the foreign currency payable using the foreign deposit rate</li>
+  <li>Borrow that amount in <strong>domestic currency</strong> today</li>
+  <li>Convert the borrowed domestic currency to foreign currency at the <strong>spot rate</strong></li>
+  <li>Deposit the foreign currency to earn interest until the payment date</li>
+  <li>On the payment date, the deposit (with interest) equals the payable amount</li>
+</ol>
+
+<div class="example-box">
+<h4>Example: Money Market Hedge - Payable</h4>
+<p><strong>Scenario:</strong> A UK company must pay USD 1,000,000 in 6 months.</p>
+<p><strong>Spot rate:</strong> GBP/USD 0.77 (bid) - 0.7710 (offer)</p>
+<p><strong>UK interest rate (borrowing):</strong> 5% per year</p>
+<p><strong>US interest rate (deposit):</strong> 3% per year</p>
+<p><strong>Step 1:</strong> Calculate the present value of USD 1,000,000</p>
+<p>PV = USD 1,000,000 / (1 + 0.03/2) = USD 1,000,000 / 1.015 = <strong>USD 985,221.67</strong></p>
+<p><strong>Step 2:</strong> Convert USD to GBP at the spot rate</p>
+<p>The company needs to BUY USD, so use the offer rate: GBP/USD 0.7710</p>
+<p>GBP needed = USD 985,221.67 x 0.7710 = <strong>GBP 759,605.91</strong></p>
+<p><strong>Step 3:</strong> Borrow GBP 759,605.91 in the UK at 5% per year</p>
+<p>Repayment in 6 months = GBP 759,605.91 x (1 + 0.05/2) = GBP 759,605.91 x 1.025 = <strong>GBP 778,596.06</strong></p>
+<p><strong>Step 4:</strong> Deposit USD 985,221.67 in the US at 3% per year</p>
+<p>Value in 6 months = USD 985,221.67 x 1.015 = <strong>USD 1,000,000</strong> (exactly the payable!)</p>
+<p><strong>Result:</strong> The effective cost is GBP 778,596.06. This is the money market hedge outcome.</p>
 </div>
 
-<h4>Position to Take</h4>
+<h4>Money Market Hedge for a RECEIVABLE</h4>
+<p>If you will receive foreign currency in the future:</p>
+<ol>
+  <li>Borrow the <strong>present value</strong> of the foreign currency receivable using the foreign borrowing rate</li>
+  <li>Convert the borrowed foreign currency to domestic currency at the <strong>spot rate</strong></li>
+  <li>Use the domestic currency as needed (or invest it)</li>
+  <li>On the receipt date, the foreign currency receivable pays off the foreign currency loan</li>
+</ol>
+
+<div class="example-box">
+<h4>Example: Money Market Hedge - Receivable</h4>
+<p><strong>Scenario:</strong> A UK company will receive EUR 800,000 in 3 months.</p>
+<p><strong>Spot rate:</strong> GBP/EUR 0.8480 (bid) - 0.8490 (offer)</p>
+<p><strong>UK interest rate (deposit):</strong> 4% per year</p>
+<p><strong>Eurozone interest rate (borrowing):</strong> 2% per year</p>
+<p><strong>Step 1:</strong> Calculate the present value of EUR 800,000</p>
+<p>PV = EUR 800,000 / (1 + 0.02/4) = EUR 800,000 / 1.005 = <strong>EUR 796,019.90</strong></p>
+<p><strong>Step 2:</strong> Borrow EUR 796,019.90 in the Eurozone</p>
+<p><strong>Step 3:</strong> Convert EUR to GBP at the spot rate</p>
+<p>The company is SELLING EUR, so use the bid rate: GBP/EUR 0.8480</p>
+<p>GBP received = EUR 796,019.90 x 0.8480 = <strong>GBP 675,024.88</strong></p>
+<p><strong>Step 4:</strong> In 3 months, the EUR receivable of EUR 800,000 pays off the EUR loan</p>
+<p>EUR loan repayment = EUR 796,019.90 x 1.005 = <strong>EUR 800,000</strong> (exactly!)</p>
+<p><strong>Result:</strong> The company has GBP 675,024.88 today (or can invest it). The effective locked-in rate is equivalent to the money market hedge outcome.</p>
+</div>
+
+<div class="key-point">
+<strong>Money Market Hedge vs Forward Contract:</strong>
+<ul>
+  <li>In theory, both should give very similar outcomes due to IRP</li>
+  <li>In practice, small differences may exist due to market imperfections</li>
+  <li>Money market hedge is more complex but may be available when forward markets are not</li>
+  <li>Forward contracts are simpler and more commonly used</li>
+</ul>
+</div>
+
+<h3 id="s4-4">4.4 Currency Futures</h3>
+
+<p>Currency futures are <strong>standardised contracts</strong> traded on an exchange to buy or sell a specific amount of currency at a future date. Unlike forward contracts, futures are:</p>
+<ul>
+  <li>Standardised (fixed contract sizes and settlement dates)</li>
+  <li>Traded on exchanges (not over-the-counter)</li>
+  <li>Marked-to-market daily (daily settlement of gains/losses)</li>
+  <li>Require margin deposits</li>
+</ul>
+
+<div class="highlight-box">
+<strong>Key Concept:</strong> Futures contracts are used to <strong>lock in</strong> an exchange rate, similar to forwards. However, because futures are standardised, the hedge is rarely perfect (there may be over-hedge or under-hedge). The difference between the futures rate and the spot rate on the settlement date determines the gain or loss on the futures position.
+</div>
+
+<h4>How Currency Futures Work</h4>
 <table>
-  <tr><th>If you are...</th><th>And fear rates will...</th><th>You should...</th><th>Because...</th></tr>
-  <tr><td>A borrower</td><td>Rise</td><td>SELL futures (go SHORT)</td><td>If rates rise, futures price falls, and your short position gains</td></tr>
-  <tr><td>An investor/lender</td><td>Fall</td><td>BUY futures (go LONG)</td><td>If rates fall, futures price rises, and your long position gains</td></tr>
+  <tr><th>If you have...</th><th>You should...</th><th>Because...</th></tr>
+  <tr><td>A foreign currency PAYABLE</td><td>BUY futures (go LONG)</td><td>You need to buy foreign currency in the future; a long futures position gains if the foreign currency strengthens</td></tr>
+  <tr><td>A foreign currency RECEIVABLE</td><td>SELL futures (go SHORT)</td><td>You will sell foreign currency in the future; a short futures position gains if the foreign currency weakens</td></tr>
 </table>
 
 <div class="formula-box">
 <span class="badge badge-formula">FORMULA</span><br>
 <strong>Number of Contracts:</strong><br><br>
-Contracts = (Loan amount x Loan period in months) / (Contract size x Contract period in months)<br><br>
-<strong>Tick Value:</strong><br>
-Tick size is usually 0.01% (one basis point)<br>
-Tick value = Contract size x Period x 0.0001<br><br>
-For a 3-month contract of GBP 500,000:<br>
-Tick value = GBP 500,000 x (3/12) x 0.0001 = <strong>GBP 12.50</strong>
+Number of contracts = (Amount to hedge / Contract size) x (Rate conversion if needed)<br><br>
+Round to the nearest whole number. The hedge may not be perfect.
 </div>
 
 <div class="example-box">
-<h4>Example: Interest Rate Futures for a Borrower</h4>
-<p><strong>Scenario:</strong> A company will borrow GBP 10 million for 6 months starting in 3 months. It fears rates will rise.</p>
-<p><strong>Current 3-month rate:</strong> 4%</p>
-<p><strong>Futures price (3-month contract):</strong> 96.00 (implied rate = 4%)</p>
-<p><strong>Contract size:</strong> GBP 500,000</p>
-<p><strong>Contract period:</strong> 3 months</p>
-<p><strong>Step 1:</strong> Calculate number of contracts</p>
-<p>Contracts = (GBP 10,000,000 x 6) / (GBP 500,000 x 3) = 60,000,000 / 1,500,000 = <strong>40 contracts</strong></p>
-<p><strong>Step 2:</strong> Determine position</p>
-<p>Company is a borrower fearing rate rises, so <strong>SELL 40 contracts</strong> at 96.00</p>
-<p><strong>Step 3:</strong> Outcome in 3 months</p>
-<p>Assume the reference rate is now 5.5% and futures price is 94.50</p>
-<p><strong>Gain on futures:</strong> (96.00 - 94.50) = 1.50 = 150 ticks</p>
-<p>Gain = 150 ticks x GBP 12.50 x 40 contracts = <strong>GBP 75,000</strong></p>
-<p><strong>Interest on loan:</strong> GBP 10,000,000 x 5.5% x 6/12 = <strong>GBP 275,000</strong></p>
-<p><strong>Net interest cost:</strong> GBP 275,000 - GBP 75,000 = <strong>GBP 200,000</strong></p>
-<p><strong>Effective rate:</strong> GBP 200,000 / GBP 10,000,000 x (12/6) = <strong>4.0%</strong> (approximately the hedged rate)</p>
+<h4>Example: Currency Futures - Payable</h4>
+<p><strong>Scenario:</strong> A UK company must pay USD 2,000,000 in 4 months.</p>
+<p><strong>Current spot rate:</strong> GBP/USD 0.77</p>
+<p><strong>Futures price (4-month):</strong> GBP/USD 0.7680</p>
+<p><strong>Contract size:</strong> GBP 62,500 per contract</p>
+<p><strong>Step 1:</strong> Determine the position</p>
+<p>The company needs to BUY USD in the future, so it should <strong>BUY (go LONG)</strong> GBP/USD futures.</p>
+<p><strong>Step 2:</strong> Calculate number of contracts</p>
+<p>USD 2,000,000 at futures rate 0.7680 = GBP 1,536,000</p>
+<p>Number of contracts = GBP 1,536,000 / GBP 62,500 = <strong>24.576 contracts</strong></p>
+<p>Round to <strong>25 contracts</strong> (slight over-hedge)</p>
+<p><strong>Step 3:</strong> Outcome at maturity</p>
+<p>Assume the spot rate in 4 months is GBP/USD 0.7750 (USD has strengthened - bad for the company)</p>
+<p><strong>Without hedge:</strong> Cost = USD 2,000,000 x 0.7750 = GBP 1,550,000</p>
+<p><strong>Futures gain:</strong> (0.7750 - 0.7680) x 25 x GBP 62,500 = 0.0070 x GBP 1,562,500 = <strong>GBP 10,937.50 gain</strong></p>
+<p><strong>Net cost with futures:</strong> GBP 1,550,000 - GBP 10,937.50 = <strong>GBP 1,539,062.50</strong></p>
+<p>This is close to the futures-locked rate of GBP 1,536,000. The small difference is due to the over-hedge (25 contracts instead of 24.576).</p>
+</div>
+
+<div class="example-box">
+<h4>Example: Currency Futures - Receivable</h4>
+<p><strong>Scenario:</strong> A UK company will receive EUR 1,500,000 in 3 months.</p>
+<p><strong>Current spot rate:</strong> GBP/EUR 0.85</p>
+<p><strong>Futures price (3-month):</strong> GBP/EUR 0.8480</p>
+<p><strong>Contract size:</strong> EUR 125,000 per contract</p>
+<p><strong>Step 1:</strong> Determine the position</p>
+<p>The company will SELL EUR in the future, so it should <strong>SELL (go SHORT)</strong> GBP/EUR futures.</p>
+<p><strong>Step 2:</strong> Calculate number of contracts</p>
+<p>Number of contracts = EUR 1,500,000 / EUR 125,000 = <strong>12 contracts</strong> (perfect hedge!)</p>
+<p><strong>Step 3:</strong> Outcome at maturity</p>
+<p>Assume the spot rate in 3 months is GBP/EUR 0.8400 (EUR has weakened - bad for the company)</p>
+<p><strong>Without hedge:</strong> Receipt = EUR 1,500,000 x 0.8400 = GBP 1,260,000</p>
+<p><strong>Futures gain:</strong> (0.8480 - 0.8400) x 12 x EUR 125,000 = 0.0080 x EUR 1,500,000 = EUR 12,000</p>
+<p>Convert futures gain to GBP: EUR 12,000 x 0.8400 = <strong>GBP 10,080 gain</strong></p>
+<p><strong>Net receipt with futures:</strong> GBP 1,260,000 + GBP 10,080 = <strong>GBP 1,270,080</strong></p>
+<p>This is close to the futures-locked receipt of EUR 1,500,000 x 0.8480 = GBP 1,272,000.</p>
 </div>
 
 <div class="key-point">
-<strong>Advantages of Interest Rate Futures:</strong>
+<strong>Advantages of Futures:</strong>
 <ul>
-  <li>Liquid and standardised</li>
-  <li>Low counterparty risk (exchange-traded)</li>
-  <li>Flexible closing - can close position before maturity</li>
+  <li>Liquid market - easy to close position before maturity</li>
+  <li>Standardised and regulated</li>
+  <li>Lower counterparty risk (exchange guarantees)</li>
 </ul>
 <strong>Disadvantages:</strong>
 <ul>
-  <li>Standardised contract sizes and dates may not match exact needs</li>
-  <li>Basis risk (futures price may not perfectly track actual borrowing rate)</li>
-  <li>Margin calls require cash management</li>
-  <li>Only whole contracts allowed</li>
+  <li>Standardised contract sizes may not match exact hedging needs</li>
+  <li>Daily margin calls require cash management</li>
+  <li>More complex than forwards</li>
+  <li>Basis risk (futures price may not perfectly track spot price)</li>
 </ul>
 </div>
 
-<h3 id="s5-6">5.6 Interest Rate Options</h3>
+<h3 id="s4-5">4.5 Currency Options</h3>
 
-<p>Interest rate options (often called <strong>interest rate guarantees</strong> or <strong>caps/floors</strong>) give the holder the right, but not the obligation, to fix an interest rate for a future period.</p>
-
-<h4>Types of Interest Rate Options</h4>
-<table>
-  <tr><th>Type</th><th>Right to...</th><th>Use When...</th></tr>
-  <tr><td><strong>Call Option on interest rate futures</strong></td><td>Buy futures (benefit from falling rates)</td><td>Investor fearing rate falls</td></tr>
-  <tr><td><strong>Put Option on interest rate futures</strong></td><td>Sell futures (benefit from rising rates)</td><td>Borrower fearing rate rises</td></tr>
-  <tr><td><strong>Interest Rate Cap</strong></td><td>Sets a MAXIMUM interest rate</td><td>Borrower - limits cost if rates rise</td></tr>
-  <tr><td><strong>Interest Rate Floor</strong></td><td>Sets a MINIMUM interest rate</td><td>Investor - limits loss if rates fall</td></tr>
-</table>
-
-<div class="example-box">
-<h4>Example: Interest Rate Cap</h4>
-<p><strong>Scenario:</strong> A company has a GBP 5 million floating-rate loan. It buys an interest rate cap at 6% for a premium of 0.5% of the notional amount.</p>
-<p><strong>Premium:</strong> GBP 5,000,000 x 0.5% = <strong>GBP 25,000</strong> (paid upfront)</p>
-<p><strong>Scenario A:</strong> Market rate rises to 8%</p>
-<ul>
-  <li>Without cap: Interest = GBP 5,000,000 x 8% = GBP 400,000</li>
-  <li>With cap: Interest = GBP 5,000,000 x 6% = GBP 300,000</li>
-  <li><strong>Cap provider pays:</strong> GBP 100,000</li>
-  <li>Net cost = GBP 300,000 + GBP 25,000 premium = <strong>GBP 325,000</strong></li>
-</ul>
-<p><strong>Scenario B:</strong> Market rate falls to 4%</p>
-<ul>
-  <li>Without cap: Interest = GBP 5,000,000 x 4% = GBP 200,000</li>
-  <li>With cap: The company lets the cap expire and pays market rate</li>
-  <li>Net cost = GBP 200,000 + GBP 25,000 premium = <strong>GBP 225,000</strong></li>
-</ul>
-<p><strong>Key Insight:</strong> The cap guarantees a maximum rate of 6% plus premium, but allows the company to benefit if rates fall below 6%.</p>
-</div>
-
-<h3 id="s5-7">5.7 Interest Rate Swaps</h3>
-
-<p>An interest rate swap is an agreement between two parties to exchange <strong>fixed-rate interest payments</strong> for <strong>floating-rate interest payments</strong> on a notional principal amount over a period of time.</p>
+<p>Currency options give the holder the <strong>RIGHT but NOT the OBLIGATION</strong> to buy (call option) or sell (put option) a currency at a predetermined rate (the strike price) on or before a specific date.</p>
 
 <div class="highlight-box">
-<strong>Key Principle:</strong> In an interest rate swap, the <strong>notional principal is not exchanged</strong>. Only the interest payments are swapped. One party pays fixed and receives floating; the other pays floating and receives fixed.
+<strong>Key Difference from Forwards/Futures:</strong> Options provide <strong>downside protection</strong> while allowing you to <strong>benefit from favorable rate movements</strong>. This flexibility comes at a cost - the <strong>option premium</strong>.
 </div>
 
-<h4>Why Use Interest Rate Swaps?</h4>
-<ol>
-  <li><strong>Transform liability structure:</strong> Convert fixed-rate debt to floating, or floating to fixed</li>
-  <li><strong>Comparative advantage:</strong> Exploit differences in borrowing costs between fixed and floating markets</li>
-  <li><strong>Manage risk:</strong> Align interest rate exposure with risk appetite</li>
-</ol>
-
-<div class="example-box">
-<h4>Example: Comparative Advantage and Swap</h4>
-<p><strong>Company A</strong> (highly rated) can borrow at:</p>
-<ul><li>Fixed: 5%</li><li>Floating: LIBOR + 0.5%</li></ul>
-<p><strong>Company B</strong> (lower rated) can borrow at:</p>
-<ul><li>Fixed: 7%</li><li>Floating: LIBOR + 1.5%</li></ul>
-<p><strong>Comparative advantage:</strong></p>
-<ul>
-  <li>Company A has an absolute advantage in both markets</li>
-  <li>But the difference in fixed rates is 2% (7% - 5%)</li>
-  <li>The difference in floating rates is only 1% (LIBOR+1.5% - LIBOR+0.5%)</li>
-  <li>So Company A has a <strong>comparative advantage in fixed-rate borrowing</strong></li>
-  <li>Company B has a <strong>comparative advantage in floating-rate borrowing</strong> (or rather, less disadvantage)</li>
-</ul>
-<p><strong>Total potential gain from swap:</strong> 2% - 1% = <strong>1%</strong></p>
-<p><strong>Swap arrangement:</strong></p>
-<ol>
-  <li>Company A borrows fixed at 5%</li>
-  <li>Company B borrows floating at LIBOR + 1.5%</li>
-  <li>They enter a swap where:
-    <ul>
-      <li>Company A pays LIBOR to Company B</li>
-      <li>Company B pays 6% fixed to Company A</li>
-    </ul>
-  </li>
-</ol>
-<p><strong>Net results:</strong></p>
-<p><strong>Company A:</strong></p>
-<ul>
-  <li>Pays 5% fixed to bank</li>
-  <li>Pays LIBOR to Company B</li>
-  <li>Receives 6% from Company B</li>
-  <li><strong>Net cost:</strong> 5% + LIBOR - 6% = <strong>LIBOR - 1%</strong></li>
-  <li>Saving vs direct floating: (LIBOR + 0.5%) - (LIBOR - 1%) = <strong>1.5%</strong></li>
-</ul>
-<p><strong>Company B:</strong></p>
-<ul>
-  <li>Pays LIBOR + 1.5% to bank</li>
-  <li>Pays 6% fixed to Company A</li>
-  <li>Receives LIBOR from Company A</li>
-  <li><strong>Net cost:</strong> LIBOR + 1.5% + 6% - LIBOR = <strong>7.5% fixed</strong></li>
-  <li>Saving vs direct fixed: 7% - 7.5% = <strong>-0.5%</strong> (wait, this needs adjustment)</li>
-</ul>
-<p><strong>Better swap terms:</strong> If they split the 1% gain equally (0.5% each):</p>
-<ul>
-  <li>Company B should pay 5.5% fixed to A</li>
-  <li>Company A net cost = 5% + LIBOR - 5.5% = <strong>LIBOR - 0.5%</strong> (saving 1%)</li>
-  <li>Company B net cost = LIBOR + 1.5% + 5.5% - LIBOR = <strong>7.0% fixed</strong> (saving 0%)</li>
-</ul>
-<p>Actually, with 5.5%: A saves 1%, B saves 0%. To split 0.5% each: B pays 6% to A.</p>
-<p>Company A net = 5% + LIBOR - 6% = LIBOR - 1% (saving 1.5% vs LIBOR+0.5%)</p>
-<p>Company B net = LIBOR + 1.5% + 6% - LIBOR = 7.5% (costing 0.5% MORE than direct fixed)</p>
-<p>This shows the importance of structuring swaps correctly. In practice, a bank intermediary would structure it so both parties benefit.</p>
-</div>
-
-<h3 id="s5-8">5.8 Caps, Floors and Collars</h3>
-
+<h4>Types of Currency Options</h4>
 <table>
-  <tr><th>Instrument</th><th>What It Does</th><th>Used By</th><th>Cost</th></tr>
-  <tr><td><strong>Cap</strong></td><td>Sets a MAXIMUM interest rate</td><td>Borrower</td><td>Premium paid</td></tr>
-  <tr><td><strong>Floor</strong></td><td>Sets a MINIMUM interest rate</td><td>Investor/Lender</td><td>Premium paid</td></tr>
-  <tr><td><strong>Collar</strong></td><td>Combines a cap and a floor. Rate is capped at maximum but also floored at minimum.</td><td>Borrower or Investor</td><td>Premium on cap is offset by premium received on floor</td></tr>
+  <tr><th>Option Type</th><th>Gives the right to...</th><th>Use when you have...</th></tr>
+  <tr><td><strong>Call Option</strong></td><td>BUY the foreign currency</td><td>A foreign currency PAYABLE</td></tr>
+  <tr><td><strong>Put Option</strong></td><td>SELL the foreign currency</td><td>A foreign currency RECEIVABLE</td></tr>
+</table>
+
+<h4>Option Terminology</h4>
+<table>
+  <tr><th>Term</th><th>Meaning</th></tr>
+  <tr><td>Strike Price (Exercise Price)</td><td>The rate at which you can buy/sell the currency</td></tr>
+  <tr><td>Premium</td><td>The cost of the option (paid upfront, non-refundable)</td></tr>
+  <tr><td>Expiry Date</td><td>The last date the option can be exercised</td></tr>
+  <tr><td>In-the-Money</td><td>Exercising the option would be profitable</td></tr>
+  <tr><td>Out-of-the-Money</td><td>Exercising the option would NOT be profitable</td></tr>
+  <tr><td>At-the-Money</td><td>Strike price equals current spot price</td></tr>
 </table>
 
 <div class="example-box">
-<h4>Example: Interest Rate Collar</h4>
-<p><strong>Scenario:</strong> A company has a floating-rate loan. It wants protection against rate rises but finds a cap too expensive.</p>
-<p><strong>Strategy:</strong> Buy a cap at 7% and sell a floor at 4%</p>
+<h4>Example: Currency Call Option - Payable</h4>
+<p><strong>Scenario:</strong> A UK company must pay USD 1,000,000 in 3 months.</p>
+<p><strong>Current spot rate:</strong> GBP/USD 0.77</p>
+<p><strong>Option details:</strong></p>
 <ul>
-  <li><strong>Cap premium:</strong> 1.0% of notional</li>
-  <li><strong>Floor premium received:</strong> 0.8% of notional</li>
-  <li><strong>Net premium:</strong> 0.2% (much cheaper than the cap alone)</li>
+  <li>Call option (right to buy USD)</li>
+  <li>Strike price: GBP/USD 0.7750</li>
+  <li>Premium: GBP 0.0080 per USD</li>
 </ul>
-<p><strong>Outcomes:</strong></p>
+<p><strong>Step 1:</strong> Calculate the premium cost</p>
+<p>Premium = USD 1,000,000 x GBP 0.0080 = <strong>GBP 8,000</strong> (paid upfront)</p>
+<p><strong>Step 2:</strong> Analyze outcomes at expiry</p>
+<p><strong>Scenario A:</strong> Spot rate in 3 months = GBP/USD 0.7850 (USD strengthened - bad!)</p>
 <ul>
-  <li>If rates rise above 7%: Company pays maximum 7% (cap protects)</li>
-  <li>If rates fall below 4%: Company pays 4% (floor obligates)</li>
-  <li>If rates are between 4% and 7%: Company pays market rate</li>
+  <li>Spot cost would be: USD 1,000,000 x 0.7850 = GBP 785,000</li>
+  <li>Exercise the option: USD 1,000,000 x 0.7750 = GBP 775,000</li>
+  <li><strong>Exercise the option!</strong> Save GBP 10,000 compared to spot</li>
+  <li>Total cost = GBP 775,000 + GBP 8,000 premium = <strong>GBP 783,000</strong></li>
 </ul>
-<p><strong>Trade-off:</strong> The company sacrifices the benefit of very low rates (below 4%) in exchange for cheaper protection against high rates.</p>
-</div>
-
-<div class="section-divider"></div>
-
-<!-- ==================== SECTION 6 ==================== -->
-<h2 id="s6">6. Value at Risk (VaR)</h2>
-
-<p>Value at Risk (VaR) is a statistical measure of the <strong>maximum potential loss</strong> on a portfolio over a specific time period, at a given confidence level.</p>
-
-<div class="formula-box">
-<span class="badge badge-formula">FORMULA</span><br>
-<strong>VaR Definition:</strong><br><br>
-"We are X% confident that we will not lose more than $Y over the next N days."<br><br>
-Where:<br>
-X% = Confidence level (e.g., 95%, 99%)<br>
-$Y = VaR amount<br>
-N = Time horizon
-</div>
-
-<h3>Methods of Calculating VaR</h3>
-
-<h4>6.1 Historical Simulation</h4>
-<p>Uses actual historical data to estimate potential losses. The steps are:</p>
-<ol>
-  <li>Collect historical returns data (e.g., last 250 trading days)</li>
-  <li>Sort the returns from worst to best</li>
-  <li>At 95% confidence, the VaR is the 5th percentile (12.5th worst day out of 250)</li>
-  <li>At 99% confidence, the VaR is the 1st percentile (2.5th worst day)</li>
-</ol>
-
-<div class="example-box">
-<h4>Example: Historical Simulation VaR</h4>
-<p>A portfolio is worth GBP 10 million. Historical daily returns over 250 days show the worst 5 returns as:</p>
+<p><strong>Scenario B:</strong> Spot rate in 3 months = GBP/USD 0.7600 (USD weakened - good!)</p>
 <ul>
-  <li>-2.5%, -2.1%, -1.8%, -1.5%, -1.3%...</li>
+  <li>Spot cost would be: USD 1,000,000 x 0.7600 = GBP 760,000</li>
+  <li>Option exercise cost: USD 1,000,000 x 0.7750 = GBP 775,000</li>
+  <li><strong>Let the option lapse!</strong> Buy at the cheaper spot rate</li>
+  <li>Total cost = GBP 760,000 + GBP 8,000 premium = <strong>GBP 768,000</strong></li>
 </ul>
-<p><strong>95% confidence VaR (1-day):</strong> The 5th percentile of 250 days = the 12.5th worst day, approximately <strong>-1.5%</strong></p>
-<p>VaR amount = GBP 10,000,000 x 1.5% = <strong>GBP 150,000</strong></p>
-<p><strong>Interpretation:</strong> "We are 95% confident that we will not lose more than GBP 150,000 in one day."</p>
-</div>
-
-<h4>6.2 Variance-Covariance (Parametric) Method</h4>
-<p>Assumes returns are normally distributed. Uses the standard deviation of returns.</p>
-
-<div class="formula-box">
-<span class="badge badge-formula">FORMULA</span><br>
-<strong>VaR = Portfolio Value x Z-score x Standard Deviation x sqrt(Time)</strong><br><br>
-For 95% confidence: Z = 1.645<br>
-For 99% confidence: Z = 2.33<br><br>
-Standard Deviation = Daily standard deviation of returns<br>
-Time = Time horizon in days (use square root rule for longer periods)
+<p><strong>Key Insight:</strong> The option protects against USD strengthening (Scenario A) but allows the company to benefit if USD weakens (Scenario B). The maximum cost is capped at GBP 783,000.</p>
 </div>
 
 <div class="example-box">
-<h4>Example: Parametric VaR</h4>
-<p><strong>Portfolio value:</strong> GBP 20 million</p>
-<p><strong>Daily standard deviation:</strong> 1.2%</p>
-<p><strong>Confidence level:</strong> 95%</p>
-<p><strong>Time horizon:</strong> 1 day</p>
-<p><strong>Calculation:</strong></p>
-<p>VaR = GBP 20,000,000 x 1.645 x 1.2%</p>
-<p>VaR = GBP 20,000,000 x 0.01974 = <strong>GBP 394,800</strong></p>
-<p><strong>For 10-day VaR:</strong></p>
-<p>VaR = GBP 394,800 x sqrt(10) = GBP 394,800 x 3.162 = <strong>GBP 1,248,358</strong></p>
-</div>
-
-<h4>6.3 Monte Carlo Simulation</h4>
-<p>Uses computer models to generate thousands of random possible future scenarios based on statistical parameters. More flexible than other methods but computationally intensive.</p>
-
-<h3>Limitations of VaR</h3>
+<h4>Example: Currency Put Option - Receivable</h4>
+<p><strong>Scenario:</strong> A UK company will receive EUR 2,000,000 in 6 months.</p>
+<p><strong>Current spot rate:</strong> GBP/EUR 0.85</p>
+<p><strong>Option details:</strong></p>
 <ul>
-  <li><strong>Assumes normal distribution:</strong> Financial returns often have "fat tails" (extreme events are more likely than normal distribution suggests)</li>
-  <li><strong>Does not measure maximum loss:</strong> It says "we are 95% confident we won't lose more than X" - but the 5% tail risk is not quantified</li>
-  <li><strong>Backward-looking:</strong> Historical methods assume the future will be like the past</li>
-  <li><strong>Correlation breakdown:</strong> In crises, correlations between assets increase, reducing diversification benefits</li>
+  <li>Put option (right to sell EUR)</li>
+  <li>Strike price: GBP/EUR 0.8450</li>
+  <li>Premium: GBP 0.0120 per EUR</li>
 </ul>
+<p><strong>Step 1:</strong> Calculate the premium cost</p>
+<p>Premium = EUR 2,000,000 x GBP 0.0120 = <strong>GBP 24,000</strong> (paid upfront)</p>
+<p><strong>Step 2:</strong> Analyze outcomes at expiry</p>
+<p><strong>Scenario A:</strong> Spot rate in 6 months = GBP/EUR 0.8300 (EUR weakened - bad!)</p>
+<ul>
+  <li>Spot receipt would be: EUR 2,000,000 x 0.8300 = GBP 1,660,000</li>
+  <li>Exercise the option: EUR 2,000,000 x 0.8450 = GBP 1,690,000</li>
+  <li><strong>Exercise the option!</strong> Gain GBP 30,000 compared to spot</li>
+  <li>Net receipt = GBP 1,690,000 - GBP 24,000 premium = <strong>GBP 1,666,000</strong></li>
+</ul>
+<p><strong>Scenario B:</strong> Spot rate in 6 months = GBP/EUR 0.8600 (EUR strengthened - good!)</p>
+<ul>
+  <li>Spot receipt would be: EUR 2,000,000 x 0.8600 = GBP 1,720,000</li>
+  <li>Option exercise receipt: EUR 2,000,000 x 0.8450 = GBP 1,690,000</li>
+  <li><strong>Let the option lapse!</strong> Sell at the better spot rate</li>
+  <li>Net receipt = GBP 1,720,000 - GBP 24,000 premium = <strong>GBP 1,696,000</strong></li>
+</ul>
+<p><strong>Key Insight:</strong> The put option guarantees a minimum receipt while allowing the company to benefit if EUR strengthens.</p>
+</div>
 
 <div class="key-point">
-<strong>VaR is widely used but should be supplemented with:</strong>
+<strong>Advantages of Options:</strong>
 <ul>
-  <li>Stress testing (what happens in extreme scenarios?)</li>
-  <li>Scenario analysis</li>
-  <li>Expected Shortfall (CVaR) - measures the average loss in the tail beyond VaR</li>
+  <li>Flexibility - can choose whether to exercise</li>
+  <li>Protection against adverse movements</li>
+  <li>Ability to benefit from favorable movements</li>
+  <li>Maximum loss is limited to the premium paid</li>
 </ul>
+<strong>Disadvantages:</strong>
+<ul>
+  <li>Premium cost (can be expensive)</li>
+  <li>More complex than forwards</li>
+  <li>Premium is paid upfront and is a sunk cost</li>
+  <li>Over-the-counter options may have credit risk</li>
+</ul>
+</div>
+
+<h3 id="s4-6">4.6 Currency Swaps</h3>
+
+<p>A currency swap is an agreement between two parties to exchange principal and interest payments in different currencies over a period of time.</p>
+
+<h4>How a Currency Swap Works</h4>
+<ol>
+  <li>Two parties exchange principal amounts in different currencies at the start (at the prevailing spot rate)</li>
+  <li>During the life of the swap, they exchange interest payments</li>
+  <li>At the end, they re-exchange the principal amounts at the same rate as the initial exchange</li>
+</ol>
+
+<div class="example-box">
+<h4>Example: Currency Swap</h4>
+<p><strong>Scenario:</strong> A UK company wants to borrow USD 10 million for 5 years to fund a US subsidiary. A US company wants to borrow GBP 7.7 million for 5 years to fund a UK subsidiary.</p>
+<p><strong>Spot rate:</strong> GBP/USD 0.77</p>
+<p><strong>UK interest rate:</strong> 5%</p>
+<p><strong>US interest rate:</strong> 3%</p>
+<p><strong>Without swap:</strong></p>
+<ul>
+  <li>UK company borrows USD at US rate + spread (maybe 4%)</li>
+  <li>US company borrows GBP at UK rate + spread (maybe 6%)</li>
+</ul>
+<p><strong>With swap:</strong></p>
+<ul>
+  <li>UK company borrows GBP 7.7 million in UK at 5%</li>
+  <li>US company borrows USD 10 million in US at 3%</li>
+  <li>They swap: UK company gets USD 10 million, US company gets GBP 7.7 million</li>
+  <li>UK company pays 3% on USD to US company</li>
+  <li>US company pays 5% on GBP to UK company</li>
+  <li>Both benefit from lower borrowing costs in their home markets</li>
+</ul>
+<p><strong>Result:</strong> Both companies effectively borrow in the foreign currency at better rates than they could achieve directly.</p>
+</div>
+
+<div class="key-point">
+<strong>Advantages of Currency Swaps:</strong>
+<ul>
+  <li>Access to cheaper borrowing in foreign markets</li>
+  <li>Hedge long-term foreign currency exposures</li>
+  <li>Can be structured to match exact needs</li>
+</ul>
+<strong>Disadvantages:</strong>
+<ul>
+  <li>Counterparty risk</li>
+  <li>Complex to arrange</li>
+  <li>Difficult to terminate early</li>
+</ul>
+</div>
+
+<h3 id="s4-7">4.7 Choosing the Best Hedge</h3>
+
+<p>In the exam, you may be asked to compare different hedging methods and recommend the best one. Here is a structured approach:</p>
+
+<table>
+  <tr><th>Method</th><th>Best Used When...</th><th>Key Consideration</th></tr>
+  <tr><td>Forward Contract</td><td>Certainty is the priority; no need for flexibility</td><td>Simple, no upfront cost, but no upside</td></tr>
+  <tr><td>Money Market Hedge</td><td>Forward market not available; exact amounts needed</td><td>More complex; theoretically equivalent to forwards</td></tr>
+  <tr><td>Futures</td><td>Liquidity needed; standard amounts</td><td>Basis risk; margin calls; standardised sizes</td></tr>
+  <tr><td>Options</td><td>Want protection but also want upside potential</td><td>Premium cost; most expensive but most flexible</td></tr>
+  <tr><td>Swap</td><td>Long-term exposures; want to match cash flows</td><td>Best for multi-year exposures</td></tr>
+</table>
+
+<div class="highlight-box">
+<strong>Exam Strategy for Hedging Comparison Questions:</strong>
+<ol>
+  <li>Calculate the outcome for EACH hedging method</li>
+  <li>Present the results in a clear table</li>
+  <li>Consider the company's attitude to risk</li>
+  <li>Consider the cost of each method</li>
+  <li>Make a clear recommendation with justification</li>
+</ol>
 </div>
 
 <div class="section-divider"></div>
 
-<!-- ==================== SECTION 7 ==================== -->
-<h2 id="s7">7. Exam Tips and Common Pitfalls</h2>
+<!-- ==================== SECTION 5 ==================== -->
+<h2 id="s5">5. Interest Rate Risk</h2>
 
-<h3>7.1 Most Common Exam Mistakes</h3>
+<p>Interest rate risk is the risk that changes in interest rates will adversely affect a company's borrowing costs or investment returns. This is the second major risk area in ACCA FM.</p>
+
+<h3 id="s5-1">5.1 Types of Interest Rate Risk</h3>
+
+<h4>5.1.1 Basis Risk</h4>
+<p>The risk that the interest rate on a company's borrowing does not move in line with the reference rate used for hedging. For example, a company borrows at LIBOR + 2% but hedges using futures based on a different benchmark rate.</p>
+
+<h4>5.1.2 Gap Exposure</h4>
+<p>The risk arising from mismatches between the timing of interest rate repricing of assets and liabilities. If a company has short-term liabilities and long-term assets, rising rates increase costs faster than returns.</p>
+
+<h4>5.1.3 Yield Curve Risk</h4>
+<p>The risk that changes in the shape of the yield curve (the relationship between interest rates and time to maturity) will affect the company's financial position.</p>
+
+<h3 id="s5-2">5.2 The Yield Curve</h3>
+
+<p>The yield curve shows the relationship between interest rates (yields) and the time to maturity of debt instruments. It is a crucial tool for understanding interest rate risk.</p>
+
+<h4>Shapes of the Yield Curve</h4>
+<table>
+  <tr><th>Shape</th><th>Description</th><th>What It Suggests</th></tr>
+  <tr><td><strong>Normal (Upward Sloping)</strong></td><td>Long-term rates &gt; Short-term rates</td><td>Expectation of economic growth; higher rates for longer commitments</td></tr>
+  <tr><td><strong>Inverted (Downward Sloping)</strong></td><td>Long-term rates &lt; Short-term rates</td><td>Expectation of recession; investors expect rates to fall</td></tr>
+  <tr><td><strong>Flat</strong></td><td>Long-term rates = Short-term rates</td><td>Uncertainty about future economic direction</td></tr>
+  <tr><td><strong>Humped</strong></td><td>Medium-term rates highest</td><td>Expectation of short-term rate increases followed by decreases</td></tr>
+</table>
+
+<h4>Theories Explaining the Yield Curve</h4>
 
 <table>
-  <tr><th>Mistake</th><th>How to Avoid</th></tr>
+  <tr><th>Theory</th><th>Explanation</th></tr>
   <tr>
-    <td>Using the wrong exchange rate (bid vs offer)</td>
-    <td>Always ask: "Am I buying or selling foreign currency?" If buying, use the higher (offer) rate. If selling, use the lower (bid) rate.</td>
+    <td><strong>Expectations Theory</strong></td>
+    <td>The yield curve reflects market expectations of future interest rates. An upward-sloping curve means the market expects rates to rise.</td>
   </tr>
   <tr>
-    <td>Forgetting to annualise or de-annualise interest rates</td>
-    <td>Check whether rates are given as annual or for the period. If annual, divide by the number of periods per year.</td>
+    <td><strong>Liquidity Preference Theory</strong></td>
+    <td>Investors demand a premium (higher yield) for holding longer-term bonds because they are less liquid and more sensitive to interest rate changes. This explains why the yield curve is normally upward sloping.</td>
   </tr>
   <tr>
-    <td>Mixing up domestic and foreign rates in IRP/PPP</td>
-    <td>Domestic rate always goes on top, foreign rate on the bottom. If rate is GBP/EUR, UK is domestic, Eurozone is foreign.</td>
-  </tr>
-  <tr>
-    <td>Getting futures direction wrong (long vs short)</td>
-    <td>Borrower fearing rate rises = SELL futures. Investor fearing rate falls = BUY futures. For forex: payable = BUY futures, receivable = SELL futures.</td>
-  </tr>
-  <tr>
-    <td>Ignoring the premium in option calculations</td>
-    <td>Always include the premium in the total cost/receipt. Premium is paid upfront and is a sunk cost.</td>
-  </tr>
-  <tr>
-    <td>Rounding errors in money market hedge</td>
-    <td>Keep full precision through all steps. Only round at the final answer.</td>
-  </tr>
- </tr>
-    <td>Not making a clear recommendation</td>
-    <td>After calculating all hedging methods, ALWAYS state which you recommend and WHY. Consider cost, flexibility, risk appetite, and certainty.</td>
+    <td><strong>Market Segmentation Theory</strong></td>
+    <td>Different investors operate in different maturity segments. Supply and demand in each segment determines rates independently. Pension funds may demand long bonds, pushing long rates down.</td>
   </tr>
 </table>
 
-<h3>7.2 Time Management Tips</h3>
-<ul>
-  <li>Hedging comparison questions can take 15-20 minutes. Set up a clear table format before starting calculations.</li>
-  <li>Write down the formula you are using before substituting numbers - this earns method marks even if your final answer is wrong.</li>
-  <li>For options, always show BOTH scenarios (exercise and lapse) to demonstrate understanding.</li>
-  <li>When comparing hedges, calculate the effective rate or total cost for each method in the same currency.</li>
-</ul>
-
-<h3>7.3 Key Exam Verbs</h3>
-<table>
-  <tr><th>Verb</th><th>What to Do</th></tr>
-  <tr><td><strong>Calculate</strong></td><td>Show all workings and arrive at a numerical answer</td></tr>
-  <tr><td><strong>Compare</strong></td><td>Show similarities and differences between methods</td></tr>
-  <tr><td><strong>Recommend</strong></td><td>Make a clear choice and justify with reasons</td></tr>
-  <tr><td><strong>Explain</strong></td><td>Provide reasons and demonstrate understanding</td></tr>
-  <tr><td><strong>Evaluate</strong></td><td>Assess strengths and weaknesses, make a judgment</td></tr>
-</table>
-
-<div class="section-divider"></div>
-
-<!-- ==================== SECTION 8 ==================== -->
-<h2 id="s8">8. Formula Sheet</h2>
-
-<div class="formula-box" style="text-align:left; font-size:1em;">
-<strong>INTEREST RATE PARITY (IRP):</strong><br>
-F = S x (1 + i<sub>d</sub>) / (1 + i<sub>f</sub>)<br><br>
-
-<strong>PURCHASING POWER PARITY (PPP):</strong><br>
-S<sub>1</sub> = S<sub>0</sub> x (1 + inf<sub>d</sub>) / (1 + inf<sub>f</sub>)<br><br>
-
-<strong>CROSS RATE:</strong><br>
-If A/B = x and C/B = y, then A/C = x / y<br><br>
-
-<strong>MONEY MARKET HEDGE - PAYABLE:</strong><br>
-PV of foreign payable = Foreign amount / (1 + foreign deposit rate)<br>
-Borrow domestic = PV x spot offer rate<br>
-Repay domestic = Borrowed x (1 + domestic borrowing rate)<br><br>
-
-<strong>MONEY MARKET HEDGE - RECEIVABLE:</strong><br>
-PV of foreign receivable = Foreign amount / (1 + foreign borrowing rate)<br>
-Convert to domestic = PV x spot bid rate<br><br>
-
-<strong>FUTURES CONTRACTS:</strong><br>
-Forex: Number of contracts = Amount to hedge / Contract size (adjust for currency if needed)<br>
-Interest rate: Contracts = (Loan x Loan period) / (Contract size x Contract period)<br>
-Tick value = Contract size x Period x 0.0001<br><br>
-
-<strong>FRA SETTLEMENT:</strong><br>
-Settlement = Notional x (Reference - FRA) x (Period/12) / (1 + Reference x Period/12)<br><br>
-
-<strong>VaR (Parametric):</strong><br>
-VaR = Portfolio Value x Z x SD x sqrt(Time)<br>
-Z (95%) = 1.645 | Z (99%) = 2.33
+<div class="key-point">
+<strong>Remember:</strong> The yield curve is NOT a prediction of future rates - it reflects the CURRENT market prices of bonds of different maturities. However, under the expectations theory, it can be used to infer market expectations.
 </div>
-
-<div class="highlight-box" style="margin-top:40px; text-align:center;">
-<h2 style="border:none; color:var(--accent-warm); margin-top:0;">Good Luck with Your Sep-26 Exam!</h2>
-<p style="text-align:center; font-size:1.2em;">Master these concepts, practice past papers, and remember: <strong>always show your workings clearly.</strong></p>
-</div>
-
-</div>
-</body>
-</html>
