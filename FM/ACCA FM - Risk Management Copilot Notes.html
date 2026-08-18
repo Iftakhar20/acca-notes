@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ACCA FM (F9) Risk Management - Power Notes (Sep 2026)</title>
+  <style>
+    :root{
+      --bg:#f7f9fc;
+      --card:#ffffff;
+      --ink:#0f172a;
+      --muted:#475569;
+      --accent:#2563eb;
+      --accent2:#16a34a;
+      --warn:#b45309;
+      --border:#e2e8f0;
+      --codebg:#0b1220;
+      --codefg:#e5e7eb;
+      --shadow: 0 10px 30px rgba(15,23,42,.08);
+      --radius: 18px;
+      --fs: 19px;
+      --lh: 1.75;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: var(--fs);
+      line-height: var(--lh);
+      color: var(--ink);
+      background: radial-gradient(1200px 700px at 10% 10%, #e7f0ff 0%, rgba(231,240,255,0) 60%),
+                  radial-gradient(900px 600px at 90% 20%, #eafff2 0%, rgba(234,255,242,0) 55%),
+                  var(--bg);
+    }
+
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(247,249,252,.7);
+      border-bottom: 1px solid var(--border);
+    }
+    .topbar-inner{
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 14px 18px;
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .title{
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+    }
+    .title h1{
+      margin:0;
+      font-size: 22px;
+      letter-spacing:.2px;
+    }
+    .title .sub{
+      color:var(--muted);
+      font-size: 14px;
+    }
+
+    .search{
+      flex: 1;
+      max-width: 520px;
+      display:flex;
+      justify-content:flex-end;
+      gap:10px;
+      align-items:center;
+    }
+    .search input{
+      width:100%;
+      max-width:520px;
+      padding: 12px 14px;
+      border:1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(255,255,255,.9);
+      font-size: 16px;
+      outline: none;
+      box-shadow: 0 4px 18px rgba(15,23,42,.05);
+    }
+
+    .progress{
+      height: 4px;
+      width: 100%;
+      background: rgba(37,99,235,.12);
+    }
+    .progress > div{
+      height: 4px;
+      width: 0;
+      background: linear-gradient(90deg, var(--accent), #22c55e);
+    }
+
+    .wrap{
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 22px 18px 60px;
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      gap: 18px;
+    }
+
+    .nav{
+      position: sticky;
+      top: 92px;
+      align-self:start;
+      background: rgba(255,255,255,.9);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 14px;
+    }
+    .nav .badge{
+      display:inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(37,99,235,.10);
+      color: var(--accent);
+      font-weight: 650;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+    .nav a{
+      display:block;
+      padding: 8px 10px;
+      border-radius: 12px;
+      color: var(--ink);
+      font-weight: 600;
+      font-size: 15px;
+    }
+    .nav a small{display:block; color:var(--muted); font-weight: 550; font-size: 13px; margin-top:2px}
+    .nav a:hover{background: rgba(37,99,235,.08); text-decoration:none}
+    .nav .group{margin-top: 8px; border-top: 1px dashed var(--border); padding-top: 10px}
+
+    .content{min-width: 0;}
+
+    .card{
+      background: rgba(255,255,255,.93);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px 18px;
+      margin-bottom: 14px;
+    }
+
+    h2{margin: 0 0 10px; font-size: 26px; letter-spacing:.2px}
+    h3{margin: 18px 0 8px; font-size: 21px}
+    h4{margin: 14px 0 6px; font-size: 18px}
+    p{margin: 8px 0}
+
+    ul{margin: 6px 0 10px 22px}
+    li{margin: 4px 0}
+
+    .callout{
+      border-left: 6px solid var(--accent);
+      padding: 12px 14px;
+      background: rgba(37,99,235,.06);
+      border-radius: 14px;
+      margin: 10px 0;
+    }
+    .callout.green{border-left-color: var(--accent2); background: rgba(34,197,94,.08)}
+    .callout.warn{border-left-color: var(--warn); background: rgba(245,158,11,.10)}
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 12px;
+    }
+    .pill{
+      display:inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: rgba(15,23,42,.06);
+      color: var(--ink);
+      font-weight: 650;
+      font-size: 13px;
+      margin-right: 6px;
+      margin-top: 4px;
+    }
+
+    pre, code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
+    pre{
+      background: var(--codebg);
+      color: var(--codefg);
+      padding: 14px 14px;
+      border-radius: 16px;
+      overflow:auto;
+      margin-top: 10px;
+      border: 1px solid rgba(255,255,255,.10);
+    }
+    .formula{
+      background: rgba(15,23,42,.04);
+      border: 1px solid var(--border);
+      padding: 12px 14px;
+      border-radius: 16px;
+      margin: 10px 0;
+    }
+
+    details{
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 10px 12px;
+      background: rgba(255,255,255,.75);
+      margin: 10px 0;
+    }
+    summary{
+      cursor:pointer;
+      font-weight: 750;
+    }
+
+    .kbd{
+      border:1px solid var(--border);
+      padding: 2px 8px;
+      border-radius: 10px;
+      background: rgba(255,255,255,.9);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .footer{
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 18px;
+    }
+
+    .hidden{display:none !important}
+
+    @media (max-width: 980px){
+      .wrap{grid-template-columns: 1fr}
+      .nav{position: relative; top:0}
+      .search{max-width: 100%}
+      .topbar-inner{flex-direction: column; align-items:stretch}
+    }
+
+    @media print{
+      .topbar, .nav, .progress{display:none}
+      body{background:#fff}
+      .card{box-shadow:none}
+      a{text-decoration:underline}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="title">
+        <h1>ACCA FM Risk Management - Power Notes</h1>
+        <div class="sub">Standalone study guide for the Sep-26 exam window. Big fonts, light theme, lots of examples.</div>
+      </div>
+      <div class="search">
+        <input id="q" type="search" placeholder="Search these notes (e.g., forward, money market hedge, swaps, PPP, futures, option premium)..." aria-label="Search" />
+      </div>
+    </div>
+    <div class="progress"><div id="bar"></div></div>
+  </div>
+
+  <div class="wrap">
+    <nav class="nav" aria-label="Table of contents">
+      <div class="badge">Syllabus Area G: Risk Management</div>
+      <a href="#start">Start here<small>How to study + what the examiner looks for</small></a>
+      <div class="group"></div>
+      <a href="#g1">G1. Nature & types of risk<small>Risk map, risk appetite, risk response</small></a>
+      <a href="#g2">G2. FX & interest rate movements<small>Why rates move, parity ideas</small></a>
+      <a href="#g3">G3. Hedging foreign currency risk<small>Forwards, money market, futures, options, swaps</small></a>
+      <a href="#g4">G4. Hedging interest rate risk<small>FRAs, futures, swaps, options (caps/floors)</small></a>
+      <div class="group"></div>
+      <a href="#exam">Exam technique & common mistakes<small>Direction errors, rate selection, layout</small></a>
+      <a href="#practice">Practice mini-questions + solutions<small>Quick drills for speed</small></a>
+      <a href="#glossary">Glossary<small>Key terms in plain English</small></a>
+      <a href="#refs">References<small>Syllabus alignment</small></a>
+      <div class="footer">
+        Tip: Use <span class="kbd">Ctrl</span> + <span class="kbd">F</span> too.
+      </div>
+    </nav>
+
+    <main class="content" id="content">
+
+      <section class="card" id="start">
+        <h2>Start here (how to score well)</h2>
+        <div class="callout">
+          <strong>What “Risk Management” means in ACCA FM:</strong>
+          you must (1) understand types of risk, (2) explain why FX/interest rates move, and (3) perform hedging calculations accurately for BOTH foreign currency and interest rates.
+        </div>
+        <div class="grid">
+          <div class="card" style="margin:0; padding:14px; box-shadow:none">
+            <h3 style="margin-top:0">How to study this chapter</h3>
+            <ul>
+              <li>Learn the <strong>story</strong> first: what exposure exists and why it matters.</li>
+              <li>Memorise the <strong>rate-selection rules</strong> (buy vs sell, bid vs offer, base/quote).</li>
+              <li>Master the 5 big FX hedges: <strong>do nothing</strong>, <strong>forward</strong>, <strong>money market</strong>, <strong>futures</strong>, <strong>options</strong>.</li>
+              <li>Master the 4 big interest-rate hedges: <strong>FRAs</strong>, <strong>futures</strong>, <strong>swaps</strong>, <strong>options (caps/floors)</strong>.</li>
+              <li>Practice layout: show steps and units clearly (currency, months, interest basis).</li>
+            </ul>
+          </div>
+          <div class="card" style="margin:0; padding:14px; box-shadow:none">
+            <h3 style="margin-top:0">Mark-winning habits</h3>
+            <ul>
+              <li>Always write: <strong>“Need to pay/receive X currency on date Y”</strong> first.</li>
+              <li>Write: <strong>“Therefore we need to buy/sell foreign currency”</strong>.</li>
+              <li>Underline the rate you use and label it: <strong>spot/forward; bid/offer</strong>.</li>
+              <li>For money-market hedge: show the two legs clearly: <strong>borrow/invest</strong> and <strong>convert</strong>.</li>
+              <li>For futures: show <strong>number of contracts</strong>, <strong>basis</strong>, and <strong>tick value</strong>, then the net effect.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" id="g1">
+        <h2>G1. The nature and types of risk + approaches to risk management</h2>
+
+        <h3>1) What is “risk” in finance?</h3>
+        <p><strong>Risk</strong> is uncertainty about outcomes. In finance, risk is usually about <strong>cash flows</strong> being different from what you planned.</p>
+        <div class="callout green">
+          Key idea: a business is not trying to remove all risk. It is trying to take the <strong>right risks</strong> (rewarded) and reduce the <strong>wrong risks</strong> (unrewarded or catastrophic).
+        </div>
+
+        <h3>2) Types of risk (the FM level you must know)</h3>
+        <div>
+          <span class="pill">Business/operating risk</span>
+          <span class="pill">Financial risk</span>
+          <span class="pill">Liquidity risk</span>
+          <span class="pill">FX risk</span>
+          <span class="pill">Interest rate risk</span>
+          <span class="pill">Commodity/price risk</span>
+          <span class="pill">Credit risk</span>
+        </div>
+
+        <h4>A. Business (operating) risk</h4>
+        <p>Risk from the business model, such as demand changes, competition, input costs, regulation, supply disruptions.</p>
+        <details>
+          <summary>Example: Operating risk (simple)</summary>
+          <p>A hospital pharmacy depends on a single supplier for a high-volume medicine. If that supplier delays shipping, sales and service levels drop. This is operating risk (not FX/interest risk).</p>
+        </details>
+
+        <h4>B. Financial risk</h4>
+        <p>Risk that comes from using <strong>debt</strong>. Fixed interest commitments make profits more volatile. High gearing increases financial risk.</p>
+        <details>
+          <summary>Example: Financial risk (numbers)</summary>
+          <p>Company A and B both have operating profit (EBIT) of $1,000,000.</p>
+          <ul>
+            <li>A has no debt: interest = $0 → profit before tax = $1,000,000</li>
+            <li>B has debt: interest = $600,000 → profit before tax = $400,000</li>
+          </ul>
+          <p>If EBIT falls by 20% to $800,000:</p>
+          <ul>
+            <li>A profit = $800,000 (down 20%)</li>
+            <li>B profit = $200,000 (down 50%)</li>
+          </ul>
+          <p>This shows how debt magnifies volatility.</p>
+        </details>
+
+        <h4>C. Liquidity risk</h4>
+        <p>Risk of not having enough cash to settle obligations when due, even if the business is profitable on paper.</p>
+
+        <h4>D. Foreign currency (FX) risk: transaction, translation, economic</h4>
+        <ul>
+          <li><strong>Transaction risk:</strong> cash flows on imports/exports, loans, dividends in foreign currency.</li>
+          <li><strong>Translation risk:</strong> accounting risk when consolidating foreign subsidiaries.</li>
+          <li><strong>Economic risk:</strong> long-term competitive effect of FX changes on future cash flows.</li>
+        </ul>
+        <details>
+          <summary>Example: transaction vs economic (quick contrast)</summary>
+          <p>A UAE company has a confirmed EUR payable in 3 months: that is <strong>transaction risk</strong>.</p>
+          <p>If EUR strengthens for years, making European products more expensive for UAE customers, demand changes: that is <strong>economic risk</strong>.</p>
+        </details>
+
+        <h4>E. Interest rate risk</h4>
+        <p>Risk that interest rates change and affect:</p>
+        <ul>
+          <li>Borrowing costs (variable rate loans),</li>
+          <li>Investment income (money market deposits),</li>
+          <li>Discount rates used for valuation,</li>
+          <li>Bond prices (inverse relationship with yield).</li>
+        </ul>
+
+        <h3>3) Risk management process (a simple framework)</h3>
+        <div class="formula"><strong>Step 1:</strong> Identify exposures → <strong>Step 2:</strong> Measure/assess → <strong>Step 3:</strong> Choose response → <strong>Step 4:</strong> Implement & monitor</div>
+
+        <h4>Step 1: Identify exposures</h4>
+        <p>List what could go wrong and where the cash flows are sensitive: currencies, interest type (fixed/float), timing, amounts.</p>
+
+        <h4>Step 2: Measure/assess</h4>
+        <ul>
+          <li>Size of exposure (how big is the payment/receipt?)</li>
+          <li>Probability and volatility (how likely are adverse moves?)</li>
+          <li>Impact vs tolerance (can we absorb this loss?)</li>
+        </ul>
+        <div class="callout">
+          In FM, you are not required to do advanced VaR, but you must show that you understand <strong>risk = probability × impact</strong> thinking.
+        </div>
+
+        <h4>Step 3: Choose a response (the classic 4)</h4>
+        <ul>
+          <li><strong>Avoid:</strong> do not take the risk (e.g., stop trading in that currency).</li>
+          <li><strong>Reduce/mitigate:</strong> hedging, diversification, operational changes.</li>
+          <li><strong>Transfer:</strong> insurance, outsourcing, derivatives (transfer price risk).</li>
+          <li><strong>Accept:</strong> do nothing if costs > benefits or exposure is immaterial.</li>
+        </ul>
+
+        <h4>Step 4: Implement & monitor</h4>
+        <p>Document policy (risk limits), measure results, and avoid “speculation” (taking extra risk not linked to exposure).</p>
+
+        <h3>4) Hedging vs speculation (must be able to explain)</h3>
+        <div class="grid">
+          <div class="callout" style="margin:0">
+            <strong>Hedging</strong> reduces uncertainty about an existing exposure.
+          </div>
+          <div class="callout warn" style="margin:0">
+            <strong>Speculating</strong> means deliberately taking risk to make profit from price movements.
+          </div>
+        </div>
+        <details>
+          <summary>Example: hedging vs speculation</summary>
+          <p>If you must pay EUR 1m in 3 months and you buy a forward contract to lock the EUR rate, you are hedging.</p>
+          <p>If you have no EUR payments but you buy EUR forward hoping EUR rises, that is speculation.</p>
+        </details>
+
+      </section>
+
+      <section class="card" id="g2">
+        <h2>G2. Causes of exchange rate differences and interest rate fluctuations</h2>
+        <h3>1) Why do exchange rates move?</h3>
+        <p>Exchange rates are prices: they move because demand and supply of currencies change.</p>
+        <ul>
+          <li><strong>Inflation differences:</strong> higher inflation tends to weaken a currency over time.</li>
+          <li><strong>Interest rate differences:</strong> higher interest rates can attract capital inflows (but context matters).</li>
+          <li><strong>Trade balance/current account:</strong> persistent deficits can pressure currency.</li>
+          <li><strong>Capital flows:</strong> investment, speculation, safe-haven flows.</li>
+          <li><strong>Government/central bank actions:</strong> interest rate changes, interventions, controls.</li>
+          <li><strong>Market expectations:</strong> news changes expectations fast.</li>
+        </ul>
+
+        <h3>2) Why do interest rates move?</h3>
+        <ul>
+          <li><strong>Central bank policy:</strong> changes in policy rates to manage inflation and growth.</li>
+          <li><strong>Inflation expectations:</strong> lenders demand compensation for expected inflation.</li>
+          <li><strong>Credit risk and liquidity:</strong> higher risk = higher required return.</li>
+          <li><strong>Supply and demand for funds:</strong> government borrowing, business investment, savings.</li>
+        </ul>
+
+        <h3>3) Parity relationships (FM-friendly level)</h3>
+        <div class="callout">
+          You may see PPP / IRP / International Fisher Effect in explanation or as context for rates. In FM, calculations are usually hedging-based, but knowing these helps you interpret spot vs forward.
+        </div>
+
+        <h4>A. Purchasing Power Parity (PPP) (simple)</h4>
+        <p>Idea: currencies adjust so that purchasing power is similar across countries in the long run.</p>
+        <div class="formula">
+          Approx. expected % change in FX ≈ (Inflation home − Inflation foreign)
+        </div>
+        <details>
+          <summary>PPP example</summary>
+          <p>Home inflation = 6%, foreign inflation = 2%. Home currency expected to <strong>depreciate</strong> by about 4% versus foreign currency over the period.</p>
+        </details>
+
+        <h4>B. Interest Rate Parity (IRP): link between spot and forward</h4>
+        <p>Forward rates reflect interest rate differentials (ignoring transaction costs and capital controls).</p>
+        <div class="formula">
+          Forward ≈ Spot × (1 + i_home) / (1 + i_foreign)
+        </div>
+        <details>
+          <summary>IRP intuition</summary>
+          <p>If home interest is higher than foreign, the home currency tends to trade at a <strong>forward discount</strong> (it is expected to weaken in the forward rate) to prevent arbitrage.</p>
+        </details>
+
+        <h4>C. International Fisher Effect (IFE)</h4>
+        <p>Connects interest differentials to expected FX changes (because nominal interest reflects inflation expectations).</p>
+
+        <h3>4) Quick “direction” reminder for exam</h3>
+        <div class="callout warn">
+          Most marks are lost due to direction mistakes: whether you are buying or selling foreign currency, and whether to use the bid or offer rate.
+        </div>
+        <p><strong>Golden memory trick:</strong></p>
+        <ul>
+          <li>If the company will <strong>pay</strong> foreign currency later → it must <strong>buy</strong> foreign currency.</li>
+          <li>If the company will <strong>receive</strong> foreign currency later → it will <strong>sell</strong> foreign currency.</li>
+          <li>Banks <strong>sell</strong> currency to you at the worse rate for you (often the <strong>higher</strong> quote when quoted as “foreign per $1”).</li>
+        </ul>
+      </section>
+
+      <section class="card" id="g3">
+        <h2>G3. Hedging techniques for foreign currency risk (FX)</h2>
+
+        <h3>0) Setup checklist (do this before any calculation)</h3>
+        <div class="formula">
+          1) Pay or receive?  2) Which foreign currency?  3) When?  4) Exposure amount?  5) Quote format?  6) Choose hedge and compute domestic currency cost/receipt
+        </div>
+
+        <h3>1) Internal methods (often tested as discussion)</h3>
+        <ul>
+          <li><strong>Invoice in home currency:</strong> passes FX risk to the counterparty (may not be commercially acceptable).</li>
+          <li><strong>Netting:</strong> offset receipts and payments in same currency to hedge only the net amount.</li>
+          <li><strong>Matching:</strong> match foreign currency inflows with outflows (e.g., pay suppliers using foreign receipts).</li>
+          <li><strong>Leading and lagging:</strong> speed up or delay payments/receipts based on expected movements.</li>
+          <li><strong>Foreign currency bank account:</strong> hold currency and pay from it to reduce repeated conversions.</li>
+        </ul>
+
+        <details>
+          <summary>Example: Netting (simple numbers)</summary>
+          <p>A company expects to receive EUR 600k and pay EUR 450k during the same month.</p>
+          <p>Instead of hedging both, it can net to EUR 150k receipt (or payment depending on timing), reducing hedge size and costs.</p>
+        </details>
+
+        <h3>2) Forward exchange contract (the workhorse hedge)</h3>
+        <p>A <strong>forward contract</strong> locks an exchange rate today for a future currency exchange.</p>
+
+        <details>
+          <summary>Worked Example (Forward contract for a payable)</summary>
+          <p><strong>Scenario:</strong> You must pay EUR 1,200,000 in 3 months. Spot is 4.00 - 4.05 AED/EUR. 3-month forward is 4.06 - 4.10 AED/EUR. Ignore fees.</p>
+          <ol>
+            <li>Payable → need to <strong>buy EUR</strong> in 3 months.</li>
+            <li>Buying EUR means bank sells EUR to you → use the <strong>higher</strong> forward rate: 4.10 AED/EUR.</li>
+          </ol>
+          <p><strong>Hedged cost:</strong> 1,200,000 × 4.10 = <strong>AED 4,920,000</strong></p>
+          <div class="callout">Always label: “used forward offer rate (bank sells EUR)” to gain explanation marks.</div>
+        </details>
+
+        <h4>Advantages and disadvantages</h4>
+        <div class="grid">
+          <div class="callout" style="margin:0">
+            <strong>Pros:</strong> simple, removes uncertainty, usually cheap.
+          </div>
+          <div class="callout warn" style="margin:0">
+            <strong>Cons:</strong> no benefit if spot moves in your favour; commitment is fixed.
+          </div>
+        </div>
+
+        <h3>3) Money market hedge (MMH) (very exam-friendly)</h3>
+        <p>Money market hedge uses borrowing and lending to create a <strong>synthetic forward rate</strong>.</p>
+
+        <div class="callout">
+          <strong>Rule of thumb:</strong>
+          <ul>
+            <li>For a <strong>payable</strong>: borrow domestic now, convert to foreign now, invest foreign now so you have the foreign amount at payment date.</li>
+            <li>For a <strong>receivable</strong>: borrow foreign now (against the future receipt), convert to domestic now, invest domestic now.</li>
+          </ul>
+        </div>
+
+        <details>
+          <summary>Worked Example (Money market hedge for a payable)</summary>
+          <p><strong>Scenario:</strong> Pay USD 500,000 in 4 months. Spot: 3.6700 AED/USD (assume single rate). 4-month AED interest: 6% p.a. 4-month USD interest: 3% p.a. Use simple interest with 12-month year.</p>
+          <ol>
+            <li>Need USD 500k in 4 months. Invest USD now to grow to 500k.</li>
+          </ol>
+          <pre>USD to invest now = 500,000 / (1 + 0.03 × 4/12)
+                   = 500,000 / 1.01
+                   = 495,049.50</pre>
+          <ol start="2">
+            <li>Buy USD now using spot: AED needed now = 495,049.50 × 3.6700 = <strong>AED 1,816,831.68</strong></li>
+            <li>Borrow AED now for 4 months to fund the purchase.</li>
+          </ol>
+          <pre>AED borrowed now = 495,049.50 × 3.6700
+                 = 1,816,831.68
+AED repayment in 4 months = 1,816,831.68 × (1 + 0.06 × 4/12)
+                          = 1,816,831.68 × 1.02
+                          = <strong>AED 1,853,168.32</strong></pre>
+          <p><strong>Interpretation:</strong> the AED repayment amount is the hedged domestic cost.</p>
+          <p class="callout green"><strong>Exam note:</strong> Even when you calculate precisely, always show the interest factor (e.g., 1 + r × t) so the marker can follow your logic.</p>
+        </details>
+
+        <h3>4) Currency futures (standardised, exchange-traded)</h3>
+        <p>Futures are like forwards but standardised and tradable. You hedge by taking a position that offsets your exposure.</p>
+        <ul>
+          <li>Pay foreign currency later → typically <strong>buy futures</strong> (long) to lock a rate.</li>
+          <li>Receive foreign currency later → typically <strong>sell futures</strong> (short).</li>
+          <li>Because contract sizes and dates are fixed, you face <strong>basis risk</strong> (imperfect match).</li>
+        </ul>
+
+        <details>
+          <summary>Worked Example (Futures hedge - structure)</summary>
+          <p><strong>Scenario template:</strong> Pay EUR X in 3 months. EUR futures contract size = EUR 125,000. Futures price quoted as USD per EUR (or similar). Tick value given.</p>
+          <pre>Step 1: Number of contracts = Exposure / Contract size
+Step 2: Take LONG position for payable (protect against EUR strengthening)
+Step 3: Gain/Loss on futures = (Closing price − Opening price) × Contract size × No. contracts
+Step 4: Net domestic cost = Spot cost at settlement date ± futures gain/loss</pre>
+          <p><strong>Key mark point:</strong> show the sign: if EUR strengthens, payable costs more in domestic currency, but long futures makes a gain to compensate.</p>
+        </details>
+
+        <h3>5) Currency options (gives upside, costs premium)</h3>
+        <p>An option gives the <strong>right, not obligation</strong>, to exchange currency at a predetermined rate (exercise price).</p>
+        <div class="grid">
+          <div class="callout" style="margin:0">
+            <strong>Payable hedge:</strong> buy a <strong>call</strong> option on foreign currency (right to buy foreign).
+          </div>
+          <div class="callout" style="margin:0">
+            <strong>Receivable hedge:</strong> buy a <strong>put</strong> option on foreign currency (right to sell foreign).
+          </div>
+        </div>
+
+        <details>
+          <summary>Worked Example (Option for a payable)</summary>
+          <p><strong>Scenario:</strong> Pay GBP 200,000 in 2 months. Option exercise rate: 4.55 AED/GBP. Premium: 0.06 AED/GBP payable now. At maturity, spot could be 4.70 or 4.40.</p>
+          <p><strong>Premium now:</strong> 200,000 × 0.06 = AED 12,000</p>
+          <p><strong>If spot = 4.70 (GBP strong):</strong> exercise option. Pay 200,000 × 4.55 = AED 910,000. Total = 910,000 + 12,000 = <strong>AED 922,000</strong>.</p>
+          <p><strong>If spot = 4.40 (GBP weak):</strong> do NOT exercise. Buy at spot. Pay 200,000 × 4.40 = AED 880,000. Total = 880,000 + 12,000 = <strong>AED 892,000</strong>.</p>
+          <div class="callout green">This demonstrates why options are flexible: you cap the worst case but keep favourable movements (minus premium).</div>
+        </details>
+
+        <h3>6) Currency swaps (mainly for longer-term exposures)</h3>
+        <p>A currency swap exchanges principal and/or interest payments in one currency for those in another, usually long term. In FM, you mainly need to explain the idea and when it is used.</p>
+        <details>
+          <summary>Example: When swaps make sense</summary>
+          <p>A company with a 3-year USD loan wants to pay in AED-equivalent cash flows. A currency swap can transform the USD obligation into AED obligation (subject to counterparty risk).</p>
+        </details>
+
+        <h3>7) Comparing hedging methods (how to choose in exam)</h3>
+        <p>Typically you calculate domestic currency cost/receipt under two or more hedges and recommend based on:</p>
+        <ul>
+          <li>Lowest expected cost (or best guaranteed outcome),</li>
+          <li>Risk appetite: certainty vs flexibility,</li>
+          <li>Costs: premiums, transaction costs, credit lines, collateral,</li>
+          <li>Exposure size and maturity,</li>
+          <li>Practical issues: availability, accounting policy, administrative burden.</li>
+        </ul>
+
+      </section>
+
+      <section class="card" id="g4">
+        <h2>G4. Hedging techniques for interest rate risk</h2>
+
+        <h3>1) Understand your exposure (borrowing vs investing)</h3>
+        <div class="grid">
+          <div class="callout" style="margin:0">
+            <strong>If you will BORROW at variable rate:</strong> you fear rates rising.
+          </div>
+          <div class="callout" style="margin:0">
+            <strong>If you will INVEST at variable rate:</strong> you fear rates falling.
+          </div>
+        </div>
+
+        <h3>2) Forward Rate Agreements (FRAs)</h3>
+        <p>An FRA locks an interest rate for a future borrowing/lending period. Settlement is usually at the start of the period based on the interest differential.</p>
+        <details>
+          <summary>Worked Example (FRA for future borrowing)</summary>
+          <p><strong>Scenario:</strong> In 3 months, company will borrow $2,000,000 for 6 months. It wants to lock the rate. An FRA is available at 6.0% p.a. Actual 6-month rate at that time could be 7.2%.</p>
+          <p><strong>Hedged thinking:</strong> If rates rise above FRA rate, the FRA pays compensation.</p>
+          <pre>Interest difference = (Actual − FRA) × Notional × Period
+                    = (0.072 − 0.060) × 2,000,000 × 6/12
+                    = 12,000
+Settlement (approx) discounted to start of period (often required in questions)
+Net effective borrowing cost ≈ Actual interest − FRA receipt (after discounting)</pre>
+          <p class="callout">Exam questions vary by whether they ask for discounting the compensation. Follow the exact requirement given.</p>
+        </details>
+
+        <h3>3) Interest rate futures</h3>
+        <p>Interest futures hedge by taking a futures position that gains when rates move against you.</p>
+        <ul>
+          <li>For a <strong>future borrowing</strong> (fear rates rise): take a <strong>short futures</strong> position because futures prices fall when rates rise.</li>
+          <li>For a <strong>future investment</strong> (fear rates fall): take a <strong>long futures</strong> position.</li>
+        </ul>
+        <div class="callout warn">
+          Critical relationship: <strong>Interest rates ↑ ⇒ Futures price ↓</strong> (inverse).</n        </div>
+
+        <details>
+          <summary>Worked Example (Interest futures - quick structure)</summary>
+          <pre>Step 1: Exposure in money terms = Principal × (Rate change) × Time
+Step 2: No. contracts = Principal / Contract size × (Hedge ratio if given)
+Step 3: Futures gain/loss = Price movement × Tick value × No. contracts
+Step 4: Net borrowing cost = Actual interest ± futures gain/loss</pre>
+          <p>Always show how you decide long/short using the inverse price-rate relationship.</p>
+        </details>
+
+        <h3>4) Interest rate swaps</h3>
+        <p>An interest rate swap exchanges one type of interest payment for another, typically <strong>fixed for floating</strong>.</p>
+        <details>
+          <summary>Example: swap to remove rate uncertainty</summary>
+          <p>If a company has floating-rate debt but wants certainty, it can swap floating payments for fixed payments, effectively converting the loan to fixed-rate.</p>
+        </details>
+
+        <h3>5) Interest rate options: caps, floors, collars</h3>
+        <p>Options on interest rates allow protection while keeping upside, but require a premium.</p>
+        <ul>
+          <li><strong>Cap:</strong> sets a maximum rate for a borrower (protects against rising rates).</li>
+          <li><strong>Floor:</strong> sets a minimum rate for an investor (protects against falling rates).</li>
+          <li><strong>Collar:</strong> cap + floor to reduce or eliminate premium (trade-off of upside).</li>
+        </ul>
+
+        <details>
+          <summary>Worked Example (Cap concept)</summary>
+          <p>A borrower buys a cap at 6%. If market rate rises to 7%, the cap compensates so the effective rate stays near 6% (ignoring premium). If rate falls to 5%, the borrower enjoys 5% but still paid the premium.</p>
+        </details>
+
+        <h3>6) How to choose an interest-rate hedge</h3>
+        <ul>
+          <li>Want <strong>certainty</strong> and no upside? Consider <strong>swap</strong> or <strong>FRA</strong>.</li>
+          <li>Want <strong>flexibility</strong> to benefit from favourable moves? Consider <strong>caps/floors</strong>.</li>
+          <li>Short-term standard exposure and good market liquidity? Consider <strong>futures</strong>.</li>
+        </ul>
+      </section>
+
+      <section class="card" id="exam">
+        <h2>Exam technique and common mistakes (read this twice)</h2>
+        <h3>Top mistakes that lose easy marks</h3>
+        <ol>
+          <li><strong>Buying vs selling currency wrong</strong> (payable vs receivable).</li>
+          <li><strong>Using the wrong side of the quote</strong> (bid vs offer).</li>
+          <li>Confusing quote format (e.g., “USD per EUR” vs “EUR per USD”).</li>
+          <li>Money market hedge: borrowing/investing the wrong currency.</li>
+          <li>Futures: wrong long/short on interest futures due to the inverse relationship.</li>
+          <li>Options: forgetting to add premium, or exercising when not optimal.</li>
+          <li>Time proportions: using 3/12 vs 3/360 incorrectly (follow question basis).</li>
+        </ol>
+
+        <div class="callout green">
+          <strong>Simple layout that examiners love:</strong>
+          <pre>Exposure: Pay/Receive ____ (currency) on ____ (date)
+Decision: Need to buy/sell ____ currency
+Method: Forward / MMH / Futures / Option
+Working: (show steps)
+Result: Domestic currency cost/receipt
+Recommendation: lowest cost / best risk-adjusted + brief reason</pre>
+        </div>
+
+        <h3>If the question asks “advise” not “calculate”</h3>
+        <ul>
+          <li>Use internal hedges if exposure is small or offsetting flows exist.</li>
+          <li>Forward is best for certainty, options for flexibility, swaps for longer-term.</li>
+          <li>Discuss costs: premiums, spreads, administration, credit lines, counterparty risk.</li>
+        </ul>
+      </section>
+
+      <section class="card" id="practice">
+        <h2>Practice mini-questions (with solutions)</h2>
+
+        <details>
+          <summary>Q1: FX Payable - choose correct rate</summary>
+          <p>You must pay USD 300,000 in 3 months. Spot 3.6700 - 3.6730 AED/USD. 3-month forward 3.6750 - 3.6790 AED/USD. Which forward rate do you use and why?</p>
+          <p><strong>Solution:</strong> Payable → need to <strong>buy USD</strong>. Bank sells USD to you → use the <strong>higher (offer) forward rate</strong> = 3.6790 AED/USD.</p>
+        </details>
+
+        <details>
+          <summary>Q2: Option hedge - exercise or not?</summary>
+          <p>Pay EUR 100,000 in 2 months. Call option strike 4.05 AED/EUR. Premium 0.03 AED/EUR. If spot at maturity is 4.20, what is total AED cost?</p>
+          <p><strong>Solution:</strong> Exercise because spot > strike. AED = 100,000×4.05 + 100,000×0.03 = 405,000 + 3,000 = <strong>AED 408,000</strong>.</p>
+        </details>
+
+        <details>
+          <summary>Q3: Interest rate exposure direction</summary>
+          <p>You will invest surplus cash on a variable deposit rate for 6 months. What movement do you fear and which instrument protects you?</p>
+          <p><strong>Solution:</strong> Fear rates <strong>falling</strong> (lower return). You can use an interest rate <strong>floor</strong> (option) or go <strong>long interest rate futures</strong> (since futures price rises when rates fall, giving a gain to offset lower interest income).</p>
+        </details>
+
+        <details>
+          <summary>Q4: Explain basis risk in futures (one sentence)</summary>
+          <p><strong>Solution:</strong> Basis risk is the risk that the futures hedge is imperfect because contract size and maturity do not exactly match the exposure and the futures price does not move exactly with the spot rate.</p>
+        </details>
+
+      </section>
+
+      <section class="card" id="glossary">
+        <h2>Glossary (plain English)</h2>
+        <ul>
+          <li><strong>Bid rate:</strong> rate at which the bank buys the base currency from you.</li>
+          <li><strong>Offer (ask) rate:</strong> rate at which the bank sells the base currency to you.</li>
+          <li><strong>Forward:</strong> agreement today to exchange currencies later at a fixed rate.</li>
+          <li><strong>Money market hedge:</strong> hedge that uses borrowing and lending in two currencies.</li>
+          <li><strong>Futures:</strong> standardised exchange-traded forward-like contract.</li>
+          <li><strong>Option premium:</strong> cost paid upfront to buy an option.</li>
+          <li><strong>Swap:</strong> agreement to exchange cash flows (interest or currencies).</li>
+          <li><strong>Cap/Floor:</strong> interest-rate options that set max/min effective rates.</li>
+          <li><strong>Basis risk:</strong> hedge mismatch risk (especially with futures).</li>
+        </ul>
+      </section>
+
+      <section class="card" id="refs">
+        <h2>References (Syllabus alignment)</h2>
+        <p>These notes are structured to match <strong>ACCA FM syllabus area 7: Risk management</strong>, including:</p>
+        <ul>
+          <li>Nature and types of risk and approaches to risk management</li>
+          <li>Causes of exchange rate differences and interest rate fluctuations</li>
+          <li>Hedging techniques for foreign currency risk</li>
+          <li>Hedging techniques for interest rate risk</li>
+        </ul>
+        <p>Source: ACCA Global, <em>Financial Management (FM) Syllabus and Study Guide (September 2026 to June 2027)</em>.</p>
+        <p class="footer">Created with Microsoft 365 Copilot for study purposes. Always cross-check with your approved course text and ACCA exam resources.</p>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    (function(){
+      const q = document.getElementById('q');
+      const content = document.getElementById('content');
+      const bar = document.getElementById('bar');
+
+      function normalize(s){
+        return (s || '').toLowerCase().trim();
+      }
+
+      function filter(){
+        const term = normalize(q.value);
+        const cards = content.querySelectorAll('section.card');
+        if(!term){
+          cards.forEach(c => c.classList.remove('hidden'));
+          return;
+        }
+        cards.forEach(card => {
+          const text = normalize(card.innerText);
+          if(text.includes(term)) card.classList.remove('hidden');
+          else card.classList.add('hidden');
+        });
+      }
+
+      q.addEventListener('input', filter);
+
+      function updateBar(){
+        const h = document.documentElement;
+        const scrolled = (h.scrollTop || document.body.scrollTop);
+        const height = (h.scrollHeight - h.clientHeight);
+        const pct = height ? (scrolled / height) * 100 : 0;
+        bar.style.width = pct.toFixed(2) + '%';
+      }
+
+      window.addEventListener('scroll', updateBar, {passive:true});
+      updateBar();
+    })();
+  </script>
+</body>
+</html>

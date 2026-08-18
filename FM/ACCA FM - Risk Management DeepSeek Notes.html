@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACCA FM - Risk Management Complete Study Notes</title>
+    <style>
+        :root {
+            --bg-page: #f7f9fc;
+            --bg-card: #ffffff;
+            --text-main: #2e3b4e;
+            --heading: #1a3e60;
+            --heading2: #1f5c8b;
+            --accent: #2c7bb6;
+            --light-blue-bg: #e8f2fa;
+            --light-blue-border: #2c7bb6;
+            --example-bg: #f0f7fb;
+            --example-border: #2c5a7a;
+            --formula-bg: #fff8e7;
+            --formula-border: #e0a800;
+            --keypoint-bg: #e6f7e6;
+            --keypoint-border: #2e7d32;
+            --warning-bg: #fdecea;
+            --warning-border: #c62828;
+            --table-header: #e6f0f7;
+            --table-border: #cbd5e0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            font-size: 19px;
+            line-height: 1.7;
+            color: var(--text-main);
+            background: var(--bg-page);
+            margin: 0;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            padding: 2.5rem 3rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            color: var(--heading);
+            margin-top: 0;
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
+            border-bottom: 4px solid var(--accent);
+            padding-bottom: 0.8rem;
+        }
+
+        h2 {
+            font-size: 1.9rem;
+            color: var(--heading2);
+            margin-top: 2.6rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--light-blue-border);
+        }
+
+        h3 {
+            font-size: 1.45rem;
+            color: #235a82;
+            margin-top: 1.9rem;
+            margin-bottom: 0.8rem;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            color: #2e3b4e;
+            margin-top: 1.4rem;
+            margin-bottom: 0.6rem;
+        }
+
+        p {
+            margin: 1rem 0;
+        }
+
+        ul, ol {
+            margin: 1rem 0 1rem 2rem;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 0.55rem;
+        }
+
+        strong {
+            color: #1a3e60;
+        }
+
+        .toc {
+            background: #f4f7fb;
+            padding: 1.4rem 2rem;
+            border-radius: 12px;
+            margin: 1.8rem 0;
+            border: 1px solid #d9e2ec;
+        }
+
+        .toc h3 {
+            margin-top: 0;
+            color: #1a3e60;
+        }
+
+        .toc ol {
+            margin-left: 1.5rem;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: #1f5c8b;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        .example {
+            background: var(--example-bg);
+            border-left: 6px solid var(--example-border);
+            padding: 1.4rem 1.8rem;
+            border-radius: 10px;
+            margin: 1.6rem 0;
+        }
+
+        .example h4 {
+            margin-top: 0;
+            color: #1f4e79;
+            font-size: 1.25rem;
+        }
+
+        .formula {
+            background: var(--formula-bg);
+            border-left: 6px solid var(--formula-border);
+            padding: 0.9rem 1.3rem;
+            border-radius: 10px;
+            font-family: 'Courier New', 'Consolas', monospace;
+            font-size: 1.15rem;
+            margin: 1.2rem 0;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .keypoint {
+            background: var(--keypoint-bg);
+            border-left: 6px solid var(--keypoint-border);
+            padding: 1.1rem 1.5rem;
+            border-radius: 10px;
+            margin: 1.4rem 0;
+        }
+
+        .warning {
+            background: var(--warning-bg);
+            border-left: 6px solid var(--warning-border);
+            padding: 1.1rem 1.5rem;
+            border-radius: 10px;
+            margin: 1.4rem 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1.5rem 0;
+            font-size: 1rem;
+        }
+
+        th,
+        td {
+            border: 1px solid var(--table-border);
+            padding: 0.8rem 1rem;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: var(--table-header);
+            color: #1a3e60;
+            font-weight: 600;
+        }
+
+        .small-note {
+            font-size: 0.95rem;
+            color: #556677;
+        }
+
+        @media (max-width: 700px) {
+            body {
+                padding: 1rem 0.5rem;
+                font-size: 17px;
+            }
+            .container {
+                padding: 1.5rem 1.2rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            h3 {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ACCA FM – Risk Management<br>Complete Power Notes</h1>
+        <p><strong>Exam window:</strong> September 2026 &nbsp;|&nbsp; <strong>Level:</strong> In-depth, novice-friendly<br>
+        <strong>Covers:</strong> Nature of risk, foreign currency risk, interest rate risk, and all major hedging techniques with worked examples.</p>
+
+        <div class="toc">
+            <h3>📚 Contents</h3>
+            <ol>
+                <li><a href="#section1">Introduction to Risk and Risk Management</a></li>
+                <li><a href="#section2">Types of Risk in Financial Management</a></li>
+                <li><a href="#section3">Risk Management Process and Frameworks</a></li>
+                <li><a href="#section4">Foreign Currency Risk – Sources and Types</a></li>
+                <li><a href="#section5">Internal Hedging Techniques for Currency Risk</a></li>
+                <li><a href="#section6">External Hedging Techniques for Currency Risk</a>
+                    <ol>
+                        <li><a href="#sec6a">Forward Exchange Contracts</a></li>
+                        <li><a href="#sec6b">Money Market Hedge</a></li>
+                        <li><a href="#sec6c">Currency Futures</a></li>
+                        <li><a href="#sec6d">Currency Options</a></li>
+                        <li><a href="#sec6e">Currency Swaps</a></li>
+                    </ol>
+                </li>
+                <li><a href="#section7">Interest Rate Risk – Sources and Impact</a></li>
+                <li><a href="#section8">Internal Hedging Techniques for Interest Rate Risk</a></li>
+                <li><a href="#section9">External Hedging Techniques for Interest Rate Risk</a>
+                    <ol>
+                        <li><a href="#sec9a">Forward Rate Agreements (FRAs)</a></li>
+                        <li><a href="#sec9b">Interest Rate Futures</a></li>
+                        <li><a href="#sec9c">Interest Rate Options – Caps, Floors, Collars</a></li>
+                        <li><a href="#sec9d">Interest Rate Swaps</a></li>
+                    </ol>
+                </li>
+                <li><a href="#section10">Comparison of Hedging Techniques</a></li>
+                <li><a href="#section11">Exam Tips and Common Pitfalls</a></li>
+            </ol>
+        </div>
+
+        <!-- SECTION 1 -->
+        <h2 id="section1">1. Introduction to Risk and Risk Management</h2>
+        <p><strong>Risk</strong> in financial management means the possibility that actual outcomes differ from expected outcomes. It can be positive (opportunity) or negative (threat). In the ACCA FM exam, risk management focuses mainly on <strong>financial risks</strong> that affect cash flows, profits, and asset values.</p>
+        <p>Risk management is the process of identifying, assessing, and controlling risks so that an organisation can achieve its objectives. It is not always about eliminating risk – sometimes the cost of removing risk is too high, so the company may decide to accept it.</p>
+
+        <div class="keypoint">
+            <strong>Key definition:</strong> Risk management = identifying, evaluating, and responding to risks in a way that maximises value for shareholders while aligning with the company’s risk appetite.
+        </div>
+
+        <h3>1.1 Why risk management matters</h3>
+        <ul>
+            <li>Protects <strong>cash flows</strong> and <strong>profit margins</strong>.</li>
+            <li>Reduces the chance of financial distress or bankruptcy.</li>
+            <li>Improves <strong>budgeting and planning</strong> by making future cash flows more predictable.</li>
+            <li>Can lower the <strong>cost of capital</strong> if perceived risk falls.</li>
+            <li>Meets <strong>corporate governance</strong> and regulatory expectations.</li>
+        </ul>
+
+        <!-- SECTION 2 -->
+        <h2 id="section2">2. Types of Risk in Financial Management</h2>
+        <p>Risks can be classified in several ways. For the FM exam, you need to be comfortable with the following categories.</p>
+
+        <h3>2.1 Systematic vs Unsystematic Risk</h3>
+        <table>
+            <tr><th>Risk type</th><th>Definition</th><th>Example</th></tr>
+            <tr>
+                <td><strong>Systematic risk</strong></td>
+                <td>Risk affecting the whole market/economy. Cannot be diversified away.</td>
+                <td>Interest rate changes, inflation, exchange rate movements, recession.</td>
+            </tr>
+            <tr>
+                <td><strong>Unsystematic risk</strong></td>
+                <td>Risk specific to a particular company or sector. Can be diversified away.</td>
+                <td>Loss of key customer, product failure, management fraud.</td>
+            </tr>
+        </table>
+
+        <h3>2.2 Business vs Financial Risk</h3>
+        <table>
+            <tr><th>Risk type</th><th>Definition</th><th>Example</th></tr>
+            <tr>
+                <td><strong>Business risk</strong></td>
+                <td>Risk of lower profits due to operational factors, competition, etc.</td>
+                <td>New competitor enters market, sales fall.</td>
+            </tr>
+            <tr>
+                <td><strong>Financial risk</strong></td>
+                <td>Risk due to the use of debt in the capital structure. Higher gearing increases financial risk.</td>
+                <td>Company has high interest payments and cannot meet them.</td>
+            </tr>
+        </table>
+
+        <h3>2.3 Operational, Strategic, and Compliance Risk</h3>
+        <ul>
+            <li><strong>Operational risk:</strong> Loss due to internal failures, e.g. systems, people, processes.</li>
+            <li><strong>Strategic risk:</strong> Risk that business strategy becomes inappropriate.</li>
+            <li><strong>Compliance risk:</strong> Risk of fines/penalties due to failing to follow laws and regulations.</li>
+        </ul>
+
+        <h3>2.4 Financial Risks Relevant to FM</h3>
+        <p>The ACCA FM syllabus focuses on two main financial risks:</p>
+        <ul>
+            <li><strong>Foreign currency risk</strong> – risk from exchange rate movements.</li>
+            <li><strong>Interest rate risk</strong> – risk from changes in interest rates.</li>
+        </ul>
+        <p>Other financial risks include credit risk, liquidity risk, and commodity price risk, but the exam concentrates on currency and interest rate hedging.</p>
+
+        <!-- SECTION 3 -->
+        <h2 id="section3">3. Risk Management Process and Frameworks</h2>
+        <h3>3.1 The Risk Management Process</h3>
+        <ol>
+            <li><strong>Identify risks</strong> – list all possible risks that could affect the entity.</li>
+            <li><strong>Assess risks</strong> – measure likelihood and impact (quantitative and qualitative).</li>
+            <li><strong>Decide response</strong> – choose how to manage each risk.</li>
+            <li><strong>Implement</strong> – put the selected strategies into action.</li>
+            <li><strong>Monitor and review</strong> – continually track risks and update plans.</li>
+        </ol>
+
+        <div class="example">
+            <h4>Mini example – Risk process for a UK exporter</h4>
+            <p>A UK company expects to receive $1,000,000 in 3 months.</p>
+            <ul>
+                <li><strong>Identify:</strong> Currency risk – USD may weaken against GBP.</li>
+                <li><strong>Assess:</strong> If USD weakens from $/£ 1.25 to 1.30, receipt falls from £800,000 to £769,231.</li>
+                <li><strong>Decide:</strong> Use a forward contract to lock the rate.</li>
+                <li><strong>Implement:</strong> Enter 3-month forward to sell dollars.</li>
+                <li><strong>Monitor:</strong> Review whether hedge is still appropriate as circumstances change.</li>
+            </ul>
+        </div>
+
+        <h3>3.2 The TARA Framework</h3>
+        <p>The TARA framework summarises four possible responses to risk:</p>
+        <table>
+            <tr><th>Response</th><th>Meaning</th><th>Example</th></tr>
+            <tr><td><strong>T</strong>ransfer</td><td>Pass the risk to another party</td><td>Insurance, derivatives (forwards, options)</td></tr>
+            <tr><td><strong>A</strong>void</td><td>Do not undertake the activity</td><td>Refuse to export to a high-risk country</td></tr>
+            <tr><td><strong>R</strong>educe</td><td>Mitigate the risk internally</td><td>Diversify suppliers, netting currency receipts and payments</td></tr>
+            <tr><td><strong>A</strong>ccept</td><td>Accept the risk and do nothing</td><td>Small exposures may not be hedged due to cost</td></tr>
+        </table>
+
+        <h3>3.3 Risk Appetite and Risk Mapping</h3>
+        <p><strong>Risk appetite</strong> is the amount of risk an organisation is willing to accept. A risk map (or heat map) plots likelihood against impact to prioritise risks. High-likelihood, high-impact risks need urgent attention.</p>
+
+        <!-- SECTION 4 -->
+        <h2 id="section4">4. Foreign Currency Risk – Sources and Types</h2>
+        <p><strong>Foreign currency risk</strong> arises when a company has cash flows, assets, or liabilities denominated in a foreign currency. Exchange rate changes can increase or decrease the home currency value of those items.</p>
+
+        <h3>4.1 Three Types of Currency Exposure</h3>
+        <table>
+            <tr>
+                <th>Exposure</th>
+                <th>Definition</th>
+                <th>Example</th>
+            </tr>
+            <tr>
+                <td><strong>Transaction exposure</strong></td>
+                <td>Risk that future known cash flows in foreign currency change in home currency value.</td>
+                <td>UK exporter expects $1m in 3 months; if dollar weakens, less GBP is received.</td>
+            </tr>
+            <tr>
+                <td><strong>Translation exposure</strong></td>
+                <td>Risk that consolidated financial statements are affected when foreign subsidiaries' assets/liabilities are translated to home currency.</td>
+                <td>UK parent has US subsidiary; USD depreciation reduces consolidated net assets in GBP.</td>
+            </tr>
+            <tr>
+                <td><strong>Economic exposure</strong></td>
+                <td>Long-term effect of exchange rate changes on competitive position and future cash flows.</td>
+                <td>A strong home currency makes exports expensive; firm loses market share.</td>
+            </tr>
+        </table>
+
+        <h3>4.2 Causes of Exchange Rate Movements</h3>
+        <ul>
+            <li>Relative inflation rates (purchasing power parity).</li>
+            <li>Relative interest rates (interest rate parity).</li>
+            <li>Balance of payments.</li>
+            <li>Government intervention and political stability.</li>
+            <li>Market speculation.</li>
+        </ul>
+        <p>In the exam, you do not need to forecast exchange rates, but you must understand that movements can be significant.</p>
+
+        <div class="example">
+            <h4>Example – Transaction exposure calculation</h4>
+            <p>A UK company expects to receive <strong>$1,000,000</strong> in 3 months.</p>
+            <p>Current spot rate: <strong>$1.2500/£</strong>.</p>
+            <p>If the dollar weakens and the spot becomes <strong>$1.3000/£</strong>, the receipt is:</p>
+            <div class="formula">$1,000,000 ÷ 1.3000 = £769,231</div>
+            <p>Compared with the original expectation:</p>
+            <div class="formula">$1,000,000 ÷ 1.2500 = £800,000</div>
+            <p>The company has lost <strong>£30,769</strong> due to the adverse exchange rate movement.</p>
+        </div>
+
+        <!-- SECTION 5 -->
+        <h2 id="section5">5. Internal Hedging Techniques for Currency Risk</h2>
+        <p>Internal methods do not use external financial instruments. They reduce exposure through operational changes.</p>
+
+        <h3>5.1 Netting</h3>
+        <p><strong>Netting</strong> offsets receivables and payables in the same currency so only the net amount is exposed.</p>
+        <div class="example">
+            <h4>Example – Netting</h4>
+            <p>A UK group has a US subsidiary that owes the UK parent $500,000, and the UK parent owes the US subsidiary $300,000. Net exposure is only <strong>$200,000</strong>. Instead of converting both, only $200,000 needs to be exchanged.</p>
+        </div>
+
+        <h3>5.2 Matching</h3>
+        <p><strong>Matching</strong> is like netting but with third parties. A company deliberately creates a foreign currency payable to offset a foreign currency receivable of the same amount and timing.</p>
+        <div class="example">
+            <h4>Example – Matching</h4>
+            <p>A UK company is due to receive $1m from exports. It plans to buy raw materials from a US supplier costing $1m. The dollar receipt and payable naturally offset each other, so no currency conversion is needed.</p>
+        </div>
+
+        <h3>5.3 Leading and Lagging</h3>
+        <ul>
+            <li><strong>Leading:</strong> paying early or collecting early when a currency is expected to move adversely.</li>
+            <li><strong>Lagging:</strong> delaying payment or collection when the currency is expected to move favourably.</li>
+        </ul>
+        <div class="example">
+            <h4>Example – Leading</h4>
+            <p>A UK importer owes $500,000 to a US supplier. The dollar is expected to strengthen against GBP. The importer may choose to <strong>lead</strong> – pay early now – to avoid a higher GBP cost later.</p>
+        </div>
+
+        <h3>5.4 Invoicing in Home Currency</h3>
+        <p>By invoicing customers in the company’s home currency, the foreign currency risk is transferred to the counterparty. This may not always be possible due to competition.</p>
+
+        <h3>5.5 Asset and Liability Management</h3>
+        <p>A company can manage its foreign currency assets and liabilities to maintain a balanced position. For example, borrow in the same foreign currency as a foreign asset to create a natural offset.</p>
+
+        <h3>5.6 Multilateral Netting</h3>
+        <p>In a group of companies in multiple countries, netting all intercompany balances centrally reduces the number and value of foreign exchange transactions.</p>
+
+        <!-- SECTION 6 -->
+        <h2 id="section6">6. External Hedging Techniques for Currency Risk</h2>
+        <p>External techniques use financial instruments or contracts with banks. The main instruments are:</p>
+        <ul>
+            <li>Forward exchange contracts</li>
+            <li>Money market hedges</li>
+            <li>Currency futures</li>
+            <li>Currency options</li>
+            <li>Currency swaps</li>
+        </ul>
+
+        <h3 id="sec6a">6.1 Forward Exchange Contracts</h3>
+        <p>A <strong>forward exchange contract</strong> is an over-the-counter (OTC) agreement between a company and a bank to buy or sell a fixed amount of foreign currency at a fixed exchange rate on a fixed future date.</p>
+        <ul>
+            <li>Tailor-made for amount and date.</li>
+            <li>Obligates both parties – cannot back out.</li>
+            <li>Locks in a known exchange rate, removing uncertainty.</li>
+        </ul>
+
+        <h4>6.1.1 Foreign exchange quotations</h4>
+        <p>Exchange rates are usually quoted as two-way prices. For example:</p>
+        <div class="formula">Spot $/£: 1.2500 – 1.2600</div>
+        <p>Interpretation:</p>
+        <ul>
+            <li><strong>1.2500</strong> = bank <strong>buys</strong> £ (sells dollars) – called the <strong>bid</strong> rate.</li>
+            <li><strong>1.2600</strong> = bank <strong>sells</strong> £ (buys dollars) – called the <strong>ask</strong> or <strong>offer</strong> rate.</li>
+        </ul>
+        <p>If a company receives dollars and wants pounds, it <strong>sells dollars</strong> to the bank, so it uses the bank’s ask rate (the higher rate, because the bank sells pounds more expensively).</p>
+
+        <h4>6.1.2 Forward example</h4>
+        <div class="example">
+            <h4>Example – Forward contract for a receipt</h4>
+            <p>A UK company expects to receive <strong>$1,000,000</strong> in 3 months.</p>
+            <p>Spot: $/£ 1.2500 – 1.2600<br>
+            3-month forward: $/£ 1.2400 – 1.2500</p>
+            <p>Since the company will <strong>sell dollars</strong> and <strong>buy pounds</strong>, it uses the forward <strong>ask</strong> rate: 1.2500.</p>
+            <div class="formula">£ received = $1,000,000 ÷ 1.2500 = £800,000</div>
+            <p>The company has locked in a receipt of <strong>£800,000</strong> regardless of future spot movements.</p>
+        </div>
+
+        <div class="example">
+            <h4>Example – Forward contract for a payment</h4>
+            <p>A UK company must pay <strong>$500,000</strong> in 3 months.</p>
+            <p>Forward: $/£ 1.2400 – 1.2500</p>
+            <p>The company must <strong>buy dollars</strong> (sell pounds), so it uses the forward <strong>bid</strong> rate: 1.2400.</p>
+            <div class="formula">£ cost = $500,000 ÷ 1.2400 = £403,225.81</div>
+            <p>The company knows its exact GBP cost.</p>
+        </div>
+
+        <div class="warning">
+            <strong>Exam tip:</strong> Always identify which currency the company is selling and which it is buying. Then choose the correct side of the two-way quote. If the company <strong>sells dollars</strong>, use the <strong>ask</strong> $/£ rate. If it <strong>buys dollars</strong>, use the <strong>bid</strong> $/£ rate.
+        </div>
+
+        <h3 id="sec6b">6.2 Money Market Hedge</h3>
+        <p>A <strong>money market hedge</strong> uses short-term borrowing and investing in domestic and foreign currencies to lock in the current spot rate.</p>
+        <p><strong>For a future foreign currency receipt:</strong></p>
+        <ol>
+            <li>Borrow foreign currency now in an amount that will grow (with interest) to the expected receipt.</li>
+            <li>Convert the borrowed foreign currency into home currency at today’s spot rate.</li>
+            <li>Invest the home currency for the period.</li>
+            <li>Use the future receipt to repay the foreign currency loan.</li>
+        </ol>
+        <p><strong>For a future foreign currency payment:</strong></p>
+        <ol>
+            <li>Deposit foreign currency now in an amount that will grow to the payment amount.</li>
+            <li>Buy that foreign currency at today’s spot using home currency borrowed.</li>
+            <li>Repay the home currency loan with interest at the future date.</li>
+        </ol>
+
+        <div class="example">
+            <h4>Example – Money market hedge for a receipt</h4>
+            <p>UK company expects to receive <strong>$1,000,000</strong> in 3 months.</p>
+            <p>Spot: $/£ 1.2500 – 1.2600<br>
+            US dollar borrowing rate: 5% p.a. (3-month = 1.25%)<br>
+            UK pound deposit rate: 4% p.a. (3-month = 1%)</p>
+            <p><strong>Step 1:</strong> Borrow dollars now.</p>
+            <div class="formula">Amount to borrow = $1,000,000 ÷ 1.0125 = $987,654.32</div>
+            <p><strong>Step 2:</strong> Convert to pounds at spot ask rate (sell dollars, buy pounds).</p>
+            <div class="formula">£ received now = $987,654.32 ÷ 1.2600 = £783,852.63</div>
+            <p><strong>Step 3:</strong> Invest pounds for 3 months at 1%.</p>
+            <div class="formula">£ at end = £783,852.63 × 1.01 = £791,691.16</div>
+            <p><strong>Step 4:</strong> Repay dollar loan with the $1m receipt.</p>
+            <p>Effective receipt = <strong>£791,691.16</strong>.</p>
+        </div>
+
+        <div class="example">
+            <h4>Example – Money market hedge for a payment</h4>
+            <p>UK company must pay <strong>$1,000,000</strong> in 3 months.</p>
+            <p>Spot: $/£ 1.2500 – 1.2600<br>
+            US deposit rate: 5% p.a. (3-month = 1.25%)<br>
+            UK borrowing rate: 4% p.a. (3-month = 1%)</p>
+            <p><strong>Step 1:</strong> Deposit dollars now to grow to $1m.</p>
+            <div class="formula">Amount to deposit = $1,000,000 ÷ 1.0125 = $987,654.32</div>
+            <p><strong>Step 2:</strong> Buy dollars at spot using pounds. The company sells pounds, so uses the bank’s bid rate: 1.2500.</p>
+            <div class="formula">£ cost now = $987,654.32 ÷ 1.2500 = £790,123.46</div>
+            <p><strong>Step 3:</strong> Borrow the needed pounds at 4% for 3 months.</p>
+            <div class="formula">£ to repay = £790,123.46 × 1.01 = £798,024.69</div>
+            <p>Effective payment = <strong>£798,024.69</strong>.</p>
+        </div>
+
+        <div class="keypoint">
+            <strong>Comparison:</strong> A company should choose the hedging technique that gives the better outcome – but often the forward rate and money market outcome are close because of interest rate parity. In the exam, compare both where possible.
+        </div>
+
+        <h3 id="sec6c">6.3 Currency Futures</h3>
+        <p><strong>Currency futures</strong> are exchange-traded standardised contracts to buy or sell a fixed amount of a currency at a fixed price on a future date.</p>
+        <ul>
+            <li>Standardised contract size, e.g. £62,500 on many exchanges.</li>
+            <li>Traded on an exchange, with clearing house, margin requirements.</li>
+            <li>Quoted in $ per £.</li>
+            <li>Used to hedge by taking an opposite position to the exposure.</li>
+        </ul>
+
+        <h4>6.3.1 Tick size and tick value</h4>
+        <p>A tick is the smallest price movement. For currency futures:</p>
+        <div class="formula">Tick size = $0.0001/£<br>Tick value = tick size × contract size</div>
+        <p>If contract size is £62,500:</p>
+        <div class="formula">Tick value = $0.0001 × £62,500 = $6.25</div>
+
+        <h4>6.3.2 Number of contracts</h4>
+        <div class="formula">Number of contracts = Foreign currency exposure ÷ (futures price × contract size)</div>
+
+        <h4>6.3.3 Buy or sell futures?</h4>
+        <ul>
+            <li>Company will <strong>receive foreign currency</strong> (need to sell foreign currency later) → <strong>buy futures</strong> now in the home currency equivalent.</li>
+            <li>Company will <strong>pay foreign currency</strong> (need to buy foreign currency later) → <strong>sell futures</strong> now.</li>
+        </ul>
+        <p><strong>Logic:</strong> If you fear the foreign currency will weaken, you want a future contract that gains when the foreign currency weakens. For a UK company receiving dollars, a weaker dollar means $/£ rises? Wait, $/£ rises means pound strengthens, dollar weakens. A UK company receiving dollars fears dollar weakening i.e. $/£ rises. To hedge, the company should <strong>buy futures</strong> on £ (since futures are quoted $/£). If $/£ rises, the futures price rises, so buying futures gives a profit that offsets the lower value of the dollar receipt.</p>
+
+        <div class="example">
+            <h4>Example – Currency futures hedge</h4>
+            <p>UK company expects to receive <strong>$1,000,000</strong> in 3 months.</p>
+            <p>Current spot: $/£ 1.2500 (mid-rate for simplicity)<br>
+            3-month futures price: <strong>$1.2400/£</strong><br>
+            Contract size: <strong>£62,500</strong><br>
+            Tick size: $0.0001/£; tick value = $6.25</p>
+            <p><strong>Step 1:</strong> Number of contracts</p>
+            <div class="formula">$1,000,000 ÷ (1.2400 × £62,500) = $1,000,000 ÷ $77,500 = 12.90 ≈ 13 contracts</div>
+            <p><strong>Step 2:</strong> Since the company will sell dollars and buy pounds, it <strong>buys 13 futures</strong>.</p>
+            <p><strong>Step 3:</strong> At maturity, spot = $/£ 1.2200. Futures price also = 1.2200 (assume no basis).</p>
+            <p>Futures loss = (1.2200 − 1.2400) × £62,500 × 13 = −$16,250.</p>
+            <p><strong>Step 4:</strong> Convert $1m at spot 1.2200:</p>
+            <div class="formula">£ = $1,000,000 ÷ 1.2200 = £819,672.13</div>
+            <p>But the company lost $16,250 in futures, so net dollars available = $983,750.</p>
+            <div class="formula">Net £ = $983,750 ÷ 1.2200 = £806,352.46</div>
+            <p>Effective exchange rate = $1,000,000 ÷ £806,352.46 = <strong>$1.2402/£</strong>, close to the original futures price. The hedge has locked the rate near 1.2400.</p>
+        </div>
+
+        <h4>6.3.4 Basis and basis risk</h4>
+        <p><strong>Basis</strong> = spot price − futures price.</p>
+        <p>At maturity, basis should equal zero because futures price converges to spot. Before maturity, basis may not be zero. <strong>Basis risk</strong> is the risk that the futures price movement does not perfectly match the spot movement, so the hedge is not perfect.</p>
+
+        <h3 id="sec6d">6.4 Currency Options</h3>
+        <p>A <strong>currency option</strong> gives the holder the <strong>right, but not the obligation</strong>, to buy or sell a specified amount of foreign currency at a specified exchange rate (strike price) on or before a future date. The buyer pays a <strong>premium</strong>.</p>
+        <ul>
+            <li><strong>Call option</strong> on £ gives the right to buy £.</li>
+            <li><strong>Put option</strong> on £ gives the right to sell £.</li>
+            <li>Options provide <strong>downside protection</strong> while allowing <strong>upside benefit</strong>.</li>
+            <li>Premium is paid upfront, regardless of whether the option is exercised.</li>
+        </ul>
+
+        <div class="example">
+            <h4>Example – Currency option hedge</h4>
+            <p>UK company expects to receive <strong>$1,000,000</strong> in 3 months.</p>
+            <p>It buys a 3-month <strong>call option on £</strong> at strike $1.2500/£.</p>
+            <p>Option amount: £800,000 (because at $1.25/£, $1m = £800,000).</p>
+            <p>Premium: $0.02 per £ = $16,000.</p>
+            <p><strong>Scenario 1 – Pound strengthens to $1.2800/£:</strong></p>
+            <ul>
+                <li>The company can exercise the option and sell $1m at 1.2500 to get £800,000.</li>
+                <li>If it did not hedge, it would get $1m ÷ 1.28 = £781,250.</li>
+                <li>Option protects against the adverse move.</li>
+            </ul>
+            <p><strong>Scenario 2 – Dollar strengthens to $1.2200/£:</strong></p>
+            <ul>
+                <li>The company would <strong>not exercise</strong> the option.</li>
+                <li>It sells $1m at spot 1.2200 to get £819,672.</li>
+                <li>It keeps the upside gain, less the premium.</li>
+            </ul>
+            <p>The premium is the cost of this flexibility.</p>
+        </div>
+
+        <h3 id="sec6e">6.5 Currency Swaps</h3>
+        <p>A <strong>currency swap</strong> is an agreement between two parties to exchange principal and interest payments in different currencies for a specified period.</p>
+        <ul>
+            <li>Useful for companies that need long-term foreign currency funding but can borrow more cheaply in their home currency.</li>
+            <li>At initiation, principal amounts are exchanged at spot rate.</li>
+            <li>During the swap, interest payments are exchanged.</li>
+            <li>At maturity, principal amounts are re-exchanged at the original spot rate.</li>
+        </ul>
+        <div class="example">
+            <h4>Example – Currency swap concept</h4>
+            <p>A UK company needs $10m for 5 years but can borrow GBP cheaply. A US company needs £6.25m for 5 years but can borrow USD cheaply. They agree to swap principal at a spot rate of $1.60/£:</p>
+            <ul>
+                <li>UK company borrows £6.25m and gives it to US company.</li>
+                <li>US company borrows $10m and gives it to UK company.</li>
+                <li>Each pays interest on the currency it receives, benefiting from lower borrowing costs.</li>
+                <li>At maturity, they re-exchange principal.</li>
+            </ul>
+        </div>
+
+        <!-- SECTION 7 -->
+        <h2 id="section7">7. Interest Rate Risk – Sources and Impact</h2>
+        <p><strong>Interest rate risk</strong> is the risk that changes in interest rates will affect a company’s net interest payments or investment income.</p>
+        <h3>7.1 Sources of Interest Rate Risk</h3>
+        <ul>
+            <li><strong>Gap exposure:</strong> Assets and liabilities reprice (interest rates reset) at different times. If liabilities reprice sooner than assets and rates rise, interest costs increase faster than income.</li>
+            <li><strong>Basis risk:</strong> Different interest rates (e.g. LIBOR vs base rate) may not move exactly together.</li>
+            <li><strong>Yield curve risk:</strong> Changes in the shape of the yield curve affect the value of fixed-rate instruments.</li>
+        </ul>
+        <p>For most FM questions, we focus on a company that plans to <strong>borrow</strong> in the future and fears rates will rise, or plans to <strong>deposit</strong> and fears rates will fall.</p>
+
+        <div class="example">
+            <h4>Example – Impact of interest rate change</h4>
+            <p>A company plans to borrow £5,000,000 for 6 months in 3 months’ time.</p>
+            <p>If current 6-month LIBOR is 5% p.a., expected interest = £5m × 5% × 6/12 = £125,000.</p>
+            <p>If LIBOR rises to 7% p.a., interest = £5m × 7% × 6/12 = £175,000.</p>
+            <p>The extra cost is £50,000. Hedging can reduce this uncertainty.</p>
+        </div>
+
+        <!-- SECTION 8 -->
+        <h2 id="section8">8. Internal Hedging Techniques for Interest Rate Risk</h2>
+        <h3>8.1 Matching</h3>
+        <p>Match the size and timing of interest-sensitive assets and liabilities. If a company has floating-rate assets equal to floating-rate liabilities, interest rate changes affect both sides and net exposure is reduced.</p>
+        <h3>8.2 Smoothing</h3>
+        <p>Avoid large one-off borrowings or deposits by spreading them over time. This reduces exposure to a single interest rate at one point.</p>
+        <h3>8.3 Netting</h3>
+        <p>Offset interest payments and receipts within a group so only the net amount is exposed.</p>
+        <h3>8.4 Asset and Liability Management</h3>
+        <p>Adjust the mix of fixed-rate and floating-rate assets/liabilities to achieve the desired exposure. For example, if rates are expected to rise, a borrower may prefer fixed-rate debt; a lender may prefer floating-rate assets.</p>
+
+        <!-- SECTION 9 -->
+        <h2 id="section9">9. External Hedging Techniques for Interest Rate Risk</h2>
+        <p>Main external instruments:</p>
+        <ul>
+            <li>Forward Rate Agreements (FRAs)</li>
+            <li>Interest Rate Futures</li>
+            <li>Interest Rate Options (caps, floors, collars)</li>
+            <li>Interest Rate Swaps</li>
+        </ul>
+
+        <h3 id="sec9a">9.1 Forward Rate Agreements (FRAs)</h3>
+        <p>An <strong>FRA</strong> is an over-the-counter agreement to fix an interest rate on a future loan or deposit. It is settled by paying or receiving the difference between the agreed FRA rate and the actual market rate on the notional principal for the specified period.</p>
+        <p>Key features:</p>
+        <ul>
+            <li>Notional principal only – no actual borrowing/lending occurs under the FRA.</li>
+            <li>Settled at the start of the underlying loan/deposit period, usually discounted to present value.</li>
+            <li>If actual rate > FRA rate, the bank pays the company (for a borrower). If actual rate < FRA rate, the company pays the bank.</li>
+        </ul>
+
+        <div class="example">
+            <h4>Example – FRA for a borrower</h4>
+            <p>A company plans to borrow <strong>£5,000,000</strong> in 3 months for a period of 6 months.</p>
+            <p>It buys an FRA at <strong>5%</strong>.</p>
+            <p>At the start of the loan, actual 6-month LIBOR is <strong>6%</strong>.</p>
+            <p>Compensation = (6% − 5%) × £5,000,000 × 6/12 = <strong>£25,000</strong> received from the bank.</p>
+            <p>Actual interest cost at 6% = £150,000.</p>
+            <div class="formula">Net interest cost = £150,000 − £25,000 = £125,000</div>
+            <p>Effective interest rate = £125,000 ÷ (£5,000,000 × 0.5) = <strong>5%</strong> – the FRA rate has been locked in.</p>
+        </div>
+
+        <h3 id="sec9b">9.2 Interest Rate Futures</h3>
+        <p><strong>Interest rate futures</strong> are exchange-traded standardised contracts to buy or sell a notional debt instrument at a future date. Prices are quoted as:</p>
+        <div class="formula">Futures price = 100 − implied interest rate</div>
+        <p>So a futures price of 95.00 implies an interest rate of 5%.</p>
+        <ul>
+            <li>Standard contract: 3-month sterling futures, contract size £500,000.</li>
+            <li>Tick size: 0.01% per annum.</li>
+            <li>Tick value = £500,000 × 0.01% × 3/12 = £12.50.</li>
+        </ul>
+
+        <h4>9.2.1 Number of contracts</h4>
+        <div class="formula">Number of contracts = (Loan or deposit amount ÷ Contract size) × (Loan or deposit period ÷ 3 months)</div>
+
+        <h4>9.2.2 Buy or sell futures?</h4>
+        <ul>
+            <li><strong>Borrower fears rates rising</strong> → futures price will fall → <strong>sell futures</strong> to profit when price falls.</li>
+            <li><strong>Depositor fears rates falling</strong> → futures price will rise → <strong>buy futures</strong> to profit when price rises.</li>
+        </ul>
+
+        <div class="example">
+            <h4>Example – Interest rate futures hedge for a borrower</h4>
+            <p>A company plans to borrow <strong>£5,000,000</strong> in 3 months for 6 months.</p>
+            <p>Current 3-month futures price: <strong>95.00</strong> (implied rate 5%).</p>
+            <p>Contract size: £500,000; tick size 0.01%; tick value £12.50.</p>
+            <p><strong>Step 1:</strong> Number of contracts</p>
+            <div class="formula">(£5,000,000 ÷ £500,000) × (6 ÷ 3) = 10 × 2 = 20 contracts</div>
+            <p><strong>Step 2:</strong> Since the company fears rates rising, it <strong>sells 20 futures</strong>.</p>
+            <p><strong>Step 3:</strong> At the loan start, futures price falls to <strong>93.00</strong> (implied rate 7%).</p>
+            <p>Price movement = 95.00 − 93.00 = 2.00 = 200 ticks.</p>
+            <div class="formula">Gain per contract = 200 × £12.50 = £2,500</div>
+            <p>Total gain = £2,500 × 20 = <strong>£50,000</strong>.</p>
+            <p><strong>Step 4:</strong> Actual interest cost at 7% p.a. = £5m × 7% × 6/12 = £175,000.</p>
+            <div class="formula">Net interest cost = £175,000 − £50,000 = £125,000</div>
+            <p>Effective rate = £125,000 ÷ (£5m × 0.5) = <strong>5%</strong> – the original futures implied rate has been locked in.</p>
+        </div>
+
+        <h3 id="sec9c">9.3 Interest Rate Options – Caps, Floors, and Collars</h3>
+        <p><strong>Interest rate options</strong> give the holder the right, but not the obligation, to benefit from interest rate movements beyond a specified level. The buyer pays a premium.</p>
+        <h4>9.3.1 Interest Rate Cap</h4>
+        <p>A <strong>cap</strong> is a series of call options on an interest rate that protect a borrower against rates rising above a specified cap rate. If the actual rate exceeds the cap rate, the cap seller compensates the borrower for the excess interest.</p>
+        <div class="example">
+            <h4>Example – Interest rate cap</h4>
+            <p>A company plans to borrow £5,000,000 for 6 months. It buys a cap at 5% with a premium of 0.25% p.a.</p>
+            <p>Premium = £5m × 0.25% × 6/12 = £6,250.</p>
+            <p>At loan start, LIBOR = 6%.</p>
+            <p>Cap compensation = (6% − 5%) × £5m × 6/12 = £25,000.</p>
+            <p>Actual interest at 6% = £150,000.</p>
+            <div class="formula">Net cost = £150,000 − £25,000 + £6,250 = £131,250</div>
+            <p>Effective rate = £131,250 ÷ (£5m × 0.5) = 5.25%.</p>
+            <p>This equals the cap rate (5%) plus the premium cost (0.25%).</p>
+        </div>
+
+        <h4>9.3.2 Interest Rate Floor</h4>
+        <p>A <strong>floor</strong> protects an investor/depositor against rates falling below a floor rate. If actual rate falls below the floor, the floor seller compensates the investor.</p>
+
+        <h4>9.3.3 Interest Rate Collar</h4>
+        <p>A <strong>collar</strong> combines buying a cap and selling a floor. This reduces the upfront premium cost but limits the benefit if rates fall below the floor.</p>
+        <div class="example">
+            <h4>Example – Collar</h4>
+            <p>A borrower buys a cap at 6% and simultaneously sells a floor at 3%. The premium received from the floor reduces the cost of the cap. The borrower’s effective rate is capped at 6% and floored at 3% – it will never pay more than 6%, but it also will not benefit below 3%.</p>
+        </div>
+
+        <h3 id="sec9d">9.4 Interest Rate Swaps</h3>
+        <p>An <strong>interest rate swap</strong> is an agreement to exchange future interest payments on a notional principal. The most common is a fixed-for-floating swap, where one party pays fixed rate and receives floating rate, and the other does the opposite.</p>
+        <p>Swaps exploit <strong>comparative advantage</strong> – one company may have a relative advantage in fixed-rate borrowing, another in floating-rate borrowing. By swapping, both can reduce their borrowing costs.</p>
+
+        <div class="example">
+            <h4>Example – Interest rate swap with comparative advantage</h4>
+            <p>Company A can borrow fixed at 6% or floating at LIBOR + 0.5%.<br>
+            Company B can borrow fixed at 8% or floating at LIBOR + 1.5%.</p>
+            <table>
+                <tr><th></th><th>Fixed rate</th><th>Floating rate</th></tr>
+                <tr><td>Company A</td><td>6%</td><td>LIBOR + 0.5%</td></tr>
+                <tr><td>Company B</td><td>8%</td><td>LIBOR + 1.5%</td></tr>
+                <tr><td>Difference</td><td>2%</td><td>1%</td></tr>
+            </table>
+            <p>A has an absolute advantage in both, but a <strong>comparative advantage</strong> in fixed rate (2% difference). B has a comparative advantage in floating rate (1% difference).</p>
+            <p>Total potential saving = 2% − 1% = <strong>1%</strong>.</p>
+            <p>If the saving is shared equally, each gets 0.5% benefit.</p>
+            <p>Suppose A wants floating and B wants fixed.</p>
+            <p><strong>Without swap:</strong><br>
+            A pays LIBOR + 0.5%; B pays 8%.</p>
+            <p><strong>With swap:</strong></p>
+            <ul>
+                <li>A borrows fixed at 6% externally.</li>
+                <li>B borrows floating at LIBOR + 1.5% externally.</li>
+                <li>A pays LIBOR to B, and B pays 6% to A.</li>
+            </ul>
+            <p><strong>Net cost for A:</strong> 6% (external) + LIBOR (payment) − 6% (receipt) = <strong>LIBOR</strong> (a 0.5% saving).</p>
+            <p><strong>Net cost for B:</strong> LIBOR + 1.5% (external) + 6% (payment) − LIBOR (receipt) = <strong>7.5%</strong> (a 0.5% saving from 8%).</p>
+            <p>Both parties achieve the type of interest rate they want at a lower cost.</p>
+        </div>
+
+        <!-- SECTION 10 -->
+        <h2 id="section10">10. Comparison of Hedging Techniques</h2>
+        <table>
+            <tr>
+                <th>Instrument</th>
+                <th>OTC / Exchange</th>
+                <th>Obligation?</th>
+                <th>Flexibility</th>
+                <th>Main Use</th>
+            </tr>
+            <tr>
+                <td>Forward contract</td>
+                <td>OTC</td>
+                <td>Both parties obligated</td>
+                <td>Tailor-made, fixed date</td>
+                <td>Lock known exchange rate for a specific future cash flow</td>
+            </tr>
+            <tr>
+                <td>Money market hedge</td>
+                <td>Uses bank borrowing/deposit</td>
+                <td>Both borrowing and investment obligated</td>
+                <td>Based on spot rate</td>
+                <td>Alternative to forward; compare outcomes</td>
+            </tr>
+            <tr>
+                <td>Currency futures</td>
+                <td>Exchange-traded</td>
+                <td>Obligated to buy/sell</td>
+                <td>Standardised, daily margining</td>
+                <td>Hedge exchange rate risk with tradable contracts</td>
+            </tr>
+            <tr>
+                <td>Currency options</td>
+                <td>OTC or exchange</td>
+                <td>Right but not obligation</td>
+                <td>Premium cost, upside retained</td>
+                <td>Protect against adverse movement while keeping upside</td>
+            </tr>
+            <tr>
+                <td>FRA</td>
+                <td>OTC</td>
+                <td>Both parties obligated</td>
+                <td>Tailor-made</td>
+                <td>Lock future interest rate</td>
+            </tr>
+            <tr>
+                <td>Interest rate futures</td>
+                <td>Exchange-traded</td>
+                <td>Obligated</td>
+                <td>Standardised</td>
+                <td>Hedge interest rate risk on borrowing/deposit</td>
+            </tr>
+            <tr>
+                <td>Interest rate options</td>
+                <td>OTC or exchange</td>
+                <td>Right but not obligation</td>
+                <td>Premium cost</td>
+                <td>Cap/floor interest rates</td>
+            </tr>
+            <tr>
+                <td>Interest rate swap</td>
+                <td>OTC</td>
+                <td>Both parties obligated</td>
+                <td>Tailor-made</td>
+                <td>Convert fixed to floating or vice versa; reduce borrowing cost</td>
+            </tr>
+        </table>
+
+        <div class="keypoint">
+            <strong>Choosing a hedging method:</strong> Consider:
+            <ul>
+                <li>Cost – option premiums, margin requirements, transaction costs.</li>
+                <li>Flexibility – options allow upside, forwards do not.</li>
+                <li>Exposure size and timing – futures standardised may not match exactly.</li>
+                <li>Counterparty risk – OTC contracts carry credit risk; exchange-traded futures/options use clearing house.</li>
+                <li>Accounting treatment and management expertise.</li>
+            </ul>
+        </div>
+
+        <!-- SECTION 11 -->
+        <h2 id="section11">11. Exam Tips and Common Pitfalls</h2>
+        <h3>11.1 Top Exam Tips</h3>
+        <ul>
+            <li><strong>Always identify the exposure first:</strong> Does the company receive or pay foreign currency? Is it a borrower or depositor?</li>
+            <li><strong>Choose the correct side of a two-way quote:</strong> Receiving dollars → use ask $/£; paying dollars → use bid $/£.</li>
+            <li><strong>Round futures contracts correctly:</strong> The number of contracts is usually rounded to the nearest whole number, not truncated, to ensure the hedge is adequate.</li>
+            <li><strong>Use tick value tables carefully:</strong> For interest rate futures, tick value = contract size × tick size × 3/12.</li>
+            <li><strong>In FRA and options questions, calculate the premium in the correct currency and period.</strong></li>
+            <li><strong>Show all workings:</strong> ACCA awards method marks, so present steps clearly.</li>
+            <li><strong>Compare the hedge with the unhedged position</strong> to demonstrate risk reduction, not necessarily always the best outcome.</li>
+        </ul>
+
+        <h3>11.2 Common Pitfalls</h3>
+        <ul>
+            <li>Confusing bid and ask rates – remember the bank always wins on the spread.</li>
+            <li>Forgetting to adjust interest rates for the period – annual rates must be converted to 3-month, 6-month, etc.</li>
+            <li>Using the wrong number of futures contracts – always account for loan period relative to futures contract length.</li>
+            <li>Ignoring the premium in options – the premium is a cost even if the option is not exercised.</li>
+            <li>Thinking that futures/forwards eliminate all risk – basis risk and contract size mismatches can remain.</li>
+            <li>Not considering the time value of money in FRA settlement – some questions may require discounting the compensation to present value. In introductory FM, simple differences are often acceptable, but check the requirement.</li>
+        </ul>
+
+        <h3>11.3 Summary Checklist</h3>
+        <ul>
+            <li>✅ Understand transaction, translation, and economic exposure.</li>
+            <li>✅ Know internal hedging methods: netting, matching, leading/lagging, invoicing in home currency.</li>
+            <li>✅ Calculate forward contract outcomes using correct bid/ask.</li>
+            <li>✅ Build money market hedges for receipts and payments.</li>
+            <li>✅ Determine number of currency futures, tick values, and effective exchange rate.</li>
+            <li>✅ Explain currency options and their premium/upside trade-off.</li>
+            <li>✅ Describe currency swaps.</li>
+            <li>✅ Explain sources of interest rate risk.</li>
+            <li>✅ Calculate FRA compensation and effective rate.</li>
+            <li>✅ Use interest rate futures for borrowing/deposit hedging.</li>
+            <li>✅ Understand caps, floors, collars, and interest rate swaps.</li>
+            <li>✅ Compare hedging techniques and justify selection.</li>
+        </ul>
+
+        <div class="keypoint">
+            <strong>Final thought:</strong> Risk management is not about guaranteeing the best possible outcome – it is about making cash flows more predictable and protecting the company from adverse movements. In the exam, always show how the hedge reduces uncertainty even if the unhedged result would have been better in hindsight.
+        </div>
+
+        <p style="margin-top: 3rem; text-align: center; font-size: 0.95rem; color: #556677;">
+            ⏳ Good luck with your ACCA FM exam preparation!<br>
+            These notes are designed to be a complete, easy-to-understand study guide for the Risk Management section.
+        </p>
+    </div>
+</body>
+</html>
