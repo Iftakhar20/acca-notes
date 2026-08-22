@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACCA FM – Business Valuations (Section F)</title>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --plum:#6B4A7A; --plum-dark:#503659; --plum-light:#F1EAF4;
+    --amber:#B87514; --amber-light:#FBF2E2; --amber-deep:#6E460B;
+    --blue:#2C5F8A; --blue-light:#E9F1F8;
+    --coral:#B84A42; --coral-light:#FBEBE9; --coral-deep:#772A24;
+    --green:#2E7D4F; --green-light:#E7F3EB;
+    --teal:#1B7A6E; --teal-light:#E6F4F1; --teal-dark:#125A51;
+    --ink:#2A2733; --ink-soft:#453F4E; --muted:#6F6A78;
+    --bg:#FCFBF9; --card:#FFFFFF; --border:#E4DFE7; --paper:#F6F2F8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Source Sans 3',Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.8;font-size:19px;}
+
+  .site-header{background:var(--plum-light);border-bottom:3px solid var(--plum);position:sticky;top:0;z-index:100;}
+  .header-inner{max-width:1120px;margin:0 auto;padding:12px 28px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;}
+  .header-brand{display:flex;align-items:center;gap:12px;}
+  .header-badge{background:var(--plum);color:#fff;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;padding:5px 11px;letter-spacing:.08em;border-radius:3px;}
+  .header-title{font-family:'Merriweather',serif;font-size:19px;font-weight:700;color:var(--plum-dark);line-height:1.3;}
+  .header-sub{font-size:12.5px;color:var(--muted);}
+  nav{display:flex;gap:4px;flex-wrap:wrap;}
+  nav a{color:var(--plum-dark);text-decoration:none;font-size:12px;font-family:'JetBrains Mono',monospace;padding:5px 9px;border-radius:3px;background:#fff;border:1px solid var(--border);transition:.15s;}
+  nav a:hover,nav a.active{background:var(--plum);color:#fff;border-color:var(--plum);}
+
+  .hero{background:linear-gradient(135deg,var(--plum-light) 0%,var(--blue-light) 100%);padding:50px 28px 42px;text-align:center;border-bottom:1px solid var(--border);}
+  .hero h1{font-family:'Merriweather',serif;font-size:38px;font-weight:900;margin-bottom:12px;color:var(--plum-dark);line-height:1.25;}
+  .hero p{font-size:18px;color:var(--ink-soft);max-width:720px;margin:0 auto 20px;}
+  .hero-tags{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;}
+  .hero-tag{background:#fff;border:1px solid var(--plum);color:var(--plum-dark);padding:5px 14px;border-radius:20px;font-size:13.5px;font-family:'JetBrains Mono',monospace;}
+
+  .main-wrap{max-width:1120px;margin:0 auto;padding:44px 28px;}
+  .topic-section,.card,.quiz-section{scroll-margin-top:135px;}
+
+  .topic-section{margin-bottom:56px;}
+  .topic-header{display:flex;align-items:flex-start;gap:18px;margin-bottom:26px;padding-bottom:16px;border-bottom:3px solid var(--plum);}
+  .topic-number{background:var(--plum);color:#fff;font-family:'Merriweather',serif;font-size:25px;font-weight:900;width:52px;height:52px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border-radius:6px;}
+  .topic-header h2{font-family:'Merriweather',serif;font-size:26px;color:var(--plum-dark);line-height:1.3;}
+  .topic-header .subtitle{font-size:14px;color:var(--muted);margin-top:4px;font-style:italic;}
+
+  .card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:26px 30px;margin-bottom:20px;box-shadow:0 1px 4px rgba(0,0,0,.03);}
+  .card h3{font-family:'Merriweather',serif;font-size:21px;color:var(--plum-dark);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border);}
+  .card h4{font-family:'Merriweather',serif;font-size:17.5px;color:var(--blue);margin:20px 0 8px;}
+  .card h5{font-size:17px;color:var(--ink);font-weight:700;margin:14px 0 6px;}
+  .card p{margin-bottom:12px;color:var(--ink-soft);}
+  .card p:last-child{margin-bottom:0;}
+  .card ul,.card ol{margin:8px 0 14px 26px;color:var(--ink-soft);}
+  .card li{margin-bottom:7px;}
+
+  .eq{background:var(--paper);border:1px solid #DED2E4;border-left:5px solid var(--plum);border-radius:6px;padding:20px 24px;margin:18px 0;text-align:center;font-size:22px;color:var(--ink);line-height:2.4;overflow-x:auto;}
+  .eq.small{font-size:19px;}
+  .eq-label{font-size:14px;color:var(--plum-dark);font-family:'JetBrains Mono',monospace;letter-spacing:.05em;display:block;margin-bottom:10px;text-align:left;}
+  .eq-line{margin:6px 0;display:block;}
+  .frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .35em;line-height:1.35;}
+  .frac .num{border-bottom:2px solid currentColor;padding:0 .5em .18em;}
+  .frac .den{padding:.18em .5em 0;}
+  .eq .where{font-size:15.5px;text-align:left;color:var(--muted);margin-top:16px;border-top:1px dashed #CBBDD2;padding-top:12px;line-height:1.75;}
+  .eq .where b{color:var(--ink-soft);font-family:'JetBrains Mono',monospace;font-size:14.5px;}
+  sub{font-size:.68em;} sup{font-size:.68em;}
+
+  .calc{background:#FAF9FB;border:1px solid var(--border);border-radius:6px;padding:16px 22px;margin:14px 0;font-size:18px;line-height:2.1;color:var(--ink);}
+  .calc .step{display:block;}
+  .calc .res{font-weight:700;color:var(--plum-dark);}
+  .calc-note{font-size:15.5px;color:var(--muted);font-style:italic;margin-top:6px;}
+
+  .callout{border-radius:6px;padding:15px 20px;margin:18px 0;border-left:5px solid;display:flex;gap:13px;align-items:flex-start;}
+  .callout-icon{font-size:20px;flex-shrink:0;margin-top:2px;}
+  .callout-body{flex:1;}
+  .callout-body strong{display:block;margin-bottom:5px;font-size:15.5px;}
+  .callout-body p{font-size:16.5px;color:inherit;margin:0 0 8px;}
+  .callout-body p:last-child{margin-bottom:0;}
+  .callout-body ul{margin:6px 0 0 22px;font-size:16.5px;color:inherit;}
+  .callout.trap{background:var(--coral-light);border-color:var(--coral);color:var(--coral-deep);}
+  .callout.tip{background:var(--teal-light);border-color:var(--teal);color:var(--teal-dark);}
+  .callout.key{background:var(--blue-light);border-color:var(--blue);color:var(--blue);}
+  .callout.exam{background:var(--amber-light);border-color:var(--amber);color:var(--amber-deep);}
+
+  .styled-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:16.5px;}
+  .styled-table th{background:var(--plum);color:#fff;padding:11px 13px;text-align:left;font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:.05em;font-weight:600;}
+  .styled-table td{padding:10px 13px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.6;}
+  .styled-table tr:nth-child(even) td{background:#FAF8FB;}
+  .styled-table tr:last-child td{border-bottom:none;}
+  .styled-table td strong{color:var(--coral);}
+
+  .cf-wrap{overflow-x:auto;margin:16px 0;}
+  .cf-table{width:100%;border-collapse:collapse;font-size:16.5px;font-variant-numeric:tabular-nums;min-width:480px;}
+  .cf-table th{background:var(--blue);color:#fff;padding:9px 12px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.04em;text-align:right;}
+  .cf-table th:first-child,.cf-table th:nth-child(2){text-align:left;}
+  .cf-table td{padding:8px 12px;border-bottom:1px solid var(--border);text-align:right;font-family:'JetBrains Mono',monospace;font-size:15.5px;}
+  .cf-table td:first-child,.cf-table td:nth-child(2){text-align:left;font-family:'Source Sans 3',sans-serif;font-size:16.5px;}
+  .cf-table tr.total td{border-top:2px solid var(--ink);border-bottom:3px double var(--ink);font-weight:700;background:var(--paper);}
+  .cf-table tr:nth-child(even):not(.total) td{background:#FAF9FB;}
+
+  .example-box{background:#FDFCFE;border:1px solid var(--plum);border-left:5px solid var(--plum);border-radius:6px;padding:20px 24px;margin:20px 0;}
+  .ex-label{display:inline-block;background:var(--plum);color:#fff;font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.07em;padding:3px 11px;border-radius:3px;margin-bottom:12px;}
+  .example-box.exam-style{border-color:var(--amber);border-left-color:var(--amber);background:#FDFAF3;}
+  .example-box.exam-style .ex-label{background:var(--amber);}
+  .example-box p{color:var(--ink-soft);margin-bottom:10px;}
+  .example-box .q{background:var(--paper);border-radius:5px;padding:14px 18px;margin-bottom:14px;font-size:17.5px;color:var(--ink);}
+  .solution-label{font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;display:block;margin:16px 0 8px;padding-bottom:4px;border-bottom:1px dashed var(--border);}
+
+  .step-list{counter-reset:steps;list-style:none;padding:0;margin:16px 0 !important;}
+  .step-list li{counter-increment:steps;display:flex;align-items:flex-start;gap:13px;margin-bottom:12px;font-size:17.5px;color:var(--ink-soft);}
+  .step-list li::before{content:counter(steps);background:var(--plum);color:#fff;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:3px;}
+
+  .section-divider{border:none;border-top:1px solid var(--border);margin:38px 0;}
+  .priority{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11.5px;padding:3px 9px;border-radius:3px;letter-spacing:.05em;margin-left:8px;vertical-align:middle;white-space:nowrap;}
+  .priority.high{background:var(--coral-light);color:var(--coral-deep);border:1px solid var(--coral);}
+  .priority.med{background:var(--amber-light);color:var(--amber-deep);border:1px solid var(--amber);}
+  .priority.low{background:var(--teal-light);color:var(--teal-dark);border:1px solid var(--teal);}
+
+  .quiz-section{background:var(--blue-light);border:1px solid var(--border);border-radius:12px;padding:38px;margin-top:44px;}
+  .quiz-header{text-align:center;margin-bottom:30px;}
+  .quiz-header h2{font-family:'Merriweather',serif;font-size:29px;color:var(--plum-dark);margin-bottom:8px;}
+  .quiz-header p{color:var(--muted);font-size:16px;}
+  .question-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:26px;margin-bottom:20px;}
+  .question-card.answered{border-color:var(--plum);}
+  .q-label{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--muted);letter-spacing:.1em;margin-bottom:10px;}
+  .q-topic-tag{display:inline-block;background:var(--plum);color:#fff;font-size:11px;font-family:'JetBrains Mono',monospace;padding:2px 9px;border-radius:3px;margin-left:8px;}
+  .q-context{background:var(--paper);border-left:3px solid var(--amber);padding:12px 16px;margin-bottom:14px;font-size:16.5px;color:var(--ink-soft);line-height:1.7;border-radius:0 4px 4px 0;}
+  .q-text{font-size:18px;color:var(--ink);margin-bottom:16px;line-height:1.7;font-weight:600;}
+  .options{display:grid;gap:9px;}
+  .option-btn{background:#FAFAF8;border:1px solid var(--border);color:var(--ink);padding:12px 17px;border-radius:6px;cursor:pointer;text-align:left;font-family:'Source Sans 3',sans-serif;font-size:16.5px;line-height:1.5;transition:.15s;display:flex;align-items:flex-start;gap:12px;}
+  .option-btn:hover:not(:disabled){background:var(--plum-light);border-color:var(--plum);}
+  .option-btn:disabled{cursor:default;}
+  .option-letter{background:var(--border);color:var(--ink);font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .option-btn.correct{background:var(--green-light);border-color:var(--green);color:#1C5636;}
+  .option-btn.correct .option-letter{background:var(--green);color:#fff;}
+  .option-btn.wrong{background:var(--coral-light);border-color:var(--coral);color:var(--coral-deep);}
+  .option-btn.wrong .option-letter{background:var(--coral);color:#fff;}
+  .explanation{margin-top:15px;padding:17px 21px;background:var(--amber-light);border-radius:6px;border-left:4px solid var(--amber);display:none;}
+  .explanation.show{display:block;animation:slideIn .3s ease;}
+  .explanation p{font-size:16px;color:var(--amber-deep);line-height:1.75;margin-bottom:8px;}
+  .explanation p:last-child{margin-bottom:0;}
+  @keyframes slideIn{from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:none;}}
+  .quiz-score{text-align:center;padding:30px;background:#fff;border-radius:8px;margin-top:26px;display:none;border:1px solid var(--border);}
+  .quiz-score.show{display:block;animation:slideIn .5s ease;}
+  .score-number{font-family:'Merriweather',serif;font-size:58px;color:var(--plum-dark);line-height:1;}
+  .score-label{color:var(--muted);font-size:16px;margin-top:8px;}
+  .score-msg{color:var(--ink);font-size:18px;margin-top:14px;font-style:italic;}
+  .retry-btn{margin-top:18px;background:var(--plum);color:#fff;border:none;padding:12px 32px;font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.05em;border-radius:5px;cursor:pointer;}
+  .retry-btn:hover{background:var(--plum-dark);}
+
+  @media (max-width:700px){
+    body{font-size:17px;}
+    .header-inner{flex-direction:column;align-items:flex-start;padding:10px 16px;}
+    .topic-section,.card,.quiz-section{scroll-margin-top:180px;}
+    .hero h1{font-size:27px;}
+    .main-wrap{padding:24px 14px;}
+    .card{padding:20px 16px;}
+    .quiz-section{padding:22px 14px;}
+    .topic-header h2{font-size:21px;}
+    .eq{font-size:18px;padding:16px 12px;}
+    .eq.small{font-size:16px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-brand">
+      <span class="header-badge">ACCA FM</span>
+      <div>
+        <div class="header-title">Business Valuations</div>
+        <div class="header-sub">Syllabus Section F · Sep 2026 – Jun 2027</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#why">1 Why Value</a>
+      <a href="#asset">2 Asset-Based</a>
+      <a href="#earnings">3 Earnings-Based</a>
+      <a href="#cashflow">4 Cash Flow-Based</a>
+      <a href="#debt">5 Valuing Debt</a>
+      <a href="#emh">6 EMH</a>
+      <a href="#practical">7 Practical Issues</a>
+      <a href="#choosing">8 Choosing</a>
+      <a href="#quiz">Quiz</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <h1>Business Valuations</h1>
+  <p>ACCA FM Syllabus Section F — every valuation model taught from first principles, with worked examples and the discussion points that earn marks.</p>
+  <div class="hero-tags">
+    <span class="hero-tag">Asset-Based</span>
+    <span class="hero-tag">P/E &amp; Earnings Yield</span>
+    <span class="hero-tag">DVM &amp; DCF</span>
+    <span class="hero-tag">Valuing Debt</span>
+    <span class="hero-tag">Market Efficiency</span>
+  </div>
+</div>
+
+<div class="main-wrap">
+
+<!-- ═══════════ 1 · WHY VALUE ═══════════ -->
+<section class="topic-section" id="why">
+  <div class="topic-header">
+    <div class="topic-number">1</div>
+    <div>
+      <h2>Why We Value, and What We Need to Do It <span class="priority med">MEDIUM</span></h2>
+      <div class="subtitle">Syllabus F1 · The framing that every Section F answer should start from</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Reasons for valuing a business or financial asset</h3>
+    <p>A valuation is needed whenever shares change hands and there is no reliable market price to rely on:</p>
+    <ul>
+      <li><strong>Takeovers and mergers</strong> — to establish the terms of the deal (by far the most commonly examined context)</li>
+      <li><strong>Buy-and-hold investment decisions</strong> — to decide whether a share is under- or over-priced</li>
+      <li><strong>Flotation</strong> — to set an issue price for a company entering the stock market</li>
+      <li><strong>Directors' and employees' shareholdings</strong> — where the articles require a retiring director to sell their shares back</li>
+      <li><strong>Fiscal purposes</strong> — capital gains tax and inheritance tax computations</li>
+      <li><strong>Legal settlements</strong> — divorce, partnership dissolution, disputes between shareholders</li>
+    </ul>
+    <div class="callout trap">
+      <span class="callout-icon">⚠</span>
+      <div class="callout-body"><strong>A common MCQ distractor</strong>
+      <p>Valuation is <em>not</em> required for corporate taxation purposes — corporation tax is charged on profits, not on the value of the company. Watch for this in objective test questions listing "reasons for valuation".</p></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Market capitalisation — and why it isn't the answer</h3>
+    <div class="eq small">
+      <span class="eq-line">Market capitalisation = Current share price × Number of shares in issue</span>
+    </div>
+    <p>For a listed company this seems like the obvious valuation. But it has real limitations:</p>
+    <ul>
+      <li>Share prices move constantly with supply and demand, so the market capitalisation is a moving target</li>
+      <li>It does not represent the price at which the whole company could actually be bought — acquirers routinely pay a substantial <strong>premium over the pre-bid price</strong> to secure control</li>
+      <li>It simply <strong>does not exist</strong> for an unlisted company — which is exactly the situation most exam questions describe</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Information requirements and their limitations</h3>
+    <table class="styled-table">
+      <thead><tr><th style="width:30%">Information needed</th><th>Limitation</th></tr></thead>
+      <tbody>
+        <tr><td>Published financial statements</td><td>Historic, prepared on a historical cost basis, and subject to accounting policy choices. Book values often bear little relation to current values. For an unlisted company they may be abbreviated and unaudited.</td></tr>
+        <tr><td>Asset valuations</td><td>Professional valuations are costly and quickly go out of date. Intangibles — brands, know-how, customer relationships — are often not recognised at all.</td></tr>
+        <tr><td>Forecast earnings and cash flows</td><td>Estimates by definition, and normally prepared by the party with an interest in the outcome. Highly sensitive to assumptions about growth.</td></tr>
+        <tr><td>Comparable company data (e.g. P/E ratios)</td><td>No two companies are truly comparable in size, growth prospects, gearing and risk. Listed comparators are not directly applicable to unlisted targets.</td></tr>
+        <tr><td>Cost of capital</td><td>For an unlisted company there is no share price and no beta, so the discount rate must be estimated from proxies — introducing significant error.</td></tr>
+      </tbody>
+    </table>
+    <div class="callout exam">
+      <span class="callout-icon">📝</span>
+      <div class="callout-body"><strong>The framing sentence that earns marks in every Section F discussion</strong>
+      <p><em>"Valuation is an art, not a science."</em> Different methods give widely differing results; each party has an incentive to argue for a high or a low figure; and the final price is ultimately a matter of <strong>negotiation</strong> between buyer and seller. Examiners look for evidence that you understand a valuation is a <em>range</em> and a bargaining position, not a single correct number. Build this into your conclusion every time.</p>
+      <p>The natural structure: a <strong>net realisable value</strong> basis gives the seller's <em>minimum</em> price (they would do better breaking the company up than accepting less); a <strong>replacement cost</strong> basis gives the buyer's <em>maximum</em> price (they could recreate the business from scratch for that). The deal is struck somewhere in between.</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══════════ 2 · ASSET-BASED ═══════════ -->
+<section class="topic-section" id="asset">
+  <div class="topic-header">
+    <div class="topic-number">2</div>
+    <div>
+      <h2>Asset-Based Valuation Models <span class="priority high">HIGH</span></h2>
+      <div class="subtitle">Syllabus F2(a) · Three bases, each answering a different question</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>The common formula</h3>
+    <p>All three asset bases work identically. Only the <em>values you put in</em> change.</p>
+    <div class="eq">
+      <span class="eq-label">FORMULA — asset-based value of equity</span>
+      <span class="eq-line">Value of equity = Total assets − Total liabilities</span>
+      <span class="eq-line" style="font-size:.85em;margin-top:12px;">Value per share =
+        <span class="frac"><span class="num">Value of equity</span><span class="den">Number of ordinary shares</span></span>
+      </span>
+      <div class="where">
+        Deduct <b>all</b> liabilities, including preference share capital and any redemption premium on loan notes.<br>
+        <b>Intangible assets and goodwill are normally excluded</b> — they cannot be sold or replaced separately.
+      </div>
+    </div>
+
+    <table class="styled-table">
+      <thead><tr><th style="width:26%">Basis</th><th style="width:34%">Assets valued at…</th><th>What it tells you</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Net book value</strong><br>(SOFP basis)</td><td>Carrying amount straight from the statement of financial position</td><td>The easiest to calculate but the <strong>least useful</strong> — based on historic cost less accumulated depreciation, which reflects accounting policy rather than value.</td></tr>
+        <tr><td><strong>Net realisable value</strong><br>(NRV / break-up basis)</td><td>Amount each asset could be <strong>sold</strong> for, less selling costs</td><td>The <strong>minimum price a seller should accept</strong> — below this they would be better off liquidating the company and selling the assets piecemeal.</td></tr>
+        <tr><td><strong>Net replacement cost</strong></td><td>Cost of <strong>buying an equivalent asset</strong> today</td><td>The <strong>maximum price a buyer should pay</strong> — above this they could simply build an equivalent business from scratch.</td></tr>
+      </tbody>
+    </table>
+    <div class="callout key">
+      <span class="callout-icon">💡</span>
+      <div class="callout-body"><strong>Deprival value</strong>
+      <p>Occasionally examined as a definition: deprival value is the <strong>lower of replacement cost and recoverable amount</strong> — the loss the owner would suffer if deprived of the asset. It is <em>not</em> simply replacement cost; an MCQ may test exactly that distinction.</p></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Worked example</h3>
+    <div class="example-box exam-style">
+      <span class="ex-label">EXAMPLE 2.1 — NET REALISABLE VALUE BASIS</span>
+      <div class="q">The abridged statement of financial position of an unquoted company at 30 April is:<br><br>
+      <table class="styled-table" style="background:#fff;margin-top:6px;">
+        <tbody>
+          <tr><td>Non-current assets (carrying value)</td><td style="text-align:right;">$450,000</td></tr>
+          <tr><td>Net current assets</td><td style="text-align:right;">$100,000</td></tr>
+          <tr><td><strong>Total</strong></td><td style="text-align:right;"><strong>$550,000</strong></td></tr>
+          <tr><td>$1 ordinary shares</td><td style="text-align:right;">$200,000</td></tr>
+          <tr><td>Reserves</td><td style="text-align:right;">$250,000</td></tr>
+          <tr><td>6% loan notes</td><td style="text-align:right;">$100,000</td></tr>
+        </tbody>
+      </table>
+      <br>The loan notes are redeemable at a premium of 2%. The current market value of freehold property exceeds its carrying value by $30,000. All other assets are estimated to be realisable at carrying value.<br><br>
+      <strong>Calculate the value of an 80% holding of ordinary shares on an assets basis.</strong></div>
+
+      <span class="solution-label">Solution</span>
+      <div class="cf-wrap">
+      <table class="cf-table">
+        <thead><tr><th>Item</th><th>Working</th><th>$</th></tr></thead>
+        <tbody>
+          <tr><td>Non-current assets</td><td>carrying value</td><td>450,000</td></tr>
+          <tr><td>Uplift on freehold property</td><td>to market value</td><td>30,000</td></tr>
+          <tr><td>Net current assets</td><td>realisable at carrying value</td><td>100,000</td></tr>
+          <tr><td>Less: loan notes</td><td>$100,000 × 1.02</td><td>(102,000)</td></tr>
+          <tr class="total"><td>Net asset value of equity</td><td></td><td>478,000</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="calc">
+        <span class="step">Value per share = $478,000 ÷ 200,000 shares = <span class="res">$2.39</span></span>
+        <span class="step">Value of an 80% holding = $478,000 × 80% = <span class="res">$382,400</span></span>
+      </div>
+      <p class="calc-note">Two things to notice. First, <em>net</em> current assets are already stated after deducting current liabilities — don't deduct them again. Second, the loan notes must be valued at their <strong>redemption</strong> amount ($102,000), not their nominal amount, because that is what will actually have to be paid.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Strengths, weaknesses, and when to use it</h3>
+    <table class="styled-table">
+      <thead><tr><th>Strengths</th><th>Weaknesses</th></tr></thead>
+      <tbody>
+        <tr><td>Objective and relatively easy to calculate</td><td><strong>Ignores future earnings and cash flows entirely</strong> — the main reason anyone buys a business</td></tr>
+        <tr><td>Provides a useful floor value (NRV) and ceiling value (replacement cost) to frame negotiations</td><td>Excludes intangibles — brands, skilled workforce, customer relationships, know-how — which for many businesses <em>are</em> the value</td></tr>
+        <tr><td>Highly relevant for asset-stripping acquisitions and for property or investment companies</td><td>NBV is based on historic cost and accounting policy, so is largely meaningless as a value</td></tr>
+        <tr><td>Useful where the business is loss-making or is to be liquidated</td><td>Obtaining reliable NRVs or replacement costs requires professional valuations, which are costly</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Most appropriate for:</strong> asset-rich businesses (property, investment trusts, shipping), companies being broken up, and as a supporting cross-check alongside an earnings- or cash flow-based valuation.</p>
+    <div class="callout key">
+      <span class="callout-icon">💡</span>
+      <div class="callout-body"><strong>Goodwill is the gap between the two approaches</strong>
+      <p>Goodwill can only be measured as <em>income-based value less tangible asset value</em>. That means a pure asset-based valuation of a going concern is never really complete — you always have to consider an earnings-based value as well to know what the goodwill is worth. Saying this explicitly is a strong discussion point.</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══════════ 3 · EARNINGS-BASED ═══════════ -->
+<section class="topic-section" id="earnings">
+  <div class="topic-header">
+    <div class="topic-number">3</div>
+    <div>
+      <h2>Income / Earnings-Based Valuation <span class="priority high">HIGH</span></h2>
+      <div class="subtitle">Syllabus F2(b) · P/E ratio and earnings yield — the most commonly examined models</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>When to use an earnings-based method</h3>
+    <p>Earnings-based methods are appropriate for valuing a <strong>majority (controlling) shareholding</strong>. The reason is important and worth stating in an answer: a majority shareholder <em>controls</em> the company's dividend policy, so they are not restricted to the dividends currently being paid — they are buying the whole earnings stream and can decide what to do with it. A minority shareholder cannot influence dividend policy, so a dividend-based model suits them better.</p>
+  </div>
+
+  <div class="card">
+    <h3>The P/E ratio method</h3>
+    <div class="eq">
+      <span class="eq-label">FORMULA — P/E ratio valuation</span>
+      <span class="eq-line">P/E ratio =
+        <span class="frac"><span class="num">Market price per share</span><span class="den">Earnings per share</span></span>
+      </span>
+      <span class="eq-line" style="margin-top:16px;">Value of company = Total earnings × P/E ratio</span>
+      <span class="eq-line">Value per share = EPS × P/E ratio</span>
+      <div class="where">
+        <b>Earnings</b> = profit <b>after tax</b> and <b>after preference dividends</b> — i.e. earnings attributable to <em>ordinary</em> shareholders<br>
+        The P/E ratio used is that of a comparable quoted company (or the industry average), suitably adjusted.
+      </div>
+    </div>
+
+    <div class="example-box exam-style">
+      <span class="ex-label">EXAMPLE 3.1 — P/E RATIO VALUATION</span>
+      <div class="q">An unquoted company has issued ordinary share capital of 400,000 shares of 25c. Extract from the statement of profit or loss:<br><br>
+      <table class="styled-table" style="background:#fff;margin-top:6px;">
+        <tbody>
+          <tr><td>Profit before income taxes</td><td style="text-align:right;">$260,000</td></tr>
+          <tr><td>Corporation tax</td><td style="text-align:right;">($120,000)</td></tr>
+          <tr><td><strong>Profit for the year</strong></td><td style="text-align:right;"><strong>$140,000</strong></td></tr>
+          <tr><td>Preference dividend</td><td style="text-align:right;">($20,000)</td></tr>
+          <tr><td>Ordinary dividend</td><td style="text-align:right;">($36,000)</td></tr>
+          <tr><td>Retained profit</td><td style="text-align:right;">$84,000</td></tr>
+        </tbody>
+      </table>
+      <br>The P/E ratio applicable to a similar business, suitable for an unquoted company, is 12.5.<br><br><strong>Value a holding of 200,000 shares.</strong></div>
+
+      <span class="solution-label">Step 1 — Earnings attributable to ordinary shareholders</span>
+      <div class="calc">
+        <span class="step">Profit for the year $140,000 − preference dividend $20,000 = <span class="res">$120,000</span></span>
+      </div>
+      <p class="calc-note">The ordinary dividend is <strong>not</strong> deducted — it is a distribution <em>of</em> earnings, not a cost. Only the preference dividend comes off, because it belongs to a different class of shareholder.</p>
+
+      <span class="solution-label">Step 2 — EPS</span>
+      <div class="eq small">
+        <span class="eq-line">EPS = <span class="frac"><span class="num">$120,000</span><span class="den">400,000 shares</span></span> = <b>30c</b></span>
+      </div>
+      <p class="calc-note">Note the 25c nominal value is a distractor — EPS uses the <em>number</em> of shares, not their nominal value.</p>
+
+      <span class="solution-label">Step 3 — Apply the P/E ratio</span>
+      <div class="calc">
+        <span class="step">Value per share = $0.30 × 12.5 = <span class="res">$3.75</span></span>
+        <span class="step">Value of 200,000 shares = 200,000 × $3.75 = <span class="res">$750,000</span></span>
+      </div>
+      <p class="calc-note">Equivalently: total earnings $120,000 × 12.5 = $1,500,000 for the whole company; the 50% holding is worth half of that.</p>
+    </div>
+
+    <h4>Choosing and adjusting the P/E ratio</h4>
+    <p>The starting point is a quoted company of comparable size in the same industry. But a raw comparable P/E almost always needs adjusting, and <strong>the marks are in explaining why</strong>, not in the size of the adjustment.</p>
+    <table class="styled-table">
+      <thead><tr><th style="width:34%">Reason to adjust</th><th>Direction and rationale</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Target is unquoted</strong></td><td><strong>Reduce</strong> — shares in an unquoted company are far less marketable, so investors require a higher return and will pay a lower multiple. A reduction of around one third is a common convention.</td></tr>
+        <tr><td><strong>Different growth prospects</strong></td><td><strong>Reduce</strong> if the target's growth is lower than the comparator's, increase if higher. Growth is the single biggest driver of P/E differences.</td></tr>
+        <tr><td><strong>Different risk / gearing</strong></td><td><strong>Reduce</strong> if the target is riskier or more highly geared, since investors demand a higher return.</td></tr>
+        <tr><td><strong>Different size</strong></td><td><strong>Reduce</strong> if the target is much smaller — smaller companies are generally regarded as riskier and less liquid.</td></tr>
+      </tbody>
+    </table>
+    <p>A workable convention in the exam is to adjust by roughly <strong>10% for each reason identified</strong>, but state clearly what you are adjusting for and why. The examiner cares about the reasoning.</p>
+
+    <div class="callout trap">
+      <span class="callout-icon">⚠</span>
+      <div class="callout-body"><strong>Interpreting a high or low P/E ratio</strong>
+      <p>A <strong>high P/E</strong> may mean: a genuine growth stock; a stock whose <em>last</em> reported earnings were exceptionally low (so the ratio is distorted); a share price inflated by a pending takeover bid; or a high-security share where investors accept low income for capital growth and safety.</p>
+      <p>A <strong>low P/E</strong> may mean: losses or falling profits are expected; or the share price has been temporarily depressed by a one-off event such as a strike. Never assume a low P/E means "cheap".</p></div>
+    </div>
+
+    <h4>Problems with the P/E method</h4>
+    <ul>
+      <li>Finding a genuinely similar company with similar growth prospects is difficult — most companies are not directly comparable</li>
+      <li>Reported earnings are based on <strong>historical cost accounts</strong> and different accounting policies, which undermines comparison between two companies</li>
+      <li>The P/E is based on a <em>single year's</em> reported earnings, whereas a share price reflects expectations of <em>future</em> earnings</li>
+      <li>Estimating <strong>maintainable</strong> earnings for the target is difficult — you may need to strip out one-off items (a debt write-off, an exceptional gain) or normalise abnormal director remuneration</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>The earnings yield method</h3>
+    <p>The earnings yield is simply the <strong>inverse of the P/E ratio</strong>, so it produces the same answer when applied consistently. Its advantage is that it can easily incorporate earnings growth.</p>
+    <div class="eq">
+      <span class="eq-label">FORMULA — earnings yield</span>
+      <span class="eq-line">Earnings yield =
+        <span class="frac"><span class="num">EPS</span><span class="den">Market price per share</span></span>
+        =
+        <span class="frac"><span class="num">1</span><span class="den">P/E ratio</span></span>
+      </span>
+      <span class="eq-line" style="margin-top:16px;">Value of company = Earnings ×
+        <span class="frac"><span class="num">1</span><span class="den">Earnings yield</span></span>
+      </span>
+      <span class="eq-line" style="margin-top:16px;">With growth:&nbsp; Value =
+        <span class="frac"><span class="num">Earnings × (1 + g)</span><span class="den">Earnings yield − g</span></span>
+      </span>
+      <div class="where">The growth version is the dividend growth model with <b>earnings</b> substituted for dividends and <b>earnings yield</b> substituted for the cost of equity.</div>
+    </div>
+
+    <div class="example-box">
+      <span class="ex-label">EXAMPLE 3.2 — EARNINGS YIELD, WITH AND WITHOUT GROWTH</span>
+      <div class="q"><strong>Company A</strong> has earnings of $300,000, growing at 3% per year. A similar listed company has an earnings yield of 12.5%.<br>
+      <strong>Company B</strong> has earnings of $420,500 with no growth expected. A similar listed company has a P/E ratio of 7.<br><br>Estimate the value of each company.</div>
+
+      <span class="solution-label">Company A — with growth</span>
+      <div class="eq small">
+        <span class="eq-line">Value =
+          <span class="frac"><span class="num">$300,000 × 1.03</span><span class="den">0.125 − 0.03</span></span>
+          =
+          <span class="frac"><span class="num">$309,000</span><span class="den">0.095</span></span>
+          = <b>$3,252,632</b>
+        </span>
+      </div>
+
+      <span class="solution-label">Company B — no growth</span>
+      <div class="calc">
+        <span class="step">Value = $420,500 × 7 = <span class="res">$2,943,500</span></span>
+      </div>
+      <p class="calc-note">Equivalently, earnings yield = 1 ÷ 7 = 14.29%, and $420,500 ÷ 0.1429 = $2,943,500. Same answer either way — which is exactly the point about the two methods being equivalent.</p>
+    </div>
+
+    <div class="example-box">
+      <span class="ex-label">EXAMPLE 3.3 — CONVERTING BETWEEN P/E AND EARNINGS YIELD</span>
+      <div class="q">A company has earnings of $150 million. A comparable listed company trades on a P/E ratio of 12.5. Value the company using the earnings yield method.</div>
+      <span class="solution-label">Solution</span>
+      <div class="calc">
+        <span class="step">Earnings yield = 1 ÷ 12.5 = <span class="res">0.08 (8%)</span></span>
+        <span class="step">Value = $150m × (1 ÷ 0.08) = <span class="res">$1,875 million</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══════════ 4 · CASH FLOW-BASED ═══════════ -->
+<section class="topic-section" id="cashflow">
+  <div class="topic-header">
+    <div class="topic-number">4</div>
+    <div>
+      <h2>Cash Flow-Based Valuation <span class="priority high">HIGH</span></h2>
+      <div class="subtitle">Syllabus F2(c) · The dividend valuation model and the discounted cash flow basis</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Method 1 — The dividend valuation model (DVM)</h3>
+    <p>You met this model in the cost of capital chapter. Here it is used in the other direction: instead of solving for K<sub>e</sub>, we know K<sub>e</sub> and solve for the price.</p>
+    <div class="eq">
+      <span class="eq-label">FORMULA — DVM (given on the exam formula sheet)</span>
+      <span class="eq-line">P<sub>0</sub> = <span class="frac"><span class="num">D</span><span class="den">r<sub>e</sub></span></span>
+      &nbsp;&nbsp;(constant dividend)&nbsp;&nbsp;&nbsp;&nbsp;
+      P<sub>0</sub> = <span class="frac"><span class="num">D<sub>0</sub>(1 + g)</span><span class="den">r<sub>e</sub> − g</span></span>
+      &nbsp;&nbsp;(constant growth)</span>
+      <div class="where">
+        <b>r<sub>e</sub></b> = shareholders' required return (the cost of equity)<br>
+        Use <b>dividend per share</b> to get a share price, or <b>total dividends</b> to get the whole company value<br>
+        The model produces an <b>ex-div</b> price — add back D<sub>0</sub> if a cum-div value is required
+      </div>
+    </div>
+
+    <div class="callout key">
+      <span class="callout-icon">💡</span>
+      <div class="callout-body"><strong>Who is this valuation for?</strong>
+      <p>The DVM is best suited to valuing a <strong>minority shareholding</strong>. A minority shareholder cannot influence dividend policy, so the dividends actually paid are genuinely all they will receive. For a controlling stake the DVM understates value, because a majority shareholder controls the earnings, cash flows and assets — not just the dividend stream. Say this whenever you use the DVM in a scenario.</p></div>
+    </div>
+
+    <div class="example-box exam-style">
+      <span class="ex-label">EXAMPLE 4.1 — DVM WITH CAPM SUPPLYING THE DISCOUNT RATE</span>
+      <div class="q">A company has 4 million ordinary shares of 50c nominal in issue. The current dividend per share, just paid, is 24c; the dividend four years ago was 15.25c. The company's equity beta is 0.8. The current market return is 15% and the risk-free rate is 8%.<br><br><strong>Find the market capitalisation of the company.</strong></div>
+
+      <span class="solution-label">Step 1 — Dividend growth rate (four years of growth)</span>
+      <div class="eq small">
+        <span class="eq-line">g =
+          <span style="font-size:1.15em;">(</span>
+          <span class="frac"><span class="num">24</span><span class="den">15.25</span></span>
+          <span style="font-size:1.15em;">)</span><sup>1/4</sup> − 1
+          = (1.5738)<sup>0.25</sup> − 1 = <b>12.0%</b>
+        </span>
+      </div>
+
+      <span class="solution-label">Step 2 — Cost of equity via CAPM</span>
+      <div class="calc">
+        <span class="step">K<sub>e</sub> = 8% + 0.8 × (15% − 8%) = 8% + 5.6% = <span class="res">13.6%</span></span>
+      </div>
+
+      <span class="solution-label">Step 3 — Apply the DVM</span>
+      <div class="eq small">
+        <span class="eq-line">P<sub>0</sub> =
+          <span class="frac"><span class="num">24c × 1.12</span><span class="den">0.136 − 0.12</span></span>
+          =
+          <span class="frac"><span class="num">26.88c</span><span class="den">0.016</span></span>
+          = 1,680c = <b>$16.80</b>
+        </span>
+      </div>
+      <div class="calc">
+        <span class="step">Market capitalisation = 4,000,000 × $16.80 = <span class="res">$67.2 million</span></span>
+      </div>
+      <div class="callout trap" style="margin-top:14px;">
+        <span class="callout-icon">⚠</span>
+        <div class="callout-body"><strong>Notice how fragile this answer is</strong>
+        <p>The denominator here is only 0.016 — g (12.0%) is very close to K<sub>e</sub> (13.6%). If the growth rate were 12.5% instead of 12.0%, the value would jump from $16.80 to roughly $24.50. This <strong>extreme sensitivity when g approaches K<sub>e</sub></strong> is the DVM's most serious practical weakness, and pointing it out in your answer demonstrates real understanding. Also note the model breaks down entirely if g ≥ K<sub>e</sub>, giving a negative or infinite value.</p></div>
+      </div>
+    </div>
+
+    <h5>Strengths and weaknesses of the DVM</h5>
+    <table class="styled-table">
+      <thead><tr><th>Strengths</th><th>Weaknesses</th></tr></thead>
+      <tbody>
+        <tr><td>Theoretically sound — value is the PV of the cash the investor actually receives</td><td>Difficult to estimate a future growth rate; assumes it is constant forever, which is untrue for most companies</td></tr>
+        <tr><td>Well suited to valuing a non-controlling (minority) interest</td><td>Highly sensitive to its assumptions, especially when g is close to r<sub>e</sub></td></tr>
+        <tr><td>Uses observable data where the company has a dividend record</td><td>Requires g &lt; r<sub>e</sub> to work at all</td></tr>
+        <tr><td></td><td>Offers few advantages over earnings methods when valuing a controlling interest</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>Method 2 — Discounted cash flow (DCF) basis</h3>
+    <p>Used when acquiring a <strong>majority shareholding</strong>, because a buyer of a business is really buying a stream of future operating cash flows. The maximum value of the business is the present value of those cash flows.</p>
+    <ol class="step-list">
+      <li>Identify the relevant <strong>free cash flows</strong> — the cash the business generates after tax and after the reinvestment needed to sustain it.</li>
+      <li>Select a discount rate reflecting the <strong>systematic risk of those cash flows</strong> (the acquirer's WACC, or a project-specific rate if the risk differs).</li>
+      <li>Discount the cash flows to a present value — this gives the value of the <strong>whole entity</strong>.</li>
+      <li><strong>Deduct the market value of debt</strong> to arrive at the value of <strong>equity</strong>.</li>
+    </ol>
+    <div class="callout trap">
+      <span class="callout-icon">⚠</span>
+      <div class="callout-body"><strong>Entity value versus equity value</strong>
+      <p>If you discount cash flows available to <em>all</em> providers of finance (i.e. before interest) at the WACC, you get the value of the <strong>whole entity</strong>. To get the value of the <strong>equity</strong>, you must then deduct the value of the debt. Forgetting this final step is one of the most common errors in DCF valuation questions.</p></div>
+    </div>
+
+    <div class="example-box exam-style">
+      <span class="ex-label">EXAMPLE 4.2 — DCF VALUATION OF EQUITY</span>
+      <div class="q">A target company is forecast to generate free cash flows of $40m, $50m and $210m in years 1, 2 and 3 respectively (year 3 includes a terminal value). The appropriate discount rate is 12%. The company has debt with a market value of $100m.<br><br><strong>Calculate the value of the equity.</strong></div>
+      <span class="solution-label">Solution</span>
+      <div class="cf-wrap">
+      <table class="cf-table">
+        <thead><tr><th>Year</th><th>Item</th><th>Cash flow $m</th><th>DF @12%</th><th>PV $m</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Free cash flow</td><td>40.00</td><td>0.893</td><td>35.72</td></tr>
+          <tr><td>2</td><td>Free cash flow</td><td>50.00</td><td>0.797</td><td>39.85</td></tr>
+          <tr><td>3</td><td>Free cash flow</td><td>210.00</td><td>0.712</td><td>149.52</td></tr>
+          <tr class="total"><td colspan="4">Value of the entity</td><td>225.09</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="calc">
+        <span class="step">Less: market value of debt = ($100.00m)</span>
+        <span class="step">Value of equity = $225.09m − $100.00m = <span class="res">$125.09 million</span></span>
+      </div>
+    </div>
+
+    <h5>Strengths and weaknesses of DCF</h5>
+    <table class="styled-table">
+      <thead><tr><th>Strengths</th><th>Weaknesses</th></tr></thead>
+      <tbody>
+        <tr><td>Theoretically the <strong>best</strong> method — it directly values what the buyer is acquiring</td><td>Relies on estimates of both future cash flows and the discount rate, which may be unavailable or unreliable</td></tr>
+        <tr><td>Explicitly captures growth prospects, so is especially suitable for high-growth companies</td><td>Difficult to choose an appropriate <strong>time horizon</strong>, and difficult to value the company's worth beyond it (the terminal value often dominates the answer)</td></tr>
+        <tr><td>Can incorporate synergies and post-acquisition cost savings</td><td>Assumes the discount rate, tax rate and inflation are constant throughout the period</td></tr>
+        <tr><td>Can be used to value part of a company</td><td>Highly sensitive to the assumptions used — small changes produce large swings in value</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══════════ 5 · VALUING DEBT ═══════════ -->
+<section class="topic-section" id="debt">
+  <div class="topic-header">
+    <div class="topic-number">5</div>
+    <div>
+      <h2>The Valuation of Debt and Other Financial Assets <span class="priority high">HIGH</span></h2>
+      <div class="subtitle">Syllabus F3 · The cost of capital formulae, rearranged</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>The single governing principle</h3>
+    <p>Every debt valuation in FM is the same idea: <strong>the market value of a financial instrument is the present value of its future cash flows, discounted at the return investors require.</strong> The formulae from Section E are simply rearranged.</p>
+    <div class="callout trap">
+      <span class="callout-icon">⚠</span>
+      <div class="callout-body"><strong>Use the investors' PRE-TAX required return</strong>
+      <p>When <em>valuing</em> debt you are pricing it from the <strong>investor's</strong> perspective, and investors receive the full gross interest. So discount at the pre-tax required return and use <strong>gross</strong> interest — no (1 − T) anywhere. The post-tax figure is only used when calculating the <em>company's cost</em> of debt for the WACC. This is the single most common error in this topic.</p></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Irredeemable debt and preference shares</h3>
+    <p>Both are perpetuities, so both use the same formula:</p>
+    <div class="eq">
+      <span class="eq-label">FORMULAE — perpetual instruments</span>
+      <span class="eq-line">Irredeemable debt:&nbsp; MV = <span class="frac"><span class="num">I</span><span class="den">r</span></span>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      Preference shares:&nbsp; P<sub>0</sub> = <span class="frac"><span class="num">D</span><span class="den">K<sub>p</sub></span></span></span>
+      <div class="where">
+        <b>I</b> = annual interest per $100 nominal &nbsp;·&nbsp; <b>r</b> = debt holders' required return<br>
+        <b>D</b> = fixed annual preference dividend &nbsp;·&nbsp; <b>K<sub>p</sub></b> = preference shareholders' required return
+      </div>
+    </div>
+    <div class="example-box">
+      <span class="ex-label">EXAMPLE 5.1 — IRREDEEMABLE DEBT AND PREFERENCE SHARES</span>
+      <div class="q">(a) A company has issued irredeemable loan notes with a coupon rate of 7%. Investors require a return of 4%. What is the market value?<br>(b) A firm has 12% preference shares of $1 nominal value. Preference shareholders require a return of 14%. What is the value of a preference share?</div>
+      <span class="solution-label">Solution</span>
+      <div class="eq small">
+        <span class="eq-line">(a) MV = <span class="frac"><span class="num">$7</span><span class="den">0.04</span></span> = <b>$175 per $100 nominal</b></span>
+        <span class="eq-line">(b) P<sub>0</sub> = <span class="frac"><span class="num">12c</span><span class="den">0.14</span></span> = <b>85.71c</b></span>
+      </div>
+      <p class="calc-note">In (a), the loan notes trade far above par because the 7% coupon is much better than the 4% currently available in the market — investors bid the price up until the effective yield falls to 4%. In (b), the required return exceeds the coupon, so the share trades below its $1 nominal value. This inverse relationship between required return and market value is worth internalising.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Redeemable debt</h3>
+    <div class="eq small">
+      <span class="eq-label">METHOD — redeemable debt</span>
+      <span class="eq-line">MV = PV of future interest payments + PV of the redemption amount,</span>
+      <span class="eq-line">both discounted at the debt holders' required return</span>
+    </div>
+    <div class="example-box">
+      <span class="ex-label">EXAMPLE 5.2 — REDEEMABLE DEBT</span>
+      <div class="q">A company has in issue 9% redeemable debt with 10 years to redemption. Redemption will be at nominal value. Investors require a return of 16%. What is the market value of the debt?</div>
+      <span class="solution-label">Solution</span>
+      <div class="cf-wrap">
+      <table class="cf-table">
+        <thead><tr><th>Year</th><th>Cash flow</th><th>$</th><th>DF @16%</th><th>PV $</th></tr></thead>
+        <tbody>
+          <tr><td>1–10</td><td>Interest (gross)</td><td>9.00</td><td>4.833</td><td>43.50</td></tr>
+          <tr><td>10</td><td>Redemption</td><td>100.00</td><td>0.227</td><td>22.70</td></tr>
+          <tr class="total"><td colspan="4">Market value per $100 nominal</td><td>66.20</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="calc-note">The debt trades at a deep discount because the 9% coupon is well below the 16% investors now demand. Sense-check: whenever the required return exceeds the coupon rate, the market value must be below par — and vice versa.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Convertible debt</h3>
+    <p>A convertible gives the investor a choice at redemption, so it is worth <strong>at least</strong> as much as plain debt, plus something for the option to convert. Three figures may be asked for:</p>
+    <table class="styled-table">
+      <thead><tr><th style="width:28%">Term</th><th>Definition</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Market value</strong><br>(formula value)</td><td>The <strong>higher</strong> of its value as debt and its converted value. Calculated as the PV of future interest plus the PV of whichever terminal amount investors will choose.</td></tr>
+        <tr><td><strong>Floor value</strong></td><td>The value the instrument would have <em>without</em> the conversion option — i.e. PV of future interest plus PV of the <strong>cash redemption</strong> value. It is a floor because the conversion option can only add value, never subtract it.</td></tr>
+        <tr><td><strong>Conversion premium</strong></td><td>Market value − <strong>current</strong> conversion value (today's share price × conversion ratio). It measures how much extra investors are paying above the immediate share value, reflecting expected future share price growth.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="example-box exam-style">
+      <span class="ex-label">EXAMPLE 5.3 — CONVERTIBLE DEBT: ALL THREE VALUES</span>
+      <div class="q">A company has 8% convertible loan notes with three years to redemption. Each $100 loan note may be redeemed at nominal value or converted into <strong>30 ordinary shares</strong>. The current share price is <strong>$3.30</strong> and is expected to grow at <strong>5% per year</strong>. Debt holders require a return of <strong>6%</strong>.<br><br>Calculate (a) the market value, (b) the floor value, and (c) the conversion premium.</div>
+
+      <span class="solution-label">(a) Market value</span>
+      <div class="calc">
+        <span class="step">Expected share price at T<sub>3</sub> = $3.30 × 1.05<sup>3</sup> = $3.30 × 1.1576 = $3.82</span>
+        <span class="step">Conversion value = 30 × $3.82 = <span class="res">$114.60</span></span>
+        <span class="step">Compared with redemption at $100 → <span class="res">conversion will be preferred</span></span>
+      </div>
+      <div class="cf-wrap">
+      <table class="cf-table">
+        <thead><tr><th>Year</th><th>Cash flow</th><th>$</th><th>DF @6%</th><th>PV $</th></tr></thead>
+        <tbody>
+          <tr><td>1–3</td><td>Interest (gross)</td><td>8.00</td><td>2.673</td><td>21.38</td></tr>
+          <tr><td>3</td><td>Conversion value</td><td>114.60</td><td>0.840</td><td>96.26</td></tr>
+          <tr class="total"><td colspan="4">Market value</td><td>117.64</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <span class="solution-label">(b) Floor value</span>
+      <p>The same calculation but assuming <strong>cash redemption at $100</strong> — i.e. ignoring the conversion option:</p>
+      <div class="cf-wrap">
+      <table class="cf-table">
+        <thead><tr><th>Year</th><th>Cash flow</th><th>$</th><th>DF @6%</th><th>PV $</th></tr></thead>
+        <tbody>
+          <tr><td>1–3</td><td>Interest (gross)</td><td>8.00</td><td>2.673</td><td>21.38</td></tr>
+          <tr><td>3</td><td>Redemption</td><td>100.00</td><td>0.840</td><td>84.00</td></tr>
+          <tr class="total"><td colspan="4">Floor value</td><td>105.38</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="calc-note">Sense-check: the floor value ($105.38) must always be <em>below</em> the market value ($117.64). The $12.26 difference is what the market is paying for the conversion option.</p>
+
+      <span class="solution-label">(c) Conversion premium</span>
+      <div class="calc">
+        <span class="step">Current conversion value = 30 shares × $3.30 = <span class="res">$99.00</span></span>
+        <span class="step">Conversion premium = $117.64 − $99.00 = <span class="res">$18.64 per loan note</span></span>
+        <span class="step">Per share = $18.64 ÷ 30 = <span class="res">$0.62 per share</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Summary of debt valuation methods</h3>
+    <table class="styled-table">
+      <thead><tr><th style="width:28%">Instrument</th><th>Market value</th></tr></thead>
+      <tbody>
+        <tr><td>Irredeemable debt</td><td>MV = I ÷ r</td></tr>
+        <tr><td>Preference shares</td><td>P<sub>0</sub> = D ÷ K<sub>p</sub></td></tr>
+        <tr><td>Redeemable debt</td><td>PV of interest + PV of redemption value, at the investors' required return</td></tr>
+        <tr><td>Convertible debt</td><td>PV of interest + PV of the <strong>higher</strong> of redemption and conversion value</td></tr>
+        <tr><td>Ordinary shares</td><td>DVM, P/E, earnings yield, DCF or asset basis, as appropriate</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══════════ 6 · EMH ═══════════ -->
+<section class="topic-section" id="emh">
+  <div class="topic-header">
+    <div class="topic-number">6</div>
+    <div>
+      <h2>The Efficient Market Hypothesis <span class="priority med">MEDIUM-HIGH</span></h2>
+      <div class="subtitle">Syllabus F4(a) · Reliably tested in objective test questions</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>What "efficient" means</h3>
+    <p>A capital market is <strong>efficient</strong> when share prices fully and quickly reflect all available information. In an efficient market, prices always represent the best available estimate of a share's true value, so no investor can consistently make abnormal returns — returns above those justified by the risk taken.</p>
+    <p>The three forms differ only in <strong>what information is meant by "all available information"</strong>.</p>
+    <table class="styled-table">
+      <thead><tr><th style="width:20%">Form</th><th style="width:28%">Prices reflect…</th><th>Implication</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Weak form</strong></td><td>All information about <strong>past share price movements</strong></td><td>Future price movements cannot be predicted from historic patterns — prices follow a "random walk". <strong>Technical analysis (chartism) is worthless.</strong></td></tr>
+        <tr><td><strong>Semi-strong form</strong></td><td>Past prices <strong>plus all publicly available information</strong> (financial statements, announcements, press coverage)</td><td>Prices adjust <em>quickly and accurately</em> as new public information is released. <strong>Fundamental analysis of public data cannot produce abnormal gains</strong> — only <em>non-public</em> (insider) information could.</td></tr>
+        <tr><td><strong>Strong form</strong></td><td>All information — public <strong>and private/insider</strong></td><td>No investor can ever earn abnormal returns, even with inside information. Generally regarded as <strong>not</strong> holding in practice, which is why insider dealing is illegal and profitable.</td></tr>
+      </tbody>
+    </table>
+    <div class="callout key">
+      <span class="callout-icon">💡</span>
+      <div class="callout-body"><strong>Where real markets sit</strong>
+      <p>Empirical evidence suggests major stock markets are <strong>semi-strong form efficient at best</strong>. This is the standard assumption in FM, and it matters elsewhere in the syllabus — it is one of the criticisms levelled at CAPM and at Modigliani &amp; Miller, both of which assume perfect (i.e. strong-form) markets.</p></div>
+    </div>
+    <div class="callout trap">
+      <span class="callout-icon">⚠</span>
+      <div class="callout-body"><strong>Typical MCQ traps</strong>
+      <ul>
+        <li>"If the market is semi-strong efficient, <em>newly-released insider</em> information will be reflected in the price." <strong>False</strong> — semi-strong efficiency covers <em>publicly available</em> information only. Once insider information becomes public it will be reflected, but not while it remains private.</li>
+        <li>An investor who studies past price charts expecting to beat the market must believe the market is <strong>not even weak form efficient</strong> — because if it were, past price data would already be in the price.</li>
+        <li>Under semi-strong efficiency, studying published accounts cannot produce consistent gains; only non-public information could.</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══════════ 7 · PRACTICAL ═══════════ -->
+<section class="topic-section" id="practical">
+  <div class="topic-header">
+    <div class="topic-number">7</div>
+    <div>
+      <h2>Practical Considerations in Valuation <span class="priority med">MEDIUM</span></h2>
+      <div class="subtitle">Syllabus F4(b), (c) · Where the discussion marks are</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Factors affecting the value reached</h3>
+    <table class="styled-table">
+      <thead><tr><th style="width:26%">Factor</th><th>Effect on the valuation</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Marketability and liquidity</strong></td><td>Shares in an <strong>unlisted</strong> company are difficult to sell — there is no market, finding a buyer takes time, and the price is uncertain. Investors therefore require a higher return, so a <strong>discount</strong> is applied (commonly around one third off a comparable listed P/E ratio). Even among listed companies, thinly traded small-company shares attract a liquidity discount.</td></tr>
+        <tr><td><strong>Size of the stake</strong></td><td>A <strong>control premium</strong> is paid for a stake conferring control, because the buyer gains power over dividends, earnings, assets and strategy. Conversely a <strong>minority discount</strong> applies to a small holding with no influence. Always identify the size of the stake before choosing a method.</td></tr>
+        <tr><td><strong>Availability and quality of information</strong></td><td>Listed companies publish extensively and are widely analysed. Unlisted companies may file only abbreviated accounts, so forecasts must be built on much weaker foundations — widening the range of plausible values.</td></tr>
+        <tr><td><strong>Market imperfections and pricing anomalies</strong></td><td>Real markets do not behave as the EMH predicts. Examples: <strong>overreaction to unexpected news</strong>; low trading volumes in small-company shares preventing an efficient equilibrium price; calendar effects; and momentum. These mean an observed market price may not be a reliable guide to fundamental value.</td></tr>
+        <tr><td><strong>Market capitalisation</strong></td><td>Available only for listed companies, moves constantly, and is routinely exceeded by the price actually paid in a takeover.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>Investor speculation and behavioural finance <span class="priority low">LOW</span></h3>
+    <p><strong>Speculation</strong> is buying and selling in the hope of short-term price movements rather than long-term fundamental value. Heavy speculative activity can push prices away from fundamentals and increase volatility.</p>
+    <p><strong>Behavioural finance</strong> challenges the EMH's core assumption that investors are rational. It argues that predictable psychological biases lead to systematic mispricing:</p>
+    <ul>
+      <li><strong>Herding</strong> — following the crowd rather than one's own analysis, amplifying booms and crashes</li>
+      <li><strong>Overconfidence</strong> — overestimating one's own judgement and trading too frequently</li>
+      <li><strong>Anchoring</strong> — fixating on an irrelevant reference point, such as the price originally paid for a share</li>
+      <li><strong>Loss aversion</strong> — feeling losses more keenly than equivalent gains, so holding losing shares too long and selling winners too early</li>
+      <li><strong>Overreaction and under-reaction</strong> — prices moving too far, or too slowly, in response to news</li>
+    </ul>
+    <p>The practical significance is that if investors are not rational, market prices may persistently deviate from fundamental value — undermining both the EMH and the use of a market price as a valuation benchmark.</p>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══════════ 8 · CHOOSING ═══════════ -->
+<section class="topic-section" id="choosing">
+  <div class="topic-header">
+    <div class="topic-number">8</div>
+    <div>
+      <h2>Choosing a Method &amp; Writing the Conclusion <span class="priority high">HIGH</span></h2>
+      <div class="subtitle">Where Section C marks are won or lost</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Matching method to circumstance</h3>
+    <table class="styled-table">
+      <thead><tr><th style="width:26%">Method</th><th style="width:24%">Best suited to</th><th>Key limitation</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Net realisable value</strong></td><td>Setting the seller's <strong>minimum</strong> price; asset-rich or loss-making companies</td><td>Ignores earnings, cash flows and intangibles</td></tr>
+        <tr><td><strong>Replacement cost</strong></td><td>Setting the buyer's <strong>maximum</strong> price</td><td>Goodwill cannot be measured on this basis alone</td></tr>
+        <tr><td><strong>P/E ratio / earnings yield</strong></td><td>A <strong>controlling</strong> stake, where a listed comparator exists</td><td>Finding a truly comparable company; historic and accounting-policy-dependent earnings</td></tr>
+        <tr><td><strong>DVM</strong></td><td>A <strong>minority</strong> stake in a mature, dividend-paying company</td><td>Constant growth assumption; extreme sensitivity when g nears K<sub>e</sub>; unusable for non-dividend payers</td></tr>
+        <tr><td><strong>DCF</strong></td><td>A <strong>controlling</strong> stake, especially in a <strong>high-growth</strong> company; captures synergies</td><td>Forecast reliability, time horizon and terminal value; assumes constant discount rate</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>A reusable structure for the discussion requirement</h3>
+    <ol class="step-list">
+      <li><strong>Perspective</strong> — is this valuation for the buyer or the seller? Each will argue for a different figure. NRV sets the seller's floor; replacement cost sets the buyer's ceiling.</li>
+      <li><strong>Size of stake</strong> — a controlling stake justifies earnings- or cash flow-based methods and a control premium; a minority stake points to the DVM and a marketability discount.</li>
+      <li><strong>Nature of the company</strong> — an asset-based value has little relevance to a company whose worth lies in intangibles or growth prospects. A DCF value is particularly relevant where significant growth is expected.</li>
+      <li><strong>Quality of the inputs</strong> — comment on how reliable the earnings figures, growth rates and discount rate actually are, and note the sensitivity of your answer to them.</li>
+      <li><strong>Conclusion</strong> — give a <strong>range</strong>, state which method you consider most appropriate <em>and why</em>, and note that the final price will be a matter for negotiation. Valuation is an art, not a science.</li>
+    </ol>
+    <div class="callout exam">
+      <span class="callout-icon">📝</span>
+      <div class="callout-body"><strong>Don't just calculate</strong>
+      <p>A Section C valuation question typically awards roughly half its marks for calculations and half for discussion. Candidates who produce four immaculate valuations and then stop, without saying which is most appropriate or acknowledging the subjectivity, routinely lose half the available marks. Always finish with a reasoned recommendation.</p></div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<!-- ═══════════ QUIZ ═══════════ -->
+<div class="main-wrap" style="padding-top:0;">
+<section class="quiz-section" id="quiz">
+  <div class="quiz-header">
+    <h2>Test Yourself — 10 Questions</h2>
+    <p>Objective-test style, covering the whole of Section F.</p>
+  </div>
+
+  <div class="question-card" id="q1">
+    <div class="q-label">QUESTION 01 <span class="q-topic-tag">P/E method</span></div>
+    <div class="q-context">A company has profit after tax of $500,000, preference dividends of $50,000, and 900,000 ordinary shares in issue. A comparable listed company trades on a P/E ratio of 14.</div>
+    <div class="q-text">What is the value per ordinary share?</div>
+    <div class="options">
+      <button class="option-btn" onclick="answer(1,'A')"><span class="option-letter">A</span> $7.00</button>
+      <button class="option-btn" onclick="answer(1,'B')"><span class="option-letter">B</span> $7.78</button>
+      <button class="option-btn" onclick="answer(1,'C')"><span class="option-letter">C</span> $8.56</button>
+      <button class="option-btn" onclick="answer(1,'D')"><span class="option-letter">D</span> $0.50</button>
+    </div>
+    <div class="explanation" id="exp1">
+      <p><strong>Correct answer: A — $7.00</strong></p>
+      <p>Earnings attributable to ordinary shareholders = $500,000 − $50,000 = $450,000<br>EPS = $450,000 ÷ 900,000 = $0.50<br>Value per share = $0.50 × 14 = <strong>$7.00</strong></p>
+      <p><strong>Option B ($7.78)</strong> forgets to deduct the preference dividend. The P/E ratio is applied to earnings available to <em>ordinary</em> shareholders only.</p>
+    </div>
+  </div>
+
+  <div class="question-card" id="q2">
+    <div class="q-label">QUESTION 02 <span class="q-topic-tag">Earnings yield</span></div>
+    <div class="q-context">A company has earnings of $80 million. A comparable listed company trades on a P/E ratio of 10.</div>
+    <div class="q-text">Using the earnings yield method, what is the value of the company?</div>
+    <div class="options">
+      <button class="option-btn" onclick="answer(2,'A')"><span class="option-letter">A</span> $8 million</button>
+      <button class="option-btn" onclick="answer(2,'B')"><span class="option-letter">B</span> $80 million</button>
+      <button class="option-btn" onclick="answer(2,'C')"><span class="option-letter">C</span> $800 million</button>
+      <button class="option-btn" onclick="answer(2,'D')"><span class="option-letter">D</span> $8,000 million</button>
+    </div>
+    <div class="explanation" id="exp2">
+      <p><strong>Correct answer: C — $800 million</strong></p>
+      <p>Earnings yield = 1 ÷ P/E = 1 ÷ 10 = 0.10 (10%)<br>Value = Earnings × (1 ÷ earnings yield) = $80m × 10 = <strong>$800 million</strong></p>
+      <p>This confirms the two methods are equivalent: $80m × P/E of 10 gives the same $800m. <strong>Option A ($8m)</strong> divides by the P/E instead of multiplying.</p>
+    </div>
+  </div>
+
+  <div class="question-card" id="q3">
+    <div class="q-label">QUESTION 03 <span class="q-topic-tag">Asset basis</span></div>
+    <div class="q-context">A company has non-current assets with a carrying value of $800,000 (market value $950,000), net current assets of $150,000, intangible goodwill of $200,000, and loan notes of $300,000 redeemable at a 5% premium.</div>
+    <div class="q-text">What is the net realisable value of the equity?</div>
+    <div class="options">
+      <button class="option-btn" onclick="answer(3,'A')"><span class="option-letter">A</span> $785,000</button>
+      <button class="option-btn" onclick="answer(3,'B')"><span class="option-letter">B</span> $800,000</button>
+      <button class="option-btn" onclick="answer(3,'C')"><span class="option-letter">C</span> $985,000</button>
+      <button class="option-btn" onclick="answer(3,'D')"><span class="option-letter">D</span> $650,000</button>
+    </div>
+    <div class="explanation" id="exp3">
+      <p><strong>Correct answer: A — $785,000</strong></p>
+      <p>Non-current assets at market value $950,000 + net current assets $150,000 = $1,100,000<br>Less loan notes at redemption value: $300,000 × 1.05 = ($315,000)<br>Net realisable value = <strong>$785,000</strong></p>
+      <p>Goodwill is <strong>excluded</strong> — intangibles cannot be realised separately. <strong>Option C ($985,000)</strong> wrongly includes the goodwill. <strong>Option B</strong> deducts the loan notes at nominal value, ignoring the redemption premium.</p>
+    </div>
+  </div>
+
+  <div class="question-card" id="q4">
+    <div class="q-label">QUESTION 04 <span class="q-topic-tag">DVM</span></div>
+    <div class="q-context">A company has just paid a dividend of 20c per share. Dividends are expected to grow at 6% per year and shareholders require a return of 14%.</div>
+    <div class="q-text">What is the ex-div market value of a share?</div>
+    <div class="options">
+      <button class="option-btn" onclick="answer(4,'A')"><span class="option-letter">A</span> $1.43</button>
+      <button class="option-btn" onclick="answer(4,'B')"><span class="option-letter">B</span> $2.50</button>
+      <button class="option-btn" onclick="answer(4,'C')"><span class="option-letter">C</span> $2.65</button>
+      <button class="option-btn" onclick="answer(4,'D')"><span class="option-letter">D</span> $2.85</button>
+    </div>
+    <div class="explanation" id="exp4">
+      <p><strong>Correct answer: C — $2.65</strong></p>
+      <p>P<sub>0</sub> = D<sub>0</sub>(1 + g) ÷ (r<sub>e</sub> − g) = (20 × 1.06) ÷ (0.14 − 0.06) = 21.2 ÷ 0.08 = 265c = <strong>$2.65</strong></p>
+      <p><strong>Option B ($2.50)</strong> omits the (1 + g) uplift, using 20 ÷ 0.08. Remember D<sub>0</sub> is the dividend <em>just paid</em> and must be grown forward one year.</p>
+    </div>
+  </div>
+
+  <div class="question-card" id="q5">
+    <div class="q-label">QUESTION 05 <span class="q-topic-tag">Valuing debt</span></div>
+    <div class="q-context">A company has irredeemable loan notes in issue with a coupon rate of 5%. Investors currently require a return of 8%. Corporation tax is 25%.</div>
+    <div class="q-text">What is the market value per $100 nominal?</div>
+    <div class="options">
+      <button class="option-btn" onclick="answer(5,'A')"><span class="option-letter">A</span> $46.88</button>
+      <button class="option-btn" onclick="answer(5,'B')"><span class="option-letter">B</span> $62.50</button>
+      <button class="option-btn" onclick="answer(5,'C')"><span class="option-letter">C</span> $100.00</button>
+      <button class="option-btn" onclick="answer(5,'D')"><span class="option-letter">D</span> $160.00</button>
+    </div>
+    <div class="explanation" id="exp5">
+      <p><strong>Correct answer: B — $62.50</strong></p>
+      <p>MV = I ÷ r = $5 ÷ 0.08 = <strong>$62.50</strong></p>
+      <p>The tax rate is a <strong>distractor</strong>. When valuing debt you take the <em>investor's</em> perspective, and investors receive the full gross interest — so there is no (1 − T) adjustment. <strong>Option A ($46.88)</strong> wrongly applies the tax shield: [$5 × 0.75] ÷ 0.08.</p>
+    </div>
+  </div>
+
+  <div class="question-card" id="q6">
+    <div class="q-label">QUESTION 06 <span class="q-topic-tag">Convertibles</span></div>
+    <div class="q-context">A convertible loan note is currently worth $115. It can be converted into 25 ordinary shares. The current share price is $3.80.</div>
+    <div class="q-text">What is the conversion premium per loan note?</div>
+    <div class="options">
+      <button class="option-btn" onclick="answer(6,'A')"><span class="option-letter">A</span> $15.00</button>
+      <button class="option-btn" onclick="answer(6,'B')"><span class="option-letter">B</span> $20.00</button>
+      <button class="option-btn" onclick="answer(6,'C')"><span class="option-letter">C</span> $0.80</button>
+      <button class="option-btn" onclick="answer(6,'D')"><span class="option-letter">D</span> $95.00</button>
+    </div>
+    <div class="explanation" id="exp6">
+      <p><strong>Correct answer: B — $20.00</strong></p>
+      <p>Current conversion value = 25 shares × $3.80 = $95.00<br>Conversion premium = market value − current conversion value = $115.00 − $95.00 = <strong>$20.00</strong></p>
+      <p>Per share this is $20.00 ÷ 25 = $0.80 (<strong>option C</strong> — correct only if the question had asked for the premium <em>per share</em>). Read the requirement carefully.</p>
+    </div>
+  </div>
+
+  <div class="question-card" id="q7">
+    <div class="q-label">QUESTION 07 <span class="q-topic-tag">EMH</span></div>
+    <div class="q-context">Consider the three forms of the efficient market hypothesis.</div>
+    <div class="q-text">If a capital market is <strong>semi-strong form</strong> efficient, which of the following is correct?</div>
+    <div class="options">
+      <button class="option-btn" onclick="answer(7,'A')"><span class="option-letter">A</span> Newly-released insider information will already be reflected in share prices</button>
+      <button class="option-btn" onclick="answer(7,'B')"><span class="option-letter">B</span> Studying published financial statements will not produce consistent abnormal gains</button>
+      <button class="option-btn" onclick="answer(7,'C')"><span class="option-letter">C</span> Share prices can be predicted by analysing past price movements</button>
+      <button class="option-btn" onclick="answer(7,'D')"><span class="option-letter">D</span> No investor can ever make an abnormal return under any circumstances</button>
+    </div>
+    <div class="explanation" id="exp7">
+      <p><strong>Correct answer: B</strong></p>
+      <p>Semi-strong efficiency means all <strong>publicly available</strong> information is already in the price, so analysing public data such as published accounts cannot produce consistent gains. Only <em>non-public</em> information could.</p>
+      <p><strong>Option A</strong> is false — insider information is by definition not public, so it is not reflected until released. <strong>Option C</strong> is false: semi-strong efficiency includes weak form, so past prices are already reflected. <strong>Option D</strong> describes <em>strong</em> form efficiency.</p>
+    </div>
+  </div>
+
+  <div class="question-card" id="q8">
+    <div class="q-label">QUESTION 08 <span class="q-topic-tag">Method selection</span></div>
+    <div class="q-context">An investor is valuing a 5% shareholding in a mature, listed company with a long record of stable dividend payments.</div>
+    <div class="q-text">Which valuation method is most appropriate?</div>
+    <div class="options">
+      <button class="option-btn" onclick="answer(8,'A')"><span class="option-letter">A</span> Net replacement cost</button>
+      <button class="option-btn" onclick="answer(8,'B')"><span class="option-letter">B</span> Discounted cash flow of free cash flows</button>
+      <button class="option-btn" onclick="answer(8,'C')"><span class="option-letter">C</span> Dividend valuation model</button>
+      <button class="option-btn" onclick="answer(8,'D')"><span class="option-letter">D</span> Net realisable value</button>
+    </div>
+    <div class="explanation" id="exp8">
+      <p><strong>Correct answer: C — dividend valuation model</strong></p>
+      <p>A 5% holding is a <strong>minority</strong> stake. The investor cannot influence dividend policy, earnings or assets, so the dividends actually paid are genuinely all they will receive. A mature company with a stable dividend record also fits the DVM's constant-growth assumption well.</p>
+      <p><strong>Options A, B and D</strong> all value the whole business — appropriate for a controlling stake, but not for a passive 5% holder who cannot access those assets or cash flows.</p>
+    </div>
+  </div>
+
+  <div class="question-card" id="q9">
+    <div class="q-label">QUESTION 09 <span class="q-topic-tag">DCF</span></div>
+    <div class="q-context">A target company's free cash flows have a present value of $340 million. It has debt with a market value of $85 million and cash of $20 million (already included in the cash flow forecast).</div>
+    <div class="q-text">What is the value of the equity?</div>
+    <div class="options">
+      <button class="option-btn" onclick="answer(9,'A')"><span class="option-letter">A</span> $235 million</button>
+      <button class="option-btn" onclick="answer(9,'B')"><span class="option-letter">B</span> $255 million</button>
+      <button class="option-btn" onclick="answer(9,'C')"><span class="option-letter">C</span> $340 million</button>
+      <button class="option-btn" onclick="answer(9,'D')"><span class="option-letter">D</span> $425 million</button>
+    </div>
+    <div class="explanation" id="exp9">
+      <p><strong>Correct answer: B — $255 million</strong></p>
+      <p>The PV of free cash flows gives the value of the <strong>entity</strong>. To reach the value of the <strong>equity</strong>, deduct the market value of debt: $340m − $85m = <strong>$255 million</strong>.</p>
+      <p>The cash of $20m is a distractor — the question states it is already reflected in the forecast cash flows, so adding it again would double-count. <strong>Option C</strong> forgets to deduct debt at all, the most common error in DCF valuation.</p>
+    </div>
+  </div>
+
+  <div class="question-card" id="q10">
+    <div class="q-label">QUESTION 10 <span class="q-topic-tag">Practical issues</span></div>
+    <div class="q-context">An acquirer is valuing an unlisted target company using a P/E ratio drawn from a similar listed company.</div>
+    <div class="q-text">Which adjustment to the listed company's P/E ratio would normally be appropriate?</div>
+    <div class="options">
+      <button class="option-btn" onclick="answer(10,'A')"><span class="option-letter">A</span> Increase it, because unlisted companies grow faster</button>
+      <button class="option-btn" onclick="answer(10,'B')"><span class="option-letter">B</span> No adjustment — P/E ratios are directly comparable</button>
+      <button class="option-btn" onclick="answer(10,'C')"><span class="option-letter">C</span> Reduce it, to reflect the lower marketability of unlisted shares</button>
+      <button class="option-btn" onclick="answer(10,'D')"><span class="option-letter">D</span> Reduce it, because unlisted companies pay less tax</button>
+    </div>
+    <div class="explanation" id="exp10">
+      <p><strong>Correct answer: C</strong></p>
+      <p>Shares in an unlisted company are much harder to sell — there is no ready market, so investors bear liquidity risk and demand a higher return, which translates into a lower multiple. A reduction of around <strong>one third</strong> is a common convention, though the reasoning matters far more than the exact percentage.</p>
+      <p>Other legitimate reasons to adjust include differences in growth prospects, risk, gearing and size — but always state <em>why</em> you are adjusting.</p>
+    </div>
+  </div>
+
+  <div class="quiz-score" id="quiz-score">
+    <div class="score-number" id="score-display">0/10</div>
+    <div class="score-label">Questions Correct</div>
+    <div class="score-msg" id="score-msg"></div>
+    <button class="retry-btn" onclick="resetQuiz()">↺ Try Again</button>
+  </div>
+</section>
+</div>
+
+<script>
+const answers = {1:'A',2:'C',3:'A',4:'C',5:'B',6:'B',7:'B',8:'C',9:'B',10:'C'};
+const results = {};
+const totalQ = 10;
+
+function answer(qNum, selected){
+  if(results[qNum] !== undefined) return;
+  const correct = answers[qNum];
+  const card = document.getElementById('q'+qNum);
+  card.querySelectorAll('.option-btn').forEach(btn=>{
+    btn.disabled = true;
+    const letter = btn.querySelector('.option-letter').textContent;
+    if(letter === correct) btn.classList.add('correct');
+    else if(letter === selected && selected !== correct) btn.classList.add('wrong');
+  });
+  results[qNum] = (selected === correct);
+  document.getElementById('exp'+qNum).classList.add('show');
+  card.classList.add('answered');
+  if(Object.keys(results).length === totalQ) showScore();
+}
+
+function showScore(){
+  const score = Object.values(results).filter(Boolean).length;
+  const el = document.getElementById('quiz-score');
+  document.getElementById('score-display').textContent = score+'/'+totalQ;
+  let msg;
+  if(score <= 3) msg = "Work back through the worked examples, then try again.";
+  else if(score <= 5) msg = "A reasonable start — focus on the areas you missed.";
+  else if(score <= 7) msg = "Solid. Review the explanations for the ones you dropped.";
+  else if(score === 8 || score === 9) msg = "Strong performance — nearly there.";
+  else msg = "Full marks — excellent command of Section F.";
+  document.getElementById('score-msg').textContent = msg;
+  el.classList.add('show');
+  el.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+function resetQuiz(){
+  for(let i=1;i<=totalQ;i++){
+    const card = document.getElementById('q'+i);
+    card.querySelectorAll('.option-btn').forEach(btn=>{
+      btn.disabled = false;
+      btn.classList.remove('correct','wrong');
+    });
+    document.getElementById('exp'+i).classList.remove('show');
+    card.classList.remove('answered');
+  }
+  Object.keys(results).forEach(k=>delete results[k]);
+  document.getElementById('quiz-score').classList.remove('show');
+}
+
+const sections = document.querySelectorAll('.topic-section, .quiz-section');
+const navLinks = document.querySelectorAll('nav a');
+window.addEventListener('scroll', ()=>{
+  let current = '';
+  sections.forEach(s=>{ if(window.scrollY >= s.offsetTop - 160) current = s.id; });
+  navLinks.forEach(a=>a.classList.toggle('active', a.getAttribute('href') === '#'+current));
+});
+</script>
+</body>
+</html>
