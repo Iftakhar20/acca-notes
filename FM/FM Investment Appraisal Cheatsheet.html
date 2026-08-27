@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACCA FM | Investment Appraisal Cheatsheet</title>
+<style>
+  :root{
+    --bg: #eef4fb;
+    --bg-card: #ffffff;
+    --navy: #0b3d66;
+    --blue-deep: #14507f;
+    --blue-mid: #2f7bbf;
+    --blue-soft: #dbeafe;
+    --blue-softer: #eff8ff;
+    --accent: #0e8a7d;
+    --warn-bg: #fff4e5;
+    --warn-border: #e0a640;
+    --danger-bg: #fdecec;
+    --danger-border: #d9736a;
+    --tip-bg: #eafaf3;
+    --tip-border: #4fae8c;
+    --formula-bg: #eef3fc;
+    --formula-border: #a9c8ea;
+    --text: #1c2b39;
+    --text-soft: #4a5b6c;
+    --line: #cfe0f2;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family: "Source Serif 4","Georgia",serif;
+    background: linear-gradient(180deg,var(--bg) 0%, #f6fafe 100%);
+    color:var(--text);
+    font-size:17px;
+    line-height:1.6;
+  }
+  header{
+    background: linear-gradient(120deg,var(--navy),var(--blue-deep) 60%, var(--blue-mid));
+    color:#fff;
+    padding:34px 24px 28px;
+    text-align:center;
+    box-shadow:0 4px 18px rgba(11,61,102,0.25);
+  }
+  header h1{
+    margin:0 0 6px;
+    font-size:2.1em;
+    letter-spacing:.3px;
+  }
+  header p{
+    margin:0;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size:.95em;
+    color:#dceefe;
+  }
+  nav{
+    position: sticky;
+    top:0;
+    z-index:50;
+    background:#ffffffee;
+    backdrop-filter: blur(6px);
+    border-bottom:1px solid var(--line);
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    padding:10px 16px;
+    justify-content:center;
+    font-family:"Helvetica Neue", Arial, sans-serif;
+  }
+  nav a{
+    text-decoration:none;
+    color:var(--blue-deep);
+    background:var(--blue-softer);
+    border:1px solid var(--line);
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:.82em;
+    font-weight:600;
+    transition:.15s;
+    white-space:nowrap;
+  }
+  nav a:hover{ background:var(--blue-soft); }
+
+  main{
+    max-width:980px;
+    margin:0 auto;
+    padding:30px 18px 80px;
+  }
+  section{
+    margin-bottom:46px;
+    scroll-margin-top:70px;
+  }
+  h2{
+    color:var(--navy);
+    font-size:1.55em;
+    border-bottom:3px solid var(--blue-mid);
+    padding-bottom:8px;
+    margin-bottom:18px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  h2 .tag{
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    background:var(--navy);
+    color:#fff;
+    font-size:.42em;
+    padding:4px 10px;
+    border-radius:12px;
+    font-weight:700;
+    letter-spacing:.5px;
+  }
+  h3{
+    color:var(--blue-deep);
+    font-size:1.15em;
+    margin:26px 0 10px;
+  }
+  p{ color:var(--text-soft); }
+
+  .card{
+    background:var(--bg-card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:20px 22px;
+    box-shadow:0 2px 10px rgba(20,80,127,0.06);
+    margin-bottom:18px;
+  }
+
+  .formula{
+    background:var(--formula-bg);
+    border:1px solid var(--formula-border);
+    border-left:6px solid var(--blue-mid);
+    border-radius:10px;
+    padding:14px 18px;
+    margin:14px 0;
+    font-family:"Cambria Math","Georgia",serif;
+    font-size:1.05em;
+    color:var(--navy);
+  }
+  .formula .label{
+    display:block;
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    font-size:.68em;
+    text-transform:uppercase;
+    letter-spacing:.6px;
+    color:var(--blue-mid);
+    font-weight:700;
+    margin-bottom:6px;
+  }
+
+  .tip, .warn, .danger{
+    border-radius:10px;
+    padding:14px 18px;
+    margin:14px 0;
+    font-size:.96em;
+  }
+  .tip{ background:var(--tip-bg); border:1px solid var(--tip-border); border-left:6px solid var(--tip-border); }
+  .warn{ background:var(--warn-bg); border:1px solid var(--warn-border); border-left:6px solid var(--warn-border); }
+  .danger{ background:var(--danger-bg); border:1px solid var(--danger-border); border-left:6px solid var(--danger-border); }
+  .tip .label, .warn .label, .danger .label{
+    display:block;
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    font-weight:700;
+    font-size:.72em;
+    text-transform:uppercase;
+    letter-spacing:.5px;
+    margin-bottom:5px;
+  }
+  .tip .label{color:#1f7a5c;}
+  .warn .label{color:#a9711b;}
+  .danger .label{color:#a3392f;}
+
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin:16px 0;
+    font-size:.94em;
+    background:#fff;
+  }
+  th, td{
+    border:1px solid var(--line);
+    padding:9px 11px;
+    text-align:left;
+    vertical-align:top;
+  }
+  th{
+    background:var(--blue-soft);
+    color:var(--navy);
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    font-size:.82em;
+    text-transform:uppercase;
+    letter-spacing:.4px;
+  }
+  tr:nth-child(even) td{ background:var(--blue-softer); }
+  td.num{ text-align:right; font-variant-numeric: tabular-nums; }
+
+  .grid2{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+  }
+  @media (max-width:700px){ .grid2{grid-template-columns:1fr;} }
+
+  .pill{
+    display:inline-block;
+    background:var(--navy);
+    color:#fff;
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    font-size:.7em;
+    font-weight:700;
+    padding:3px 10px;
+    border-radius:10px;
+    margin-bottom:8px;
+  }
+
+  details{
+    background:var(--blue-softer);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:10px 16px;
+    margin:10px 0;
+    cursor:pointer;
+  }
+  details summary{
+    font-weight:700;
+    color:var(--blue-deep);
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    font-size:.95em;
+  }
+  details[open] summary{ margin-bottom:8px; }
+  details .answer{
+    background:#fff;
+    border-left:4px solid var(--accent);
+    padding:10px 14px;
+    border-radius:6px;
+    font-size:.93em;
+  }
+
+  .toc-back{
+    display:block;
+    text-align:right;
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    font-size:.78em;
+  }
+  .toc-back a{ color:var(--blue-mid); text-decoration:none; }
+
+  footer{
+    text-align:center;
+    padding:24px;
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    font-size:.8em;
+    color:var(--text-soft);
+  }
+
+  .flow{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    align-items:center;
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    font-size:.88em;
+    margin:12px 0;
+  }
+  .flow .step{
+    background:var(--navy);
+    color:#fff;
+    padding:8px 14px;
+    border-radius:8px;
+    font-weight:600;
+  }
+  .flow .arrow{ color:var(--blue-mid); font-weight:700; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Investment Appraisal — Exam Cheatsheet</h1>
+  <p>ACCA Financial Management (FM) · Syllabus Section D · September 2026 sitting</p>
+</header>
+
+<nav>
+  <a href="#npv">1. NPV Proforma</a>
+  <a href="#realmoney">2. Real vs Money</a>
+  <a href="#tad">3. Tax &amp; TAD</a>
+  <a href="#risk">4. Risk &amp; Uncertainty</a>
+  <a href="#leasebuy">5. Lease vs Buy</a>
+  <a href="#eac">6. Asset Replacement (EAC)</a>
+  <a href="#rationing">7. Capital Rationing</a>
+  <a href="#irr">8. IRR</a>
+  <a href="#mistakes">9. Common Mistakes</a>
+</nav>
+
+<main>
+
+<section id="npv">
+  <h2>1. The NPV Proforma <span class="tag">D1</span></h2>
+  <div class="card">
+    <p>Every investment appraisal question — however dressed up — reduces to building this table. Get the layout right first, then worry about the tricky adjustments.</p>
+    <table>
+      <tr><th>Year</th><th>0</th><th>1</th><th>2</th><th>…</th><th>n</th></tr>
+      <tr><td>Initial investment</td><td class="num">(X)</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>Sales revenue</td><td></td><td class="num">X</td><td class="num">X</td><td></td><td class="num">X</td></tr>
+      <tr><td>Variable costs</td><td></td><td class="num">(X)</td><td class="num">(X)</td><td></td><td class="num">(X)</td></tr>
+      <tr><td>Fixed costs (incremental only)</td><td></td><td class="num">(X)</td><td class="num">(X)</td><td></td><td class="num">(X)</td></tr>
+      <tr><td>Working capital (invest / release)</td><td class="num">(X)</td><td class="num">(X)/X</td><td></td><td></td><td class="num">X</td></tr>
+      <tr><td>Tax on operating cash flow</td><td></td><td></td><td class="num">(X)</td><td></td><td class="num">(X)</td></tr>
+      <tr><td>Tax saved on TAD</td><td></td><td></td><td class="num">X</td><td></td><td class="num">X</td></tr>
+      <tr><td>Scrap / residual value</td><td></td><td></td><td></td><td></td><td class="num">X</td></tr>
+      <tr><th>Net cash flow</th><th class="num">(X)</th><th class="num">X</th><th class="num">X</th><th></th><th class="num">X</th></tr>
+      <tr><td>Discount factor</td><td class="num">1.000</td><td class="num">DF₁</td><td class="num">DF₂</td><td></td><td class="num">DFₙ</td></tr>
+      <tr><th>Present value</th><th class="num">(X)</th><th class="num">X</th><th class="num">X</th><th></th><th class="num">X</th></tr>
+    </table>
+    <div class="formula"><span class="label">NPV decision rule</span>
+      NPV = ΣPV of inflows − ΣPV of outflows &nbsp;→&nbsp; <b>Accept if NPV ≥ 0</b> (increases shareholder wealth)
+    </div>
+  </div>
+
+  <div class="tip"><span class="label">Memory hook</span>
+    Think of the table as <b>"Cash In, Cash Out, Never Depreciation."</b> Only cash flows go in the table — depreciation is not a cash flow, it only matters via the <b>tax saved on TAD</b> line.
+  </div>
+
+  <h3>What NEVER belongs in the NPV table</h3>
+  <div class="grid2">
+    <div class="card">
+      <div class="pill">EXCLUDE</div>
+      <ul>
+        <li>Depreciation charge itself</li>
+        <li>Sunk costs (already spent, irrelevant)</li>
+        <li>Apportioned / general head office overheads</li>
+        <li>Interest and finance charges (reflected in the discount rate, not the cash flows)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="pill" style="background:var(--accent);">INCLUDE</div>
+      <ul>
+        <li>Opportunity costs (lost contribution elsewhere)</li>
+        <li>Incremental / avoidable fixed costs only</li>
+        <li>Working capital — invested at start of each year's trading, recovered in full at the end of the project</li>
+        <li>Tax effects (in arrears, unless stated otherwise)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="realmoney">
+  <h2>2. Real vs Money (Nominal) Cash Flows <span class="tag">D2</span></h2>
+  <div class="card">
+    <p>This is one of the highest-value traps in the exam. The rule is simple to state but easy to break under time pressure:</p>
+    <div class="danger"><span class="label">The golden rule</span>
+      <b>Real cash flows → discount at the real rate.</b> &nbsp; <b>Money (nominal) cash flows → discount at the money rate.</b> Never cross the streams.
+    </div>
+
+    <div class="formula"><span class="label">Fisher equation</span>
+      (1 + money rate) = (1 + real rate) × (1 + inflation rate)
+    </div>
+
+    <table>
+      <tr><th>Situation given in question</th><th>Method to use</th></tr>
+      <tr><td>One single general rate of inflation applies to all cash flows</td><td><b>Either</b> method gives the same NPV — real cash flows @ real rate, OR money cash flows @ money rate</td></tr>
+      <tr><td>Different (specific) inflation rates for different cost/revenue items</td><td><b>Must</b> use the <b>money method</b> — inflate each cash flow at its own specific rate, discount at the money rate</td></tr>
+    </table>
+
+    <div class="warn"><span class="label">Common trap</span>
+      Do <b>not</b> use the shortcut "money rate − inflation rate" to approximate the real rate — this loses marks. Always apply the full Fisher formula: real = [(1+money)/(1+inflation)] − 1.
+    </div>
+
+    <div class="tip"><span class="label">Worked mini-example (AED)</span>
+      Money discount rate 12.5%, general inflation 5%. Real rate = (1.125/1.05) − 1 = <b>7.14%</b>. A Dubai Health equipment project with cash flows already stated in today's (real) AED terms should be discounted at 7.14% — do NOT inflate the cash flows again.
+    </div>
+  </div>
+</section>
+
+<section id="tad">
+  <h2>3. Taxation &amp; Tax-Allowable Depreciation (TAD) <span class="tag">D2</span></h2>
+  <div class="card">
+    <div class="formula"><span class="label">Tax on operating cash flow</span>
+      Taxable profit = Sales − Costs (excl. depreciation) &nbsp;→&nbsp; Tax payable = Taxable profit × Tax rate &nbsp;(usually paid/saved <b>one year in arrears</b> unless told otherwise)
+    </div>
+
+    <h3>TAD (Writing Down Allowance) — the standard pattern</h3>
+    <table>
+      <tr><th>Year</th><th>Workings</th><th>WDA (tax saving base)</th></tr>
+      <tr><td>Year 1</td><td>Cost × WDA%</td><td>WDV c/f = Cost − WDA</td></tr>
+      <tr><td>Year 2 onward</td><td>WDV b/f × WDA%</td><td>reducing balance</td></tr>
+      <tr><td>Final year of ownership</td><td>WDV b/f − Scrap proceeds</td><td>Balancing allowance / charge — <b>not</b> a normal WDA%</td></tr>
+    </table>
+
+    <div class="grid2">
+      <div class="card">
+        <div class="pill">Balancing Allowance</div>
+        <p>Arises when <b>scrap proceeds &lt; WDV</b> at disposal. Company hasn't claimed enough depreciation yet → extra tax relief given. <b>Adds</b> to the tax saving.</p>
+      </div>
+      <div class="card">
+        <div class="pill" style="background:var(--danger-border);">Balancing Charge</div>
+        <p>Arises when <b>scrap proceeds &gt; WDV</b>. Company has over-claimed depreciation → some tax relief clawed back. <b>Reduces</b> the tax saving.</p>
+      </div>
+    </div>
+
+    <div class="tip"><span class="label">Sign-check hook</span>
+      "Proceeds below the books → benefit flows. Proceeds above the books → benefit's clawed."
+    </div>
+
+    <div class="formula"><span class="label">Before/after tax discount rate</span>
+      After-tax cost of debt = Pre-tax cost of debt × (1 − Tax rate)
+    </div>
+  </div>
+</section>
+
+<section id="risk">
+  <h2>4. Adjusting for Risk &amp; Uncertainty <span class="tag">D3</span></h2>
+  <div class="card">
+    <table>
+      <tr><th>Technique</th><th>What it measures / does</th><th>Formula / approach</th></tr>
+      <tr>
+        <td><b>Sensitivity analysis</b></td>
+        <td>How much one variable can change before NPV = 0 (identifies the key risk driver)</td>
+        <td class="formula" style="margin:0;">Sensitivity % = NPV ÷ PV of the variable being flexed</td>
+      </tr>
+      <tr>
+        <td><b>Probability / Expected NPV</b></td>
+        <td>Weighted-average NPV across possible outcomes</td>
+        <td class="formula" style="margin:0;">ENPV = Σ (NPV of outcome × probability)</td>
+      </tr>
+      <tr>
+        <td><b>Simulation</b></td>
+        <td>Models many variables changing simultaneously using random sampling — gives a distribution of possible NPVs, not one number</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td><b>Adjusted payback</b></td>
+        <td>Shortens the required payback period as a crude risk buffer</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td><b>Risk-adjusted discount rate</b></td>
+        <td>Adds a risk premium to the discount rate for riskier projects</td>
+        <td class="formula" style="margin:0;">Risk-adjusted rate = Risk-free rate + Risk premium</td>
+      </tr>
+    </table>
+
+    <div class="warn"><span class="label">Risk vs uncertainty — don't blur these</span>
+      <b>Risk</b> = outcomes and probabilities are known/estimable (e.g. from historical data). <b>Uncertainty</b> = outcomes cannot be predicted with any probability, often because the project life is long or the environment is unfamiliar. Uncertainty tends to increase the further into the project life you look.
+    </div>
+
+    <div class="tip"><span class="label">Exam tip</span>
+      Sensitivity only ever flexes <b>one variable at a time</b> — it does not tell you the probability that variable will actually change. That's the standard "usefulness/limitation" discussion point examiners look for.
+    </div>
+  </div>
+</section>
+
+<section id="leasebuy">
+  <h2>5. Lease vs Buy <span class="tag">D4</span></h2>
+  <div class="card">
+    <p>This is a <b>financing</b> decision, not an investment decision — the operating cash flows of the underlying project are identical either way and are ignored. You are comparing two <b>financing cash outflows</b> and picking the option with the <b>lower present cost (least negative NPV)</b>.</p>
+
+    <div class="flow">
+      <div class="step">Identify relevant cash flows</div><span class="arrow">→</span>
+      <div class="step">Discount at post-tax cost of borrowing</div><span class="arrow">→</span>
+      <div class="step">Compare PV of costs</div><span class="arrow">→</span>
+      <div class="step">Choose lower cost</div>
+    </div>
+
+    <table>
+      <tr><th></th><th>Buy (borrow to buy)</th><th>Lease</th></tr>
+      <tr><td>Who gets TAD?</td><td>User (owner) — full TAD tax relief</td><td>Lessor — user gets none</td></tr>
+      <tr><td>Relevant cash flows</td><td>Purchase cost, TAD tax savings, residual/scrap value</td><td>Lease rentals, tax relief on the full rental</td></tr>
+      <tr><td>Interest / loan repayments?</td><td>Excluded — captured via discount rate, not as a cash flow</td><td>N/A</td></tr>
+      <tr><td>Discount rate</td><td colspan="2" style="text-align:center;"><b>Post-tax cost of borrowing</b> — same rate used for both options</td></tr>
+    </table>
+
+    <div class="formula"><span class="label">Discount rate to use</span>
+      Post-tax cost of borrowing = Pre-tax cost of borrowing × (1 − Tax rate)
+    </div>
+
+    <div class="danger"><span class="label">Timing trap</span>
+      Lease payments are usually <b>paid in advance</b> (so first payment at T0), but the <b>tax relief</b> on that payment still follows the normal one-year-in-arrears rule — so tax effects often start a year later than the cash payments themselves. Check the question's specific timing wording carefully.
+    </div>
+
+    <div class="tip"><span class="label">Qualitative reasons to lease (max 2 needed in exam)</span>
+      Flexibility / shorter commitment than asset's useful life · Risk of obsolescence and disposal value shifted to lessor · May be the only option if cash-poor or loan finance is unavailable.
+    </div>
+  </div>
+</section>
+
+<section id="eac">
+  <h2>6. Asset Replacement — Equivalent Annual Cost (EAC) <span class="tag">D4</span></h2>
+  <div class="card">
+    <p>Used when an asset must be replaced repeatedly over a long/infinite horizon and the competing replacement cycles are of <b>different lengths</b> — comparing raw NPVs would be unfair because they cover different time periods.</p>
+
+    <div class="formula"><span class="label">EAC formula</span>
+      EAC = PV of costs over one replacement cycle ÷ Annuity factor for that cycle length
+    </div>
+
+    <div class="flow">
+      <div class="step">1. NPV of costs, per cycle length</div><span class="arrow">→</span>
+      <div class="step">2. Divide by relevant annuity factor</div><span class="arrow">→</span>
+      <div class="step">3. Pick the LOWEST EAC</div>
+    </div>
+
+    <div class="tip"><span class="label">Memory hook</span>
+      EAC spreads a lumpy cost evenly over the years — like converting a one-off school fee into "cost per year" so you can compare a 3-year plan fairly against a 5-year plan.
+    </div>
+
+    <div class="warn"><span class="label">Common mistakes (examiner-reported)</span>
+      <ul style="margin:4px 0 0;">
+        <li>Only calculate the residual values / cash flows for the replacement intervals actually asked for — don't waste time on cycles not requested.</li>
+        <li>Never include depreciation in the cash flows.</li>
+        <li>Match the timing convention of maintenance/running costs exactly as stated (paid in advance vs in arrears) — this changes which cycle wins.</li>
+        <li>State the decision <b>with justification</b> — "choose the 4-year cycle" alone will not earn the marks.</li>
+      </ul>
+    </div>
+
+    <div class="tip"><span class="label">Why not just use NPV?</span>
+      For continual (infinite) replacement, comparing raw NPVs of a 3-year and a 4-year cycle is meaningless — they cover different time spans. EAC puts them on the same "per year" footing.
+    </div>
+  </div>
+</section>
+
+<section id="rationing">
+  <h2>7. Single-Period Capital Rationing <span class="tag">D4</span></h2>
+  <div class="card">
+    <p>Arises when funds available are less than funds needed for all positive-NPV projects — you must ration a scarce resource (capital) to maximise shareholder wealth.</p>
+
+    <div class="formula"><span class="label">Profitability Index (PI)</span>
+      PI = PV of future cash inflows ÷ Initial investment &nbsp;&nbsp;<i>(or NPV ÷ Investment, per question convention — check which the question wants)</i>
+    </div>
+
+    <table>
+      <tr><th>Project type</th><th>Method</th></tr>
+      <tr><td><b>Divisible</b>, independent projects</td><td>Rank by <b>PI</b> (highest first), invest available funds proportionally down the ranking until capital is exhausted</td></tr>
+      <tr><td><b>Non-divisible (indivisible)</b> projects</td><td>PI ranking does <b>not</b> work — must test <b>every feasible combination</b> of whole projects within the budget and pick the combination with the <b>highest total NPV</b></td></tr>
+      <tr><td><b>Mutually exclusive</b> projects</td><td>Cannot simply rank by PI either — compare combinations/branches directly on total NPV, same logic as indivisible case</td></tr>
+    </table>
+
+    <div class="danger"><span class="label">Exam trap</span>
+      PI ranking is <b>only</b> valid for divisible, independent projects. The moment a question says projects are indivisible or mutually exclusive, switch to testing combinations of whole projects by total NPV — do not rank by PI.
+    </div>
+
+    <div class="tip"><span class="label">Reasons for capital rationing (discussion marks)</span>
+      <b>Soft rationing</b> — internal management choice to limit capital (e.g. maintain conservative gearing, avoid diluting control). <b>Hard rationing</b> — external constraints (e.g. banks unwilling to lend more, depressed capital markets).
+    </div>
+  </div>
+</section>
+
+<section id="irr">
+  <h2>8. IRR — Quick Reference <span class="tag">D1</span></h2>
+  <div class="card">
+    <div class="formula"><span class="label">Linear interpolation</span>
+      IRR = L + [ N_L ÷ (N_L − N_H) ] × (H − L)
+      <br><span style="font-size:.8em;">L = lower discount rate tested, H = higher rate, N_L / N_H = NPVs at those rates</span>
+    </div>
+    <div class="tip"><span class="label">Picking your two test rates</span>
+      Choose one rate giving a small positive NPV and one giving a small negative NPV — the closer both are to zero, the more accurate the interpolation estimate.
+    </div>
+
+    <h3>NPV vs IRR — why NPV wins in exam discussions</h3>
+    <table>
+      <tr><th>Issue</th><th>NPV</th><th>IRR</th></tr>
+      <tr><td>Measures</td><td>Absolute increase in shareholder wealth (AED value)</td><td>Percentage rate of return only</td></tr>
+      <tr><td>Comparing different-sized projects</td><td>Works directly</td><td>Ignores project scale — can mislead</td></tr>
+      <tr><td>Multiple/unconventional cash flows</td><td>No issue</td><td>Can produce multiple IRRs</td></tr>
+      <tr><td>Mutually exclusive project ranking</td><td>Ranks correctly (reinvestment @ cost of capital)</td><td>Can rank incorrectly (assumes reinvestment @ IRR — unrealistic)</td></tr>
+      <tr><td>Changing cost of capital over time</td><td>Can incorporate different rates per year</td><td>Cannot handle a single changing rate</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="mistakes">
+  <h2>9. Exam-Day Common Mistakes Checklist</h2>
+  <div class="card">
+    <details>
+      <summary>Am I mixing real cash flows with the money discount rate (or vice versa)?</summary>
+      <div class="answer">Check whether inflation is a single general rate (either method fine) or multiple specific rates (money method only, compulsory).</div>
+    </details>
+    <details>
+      <summary>Have I included depreciation as a cash flow?</summary>
+      <div class="answer">Never — only the tax saving arising from TAD is a cash flow.</div>
+    </details>
+    <details>
+      <summary>Is the balancing allowance/charge sign correct?</summary>
+      <div class="answer">Proceeds below WDV → balancing allowance (more tax relief). Proceeds above WDV → balancing charge (less tax relief / clawback).</div>
+    </details>
+    <details>
+      <summary>Have I used PI ranking on indivisible or mutually exclusive projects?</summary>
+      <div class="answer">Don't — test whole-project combinations by total NPV instead.</div>
+    </details>
+    <details>
+      <summary>Am I comparing EAC cycles using the correct annuity factor and matching cost timing?</summary>
+      <div class="answer">Double-check whether running/maintenance costs are in advance or arrears — it changes which cycle is optimal.</div>
+    </details>
+    <details>
+      <summary>In a lease vs buy question, have I included loan interest as a separate cash flow?</summary>
+      <div class="answer">No — interest is already reflected in the post-tax cost of borrowing used as the discount rate.</div>
+    </details>
+    <details>
+      <summary>Have I stated my final recommendation with justification, not just a number?</summary>
+      <div class="answer">Constructed-response marks are often specifically allocated to the advice/conclusion sentence — always write one.</div>
+    </details>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  ACCA FM · Section D Investment Appraisal Cheatsheet · Built for September 2026 revision · Not a substitute for the Kaplan Study Text / Exam Kit
+</footer>
+
+</body>
+</html>
