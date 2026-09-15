@@ -1,1 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACCA SBR | IFRS 2 Share-based Payment — Complete Study Notes</title>
+<style>
+  :root{
+    --bg:#fbfaf7;
+    --panel:#ffffff;
+    --ink:#22292f;
+    --sub:#4b5661;
+    --accent:#0b6e4f;
+    --accent-light:#e6f4ee;
+    --accent2:#8a4b08;
+    --accent2-light:#fbeee0;
+    --warn:#9a2d2d;
+    --warn-light:#fbe9e9;
+    --blue:#1a4d8f;
+    --blue-light:#e8f0fb;
+    --border:#e3ddd0;
+    --code:#f3f1ea;
+    --shadow: 0 2px 10px rgba(40,30,10,0.06);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family: "Segoe UI", Tahoma, Verdana, Arial, sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    font-size:19px;
+    line-height:1.65;
+  }
+  .layout{
+    display:flex;
+    max-width:1400px;
+    margin:0 auto;
+  }
+  nav.toc{
+    width:290px;
+    flex-shrink:0;
+    position:sticky;
+    top:0;
+    height:100vh;
+    overflow-y:auto;
+    background:var(--panel);
+    border-right:1px solid var(--border);
+    padding:24px 18px;
+  }
+  nav.toc h2{
+    font-size:16px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:var(--sub);
+    margin:0 0 14px 4px;
+  }
+  nav.toc a{
+    display:block;
+    color:var(--ink);
+    text-decoration:none;
+    padding:8px 10px;
+    border-radius:8px;
+    font-size:16px;
+    margin-bottom:2px;
+  }
+  nav.toc a:hover{ background:var(--accent-light); color:var(--accent); }
+  nav.toc .sec-num{ color:var(--accent); font-weight:700; margin-right:6px; }
 
+  main{
+    flex:1;
+    min-width:0;
+    padding:36px 48px 100px;
+  }
+  header.hero{
+    background: linear-gradient(135deg, var(--accent) 0%, #0e8563 100%);
+    color:#fff;
+    border-radius:18px;
+    padding:36px 40px;
+    margin-bottom:36px;
+    box-shadow:var(--shadow);
+  }
+  header.hero h1{
+    margin:0 0 8px 0;
+    font-size:38px;
+    line-height:1.2;
+  }
+  header.hero p.tag{
+    margin:0;
+    font-size:19px;
+    opacity:0.95;
+  }
+  .badges{ margin-top:18px; display:flex; gap:10px; flex-wrap:wrap; }
+  .badge{
+    background:rgba(255,255,255,0.18);
+    border:1px solid rgba(255,255,255,0.4);
+    padding:6px 14px;
+    border-radius:999px;
+    font-size:15px;
+  }
+
+  section{
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:32px 36px;
+    margin-bottom:28px;
+    box-shadow:var(--shadow);
+    scroll-margin-top:20px;
+  }
+  h2.sec-title{
+    font-size:28px;
+    color:var(--accent);
+    margin:0 0 6px 0;
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  h2.sec-title .num{
+    background:var(--accent);
+    color:#fff;
+    width:40px;
+    height:40px;
+    border-radius:10px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    font-size:19px;
+    flex-shrink:0;
+  }
+  h3{
+    font-size:22px;
+    color:var(--ink);
+    margin:28px 0 10px 0;
+    border-bottom:2px solid var(--accent-light);
+    padding-bottom:6px;
+  }
+  h4{
+    font-size:19px;
+    color:var(--accent2);
+    margin:20px 0 8px 0;
+  }
+  p{ margin:12px 0; }
+  ul, ol{ margin:12px 0; padding-left:28px; }
+  li{ margin-bottom:8px; }
+  strong{ color:var(--ink); }
+  .lead{ font-size:20px; color:var(--sub); }
+
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin:18px 0;
+    font-size:17px;
+  }
+  th, td{
+    border:1px solid var(--border);
+    padding:10px 14px;
+    text-align:left;
+    vertical-align:top;
+  }
+  th{ background:var(--accent-light); color:var(--accent); }
+  tr:nth-child(even) td{ background:#fafaf6; }
+
+  .box{
+    border-radius:12px;
+    padding:20px 24px;
+    margin:20px 0;
+    border-left:6px solid;
+  }
+  .box h4{ margin-top:0; }
+  .box.definition{ background:var(--blue-light); border-color:var(--blue); }
+  .box.example{ background:var(--accent-light); border-color:var(--accent); }
+  .box.exam{ background:var(--accent2-light); border-color:var(--accent2); }
+  .box.warning{ background:var(--warn-light); border-color:var(--warn); }
+  .box.formula{
+    background:#fffdf4;
+    border:2px dashed #c9a227;
+    border-left:2px dashed #c9a227;
+    text-align:center;
+    font-size:20px;
+  }
+  .box code, code{
+    background:var(--code);
+    padding:2px 7px;
+    border-radius:6px;
+    font-family: Consolas, Menlo, monospace;
+    font-size:0.92em;
+  }
+  .pill{
+    display:inline-block;
+    background:var(--accent);
+    color:#fff;
+    font-size:13px;
+    padding:3px 11px;
+    border-radius:999px;
+    margin-left:8px;
+    vertical-align:middle;
+  }
+  .pill.blue{ background:var(--blue); }
+  .pill.gold{ background:var(--accent2); }
+
+  details{
+    background:#fdfcf8;
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:14px 18px;
+    margin:16px 0;
+  }
+  details summary{
+    cursor:pointer;
+    font-weight:700;
+    color:var(--accent);
+    font-size:18px;
+  }
+  details[open] summary{ margin-bottom:10px; }
+
+  .flow{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    margin:18px 0;
+    align-items:stretch;
+  }
+  .flow .step{
+    background:var(--accent-light);
+    border:1px solid var(--accent);
+    border-radius:12px;
+    padding:14px 18px;
+    flex:1;
+    min-width:170px;
+    font-size:16.5px;
+  }
+  .flow .step .n{ font-weight:800; color:var(--accent); display:block; margin-bottom:4px; }
+  .flow .arrow{
+    align-self:center;
+    font-size:26px;
+    color:var(--sub);
+  }
+
+  .two-col{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+  }
+  @media(max-width:800px){ .two-col{ grid-template-columns:1fr; } }
+
+  .checklist li::marker{ content:"✔  "; color:var(--accent); }
+
+  footer{
+    text-align:center;
+    color:var(--sub);
+    font-size:15px;
+    padding:30px 20px;
+  }
+
+  .back-top{
+    position:fixed;
+    bottom:28px;
+    right:28px;
+    background:var(--accent);
+    color:#fff;
+    width:46px; height:46px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    text-decoration:none;
+    box-shadow:var(--shadow);
+    font-size:20px;
+  }
+
+  .menu-toggle{ display:none; }
+  @media(max-width:1000px){
+    nav.toc{ display:none; }
+    main{ padding:24px 20px 100px; }
+    header.hero{ padding:26px; }
+    header.hero h1{ font-size:28px; }
+    section{ padding:22px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="layout">
+
+  <nav class="toc" aria-label="Table of contents">
+    <h2>Contents</h2>
+    <a href="#s1"><span class="sec-num">1.</span>Exam Snapshot</a>
+    <a href="#s2"><span class="sec-num">2.</span>Scope of IFRS 2</a>
+    <a href="#s3"><span class="sec-num">3.</span>Key Definitions</a>
+    <a href="#s4"><span class="sec-num">4.</span>Three Types of SBP</a>
+    <a href="#s5"><span class="sec-num">5.</span>Vesting Conditions</a>
+    <a href="#s6"><span class="sec-num">6.</span>Equity-Settled SBP</a>
+    <a href="#s7"><span class="sec-num">7.</span>Cash-Settled SBP</a>
+    <a href="#s8"><span class="sec-num">8.</span>Choice of Settlement</a>
+    <a href="#s9"><span class="sec-num">9.</span>Modifications &amp; Cancellations</a>
+    <a href="#s10"><span class="sec-num">10.</span>Group SBP Transactions</a>
+    <a href="#s11"><span class="sec-num">11.</span>Non-Employee Transactions</a>
+    <a href="#s12"><span class="sec-num">12.</span>Deferred Tax (IAS 12)</a>
+    <a href="#s13"><span class="sec-num">13.</span>Disclosure</a>
+    <a href="#s14"><span class="sec-num">14.</span>Full Exam-Style Question</a>
+    <a href="#s15"><span class="sec-num">15.</span>Pitfalls &amp; Exam Technique</a>
+    <a href="#s16"><span class="sec-num">16.</span>Quick Revision Summary</a>
+  </nav>
+
+  <main>
+    <header class="hero">
+      <h1>IFRS 2 — Share-based Payment</h1>
+      <p class="tag">ACCA Strategic Business Reporting (SBR) — Complete Study Notes</p>
+      <div class="badges">
+        <span class="badge">Syllabus Area C8</span>
+        <span class="badge">Intellectual Level 3 — Evaluate &amp; Apply</span>
+        <span class="badge">Frequently examined — almost every sitting</span>
+      </div>
+    </header>
+
+    <!-- SECTION 1 -->
+    <section id="s1">
+      <h2 class="sec-title"><span class="num">1</span>Exam Snapshot</h2>
+      <p class="lead">What the examiner actually wants from you.</p>
+      <div class="box exam">
+        <h4>Official Syllabus Learning Outcome (Section C8)</h4>
+        <p>“Evaluate and apply the recognition and measurement of share-based payment transactions.” — rated at <strong>Level 3</strong> (Synthesis and evaluation), the highest intellectual level in the SBR syllabus.</p>
+      </div>
+      <p>In practice this single learning outcome is tested through several recurring scenario types. Knowing these patterns in advance is half the battle:</p>
+      <ul class="checklist">
+        <li>A straightforward equity-settled scheme with a service condition and staff turnover estimates (the "bread and butter" calculation).</li>
+        <li>A scheme with a <strong>market-based</strong> vesting condition (e.g. share price target) mixed with a <strong>non-market</strong> condition (e.g. staying employed, or an EPS/environmental target).</li>
+        <li>A <strong>cash-settled</strong> scheme — share appreciation rights (SARs) — requiring remeasurement to fair value every year.</li>
+        <li>A scheme swept up inside a <strong>business combination</strong>, where you must split the value between consideration and a post-acquisition expense.</li>
+        <li>A scenario where you must first decide whether IFRS 2 even applies at all (scope question), often contrasted with IFRS 9/IFRS 13.</li>
+        <li>A written discussion element — examiner reports consistently note that candidates who only crunch numbers, without explaining <em>why</em>, lose easy marks.</li>
+      </ul>
+      <div class="box warning">
+        <h4>Golden Rule</h4>
+        <p>SBR is not a numbers-only exam. Every IFRS 2 question mixes <strong>calculation marks</strong> with <strong>discussion marks</strong> for explaining the principle (vesting conditions, scope, measurement basis). Always narrate your workings in words, not just numbers.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section id="s2">
+      <h2 class="sec-title"><span class="num">2</span>Scope of IFRS 2</h2>
+      <p>IFRS 2 applies whenever an entity receives goods or services and pays for them with equity instruments, or with cash (or other assets) whose amount is based on the value of the entity's equity instruments.</p>
+
+      <div class="two-col">
+        <div class="box example">
+          <h4>Inside the scope of IFRS 2</h4>
+          <ul>
+            <li>Share options and share awards granted to employees</li>
+            <li>Share appreciation rights (SARs) settled in cash</li>
+            <li>Shares issued to suppliers/consultants in exchange for goods or services</li>
+            <li>Employee share purchase plans</li>
+          </ul>
+        </div>
+        <div class="box warning">
+          <h4>Outside the scope of IFRS 2</h4>
+          <ul>
+            <li>Shares issued as part of a <strong>business combination</strong> consideration — that's IFRS 3</li>
+            <li>Contracts to buy/sell a non-financial item that can be settled net in shares but is held for the entity's own purchase, sale or usage requirements — normal executory contract</li>
+            <li>A contract with a genuine commercial purpose (e.g. the shares merely act as a proxy pricing mechanism for a commodity, with no intention of ever delivering or receiving the shares) — usually a derivative under <strong>IFRS 9</strong></li>
+            <li>Shares issued to people <strong>in their capacity as existing shareholders</strong> (e.g. a rights issue open to all shareholders, including employee-shareholders) — not a payment for service</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="box exam">
+        <h4>Exam-kit example — is it even IFRS 2? (based on a Kaplan practice scenario)</h4>
+        <p>A company issues shares to two parties: (1) existing shareholders who happen to be employees, and (2) a supplier who owned 5% of the company's shares, in exchange for a building.</p>
+        <p><strong>Analysis:</strong> Issue (1) is <em>outside</em> IFRS 2 — the employees received the shares in their capacity as shareholders, with no service condition attached. Issue (2) <em>is</em> within IFRS 2 — the supplier was not acting purely as a shareholder; the shares were consideration for an asset (the building), which is recognised at the fair value of the asset received, with the corresponding credit taken to equity.</p>
+        <p>A related wheat-purchase contract settled net in shares, with no intention of physical delivery, falls <em>outside</em> IFRS 2 altogether — it is a derivative accounted for under IFRS 9, at fair value through profit or loss.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section id="s3">
+      <h2 class="sec-title"><span class="num">3</span>Key Definitions</h2>
+      <div class="box definition">
+        <h4>Grant date</h4>
+        <p>The date the entity and the counterparty agree to the share-based payment, and both parties have a shared understanding of the terms and conditions. This is the date at which fair value is normally fixed for equity-settled awards.</p>
+      </div>
+      <div class="box definition">
+        <h4>Vesting date</h4>
+        <p>The date on which the counterparty becomes unconditionally entitled to the award — all vesting conditions have been satisfied.</p>
+      </div>
+      <div class="box definition">
+        <h4>Vesting period</h4>
+        <p>The period between the grant date and the vesting date, during which all specified vesting conditions must be satisfied.</p>
+      </div>
+      <div class="box definition">
+        <h4>Fair value</h4>
+        <p>For equity instruments, IFRS 2 requires use of an option-pricing model (e.g. Black-Scholes, binomial) where no observable market price exists. Fair value is normally given to you in the exam — you are not expected to build the pricing model yourself.</p>
+      </div>
+      <div class="box definition">
+        <h4>Intrinsic value</h4>
+        <p>The difference between the fair value of the underlying share and the exercise price the counterparty must pay. Used for cash-settled SARs when quoted fair value data isn't available; also useful for testing understanding, but note fair value (not intrinsic value) is the correct measurement basis.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section id="s4">
+      <h2 class="sec-title"><span class="num">4</span>The Three Types of Share-based Payment</h2>
+      <table>
+        <tr><th>Type</th><th>Settled by</th><th>Measured at</th><th>Remeasured?</th></tr>
+        <tr>
+          <td><strong>Equity-settled</strong></td>
+          <td>Issue of shares / share options</td>
+          <td>Fair value of the equity instruments <strong>at grant date</strong></td>
+          <td>No — grant-date fair value is fixed and never remeasured for changes in share price; only the <em>number</em> of awards expected to vest is updated</td>
+        </tr>
+        <tr>
+          <td><strong>Cash-settled</strong></td>
+          <td>Cash (e.g. SARs)</td>
+          <td>Fair value of the liability, <strong>reassessed every reporting date</strong></td>
+          <td>Yes — remeasured at each year end and at settlement date, with the change taken to profit or loss</td>
+        </tr>
+        <tr>
+          <td><strong>Choice of settlement</strong> (compound instrument)</td>
+          <td>Cash or equity — counterparty's or entity's choice</td>
+          <td>Split into a debt and an equity component (counterparty choice) — see Section 8</td>
+          <td>Debt component yes; equity component no</td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section id="s5">
+      <h2 class="sec-title"><span class="num">5</span>Vesting Conditions — the Most Examined Area</h2>
+      <p>Distinguishing condition types correctly is where most exam marks are won or lost. Get this table into your long-term memory.</p>
+
+      <table>
+        <tr><th>Condition type</th><th>Example</th><th>Effect on measurement</th></tr>
+        <tr>
+          <td><strong>Service condition</strong></td>
+          <td>Must remain employed for 3 years</td>
+          <td>Not built into grant-date fair value. Instead, the <strong>number of instruments</strong> expected to vest is re-estimated every year based on expected staff turnover.</td>
+        </tr>
+        <tr>
+          <td><strong>Non-market performance condition</strong></td>
+          <td>EPS growth target; revenue target; a greenhouse-gas emissions reduction target</td>
+          <td>Also not built into fair value. The <strong>number expected to vest</strong> is adjusted as expectations about achieving the target change, exactly like a service condition.</td>
+        </tr>
+        <tr>
+          <td><strong>Market-based performance condition</strong></td>
+          <td>The company's share price must rise by 10%; a target total shareholder return (TSR) versus a peer group</td>
+          <td><strong>Built into the grant-date fair value</strong> by the valuation model. The expense is recognised regardless of whether the market condition is actually met, as long as the service condition is satisfied.</td>
+        </tr>
+        <tr>
+          <td><strong>Non-vesting condition</strong></td>
+          <td>Employee is required to make monthly contributions into a savings scheme to fund the exercise price</td>
+          <td>Also built into grant-date fair value, similar to a market condition. Failure by the entity/counterparty to meet a non-vesting condition that is within the counterparty's control is treated as a cancellation.</td>
+        </tr>
+      </table>
+
+      <div class="box formula">
+        The exam-critical rule: <strong>market conditions and non-vesting conditions</strong> are reflected in the <strong>fair value</strong> at grant date and are never reversed.<br>
+        <strong>Service conditions and non-market performance conditions</strong> affect only the <strong>number of awards</strong> expected to vest, and this estimate is updated (trued-up) every year.
+      </div>
+
+      <div class="box exam">
+        <h4>Exam-kit example — combining a market and a non-market condition (based on a Kaplan practice scenario)</h4>
+        <p>A parent company grants 100 options to 10,000 employees, conditional on (a) two further years of service, and (b) the share price rising 10% over the vesting period. Expected leavers were revised from 10% to 4%.</p>
+        <p><strong>Explanation required in your answer:</strong> the share-price target is a <em>market-based</em> vesting condition, so it is already reflected in the option's grant-date fair value — an expense is recognised <em>whether or not the share price target is actually met</em>, as long as employees stay employed. The two-year service requirement is a <em>non-market</em> vesting condition, so the number of options expected to vest is adjusted for the revised 4% leaver estimate.</p>
+        <p><strong>Calculation:</strong> (10,000 employees × 96% expected to stay) × 100 options × $20 fair value × ½ (one of two years elapsed) = <strong>$9.6 million</strong> expense and corresponding credit to equity for the year.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section id="s6">
+      <h2 class="sec-title"><span class="num">6</span>Equity-Settled Share-based Payments</h2>
+
+      <h3>6.1 The Core Formula</h3>
+      <div class="box formula">
+        Cumulative expense to date =<br>
+        <strong>Number of awards expected to vest × Fair value at grant date × (Years elapsed ÷ Total vesting period)</strong>
+        <br><br>
+        Expense for the current year = Cumulative expense to date − Cumulative expense already recognised in prior years
+      </div>
+
+      <h3>6.2 Worked Example — Equity-settled options with a service condition</h3>
+      <div class="box example">
+        <p>A company grants 200 share options to each of 500 employees on 1 January 20X1, conditional on the employees remaining in service for three years. The fair value of each option at grant date is $6. At grant date, the company estimates that 20% of employees will leave before the options vest. By 31 December 20X1, this estimate is revised to 15%; by 31 December 20X2, actual and expected leavers total 12%; and 440 employees actually remain and exercise their options in full on 31 December 20X3.</p>
+        <table>
+          <tr><th>Year end</th><th>Working</th><th>Cumulative expense</th><th>Current year expense</th></tr>
+          <tr><td>31 Dec 20X1</td><td>(500 × 80%) × 200 × $6 × 1/3</td><td>$160,000</td><td>$160,000</td></tr>
+          <tr><td>31 Dec 20X2</td><td>(500 × 85%) × 200 × $6 × 2/3</td><td>$340,000</td><td>$180,000</td></tr>
+          <tr><td>31 Dec 20X3</td><td>440 × 200 × $6 × 3/3 (actual leavers now known)</td><td>$528,000</td><td>$188,000</td></tr>
+        </table>
+        <p>Note: at the vesting date, the calculation switches from an <em>estimate</em> of leavers to the <em>actual</em> number who stayed and vested — this final true-up is a common mark in the exam.</p>
+      </div>
+
+      <h3>6.3 The Double Entry (Equity-settled)</h3>
+      <div class="box formula" style="text-align:left;">
+        Dr Profit or loss (staff cost expense) — current year expense<br>
+        Cr Equity (other components of equity / share option reserve) — same amount<br><br>
+        On exercise: Dr Cash (proceeds received) + reclassify the option reserve balance into share capital/share premium.
+      </div>
+
+      <div class="box warning">
+        <h4>Common trap</h4>
+        <p>Once fair value is fixed at grant date, it is <strong>never</strong> adjusted for later movements in the share price. Candidates frequently try to "update" the $ fair value each year — don't. Only the <em>number</em> of instruments expected to vest changes.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 7 -->
+    <section id="s7">
+      <h2 class="sec-title"><span class="num">7</span>Cash-Settled Share-based Payments</h2>
+      <p>Cash-settled awards — most commonly <strong>share appreciation rights (SARs)</strong> — create a <strong>liability</strong>, not equity, because the entity must ultimately pay cash. The liability's fair value is reassessed at every reporting date and at settlement, with all movements taken to profit or loss.</p>
+
+      <div class="box formula">
+        Cumulative liability at year end =<br>
+        <strong>Number of rights expected to vest × Fair value at that reporting date × (Years elapsed ÷ Total vesting period)</strong>
+      </div>
+
+      <h3>Worked Example — based on a Kaplan SBR exam-kit scenario (SARs)</h3>
+      <div class="box example">
+        <p>On 1 May 20X2 a company grants 500 SARs each to 300 managers. All rights vest on 30 April 20X4 (a two-year vesting period) and can be exercised up to 30 April 20X6. At grant date, 5% of managers are expected to leave during the vesting period — and this estimate turns out to be exactly correct. Fair value per SAR is $9 at 30 April 20X3, $11 at 30 April 20X4, and $12 at 30 April 20X5. On 30 April 20X5, 60 managers exercise their rights when the intrinsic value is $10.50 and are paid in cash.</p>
+        <table>
+          <tr><th>Date</th><th>Working</th><th>Expense (P/L)</th><th>Liability (SOFP)</th></tr>
+          <tr><td>30 Apr 20X3</td><td>(300 × 95%) × 500 × $9 × ½</td><td>$641,250</td><td>$641,250</td></tr>
+          <tr><td>30 Apr 20X4</td><td>(300 × 95%) × 500 × $11 × 1</td><td>$926,250</td><td>$1,567,500</td></tr>
+        </table>
+        <p><strong>Year to 30 April 20X5</strong> (post-vesting, awaiting exercise):</p>
+        <table>
+          <tr><td>Liability b/f</td><td>$1,567,500</td></tr>
+          <tr><td>Less: cash paid on exercise (60 × 500 × $10.50)</td><td>($315,000)</td></tr>
+          <tr><td>Expense for the year (balancing figure)</td><td>$97,500</td></tr>
+          <tr><td>Liability c/f = (285 − 60) × 500 × $12</td><td>$1,350,000</td></tr>
+        </table>
+        <p>Note that once vested, the liability continues to be remeasured to fair value every period until it is fully settled — this continues even after the vesting date, which many candidates forget.</p>
+      </div>
+
+      <div class="box warning">
+        <h4>Equity- vs cash-settled — the key contrast to write in your answer</h4>
+        <p>For cash-settled schemes, fair value is <strong>reassessed at every reporting date</strong> — unlike equity-settled schemes, where fair value is fixed once at grant date and never revisited. This single sentence is worth real marks in a discussion-style question.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 8 -->
+    <section id="s8">
+      <h2 class="sec-title"><span class="num">8</span>Transactions with a Choice of Settlement</h2>
+      <p>Sometimes either the <strong>entity</strong> or the <strong>counterparty</strong> can choose whether the award is settled in cash or in equity. The accounting depends on who holds the choice:</p>
+
+      <div class="two-col">
+        <div class="box definition">
+          <h4>Counterparty has the choice</h4>
+          <p>This is treated as a <strong>compound financial instrument</strong>, split into a debt component (the fair value of the cash alternative) and an equity component (the residual). The debt component is remeasured each year through profit or loss; the equity component is fixed at inception and never remeasured.</p>
+        </div>
+        <div class="box definition">
+          <h4>Entity has the choice</h4>
+          <p>The entity accounts for the transaction as <strong>cash-settled</strong> if it has a present obligation to settle in cash (e.g. past practice creates a constructive obligation), otherwise as <strong>equity-settled</strong>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9 -->
+    <section id="s9">
+      <h2 class="sec-title"><span class="num">9</span>Modifications, Cancellations &amp; Settlements</h2>
+
+      <h3>9.1 Modifications</h3>
+      <ul>
+        <li><strong>Beneficial modification</strong> (e.g. reducing the exercise price, or reducing the vesting period): the original expense continues to be recognised as if the modification never happened, <strong>plus</strong> the incremental fair value (fair value immediately after the modification minus fair value immediately before) is recognised as additional expense over the remaining vesting period.</li>
+        <li><strong>Detrimental modification</strong> (e.g. increasing the exercise price, reducing the number of options): the entity continues to recognise the services received as if the modification had not occurred — i.e. it <strong>ignores</strong> the detrimental change and keeps expensing the original grant-date fair value.</li>
+      </ul>
+
+      <h3>9.2 Cancellations (by the entity) or Forfeitures (award lapses due to failing a service/non-market condition)</h3>
+      <ul>
+        <li><strong>Forfeiture</strong> (condition not met): stop recognising further expense; reverse cumulative expense already recognised, taken back through profit or loss.</li>
+        <li><strong>Cancellation or settlement by the entity</strong> during the vesting period: treated as an <strong>acceleration of vesting</strong> — immediately recognise any expense that would otherwise have been recognised over the remainder of the vesting period.</li>
+      </ul>
+
+      <div class="box exam">
+        <h4>Exam-kit example — a scheme that fails to vest (based on a Kaplan practice scenario)</h4>
+        <p>A company introduces a share option scheme for 10 directors on 1 January 20X4: each director receives 15,000 options, fair value $8 at grant date, vesting on 31 December 20X7 (a 4-year period) if the company cuts greenhouse gas emissions by an average of 10% a year. By 31 December 20X6 the target looked achievable and no directors had left, so an expense was correctly recognised: 10 × 15,000 × $8 × 3/4 = <strong>$900,000</strong> cumulative expense and equity to that point.</p>
+        <p>At 31 December 20X7 the emissions target was <em>not</em> met, so the options did not vest. Because this is a non-market performance condition, the entire <strong>$900,000</strong> cumulative expense and equity previously recognised must be <strong>reversed</strong> through profit or loss in 20X7 — the scheme is treated as though nothing had ever been expensed.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 10 -->
+    <section id="s10">
+      <h2 class="sec-title"><span class="num">10</span>Group Share-based Payment Transactions</h2>
+      <p>SBR loves testing IFRS 2 <strong>inside a business combination</strong> question, because it forces you to combine IFRS 2 with IFRS 3 (Business Combinations). Two situations commonly appear:</p>
+
+      <h3>10.1 Replacing the target's existing share-based payment scheme</h3>
+      <p>When an acquirer is obliged to replace an acquiree's outstanding share-based payment awards, the replacement award is split:</p>
+      <div class="flow">
+        <div class="step"><span class="n">Pre-combination portion</span>Included as part of the <strong>purchase consideration</strong> (capped at the fair value of the original acquiree scheme, measured at the acquisition date)</div>
+        <div class="arrow">＋</div>
+        <div class="step"><span class="n">Post-combination portion</span>Any excess fair value of the replacement award over the original scheme is a <strong>post-acquisition remuneration expense</strong>, recognised per IFRS 2 (immediately if no further vesting conditions attach, or over the remaining service period if conditions remain)</div>
+      </div>
+
+      <div class="box exam">
+        <h4>Exam-kit example — replacement scheme on acquisition (based on a Kaplan practice scenario)</h4>
+        <p>An acquirer must replace the target's existing (already fully vested) share option scheme. The fair value of the <em>original</em> scheme at the acquisition date was $15 million; the fair value of the <em>replacement</em> scheme was $18 million, with no further vesting conditions attached.</p>
+        <ul>
+          <li><strong>Consideration transferred:</strong> only $15 million (the original scheme's value at acquisition) is added to the purchase consideration.</li>
+          <li><strong>Post-acquisition expense:</strong> the excess of $3 million ($18m − $15m) does not relate to pre-combination service, so it is expensed <em>immediately</em> in the consolidated statement of profit or loss as a post-acquisition remuneration cost, because there are no further vesting conditions.</li>
+        </ul>
+      </div>
+
+      <h3>10.2 A parent granting options over its own shares to a subsidiary's employees</h3>
+      <p>Where a parent grants rights to its own equity instruments to employees of a subsidiary, the subsidiary measures the transaction as equity-settled in its own (separate) financial statements — mirroring group policy — even though it is the parent, not the subsidiary, that will issue the shares. This is a specific group-transaction exception you should be aware of conceptually, even though detailed separate-financial-statement mechanics are less commonly examined at SBR.</p>
+    </section>
+
+    <!-- SECTION 11 -->
+    <section id="s11">
+      <h2 class="sec-title"><span class="num">11</span>Transactions with Non-Employees (Suppliers)</h2>
+      <p>IFRS 2 is not limited to employee remuneration. Where an entity receives goods or services from a non-employee (e.g. a supplier or consultant) and pays with equity instruments, the transaction is measured directly at the <strong>fair value of the goods or services received</strong> — not the fair value of the equity instruments granted — unless that fair value cannot be estimated reliably, in which case fall back to the fair value of the equity instruments.</p>
+
+      <div class="box exam">
+        <h4>Exam-kit example — shares issued to a supplier (based on a Kaplan practice scenario)</h4>
+        <p>A company issues 600,000 shares of $1 nominal value to a supplier in exchange for machinery with a fair value of $2 million.</p>
+        <ul>
+          <li>Dr Property, plant and equipment $2,000,000 (fair value of the asset received)</li>
+          <li>Cr Share capital $600,000 (600,000 shares × $1 nominal value)</li>
+          <li>Cr Share premium $1,400,000 (balancing figure)</li>
+        </ul>
+        <p>The machinery is then depreciated as normal from the date it is available for use — this is an ordinary IAS 16 calculation layered on top of the IFRS 2 recognition entry, which is a typical way SBR combines two standards in one requirement.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 12 -->
+    <section id="s12">
+      <h2 class="sec-title"><span class="num">12</span>Interaction with Deferred Tax (IAS 12)</h2>
+      <p>This is a favourite SBR cross-standard link. Many tax jurisdictions give a tax deduction for share-based payments only <strong>when the options are exercised</strong>, and the deduction is based on the <strong>intrinsic value</strong> at that date — which is completely different from the cumulative IFRS 2 accounting expense.</p>
+      <ul>
+        <li>A <strong>temporary difference</strong> arises because the tax base of the "asset" (the cumulative remuneration services received, to the extent not yet deducted for tax) differs from its (nil) carrying amount.</li>
+        <li>If the <strong>estimated future tax deduction exceeds the cumulative IFRS 2 remuneration expense recognised to date</strong>, the excess deferred tax is recognised directly in <strong>equity</strong> (not profit or loss), because it relates to an amount that exceeds the related remuneration expense.</li>
+        <li>If the estimated future tax deduction is less than or equal to the cumulative expense, the entire deferred tax effect is recognised in <strong>profit or loss</strong>.</li>
+        <li>The deferred tax asset is remeasured at each year end using the current share price, since the future tax deduction depends on the (unknown) share price at exercise.</li>
+      </ul>
+      <div class="box warning">
+        <h4>Why this catches candidates out</h4>
+        <p>Students often assume the deferred tax simply mirrors the IFRS 2 expense pattern. It doesn't — the deferred tax asset is based on the <strong>intrinsic value using the current share price</strong> at each reporting date, not the grant-date fair value used for the equity-settled expense. The two numbers diverge, and that difference (if the tax deduction is expected to be larger) goes to equity, not profit or loss.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 13 -->
+    <section id="s13">
+      <h2 class="sec-title"><span class="num">13</span>Disclosure Requirements</h2>
+      <p>IFRS 2 disclosures are less commonly tested numerically at SBR, but written requirements do appear. Know the broad categories:</p>
+      <ul>
+        <li>A description of each type of arrangement, including general terms and conditions (vesting requirements, maximum term, settlement method).</li>
+        <li>The number and weighted average exercise prices of share options: outstanding at the start and end of the period, granted, forfeited, exercised, and expired during the period.</li>
+        <li>The methods and assumptions used to estimate the fair value of goods/services received or equity instruments granted (e.g. the option-pricing model used and its key inputs).</li>
+        <li>The total expense recognised in the period for share-based payment transactions, split between equity-settled and cash-settled.</li>
+        <li>For cash-settled liabilities: the total carrying amount at year end, and the intrinsic value of vested rights at year end.</li>
+      </ul>
+    </section>
+
+    <!-- SECTION 14 -->
+    <section id="s14">
+      <h2 class="sec-title"><span class="num">14</span>Full Exam-Style Worked Question</h2>
+      <p>The following pulls together several strands of IFRS 2 in one integrated scenario, in the exact style of a Section A/B constructed-response SBR question. Try answering it yourself before reading the solution below.</p>
+
+      <details>
+        <summary>Show the question</summary>
+        <p><strong>Scenario:</strong> ABC Co, a listed company, has entered into three separate arrangements during the year ended 31 December 20X5:</p>
+        <ol>
+          <li>ABC Co granted 400 share options to each of 200 managers on 1 January 20X4, conditional on three years' continued service. Grant-date fair value was $5 per option. At 1 January 20X4, 10% of managers were expected to leave before vesting; this was revised to 6% at 31 December 20X4 and remained at 6% at 31 December 20X5.</li>
+          <li>ABC Co granted 300 cash-settled share appreciation rights to its finance director on 1 January 20X5, vesting after two years of service. Fair value per right was $12 at 1 January 20X5 and $15 at 31 December 20X5.</li>
+          <li>ABC Co issued shares with a fair value of $500,000 to an external marketing consultancy in exchange for a completed marketing campaign (fair value of the campaign cannot be reliably measured).</li>
+        </ol>
+        <p><strong>Required:</strong> Explain and calculate the total expense ABC Co should recognise in profit or loss for the year ended 31 December 20X5 in respect of each arrangement, and state where in equity or on the statement of financial position the corresponding entries are recognised.</p>
+      </details>
+
+      <details>
+        <summary>Show the suggested solution</summary>
+        <h4>Arrangement 1 — Equity-settled options (service condition only)</h4>
+        <p>This is a standard equity-settled scheme. Fair value is fixed at grant date and never remeasured; only the number of expected leavers is updated.</p>
+        <ul>
+          <li>Cumulative expense at 31 Dec 20X4 = (200 × 94%) × 400 × $5 × 1/3 = $125,333</li>
+          <li>Cumulative expense at 31 Dec 20X5 = (200 × 94%) × 400 × $5 × 2/3 = $250,667</li>
+          <li><strong>20X5 expense = $250,667 − $125,333 = $125,334</strong>, credited to other components of equity.</li>
+        </ul>
+        <h4>Arrangement 2 — Cash-settled SARs</h4>
+        <p>Because this is cash-settled, fair value is reassessed at every year end, and the whole balance is a liability, not equity.</p>
+        <ul>
+          <li>Liability/expense at 31 Dec 20X5 = 300 × $15 × ½ (one of two years elapsed) = <strong>$2,250</strong>, recognised as an expense and a liability (not equity), since no leaver assumption was given.</li>
+        </ul>
+        <h4>Arrangement 3 — Shares issued to a non-employee supplier</h4>
+        <p>Where the fair value of the goods/services received cannot be reliably measured, IFRS 2 requires the transaction to fall back to the <strong>fair value of the equity instruments granted</strong> at the date the consultancy obtains the shares.</p>
+        <ul>
+          <li><strong>Expense = $500,000</strong>, recognised immediately (the campaign has already been completed — the "service" has already been received), credited to equity (share capital/share premium, split by nominal value as usual).</li>
+        </ul>
+        <p><strong>Total charge to profit or loss for 20X5:</strong> $125,334 + $2,250 + $500,000 = <strong>$627,584</strong>, with $625,334 credited to equity and $2,250 recognised as a liability.</p>
+      </details>
+    </section>
+
+    <!-- SECTION 15 -->
+    <section id="s15">
+      <h2 class="sec-title"><span class="num">15</span>Common Pitfalls &amp; Exam Technique</h2>
+      <div class="two-col">
+        <div class="box warning">
+          <h4>Pitfalls to avoid</h4>
+          <ul>
+            <li>Remeasuring the fair value of an equity-settled award for later share price movements — don't; only the number of awards changes.</li>
+            <li>Forgetting that market conditions are baked into fair value and are <strong>never</strong> reversed, even if the target is missed.</li>
+            <li>Confusing intrinsic value with fair value as the measurement basis.</li>
+            <li>Forgetting to keep remeasuring a cash-settled liability <em>after</em> the vesting date, right up until settlement.</li>
+            <li>Assuming a business combination replacement scheme is entirely part of consideration — split it between pre- and post-combination service.</li>
+            <li>Writing only numbers with no narrative — SBR marking schemes explicitly award marks for discussion of the relevant principle.</li>
+          </ul>
+        </div>
+        <div class="box example">
+          <h4>Technique that scores marks</h4>
+          <ul>
+            <li>Open your answer to a discursive IFRS 2 requirement by identifying whether the transaction is even within scope.</li>
+            <li>Label vesting conditions explicitly as "market-based", "non-market performance" or "service" before you calculate anything — the examiner rewards this classification step separately from the arithmetic.</li>
+            <li>Always show full workings — SBR awards method marks even where the final numeric answer is wrong.</li>
+            <li>State clearly which statement (P/L, equity, or liability) each figure is heading to.</li>
+            <li>When a scheme sits inside a business combination, deal with consideration first, then the post-acquisition expense — keep the two clearly separated in your answer.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 16 -->
+    <section id="s16">
+      <h2 class="sec-title"><span class="num">16</span>Quick Revision Summary</h2>
+      <table>
+        <tr><th>Topic</th><th>One-line rule to remember</th></tr>
+        <tr><td>Equity-settled measurement</td><td>Fair value fixed at grant date, never remeasured</td></tr>
+        <tr><td>Cash-settled measurement</td><td>Fair value of the liability reassessed every period, through P/L</td></tr>
+        <tr><td>Service / non-market conditions</td><td>Adjust the <em>number</em> of awards expected to vest each year</td></tr>
+        <tr><td>Market / non-vesting conditions</td><td>Built into fair value at grant date — never reversed</td></tr>
+        <tr><td>Beneficial modification</td><td>Continue original charge + spread incremental fair value over remaining vesting period</td></tr>
+        <tr><td>Detrimental modification</td><td>Ignore it — keep expensing as if unchanged</td></tr>
+        <tr><td>Cancellation by entity</td><td>Accelerate — expense the remaining unrecognised amount immediately</td></tr>
+        <tr><td>Forfeiture (condition failed)</td><td>Reverse cumulative expense already recognised</td></tr>
+        <tr><td>Replacement scheme on acquisition</td><td>Pre-combination value → consideration; excess → post-acquisition expense</td></tr>
+        <tr><td>Non-employee supplier</td><td>Measure at fair value of goods/services received (fall back to equity FV only if unreliable)</td></tr>
+        <tr><td>Deferred tax</td><td>Based on intrinsic value at current share price; excess over cumulative expense goes to equity</td></tr>
+      </table>
+
+      <div class="box formula" style="margin-top:26px;">
+        Revise this page alongside real Kaplan Exam Kit questions — IFRS 2 rewards <strong>pattern recognition</strong> as much as memorised rules. Once you can label a condition as market / non-market / service within seconds of reading a scenario, most of the marks follow automatically.
+      </div>
+    </section>
+
+    <footer>
+      Personal study notes — ACCA Strategic Business Reporting (SBR) — IFRS 2 Share-based Payment.<br>
+      Compiled from the ACCA SBR syllabus &amp; study guide and Kaplan SBR Exam Kit practice material for personal revision use.
+    </footer>
+  </main>
+</div>
+
+<a href="#s1" class="back-top" title="Back to top">↑</a>
+
+</body>
+</html>
