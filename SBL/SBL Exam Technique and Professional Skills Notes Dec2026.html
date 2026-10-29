@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SBL Exam Technique &amp; Professional Skills – ACCA SBL | Dec 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Lexend:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fdfcf8; --paper:#ffffff; --ink:#1f2a37; --muted:#4b5563; --line:#e5e1d8;
+    --navy:#1d4e89; --acca:#c8102e; --navy-soft:#eaf1fb;
+    --ex-bg:#eef5ff; --ex-bd:#2f6fbf;
+    --tip-bg:#ecf8f0; --tip-bd:#2e8b57;
+    --warn-bg:#fff5e6; --warn-bd:#d98a00;
+    --bad-bg:#fdeeee; --bad-bd:#c0392b;
+    --mem-bg:#f4effd; --mem-bd:#7a4fc4;
+    --def-bg:#f6f5ef; --def-bd:#8a8370;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+       font-family:"Atkinson Hyperlegible",Verdana,"Segoe UI",Arial,sans-serif;
+       font-size:20px;line-height:1.7}
+  .wrap{max-width:980px;margin:0 auto;padding:0 20px 80px}
+  header.hero{background:linear-gradient(180deg,#f3f7fd 0%,#fdfcf8 100%);border-bottom:1px solid var(--line);padding:42px 20px 30px}
+  header.hero .inner{max-width:980px;margin:0 auto}
+  .tag{display:inline-block;font-family:Lexend,sans-serif;font-size:15px;font-weight:600;letter-spacing:.04em;
+       color:var(--acca);background:#fff;border:1px solid #f1c7cf;border-radius:999px;padding:4px 14px}
+  h1,h2,h3,h4{font-family:Lexend,"Segoe UI",Arial,sans-serif;line-height:1.3;color:#14304f}
+  h1{font-size:44px;margin:16px 0 10px}
+  h2{font-size:32px;margin:0 0 14px}
+  h3{font-size:25px;margin:34px 0 10px;color:var(--navy)}
+  h4{font-size:21px;margin:24px 0 8px}
+  p{margin:0 0 16px}
+  .lead{font-size:22px;color:var(--muted);max-width:820px}
+  a{color:var(--navy)}
+  strong{color:#10263f}
+  ul,ol{padding-left:28px;margin:0 0 16px}
+  li{margin-bottom:8px}
+
+  nav.toc{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin:28px 0 10px}
+  nav.toc h2{font-size:24px;margin-bottom:12px}
+  nav.toc .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:8px 18px}
+  nav.toc a{text-decoration:none;font-size:18px;padding:6px 10px;border-radius:8px;display:block}
+  nav.toc a:hover{background:var(--navy-soft)}
+
+  section.chapter{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:30px 30px 18px;margin:34px 0;
+                  box-shadow:0 1px 3px rgba(0,0,0,.03)}
+  .badge{display:inline-block;font-family:Lexend,sans-serif;font-weight:700;font-size:15px;color:#fff;background:var(--navy);
+         border-radius:8px;padding:3px 10px;margin-bottom:10px}
+
+  .box{border-left:6px solid;border-radius:10px;padding:16px 20px;margin:20px 0}
+  .box .title{font-family:Lexend,sans-serif;font-weight:600;font-size:19px;margin-bottom:8px;display:block}
+  .box p:last-child,.box ul:last-child,.box ol:last-child{margin-bottom:0}
+  .ex{background:var(--ex-bg);border-color:var(--ex-bd)}
+  .tip{background:var(--tip-bg);border-color:var(--tip-bd)}
+  .warn{background:var(--warn-bg);border-color:var(--warn-bd)}
+  .bad{background:var(--bad-bg);border-color:var(--bad-bd)}
+  .mem{background:var(--mem-bg);border-color:var(--mem-bd)}
+  .def{background:var(--def-bg);border-color:var(--def-bd)}
+
+  table{width:100%;border-collapse:collapse;margin:14px 0 22px;font-size:18px;background:#fff}
+  th,td{border:1px solid var(--line);padding:10px 12px;vertical-align:top;text-align:left}
+  th{background:#f1f4f9;font-family:Lexend,sans-serif;font-weight:600;font-size:17px;color:#14304f}
+  tr:nth-child(even) td{background:#fbfbf9}
+  .tablewrap{overflow-x:auto}
+
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:18px 0}
+  .compare > div{border-radius:10px;padding:14px 18px;border:1px solid}
+  .compare .weak{background:var(--bad-bg);border-color:#efc1bb}
+  .compare .strong{background:var(--tip-bg);border-color:#b9e0c7}
+  .compare h4{margin-top:0;font-size:19px}
+  @media (max-width:760px){.compare{grid-template-columns:1fr} h1{font-size:34px} h2{font-size:27px} body{font-size:19px}
+    section.chapter{padding:22px 18px 10px}}
+
+  .answer{background:#fff;border:1px dashed #b9c6d8;border-radius:10px;padding:18px 22px;margin:16px 0;font-size:19px}
+  .answer h4{margin-top:6px}
+  .marker{font-size:16px;font-family:Lexend,sans-serif;font-weight:600;color:#2e8b57;background:#e3f4ea;border-radius:6px;padding:1px 8px;margin-left:4px;white-space:nowrap}
+  .marker.zero{color:#b0372a;background:#fbe3e0}
+  .note{font-size:17px;color:var(--muted)}
+
+  details{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 18px;margin:12px 0}
+  summary{cursor:pointer;font-weight:700;font-family:Lexend,sans-serif;font-size:19px;color:#14304f}
+  details[open] summary{margin-bottom:10px}
+
+  .steps{counter-reset:step;list-style:none;padding-left:0}
+  .steps li{counter-increment:step;position:relative;padding-left:52px;margin-bottom:14px}
+  .steps li::before{content:counter(step);position:absolute;left:0;top:2px;width:36px;height:36px;border-radius:50%;
+       background:var(--navy);color:#fff;font-family:Lexend,sans-serif;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:17px}
+
+  .kbd{font-family:Consolas,monospace;background:#f1f1ec;border:1px solid #ddd;border-radius:5px;padding:0 6px;font-size:17px}
+  footer{text-align:center;color:var(--muted);font-size:16px;margin-top:40px;border-top:1px solid var(--line);padding-top:20px}
+  .top{position:fixed;right:20px;bottom:20px;background:var(--navy);color:#fff;text-decoration:none;width:48px;height:48px;border-radius:50%;
+       display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+  .pill{display:inline-block;background:var(--navy-soft);color:var(--navy);border-radius:999px;padding:2px 12px;font-size:16px;font-weight:700;margin:2px 4px 2px 0}
+  @media print{.top,nav.toc{display:none} section.chapter{break-inside:avoid-page;box-shadow:none}}
+</style>
+</head>
+<body id="top">
+
+<header class="hero">
+  <div class="inner">
+    <span class="tag">ACCA SBL · Syllabus Sections I &amp; J · Dec 2026 (Sep 2026 – Jun 2027 syllabus)</span>
+    <h1>Exam Technique &amp; Professional Skills</h1>
+    <p class="lead">Your first SBL chapter. It explains how the SBL exam works, how markers award marks, the five professional skills (worth 20 marks), how to write each answer format, and how to manage your time. Every later chapter depends on it, because knowing a model only earns marks if you can apply it this way.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+<nav class="toc">
+  <h2>📚 Contents</h2>
+  <div class="grid">
+    <a href="#s1">1. What the SBL exam is</a>
+    <a href="#s2">2. How marks are awarded</a>
+    <a href="#s3">3. Requirement verbs</a>
+    <a href="#s4">4. The 5 professional skills</a>
+    <a href="#s5">5. The PAIR paragraph method</a>
+    <a href="#s6">6. Using models correctly</a>
+    <a href="#s7">7. Making recommendations</a>
+    <a href="#s8">8. Answer formats &amp; templates</a>
+    <a href="#s9">9. Time management</a>
+    <a href="#s10">10. The 6-step task method</a>
+    <a href="#s11">11. Handling numbers &amp; data</a>
+    <a href="#s12">12. Preparing the pre-seen</a>
+    <a href="#s13">13. Digital skills (Section J)</a>
+    <a href="#s14">14. Worked mini-case</a>
+    <a href="#s15">15. Common mistakes</a>
+    <a href="#s16">16. Memory tips &amp; cheat sheet</a>
+    <a href="#s17">17. Self-test quiz</a>
+    <a href="#s18">18. Your study path</a>
+  </div>
+</nav>
+
+<!-- ===================== 1 ===================== -->
+<section class="chapter" id="s1">
+  <span class="badge">1</span>
+  <h2>What the SBL Exam Is</h2>
+  <p>Most ACCA exams ask you to <em>show what you know</em>. SBL asks you to <strong>act like a senior advisor</strong>. You are given a company (a hospital, a manufacturer, a charity, a government agency), shown its problems through documents, and asked to advise the people who run it.</p>
+
+  <div class="box def">
+    <span class="title">📖 Key term: "Integrated case study"</span>
+    <p><strong>Integrated</strong> means the topics are mixed together, the way they are in real life. One problem, such as a hospital outsourcing its billing, touches strategy, stakeholders, risk, IT security, finance and ethics all at once. You never get a question that just says "explain COSO". You are expected to see which topics apply to the situation.</p>
+  </div>
+
+  <h3>Exam format at a glance</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Feature</th><th>What it means for you</th></tr>
+    <tr><td><strong>Length</strong></td><td>3 hours 15 minutes in total. This <em>includes</em> Reading, Planning and Reflection Time (RPRT), which you can use whenever you like during the exam. There is no separate reading period.</td></tr>
+    <tr><td><strong>Marks</strong></td><td>100 marks: <strong>80 technical marks + 20 professional skills marks</strong>. Pass mark = <strong>50</strong>.</td></tr>
+    <tr><td><strong>Questions</strong></td><td>All compulsory. The syllabus guide says each exam contains <strong>tasks with varying marks</strong>, and a task may be split into parts. Each task can put you in a different role, such as consultant, internal auditor or board advisor.</td></tr>
+    <tr><td><strong>Pre-seen</strong></td><td>Released about <strong>2 weeks before</strong> the exam. It gives background on a fictional organisation and its industry. You study it in advance, and it is also available inside the exam.</td></tr>
+    <tr><td><strong>Unseen exhibits</strong></td><td>In the exam you get <strong>new information</strong> about the same organisation, such as emails, board minutes, reports and spreadsheets. The tasks are based on these.</td></tr>
+    <tr><td><strong>Closed book</strong></td><td>No notes allowed. You must remember the models.</td></tr>
+    <tr><td><strong>Computer-based</strong></td><td>You type answers into a word processor, spreadsheet or presentation tool inside the exam software.</td></tr>
+    <tr><td><strong>No outside research</strong></td><td>ACCA says you do <em>not</em> need to research the real industry. Everything you need is in the pre-seen and the exam exhibits.</td></tr>
+  </table></div>
+
+  <div class="box ex">
+    <span class="title">🏥 Example — what an SBL task feels like</span>
+    <p>Pre-seen: "Northbridge Health is a public hospital group with 4 hospitals…" (12 pages of background, financial data and an organisation chart).</p>
+    <p>In the exam, Exhibit 3 is an email from the Finance Director: "The board wants to outsource all laboratory testing to a private company. I am worried about patient data."</p>
+    <p>Task: <em>"As a consultant, write a briefing paper for the board evaluating the risks of the outsourcing proposal and recommending how they should be managed. (14 marks) Professional skills marks are available for demonstrating <strong>scepticism</strong> (2 marks)."</em></p>
+    <p>You need to know risk management (TARA), outsourcing and IT security. More importantly, you need to <strong>use the facts in Exhibit 3</strong>, not write general theory.</p>
+  </div>
+
+  <h3>The three intellectual levels</h3>
+  <p>Each syllabus outcome has a level from 1 to 3. SBL is mostly <strong>Level 3</strong>, the highest:</p>
+  <div class="tablewrap"><table>
+    <tr><th>Level</th><th>Meaning</th><th>Simple test</th></tr>
+    <tr><td>1 – Knowledge &amp; comprehension</td><td>Know and explain it</td><td>"What is a NED?"</td></tr>
+    <tr><td>2 – Application &amp; analysis</td><td>Use it on a situation and break the situation down</td><td>"Which NEDs at this hospital are not independent, and why?"</td></tr>
+    <tr><td>3 – Synthesis &amp; evaluation</td><td>Combine information, weigh it, judge it and recommend</td><td>"Should this board replace its NEDs? Weigh the costs and benefits and recommend."</td></tr>
+  </table></div>
+
+  <div class="box tip">
+    <span class="title">✅ The one idea to remember</span>
+    <p><strong>SBL rewards judgement, not memory.</strong> Knowing a model is the entry ticket. The marks come from <em>using it on the case</em> and <em>saying what should be done</em>.</p>
+  </div>
+</section>
+
+<!-- ===================== 2 ===================== -->
+<section class="chapter" id="s2">
+  <span class="badge">2</span>
+  <h2>How Marks Are Awarded</h2>
+
+  <h3>Technical marks (80)</h3>
+  <p>Markers use a marking guide that lists points they are likely to see. As a rule of thumb:</p>
+  <ul>
+    <li>Roughly <strong>1 mark per relevant point that is applied to the case and explained</strong>. A well-developed point can sometimes earn up to 2.</li>
+    <li>A point that is <strong>only theory</strong> ("Mendelow's matrix has four quadrants") usually earns <strong>0 or at most ½</strong>.</li>
+    <li>Repeating the same idea in different words earns nothing extra.</li>
+    <li>Each task part has a <strong>maximum</strong>. Writing beyond it wastes time that you need for other tasks.</li>
+    <li>Markers also credit <strong>valid points that are not in the guide</strong>, as long as they are sensible and linked to the case.</li>
+  </ul>
+
+  <div class="compare">
+    <div class="weak">
+      <h4>❌ Scores 0–½</h4>
+      <p>"Outsourcing has many risks, such as loss of control and data security problems. Companies should manage these risks carefully."</p>
+      <p class="note">Generic. It could be about any company. No case facts and no explanation of why it matters.</p>
+    </div>
+    <div class="strong">
+      <h4>✅ Scores 2</h4>
+      <p>"The lab contractor would hold <strong>test results for around 400,000 patients</strong> (Exhibit 3). A breach would expose the hospital to regulatory penalties and loss of public trust, which matters for a <strong>government-funded body</strong> that answers to the Ministry. The contract should therefore require encryption, annual security audits, and data stored in-country."</p>
+      <p class="note">Case fact → consequence → action.</p>
+    </div>
+  </div>
+
+  <h3>Professional skills marks (20)</h3>
+  <p>Up to 20% of the marks are for <strong>how</strong> you answer, not just what you say. Most tasks carry some. The requirement <strong>names the skill</strong>, for example "Professional skills marks are available for demonstrating <em>commercial acumen</em>…"</p>
+  <ul>
+    <li>Each named skill usually carries <strong>a few marks</strong>, often 2–4, within a task.</li>
+    <li>The marker judges <strong>how well you demonstrated that skill across the whole answer</strong>, roughly from "not shown" through "weak" and "good" to "very good". These are not marks you can tick off individually.</li>
+    <li>There are five skills: <strong>Communication, Commercial acumen, Analysis, Scepticism, Evaluation</strong>. See section 4.</li>
+  </ul>
+
+  <div class="box warn">
+    <span class="title">⚠️ Why professional skills marks decide the pass</span>
+    <p>Suppose you score 45 technical marks out of 80 but only 4 out of 20 for professional skills: you have <strong>49 and fail</strong>. Raising professional skills to 10 out of 20 gives <strong>55 and a pass</strong>. That is the cheapest way to gain marks in SBL, because it means writing in the right way, not learning more facts.</p>
+  </div>
+
+  <div class="box mem">
+    <span class="title">🧠 Memory hook</span>
+    <p><strong>"No case, no marks."</strong> Before you finish any paragraph, ask yourself whether it could be pasted into an answer about a different company. If it could, it isn't earning marks.</p>
+  </div>
+</section>
+
+<!-- ===================== 3 ===================== -->
+<section class="chapter" id="s3">
+  <span class="badge">3</span>
+  <h2>Requirement Verbs — What the Examiner Is Really Asking</h2>
+  <p>The verb tells you <strong>how deep to go</strong>. If you answer the wrong verb, you lose marks even when your content is good.</p>
+
+  <div class="tablewrap"><table>
+    <tr><th>Verb</th><th>What it means</th><th>What your answer must contain</th></tr>
+    <tr><td><strong>Explain</strong></td><td>Make it clear why or how</td><td>The point + the reason, linked to the case</td></tr>
+    <tr><td><strong>Discuss</strong></td><td>Look at it from different sides</td><td>Arguments for <em>and</em> against, then a conclusion</td></tr>
+    <tr><td><strong>Analyse</strong></td><td>Break it into parts and examine each</td><td>Structured breakdown (often by a model), with causes and effects</td></tr>
+    <tr><td><strong>Assess</strong></td><td>Judge importance or extent</td><td>Each factor + how significant it is ("this is the most serious because…")</td></tr>
+    <tr><td><strong>Evaluate</strong></td><td>Weigh up and reach a judgement</td><td>Pros, cons, risks, costs, evidence quality, then a clear verdict</td></tr>
+    <tr><td><strong>Recommend</strong></td><td>Say what should be done</td><td>Specific actions: what, who, when, and why it fits this organisation</td></tr>
+    <tr><td><strong>Advise</strong></td><td>Guide the reader to a decision</td><td>Analysis + recommendation, written to the named person</td></tr>
+    <tr><td><strong>Justify</strong></td><td>Give reasons that support a position</td><td>Strong case-based reasons why the decision is right</td></tr>
+    <tr><td><strong>Critically evaluate / critically assess</strong></td><td>Evaluate with challenge</td><td>Question the assumptions, the evidence and any bias, then judge</td></tr>
+  </table></div>
+
+  <div class="box ex">
+    <span class="title">🏭 Example — same topic, different verbs</span>
+    <p>Case: <em>FreshCo, a food manufacturer, plans to build a factory in a neighbouring country.</em></p>
+    <ul>
+      <li><strong>Explain</strong> the risks → "The new market's currency is volatile, so FreshCo's profits converted back would vary, because costs are in the local currency but reporting is in dollars."</li>
+      <li><strong>Assess</strong> the risks → the above, plus "This is a <strong>high-impact</strong> risk because the factory represents 30% of group assets, but moderate probability given the central bank's track record."</li>
+      <li><strong>Evaluate</strong> the proposal → benefits vs risks vs cost, how reliable the forecast is, then <strong>"On balance FreshCo should proceed only if…"</strong></li>
+    </ul>
+  </div>
+
+  <div class="box tip">
+    <span class="title">✅ Exam tip</span>
+    <p>Underline the verb, the <strong>number of marks</strong>, the <strong>role</strong> you are playing and the <strong>audience</strong>. These four things decide your whole answer.</p>
+  </div>
+</section>
+
+<!-- ===================== 4 ===================== -->
+<section class="chapter" id="s4">
+  <span class="badge">4</span>
+  <h2>The Five Professional Skills (Syllabus Section I)</h2>
+  <p>Each skill is explained below in plain language: what the syllabus asks for, what the marker is looking for, and a weak versus strong example.</p>
+
+  <!-- Communication -->
+  <h3>4.1 Communication</h3>
+  <div class="box def">
+    <span class="title">📖 In simple words</span>
+    <p>Write so that the <strong>specific reader</strong> (a board, a CEO, staff, the public) can quickly understand and act on your answer, in the <strong>right format and tone</strong>.</p>
+  </div>
+  <p><strong>The syllabus asks you to:</strong></p>
+  <ul>
+    <li><strong>Inform</strong> concisely, objectively and without ambiguity, using suitable media and being sensitive to culture.</li>
+    <li><strong>Persuade</strong> with logical, compelling arguments, and <strong>counter-argue</strong> where appropriate.</li>
+    <li><strong>Clarify and simplify</strong> complex issues for the intended audience, in an appropriate tone.</li>
+  </ul>
+  <p><strong>The marker looks for:</strong></p>
+  <ul>
+    <li>The <strong>correct format</strong>: a report looks like a report, slides look like slides, an email looks like an email.</li>
+    <li>A <strong>clear structure</strong>: headings that follow the requirement, short paragraphs, one idea per paragraph.</li>
+    <li>A <strong>tone that fits the audience</strong>: formal for a board, reassuring for staff, factual and calm for the press.</li>
+    <li><strong>Plain language</strong>: jargon is explained if the reader isn't a specialist.</li>
+  </ul>
+  <div class="compare">
+    <div class="weak"><h4>❌ Weak (to a board)</h4><p>"So basically the IT guys messed up the upgrade and now everything's a mess lol, we need to sort it ASAP."</p></div>
+    <div class="strong"><h4>✅ Strong (to a board)</h4><p>"The system upgrade on 3 March caused a two-day outage in patient registration. This briefing sets out the cause, the impact and three actions for the board's approval."</p></div>
+  </div>
+  <div class="compare">
+    <div class="weak"><h4>❌ Weak (press release)</h4><p>"Due to inadequate governance and ineffective internal controls, a material data incident occurred."</p></div>
+    <div class="strong"><h4>✅ Strong (press release)</h4><p>"On 3 March, some patient appointment details were accessed without permission. No medical records or payment details were affected. We have contacted every affected patient and strengthened our systems."</p></div>
+  </div>
+
+  <!-- Commercial acumen -->
+  <h3>4.2 Commercial Acumen</h3>
+  <div class="box def">
+    <span class="title">📖 In simple words</span>
+    <p>Show <strong>business common sense</strong>: you understand how this organisation makes money (or delivers its public service), what matters to it, what is realistic, and what is happening around it.</p>
+  </div>
+  <p><strong>The syllabus asks you to:</strong></p>
+  <ul>
+    <li>Show awareness of <strong>organisational and external factors</strong> such as the market, competitors, regulation and the economy.</li>
+    <li>Use <strong>judgement to spot the key issues</strong> and propose solutions that can be implemented.</li>
+    <li>Show <strong>insight and perception</strong>, including how to handle conflict.</li>
+  </ul>
+  <p><strong>The marker looks for:</strong></p>
+  <ul>
+    <li><strong>Realistic recommendations</strong> that the organisation can afford and has the people to deliver. "Buy the competitor" is not realistic for a company with no cash.</li>
+    <li>Awareness of <strong>knock-on effects</strong>: cutting nurses saves cost but may increase waiting times and complaints.</li>
+    <li>Links to the <strong>mission and objectives</strong> stated in the pre-seen.</li>
+    <li>Use of the <strong>external context</strong> given in the case: a new regulation, a competitor's price cut.</li>
+  </ul>
+  <div class="compare">
+    <div class="weak"><h4>❌ Weak</h4><p>"The hospital should invest in the latest AI technology to improve efficiency."</p><p class="note">Ignores cost, budget and readiness.</p></div>
+    <div class="strong"><h4>✅ Strong</h4><p>"With capital funding frozen for two years (Exhibit 2), a full AI rollout is not affordable. A <strong>12-month pilot in the outpatient department</strong>, funded from the existing IT budget, would test the benefits before the next funding round."</p></div>
+  </div>
+
+  <!-- Analysis -->
+  <h3>4.3 Analysis</h3>
+  <div class="box def">
+    <span class="title">📖 In simple words</span>
+    <p><strong>Dig into the information</strong> (text and numbers) to find causes, patterns and opportunities, and to check whether what people believe is actually true.</p>
+  </div>
+  <p><strong>The syllabus asks you to:</strong></p>
+  <ul>
+    <li>Investigate information from <strong>many sources</strong> using a range of techniques, to find <strong>causes</strong> of problems or opportunities.</li>
+    <li>Use evidence to <strong>support or dispute</strong> existing beliefs.</li>
+    <li>Think carefully about what the findings <strong>mean</strong> for the organisation.</li>
+  </ul>
+  <p><strong>The marker looks for:</strong></p>
+  <ul>
+    <li><strong>Using the numbers</strong>: calculating growth, margins and per-unit figures rather than copying them.</li>
+    <li><strong>Linking exhibits</strong>: Exhibit 2 says costs are under control, but Exhibit 4's figures show overtime up 40%.</li>
+    <li>Finding the <strong>root cause</strong>, not just the symptom.</li>
+  </ul>
+  <div class="box ex">
+    <span class="title">📊 Example — symptom vs root cause</span>
+    <p>Exhibit: "Patient complaints rose from 120 to 310 this year." The CEO blames "rude staff".</p>
+    <p><strong>Weak analysis:</strong> "Complaints have risen significantly, which is bad for reputation."</p>
+    <p><strong>Strong analysis:</strong> "Complaints rose by <strong>158%</strong> (310 vs 120). Exhibit 5 shows <strong>68%</strong> of them concern waiting times, not staff behaviour. Over the same period, nursing vacancies rose from 5% to 18%. The evidence points to <strong>understaffing as the root cause</strong>, not rudeness, so staff training alone is unlikely to fix the problem."</p>
+  </div>
+
+  <!-- Scepticism -->
+  <h3>4.4 Scepticism</h3>
+  <div class="box def">
+    <span class="title">📖 In simple words</span>
+    <p><strong>Don't accept what you're told at face value.</strong> Question claims, forecasts and opinions, especially from people who benefit from them, and say so politely.</p>
+  </div>
+  <p><strong>The syllabus asks you to:</strong></p>
+  <ul>
+    <li><strong>Probe deeply</strong> into the underlying reasons for issues, beyond what is obvious.</li>
+    <li><strong>Question</strong> facts, opinions and assertions, and seek justification and evidence.</li>
+    <li><strong>Challenge</strong> information or decisions where justified, professionally and courteously, in the public or organisational interest.</li>
+  </ul>
+  <p><strong>Common things to be sceptical about in SBL cases:</strong></p>
+  <ul>
+    <li><strong>Optimistic forecasts</strong>: "sales will grow 30% every year".</li>
+    <li><strong>Who wrote it</strong>: a manager whose bonus depends on the project, or a supplier praising its own product.</li>
+    <li><strong>Missing information</strong>: no risk assessment, no cost of implementation, no customer research.</li>
+    <li><strong>Rushed timelines</strong>: "board approval needed next week".</li>
+    <li><strong>Contradictions</strong> between exhibits.</li>
+  </ul>
+  <div class="compare">
+    <div class="weak"><h4>❌ Weak</h4><p>"The CFO says the new system will save $2m a year, which will improve profits."</p></div>
+    <div class="strong"><h4>✅ Strong</h4><p>"The $2m saving comes from the vendor's own sales proposal and has not been independently verified. It also assumes all 40 clerks leave in year one, which conflicts with the government's no-redundancy policy (Exhibit 1). The board should ask for an <strong>independent review of the savings</strong> before approving."</p></div>
+  </div>
+  <div class="box warn">
+    <span class="title">⚠️ Scepticism ≠ rudeness</span>
+    <p>Challenge the <strong>evidence</strong>, never the person. Write "The assumption of 85% occupancy appears optimistic compared with the current 62%", not "The CEO is clearly lying."</p>
+  </div>
+
+  <!-- Evaluation -->
+  <h3>4.5 Evaluation</h3>
+  <div class="box def">
+    <span class="title">📖 In simple words</span>
+    <p><strong>Weigh up and decide.</strong> Balance costs, benefits, risks and opportunities, think about who is affected and what happens next, then reach a clear conclusion.</p>
+  </div>
+  <p><strong>The syllabus asks you to:</strong></p>
+  <ul>
+    <li>Use <strong>professional judgement</strong> on issues and decisions, considering their effect on the organisation and the people affected.</li>
+    <li><strong>Estimate trends and make reasoned forecasts</strong> of the outcomes.</li>
+    <li>Appraise facts and opinions <strong>objectively</strong>, balancing costs, risks, benefits and opportunities before recommending.</li>
+  </ul>
+  <p><strong>The marker looks for:</strong></p>
+  <ul>
+    <li><strong>Both sides</strong> of the argument.</li>
+    <li>A sense of <strong>which points matter most</strong>. Not every risk is equal.</li>
+    <li>A <strong>clear final judgement</strong>: "Approve", "Reject" or "Approve subject to…". Never sit on the fence.</li>
+  </ul>
+  <div class="compare">
+    <div class="weak"><h4>❌ Weak ending</h4><p>"There are advantages and disadvantages, so the board should consider carefully."</p></div>
+    <div class="strong"><h4>✅ Strong ending</h4><p>"On balance, the benefits (faster cash collection, lower error rates) outweigh the risks, <strong>but only if</strong> data security is contractually guaranteed. I recommend approval <strong>subject to</strong> three conditions: …"</p></div>
+  </div>
+
+  <h3>Summary — the 5 skills in one table</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Skill</th><th>Question to ask yourself</th><th>Trigger words / phrases to use</th></tr>
+    <tr><td><strong>Communication</strong></td><td>Would the reader understand this in one read, in the right format?</td><td>Headings, "This report…", "I recommend…"</td></tr>
+    <tr><td><strong>Commercial acumen</strong></td><td>Is this realistic, affordable and aligned with the mission?</td><td>"Given the budget freeze…", "This would also affect…"</td></tr>
+    <tr><td><strong>Analysis</strong></td><td>Have I used the numbers and found the real cause?</td><td>"This represents a 158% increase…", "The root cause appears to be…"</td></tr>
+    <tr><td><strong>Scepticism</strong></td><td>Who said this, is there evidence, and what's missing?</td><td>"This assumption appears optimistic…", "has not been verified…"</td></tr>
+    <tr><td><strong>Evaluation</strong></td><td>Have I weighed both sides and given a clear verdict?</td><td>"On balance…", "The most significant…", "subject to…"</td></tr>
+  </table></div>
+</section>
+
+<!-- ===================== 5 ===================== -->
+<section class="chapter" id="s5">
+  <span class="badge">5</span>
+  <h2>The PAIR Paragraph Method</h2>
+  <p>The simplest way to make every paragraph earn marks is to build it in four parts:</p>
+
+  <ol class="steps">
+    <li><strong>P — Point.</strong> State the issue in one short sentence. <em>"Patient data security is the most significant risk."</em></li>
+    <li><strong>A — Apply.</strong> Prove it with a <strong>fact from the case</strong>, citing the exhibit. <em>"The contractor would access 400,000 patient records (Exhibit 3)."</em></li>
+    <li><strong>I — Implication ("so what?").</strong> Say why it matters to <strong>this</strong> organisation. <em>"A breach could lead to regulatory fines and loss of public trust in a government-funded hospital."</em></li>
+    <li><strong>R — Response.</strong> Say what should be done. <em>"The contract should require encryption, in-country data storage and annual independent audits."</em></li>
+  </ol>
+
+  <div class="box ex">
+    <span class="title">🛒 Full PAIR example — FMCG company</span>
+    <p><strong>Case:</strong> SnackWave, a crisps manufacturer, gets 45% of its revenue from one supermarket chain, MegaMart (Exhibit 2). MegaMart has just announced its own-brand crisps.</p>
+    <div class="answer">
+      <p><strong>Customer concentration risk</strong></p>
+      <p><strong>[P]</strong> SnackWave is heavily dependent on a single customer. <strong>[A]</strong> MegaMart provides 45% of revenue (Exhibit 2) and has just launched an own-brand range that competes directly with SnackWave's core product. <strong>[I]</strong> If MegaMart reduces shelf space or demands lower prices, SnackWave could lose a large share of its revenue very quickly, and because its factory costs are largely fixed, profits would fall even faster than sales. <strong>[R]</strong> SnackWave should start diversifying its customer base, for example by approaching the two other national chains and growing online sales, with a target of no single customer above 30% of revenue within three years.</p>
+    </div>
+    <p class="note">This paragraph would typically earn about 2 technical marks, and it also shows commercial acumen (fixed costs, own-brand threat) and evaluation (a measurable target).</p>
+  </div>
+
+  <div class="box mem">
+    <span class="title">🧠 Memory hook</span>
+    <p><strong>PAIR = "Point, Apply, Implication, Response."</strong> If a paragraph is missing <strong>A</strong> it is generic, and if it is missing <strong>I</strong> it is shallow. Say "so what?" out loud after each point.</p>
+  </div>
+</section>
+
+<!-- ===================== 6 ===================== -->
+<section class="chapter" id="s6">
+  <span class="badge">6</span>
+  <h2>Using Models Correctly</h2>
+  <p>Models (PESTEL, Five Forces, Mendelow, TARA, the cultural web…) are <strong>tools for organising your thinking</strong>. They are not essays to reproduce.</p>
+
+  <div class="tablewrap"><table>
+    <tr><th>Situation</th><th>What to do</th></tr>
+    <tr><td>The requirement <strong>names a model</strong> ("using Mendelow's matrix…")</td><td>You <strong>must</strong> use it, with its categories as your headings.</td></tr>
+    <tr><td>The requirement <strong>doesn't name a model</strong></td><td>You may use one if it helps structure your answer, but marks come from the case-based points, not the model's name.</td></tr>
+    <tr><td>A model doesn't fit the facts</td><td>Don't force it. Use clear headings based on the issues instead.</td></tr>
+  </table></div>
+
+  <div class="compare">
+    <div class="weak">
+      <h4>❌ Describing the model</h4>
+      <p>"Mendelow's matrix classifies stakeholders by power and interest. High power and high interest stakeholders are key players and must be managed closely. Low power, low interest stakeholders require minimal effort…"</p>
+      <p class="note">≈ 0 marks: pure textbook.</p>
+    </div>
+    <div class="strong">
+      <h4>✅ Applying the model</h4>
+      <p>"<strong>Ministry of Health – Key player.</strong> It provides 74% of funding and appoints four of the seven board members, so it has high power. Its recent statement on data protection and workforce participation (Exhibit 5) shows high interest in this proposal. The board must consult the Ministry <em>before</em> any decision, or risk the proposal being reversed."</p>
+      <p class="note">≈ 2 marks: power and interest are both proven with case facts, plus an action.</p>
+    </div>
+  </div>
+
+  <div class="box tip">
+    <span class="title">✅ Rule of thumb</span>
+    <p>Spend <strong>no more than one sentence</strong> explaining a model, and only if the reader needs it (for example, a board that doesn't know the model). Use every other sentence on the case.</p>
+  </div>
+</section>
+
+<!-- ===================== 7 ===================== -->
+<section class="chapter" id="s7">
+  <span class="badge">7</span>
+  <h2>Making Recommendations That Score</h2>
+  <p>Almost every SBL task ends with "recommend" or "advise". A good recommendation answers <strong>five questions</strong>:</p>
+  <div class="tablewrap"><table>
+    <tr><th>Question</th><th>Example</th></tr>
+    <tr><td><strong>What</strong> exactly?</td><td>Introduce a monthly reconciliation of insurance claims to the patient register</td></tr>
+    <tr><td><strong>Who</strong> does it?</td><td>The Revenue Cycle Manager, reviewed by the Finance Director</td></tr>
+    <tr><td><strong>When</strong>?</td><td>From next quarter, with the first review by the audit committee in 6 months</td></tr>
+    <tr><td><strong>Why</strong> does it fit here?</td><td>38% of rejections are caused by missing documents (Exhibit 3), and reconciliation catches them before claims are submitted</td></tr>
+    <tr><td><strong>Cost / risk</strong>?</td><td>About 1 extra FTE, small compared with the rejected claims of roughly $40m a year</td></tr>
+  </table></div>
+
+  <div class="compare">
+    <div class="weak"><h4>❌ Vague</h4><p>"The company should improve its controls and train its staff."</p></div>
+    <div class="strong"><h4>✅ Specific</h4><p>"The IT Director should enforce <strong>unique logins with two-factor authentication</strong> for all billing staff <strong>within 30 days</strong>, because credential sharing was found in the last audit (Exhibit 3). This costs little and directly reduces the risk of unauthorised claim changes."</p></div>
+  </div>
+
+  <div class="box mem">
+    <span class="title">🧠 Memory hook</span>
+    <p><strong>"W-W-W-W-C": What, Who, When, Why, Cost.</strong> If two or more are missing, your recommendation is vague.</p>
+  </div>
+</section>
+
+<!-- ===================== 8 ===================== -->
+<section class="chapter" id="s8">
+  <span class="badge">8</span>
+  <h2>Answer Formats &amp; Templates</h2>
+  <p>The requirement tells you what to produce. Getting the format right is the easiest way to earn <strong>communication</strong> marks. Below is a template for each common format.</p>
+
+  <h3>8.1 Report / Briefing paper (most common)</h3>
+  <div class="answer">
+    <p><strong>REPORT</strong><br>
+    <strong>To:</strong> Board of Directors, Northbridge Health<br>
+    <strong>From:</strong> Strategy Consultant<br>
+    <strong>Date:</strong> [today]<br>
+    <strong>Subject:</strong> Evaluation of the laboratory outsourcing proposal</p>
+    <p><strong>1. Introduction</strong><br>This report evaluates … and recommends …</p>
+    <p><strong>2. [Heading taken from requirement part (a)]</strong><br>PAIR paragraphs…</p>
+    <p><strong>3. [Heading taken from requirement part (b)]</strong><br>PAIR paragraphs…</p>
+    <p><strong>4. Conclusion and recommendations</strong><br>On balance… I recommend…</p>
+  </div>
+  <p class="note">A briefing paper is similar but shorter and more direct. Keep the To / From / Date / Subject block and the headings.</p>
+
+  <h3>8.2 Memo</h3>
+  <p>The same header block as a report, with a shorter body. Used for internal communication to a manager or department.</p>
+
+  <h3>8.3 Email</h3>
+  <div class="answer">
+    <p><strong>To:</strong> Chief Executive<br><strong>Subject:</strong> Data breach – immediate actions required</p>
+    <p>Dear [Name/Title],</p>
+    <p>Purpose sentence (why you are writing).</p>
+    <p>Short sections with headings or bold lead-ins…</p>
+    <p>Next steps / what you need from them.</p>
+    <p>Kind regards,<br>[Your role]</p>
+  </div>
+
+  <h3>8.4 Presentation slides</h3>
+  <p>Each slide has a <strong>title</strong> and <strong>3–5 short bullet points</strong>. The detailed explanation goes in the <strong>speaker notes</strong> beneath the slide. Markers read the notes, and that is where the PAIR paragraphs belong.</p>
+  <div class="answer">
+    <p><strong>Slide 2: Key risks of outsourcing</strong></p>
+    <ul>
+      <li>Patient data security</li>
+      <li>Loss of in-house expertise</li>
+      <li>Dependence on a single supplier</li>
+    </ul>
+    <p><em>Speaker notes:</em> "The most significant risk is data security. The contractor would hold 400,000 patient records… (full PAIR paragraph)."</p>
+  </div>
+  <div class="box warn">
+    <span class="title">⚠️ Slide trap</span>
+    <p>Bullets alone earn very few marks because there is no explanation. <strong>Always write speaker notes</strong> when the task allows them, and don't cram paragraphs onto the slide itself.</p>
+  </div>
+
+  <h3>8.5 Press release / public statement</h3>
+  <ul>
+    <li>A <strong>headline</strong>, date and place.</li>
+    <li>Plain language: <strong>no jargon, no blame, no confidential information</strong>.</li>
+    <li>Structure: what happened → what it means for the public → what the organisation is doing → where to get more information.</li>
+    <li>A tone that is honest, calm, takes responsibility and reassures.</li>
+  </ul>
+
+  <h3>8.6 Letter</h3>
+  <p>Sender and recipient addresses (simplified), date, "Dear…", a subject line, paragraphs, then "Yours sincerely" (when you know their name) or "Yours faithfully" (when you don't).</p>
+
+  <h3>8.7 Notes for a meeting / briefing notes</h3>
+  <p>Headings and numbered points, but each point still needs a full sentence of explanation. "Notes" doesn't mean single words.</p>
+
+  <h3>Tone guide by audience</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Audience</th><th>Tone</th><th>Avoid</th></tr>
+    <tr><td>Board / CEO</td><td>Formal, concise, decision-focused</td><td>Long theory, casual language</td></tr>
+    <tr><td>Staff</td><td>Clear, respectful, reassuring, honest</td><td>Threats, technical jargon</td></tr>
+    <tr><td>Public / press</td><td>Plain, calm, accountable</td><td>Blame, internal details, legal admissions</td></tr>
+    <tr><td>Regulator / Ministry</td><td>Formal, factual, compliant</td><td>Speculation, defensiveness</td></tr>
+    <tr><td>Shareholders / investors</td><td>Professional, focused on value and risk</td><td>Over-promising</td></tr>
+  </table></div>
+</section>
+
+<!-- ===================== 9 ===================== -->
+<section class="chapter" id="s9">
+  <span class="badge">9</span>
+  <h2>Time Management</h2>
+  <p>195 minutes ÷ 100 marks = <strong>about 1.95 minutes per mark</strong>, so roughly <strong>2 minutes per mark</strong>, including reading and planning.</p>
+
+  <div class="tablewrap"><table>
+    <tr><th>Marks for the task</th><th>Total time</th><th>Read &amp; plan (≈ ⅓)</th><th>Write (≈ ⅔)</th></tr>
+    <tr><td>10</td><td>20 min</td><td>6–7 min</td><td>13–14 min</td></tr>
+    <tr><td>15</td><td>29 min</td><td>9–10 min</td><td>19–20 min</td></tr>
+    <tr><td>20</td><td>39 min</td><td>12–13 min</td><td>26–27 min</td></tr>
+    <tr><td>25</td><td>49 min</td><td>15–16 min</td><td>33–34 min</td></tr>
+    <tr><td>30</td><td>58 min</td><td>18–19 min</td><td>39–40 min</td></tr>
+  </table></div>
+
+  <div class="box warn">
+    <span class="title">⚠️ The golden rule of time</span>
+    <p><strong>Never go over time on a task.</strong> The first marks on any requirement are the easiest to earn, and the last marks are the hardest. Leaving a task half-finished to start the next one gains more marks than polishing one answer to perfection.</p>
+  </div>
+
+  <div class="box ex">
+    <span class="title">⏱️ Example — why moving on matters</span>
+    <p>You've spent 30 minutes on a 15-mark task and earned about 9 marks. Another 10 minutes there might add 1 more mark. The same 10 minutes on the <strong>next</strong> task could earn 4–5 marks. Always move on.</p>
+  </div>
+
+  <div class="box tip">
+    <span class="title">✅ Practical tips</span>
+    <ul>
+      <li>At the start, note the <strong>clock time each task must finish</strong> (e.g. "Task 1 → 10:39").</li>
+      <li>Answer tasks in the <strong>order you are most confident</strong>, if you prefer. Just keep each answer under its correct heading.</li>
+      <li>Keep <strong>about 5 minutes at the end</strong> to check headings and add any missing recommendations.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== 10 ===================== -->
+<section class="chapter" id="s10">
+  <span class="badge">10</span>
+  <h2>The 6-Step Task Method</h2>
+  <p>Use the same process for every task until it becomes automatic.</p>
+
+  <ol class="steps">
+    <li><strong>Read the requirement FIRST, before the exhibits.</strong> Identify:
+      <ul>
+        <li>the <strong>verb</strong>;</li>
+        <li>the <strong>marks</strong> for each part;</li>
+        <li>your <strong>role</strong> (consultant, internal auditor…);</li>
+        <li>the <strong>audience</strong> and <strong>format</strong>;</li>
+        <li>which <strong>professional skill</strong> is being tested.</li>
+      </ul>
+    </li>
+    <li><strong>Read the relevant exhibits actively.</strong> Read with the requirement in mind, as if hunting for evidence. Note every <strong>problem, number, person, deadline and contradiction</strong>.</li>
+    <li><strong>Plan quickly.</strong> Use the answer screen or the scratchpad to set out headings (taken from the requirement) and the bullet points under each. See the planning grid below.</li>
+    <li><strong>Write in PAIR paragraphs</strong> under clear headings. Aim for about one paragraph per mark-earning point.</li>
+    <li><strong>Conclude and recommend.</strong> Give a clear judgement and specific actions.</li>
+    <li><strong>Quick review</strong> (1–2 minutes): Have I answered every part? Is the format right? Have I shown the named professional skill?</li>
+  </ol>
+
+  <h3>Planning grid example</h3>
+  <p>Requirement: <em>"Evaluate the proposal to outsource billing and recommend whether to approve it. (12 marks + 2 scepticism)"</em></p>
+  <div class="tablewrap"><table>
+    <tr><th>Heading</th><th>Points (with exhibit reference)</th></tr>
+    <tr><td>Benefits</td><td>Lower rejection rate guaranteed &lt;6% (Ex 2) · expertise · faster cash · frees management time</td></tr>
+    <tr><td>Drawbacks / risks</td><td>Root cause is clinical documentation, so outsourcing won't fix 38% of rejections (Ex 3) · patient data access (Ex 4, 5) · 85 staff affected and workforce policy (Ex 5) · 5-year lock-in · fee of 4% of revenue</td></tr>
+    <tr><td>Scepticism</td><td>Guarantee untested · rush "this year's results" (Ex 2) · CFO motive? · no option appraisal</td></tr>
+    <tr><td>Recommendation</td><td>Don't approve next month · fix documentation and system first · tender with data clauses · revisit in 6 months</td></tr>
+  </table></div>
+
+  <div class="box tip">
+    <span class="title">✅ Exam tip</span>
+    <p>Type your plan <strong>directly onto the answer page as headings and bullet points</strong>, then turn each bullet into a PAIR paragraph. This saves the time of rewriting and makes sure your structure matches your plan.</p>
+  </div>
+</section>
+
+<!-- ===================== 11 ===================== -->
+<section class="chapter" id="s11">
+  <span class="badge">11</span>
+  <h2>Handling Numbers &amp; Data</h2>
+  <p>SBL is not a calculation exam, but exhibits often contain numbers. Using them well is <strong>analysis</strong>, and questioning them is <strong>scepticism</strong>.</p>
+
+  <h3>The 5 quick calculations that impress markers</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Calculation</th><th>Formula</th><th>Example</th></tr>
+    <tr><td>% change</td><td>(New − Old) ÷ Old × 100</td><td>Revenue 50 → 58: (58−50)/50 = <strong>+16%</strong></td></tr>
+    <tr><td>Margin</td><td>Profit ÷ Revenue × 100</td><td>Profit 6 on revenue 60 = <strong>10%</strong></td></tr>
+    <tr><td>Share / proportion</td><td>Part ÷ Total × 100</td><td>Grant 900 of total income 1,210 = <strong>74%</strong></td></tr>
+    <tr><td>Per unit</td><td>Total ÷ Units</td><td>Cost $30m ÷ 600 beds = <strong>$50k per bed</strong></td></tr>
+    <tr><td>Payback</td><td>Investment ÷ Annual cash inflow</td><td>$4.5m ÷ $1.5m = <strong>3 years</strong></td></tr>
+  </table></div>
+
+  <div class="box ex">
+    <span class="title">📊 Example — turning numbers into insight</span>
+    <p>Exhibit: "Revenue grew from $80m to $92m. Operating profit fell from $12m to $9.2m."</p>
+    <p><strong>Weak:</strong> "Revenue increased but profit decreased."</p>
+    <p><strong>Strong:</strong> "Revenue grew <strong>15%</strong>, but operating margin fell from <strong>15% to 10%</strong> ($9.2m ÷ $92m). Growth is being bought at the expense of profitability, probably through discounting or rising costs, and should be investigated before further expansion."</p>
+  </div>
+
+  <h3>Questions to ask about any forecast (scepticism)</h3>
+  <ul>
+    <li>Who prepared it, and do they <strong>benefit</strong> if it is approved?</li>
+    <li>Is the <strong>key assumption realistic</strong> compared with current performance?</li>
+    <li>What happens if that assumption is <strong>wrong</strong>? (A quick sensitivity check.)</li>
+    <li>Is anything <strong>missing</strong>, such as implementation costs, tax, inflation or staff costs?</li>
+  </ul>
+</section>
+
+<!-- ===================== 12 ===================== -->
+<section class="chapter" id="s12">
+  <span class="badge">12</span>
+  <h2>Preparing the Pre-seen</h2>
+  <p>The pre-seen arrives about two weeks before the exam. Thorough preparation means you won't waste exam time reading background, and your answers will be full of relevant detail.</p>
+
+  <h3>The 2-week pre-seen plan</h3>
+  <div class="tablewrap"><table>
+    <tr><th>When</th><th>Activity</th><th>Output</th></tr>
+    <tr><td>Day 1</td><td>Read it once, quickly, for the overall story</td><td>A one-paragraph summary: "Who are they and what's going on?"</td></tr>
+    <tr><td>Day 2–3</td><td>Read again slowly and look up any unfamiliar terms</td><td>Glossary of industry terms</td></tr>
+    <tr><td>Day 4–5</td><td>Analyse the organisation: mission, objectives, structure, key people, products and services</td><td>One-page company profile and the names of key people</td></tr>
+    <tr><td>Day 6–7</td><td>Work through the numbers: growth, margins, ratios, trends</td><td>A small table of key ratios with comments</td></tr>
+    <tr><td>Day 8–9</td><td>Apply models: PESTEL, Five Forces, SWOT, stakeholders (Mendelow), value chain</td><td>One page per model</td></tr>
+    <tr><td>Day 10–11</td><td>List the <strong>likely issues</strong>: problems hinted at, upcoming decisions, risks, governance weaknesses</td><td>"Top 10 issues" list</td></tr>
+    <tr><td>Day 12–13</td><td>Practise past-exam tasks with the pre-seen in mind</td><td>Practice answers</td></tr>
+    <tr><td>Day 14</td><td>Light review and rest</td><td>Confidence</td></tr>
+  </table></div>
+
+  <div class="box warn">
+    <span class="title">⚠️ Pre-seen traps</span>
+    <ul>
+      <li><strong>Don't try to predict the exact questions.</strong> The exam brings new information that changes the situation. Prepare broadly.</li>
+      <li><strong>Don't research the real industry online.</strong> ACCA says it isn't needed, and outside facts can contradict the case.</li>
+      <li><strong>Don't copy large chunks of the pre-seen</strong> into answers. Refer to it briefly ("as stated in the company's mission…").</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== 13 ===================== -->
+<section class="chapter" id="s13">
+  <span class="badge">13</span>
+  <h2>Digital &amp; Employability Skills (Syllabus Section J)</h2>
+  <p>Section J tests whether you can use the exam software the way you would use office tools at work. The syllabus lists four skills:</p>
+  <div class="tablewrap"><table>
+    <tr><th>Syllabus skill</th><th>What it means in practice</th></tr>
+    <tr><td>J1 – Access and manipulate information</td><td>Move quickly between exhibits, find what you need, copy figures accurately</td></tr>
+    <tr><td>J2 – Work on response options</td><td>Choose and use the right tool (word processor, spreadsheet, slides) for each task</td></tr>
+    <tr><td>J3 – Navigate windows and screens</td><td>Resize and arrange windows so you can see an exhibit and your answer side by side</td></tr>
+    <tr><td>J4 – Present data effectively</td><td>Clear headings, tables where useful, tidy spreadsheets with labelled workings</td></tr>
+  </table></div>
+
+  <div class="box tip">
+    <span class="title">✅ Practical software tips</span>
+    <ul>
+      <li>Practise on ACCA's <strong>official practice platform</strong> so the software feels familiar on exam day.</li>
+      <li>Use <strong>bold headings</strong> and numbered sections, which make marking easy.</li>
+      <li>In spreadsheets, use <strong>formulas</strong> (e.g. <span class="kbd">=B4/B2</span>) and add a short label to every calculation so the marker can follow it.</li>
+      <li>Copy-paste small amounts of data from exhibits if helpful, but <strong>never paste whole exhibits</strong>. That earns nothing.</li>
+      <li>Learn the basic shortcuts: <span class="kbd">Ctrl+C</span> / <span class="kbd">Ctrl+V</span>, <span class="kbd">Ctrl+B</span> (bold), <span class="kbd">Ctrl+Z</span> (undo).</li>
+      <li>Typing speed matters. If you type slowly, practise with timed writing sessions.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== 14 ===================== -->
+<section class="chapter" id="s14">
+  <span class="badge">14</span>
+  <h2>Worked Mini-Case — Weak vs Distinction Answer</h2>
+
+  <div class="box def">
+    <span class="title">📁 Case: CityCare Clinics</span>
+    <p><strong>Exhibit 1 (pre-seen extract):</strong> CityCare runs 12 private outpatient clinics. Its mission is "affordable, reliable family healthcare". Average clinic utilisation (booked appointment slots ÷ available slots) is <strong>62%</strong>. Cash reserves are $6m.</p>
+    <p><strong>Exhibit 2 (email from the CEO):</strong> "I want to open a flagship clinic in Northtown. It costs <strong>$4.5m</strong>. Our consultants forecast annual revenue of <strong>$3.4m</strong> at <strong>85% utilisation</strong>, with annual running costs of <strong>$1.9m</strong>, almost all fixed. Payback in 3 years! Northtown is booming. Let's approve this at Friday's board."</p>
+    <p><strong>Exhibit 3 (HR report):</strong> "We currently have 6 unfilled doctor posts across the group. Recruitment takes 5–7 months."</p>
+    <p><strong>Exhibit 4 (news extract):</strong> "A national clinic chain opened a 20-room clinic in Northtown last month."</p>
+  </div>
+
+  <p><strong>Requirement:</strong> <em>As advisor to the board, prepare a briefing note evaluating the Northtown proposal and recommending whether the board should approve it on Friday. (10 marks) Professional skills marks are available for demonstrating <strong>scepticism</strong> (2 marks).</em></p>
+  <p class="note">Time allowed ≈ 24 minutes (12 marks × 1.95).</p>
+
+  <h3>❌ Weak answer (typical first attempt)</h3>
+  <div class="answer" style="border-color:#efc1bb">
+    <p>Opening a new clinic is a market development strategy under Ansoff's matrix. Ansoff has four strategies: market penetration, product development, market development and diversification. <span class="marker zero">0 – theory</span></p>
+    <p>Advantages: the company will grow and earn more revenue. Northtown is booming so there will be many customers. Payback is 3 years which is good. <span class="marker">1 – some case use</span></p>
+    <p>Disadvantages: there are risks such as competition and the cost is high. <span class="marker">½ – vague</span></p>
+    <p>Conclusion: the board should consider all factors carefully before deciding. <span class="marker zero">0 – no recommendation</span></p>
+  </div>
+  <p><strong>Estimated score: 1½ / 10 technical + 0 / 2 scepticism = 1½ / 12.</strong> It is not in briefing-note format, describes theory, accepts the CEO's figures without question and gives no recommendation.</p>
+
+  <h3>✅ Distinction answer</h3>
+  <div class="answer">
+    <p><strong>BRIEFING NOTE</strong><br>
+    <strong>To:</strong> Board of Directors, CityCare Clinics<br>
+    <strong>From:</strong> Board Advisor<br>
+    <strong>Subject:</strong> Evaluation of the proposed Northtown clinic</p>
+
+    <p><strong>1. Purpose</strong><br>This note evaluates the proposal to invest $4.5m in a Northtown clinic and recommends whether it should be approved at Friday's meeting.</p>
+
+    <p><strong>2. Potential benefits</strong><br>
+    Northtown is described as a growing area (Exhibit 2), so a clinic there would extend CityCare into a new geographical market. This would spread the group's revenue beyond its existing 12 locations and support long-term growth in line with its family healthcare mission. <span class="marker">1</span></p>
+    <p>If the forecast is achieved, annual net cash inflow would be $1.5m ($3.4m − $1.9m), giving a payback of 3 years on $4.5m. That would be an attractive return. <span class="marker">1</span></p>
+
+    <p><strong>3. Concerns about the forecast</strong><br>
+    The forecast assumes <strong>85% utilisation</strong>, but CityCare's existing clinics average only <strong>62%</strong> (Exhibit 1). There is no evidence that a brand-new clinic would outperform established ones, especially in its first years. <span class="marker">1 + scepticism</span></p>
+    <p>Because almost all costs are fixed, results are very sensitive to utilisation. At 62%, revenue would be about $2.48m ($3.4m × 62/85), net inflow only $0.58m, and payback around <strong>7.8 years</strong> rather than 3. Even at 70%, payback would be about 5 years. <span class="marker">2 – analysis</span></p>
+    <p>The forecast was prepared by consultants engaged for the project, and it has not been independently reviewed. The board should ask for the underlying assumptions before relying on it. <span class="marker">scepticism</span></p>
+
+    <p><strong>4. Other risks</strong><br>
+    <strong>Staffing:</strong> The group already has 6 unfilled doctor posts and recruitment takes 5–7 months (Exhibit 3). A new clinic would increase the shortage, could delay the opening, and might draw doctors away from existing clinics, harming their service. <span class="marker">1</span></p>
+    <p><strong>Competition:</strong> A national chain opened a 20-room clinic in Northtown last month (Exhibit 4). This makes high utilisation even less likely, and a price-led response could undermine CityCare's affordability positioning. <span class="marker">1</span></p>
+    <p><strong>Financial exposure:</strong> The $4.5m cost equals 75% of CityCare's $6m cash reserves (Exhibit 1). If the clinic underperforms, the group would have little buffer for other needs. <span class="marker">1</span></p>
+    <p><strong>Governance:</strong> The CEO wants approval at Friday's meeting. That leaves too little time for due diligence on a decision of this size, and the board should not be pressured into approving it. <span class="marker">scepticism</span></p>
+
+    <p><strong>5. Recommendation</strong><br>
+    I recommend the board <strong>does not approve the proposal on Friday</strong>. Instead, it should:<br>
+    (i) ask the Finance Director to prepare a revised forecast using 60–70% utilisation, with a sensitivity analysis, within one month;<br>
+    (ii) ask HR to confirm whether doctors can realistically be recruited for a new site;<br>
+    (iii) commission a short market study of demand in Northtown following the competitor's entry.<br>
+    The board can reconsider within two to three months with reliable information. A smaller or leased site could also be considered to reduce the $4.5m commitment. <span class="marker">2</span></p>
+  </div>
+  <p><strong>Estimated score: 10 / 10 technical (capped at the maximum) + 2 / 2 scepticism = 12 / 12.</strong></p>
+
+  <div class="box tip">
+    <span class="title">✅ What made the difference?</span>
+    <ul>
+      <li><strong>Format:</strong> a briefing note header and headings → communication.</li>
+      <li><strong>Numbers used</strong>: recalculated payback at realistic utilisation → analysis.</li>
+      <li><strong>Assumptions challenged</strong>: 85% vs 62%, who prepared the forecast, rushed timing → scepticism.</li>
+      <li><strong>Every point tied to an exhibit</strong> → application.</li>
+      <li><strong>A clear, practical recommendation</strong> with steps and timing → evaluation and commercial acumen.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== 15 ===================== -->
+<section class="chapter" id="s15">
+  <span class="badge">15</span>
+  <h2>Common Mistakes (and the Fix)</h2>
+  <div class="tablewrap"><table>
+    <tr><th>#</th><th>Mistake</th><th>Fix</th></tr>
+    <tr><td>1</td><td>Writing textbook theory</td><td>Use PAIR: every point has a case fact</td></tr>
+    <tr><td>2</td><td>Ignoring the requested format</td><td>Check: report? slides? email? Use the template</td></tr>
+    <tr><td>3</td><td>Not answering the verb (describing when asked to evaluate)</td><td>Underline the verb and finish with a judgement</td></tr>
+    <tr><td>4</td><td>No recommendation, or a vague one</td><td>W-W-W-W-C: what, who, when, why, cost</td></tr>
+    <tr><td>5</td><td>Accepting forecasts and opinions as fact</td><td>Ask: who said it, is there evidence, what's missing?</td></tr>
+    <tr><td>6</td><td>Running over time on one task</td><td>Set finishing clock times and move on</td></tr>
+    <tr><td>7</td><td>Copying exhibits into the answer</td><td>Quote briefly, then explain the implication</td></tr>
+    <tr><td>8</td><td>Long paragraphs with no headings</td><td>Short paragraphs, one idea each, headings from the requirement</td></tr>
+    <tr><td>9</td><td>Repeating the same point in different words</td><td>One idea = one paragraph = move on</td></tr>
+    <tr><td>10</td><td>Ignoring the professional skill named in the requirement</td><td>Make it visible: "This assumption appears optimistic…"</td></tr>
+    <tr><td>11</td><td>Bringing in outside knowledge that contradicts the case</td><td>The case is the truth in SBL</td></tr>
+    <tr><td>12</td><td>Unrealistic advice (unaffordable or impractical)</td><td>Check budget, people, timing and mission</td></tr>
+    <tr><td>13</td><td>Slides with bullets only</td><td>Put explanations in the speaker notes</td></tr>
+    <tr><td>14</td><td>Wrong tone for the audience</td><td>Check the tone guide in section 8</td></tr>
+  </table></div>
+</section>
+
+<!-- ===================== 16 ===================== -->
+<section class="chapter" id="s16">
+  <span class="badge">16</span>
+  <h2>Memory Tips &amp; One-Page Cheat Sheet</h2>
+
+  <div class="box mem">
+    <span class="title">🧠 The 5 skills: "CCASE" ("see case")</span>
+    <p><strong>C</strong>ommunication · <strong>C</strong>ommercial acumen · <strong>A</strong>nalysis · <strong>S</strong>cepticism · <strong>E</strong>valuation. Because SBL is about the <em>case</em>, "CCASE" reminds you to <em>see the case</em>.</p>
+  </div>
+  <div class="box mem">
+    <span class="title">🧠 Every paragraph: PAIR</span>
+    <p><strong>P</strong>oint → <strong>A</strong>pply (exhibit fact) → <strong>I</strong>mplication ("so what?") → <strong>R</strong>esponse (action).</p>
+  </div>
+  <div class="box mem">
+    <span class="title">🧠 Every requirement: "V-M-R-A-F-S"</span>
+    <p><strong>V</strong>erb · <strong>M</strong>arks · <strong>R</strong>ole · <strong>A</strong>udience · <strong>F</strong>ormat · <strong>S</strong>kill. Underline all six before reading the exhibits.</p>
+  </div>
+  <div class="box mem">
+    <span class="title">🧠 Every recommendation: W-W-W-W-C</span>
+    <p><strong>W</strong>hat · <strong>W</strong>ho · <strong>W</strong>hen · <strong>W</strong>hy · <strong>C</strong>ost.</p>
+  </div>
+  <div class="box mem">
+    <span class="title">🧠 Time: "2 minutes a mark"</span>
+    <p>⅓ reading and planning, ⅔ writing. Never go over time.</p>
+  </div>
+
+  <h3>Scepticism phrase bank</h3>
+  <ul>
+    <li>"This assumption appears optimistic when compared with…"</li>
+    <li>"The figures were prepared by [person], who may benefit from approval, so independent verification is needed."</li>
+    <li>"No evidence has been provided to support the claim that…"</li>
+    <li>"The proposal does not consider [cost / risk / stakeholder]…"</li>
+    <li>"Exhibit X appears to contradict Exhibit Y, because…"</li>
+  </ul>
+  <h3>Evaluation phrase bank</h3>
+  <ul>
+    <li>"The most significant issue is… because…"</li>
+    <li>"On balance, the benefits outweigh the risks, provided that…"</li>
+    <li>"While X is an advantage, it is outweighed by…"</li>
+    <li>"I recommend approval subject to the following conditions…"</li>
+  </ul>
+  <h3>Commercial acumen phrase bank</h3>
+  <ul>
+    <li>"Given the organisation's [budget / cash / staffing] position…"</li>
+    <li>"This would also affect [another department / stakeholder]…"</li>
+    <li>"This is consistent with the mission of…"</li>
+    <li>"A phased / pilot approach would reduce the risk while…"</li>
+  </ul>
+</section>
+
+<!-- ===================== 17 ===================== -->
+<section class="chapter" id="s17">
+  <span class="badge">17</span>
+  <h2>Self-Test Quiz</h2>
+  <p>Try to answer each question before opening it.</p>
+
+  <details><summary>Q1. How many marks are professional skills worth in SBL, and what are the five skills?</summary>
+  <p>20 marks out of 100. The skills are Communication, Commercial acumen, Analysis, Scepticism and Evaluation ("CCASE").</p></details>
+
+  <details><summary>Q2. How long is the exam and roughly how much time should you allow per mark?</summary>
+  <p>3 hours 15 minutes (195 minutes) including reading, planning and reflection time, so about 1.95, or roughly 2, minutes per mark.</p></details>
+
+  <details><summary>Q3. What does PAIR stand for?</summary>
+  <p>Point, Apply (case fact), Implication (so what?), Response (action).</p></details>
+
+  <details><summary>Q4. A requirement says "Evaluate". What must your answer end with?</summary>
+  <p>A clear judgement or conclusion, such as approve, reject, or approve subject to conditions, after weighing both sides.</p></details>
+
+  <details><summary>Q5. A sales director forecasts 40% growth for a product whose market grew 4% last year. Which professional skill should you show, and how?</summary>
+  <p>Scepticism. Point out that the forecast is far above market growth, that the sales director may benefit from approval, and that it needs independent verification and a sensitivity analysis.</p></details>
+
+  <details><summary>Q6. You're asked for presentation slides. Where do most of your marks come from?</summary>
+  <p>The speaker notes, where the full explanations are written. The slides themselves should have a title and 3–5 short bullets.</p></details>
+
+  <details><summary>Q7. You have spent your full time allowance on Task 2 but aren't finished. What should you do?</summary>
+  <p>Move on to the next task. The early marks on a new task are easier to earn than the last marks on a nearly finished one. If time remains at the end, come back.</p></details>
+
+  <details><summary>Q8. Rewrite this weak recommendation: "The company should improve cyber security."</summary>
+  <p>Example: "The IT Director should introduce two-factor authentication for all remote logins within 30 days, because three phishing incidents occurred last quarter (Exhibit 4). The cost is low compared with the potential loss of customer data and regulatory fines."</p></details>
+
+  <details><summary>Q9. Should you research the real industry before the exam?</summary>
+  <p>No. ACCA states it isn't expected. Everything needed is in the pre-seen and exam exhibits, and outside facts may contradict the case.</p></details>
+
+  <details><summary>Q10. Revenue rises from $40m to $46m while operating profit falls from $6m to $4.6m. Write one analytical sentence.</summary>
+  <p>"Revenue grew 15%, but operating margin fell from 15% to 10% ($4.6m ÷ $46m), suggesting growth is being achieved through discounting or rising costs. This needs investigating before further expansion."</p></details>
+</section>
+
+<!-- ===================== 18 ===================== -->
+<section class="chapter" id="s18">
+  <span class="badge">18</span>
+  <h2>Your Study Path from Here</h2>
+  <p>Study the chapters in this order. It puts the material that comes up most often and is newest to most finance professionals first, and leaves the familiar finance topics until later.</p>
+  <div class="tablewrap"><table>
+    <tr><th>Order</th><th>Block</th><th>Chapters (syllabus area)</th></tr>
+    <tr><td>✅ 1</td><td>Exam technique &amp; professional skills</td><td>This chapter (I, J)</td></tr>
+    <tr><td>2</td><td>Strategy</td><td>Strategy concepts &amp; PESTEL · Five Forces &amp; value chain · Internal capability &amp; SWOT · Strategic choices (C)</td></tr>
+    <tr><td>3</td><td>Governance &amp; sustainability</td><td>Agency · Stakeholders · Board of directors · Integrated Reporting · Public sector (B)</td></tr>
+    <tr><td>4</td><td>Risk</td><td>Risk identification &amp; assessment · Managing risk (D)</td></tr>
+    <tr><td>5</td><td>Control &amp; audit</td><td>Internal control (COSO) · Internal audit (F)</td></tr>
+    <tr><td>6</td><td>Change &amp; projects</td><td>Organising · Disruptive tech · Talent &amp; Baldrige · Strategic change · Projects (H)</td></tr>
+    <tr><td>7</td><td>Technology</td><td>Cloud, big data &amp; AI · E-business · Cyber security (E)</td></tr>
+    <tr><td>8</td><td>Leadership &amp; ethics</td><td>Leadership · Culture · Ethics, fraud &amp; bribery (A)</td></tr>
+    <tr><td>9</td><td>Finance</td><td>Finance transformation · Investment appraisal &amp; sources of finance · Cost &amp; management accounting (G)</td></tr>
+  </table></div>
+  <div class="box tip">
+    <span class="title">✅ How to use these notes</span>
+    <ol>
+      <li>Read this chapter fully once.</li>
+      <li>Copy the CCASE, PAIR, V-M-R-A-F-S and W-W-W-W-C hooks onto a card and read them daily.</li>
+      <li>Redo the CityCare mini-case yourself without looking, then compare your answer with the distinction answer.</li>
+      <li>Return to this chapter after every practice task to check your technique.</li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  ACCA Strategic Business Leader (SBL) · Exam Technique &amp; Professional Skills · Syllabus Sep 2026 – Jun 2027 (December 2026 sitting)<br>
+  Based on the ACCA SBL Syllabus and Study Guide (Sep 2026 – Jun 2027). All organisations in examples are fictional. Study notes for educational purposes.
+</footer>
+
+</div>
+<a class="top" href="#top" title="Back to top">↑</a>
+</body>
+</html>
