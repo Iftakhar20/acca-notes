@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strategy Concepts &amp; the External Environment – ACCA SBL | Dec 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Lexend:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fdfcf8; --paper:#ffffff; --ink:#1f2a37; --muted:#4b5563; --line:#e5e1d8;
+    --navy:#1d4e89; --acca:#c8102e; --navy-soft:#eaf1fb;
+    --ex-bg:#eef5ff; --ex-bd:#2f6fbf;
+    --tip-bg:#ecf8f0; --tip-bd:#2e8b57;
+    --warn-bg:#fff5e6; --warn-bd:#d98a00;
+    --bad-bg:#fdeeee; --bad-bd:#c0392b;
+    --mem-bg:#f4effd; --mem-bd:#7a4fc4;
+    --def-bg:#f6f5ef; --def-bd:#8a8370;
+    --exam-bg:#fff8e1; --exam-bd:#b8860b;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+       font-family:"Atkinson Hyperlegible",Verdana,"Segoe UI",Arial,sans-serif;
+       font-size:20px;line-height:1.7}
+  .wrap{max-width:980px;margin:0 auto;padding:0 20px 80px}
+  header.hero{background:linear-gradient(180deg,#f3f7fd 0%,#fdfcf8 100%);border-bottom:1px solid var(--line);padding:42px 20px 30px}
+  header.hero .inner{max-width:980px;margin:0 auto}
+  .tag{display:inline-block;font-family:Lexend,sans-serif;font-size:15px;font-weight:600;letter-spacing:.04em;
+       color:var(--acca);background:#fff;border:1px solid #f1c7cf;border-radius:999px;padding:4px 14px}
+  h1,h2,h3,h4{font-family:Lexend,"Segoe UI",Arial,sans-serif;line-height:1.3;color:#14304f}
+  h1{font-size:44px;margin:16px 0 10px}
+  h2{font-size:32px;margin:0 0 14px}
+  h3{font-size:25px;margin:34px 0 10px;color:var(--navy)}
+  h4{font-size:21px;margin:24px 0 8px}
+  p{margin:0 0 16px}
+  .lead{font-size:22px;color:var(--muted);max-width:820px}
+  a{color:var(--navy)}
+  strong{color:#10263f}
+  ul,ol{padding-left:28px;margin:0 0 16px}
+  li{margin-bottom:8px}
+
+  nav.toc{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin:28px 0 10px}
+  nav.toc h2{font-size:24px;margin-bottom:12px}
+  nav.toc .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:8px 18px}
+  nav.toc a{text-decoration:none;font-size:18px;padding:6px 10px;border-radius:8px;display:block}
+  nav.toc a:hover{background:var(--navy-soft)}
+
+  section.chapter{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:30px 30px 18px;margin:34px 0;
+                  box-shadow:0 1px 3px rgba(0,0,0,.03)}
+  .badge{display:inline-block;font-family:Lexend,sans-serif;font-weight:700;font-size:15px;color:#fff;background:var(--navy);
+         border-radius:8px;padding:3px 10px;margin-bottom:10px}
+  .syl{display:inline-block;font-family:Lexend,sans-serif;font-weight:600;font-size:14px;color:var(--acca);background:#fdecef;
+         border-radius:8px;padding:3px 10px;margin:0 0 10px 6px}
+
+  .box{border-left:6px solid;border-radius:10px;padding:16px 20px;margin:20px 0}
+  .box .title{font-family:Lexend,sans-serif;font-weight:600;font-size:19px;margin-bottom:8px;display:block}
+  .box p:last-child,.box ul:last-child,.box ol:last-child{margin-bottom:0}
+  .ex{background:var(--ex-bg);border-color:var(--ex-bd)}
+  .tip{background:var(--tip-bg);border-color:var(--tip-bd)}
+  .warn{background:var(--warn-bg);border-color:var(--warn-bd)}
+  .bad{background:var(--bad-bg);border-color:var(--bad-bd)}
+  .mem{background:var(--mem-bg);border-color:var(--mem-bd)}
+  .def{background:var(--def-bg);border-color:var(--def-bd)}
+  .exam{background:var(--exam-bg);border-color:var(--exam-bd)}
+
+  table{width:100%;border-collapse:collapse;margin:14px 0 22px;font-size:18px;background:#fff}
+  th,td{border:1px solid var(--line);padding:10px 12px;vertical-align:top;text-align:left}
+  th{background:#f1f4f9;font-family:Lexend,sans-serif;font-weight:600;font-size:17px;color:#14304f}
+  tr:nth-child(even) td{background:#fbfbf9}
+  .tablewrap{overflow-x:auto}
+
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:18px 0}
+  .compare > div{border-radius:10px;padding:14px 18px;border:1px solid}
+  .compare .weak{background:var(--bad-bg);border-color:#efc1bb}
+  .compare .strong{background:var(--tip-bg);border-color:#b9e0c7}
+  .compare h4{margin-top:0;font-size:19px}
+
+  .answer{background:#fff;border:1px dashed #b9c6d8;border-radius:10px;padding:18px 22px;margin:16px 0;font-size:19px}
+  .answer h4{margin-top:6px}
+  .marker{font-size:16px;font-family:Lexend,sans-serif;font-weight:600;color:#2e8b57;background:#e3f4ea;border-radius:6px;padding:1px 8px;margin-left:4px;white-space:nowrap}
+  .marker.zero{color:#b0372a;background:#fbe3e0}
+  .note{font-size:17px;color:var(--muted)}
+
+  details{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 18px;margin:12px 0}
+  summary{cursor:pointer;font-weight:700;font-family:Lexend,sans-serif;font-size:19px;color:#14304f}
+  details[open] summary{margin-bottom:10px}
+
+  .steps{counter-reset:step;list-style:none;padding-left:0}
+  .steps li{counter-increment:step;position:relative;padding-left:52px;margin-bottom:14px}
+  .steps li::before{content:counter(step);position:absolute;left:0;top:2px;width:36px;height:36px;border-radius:50%;
+       background:var(--navy);color:#fff;font-family:Lexend,sans-serif;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:17px}
+
+  /* diagrams */
+  .diagram{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;margin:18px 0;text-align:center}
+  .diagram svg{max-width:100%;height:auto}
+  .diagram .cap{font-size:16px;color:var(--muted);margin-top:8px}
+
+  .jsw{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}
+  .jsw > div{border-radius:12px;padding:16px;border:2px solid}
+  .jsw h4{margin:0 0 8px;font-size:20px}
+  .jsw ul{font-size:18px;margin:0;padding-left:22px}
+  .j1{background:#eef5ff;border-color:#9dbbe6}
+  .j2{background:#ecf8f0;border-color:#9fd3b2}
+  .j3{background:#fff5e6;border-color:#f0c47a}
+
+  .pestel{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}
+  .pestel > div{background:#fff;border:1px solid var(--line);border-top:6px solid var(--navy);border-radius:10px;padding:12px 14px;font-size:18px}
+  .pestel b{font-family:Lexend,sans-serif;font-size:20px;display:block;margin-bottom:4px}
+  .p1{border-top-color:#c8102e!important}.p2{border-top-color:#1d4e89!important}.p3{border-top-color:#7a4fc4!important}
+  .p4{border-top-color:#0e8f8f!important}.p5{border-top-color:#2e8b57!important}.p6{border-top-color:#b8860b!important}
+
+  @media (max-width:760px){.compare,.jsw{grid-template-columns:1fr}.pestel{grid-template-columns:1fr 1fr}
+    h1{font-size:34px} h2{font-size:27px} body{font-size:19px} section.chapter{padding:22px 18px 10px}}
+
+  footer{text-align:center;color:var(--muted);font-size:16px;margin-top:40px;border-top:1px solid var(--line);padding-top:20px}
+  .top{position:fixed;right:20px;bottom:20px;background:var(--navy);color:#fff;text-decoration:none;width:48px;height:48px;border-radius:50%;
+       display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+  @media print{.top,nav.toc{display:none} section.chapter{break-inside:avoid-page;box-shadow:none}}
+</style>
+</head>
+<body id="top">
+
+<header class="hero">
+  <div class="inner">
+    <span class="tag">ACCA SBL · Syllabus Section C1 &amp; C2 · Dec 2026 (Sep 2026 – Jun 2027 syllabus)</span>
+    <h1>Strategy Concepts &amp; the External Environment</h1>
+    <p class="lead">This chapter covers what strategy is, why it matters in different kinds of organisation, the Johnson, Scholes &amp; Whittington model, and the tools for analysing the world outside the organisation: PESTEL, key drivers of change, strategic drift, Porter's Diamond and scenario planning. Every topic starts from zero and follows the same seven steps, ending with exam-style answers.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+<nav class="toc">
+  <h2>📚 Contents</h2>
+  <div class="grid">
+    <a href="#s0">0. How to use this chapter</a>
+    <a href="#s1">1. Strategy basics (assumed knowledge)</a>
+    <a href="#s2">2. Strategy in different contexts</a>
+    <a href="#s3">3. The JSW strategy model</a>
+    <a href="#s4">4. Layers of the environment</a>
+    <a href="#s5">5. PESTEL analysis</a>
+    <a href="#s6">6. Key drivers of change</a>
+    <a href="#s7">7. Strategic drift</a>
+    <a href="#s8">8. Porter's Diamond</a>
+    <a href="#s9">9. Scenario planning</a>
+    <a href="#s10">10. Full exam-style mini-case</a>
+    <a href="#s11">11. Common mistakes</a>
+    <a href="#s12">12. Memory tips &amp; cheat sheet</a>
+    <a href="#s13">13. Self-test quiz</a>
+    <a href="#s14">14. What's next</a>
+  </div>
+</nav>
+
+<!-- ===================== 0 ===================== -->
+<section class="chapter" id="s0">
+  <span class="badge">0</span>
+  <h2>How to Use This Chapter</h2>
+  <p>Each main topic follows the same seven steps, so you always know where you are:</p>
+  <div class="tablewrap"><table>
+    <tr><th>Step</th><th>Box colour</th><th>What it gives you</th></tr>
+    <tr><td>1. Simple explanation</td><td>Grey "📖"</td><td>The idea in plain English</td></tr>
+    <tr><td>2. Real business example</td><td>Blue "🏢"</td><td>How it looks in a real or realistic organisation</td></tr>
+    <tr><td>3. How it appears in SBL</td><td>Gold "📝"</td><td>The kind of task wording you'll see</td></tr>
+    <tr><td>4. Model answer</td><td>Dashed white box</td><td>An extract written the way markers reward</td></tr>
+    <tr><td>5. Examiner expectations</td><td>Green "✅"</td><td>What earns the marks</td></tr>
+    <tr><td>6. Common mistakes</td><td>Red "❌"</td><td>What loses the marks</td></tr>
+    <tr><td>7. Memory tip</td><td>Purple "🧠"</td><td>A hook to remember it in a closed-book exam</td></tr>
+  </table></div>
+  <div class="box tip">
+    <span class="title">✅ Link to Chapter 1</span>
+    <p>Keep using the <strong>PAIR</strong> method (Point → Apply → Implication → Response) in every model answer. The models in this chapter tell you <em>what to look for</em>, and PAIR tells you <em>how to write it</em>.</p>
+  </div>
+</section>
+
+<!-- ===================== 1 ===================== -->
+<section class="chapter" id="s1">
+  <span class="badge">1</span><span class="syl">C1a · assumed knowledge</span>
+  <h2>Strategy Basics — The Vocabulary You Must Know</h2>
+  <p>The SBL examiner assumes you know these terms. They come up in almost every exam, so learn them properly first.</p>
+
+  <h3>1.1 What is "strategy"?</h3>
+  <div class="box def">
+    <span class="title">📖 In simple words</span>
+    <p><strong>Strategy is the long-term direction of an organisation</strong>: where it wants to go, and the big choices about how to get there.</p>
+    <p>A widely used definition (Johnson, Scholes &amp; Whittington) describes strategy as the long-term direction of an organisation. Older editions add that it achieves advantage by configuring resources in a changing environment to meet stakeholder expectations.</p>
+  </div>
+  <p>Break that definition into five parts, because each one is something you can comment on in an exam:</p>
+  <div class="tablewrap"><table>
+    <tr><th>Part of the definition</th><th>Meaning</th><th>Question to ask in a case</th></tr>
+    <tr><td><strong>Long-term direction</strong></td><td>Years ahead, not this month</td><td>Where will this organisation be in 5 years?</td></tr>
+    <tr><td><strong>Advantage</strong></td><td>Doing better than rivals (or, in the public sector, delivering more value for money)</td><td>Why would customers or citizens choose it?</td></tr>
+    <tr><td><strong>Resources</strong></td><td>Money, people, buildings, brands, data, know-how</td><td>Does it have what the plan needs?</td></tr>
+    <tr><td><strong>Changing environment</strong></td><td>The outside world keeps moving</td><td>What is changing around it?</td></tr>
+    <tr><td><strong>Stakeholder expectations</strong></td><td>Owners, staff, customers, government, community</td><td>Who must be satisfied?</td></tr>
+  </table></div>
+
+  <div class="box ex">
+    <span class="title">🏢 Example — strategy vs everyday decisions</span>
+    <p><strong>SunnyFoods</strong> makes breakfast cereals.</p>
+    <ul>
+      <li><strong>Strategic decision:</strong> "Over the next 5 years we will move into healthy snack bars and sell in three new countries." This is long-term, big money, affects the whole company and is hard to reverse.</li>
+      <li><strong>Operational decision:</strong> "Run the packing line on Saturday to meet this week's order." This is short-term, small, routine and easy to reverse.</li>
+    </ul>
+  </div>
+
+  <h3>1.2 Characteristics of strategic decisions</h3>
+  <p>A strategic decision usually has most of these features:</p>
+  <ol>
+    <li><strong>Long-term</strong>: its effects last years.</li>
+    <li><strong>Scope</strong>: it defines what the organisation does and does not do (which products, which markets).</li>
+    <li><strong>Large resources</strong>: it commits significant money and people.</li>
+    <li><strong>Complex and uncertain</strong>: the future is unknown and there are many variables.</li>
+    <li><strong>Affects the whole organisation</strong>, and often changes many operational decisions below it.</li>
+    <li><strong>Hard to reverse</strong>: building a factory can't be undone next month.</li>
+    <li><strong>Driven by stakeholders' values and expectations.</strong></li>
+  </ol>
+
+  <h3>1.3 Mission, vision, values, objectives</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Term</th><th>Simple meaning</th><th>Example: "CareFirst Hospital Group" (fictional)</th></tr>
+    <tr><td><strong>Mission</strong></td><td>Why we exist, our core purpose today</td><td>"To provide safe, affordable healthcare to every family in our region."</td></tr>
+    <tr><td><strong>Vision</strong></td><td>What we want to become in the future</td><td>"To be the region's most trusted healthcare provider by 2032."</td></tr>
+    <tr><td><strong>Values</strong></td><td>The principles that guide how we behave</td><td>Patient safety first, compassion, integrity, teamwork</td></tr>
+    <tr><td><strong>Goals / objectives</strong></td><td>Measurable targets that make the mission real</td><td>"Reduce average emergency waiting time from 4 hours to 2 hours by 2028."</td></tr>
+  </table></div>
+
+  <div class="box def">
+    <span class="title">📖 SMART objectives</span>
+    <p>Good objectives are <strong>S</strong>pecific, <strong>M</strong>easurable, <strong>A</strong>chievable, <strong>R</strong>elevant and <strong>T</strong>ime-bound.</p>
+    <p>❌ "Improve patient satisfaction." → ✅ "Increase the patient satisfaction score from 72% to 85% by December 2028."</p>
+  </div>
+
+  <h3>1.4 Three levels of strategy</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Level</th><th>Question it answers</th><th>Who decides</th><th>Example (SunnyFoods)</th></tr>
+    <tr><td><strong>Corporate-level</strong></td><td>Which businesses and markets should we be in at all?</td><td>Board / group CEO</td><td>Enter snack bars; sell the frozen-food division</td></tr>
+    <tr><td><strong>Business-level</strong> (competitive)</td><td>How do we compete in each market?</td><td>Divisional managers</td><td>Cereals compete on low price; snack bars compete on health and premium quality</td></tr>
+    <tr><td><strong>Operational</strong> (functional)</td><td>How does each department support the strategy?</td><td>Functional managers</td><td>Marketing launches a fitness campaign; operations sources organic oats</td></tr>
+  </table></div>
+
+  <h3>1.5 How strategy is formed — deliberate vs emergent</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Approach</th><th>Meaning</th><th>Strengths</th><th>Weaknesses</th></tr>
+    <tr><td><strong>Deliberate (rational / planned)</strong></td><td>Analyse → choose → implement, using a formal plan, often for 3–5 years</td><td>Clear direction, coordination, resources allocated logically</td><td>Slow, can become outdated, ignores good ideas from below</td></tr>
+    <tr><td><strong>Emergent</strong></td><td>Strategy develops over time from patterns of actions and learning, often bottom-up</td><td>Flexible, responds to change, uses front-line knowledge</td><td>Can lack direction, harder to control and fund</td></tr>
+    <tr><td><strong>Incremental ("logical incrementalism")</strong></td><td>Small, step-by-step adjustments, testing as you go</td><td>Low risk, learns from experience</td><td>May be too slow when big change is needed (this leads to <em>strategic drift</em>, section 7)</td></tr>
+  </table></div>
+  <div class="box ex">
+    <span class="title">🏢 Real example — emergent strategy</span>
+    <p>Many well-known products began as side experiments rather than planned strategy. A workplace chat tool, for example, started life as an internal communication tool built by a games company. When the game failed, the tool became the business. Management <strong>recognised a pattern and backed it</strong>. In practice most organisations combine a deliberate plan with emergent learning.</p>
+  </div>
+
+  <h3>1.6 Strategic decisions vs operational decisions — summary</h3>
+  <div class="tablewrap"><table>
+    <tr><th></th><th>Strategic</th><th>Operational</th></tr>
+    <tr><td>Time horizon</td><td>Long (3–10 years)</td><td>Short (days to months)</td></tr>
+    <tr><td>Scope</td><td>Whole organisation</td><td>One department or process</td></tr>
+    <tr><td>Certainty</td><td>Low</td><td>High</td></tr>
+    <tr><td>Reversibility</td><td>Hard</td><td>Easy</td></tr>
+    <tr><td>Example</td><td>Merge with a competitor</td><td>Order more stock</td></tr>
+  </table></div>
+
+  <div class="box mem">
+    <span class="title">🧠 Memory tip</span>
+    <p><strong>Strategy = "Where are we going, and how will we win?"</strong> Mission = why, vision = where, objectives = how much and by when.</p>
+  </div>
+</section>
+
+<!-- ===================== 2 ===================== -->
+<section class="chapter" id="s2">
+  <span class="badge">2</span><span class="syl">C1a</span>
+  <h2>Why Strategy Matters in Different Organisational Contexts</h2>
+  <div class="box def">
+    <span class="title">📖 In simple words</span>
+    <p>Every organisation needs strategy, but <strong>what it is for and who it must satisfy</strong> differs. A charity's strategy is judged differently from a listed company's. The SBL exam can be set in any type of organisation, so you must adapt.</p>
+  </div>
+
+  <div class="tablewrap"><table>
+    <tr><th>Context</th><th>Main purpose of strategy</th><th>Special features to mention in an answer</th></tr>
+    <tr><td><strong>Large listed company</strong></td><td>Create shareholder value and competitive advantage</td><td>Investor pressure, short-termism, reporting to markets, global competition</td></tr>
+    <tr><td><strong>Small / medium enterprise (SME)</strong></td><td>Survive, grow, find a niche</td><td>Owner-manager dominates decisions, limited cash, informal planning, reliance on a few customers</td></tr>
+    <tr><td><strong>Multinational</strong></td><td>Coordinate many countries and businesses</td><td>Balancing global efficiency with local adaptation, currency and political risk, complex structures</td></tr>
+    <tr><td><strong>Public sector</strong> (government hospital, school, agency)</td><td>Deliver public services and <strong>public value</strong> within a budget</td><td>Political influence, many stakeholders, value for money (the 3 E's), accountability to citizens, funding set by government</td></tr>
+    <tr><td><strong>Not-for-profit / charity</strong></td><td>Achieve a social mission</td><td>Donors and volunteers, mission drift risk, measuring outcomes is hard, limited funds</td></tr>
+    <tr><td><strong>Professional services</strong> (law, accounting, consulting)</td><td>Attract and retain talent and clients</td><td>The people <em>are</em> the asset, partnership structures, reputation</td></tr>
+    <tr><td><strong>Start-up / entrepreneurial firm</strong></td><td>Find a business model that works and scale it</td><td>High uncertainty, emergent strategy, investor funding rounds</td></tr>
+  </table></div>
+
+  <div class="box ex">
+    <span class="title">🏢 Example — same decision, different contexts</span>
+    <p>Decision: <em>"Should we close our least-used site?"</em></p>
+    <ul>
+      <li><strong>Listed retailer:</strong> mainly a profit question. If the store loses money and the land can be sold, closure increases shareholder value.</li>
+      <li><strong>Public hospital:</strong> even if the site is costly, closing it may leave a rural community with no nearby care. Political approval, public consultation and equity of access matter as much as cost.</li>
+      <li><strong>Charity:</strong> closure may save money for the mission, but could upset donors who funded that site.</li>
+    </ul>
+  </div>
+
+  <div class="box exam">
+    <span class="title">📝 How it appears in SBL</span>
+    <p>Rarely as "explain why strategy is important". More often you are expected to <strong>show you understand the context</strong> when evaluating a decision, for example by recognising that a public body must consider political approval, the 3 E's and fairness, not just profit.</p>
+  </div>
+  <div class="box tip">
+    <span class="title">✅ Examiner expectations</span>
+    <ul>
+      <li>Identify the <strong>type of organisation</strong> in the pre-seen and let it shape your answer.</li>
+      <li>For public and not-for-profit bodies, talk about <strong>value for money, public value, mission and accountability</strong> rather than "profit maximisation".</li>
+    </ul>
+  </div>
+  <div class="box bad">
+    <span class="title">❌ Common mistake</span>
+    <p>Writing "this will increase shareholder wealth" about a government hospital or a charity. They have no shareholders in that sense.</p>
+  </div>
+</section>
+
+<!-- ===================== 3 ===================== -->
+<section class="chapter" id="s3">
+  <span class="badge">3</span><span class="syl">C1b</span>
+  <h2>The Johnson, Scholes &amp; Whittington (JSW) Model</h2>
+
+  <div class="box def">
+    <span class="title">📖 Step 1 — In simple words</span>
+    <p>JSW is a map of the whole strategy process. It has <strong>three elements</strong>:</p>
+    <ol>
+      <li><strong>Strategic position</strong>: Where are we now, and what is affecting us? <em>(analysis)</em></li>
+      <li><strong>Strategic choices</strong>: What options do we have, and which should we choose? <em>(choice)</em></li>
+      <li><strong>Strategy in action</strong>: How do we make it happen? <em>(implementation)</em></li>
+    </ol>
+    <p>Your syllabus words these as <strong>strategic analysis, strategic choice and strategic implementation</strong>. They mean the same thing.</p>
+  </div>
+
+  <div class="jsw">
+    <div class="j1">
+      <h4>🔍 Strategic position</h4>
+      <ul>
+        <li><strong>Environment</strong>: PESTEL, Five Forces, scenarios, Diamond</li>
+        <li><strong>Strategic capability</strong>: resources, competences, value chain, SWOT</li>
+        <li><strong>Purpose</strong>: mission, stakeholders, governance, ethics</li>
+        <li><strong>Culture</strong>: cultural web, history</li>
+      </ul>
+    </div>
+    <div class="j2">
+      <h4>🧭 Strategic choices</h4>
+      <ul>
+        <li><strong>Business-level</strong>: how to compete (cost, differentiation)</li>
+        <li><strong>Corporate-level</strong>: which markets and products (Ansoff, BCG)</li>
+        <li><strong>International</strong> strategy</li>
+        <li><strong>Innovation</strong></li>
+        <li><strong>Methods</strong>: organic growth, M&amp;A, alliances</li>
+      </ul>
+    </div>
+    <div class="j3">
+      <h4>⚙️ Strategy in action</h4>
+      <ul>
+        <li><strong>Evaluating</strong> options (suitability, acceptability, feasibility)</li>
+        <li><strong>Organising</strong>: structure and systems</li>
+        <li><strong>Resourcing</strong>: people, IT, finance</li>
+        <li><strong>Leading change</strong></li>
+        <li><strong>Projects</strong>, performance measurement</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="box warn">
+    <span class="title">⚠️ Important: the three elements overlap</span>
+    <p>JSW is <strong>not a strict step 1 → 2 → 3 sequence</strong>. The three elements influence each other: implementation problems may force you to rethink the choice, and a new environmental change may restart the analysis. JSW drew the model as three overlapping circles for exactly this reason.</p>
+  </div>
+
+  <h3>The SAF test — evaluating strategic choices</h3>
+  <p>Within JSW, options are judged with three tests. You'll use these constantly in SBL whenever you're asked to "evaluate" a strategy:</p>
+  <div class="tablewrap"><table>
+    <tr><th>Test</th><th>Question</th><th>Typical evidence</th></tr>
+    <tr><td><strong>Suitability</strong></td><td>Does it fit our position? Does it use our strengths, fix weaknesses, grab opportunities and counter threats?</td><td>PESTEL, SWOT, mission fit</td></tr>
+    <tr><td><strong>Acceptability</strong></td><td>Will stakeholders accept the <strong>returns</strong>, the <strong>risk</strong> and the <strong>reactions</strong>?</td><td>NPV, payback, risk level, stakeholder reactions (Mendelow)</td></tr>
+    <tr><td><strong>Feasibility</strong></td><td>Can we actually do it? Do we have the money, people, skills and technology?</td><td>Cash available, skills gaps, timescales</td></tr>
+  </table></div>
+
+  <div class="box ex">
+    <span class="title">🏢 Step 2 — Example: JSW applied to a coffee chain</span>
+    <p><strong>BeanBox</strong> has 40 coffee shops in one country.</p>
+    <ul>
+      <li><strong>Position:</strong> Office workers are moving to hybrid work, so city-centre footfall is down 25% (environment). BeanBox has a strong loyalty app with 300,000 users (capability). Its mission is "great coffee wherever you are" (purpose).</li>
+      <li><strong>Choices:</strong> (a) close city stores and open in suburbs, (b) launch home coffee subscriptions through the app, (c) merge with a rival.</li>
+      <li><strong>SAF on option (b):</strong> <em>Suitable</em>: it uses the app strength and the "wherever you are" mission. <em>Acceptable</em>: modest investment and low risk. <em>Feasible</em>: it needs logistics capability BeanBox lacks, so it could partner with a courier.</li>
+      <li><strong>Action:</strong> create a subscriptions team, set up the courier partnership, run a 6-month pilot with 10,000 app users, and track KPIs.</li>
+    </ul>
+  </div>
+
+  <div class="box exam">
+    <span class="title">📝 Step 3 — How it appears in SBL</span>
+    <ul>
+      <li>"Evaluate the proposed strategy…" → use <strong>suitability, acceptability, feasibility</strong> as headings.</li>
+      <li>"Explain how the board should approach the development of a new strategy…" → walk through <strong>position → choices → action</strong>, applied to the case.</li>
+      <li>Most often, JSW sits <strong>behind</strong> your thinking without being named, telling you to analyse before recommending.</li>
+    </ul>
+  </div>
+
+  <h4>Step 4 — Model answer extract</h4>
+  <p class="note">Task: "Evaluate the proposal for BeanBox to launch a home coffee subscription service. (8 marks)"</p>
+  <div class="answer">
+    <p><strong>Suitability.</strong> The proposal responds directly to the 25% fall in city-centre footfall caused by hybrid working. It moves sales to where customers now are, at home. It also builds on BeanBox's main strength, its 300,000-user loyalty app, which gives an immediate customer base to market to at almost no cost. It fits the mission of "great coffee wherever you are". <span class="marker">2</span></p>
+    <p><strong>Acceptability.</strong> Investment is modest compared with opening new stores, so financial risk is low and shareholders are likely to support it. Store managers, however, may see it as a threat to in-store sales and resist promoting it. Their bonuses should reflect total customer spend, not just store sales. <span class="marker">2</span></p>
+    <p><strong>Feasibility.</strong> BeanBox has no delivery or warehousing experience. Building this in-house would be slow and costly, so a partnership with an established courier is the more feasible route. Packaging and roasting capacity also need confirming before launch. <span class="marker">2</span></p>
+    <p><strong>Conclusion.</strong> The subscription service is suitable and acceptable. Feasibility depends on securing a delivery partner, so I recommend a 6-month pilot with 10,000 app users before a full launch. <span class="marker">2</span></p>
+  </div>
+
+  <div class="box tip">
+    <span class="title">✅ Step 5 — Examiner expectations</span>
+    <ul>
+      <li>Use SAF as a <strong>structure</strong>, but fill it with <strong>case facts</strong>.</li>
+      <li>Don't just describe the three JSW elements. Show <strong>how they connect</strong> in this case.</li>
+      <li>End with a <strong>clear recommendation</strong>.</li>
+    </ul>
+  </div>
+  <div class="box bad">
+    <span class="title">❌ Step 6 — Common mistakes</span>
+    <ul>
+      <li>Drawing or describing the model in general terms ("JSW has three elements, which are…").</li>
+      <li>Treating it as a rigid sequence.</li>
+      <li>Leaving out feasibility. Students love ideas but forget to check whether the money and skills exist.</li>
+    </ul>
+  </div>
+  <div class="box mem">
+    <span class="title">🧠 Step 7 — Memory tip</span>
+    <p><strong>JSW = "Where are we → Where could we go → How do we get there."</strong> Evaluate options with <strong>SAF: "Should it, Agree to it, Achieve it?"</strong></p>
+  </div>
+</section>
+
+<!-- ===================== 4 ===================== -->
+<section class="chapter" id="s4">
+  <span class="badge">4</span><span class="syl">C2 overview</span>
+  <h2>The Layers of the Business Environment</h2>
+  <div class="box def">
+    <span class="title">📖 In simple words</span>
+    <p>The world outside an organisation can be pictured as <strong>layers</strong>, like an onion. Each layer has its own analysis tool.</p>
+  </div>
+
+  <div class="diagram">
+    <svg viewBox="0 0 560 360" xmlns="http://www.w3.org/2000/svg" font-family="Atkinson Hyperlegible, Verdana, sans-serif">
+      <ellipse cx="280" cy="180" rx="270" ry="170" fill="#eef5ff" stroke="#2f6fbf" stroke-width="2"/>
+      <ellipse cx="280" cy="195" rx="195" ry="125" fill="#ecf8f0" stroke="#2e8b57" stroke-width="2"/>
+      <ellipse cx="280" cy="210" rx="125" ry="80" fill="#fff5e6" stroke="#d98a00" stroke-width="2"/>
+      <ellipse cx="280" cy="222" rx="62" ry="36" fill="#ffffff" stroke="#c8102e" stroke-width="2"/>
+      <text x="280" y="40" text-anchor="middle" font-size="18" font-weight="bold" fill="#1d4e89">Macro-environment</text>
+      <text x="280" y="62" text-anchor="middle" font-size="15" fill="#1f2a37">PESTEL · key drivers · scenarios · Diamond</text>
+      <text x="280" y="100" text-anchor="middle" font-size="17" font-weight="bold" fill="#2e8b57">Industry / sector</text>
+      <text x="280" y="120" text-anchor="middle" font-size="15" fill="#1f2a37">Five Forces</text>
+      <text x="280" y="160" text-anchor="middle" font-size="16" font-weight="bold" fill="#a66a00">Competitors &amp; markets</text>
+      <text x="280" y="178" text-anchor="middle" font-size="14" fill="#1f2a37">segments · rivals</text>
+      <text x="280" y="228" text-anchor="middle" font-size="16" font-weight="bold" fill="#c8102e">Organisation</text>
+    </svg>
+    <div class="cap">Outside in: macro-environment → industry → competitors &amp; markets → organisation. This chapter covers the outer layer; the next chapter covers the inner two.</div>
+  </div>
+
+  <div class="tablewrap"><table>
+    <tr><th>Layer</th><th>What it is</th><th>Tool</th><th>Can the organisation influence it?</th></tr>
+    <tr><td>Macro-environment</td><td>Broad forces affecting <em>everyone</em>: economy, laws, technology, society</td><td>PESTEL, key drivers, scenarios, Porter's Diamond</td><td>Almost never</td></tr>
+    <tr><td>Industry / sector</td><td>Organisations offering similar products or services</td><td>Porter's Five Forces <em>(next chapter)</em></td><td>A little</td></tr>
+    <tr><td>Competitors &amp; markets</td><td>Specific rivals and customer groups</td><td>Segmentation, competitor analysis <em>(next chapter)</em></td><td>Yes, partly</td></tr>
+  </table></div>
+
+  <div class="box def">
+    <span class="title">📖 Two words you will use constantly</span>
+    <ul>
+      <li><strong>Opportunity</strong>: an external change the organisation <em>could</em> benefit from.</li>
+      <li><strong>Threat</strong>: an external change that <em>could</em> harm it.</li>
+    </ul>
+    <p>The same change can be an opportunity for one firm and a threat for another. An ageing population is an <strong>opportunity</strong> for care-home operators and a <strong>threat</strong> (from rising demand and costs) for a public health budget.</p>
+  </div>
+</section>
+
+<!-- ===================== 5 ===================== -->
+<section class="chapter" id="s5">
+  <span class="badge">5</span><span class="syl">C2a</span>
+  <h2>PESTEL Analysis</h2>
+
+  <div class="box def">
+    <span class="title">📖 Step 1 — In simple words</span>
+    <p>PESTEL is a <strong>checklist of six types of outside force</strong>, so you don't miss anything important when scanning the world around an organisation.</p>
+  </div>
+
+  <div class="pestel">
+    <div class="p1"><b>P — Political</b>Government policy, stability, elections, trade policy, public spending, funding decisions</div>
+    <div class="p2"><b>E — Economic</b>Growth or recession, inflation, interest rates, exchange rates, unemployment, disposable income</div>
+    <div class="p3"><b>S — Social</b>Population size and age, lifestyles, health awareness, attitudes, education, migration</div>
+    <div class="p4"><b>T — Technological</b>New tech, automation, AI, digital channels, data, cyber threats, R&amp;D</div>
+    <div class="p5"><b>E — Environmental</b>Climate change, pollution, waste, water and energy scarcity, extreme weather, "green" expectations</div>
+    <div class="p6"><b>L — Legal</b>Laws and regulations: employment, health &amp; safety, data protection, competition, licensing</div>
+  </div>
+
+  <div class="box warn">
+    <span class="title">⚠️ Political vs Legal — a common confusion</span>
+    <p><strong>Political</strong> = what government <em>wants or intends</em> (policies, priorities, stability). <strong>Legal</strong> = what the law <em>requires now</em> (rules you must obey).</p>
+    <p>Example: the government <em>announces</em> it wants to cut sugar consumption (political). A sugar tax <em>is passed</em> and must be paid (legal).</p>
+  </div>
+
+  <h3>How to do a PESTEL properly — the 4-step method</h3>
+  <ol class="steps">
+    <li><strong>Identify</strong> the external factor from the case. <em>"Interest rates have risen from 2% to 6%."</em></li>
+    <li><strong>Explain the impact</strong> on <em>this</em> organisation. <em>"The company has $50m of variable-rate loans, so annual interest rises by $2m."</em></li>
+    <li><strong>Classify and rank</strong>: is it an opportunity or a threat, and how significant? <em>"A major threat: it wipes out 40% of profit."</em></li>
+    <li><strong>Respond</strong>: what should the organisation do? <em>"Refinance part of the debt at a fixed rate and delay non-essential capital spending."</em></li>
+  </ol>
+
+  <div class="box ex">
+    <span class="title">🏢 Step 2 — Full example: PESTEL for a private hospital group</span>
+    <p><strong>Meridian Health</strong> (fictional) runs 5 private hospitals in the country of Westland, funded mainly by insurance companies.</p>
+    <div class="tablewrap"><table>
+      <tr><th>Factor</th><th>Case fact</th><th>Impact on Meridian</th><th>O/T</th></tr>
+      <tr><td><strong>Political</strong></td><td>Government plans to make health insurance compulsory for all private-sector workers</td><td>Millions more insured patients; demand for private care rises</td><td>O ⬆️</td></tr>
+      <tr><td><strong>Economic</strong></td><td>Medical-supply inflation of 9% vs general inflation of 3%</td><td>Costs rise faster than insurer tariffs, so margins are squeezed</td><td>T</td></tr>
+      <tr><td><strong>Social</strong></td><td>Population aged 60+ to double in 10 years; rising diabetes</td><td>Long-term demand for chronic and elderly care</td><td>O</td></tr>
+      <tr><td><strong>Technological</strong></td><td>Telemedicine widely accepted since the pandemic</td><td>Cheaper follow-up consultations; but new online-only competitors</td><td>O &amp; T</td></tr>
+      <tr><td><strong>Environmental</strong></td><td>New targets to cut hospital carbon emissions; summer heatwaves</td><td>Investment needed in energy efficiency; heat-related admissions rise</td><td>T</td></tr>
+      <tr><td><strong>Legal</strong></td><td>New patient data protection law with large fines</td><td>Must upgrade IT security and consent processes</td><td>T</td></tr>
+    </table></div>
+    <p class="note">Notice that every row is about <strong>Meridian</strong> and says <strong>so what</strong>. That is what turns a list into analysis.</p>
+  </div>
+
+  <div class="box ex">
+    <span class="title">🛒 More examples by industry</span>
+    <div class="tablewrap"><table>
+      <tr><th>Industry</th><th>Factor</th><th>Example</th></tr>
+      <tr><td>FMCG (soft drinks)</td><td>Legal / Social</td><td>A sugar tax plus health-conscious consumers push a reformulation to low-sugar drinks</td></tr>
+      <tr><td>Airline</td><td>Economic</td><td>Oil price rises 30%, so fuel (about a quarter of costs) drives ticket price rises</td></tr>
+      <tr><td>Bank</td><td>Technological</td><td>Mobile-only banks attract young customers, so branches close</td></tr>
+      <tr><td>Construction</td><td>Environmental</td><td>Rules on low-carbon buildings raise costs but create a market for green retrofits</td></tr>
+      <tr><td>Software company</td><td>Political</td><td>Government "buy local" procurement policy blocks a foreign vendor from public contracts</td></tr>
+      <tr><td>Government agency</td><td>Political / Economic</td><td>A budget cut of 8% forces a review of which services to keep</td></tr>
+      <tr><td>University</td><td>Social / Political</td><td>Visa rules for international students tighten, causing a fall in fee income</td></tr>
+    </table></div>
+  </div>
+
+  <div class="box exam">
+    <span class="title">📝 Step 3 — How it appears in SBL</span>
+    <ul>
+      <li>"Using an appropriate model, assess the impact of the external environment on [organisation]…" → PESTEL is the natural choice.</li>
+      <li>"Evaluate the opportunities and threats facing…" → PESTEL (and Five Forces) give you the content.</li>
+      <li>Often <strong>not named</strong>. Use PESTEL silently to make sure you've spotted every external issue in the exhibits.</li>
+    </ul>
+  </div>
+
+  <h4>Step 4 — Model answer extract</h4>
+  <p class="note">Task: "Assess the key external factors that will affect Meridian Health's strategy over the next five years. (10 marks)"</p>
+  <div class="answer">
+    <p><strong>Political – compulsory insurance (opportunity, high significance).</strong> The planned law making insurance compulsory for private-sector workers would greatly increase the number of insured patients. Since Meridian is funded mainly by insurers, demand could rise sharply. This is the most significant factor, because it could require new capacity. Meridian should start capacity planning now and talk to insurers about tariff agreements before the law takes effect. <span class="marker">2</span></p>
+    <p><strong>Economic – medical-supply inflation (threat).</strong> Supply costs are rising at 9% while insurer tariffs are usually fixed annually, so each year of the gap erodes margins. Meridian should negotiate group purchasing contracts and build inflation-linked clauses into insurer agreements. <span class="marker">2</span></p>
+    <p><strong>Social – ageing population and diabetes (opportunity).</strong> With the over-60 population set to double in a decade, demand for chronic disease and elderly care will grow steadily. Meridian could develop specialist diabetes and geriatric services, which also suit its long-term positioning. <span class="marker">2</span></p>
+    <p><strong>Legal – data protection law (threat).</strong> Meridian holds sensitive patient data across five hospitals, and the new law carries large fines. A breach would damage both finances and reputation, which is critical in healthcare. A data-protection audit and IT security investment should be prioritised. <span class="marker">2</span></p>
+    <p><strong>Conclusion.</strong> The political change is the biggest opportunity and the data protection law the most urgent threat. Meridian's strategy should focus on capacity growth in chronic care while securing compliance. <span class="marker">2</span></p>
+  </div>
+
+  <div class="box tip">
+    <span class="title">✅ Step 5 — Examiner expectations</span>
+    <ul>
+      <li><strong>Quality over quantity.</strong> Four well-developed factors beat twelve one-liners.</li>
+      <li>Every factor <strong>linked to the case</strong>, with its <strong>impact</strong> explained.</li>
+      <li><strong>Prioritise</strong>: say which factors matter most ("assess" means judge significance).</li>
+      <li>Finish with <strong>what the organisation should do</strong> (commercial acumen).</li>
+      <li>You don't need every letter of PESTEL. Use only the factors the case supports.</li>
+    </ul>
+  </div>
+  <div class="box bad">
+    <span class="title">❌ Step 6 — Common mistakes</span>
+    <ul>
+      <li>Listing generic factors: "Economic: inflation may affect the company."</li>
+      <li>Including <strong>internal</strong> issues ("poor management", "old IT system"). PESTEL is <strong>external only</strong>.</li>
+      <li>Forcing a point under every letter even when the case has nothing for it.</li>
+      <li>Not saying whether each factor is an opportunity or a threat.</li>
+    </ul>
+  </div>
+  <div class="box mem">
+    <span class="title">🧠 Step 7 — Memory tip</span>
+    <p><strong>"Please Explain Some Technical Environmental Laws"</strong> = P-E-S-T-E-L. For each factor think <strong>"Fact → Effect → Response"</strong>.</p>
+  </div>
+</section>
+
+<!-- ===================== 6 ===================== -->
+<section class="chapter" id="s6">
+  <span class="badge">6</span><span class="syl">C2c</span>
+  <h2>Key Drivers of Change</h2>
+
+  <div class="box def">
+    <span class="title">📖 Step 1 — In simple words</span>
+    <p>A PESTEL often produces a long list. <strong>Key drivers of change</strong> are the <strong>few factors from that list that are likely to have the biggest effect</strong> on the structure of an industry, or on whether an organisation's strategy succeeds or fails.</p>
+    <p>Think of PESTEL as casting a wide net and key drivers as picking out the <strong>big fish</strong>.</p>
+  </div>
+
+  <h3>How to identify a key driver</h3>
+  <p>Ask two questions of each PESTEL factor:</p>
+  <ol>
+    <li><strong>Impact:</strong> how much will it change the industry or our strategy? (high or low)</li>
+    <li><strong>Breadth:</strong> does it change the <em>structure</em> of the industry (who competes, how money is made), or only the details?</li>
+  </ol>
+  <p>Factors with <strong>high impact</strong> that <strong>reshape the industry</strong> are the key drivers. Different industries have different key drivers.</p>
+
+  <div class="tablewrap"><table>
+    <tr><th>Industry</th><th>Likely key drivers of change</th><th>How the industry structure changes</th></tr>
+    <tr><td>Healthcare</td><td>Ageing population; digital health and AI diagnostics; funding pressure</td><td>Shift from hospital to home and virtual care; new tech entrants</td></tr>
+    <tr><td>Retail</td><td>E-commerce; consumer data; rising rents</td><td>Fewer, smaller stores; online giants dominate</td></tr>
+    <tr><td>Automotive</td><td>Electrification; emission laws; battery technology</td><td>New EV entrants, need for charging networks, petrol-engine skills become obsolete</td></tr>
+    <tr><td>Energy</td><td>Climate policy; cheap renewables</td><td>Move from large fossil plants to distributed solar and wind</td></tr>
+    <tr><td>Banking</td><td>Fintech; open-banking regulation</td><td>Payments taken over by tech firms; branches decline</td></tr>
+  </table></div>
+
+  <div class="box def">
+    <span class="title">📖 Globalisation drivers (Yip)</span>
+    <p>When an industry is becoming more <strong>global</strong>, JSW suggest four types of driver. These are useful when a case involves international expansion:</p>
+    <ul>
+      <li><strong>Market drivers</strong>: similar customer needs across countries, global customers, transferable marketing (e.g. smartphones).</li>
+      <li><strong>Cost drivers</strong>: economies of scale, cheaper production countries, falling transport costs.</li>
+      <li><strong>Government drivers</strong>: trade agreements, falling tariffs, fewer foreign-ownership restrictions.</li>
+      <li><strong>Competitive drivers</strong>: rivals going global and interdependent operations across countries, which forces you to follow.</li>
+    </ul>
+  </div>
+
+  <div class="box ex">
+    <span class="title">🏢 Step 2 — Example: a newspaper publisher</span>
+    <p>The publisher's PESTEL produced 14 factors, including paper prices, a minor tax change, an ageing readership and the move to free online news. The <strong>key driver</strong> is clearly the <strong>digital shift</strong>: it has destroyed the old model of earning from printed copies and print advertising, and has brought in new competitors (social media, search engines). Paper prices matter, but they don't change the industry's structure.</p>
+  </div>
+
+  <div class="box exam">
+    <span class="title">📝 Step 3 — How it appears in SBL</span>
+    <p>"Evaluate the key drivers of change likely to affect the [sector]…" or "Identify the most significant external changes…". The marker wants <strong>prioritisation</strong>: why <em>these</em> factors, and how they will <strong>reshape</strong> competition.</p>
+  </div>
+
+  <h4>Step 4 — Model answer extract</h4>
+  <p class="note">Task: "Evaluate the key drivers of change in the private hospital sector in Westland. (6 marks)"</p>
+  <div class="answer">
+    <p><strong>Key driver 1 – Compulsory health insurance.</strong> This will expand the insured population and therefore the size of the whole private market. It is likely to attract new entrants, including international hospital groups, and to change the sector from a few established players into a more competitive market. Existing providers must grow capacity quickly to protect their share. <span class="marker">2</span></p>
+    <p><strong>Key driver 2 – Telemedicine.</strong> Virtual consultations remove the need for patients to attend a hospital for follow-ups. That lowers barriers to entry for online-only providers that have no buildings. The value in the sector shifts from bed capacity to digital access and convenience, so hospitals that don't build a digital offer may lose outpatient income. <span class="marker">2</span></p>
+    <p><strong>Why these two.</strong> Medical inflation and environmental rules matter, but they affect all providers equally and don't change how the sector competes. These two drivers alter market size and the basis of competition, so they deserve priority in strategic planning. <span class="marker">2</span></p>
+  </div>
+
+  <div class="box tip">
+    <span class="title">✅ Step 5 — Examiner expectations</span>
+    <ul>
+      <li>Pick the <strong>2–4 most important</strong> factors and <strong>justify why</strong> they matter most.</li>
+      <li>Explain how they change the <strong>industry</strong>, not just the company.</li>
+    </ul>
+  </div>
+  <div class="box bad">
+    <span class="title">❌ Step 6 — Common mistakes</span>
+    <p>Producing a full PESTEL when the question asks for <em>key</em> drivers. That wastes time and shows no judgement.</p>
+  </div>
+  <div class="box mem">
+    <span class="title">🧠 Step 7 — Memory tip</span>
+    <p><strong>"PESTEL finds them, key drivers ranks them."</strong> Key driver = high impact and it changes the rules of the game.</p>
+  </div>
+</section>
+
+<!-- ===================== 7 ===================== -->
+<section class="chapter" id="s7">
+  <span class="badge">7</span><span class="syl">C2b</span>
+  <h2>Strategic Drift</h2>
+
+  <div class="box def">
+    <span class="title">📖 Step 1 — In simple words</span>
+    <p><strong>Strategic drift happens when an organisation's strategy slowly falls out of step with a changing environment.</strong> The organisation keeps doing what made it successful, making only small improvements, while the world changes faster. It doesn't notice the gap until performance collapses.</p>
+    <p>A useful image: a boat drifting slowly on a current. Each minute looks fine, but after an hour it's far from where it should be.</p>
+  </div>
+
+  <h3>The four phases of strategic drift (JSW)</h3>
+  <div class="diagram">
+    <svg viewBox="0 0 640 330" xmlns="http://www.w3.org/2000/svg" font-family="Atkinson Hyperlegible, Verdana, sans-serif">
+      <line x1="60" y1="290" x2="620" y2="290" stroke="#4b5563" stroke-width="2"/>
+      <line x1="60" y1="290" x2="60" y2="20" stroke="#4b5563" stroke-width="2"/>
+      <text x="340" y="320" text-anchor="middle" font-size="15" fill="#4b5563">Time →</text>
+      <text x="22" y="160" text-anchor="middle" font-size="15" fill="#4b5563" transform="rotate(-90 22 160)">Amount of change →</text>
+      <path d="M60 270 Q 250 200 460 70 L 610 40" fill="none" stroke="#2f6fbf" stroke-width="4"/>
+      <text x="520" y="35" font-size="15" fill="#2f6fbf" font-weight="bold">Environmental change</text>
+      <path d="M60 270 L 120 255 L 180 240 L 240 228 L 300 218 L 360 210" fill="none" stroke="#c8102e" stroke-width="4"/>
+      <path d="M360 210 L 380 190 L 395 225 L 410 175 L 425 215 L 440 180" fill="none" stroke="#c8102e" stroke-width="3" stroke-dasharray="5 4"/>
+      <path d="M440 180 L 480 90 L 610 60" fill="none" stroke="#2e8b57" stroke-width="4"/>
+      <path d="M440 180 L 520 280" fill="none" stroke="#7a1f1f" stroke-width="3" stroke-dasharray="6 5"/>
+      <text x="150" y="285" font-size="14" fill="#c8102e">Strategy (small steps)</text>
+      <text x="80" y="230" font-size="14" font-weight="bold" fill="#1f2a37">① Incremental</text>
+      <text x="250" y="190" font-size="14" font-weight="bold" fill="#1f2a37">② Drift</text>
+      <text x="360" y="160" font-size="14" font-weight="bold" fill="#1f2a37">③ Flux</text>
+      <text x="470" y="125" font-size="14" font-weight="bold" fill="#2e8b57">④ Transformation</text>
+      <text x="505" y="275" font-size="14" font-weight="bold" fill="#7a1f1f">or death</text>
+    </svg>
+    <div class="cap">The gap between the blue line (the environment) and the red line (strategy) is the drift.</div>
+  </div>
+
+  <div class="tablewrap"><table>
+    <tr><th>Phase</th><th>What happens</th><th>Warning signs</th></tr>
+    <tr><td><strong>1. Incremental change</strong></td><td>Strategy changes in small steps that keep pace with a slowly changing environment. This is normal and healthy.</td><td>Steady performance</td></tr>
+    <tr><td><strong>2. Strategic drift</strong></td><td>The environment speeds up but the organisation keeps making small, familiar changes. The gap widens, often unnoticed because results still look acceptable.</td><td>Market share slipping slowly; "we've always done it this way"; competitors winning new customer groups</td></tr>
+    <tr><td><strong>3. Flux</strong></td><td>Performance falls clearly. Management disagrees about what to do, with lots of conflicting initiatives and no clear direction.</td><td>Falling profits, leadership changes, confusion, internal conflict</td></tr>
+    <tr><td><strong>4. Transformational change or death</strong></td><td>Either a radical change of strategy realigns the organisation with its environment, or it fails, is taken over or closes.</td><td>Restructuring, new CEO, big strategic shift, or collapse</td></tr>
+  </table></div>
+
+  <h3>Why does drift happen?</h3>
+  <ul>
+    <li><strong>Past success breeds complacency.</strong> "Our formula works."</li>
+    <li><strong>Culture and the "paradigm".</strong> Shared, taken-for-granted beliefs filter out uncomfortable information. You'll study this in the <em>cultural web</em> later.</li>
+    <li><strong>Investment lock-in.</strong> Huge sunk costs in the old way (factories, systems, skills).</li>
+    <li><strong>Change is slow to see.</strong> Gradual change doesn't trigger alarms.</li>
+    <li><strong>Powerful internal groups</strong> who benefit from the status quo resist change.</li>
+    <li><strong>Lagging performance measures.</strong> Profit can stay fine for a while even as the future erodes.</li>
+  </ul>
+
+  <h3>How to avoid or escape drift</h3>
+  <ul>
+    <li><strong>Environmental scanning</strong> (PESTEL, key drivers, scenarios) done regularly, with board attention.</li>
+    <li><strong>Leading indicators</strong> in KPIs: customer satisfaction, share among young customers, digital adoption. Not just profit.</li>
+    <li><strong>Diverse board and NEDs</strong> who challenge assumptions.</li>
+    <li>Encouraging <strong>innovation and intrapreneurship</strong>, with small experiments in new models.</li>
+    <li><strong>Strong leadership</strong> willing to drive transformational change before a crisis.</li>
+  </ul>
+
+  <div class="box ex">
+    <span class="title">🏢 Step 2 — Real examples</span>
+    <ul>
+      <li><strong>Kodak:</strong> a leader in photographic film, it even developed early digital camera technology, but kept protecting its highly profitable film business. As consumers moved to digital and then smartphones, film sales collapsed, and the company filed for bankruptcy protection in 2012.</li>
+      <li><strong>Nokia (mobile phones):</strong> dominated phones in the 2000s but kept improving hardware incrementally while the industry switched to app-based smartphones. Its handset business was later sold.</li>
+      <li><strong>Blockbuster:</strong> refined its rental-store model while customers moved to postal rental and then streaming. It ended in closure.</li>
+      <li><strong>A positive example:</strong> some companies escape drift by transforming. Netflix, for instance, moved from posting DVDs to streaming, cannibalising its own core business before rivals could.</li>
+    </ul>
+  </div>
+
+  <div class="box ex">
+    <span class="title">🏥 Example — strategic drift in a public body</span>
+    <p><strong>Eastvale Council Library Service</strong> (fictional) kept extending opening hours and buying more printed books for 15 years. Meanwhile people moved to e-books, online study and community digital hubs. Visits fell 60%, budgets were cut, and the council debated closing branches (flux). The <strong>transformational</strong> option was to reinvent libraries as digital-skills and community hubs, with e-lending, coding clubs and co-working spaces.</p>
+  </div>
+
+  <div class="box exam">
+    <span class="title">📝 Step 3 — How it appears in SBL</span>
+    <ul>
+      <li>"Assess whether [organisation] is suffering from strategic drift…" → find the evidence in the case, identify the <strong>phase</strong>, and explain the <strong>causes</strong>.</li>
+      <li>"Advise the board how to avoid strategic drift…" → recommendations linked to the specific causes in the case.</li>
+      <li>Hidden version: a long-established, once-successful company with declining results and a board that "doesn't see the need to change". Mention drift even if it isn't named.</li>
+    </ul>
+  </div>
+
+  <h4>Step 4 — Model answer extract</h4>
+  <p class="note">Case: "ClassicCards" has printed greeting cards for 60 years. Sales have fallen 4% a year for six years. Its board, mostly long-serving family members, says "people will always want a real card". Online personalised card businesses have grown 20% a year. Task: "Assess whether ClassicCards is experiencing strategic drift. (6 marks)"</p>
+  <div class="answer">
+    <p><strong>Evidence of drift.</strong> ClassicCards' strategy has not changed meaningfully, while the market has moved towards online, personalised cards growing at 20% a year. Its own sales have fallen 4% a year for six years. A steady decline alongside fast change elsewhere is the typical pattern of strategic drift. <span class="marker">2</span></p>
+    <p><strong>Causes.</strong> The board's belief that "people will always want a real card" reflects a paradigm built on 60 years of success, which filters out evidence of changing behaviour. A board of long-serving family members is unlikely to provide fresh challenge. Investment in printing presses also encourages the company to protect the existing model. <span class="marker">2</span></p>
+    <p><strong>Current phase.</strong> The gradual, accepted decline suggests ClassicCards is in the drift phase, moving towards flux. Without transformational change, perhaps launching its own online personalisation platform using its design archive, it risks failure or takeover. Appointing independent NEDs with digital retail experience would help challenge the current thinking. <span class="marker">2</span></p>
+  </div>
+
+  <div class="box tip">
+    <span class="title">✅ Step 5 — Examiner expectations</span>
+    <ul>
+      <li>Use <strong>case evidence</strong> to <em>prove</em> drift: trends, quotes and comparisons with competitors.</li>
+      <li>Explain the <strong>causes</strong> (culture, success, lock-in) as well as the symptoms.</li>
+      <li>Recommend <strong>specific</strong> ways out.</li>
+    </ul>
+  </div>
+  <div class="box bad">
+    <span class="title">❌ Step 6 — Common mistakes</span>
+    <ul>
+      <li>Confusing drift with a <strong>sudden shock</strong> (e.g. a factory fire). Drift is <strong>gradual</strong>.</li>
+      <li>Describing the four phases without placing the organisation in one.</li>
+    </ul>
+  </div>
+  <div class="box mem">
+    <span class="title">🧠 Step 7 — Memory tip</span>
+    <p><strong>"I Drift, Flux, then Transform or Die"</strong> (I-D-F-T/D). The organisation is the frog in slowly heating water: the change is too gradual to feel until it's too late.</p>
+  </div>
+</section>
+
+<!-- ===================== 8 ===================== -->
+<section class="chapter" id="s8">
+  <span class="badge">8</span><span class="syl">C2d</span>
+  <h2>Porter's Diamond — National Competitive Advantage</h2>
+
+  <div class="box def">
+    <span class="title">📖 Step 1 — In simple words</span>
+    <p>Why are certain countries world leaders in certain industries? Think of Swiss watches, Italian fashion, Japanese cars, Silicon Valley tech, or Dutch flowers. Porter said the answer lies in <strong>four features of the home country</strong> that form a "diamond". When all four are strong, firms there develop advantages that help them win globally.</p>
+  </div>
+
+  <div class="diagram">
+    <svg viewBox="0 0 620 420" xmlns="http://www.w3.org/2000/svg" font-family="Atkinson Hyperlegible, Verdana, sans-serif">
+      <polygon points="310,40 560,210 310,380 60,210" fill="#f6f9ff" stroke="#1d4e89" stroke-width="2.5"/>
+      <line x1="310" y1="40" x2="310" y2="380" stroke="#9dbbe6" stroke-width="1.5"/>
+      <line x1="60" y1="210" x2="560" y2="210" stroke="#9dbbe6" stroke-width="1.5"/>
+      <rect x="185" y="14" width="250" height="54" rx="10" fill="#fff" stroke="#c8102e" stroke-width="2"/>
+      <text x="310" y="38" text-anchor="middle" font-size="16" font-weight="bold" fill="#c8102e">Firm strategy, structure</text>
+      <text x="310" y="58" text-anchor="middle" font-size="16" font-weight="bold" fill="#c8102e">&amp; rivalry</text>
+      <rect x="5" y="183" width="170" height="54" rx="10" fill="#fff" stroke="#1d4e89" stroke-width="2"/>
+      <text x="90" y="215" text-anchor="middle" font-size="16" font-weight="bold" fill="#1d4e89">Factor conditions</text>
+      <rect x="445" y="183" width="170" height="54" rx="10" fill="#fff" stroke="#2e8b57" stroke-width="2"/>
+      <text x="530" y="215" text-anchor="middle" font-size="16" font-weight="bold" fill="#2e8b57">Demand conditions</text>
+      <rect x="185" y="352" width="250" height="54" rx="10" fill="#fff" stroke="#7a4fc4" stroke-width="2"/>
+      <text x="310" y="376" text-anchor="middle" font-size="16" font-weight="bold" fill="#7a4fc4">Related &amp; supporting</text>
+      <text x="310" y="396" text-anchor="middle" font-size="16" font-weight="bold" fill="#7a4fc4">industries</text>
+      <text x="565" y="60" text-anchor="end" font-size="15" fill="#b8860b" font-weight="bold">+ Government</text>
+      <text x="55" y="60" font-size="15" fill="#b8860b" font-weight="bold">+ Chance</text>
+    </svg>
+    <div class="cap">Four determinants, plus two outside influences: government and chance.</div>
+  </div>
+
+  <h3>The four determinants explained</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Determinant</th><th>Meaning</th><th>Example</th></tr>
+    <tr><td><strong>1. Factor conditions</strong></td><td>The country's inputs. <strong>Basic factors</strong> are natural resources, climate, unskilled labour and location. <strong>Advanced factors</strong> are skilled people, research institutes, universities and digital infrastructure. Advanced factors matter more for lasting advantage because they are created and hard to copy.</td><td>India's large pool of English-speaking IT graduates helped build its software services industry</td></tr>
+    <tr><td><strong>2. Demand conditions</strong></td><td>The nature of <strong>home-market customers</strong>. Demanding, sophisticated local buyers force firms to innovate and raise quality early.</td><td>Japan's demanding consumers and small homes pushed its firms to make compact, high-quality electronics</td></tr>
+    <tr><td><strong>3. Related &amp; supporting industries</strong></td><td>Strong local <strong>suppliers and connected industries</strong> (clusters) that share knowledge, skills and innovation.</td><td>Italy's leather tanneries, design schools and machinery makers support its luxury shoe and fashion brands</td></tr>
+    <tr><td><strong>4. Firm strategy, structure &amp; rivalry</strong></td><td>How companies are managed and how hard they <strong>compete at home</strong>. Strong domestic rivalry pushes firms to improve, making them fit for global competition.</td><td>Intense rivalry between several German carmakers drives engineering excellence</td></tr>
+    <tr><td><strong>+ Government</strong></td><td>Can strengthen or weaken all four, through education, infrastructure, regulation, tax incentives and trade policy.</td><td>Tax-free zones and investment in fibre networks attract tech firms</td></tr>
+    <tr><td><strong>+ Chance</strong></td><td>Unpredictable events such as inventions, wars or pandemics that can shift advantage.</td><td>A pandemic suddenly accelerated countries with strong digital health infrastructure</td></tr>
+  </table></div>
+
+  <h3>How organisations use Porter's Diamond</h3>
+  <ol>
+    <li><strong>Choosing where to expand or locate</strong>: which country offers the best diamond for our industry?</li>
+    <li><strong>Explaining our home advantage</strong>: what has helped us succeed, and is it transferable abroad?</li>
+    <li><strong>Assessing foreign competitors</strong>: why are rivals from country X so strong?</li>
+    <li><strong>Governments</strong> use it to decide which industries to support.</li>
+  </ol>
+
+  <div class="box ex">
+    <span class="title">🏢 Step 2 — Example: where to locate an AI research hub</span>
+    <p><strong>DataNova</strong>, a software company, is choosing between Country A and Country B for a new AI research centre.</p>
+    <div class="tablewrap"><table>
+      <tr><th>Determinant</th><th>Country A</th><th>Country B</th></tr>
+      <tr><td>Factor conditions</td><td>3 top universities in computer science; high-speed networks</td><td>Low salaries but few AI graduates</td></tr>
+      <tr><td>Demand conditions</td><td>Banks and hospitals are early AI adopters</td><td>Customers price-focused, slow to adopt</td></tr>
+      <tr><td>Related &amp; supporting</td><td>Cluster of cloud providers and AI start-ups</td><td>Few tech suppliers</td></tr>
+      <tr><td>Strategy, structure &amp; rivalry</td><td>Fierce competition for talent and ideas</td><td>Little local competition</td></tr>
+      <tr><td>Government</td><td>R&amp;D tax credits; fast work visas</td><td>Tax holidays but slow visas</td></tr>
+    </table></div>
+    <p><strong>Conclusion:</strong> Country B is cheaper, but Country A's diamond is far stronger for an innovation-driven activity, so DataNova should choose A. For a low-cost data-entry centre, B might be the better choice. <strong>The right answer depends on the activity.</strong></p>
+  </div>
+
+  <div class="box exam">
+    <span class="title">📝 Step 3 — How it appears in SBL</span>
+    <ul>
+      <li>"Using Porter's Diamond, assess whether [country] is a suitable location for…"</li>
+      <li>"Explain why [organisation] has been successful in its home country, and whether this advantage will transfer abroad."</li>
+      <li>Usually appears when a case involves <strong>international expansion</strong> or <strong>competition from foreign firms</strong>.</li>
+    </ul>
+  </div>
+
+  <h4>Step 4 — Model answer extract</h4>
+  <p class="note">Case: "SilkThread", a textile company in Country H, plans to set up a design studio in Country M. Exhibit: Country M has 4 leading fashion design colleges, a cluster of fabric suppliers and fashion houses in its capital, sophisticated fashion-conscious consumers, and many rival studios. Task: "Use Porter's Diamond to assess Country M as a location for the design studio. (8 marks)"</p>
+  <div class="answer">
+    <p><strong>Factor conditions – strong.</strong> Country M's four leading fashion design colleges provide an advanced, specialised talent pool. This is exactly the creative skill a design studio relies on, and it would be hard for SilkThread to develop in Country H. <span class="marker">2</span></p>
+    <p><strong>Demand conditions – strong.</strong> Fashion-conscious, sophisticated consumers give rapid feedback on trends. Designing for them would keep SilkThread's collections ahead and sharpen its products for global markets. <span class="marker">2</span></p>
+    <p><strong>Related and supporting industries – strong.</strong> The cluster of fabric suppliers and fashion houses in the capital would allow fast sampling and prototyping, and gives access to industry networks and knowledge. <span class="marker">2</span></p>
+    <p><strong>Rivalry – a challenge but beneficial.</strong> Many rival studios mean strong competition for top designers, which could push up salaries. However, that rivalry is also what keeps the local design standard high. <strong>Overall</strong>, Country M has a strong diamond for design, and I recommend locating the studio there, with a competitive pay package to attract talent. <span class="marker">2</span></p>
+  </div>
+
+  <div class="box tip">
+    <span class="title">✅ Step 5 — Examiner expectations</span>
+    <ul>
+      <li>Apply <strong>each determinant</strong> to the country and industry in the case.</li>
+      <li>Distinguish <strong>basic vs advanced</strong> factors where relevant.</li>
+      <li>Judge whether the diamond fits the <strong>specific activity</strong>, and give an overall conclusion.</li>
+    </ul>
+  </div>
+  <div class="box bad">
+    <span class="title">❌ Step 6 — Common mistakes</span>
+    <ul>
+      <li><strong>Confusing the Diamond with Five Forces.</strong> The Diamond is about a <em>country's</em> advantage; Five Forces is about an <em>industry's</em> profitability.</li>
+      <li>Analysing the company instead of the <strong>country</strong>.</li>
+    </ul>
+  </div>
+  <div class="box mem">
+    <span class="title">🧠 Step 7 — Memory tip</span>
+    <p><strong>"F-D-R-S" = "Factors, Demand, Related, Strategy"</strong>, plus <strong>G</strong>overnment and <strong>C</strong>hance outside the diamond. Picture a diamond ring: four corners, and the government and luck that bought it.</p>
+  </div>
+</section>
+
+<!-- ===================== 9 ===================== -->
+<section class="chapter" id="s9">
+  <span class="badge">9</span><span class="syl">C2e</span>
+  <h2>Scenario Planning</h2>
+
+  <div class="box def">
+    <span class="title">📖 Step 1 — In simple words</span>
+    <p>Nobody can predict the future. <strong>Scenarios are a few different, believable stories about how the future might turn out</strong>, built around the biggest uncertainties. Instead of betting everything on one forecast, the organisation asks: "If this future happens, what should we do? And if that one happens?"</p>
+    <p>A <strong>forecast</strong> says "this <em>will</em> happen". A <strong>scenario</strong> says "this <em>could</em> happen; are we ready?"</p>
+  </div>
+
+  <h3>When are scenarios useful?</h3>
+  <ul>
+    <li>When the <strong>future is highly uncertain</strong> (new technology, political change, climate).</li>
+    <li>When decisions are <strong>long-term and costly</strong> to reverse (new hospital, power plant, factory).</li>
+    <li>When several factors could combine in different ways.</li>
+  </ul>
+
+  <h3>The 5 steps of building scenarios</h3>
+  <ol class="steps">
+    <li><strong>Set the scope and time horizon.</strong> Example: "Demand for our hospital services in 2035."</li>
+    <li><strong>Identify the key drivers of change</strong> (from PESTEL).</li>
+    <li><strong>Select the 2 drivers that are both HIGH impact and HIGH uncertainty.</strong> Certain factors (e.g. an ageing population, which is almost guaranteed) go into <em>every</em> scenario. Uncertain ones are used to <em>build</em> the different scenarios.</li>
+    <li><strong>Develop 3–4 scenario stories</strong>, usually by combining the two uncertain drivers in a 2×2 grid. Give each a memorable name and describe what the world looks like.</li>
+    <li><strong>Identify the implications and early warning signals</strong>: what each scenario means for strategy, which strategies work across all scenarios ("robust" strategies), and which indicators to watch.</li>
+  </ol>
+
+  <div class="box ex">
+    <span class="title">🏥 Step 2 — Example: scenarios for Meridian Health (2035)</span>
+    <p>Two high-impact, high-uncertainty drivers: <strong>(1) whether compulsory insurance is introduced</strong> and <strong>(2) how far patients adopt virtual care</strong>.</p>
+    <div class="tablewrap"><table>
+      <tr><th></th><th>Low virtual-care adoption</th><th>High virtual-care adoption</th></tr>
+      <tr><td><strong>Compulsory insurance introduced</strong></td><td><strong>"Full Wards"</strong>: a boom in patients wanting physical hospitals. Strategy: build beds fast.</td><td><strong>"Digital Boom"</strong>: many insured patients, mostly served online. Strategy: invest in a telehealth platform plus a few specialist centres.</td></tr>
+      <tr><td><strong>No compulsory insurance</strong></td><td><strong>"Status Quo"</strong>: slow growth. Strategy: efficiency and niche specialisms.</td><td><strong>"Online Challengers"</strong>: limited insured demand and fierce online competition. Strategy: cut fixed costs, partner with a digital provider.</td></tr>
+    </table></div>
+    <p><strong>Robust strategy</strong> (works in all four): build a modest virtual-care capability <em>now</em> and add bed capacity in flexible phases.</p>
+    <p><strong>Early warning signals:</strong> progress of the insurance bill in parliament; monthly share of consultations done online.</p>
+  </div>
+
+  <div class="tablewrap"><table>
+    <tr><th>Advantages of scenarios</th><th>Disadvantages / limitations</th></tr>
+    <tr><td>
+      <ul>
+        <li>Challenges management assumptions and reduces the risk of strategic drift</li>
+        <li>Prepares contingency plans, so faster responses</li>
+        <li>Identifies robust strategies</li>
+        <li>Encourages long-term thinking and debate</li>
+      </ul></td>
+      <td>
+      <ul>
+        <li>Time-consuming and can be costly</li>
+        <li>Scenarios are subjective and may miss the real future</li>
+        <li>Managers may pick a favourite scenario and ignore the rest</li>
+        <li>Too many scenarios cause confusion</li>
+      </ul></td></tr>
+  </table></div>
+
+  <div class="box exam">
+    <span class="title">📝 Step 3 — How it appears in SBL</span>
+    <ul>
+      <li>"Explain how scenario planning could help [organisation] plan for…"</li>
+      <li>"Develop scenarios for…", using drivers given in the exhibits.</li>
+      <li>"Evaluate the use of scenario planning by the board…"</li>
+    </ul>
+  </div>
+
+  <h4>Step 4 — Model answer extract</h4>
+  <p class="note">Task: "Explain how scenario planning could help Meridian Health's board decide whether to build a new 300-bed hospital. (6 marks)"</p>
+  <div class="answer">
+    <p><strong>Dealing with uncertainty.</strong> A 300-bed hospital is a large, irreversible investment that will operate for decades, yet demand depends on two highly uncertain factors: whether compulsory insurance is introduced and how fast patients adopt virtual care. Scenario planning would let the board test the hospital decision against several plausible futures instead of relying on one optimistic forecast. <span class="marker">2</span></p>
+    <p><strong>Finding a robust option.</strong> If the full hospital only makes sense in the "Full Wards" scenario, the board may instead choose a phased design, for example 150 beds with the ability to expand. That performs acceptably across all scenarios and limits the risk of empty capacity. <span class="marker">2</span></p>
+    <p><strong>Early warning signals.</strong> Scenarios would identify signals to monitor, such as the insurance bill's progress and the share of consultations held online. The board could then trigger the second phase only when evidence supports it. <span class="marker">2</span></p>
+  </div>
+
+  <div class="box tip">
+    <span class="title">✅ Step 5 — Examiner expectations</span>
+    <ul>
+      <li>Link scenarios to a <strong>specific decision</strong> in the case.</li>
+      <li>Use the case's <strong>uncertain factors</strong> as drivers.</li>
+      <li>Mention <strong>robust strategies</strong> and <strong>signposts</strong>. These show real understanding.</li>
+    </ul>
+  </div>
+  <div class="box bad">
+    <span class="title">❌ Step 6 — Common mistakes</span>
+    <ul>
+      <li>Calling a scenario a "forecast" or "prediction".</li>
+      <li>Building scenarios around <strong>certain</strong> factors, which don't create different futures.</li>
+      <li>Creating "best / worst / middle" cases of one variable. That is sensitivity analysis, not scenario planning.</li>
+    </ul>
+  </div>
+  <div class="box mem">
+    <span class="title">🧠 Step 7 — Memory tip</span>
+    <p><strong>"2 uncertainties → 4 boxes → 1 robust plan → watch the signals."</strong></p>
+  </div>
+</section>
+
+<!-- ===================== 10 ===================== -->
+<section class="chapter" id="s10">
+  <span class="badge">10</span>
+  <h2>Full Exam-Style Mini-Case</h2>
+
+  <div class="box def">
+    <span class="title">📁 Case: GreenLeaf Beverages</span>
+    <p><strong>Exhibit 1 (pre-seen extract):</strong> GreenLeaf has bottled fizzy soft drinks in Country R for 45 years. It holds 30% of the market. 90% of revenue comes from full-sugar drinks sold through supermarkets. The board has had the same members for 12 years.</p>
+    <p><strong>Exhibit 2 (minutes of board meeting):</strong> CEO: "Our brand is loved. Sales dipped 3% this year, as they did last year, but that's the weather. We should keep doing what we do best." Marketing Director: "Younger customers are buying sparkling flavoured waters and energy drinks from new brands online."</p>
+    <p><strong>Exhibit 3 (news):</strong> Country R's government will introduce a sugar tax of $0.30 per litre on drinks above 8g sugar per 100ml from next year. Plastic bottle deposit rules start in 2 years. The economy is in mild recession, with consumers trading down to supermarket own brands.</p>
+  </div>
+
+  <p><strong>Requirement:</strong> <em>As a consultant, prepare a report to the board which (a) assesses the key external factors affecting GreenLeaf (10 marks), and (b) evaluates whether GreenLeaf is experiencing strategic drift (6 marks). Professional skills marks are available for demonstrating <strong>commercial acumen</strong> (2 marks).</em></p>
+  <p class="note">Time ≈ 35 minutes (18 marks × 1.95). Try writing your own answer first, then open the model answer.</p>
+
+  <details>
+    <summary>❌ Show a weak answer (and why it fails)</summary>
+    <div class="answer" style="border-color:#efc1bb">
+      <p>(a) PESTEL: Political – government can change policies. Economic – recession affects sales. Social – people's tastes change. Technological – new technology. Environmental – climate change is important. Legal – companies must obey laws. <span class="marker zero">1 – only the recession is case-linked</span></p>
+      <p>(b) Strategic drift is when strategy doesn't keep up with the environment. It has 4 phases: incremental, drift, flux and transformation. GreenLeaf might be drifting. <span class="marker zero">½ – theory, no evidence</span></p>
+    </div>
+    <p><strong>Estimated: 1½ / 16 technical, 0 / 2 professional skills.</strong> Not in report format, generic, no prioritisation, no evidence and no recommendations.</p>
+  </details>
+
+  <details open>
+    <summary>✅ Model distinction answer</summary>
+    <div class="answer">
+      <p><strong>REPORT</strong><br><strong>To:</strong> Board of Directors, GreenLeaf Beverages<br><strong>From:</strong> Strategy Consultant<br><strong>Subject:</strong> External environment and strategic position</p>
+
+      <p><strong>1. Introduction</strong><br>This report assesses the main external factors affecting GreenLeaf and evaluates whether its strategy is falling out of step with its market.</p>
+
+      <p><strong>2. Key external factors</strong></p>
+      <p><strong>Legal / political – sugar tax (most significant threat).</strong> The $0.30 per litre tax from next year applies to drinks above 8g sugar per 100ml, which covers most of GreenLeaf's full-sugar range. With 90% of revenue from these drinks, GreenLeaf must either absorb the tax, cutting margins, or raise prices and risk losing volume. Either way, this is the most urgent issue. GreenLeaf should begin reformulating its leading brands below the 8g threshold now. <span class="marker">2</span></p>
+      <p><strong>Social – changing tastes of younger consumers (threat and opportunity).</strong> Younger buyers are moving to flavoured sparkling waters and energy drinks (Exhibit 2), and buying them online from new brands. This shrinks GreenLeaf's future customer base. But the trend also opens a growing segment where GreenLeaf's bottling scale and supermarket relationships could help it compete if it launched its own low-sugar range. <span class="marker">2</span></p>
+      <p><strong>Economic – recession and trading down (threat).</strong> Consumers switching to supermarket own brands puts pressure on GreenLeaf's prices just as the sugar tax raises costs. Price increases would be particularly risky now. Smaller pack sizes at lower price points could protect volume. <span class="marker">2</span></p>
+      <p><strong>Environmental / legal – plastic deposit rules (threat, medium-term).</strong> The deposit scheme in two years will add cost and complexity to plastic bottles. GreenLeaf should plan for recycled or alternative packaging, which could also appeal to environmentally aware younger customers. <span class="marker">2</span></p>
+      <p><strong>Technological – online channels (threat).</strong> New brands sell online directly to consumers, bypassing the supermarkets GreenLeaf depends on. GreenLeaf has no online channel, which weakens its access to younger buyers. <span class="marker">1</span></p>
+      <p><strong>Overall assessment.</strong> The sugar tax and changing tastes are the key drivers. Together they challenge GreenLeaf's core product, so they need a strategic response, not minor adjustments. <span class="marker">1</span></p>
+
+      <p><strong>3. Is GreenLeaf experiencing strategic drift?</strong></p>
+      <p><strong>Evidence.</strong> Sales have fallen 3% in each of the last two years, while competitors in newer categories are growing. GreenLeaf's product range and channels have not changed in response. This gradual decline against a fast-moving market is consistent with strategic drift. <span class="marker">2</span></p>
+      <p><strong>Causes.</strong> The CEO attributes the fall to the weather and wants to "keep doing what we do best". That is a paradigm shaped by 45 years of success, which explains away warning signs. A board unchanged for 12 years is less likely to challenge this view, even though the Marketing Director has flagged the shift. <span class="marker">2</span></p>
+      <p><strong>Phase and urgency.</strong> GreenLeaf appears to be in the drift phase. The sugar tax could quickly push it into flux, with sharply falling profits and internal conflict. Transformational change is needed before that happens. <span class="marker">2</span></p>
+
+      <p><strong>4. Recommendations</strong></p>
+      <ul>
+        <li>Within 3 months, start reformulating the top five brands below the 8g sugar threshold, before the tax applies.</li>
+        <li>Launch a low-sugar sparkling flavoured water range using existing bottling capacity, sold online and in supermarkets.</li>
+        <li>Appoint at least two independent non-executive directors with consumer and digital experience to challenge current assumptions.</li>
+        <li>Set up a packaging project for the deposit scheme, aiming for 50% recycled plastic within two years.</li>
+      </ul>
+    </div>
+    <p><strong>Estimated: 16 / 16 technical (capped) + 2 / 2 commercial acumen.</strong> The commercial acumen comes from linking the tax to the 90% revenue dependence, spotting that price rises are risky in a recession, and using existing bottling capacity and supermarket relationships in the recommendations.</p>
+  </details>
+</section>
+
+<!-- ===================== 11 ===================== -->
+<section class="chapter" id="s11">
+  <span class="badge">11</span>
+  <h2>Common Mistakes in This Chapter (and the Fix)</h2>
+  <div class="tablewrap"><table>
+    <tr><th>#</th><th>Mistake</th><th>Fix</th></tr>
+    <tr><td>1</td><td>Writing a generic PESTEL with no case facts</td><td>Every factor: Fact → Effect → Response</td></tr>
+    <tr><td>2</td><td>Putting internal issues in PESTEL</td><td>PESTEL = external only; internal goes into SWOT strengths/weaknesses</td></tr>
+    <tr><td>3</td><td>Forcing all six letters</td><td>Use only factors the case supports</td></tr>
+    <tr><td>4</td><td>Not prioritising factors</td><td>Say which is "most significant" and why (key drivers)</td></tr>
+    <tr><td>5</td><td>Describing strategic drift phases without evidence</td><td>Prove drift with trends and quotes, and place the organisation in a phase</td></tr>
+    <tr><td>6</td><td>Confusing Porter's Diamond with Five Forces</td><td>Diamond = country advantage; Five Forces = industry attractiveness</td></tr>
+    <tr><td>7</td><td>Calling scenarios "forecasts"</td><td>Scenarios = several plausible futures, not predictions</td></tr>
+    <tr><td>8</td><td>Building scenarios on certain factors</td><td>Use HIGH impact + HIGH uncertainty drivers</td></tr>
+    <tr><td>9</td><td>Using "shareholder" language for public bodies</td><td>Talk about public value, 3 E's, accountability</td></tr>
+    <tr><td>10</td><td>Evaluating a strategy without feasibility</td><td>Always apply all three SAF tests</td></tr>
+  </table></div>
+</section>
+
+<!-- ===================== 12 ===================== -->
+<section class="chapter" id="s12">
+  <span class="badge">12</span>
+  <h2>Memory Tips &amp; One-Page Cheat Sheet</h2>
+  <div class="tablewrap"><table>
+    <tr><th>Topic</th><th>Remember</th><th>Hook</th></tr>
+    <tr><td>Strategy</td><td>Long-term direction; scope; resources; environment; stakeholders</td><td>"Where are we going, how will we win?"</td></tr>
+    <tr><td>Levels</td><td>Corporate → Business → Operational</td><td>"Which game? How to win? Who does what?"</td></tr>
+    <tr><td>JSW</td><td>Position → Choices → Action (overlapping)</td><td>"Where are we → where could we go → how to get there"</td></tr>
+    <tr><td>Evaluating options</td><td>Suitability, Acceptability, Feasibility</td><td>SAF: "Should it, Agree to it, Achieve it?"</td></tr>
+    <tr><td>PESTEL</td><td>Political, Economic, Social, Technological, Environmental, Legal</td><td>"Please Explain Some Technical Environmental Laws"</td></tr>
+    <tr><td>Key drivers</td><td>High-impact factors that reshape the industry</td><td>"PESTEL finds them, key drivers ranks them"</td></tr>
+    <tr><td>Globalisation drivers</td><td>Market, Cost, Government, Competitive</td><td>"MCGC: My Company Goes Corporate"</td></tr>
+    <tr><td>Strategic drift</td><td>Incremental → Drift → Flux → Transformation or death</td><td>"I Drift, Flux, then Transform or Die"; the boiling frog</td></tr>
+    <tr><td>Porter's Diamond</td><td>Factors, Demand, Related &amp; supporting, Strategy/structure/rivalry + Government + Chance</td><td>"F-D-R-S + G &amp; C"; the diamond ring</td></tr>
+    <tr><td>Scenarios</td><td>Scope → drivers → 2 uncertain drivers → 4 stories → implications &amp; signals</td><td>"2 uncertainties → 4 boxes → 1 robust plan → watch the signals"</td></tr>
+  </table></div>
+</section>
+
+<!-- ===================== 13 ===================== -->
+<section class="chapter" id="s13">
+  <span class="badge">13</span>
+  <h2>Self-Test Quiz</h2>
+  <p>Answer each question in your head, or in writing, before opening it.</p>
+
+  <details><summary>Q1. Give three characteristics of a strategic decision.</summary>
+  <p>Any three of: long-term; affects the scope of the organisation; commits large resources; complex and uncertain; affects the whole organisation; hard to reverse; influenced by stakeholder expectations.</p></details>
+
+  <details><summary>Q2. What are the three elements of the JSW model, and why are they drawn as overlapping?</summary>
+  <p>Strategic position, strategic choices and strategy in action. They overlap because they influence each other and don't happen in a strict sequence. For example, implementation difficulties can send you back to rethink the choice.</p></details>
+
+  <details><summary>Q3. Name the three SAF tests and give a question for each.</summary>
+  <p>Suitability: does it fit our position and the opportunities and threats we face? Acceptability: will stakeholders accept the returns, risk and reactions? Feasibility: do we have the money, skills and resources to do it?</p></details>
+
+  <details><summary>Q4. A hospital's IT system is 15 years old and keeps crashing. Is this a PESTEL factor?</summary>
+  <p>No. It is an <strong>internal weakness</strong>, which belongs in SWOT. PESTEL covers external factors only. However, "new cloud-based hospital systems are now widely available" <em>is</em> a technological PESTEL factor.</p></details>
+
+  <details><summary>Q5. Explain the difference between a political and a legal factor, with an example.</summary>
+  <p>Political = government intentions and policy (e.g. the government announces it wants to cut sugar consumption). Legal = laws that must be obeyed now (e.g. a sugar tax is enacted).</p></details>
+
+  <details><summary>Q6. What makes a PESTEL factor a "key driver of change"?</summary>
+  <p>It has a high impact on the industry or the organisation's strategy, and it changes the industry's structure or basis of competition, not just minor details.</p></details>
+
+  <details><summary>Q7. List the four phases of strategic drift.</summary>
+  <p>1. Incremental change. 2. Strategic drift. 3. Flux. 4. Transformational change or death.</p></details>
+
+  <details><summary>Q8. Give three causes of strategic drift.</summary>
+  <p>Any three of: past success and complacency; a cultural paradigm that filters out bad news; investment lock-in in old assets; change being too gradual to notice; powerful groups resisting change; reliance on lagging measures like profit.</p></details>
+
+  <details><summary>Q9. Name the four determinants of Porter's Diamond and the two additional influences.</summary>
+  <p>Factor conditions; demand conditions; related and supporting industries; firm strategy, structure and rivalry. Additional influences: government and chance.</p></details>
+
+  <details><summary>Q10. Why are "advanced" factor conditions more valuable than "basic" ones?</summary>
+  <p>Advanced factors (skilled people, research institutions, digital infrastructure) are created through investment, are specialised and are hard for other countries to copy, so the advantage lasts. Basic factors (natural resources, cheap labour) are easy to find elsewhere or can run out.</p></details>
+
+  <details><summary>Q11. Which drivers should be used to build scenarios, and why?</summary>
+  <p>Those with high impact <em>and</em> high uncertainty. Certain factors appear in every scenario, so they don't create different futures. Low-impact factors don't matter enough.</p></details>
+
+  <details><summary>Q12. What is a "robust" strategy in scenario planning?</summary>
+  <p>A strategy that performs acceptably whichever scenario happens, for example building capacity in flexible phases rather than all at once.</p></details>
+</section>
+
+<!-- ===================== 14 ===================== -->
+<section class="chapter" id="s14">
+  <span class="badge">14</span>
+  <h2>What's Next</h2>
+  <div class="tablewrap"><table>
+    <tr><th>Order</th><th>Chapter</th><th>Status</th></tr>
+    <tr><td>1</td><td>Exam Technique &amp; Professional Skills (I, J)</td><td>✅ Done</td></tr>
+    <tr><td>2</td><td><strong>Strategy Concepts &amp; the External Environment (C1, C2)</strong></td><td>📖 This chapter</td></tr>
+    <tr><td>3</td><td>Competitive Forces: Five Forces, segmentation, value chain, value networks (C3)</td><td>Next</td></tr>
+    <tr><td>4</td><td>Internal Capability: resources, competences, knowledge, SWOT (C4)</td><td>Upcoming</td></tr>
+    <tr><td>5</td><td>Strategic Choices: generic strategies, 7Ps, BCG, Ansoff, growth methods (C5)</td><td>Upcoming</td></tr>
+  </table></div>
+  <div class="box tip">
+    <span class="title">✅ Practice before moving on</span>
+    <ol>
+      <li>Close the notes and write out PESTEL, the four phases of drift, the Diamond and the scenario steps from memory.</li>
+      <li>Attempt the GreenLeaf case in 35 minutes <em>before</em> reading the model answer.</li>
+      <li>Pick any organisation you know from the news and do a 5-factor PESTEL in PAIR format. It takes about 15 minutes.</li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  ACCA Strategic Business Leader (SBL) · Strategy Concepts &amp; the External Environment · Syllabus C1–C2 · Sep 2026 – Jun 2027 (December 2026 sitting)<br>
+  Based on the ACCA SBL Syllabus and Study Guide (Sep 2026 – Jun 2027). Organisations in examples are fictional unless clearly identified as real-world illustrations. Study notes for educational purposes.
+</footer>
+
+</div>
+<a class="top" href="#top" title="Back to top">↑</a>
+</body>
+</html>
