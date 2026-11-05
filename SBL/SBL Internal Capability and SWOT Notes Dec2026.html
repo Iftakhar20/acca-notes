@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Internal Capability and SWOT – ACCA SBL | Dec 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Lexend:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fbfcfd; --paper:#ffffff; --ink:#1c2733; --muted:#4e5b69; --line:#dfe5ea;
+    --steel:#17506e; --steel-soft:#e7f1f6; --brass:#a9761b; --acca:#c8102e;
+    --ex-bg:#eef5ff; --ex-bd:#2f6fbf;
+    --tip-bg:#ecf8f0; --tip-bd:#2e8b57;
+    --warn-bg:#fff5e6; --warn-bd:#d98a00;
+    --bad-bg:#fdeeee; --bad-bd:#c0392b;
+    --mem-bg:#f4effd; --mem-bd:#7a4fc4;
+    --def-bg:#f3f5f6; --def-bd:#76848f;
+    --exam-bg:#fff8e1; --exam-bd:#b8860b;
+    --head:Lexend,"Segoe UI",Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:24px}
+  body{margin:0;background:var(--bg);color:var(--ink);
+       font-family:"Atkinson Hyperlegible",Verdana,"Segoe UI",Arial,sans-serif;
+       font-size:20px;line-height:1.72}
+  #progress{position:fixed;top:0;left:0;height:4px;width:0;background:var(--brass);z-index:20}
+
+  /* hero */
+  header.hero{background:#eaf2f6;border-bottom:1px solid var(--line);overflow:hidden}
+  .hero-in{max-width:1240px;margin:0 auto;padding:52px 28px 44px;display:grid;
+           grid-template-columns:minmax(0,1fr) 300px;gap:28px;align-items:center}
+  .hero .kicker{font-family:var(--head);font-size:16px;font-weight:600;color:var(--acca);margin:0 0 10px}
+  h1{font-family:var(--head);font-size:56px;line-height:1.1;font-weight:700;color:#10384e;margin:0 0 16px;letter-spacing:-.015em}
+  .hero .sub{font-size:23px;line-height:1.5;color:#2b4252;margin:0 0 10px;max-width:640px}
+  .hero .meta{font-size:18px;color:var(--muted);margin:0}
+  .gears{width:100%;height:auto;display:block}
+  .gears g{transform-box:fill-box;transform-origin:center;will-change:transform}
+
+  /* layout */
+  .layout{max-width:1240px;margin:0 auto;padding:0 28px 90px;display:grid;
+          grid-template-columns:270px minmax(0,800px);gap:56px;justify-content:center}
+  nav.rail{position:sticky;top:20px;align-self:start;max-height:calc(100vh - 40px);overflow:auto;padding:32px 0 10px}
+  nav.rail h2{font-family:var(--head);font-size:17px;margin:0 0 10px;color:var(--muted);font-weight:600;border:0;padding:0}
+  nav.rail ol{list-style:none;margin:0;padding:0}
+  nav.rail a{display:block;font-size:17px;line-height:1.35;color:var(--muted);text-decoration:none;
+             padding:7px 12px;border-left:3px solid var(--line)}
+  nav.rail a:hover{color:var(--steel)}
+  nav.rail a.on{color:var(--steel);font-weight:700;border-left-color:var(--brass);background:var(--steel-soft)}
+  main{min-width:0;padding-top:24px}
+
+  /* type */
+  section.chapter{padding:36px 0 40px;border-bottom:1px solid var(--line)}
+  section.chapter:last-of-type{border-bottom:0}
+  h2{font-family:var(--head);font-size:35px;line-height:1.2;font-weight:700;color:#10384e;margin:0 0 16px;letter-spacing:-.01em}
+  h2 .no{color:var(--brass);margin-right:10px}
+  h3{font-family:var(--head);font-size:25px;line-height:1.3;font-weight:600;color:var(--steel);margin:32px 0 10px}
+  h4{font-family:var(--head);font-size:21px;font-weight:600;color:#23323f;margin:24px 0 6px}
+  p{margin:0 0 15px}
+  ul,ol{padding-left:28px;margin:0 0 15px}
+  li{margin:5px 0}
+  a{color:var(--steel)}
+  :focus-visible{outline:3px solid var(--brass);outline-offset:2px}
+  .lead{font-size:22px;line-height:1.6;color:#253746}
+  .learn{font-size:18px;color:var(--muted);margin-top:-8px}
+
+  /* callouts */
+  .box{border-left:5px solid;border-radius:0 12px 12px 0;padding:16px 20px 6px;margin:20px 0}
+  .box .bt{display:block;font-family:var(--head);font-weight:600;font-size:18px;margin:0 0 6px}
+  .ex{background:var(--ex-bg);border-color:var(--ex-bd)} .ex .bt{color:#1e5597}
+  .tip{background:var(--tip-bg);border-color:var(--tip-bd)} .tip .bt{color:#1e6b42}
+  .warn{background:var(--warn-bg);border-color:var(--warn-bd)} .warn .bt{color:#8f5b00}
+  .bad{background:var(--bad-bg);border-color:var(--bad-bd)} .bad .bt{color:#962c20}
+  .mem{background:var(--mem-bg);border-color:var(--mem-bd)} .mem .bt{color:#5a35a0}
+  .def{background:var(--def-bg);border-color:var(--def-bd)} .def .bt{color:#46525c}
+  .exam{background:var(--exam-bg);border-color:var(--exam-bd)} .exam .bt{color:#7d5a06}
+  .step{display:block;font-family:var(--head);font-size:17px;font-weight:600;color:var(--steel);
+        border-top:2px solid var(--steel-soft);padding-top:12px;margin:30px 0 8px}
+  .marks{color:#1e6b42;font-weight:700;white-space:nowrap}
+
+  /* tables */
+  .tablewrap{overflow-x:auto;margin:18px 0}
+  table{border-collapse:collapse;width:100%;font-size:18px;background:var(--paper)}
+  th,td{border-bottom:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+  th{font-family:var(--head);font-weight:600;color:#10384e;background:var(--steel-soft);border-bottom:2px solid #b9d2df}
+  td.n,th.n{text-align:right;white-space:nowrap}
+  tr.total td{font-weight:700;background:#f4f7f8}
+
+  /* concept grids */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}
+  .cell{background:var(--paper);border:1px solid var(--line);border-top:4px solid var(--steel);border-radius:8px;padding:14px 16px 6px}
+  .cell h4{margin:0 0 4px;font-size:19px}
+  .cell.b{border-top-color:var(--brass)}
+  .cell p,.cell li{font-size:18px;line-height:1.55}
+  .ladder{margin:18px 0;padding:0;list-style:none;counter-reset:l}
+  .ladder li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;padding:11px 14px;margin:0;
+             border-left:5px solid var(--steel);background:var(--paper);border-bottom:1px solid var(--line);font-size:18px}
+  .ladder li:nth-child(2){margin-left:18px} .ladder li:nth-child(3){margin-left:36px}
+  .ladder li:nth-child(4){margin-left:54px;border-left-color:var(--brass)}
+  .chain{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-family:var(--head);font-size:17px;font-weight:600;margin:16px 0}
+  .chain span{background:var(--steel-soft);color:#10384e;border-radius:8px;padding:7px 13px}
+  .chain i{font-style:normal;color:var(--brass);font-size:21px}
+
+  /* interactive */
+  .activity{background:var(--paper);border:2px solid #b9d2df;border-radius:12px;padding:18px 20px;margin:24px 0}
+  .activity h4{margin-top:0}
+  .row{padding:12px 0;border-top:1px solid var(--line)}
+  .row:first-of-type{border-top:0}
+  .row .q{margin:0 0 8px;font-size:19px}
+  button.opt{font:600 16px var(--head);color:var(--steel);background:#fff;border:1.5px solid #9dbccb;border-radius:8px;
+             padding:7px 13px;margin:0 6px 6px 0;cursor:pointer}
+  button.opt:hover{background:var(--steel-soft)}
+  button.opt[aria-pressed="true"]{background:var(--steel);color:#fff;border-color:var(--steel)}
+  button.opt.right{background:#2e8b57;border-color:#2e8b57;color:#fff}
+  button.opt.wrong{background:#c0392b;border-color:#c0392b;color:#fff}
+  button.opt:disabled{cursor:default}
+  button.opt.long{display:block;width:100%;text-align:left;font:400 18px/1.45 "Atkinson Hyperlegible",Verdana,sans-serif;color:var(--ink);margin-bottom:8px}
+  button.opt.long.right,button.opt.long.wrong{color:#fff}
+  .fb{font-size:18px;line-height:1.55;margin:6px 0 0;min-height:0}
+  .fb.ok{color:#1e6b42} .fb.no{color:#962c20}
+  .verdict{background:var(--steel-soft);border-radius:8px;padding:12px 15px;margin-top:12px;font-size:19px}
+  .score{font-family:var(--head);font-weight:600;font-size:20px;color:var(--steel);margin:14px 0 0}
+
+  details{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:10px 0}
+  summary{cursor:pointer;font-weight:700;color:#10384e}
+  details[open] summary{margin-bottom:8px}
+  footer{margin-top:26px;color:var(--muted);font-size:16px;line-height:1.55}
+  a.top{position:fixed;right:20px;bottom:20px;width:48px;height:48px;border-radius:50%;background:var(--steel);color:#fff;
+        display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:24px}
+
+  /* phone contents */
+  details.mobile-toc{display:none;margin:18px 0 0}
+
+  @media (max-width:1080px){
+    .layout{grid-template-columns:minmax(0,800px)}
+    nav.rail{display:none}
+    details.mobile-toc{display:block}
+    .hero-in{grid-template-columns:minmax(0,1fr) 210px}
+  }
+  @media (max-width:700px){
+    body{font-size:19px}
+    .hero-in{grid-template-columns:1fr;padding:34px 18px 26px}
+    .gears{max-width:190px}
+    .layout{padding:0 18px 80px}
+    h1{font-size:38px} h2{font-size:29px} h3{font-size:23px}
+    .hero .sub{font-size:20px} .lead{font-size:20px}
+    .grid2{grid-template-columns:1fr}
+    .ladder li{grid-template-columns:1fr;gap:2px}
+    .ladder li:nth-child(n){margin-left:0}
+    .box{padding:14px 15px 4px}
+    table{font-size:17px}
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  @media print{#progress,a.top,nav.rail,details.mobile-toc{display:none}.layout{display:block}body{font-size:14pt}}
+</style>
+</head>
+<body id="top">
+<div id="progress" aria-hidden="true"></div>
+<header class="hero"><div class="hero-in">
+  <div>
+    <p class="kicker">ACCA Strategic Business Leader, syllabus area C4</p>
+    <h1>Internal Capability and SWOT</h1>
+    <p class="sub">What an organisation has, what it does well, and whether rivals can copy it.</p>
+    <p class="meta">Notes for the December 2026 sitting, based on the September 2026 to June 2027 syllabus.</p>
+  </div>
+  <svg class="gears" viewBox="0 0 300 260" aria-hidden="true"><g id="g1"><polygon points="190.0,118.0 201.7,125.1 200.9,132.1 187.8,136.2 186.2,142.1 195.1,152.4 192.2,158.9 178.5,158.8 175.1,163.8 180.4,176.5 175.6,181.6 162.7,177.3 157.8,181.1 159.0,194.7 152.9,198.2 141.8,190.1 136.1,192.2 133.0,205.5 126.1,206.9 118.1,195.8 112.0,196.0 104.9,207.7 97.9,206.9 93.8,193.8 87.9,192.2 77.6,201.1 71.1,198.2 71.2,184.5 66.2,181.1 53.5,186.4 48.4,181.6 52.7,168.7 48.9,163.8 35.3,165.0 31.8,158.9 39.9,147.8 37.8,142.1 24.5,139.0 23.1,132.1 34.2,124.1 34.0,118.0 22.3,110.9 23.1,103.9 36.2,99.8 37.8,93.9 28.9,83.6 31.8,77.1 45.5,77.2 48.9,72.2 43.6,59.5 48.4,54.4 61.3,58.7 66.2,54.9 65.0,41.3 71.1,37.8 82.2,45.9 87.9,43.8 91.0,30.5 97.9,29.1 105.9,40.2 112.0,40.0 119.1,28.3 126.1,29.1 130.2,42.2 136.1,43.8 146.4,34.9 152.9,37.8 152.8,51.5 157.8,54.9 170.5,49.6 175.6,54.4 171.3,67.3 175.1,72.2 188.7,71.0 192.2,77.1 184.1,88.2 186.2,93.9 199.5,97.0 200.9,103.9 189.8,111.9" fill="#17506e"/><circle cx="112" cy="118" r="48.4" fill="#eaf2f6"/><circle cx="112" cy="118" r="39.0" fill="#17506e"/><circle cx="112" cy="118" r="10.9" fill="#eaf2f6"/></g><g id="g2"><polygon points="270.0,70.0 279.5,77.0 278.2,84.0 266.7,86.8 264.1,92.0 268.8,102.9 264.2,108.2 252.8,104.9 248.0,108.1 246.7,119.9 240.0,122.2 231.7,113.6 226.0,114.0 219.0,123.5 212.0,122.2 209.2,110.7 204.0,108.1 193.1,112.8 187.8,108.2 191.1,96.8 187.9,92.0 176.1,90.7 173.8,84.0 182.4,75.7 182.0,70.0 172.5,63.0 173.8,56.0 185.3,53.2 187.9,48.0 183.2,37.1 187.8,31.8 199.2,35.1 204.0,31.9 205.3,20.1 212.0,17.8 220.3,26.4 226.0,26.0 233.0,16.5 240.0,17.8 242.8,29.3 248.0,31.9 258.9,27.2 264.2,31.8 260.9,43.2 264.1,48.0 275.9,49.3 278.2,56.0 269.6,64.3" fill="#a9761b"/><circle cx="226" cy="70" r="27.3" fill="#eaf2f6"/><circle cx="226" cy="70" r="22.0" fill="#a9761b"/><circle cx="226" cy="70" r="6.2" fill="#eaf2f6"/></g><g id="g3"><polygon points="274.0,192.0 282.4,199.0 280.8,205.9 270.1,208.3 267.1,213.2 269.8,223.8 264.5,228.4 254.3,224.1 249.1,226.2 245.0,236.4 238.0,237.0 232.4,227.6 226.9,226.2 217.6,232.1 211.5,228.4 212.5,217.5 208.9,213.2 197.9,212.4 195.2,205.9 202.4,197.6 202.0,192.0 193.6,185.0 195.2,178.1 205.9,175.7 208.9,170.8 206.2,160.2 211.5,155.6 221.7,159.9 226.9,157.8 231.0,147.6 238.0,147.0 243.6,156.4 249.1,157.8 258.4,151.9 264.5,155.6 263.5,166.5 267.1,170.8 278.1,171.6 280.8,178.1 273.6,186.4" fill="#6d9db5"/><circle cx="238" cy="192" r="22.3" fill="#eaf2f6"/><circle cx="238" cy="192" r="18.0" fill="#6d9db5"/><circle cx="238" cy="192" r="5.0" fill="#eaf2f6"/></g></svg>
+</div></header>
+
+<div class="layout">
+<nav class="rail" aria-label="Contents">
+  <h2>In this chapter</h2>
+  <ol id="railList">
+    <li><a href="#s1">1. Where this chapter fits</a></li>
+    <li><a href="#s2">2. Resources and competences</a></li>
+    <li><a href="#s3">3. Threshold or distinctive?</a></li>
+    <li><a href="#s4">4. Finding capabilities</a></li>
+    <li><a href="#s5">5. Reading the numbers</a></li>
+    <li><a href="#s6">6. VRIN and lasting advantage</a></li>
+    <li><a href="#s7">7. Staying ahead</a></li>
+    <li><a href="#s8">8. Organisational knowledge</a></li>
+    <li><a href="#s9">9. SWOT and TOWS</a></li>
+    <li><a href="#s10">10. Timed mini-case</a></li>
+    <li><a href="#s11">11. Common mistakes</a></li>
+    <li><a href="#s12">12. One-page cheat sheet</a></li>
+    <li><a href="#s13">13. Quiz</a></li>
+    <li><a href="#s14">14. What comes next</a></li>
+  </ol>
+</nav>
+
+<main>
+<details class="mobile-toc"><summary>Chapter contents</summary><ol id="mobileList"></ol></details>
+<section class="chapter" id="s1">
+  <h2><span class="no">1</span>Where this chapter fits</h2>
+  <p class="lead">So far you have looked outside the organisation. This chapter turns the camera around and looks inside.</p>
+  <div class="chain"><span>PESTEL: the wider world</span><i>›</i><span>Five Forces: the industry</span><i>›</i><span>This chapter: the organisation</span><i>›</i><span>SWOT: all three together</span></div>
+  <p>The earlier chapters gave you <strong>opportunities and threats</strong>. This chapter gives you <strong>strengths and weaknesses</strong>. SWOT then joins them, and the result feeds your next chapter on strategic choices.</p>
+  <div class="box ex">
+    <span class="bt">The story so far: Maison Varenne</span>
+    <p>Varenne is our fictional Swiss luxury watchmaker. Chairman Henri dismissed smartwatches as gadgets, young analyst Sara warned about strategic drift, and her mentor Marc taught her to write "so what" after every point. Sara has mapped the outside world. Henri now asks her a harder question:</p>
+    <p><em>"Every watch brand says it has heritage and quality. What do we actually have that nobody else can copy?"</em></p>
+    <p>That question is this whole chapter.</p>
+  </div>
+  <h3>Two views of competitive advantage</h3>
+  <div class="grid2">
+    <div class="cell"><h4>Positioning view (Porter)</h4><p>Advantage comes from choosing an attractive industry and a good position in it. Look outside first.</p></div>
+    <div class="cell b"><h4>Resource-based view</h4><p>Advantage comes from what the organisation has and does that others cannot copy. Look inside first.</p></div>
+  </div>
+  <p>A strong exam answer uses both. The market must want what you offer (outside), and you must be able to deliver it better than rivals (inside).</p>
+  <h3>What the syllabus asks of you</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Syllabus</th><th>You must be able to</th><th>Level</th><th>Section</th></tr>
+    <tr><td>C4a</td><td>Identify and evaluate strategic capability, threshold resources and competences, unique resources and core competences</td><td>3</td><td><a href="#s2">2</a> to <a href="#s5">5</a></td></tr>
+    <tr><td>C4b</td><td>Discuss the capabilities needed to sustain competitive advantage</td><td>2</td><td><a href="#s6">6</a>, <a href="#s7">7</a></td></tr>
+    <tr><td>C4c</td><td>Discuss how organisational knowledge contributes to strategic capability</td><td>2</td><td><a href="#s8">8</a></td></tr>
+    <tr><td>C4d</td><td>Identify and evaluate strengths and weaknesses, and formulate an appropriate SWOT</td><td>2</td><td><a href="#s9">9</a></td></tr>
+  </table></div>
+  <div class="box def">
+    <span class="bt">A note on the models</span>
+    <p>The syllabus names threshold resources, unique resources, core competences and SWOT. VRIN, TOWS, SECI and dynamic capabilities are not named in the study guide. They are standard tools for evaluating these outcomes, so use them when they help, but the marks come from your judgement about the case, not from naming a model.</p>
+  </div>
+</section>
+
+<section class="chapter" id="s2">
+  <h2><span class="no">2</span>Resources and competences</h2>
+  <p class="learn">Syllabus C4a</p>
+  <span class="step">Step 1: In simple language</span>
+  <p class="lead"><strong>Resources</strong> are what an organisation <em>has</em>. <strong>Competences</strong> are what it <em>does well</em> with them. Together they make up its <strong>strategic capability</strong>.</p>
+  <div class="box def">
+    <span class="bt">Strategic capability</span>
+    <p>The resources and competences an organisation uses to survive and prosper.</p>
+  </div>
+  <div class="box ex">
+    <span class="bt">The kitchen test</span>
+    <p>Two restaurants buy the same oven, the same ingredients and the same recipe book. Those are resources. One restaurant serves wonderful food on time every night, and the other is chaos. The difference is competence: how the team plans, cooks and works together. Buying equipment gives you a resource. It does not give you the ability to use it well.</p>
+  </div>
+  <h3>The four kinds of resource</h3>
+  <p>Resources can be <strong>tangible</strong> (you can touch them or count them) or <strong>intangible</strong> (you cannot). Intangibles are often the hardest to copy.</p>
+  <div class="tablewrap"><table>
+    <tr><th>Type</th><th>Meaning</th><th>Varenne</th><th>A hospital</th></tr>
+    <tr><td><strong>Physical</strong></td><td>Buildings, machines, stock, location</td><td>Valley workshop, precision tools</td><td>Theatres, scanners, wards</td></tr>
+    <tr><td><strong>Financial</strong></td><td>Cash, access to borrowing, investors</td><td>Family capital, low debt</td><td>Government grant, insurer income</td></tr>
+    <tr><td><strong>Human</strong></td><td>People, skills, experience, relationships</td><td>Master watchmakers</td><td>Specialist surgeons and nurses</td></tr>
+    <tr><td><strong>Intellectual</strong></td><td>Patents, brands, data, know-how, reputation</td><td>200-year-old brand, archive of movement designs</td><td>Clinical data, accreditation, reputation</td></tr>
+  </table></div>
+  <div class="box mem">
+    <span class="bt">Memory tip</span>
+    <p><strong>"Please Feed Hungry Ibex"</strong> gives you Physical, Financial, Human, Intellectual. An ibex is a Swiss mountain goat, so it stays with Varenne.</p>
+    <p><strong>Nouns are resources. Verbs are competences.</strong> "A trained sales team" is a resource. "Winning long-term contracts from large customers" is a competence.</p>
+  </div>
+  <h3>Competences live between people</h3>
+  <p>A competence is rarely owned by one person. It usually comes from several activities and teams working together: how a firm shares information, makes decisions and repeats good work. This is why competences are harder to copy than machines.</p>
+  <div class="tablewrap"><table>
+    <tr><th>Resource (has)</th><th>Competence (does well)</th></tr>
+    <tr><td>Fleet of 400 delivery vans</td><td>Planning routes so that 98% of parcels arrive on time</td></tr>
+    <tr><td>Customer database</td><td>Using the data to predict what each customer will buy next</td></tr>
+    <tr><td>Cash reserves of $50m</td><td>Choosing and integrating acquisitions successfully</td></tr>
+    <tr><td>Qualified nurses</td><td>Moving patients from emergency to a ward within 4 hours</td></tr>
+  </table></div>
+</section>
+
+<section class="chapter" id="s3">
+  <h2><span class="no">3</span>Threshold or distinctive?</h2>
+  <p class="learn">Syllabus C4a. This is the core idea of the chapter.</p>
+  <span class="step">Step 1: In simple language</span>
+  <p class="lead">Some capabilities are the <strong>ticket to play</strong>. Others are the <strong>reason you win</strong>.</p>
+  <ul>
+    <li><strong>Threshold</strong> capabilities are the minimum needed to compete at all. Without them, customers will not consider you. Having them does not make you special, because every serious rival has them too.</li>
+    <li><strong>Distinctive</strong> capabilities are the ones customers value and rivals struggle to match. These create competitive advantage.</li>
+  </ul>
+  <div class="grid2">
+    <div class="cell"><h4>Threshold resources</h4><p>What you must <strong>have</strong> to compete.</p><p>Varenne: a Swiss workshop, "Swiss Made" compliance, quality materials.</p></div>
+    <div class="cell"><h4>Threshold competences</h4><p>What you must <strong>do</strong> adequately to compete.</p><p>Varenne: assembling reliable watches, after-sales servicing.</p></div>
+    <div class="cell b"><h4>Unique resources</h4><p>What you <strong>have</strong> that rivals cannot easily get.</p><p>Varenne: its movement-design archive and brand history.</p></div>
+    <div class="cell b"><h4>Core competences</h4><p>What you <strong>do</strong> better than rivals, in a way that is hard to copy.</p><p>Varenne: hand-finishing complicated movements, passed from master to apprentice.</p></div>
+  </div>
+  <div class="box ex">
+    <span class="bt">Sara's first draft</span>
+    <p>Sara lists "precise movements, Swiss location, good quality control" as Varenne's advantages. Marc crosses them all out.</p>
+    <p>"Every brand in this valley has those. They keep you in the game, but they do not win it. Ask what a collector would miss if Varenne vanished tomorrow."</p>
+    <p>Sara thinks again. Collectors would miss hand-finished complicated movements and a design archive reaching back two centuries. Those are the distinctive items.</p>
+  </div>
+  <h3>Three things that change over time</h3>
+  <ul>
+    <li><strong>Thresholds rise.</strong> Yesterday's advantage becomes tomorrow's minimum. Online banking once made a bank special. Today a bank without an app would lose customers.</li>
+    <li><strong>Thresholds differ by segment.</strong> Excellent cold storage may be distinctive for a general courier, yet threshold for a medicine courier.</li>
+    <li><strong>Too much threshold can waste money.</strong> If you spend heavily on something customers treat as a basic, you add cost without adding value. Meet the threshold, then spend on what makes you different.</li>
+  </ul>
+  <h3>The core competence test (Prahalad and Hamel)</h3>
+  <p>A real core competence passes three tests:</p>
+  <ol>
+    <li><strong>Customer value:</strong> it makes a real difference to what customers care about.</li>
+    <li><strong>Different from rivals:</strong> competitors cannot easily match it.</li>
+    <li><strong>Extendable:</strong> it opens the door to other products or markets.</li>
+  </ol>
+  <div class="box mem">
+    <span class="bt">Memory tips</span>
+    <p><strong>"Ticket to play, reason to win."</strong> Threshold is the ticket. Distinctive is the reason.</p>
+    <p><strong>Core competence tests: C, D, E.</strong> Customer value, Different from rivals, Extendable.</p>
+  </div>
+
+  <span class="step">Step 2: Real business examples</span>
+  <div class="box ex">
+    <span class="bt">Honda</span>
+    <p>Honda's classic core competence is engine design and manufacture. It is valued by customers, hard to match, and extends across motorcycles, cars, lawnmowers and generators. Notice that the competence sits underneath many products. The motorcycle is not the competence.</p>
+  </div>
+  <div class="box ex">
+    <span class="bt">Budget airlines</span>
+    <p>Safety, a licence, trained pilots and online booking are threshold capabilities. No traveller chooses an airline because it has a licence. A low-cost airline's distinctive capability is the system it uses to turn aircraft around quickly and fly them for more hours each day.</p>
+  </div>
+  <div class="box ex">
+    <span class="bt">Public hospital</span>
+    <p>Clinical licences, infection control and qualified staff are threshold capabilities. Patients and funders expect them. A distinctive capability might be a stroke team that treats patients faster than any other in the region, because paramedics, scanners and doctors work as one pathway.</p>
+  </div>
+
+  <span class="step">Step 3: How it may appear in the exam</span>
+  <ul>
+    <li>The chief executive claims something is "our competitive advantage". You must test the claim.</li>
+    <li>You are asked to evaluate the organisation's strategic capabilities before a new strategy.</li>
+    <li>An acquisition is proposed, and you must assess whether the target brings a real core competence.</li>
+    <li>Outsourcing is proposed. Is the activity threshold (may be outsourced) or core (should be kept)?</li>
+  </ul>
+
+  <span class="step">Step 4: A model exam answer</span>
+  <div class="box exam">
+    <span class="bt">Task (8 marks + professional skills)</span>
+    <p>Harbourview Hospital is a fictional 240-bed private hospital with four rivals in its city. All five hold the national licence and international accreditation. In 2024 Harbourview spent $6m on the region's only hybrid cardiac theatre, and a rival has ordered the same equipment for next year. Its cardiac team has worked together for 11 years. Its 30-day cardiac readmission rate is 3.1%, against a city average of 5.8%. Nurse turnover is 24%, against 16% in the city. The CEO says: "Our new theatre is our competitive advantage."</p>
+    <p><strong>Task:</strong> Evaluate Harbourview's strategic capabilities and advise the board on whether the CEO's view is correct.</p>
+  </div>
+  <div class="box tip">
+    <span class="bt">Distinction-level answer</span>
+    <p><strong>Conclusion.</strong> The theatre is a temporary advantage only. Harbourview's real advantage is its cardiac team's clinical outcomes, and high nurse turnover is putting that at risk. <span class="marks">[1]</span></p>
+    <p><strong>Threshold capabilities.</strong> The licence and accreditation are shared by all five hospitals, so they allow Harbourview to compete but give no reason for a patient or insurer to choose it. They must be protected, not promoted. <span class="marks">[1]</span></p>
+    <p><strong>Hybrid cardiac theatre: a unique resource for now.</strong> It is the only one in the region today, but it was bought rather than built. A rival has already ordered one, so the advantage may last about a year. Any competitor with $6m can buy the same machine. <span class="marks">[2]</span></p>
+    <p><strong>Cardiac team: the core competence.</strong> Readmissions are 3.1% against 5.8%, almost half the city rate. This matters directly to patients and to insurers, who pay for repeat admissions. Eleven years of teamwork cannot be bought with the theatre, so rivals would find it hard to copy. It could also extend into other cardiac services. <span class="marks">[2]</span></p>
+    <p><strong>Weakness.</strong> Nurse turnover of 24% is 8 points above the city average. The competence depends on the whole team, so losing experienced nurses may damage the outcomes that set Harbourview apart. <span class="marks">[1]</span></p>
+    <p><strong>Advice.</strong> The board should market outcomes rather than equipment, put retention plans in place for the cardiac team, and investigate nurse turnover. Before making public claims, it should confirm that the readmission data is adjusted for how ill patients were, because a healthier patient mix could explain part of the gap. <span class="marks">[1]</span></p>
+  </div>
+
+  <span class="step">Step 5: What the examiner wants</span>
+  <ul>
+    <li>A <strong>verdict</strong> on each capability, not a definition of it.</li>
+    <li><strong>Evidence</strong> from the case, ideally a number compared with something.</li>
+    <li>A polite challenge to the CEO's claim, which earns <strong>scepticism</strong> marks.</li>
+    <li>An explanation of <strong>why rivals can or cannot copy it</strong>.</li>
+  </ul>
+
+  <span class="step">Step 6: Common mistakes</span>
+  <div class="box bad">
+    <span class="bt">Avoid these</span>
+    <ul>
+      <li>Calling everything positive a core competence. "Good staff" is usually a threshold resource.</li>
+      <li>Treating something expensive as unique. If money can buy it, a rival can buy it too.</li>
+      <li>Naming a product as a competence. The product is the output, and the competence is the ability behind it.</li>
+      <li>Forgetting to say that threshold capabilities still matter. Lose one and you may be out of the market.</li>
+    </ul>
+  </div>
+
+  <span class="step">Step 7: Exam shortcut</span>
+  <div class="box mem">
+    <span class="bt">Three questions for any capability</span>
+    <ol>
+      <li>Do all serious rivals have it? If yes, it is threshold.</li>
+      <li>Do customers care? If no, it is not an advantage, however impressive it sounds.</li>
+      <li>Could a rival get it within a year or two? If yes, it is a temporary advantage.</li>
+    </ol>
+  </div>
+</section>
+
+<section class="chapter" id="s4">
+  <h2><span class="no">4</span>Finding capabilities in a case</h2>
+  <p class="learn">Syllabus C4a. Three practical tools.</p>
+  <h3>Tool 1: A resource audit</h3>
+  <p>A resource audit is a structured review of what the organisation has and how well it uses it. Some study texts use the <strong>"M" checklist</strong>. Use it to scan the exhibits so that you do not miss an area.</p>
+  <div class="tablewrap"><table>
+    <tr><th>Checklist item</th><th>Question to ask</th></tr>
+    <tr><td>Men (people)</td><td>How many, how skilled, how old, how loyal?</td></tr>
+    <tr><td>Machinery</td><td>How old, how reliable, how fully used?</td></tr>
+    <tr><td>Materials</td><td>How secure is supply? What is the quality?</td></tr>
+    <tr><td>Money</td><td>How much cash and debt? How much can it raise?</td></tr>
+    <tr><td>Markets</td><td>Which customers, brands and market positions does it hold?</td></tr>
+    <tr><td>Methods</td><td>How good are its processes?</td></tr>
+    <tr><td>Management</td><td>Is leadership capable and stable?</td></tr>
+    <tr><td>Management information</td><td>Does it have reliable data for decisions?</td></tr>
+    <tr><td>Make-up</td><td>Do structure and culture help or hinder?</td></tr>
+  </table></div>
+  <div class="box warn">
+    <span class="bt">Quantity is not capability</span>
+    <p>A resource is worth nothing until you ask how well it is used. A hospital with 40 operating theatres used 50% of the time may be weaker than one with 25 theatres used 90% of the time.</p>
+  </div>
+  <h3>Tool 2: The value chain</h3>
+  <p>You studied this in the previous chapter. It helps here because it shows <em>where</em> a capability sits. Move along the chain and ask which activities customers really pay for. For Varenne, the distinctive work sits in final assembly and hand-finishing, with support from technology development in the archive. Logistics is merely threshold.</p>
+  <div class="box tip">
+    <span class="bt">Linking to outsourcing</span>
+    <p>This gives you a simple rule for the value networks topic. Consider outsourcing threshold activities if a partner can do them better or cheaper. Keep core competences in-house, because outsourcing one can hand your advantage to a future rival.</p>
+  </div>
+  <h3>Tool 3: Benchmarking</h3>
+  <p>Benchmarking compares performance against a reference point. A strength only exists in comparison with something, so this is the proof behind your S and W.</p>
+  <div class="tablewrap"><table>
+    <tr><th>Compare against</th><th>Example</th><th>Watch out for</th></tr>
+    <tr><td><strong>Your own past</strong></td><td>This year's margin against last year's</td><td>You may improve while rivals improve faster</td></tr>
+    <tr><td><strong>Your industry</strong></td><td>Your hospital's waiting time against the sector average</td><td>The entire sector may be poor</td></tr>
+    <tr><td><strong>Best in class</strong></td><td>A hospital learns patient handover from an airline's crew briefing</td><td>Need to adapt it, not simply copy it</td></tr>
+  </table></div>
+  <div class="box warn">
+    <span class="bt">Limits of benchmarking</span>
+    <p>It shows <em>that</em> a gap exists, but not <em>why</em>. It can also encourage copying rivals, which leads to being the same rather than being better. Check that you are comparing like with like.</p>
+  </div>
+</section>
+
+<section class="chapter" id="s5">
+  <h2><span class="no">5</span>Reading capability from the numbers</h2>
+  <p class="learn">Syllabus C4a and C4d, supported by the analysis professional skill</p>
+  <p class="lead">Numbers turn "we are good" into proof. In the exam, a few simple calculations can lift an average answer into a strong one.</p>
+  <h3>The formulas you need</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Measure</th><th>Formula</th><th>What it tells you</th></tr>
+    <tr><td>Gross margin</td><td>Gross profit ÷ revenue</td><td>How much is kept after direct costs. Shows pricing power and production cost.</td></tr>
+    <tr><td>Operating margin</td><td>Operating profit ÷ revenue</td><td>How much is kept after all running costs.</td></tr>
+    <tr><td>Return on capital employed (ROCE)</td><td>Operating profit ÷ capital employed</td><td>How well all the money invested is being used.</td></tr>
+    <tr><td>Inventory days</td><td>Inventory ÷ cost of sales × 365</td><td>How long stock sits before it is sold.</td></tr>
+  </table></div>
+  <h3>Worked example: Varenne against the sector</h3>
+  <p>Varenne has revenue of $60m and capital employed of $80m.</p>
+  <div class="tablewrap"><table>
+    <tr><th>Measure</th><th class="n">Varenne</th><th class="n">Sector</th><th>Sara's first reaction</th></tr>
+    <tr><td>Revenue growth a year</td><td class="n">2%</td><td class="n">7%</td><td>Weak: losing market share</td></tr>
+    <tr><td>Gross margin</td><td class="n">62%</td><td class="n">55%</td><td>Strong: customers pay for the craft</td></tr>
+    <tr><td>Operating margin</td><td class="n">12%</td><td class="n">17%</td><td>Weak: something is eating the profit</td></tr>
+    <tr><td>ROCE</td><td class="n">9%</td><td class="n">14%</td><td>Weak: capital is working poorly</td></tr>
+    <tr><td>Inventory days</td><td class="n">310</td><td class="n">220</td><td>Weak: too much cash in stock</td></tr>
+    <tr><td>Online share of sales</td><td class="n">6%</td><td class="n">24%</td><td>Weak: a capability gap</td></tr>
+    <tr><td>Master watchmaker turnover</td><td class="n">3%</td><td class="n">9%</td><td>Strong: people stay</td></tr>
+    <tr><td>Average age of master watchmakers</td><td class="n">57</td><td class="n">46</td><td>Hidden danger: retirement</td></tr>
+  </table></div>
+  <h4>Finding the story</h4>
+  <p>Varenne has a <em>higher</em> gross margin but a <em>lower</em> operating margin. So the problem is not the workshop. It lies in the costs between those two lines.</p>
+  <div class="tablewrap"><table>
+    <tr><th>Calculation</th><th class="n">Varenne</th><th class="n">At sector rate</th></tr>
+    <tr><td>Overheads as % of revenue (gross margin less operating margin)</td><td class="n">50%</td><td class="n">38%</td></tr>
+    <tr><td>Overheads on $60m revenue</td><td class="n">$30.0m</td><td class="n">$22.8m</td></tr>
+    <tr class="total"><td>Possible saving</td><td class="n" colspan="2">$7.2m a year</td></tr>
+  </table></div>
+  <p>Operating profit today is 12% × $60m = $7.2m. So closing the overhead gap could, in theory, <strong>double</strong> operating profit.</p>
+  <p>Now look at inventory. Cost of sales is 38% × $60m = $22.8m.</p>
+  <div class="tablewrap"><table>
+    <tr><th>Calculation</th><th class="n">Inventory</th></tr>
+    <tr><td>Today: $22.8m × 310 ÷ 365</td><td class="n">$19.4m</td></tr>
+    <tr><td>At sector level: $22.8m × 220 ÷ 365</td><td class="n">$13.7m</td></tr>
+    <tr class="total"><td>Cash that could be released</td><td class="n">$5.6m</td></tr>
+  </table></div>
+  <div class="box tip">
+    <span class="bt">How Sara writes it up</span>
+    <p>"Varenne's 62% gross margin, 7 points above the sector, shows that customers pay a premium for its craftsmanship. This is a real strength. However, overheads take 50% of revenue against 38% for the sector, about $7.2m a year, so the advantage does not reach the bottom line. We should find out where this excess sits before committing to any expensive new strategy."</p>
+  </div>
+  <div class="box warn">
+    <span class="bt">Now apply scepticism</span>
+    <p>Marc asks Sara to question her own numbers:</p>
+    <ul>
+      <li>Is "the sector" a fair comparison? If it includes large volume groups, their scale will flatter their overheads.</li>
+      <li>Is some extra inventory deliberate? Complicated movements take years to build, and aged stock may hold its value.</li>
+      <li>Could low ROCE reflect property valued at today's prices, rather than poor management?</li>
+      <li>The 3% turnover looks good, but is it loyalty, or people staying until retirement at 57 and above?</li>
+    </ul>
+    <p>These questions earn scepticism marks. Do not simply accept a figure because it appears in an exhibit.</p>
+  </div>
+  <div class="box mem">
+    <span class="bt">Memory tip</span>
+    <p>Use <strong>Number, Compare, Meaning, Action</strong>: state the figure, compare it, explain what it means, and say what to do. "Revenue is $60m" scores nothing on its own.</p>
+  </div>
+</section>
+<section class="chapter" id="s6">
+  <h2><span class="no">6</span>VRIN and lasting advantage</h2>
+  <p class="learn">Syllabus C4b</p>
+  <span class="step">Step 1: In simple language</span>
+  <p class="lead">An advantage only lasts if rivals cannot copy it or work around it. <strong>VRIN</strong> is a four-question test of how long an advantage will last.</p>
+  <ol class="ladder">
+    <li><div><strong>V: Valuable?</strong> Does it help win customers or reduce cost?</div><div>If no: a competitive disadvantage or a waste of money.</div></li>
+    <li><div><strong>R: Rare?</strong> Do only a few organisations have it?</div><div>If no: competitive parity. You are level with rivals.</div></li>
+    <li><div><strong>I: Inimitable?</strong> Is it hard to copy?</div><div>If no: a temporary advantage until rivals catch up.</div></li>
+    <li><div><strong>N: Non-substitutable?</strong> Is there no different way to deliver the same benefit?</div><div>If no: at risk from alternatives. If yes: a <strong>sustained advantage</strong>.</div></li>
+  </ol>
+  <div class="box def">
+    <span class="bt">VRIN or VRIO?</span>
+    <p>Some textbooks swap N for <strong>O: Organisational support</strong>. This asks whether the organisation is set up to use the capability. You can raise this point in an answer whichever version you use: a great asset is wasted if culture, systems or structure get in its way.</p>
+  </div>
+  <h3>Why some things are hard to copy</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Barrier</th><th>Plain meaning</th><th>Example</th></tr>
+    <tr><td><strong>Complexity</strong></td><td>Many activities link together, so copying one part achieves little</td><td>A rival can buy IKEA's furniture designs, but not its whole connected system</td></tr>
+    <tr><td><strong>Causal ambiguity</strong></td><td>Nobody can tell exactly what causes the success, sometimes even the firm itself</td><td>Toyota opened its factories to visitors, yet rivals struggled to match its results</td></tr>
+    <tr><td><strong>Culture and history</strong></td><td>It was built over many years and cannot be bought or rushed</td><td>A 200-year reputation, or a team that has worked together for a decade</td></tr>
+  </table></div>
+  <div class="box mem">
+    <span class="bt">Memory tips</span>
+    <p><strong>"Very Rare Items Never" get copied</strong> gives you V, R, I, N.</p>
+    <p>The barriers are the <strong>3 Cs</strong>: Complexity, Causal ambiguity, Culture and history.</p>
+  </div>
+  <h3>Sara tests Varenne's capabilities</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Capability</th><th>V</th><th>R</th><th>I</th><th>N</th><th>Verdict</th></tr>
+    <tr><td>Precision machines</td><td>Yes</td><td>No</td><td>–</td><td>–</td><td>Parity (threshold)</td></tr>
+    <tr><td>Patented date mechanism, expiring in 3 years</td><td>Yes</td><td>Yes</td><td>No, soon</td><td>–</td><td>Temporary advantage</td></tr>
+    <tr><td>Brand and archive</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Mostly</td><td>Sustained among collectors, but young buyers may pick other status symbols</td></tr>
+    <tr><td>Hand-finishing skill</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Sustained, if the skill survives retirement</td></tr>
+  </table></div>
+  <div class="activity" id="vrinTool">
+    <h4>Try it: run the VRIN test</h4>
+    <p>Pick any capability, perhaps one from your last practice case, and answer honestly.</p>
+    <div class="row"><p class="q">Valuable to customers or cost?</p><button class="opt" data-k="v" data-a="1" aria-pressed="false">Yes</button><button class="opt" data-k="v" data-a="0" aria-pressed="false">No</button></div>
+    <div class="row"><p class="q">Rare among rivals?</p><button class="opt" data-k="r" data-a="1" aria-pressed="false">Yes</button><button class="opt" data-k="r" data-a="0" aria-pressed="false">No</button></div>
+    <div class="row"><p class="q">Hard to copy?</p><button class="opt" data-k="i" data-a="1" aria-pressed="false">Yes</button><button class="opt" data-k="i" data-a="0" aria-pressed="false">No</button></div>
+    <div class="row"><p class="q">Hard to substitute?</p><button class="opt" data-k="n" data-a="1" aria-pressed="false">Yes</button><button class="opt" data-k="n" data-a="0" aria-pressed="false">No</button></div>
+    <p class="verdict" id="vrinOut" aria-live="polite">Answer the questions in order to see the verdict.</p>
+  </div>
+
+  <span class="step">Step 2: Real business examples</span>
+  <div class="box ex">
+    <span class="bt">Apple</span>
+    <p>Rivals can match a phone's screen or camera, so hardware alone gives a short-lived lead. Apple's advantage comes from the way its devices, software, services and brand connect. Customers who have invested in the ecosystem face a cost if they switch. The connections are harder to copy than any single product.</p>
+  </div>
+  <div class="box ex">
+    <span class="bt">Rolex</span>
+    <p>Rolex is known for doing much of its work in-house, including producing its own gold alloys. Together with a very strong brand, this control over quality is difficult to imitate. Many watch brands can buy good components, but few can match the combination.</p>
+  </div>
+  <div class="box ex">
+    <span class="bt">Narayana Health</span>
+    <p>This Indian hospital group is known for delivering heart surgery in high volumes at much lower cost than many hospitals, by applying standard processes and specialisation. A rival can buy the same equipment, but matching the whole system of volumes, routines and culture is much harder.</p>
+  </div>
+
+  <span class="step">Step 3: How it may appear in the exam</span>
+  <ul>
+    <li>"Assess whether the company's competitive advantage is sustainable."</li>
+    <li>A rival is copying the company's main product, or a patent is about to expire.</li>
+    <li>A new technology threatens to substitute for a skill the organisation relies on.</li>
+    <li>The company is about to invest in a capability. Will it last long enough to pay back?</li>
+  </ul>
+
+  <span class="step">Step 4: A model exam answer</span>
+  <div class="box exam">
+    <span class="bt">Task (8 marks + professional skills)</span>
+    <p>Lumio is a fictional cloud payroll provider with 14,000 small business customers. The founder tells investors that its "AI payroll engine" gives it an unbeatable lead. The engine is built on publicly available AI models. Lumio also holds 9 years of anonymised payroll error data, which no rival has at this scale. Moving to another provider takes a customer about 4 months. Annual customer loss is 5%, against a sector average of 14%. Most of its 6 senior developers are approached regularly by rivals.</p>
+    <p><strong>Task:</strong> Evaluate whether Lumio's competitive advantage is sustainable, as a note to the investor committee.</p>
+  </div>
+  <div class="box tip">
+    <span class="bt">Distinction-level answer</span>
+    <p><strong>Overall view.</strong> Lumio has a sustainable advantage, but not for the reason its founder gives. The lasting sources are its data and customer lock-in, not its AI engine. <span class="marks">[1]</span></p>
+    <p><strong>AI engine: temporary at best.</strong> It is valuable, but it is built on public models that any rival can access. It is neither rare nor hard to copy, so investors should not treat it as a lasting barrier. The word "unbeatable" is not supported by this evidence. <span class="marks">[2]</span></p>
+    <p><strong>Payroll error data: the strongest asset.</strong> Nine years of data are valuable because they improve accuracy, and rare because no rival has this scale. Time is the barrier: a new entrant cannot buy history. Its value may fall if rivals gain similar data through partnerships, so this should be monitored. <span class="marks">[2]</span></p>
+    <p><strong>Customer lock-in: strong but needs care.</strong> A four-month move is a real switching cost, and 5% customer loss against 14% suggests that customers stay. However, we should find out whether they stay because they are satisfied or because leaving is painful. If it is the latter, a rival offering a free migration could expose the weakness. <span class="marks">[2]</span></p>
+    <p><strong>Key risk and recommendation.</strong> Six senior developers are a small base and could be lost to rivals. Before investing, the committee should ask Lumio to show retention plans, confirm its rights to use the data, and measure satisfaction separately from retention. <span class="marks">[1]</span></p>
+  </div>
+
+  <span class="step">Step 5: What the examiner wants</span>
+  <ul>
+    <li>Apply the test to <strong>specific</strong> capabilities. Do not write about VRIN in general.</li>
+    <li>Give a clear rating, such as temporary or sustained, with your reasons.</li>
+    <li>Say what could <strong>erode</strong> the advantage and what the organisation should do.</li>
+  </ul>
+
+  <span class="step">Step 6: Common mistakes</span>
+  <div class="box bad">
+    <span class="bt">Avoid these</span>
+    <ul>
+      <li>Explaining all four letters without applying them. The marks are for application.</li>
+      <li>Forgetting substitutes. A rival need not copy you if it can offer the same benefit another way.</li>
+      <li>Assuming any patent gives a lasting advantage. Always check how long it has left.</li>
+      <li>Saying an advantage is sustained for ever. "For now, unless…" is better judgement.</li>
+    </ul>
+  </div>
+
+  <span class="step">Step 7: Exam shortcut</span>
+  <div class="box mem">
+    <span class="bt">Use one sentence per capability</span>
+    <p><strong>"[Capability] gives a [parity / temporary / sustained] advantage because [evidence]. It could be eroded by [threat], so we should [action]."</strong></p>
+  </div>
+</section>
+
+<section class="chapter" id="s7">
+  <h2><span class="no">7</span>Staying ahead</h2>
+  <p class="learn">Syllabus C4b</p>
+  <p class="lead">Even a strong capability ages. Two ideas explain why some organisations renew themselves and others do not.</p>
+  <h3>Core rigidities: when a strength becomes a trap</h3>
+  <p>The very capability that made a firm successful can stop it from changing. Staff, systems and culture all become built around it. This is the internal side of the <strong>strategic drift</strong> you already know.</p>
+  <div class="box ex">
+    <span class="bt">Kodak and Varenne</span>
+    <p>Kodak was outstanding at chemical film, and an engineer there built an early digital camera in 1975. But its profits, skills and culture were tied to film, so it failed to lead the digital shift.</p>
+    <p>Varenne has the same risk. Its mechanical skill is its pride, which is why Henri dismissed quartz in the 1970s and smartwatches today.</p>
+  </div>
+  <h3>Dynamic capabilities: the ability to change capabilities</h3>
+  <div class="box def">
+    <span class="bt">Dynamic capability</span>
+    <p>An organisation's ability to renew and recreate its strategic capabilities as its environment changes.</p>
+  </div>
+  <div class="tablewrap"><table>
+    <tr><th>Stage</th><th>Question</th><th>Varenne could</th></tr>
+    <tr><td><strong>Sense</strong></td><td>What is changing?</td><td>Track resale prices and younger buyers' behaviour, rather than rely on the chairman's opinion</td></tr>
+    <tr><td><strong>Seize</strong></td><td>How do we act on it?</td><td>Run a small trial of certified second-hand sales</td></tr>
+    <tr><td><strong>Reconfigure</strong></td><td>How do we rebuild ourselves?</td><td>Move money and people from wholesale towards online and direct sales</td></tr>
+  </table></div>
+  <div class="box ex">
+    <span class="bt">Netflix</span>
+    <p>Netflix moved from posting DVDs to streaming, then into making its own shows. Each move changed what the company needed to be good at. Its lasting strength has been this ability to shift, rather than any one service.</p>
+  </div>
+  <h3>Sustaining a cost advantage</h3>
+  <p>Not all advantages come from uniqueness. Low cost can also be a strategic capability. It usually comes from:</p>
+  <ul>
+    <li><strong>Economies of scale:</strong> high fixed costs spread across high volumes.</li>
+    <li><strong>Supply costs:</strong> a better location, or buying power.</li>
+    <li><strong>Product and process design:</strong> simpler products and better processes.</li>
+    <li><strong>Experience:</strong> costs fall as people repeat tasks and learn.</li>
+  </ul>
+  <p>A cost advantage must be lower than rivals' costs for a reason they cannot easily copy. Cheap labour alone rarely lasts, because anyone can move to it.</p>
+  <h3>A simple plan for sustaining advantage</h3>
+  <ol>
+    <li><strong>Protect</strong> it: patents, contracts, retention of key people.</li>
+    <li><strong>Deepen</strong> it: keep investing so that rivals chase a moving target.</li>
+    <li><strong>Connect</strong> it: link activities so that copying one part is not enough.</li>
+    <li><strong>Renew</strong> it: use dynamic capabilities before the market forces you to.</li>
+  </ol>
+  <div class="box mem">
+    <span class="bt">Memory tip</span>
+    <p><strong>"Sense, Seize, Reconfigure"</strong> for change. <strong>"Protect, Deepen, Connect, Renew"</strong> for your recommendation section.</p>
+  </div>
+</section>
+
+<section class="chapter" id="s8">
+  <h2><span class="no">8</span>Organisational knowledge</h2>
+  <p class="learn">Syllabus C4c</p>
+  <span class="step">Step 1: In simple language</span>
+  <p class="lead">Organisational knowledge is what the organisation collectively knows from experience. It is often its hardest-to-copy asset, and it can walk out of the door.</p>
+  <div class="chain"><span>Data: raw facts</span><i>›</i><span>Information: facts with meaning</span><i>›</i><span>Knowledge: understanding how to act</span></div>
+  <div class="box ex">
+    <span class="bt">The difference</span>
+    <p><strong>Data:</strong> 37.9. <strong>Information:</strong> the patient's temperature is 37.9°C, up from 36.8°C at noon. <strong>Knowledge:</strong> an experienced nurse knows that this pattern after this operation suggests infection, and calls the doctor early.</p>
+  </div>
+  <h3>Explicit and tacit knowledge</h3>
+  <div class="grid2">
+    <div class="cell"><h4>Explicit knowledge</h4><p>Can be written down and shared: manuals, procedures, databases, patents.</p><p>Easy to store, but also easy for rivals to copy or steal.</p></div>
+    <div class="cell b"><h4>Tacit knowledge</h4><p>Lives in people's heads and hands: judgement, feel, know-how, gained from experience.</p><p>Hard to share, which makes it hard to copy and a source of advantage.</p></div>
+  </div>
+  <div class="box ex">
+    <span class="bt">Riding a bicycle</span>
+    <p>You can read a manual about riding a bicycle (explicit), but you learn balance only by doing it (tacit). Varenne's masters can feel when a tiny spring is correctly tensioned. No drawing fully captures that.</p>
+  </div>
+  <h3>How knowledge moves: Nonaka's SECI model</h3>
+  <div class="grid2">
+    <div class="cell"><h4>Socialisation (tacit to tacit)</h4><p>Learning by working beside someone. An apprentice sits next to a master.</p></div>
+    <div class="cell"><h4>Externalisation (tacit to explicit)</h4><p>Putting know-how into words or video. A master explains and films each step.</p></div>
+    <div class="cell"><h4>Combination (explicit to explicit)</h4><p>Joining documents to create something new. Merging repair records with design files.</p></div>
+    <div class="cell"><h4>Internalisation (explicit to tacit)</h4><p>Learning by doing until the guide is no longer needed. A new watchmaker practises until it is second nature.</p></div>
+  </div>
+  <div class="box mem">
+    <span class="bt">Memory tips</span>
+    <p><strong>"Some Experts Can Inform"</strong> gives you Socialisation, Externalisation, Combination, Internalisation.</p>
+    <p><strong>Tacit is the iceberg under the water.</strong> Manuals show only the tip.</p>
+  </div>
+  <h3>Why knowledge matters to strategy</h3>
+  <ul>
+    <li><strong>Advantage:</strong> tacit knowledge is hard to copy, so it supports core competences.</li>
+    <li><strong>Efficiency:</strong> people stop repeating mistakes and reinventing solutions.</li>
+    <li><strong>Innovation:</strong> new ideas appear when knowledge from different groups combines.</li>
+    <li><strong>Continuity:</strong> the organisation survives when individuals leave.</li>
+  </ul>
+  <h3>Practical ways to manage knowledge</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Method</th><th>Helps with</th><th>Limitation</th></tr>
+    <tr><td>Mentoring and apprenticeships</td><td>Tacit knowledge</td><td>Slow and expensive</td></tr>
+    <tr><td>Communities of practice</td><td>Sharing tacit knowledge across departments</td><td>Need management time and support</td></tr>
+    <tr><td>Knowledge systems and shared databases</td><td>Explicit knowledge</td><td>Become out of date if nobody owns them</td></tr>
+    <tr><td>Video, exit interviews</td><td>Capturing some tacit knowledge</td><td>Capture only part of it</td></tr>
+    <tr><td>AI assistants trained on internal documents</td><td>Finding explicit knowledge quickly</td><td>Quality depends on the data, and confidential data must be protected</td></tr>
+    <tr><td>Rewards for sharing</td><td>Fixing a culture of "knowledge is power"</td><td>Needs a change of culture, not just a bonus</td></tr>
+  </table></div>
+  <h3>Worked example: Varenne's retirement cliff</h3>
+  <p>Sara finds that 14 of Varenne's 30 master watchmakers will retire within 5 years. These 30 produce the complicated watch line, with $18m of annual revenue. Training a master takes 7 years, and an apprentice costs $45,000 a year.</p>
+  <div class="tablewrap"><table>
+    <tr><th>Calculation</th><th class="n">Result</th></tr>
+    <tr><td>Share of masters leaving: 14 ÷ 30</td><td class="n">47%</td></tr>
+    <tr><td>Revenue at risk: 47% × $18m</td><td class="n">$8.4m a year</td></tr>
+    <tr><td>14 apprentices at $45,000 a year</td><td class="n">$0.63m a year</td></tr>
+    <tr><td>Total training cost: $0.63m × 7 years</td><td class="n">$4.41m</td></tr>
+    <tr class="total"><td>Timing gap: 7-year training less 5 years to retirement</td><td class="n">2 years</td></tr>
+  </table></div>
+  <p>Sara spots something a list of ideas would miss. Even if apprentices start today, they will not be ready when the masters leave. So Varenne must also <strong>keep some masters on part-time as teachers</strong> for around two more years. The money is small compared with the risk, while the timing is the real problem.</p>
+
+  <span class="step">Step 2: Real business examples</span>
+  <div class="box ex">
+    <span class="bt">The bread machine (Nonaka's famous case)</span>
+    <p>Matsushita's engineers could not make a home bread machine work. A software developer trained with the head baker at a top Osaka hotel, and noticed that he twisted the dough as he stretched it. She turned this feel into a design instruction, and the machine worked. That is tacit knowledge becoming explicit, then becoming a product.</p>
+  </div>
+  <div class="box ex">
+    <span class="bt">Stradivarius violins</span>
+    <p>Three centuries on, people still debate how Stradivari's workshop produced its violins. Much of what his workshop knew was carried in people, not written down. Knowledge that is not passed on can be lost for good.</p>
+  </div>
+
+  <span class="step">Step 3: How it may appear in the exam</span>
+  <ul>
+    <li>Experienced staff retire, or a key person leaves.</li>
+    <li>Two merging companies must combine their expertise.</li>
+    <li>Departments work in silos, and teams keep repeating one another's mistakes.</li>
+    <li>A company proposes to replace experts with AI or outsource their work.</li>
+    <li>Staff refuse to share because "my knowledge is my job security".</li>
+  </ul>
+
+  <span class="step">Step 4: A model exam answer</span>
+  <div class="box exam">
+    <span class="bt">Task (8 marks + professional skills)</span>
+    <p>Northbank Water Authority is a fictional public body supplying a city of 1.2 million people. Of its 60 senior network engineers, 25 will retire within 4 years. Records of the older pipe network are incomplete, so engineers rely on memory to locate problems. Average repair time is 5 hours, against a 3-hour regulatory target that is met only by the senior engineers. The director of operations suggests "writing everything in a manual before they go". Budgets are tight and taxpayers expect value for money.</p>
+    <p><strong>Task:</strong> Write a briefing note to the board that explains why this knowledge matters and recommends how to protect it.</p>
+  </div>
+  <div class="box tip">
+    <span class="bt">Distinction-level answer</span>
+    <p><strong>Key message.</strong> Northbank is about to lose 42% of its senior engineers (25 of 60), along with knowledge that exists nowhere else. A manual is needed, but it will not solve the problem alone. <span class="marks">[1]</span></p>
+    <p><strong>Why it matters.</strong> Knowing where old pipes run and how they fail is tacit knowledge built up over decades. It lets senior staff meet the 3-hour target, so losing it may lengthen repairs, breach regulatory targets and leave homes without water. Since Northbank has no competitors, the concern is its public duty and value for money rather than market advantage. <span class="marks">[2]</span></p>
+    <p><strong>Assessment of the manual.</strong> It would capture some explicit facts at low cost, but an engineer's judgement cannot be fully written down. We should use it as one part of a wider plan. <span class="marks">[1]</span></p>
+    <p><strong>Recommendations.</strong></p>
+    <ol>
+      <li>Pair each retiring engineer with a successor on live repairs, starting with the most critical areas. This transfers tacit knowledge, and it uses existing staff time. <span class="marks">[1]</span></li>
+      <li>Use site visits with tablets to map old pipes as engineers walk them, turning memory into a digital asset that lasts. <span class="marks">[1]</span></li>
+      <li>Offer some retirees a part-time return to mentor during peak periods. This buys time at modest cost. <span class="marks">[1]</span></li>
+      <li>Report progress to the board using the share of the network mapped and the repair times of newer engineers. <span class="marks">[1]</span></li>
+    </ol>
+  </div>
+
+  <span class="step">Step 5: What the examiner wants</span>
+  <ul>
+    <li>Use tacit and explicit <strong>correctly</strong>, tied to the people in the case.</li>
+    <li>Link knowledge to the organisation's <strong>objectives</strong>, which may be public duty rather than profit.</li>
+    <li>Recommend practical steps that fit the budget, the people and the deadline.</li>
+    <li>Recognise that culture often blocks sharing, not technology.</li>
+  </ul>
+
+  <span class="step">Step 6: Common mistakes</span>
+  <div class="box bad">
+    <span class="bt">Avoid these</span>
+    <ul>
+      <li>Recommending only an IT system. Technology stores explicit knowledge, but tacit knowledge needs people.</li>
+      <li>Confusing information with knowledge.</li>
+      <li>Assuming all knowledge should be documented. Writing down the crown jewels can make them easier for a leaver to take.</li>
+      <li>Ignoring why people may not share, such as fear of losing their jobs.</li>
+    </ul>
+  </div>
+
+  <span class="step">Step 7: Exam shortcut</span>
+  <div class="box mem">
+    <span class="bt">Three questions for any knowledge issue</span>
+    <ol>
+      <li><strong>Who</strong> holds it, and when might it leave?</li>
+      <li><strong>What type</strong> is it: tacit or explicit?</li>
+      <li><strong>How</strong> do we transfer it: people for tacit, systems for explicit?</li>
+    </ol>
+  </div>
+</section>
+
+<section class="chapter" id="s9">
+  <h2><span class="no">9</span>SWOT and TOWS</h2>
+  <p class="learn">Syllabus C4d</p>
+  <span class="step">Step 1: In simple language</span>
+  <p class="lead">SWOT brings the outside and inside analysis together on one page, so that leaders can see what matters most.</p>
+  <div class="grid2">
+    <div class="cell"><h4>Strengths (internal, helpful)</h4><p>What we do better than rivals, with proof.</p></div>
+    <div class="cell b"><h4>Weaknesses (internal, harmful)</h4><p>What holds us back, or where rivals do better.</p></div>
+    <div class="cell"><h4>Opportunities (external, helpful)</h4><p>Changes in the outside world that we could benefit from.</p></div>
+    <div class="cell b"><h4>Threats (external, harmful)</h4><p>Changes in the outside world that could hurt us.</p></div>
+  </div>
+  <div class="box tip">
+    <span class="bt">The control test</span>
+    <p>Ask: <strong>"Could the organisation change this directly?"</strong> If yes, it is internal, so it is an S or a W. If it would still exist had the organisation never been created, it is external, so it is an O or a T.</p>
+  </div>
+  <div class="box warn">
+    <span class="bt">The biggest SWOT error</span>
+    <p>An opportunity is a change in the world, not something you plan to do. "Open a boutique in Singapore" is an action. The opportunity is "growing demand for luxury goods among Singapore's wealthy buyers". If your opportunity starts with a verb, rewrite it.</p>
+  </div>
+  <h3>A good SWOT point has five qualities</h3>
+  <ol>
+    <li><strong>Specific:</strong> not "good brand", but "brand ranked first by 70% of collectors".</li>
+    <li><strong>Evidenced:</strong> drawn from the exhibits, preferably with a number.</li>
+    <li><strong>Relative:</strong> better or worse than rivals. A strength only counts by comparison.</li>
+    <li><strong>Prioritised:</strong> the most important first, with 3 or 4 per box.</li>
+    <li><strong>Interpreted:</strong> it says why this matters and what follows.</li>
+  </ol>
+  <h3>Sara's SWOT for Varenne</h3>
+  <div class="grid2">
+    <div class="cell"><h4>Strengths</h4><ul><li>Gross margin 62% against 55%: customers pay for craft</li><li>Hand-finishing skill is rare and hard to copy</li><li>Design archive and 200-year brand</li></ul></div>
+    <div class="cell b"><h4>Weaknesses</h4><ul><li>47% of masters retire within 5 years</li><li>Overheads 50% of revenue against 38%</li><li>Online sales 6% against 24%</li><li>Half of sales rely on a few retail groups</li></ul></div>
+    <div class="cell"><h4>Opportunities</h4><ul><li>Growing resale market for luxury watches</li><li>Younger buyers want proof of authenticity online</li><li>Demand for traceable, ethical gold</li></ul></div>
+    <div class="cell b"><h4>Threats</h4><ul><li>Smartwatches reach tomorrow's buyers first</li><li>Key movement part relies on one supplier</li><li>Tariffs in the US and China</li><li>Strong franc makes exports more expensive</li></ul></div>
+  </div>
+  <div class="box warn">
+    <span class="bt">A point can sit in two boxes</span>
+    <p>The brand strength depends on who you ask. A two-century heritage is a strength for collectors, but it may feel old-fashioned to younger buyers. Noting this shows real judgement.</p>
+  </div>
+  <h3>Moving from SWOT to action: TOWS</h3>
+  <p>A SWOT is a description. On its own, it does not tell leaders what to do. <strong>TOWS</strong> crosses the boxes to create possible strategies.</p>
+  <div class="grid2">
+    <div class="cell"><h4>SO: use strengths to seize opportunities</h4><p>Launch a certified second-hand service, using the archive to prove authenticity.</p></div>
+    <div class="cell"><h4>WO: fix weaknesses to reach opportunities</h4><p>Build online capability to reach younger buyers and reduce dependence on retailers.</p></div>
+    <div class="cell b"><h4>ST: use strengths to reduce threats</h4><p>Use craft skill to make the key movement part in-house.</p></div>
+    <div class="cell b"><h4>WT: reduce weaknesses and avoid threats</h4><p>Start apprenticeships and cut overheads to protect the firm in a downturn.</p></div>
+  </div>
+  <div class="box mem">
+    <span class="bt">Memory tips</span>
+    <p><strong>S and W are "we". O and T are "world".</strong></p>
+    <p>For TOWS, remember <strong>use, seize, fix, defend</strong>.</p>
+  </div>
+  <div class="activity" id="swotSort">
+    <h4>Try it: sort these ten statements</h4>
+    <p>Choose where each one belongs. Watch for items that are not SWOT points at all.</p>
+    <div id="swotRows"></div>
+    <p class="score" id="swotScore" aria-live="polite"></p>
+  </div>
+
+  <span class="step">Step 2: Real business example</span>
+  <div class="box ex">
+    <span class="bt">A public library service</span>
+    <p>SWOT also works outside business. A city library service has a trusted brand and buildings in every district (S), but ageing systems and falling visitor numbers (W). Government plans for digital skills training (O) sit alongside budget cuts and online alternatives (T). A TOWS action: use trusted local buildings to become the place residents go for digital skills help, funded by that programme. Here SWOT supports public value rather than profit.</p>
+  </div>
+
+  <span class="step">Step 3: How it may appear in the exam</span>
+  <ul>
+    <li>"Prepare a SWOT analysis for the board." Often part of a briefing paper or a presentation slide.</li>
+    <li>You are given several exhibits and must pull out only what matters.</li>
+    <li>You may be asked to use the SWOT to recommend or rank a strategic option.</li>
+    <li>In a slide task, keep it short. Each box needs a few clear bullets with speaker notes that explain them.</li>
+  </ul>
+
+  <span class="step">Step 4: A model exam answer</span>
+  <div class="box exam">
+    <span class="bt">Task (8 marks + professional skills)</span>
+    <p>Sunfield Juices is a fictional drinks company. Revenue is $200m, up 1% on last year, with no-added-sugar lines growing 18%. Its brand is the market leader, with 34% share against 21% for the nearest rival. One supermarket group accounts for 41% of sales. Its bottling plant is 26 years old and has 11% downtime against 4% for the sector. A sugar tax takes effect in 18 months, and would cover 60% of current products. Younger consumers are moving towards functional drinks.</p>
+    <p><strong>Task:</strong> Prepare a prioritised SWOT for the board and state the single most urgent issue.</p>
+  </div>
+  <div class="box tip">
+    <span class="bt">Distinction-level answer</span>
+    <div class="tablewrap"><table>
+      <tr><th>Box</th><th>Prioritised points, with the reason each one matters</th></tr>
+      <tr><td><strong>Strengths</strong></td><td>1. Market share of 34% against 21%: gives leverage with retailers and scale for marketing.<br>2. No-added-sugar lines growing 18%: an existing platform for the shift in demand, not a start from zero.</td></tr>
+      <tr><td><strong>Weaknesses</strong></td><td>1. 60% of the range would be taxed, and most of the portfolio is in the wrong place.<br>2. One customer is 41% of sales: it can squeeze margins, and losing it would remove $82m.<br>3. Plant downtime of 11% against 4%: raises unit costs and may limit reformulated production.</td></tr>
+      <tr><td><strong>Opportunities</strong></td><td>1. Consumers moving to no-added-sugar and functional drinks.<br>2. Tax may weaken smaller rivals who cannot afford to reformulate.</td></tr>
+      <tr><td><strong>Threats</strong></td><td>1. Sugar tax in 18 months: a fixed deadline.<br>2. Supermarket own-brand or rival launches may target health-conscious shoppers.</td></tr>
+    </table></div>
+    <p><span class="marks">[6]</span> for evidenced, correctly classified, prioritised points.</p>
+    <p><strong>Most urgent issue.</strong> The sugar tax is the priority. It affects 60% of products and has a fixed 18-month deadline. Overall revenue growth of only 1% hides a core range that is likely to be declining, and the board should ask to see sales split by product line. We should use the brand strength to speed up reformulation, and assess whether the old plant can handle the changes in time. <span class="marks">[2]</span></p>
+  </div>
+
+  <span class="step">Step 5: What the examiner wants</span>
+  <ul>
+    <li>Correct classification: internal against external.</li>
+    <li>Only points that matter, each drawn from the case.</li>
+    <li>Visible <strong>prioritisation</strong>, plus a conclusion on what the SWOT means overall.</li>
+    <li>Links between points. For example, the tax (T) hits a weakness (W) that makes it worse.</li>
+  </ul>
+
+  <span class="step">Step 6: Common mistakes</span>
+  <div class="box bad">
+    <span class="bt">Avoid these</span>
+    <ul>
+      <li>Writing a long list, with no ranking and no "so what".</li>
+      <li>Putting actions in the Opportunities box.</li>
+      <li>Putting external trends in Strengths, such as "the market is growing".</li>
+      <li>Claiming a strength with no comparison. "We have 100 stores" says nothing alone.</li>
+      <li>Stopping at the four boxes, with no overall conclusion.</li>
+    </ul>
+  </div>
+
+  <span class="step">Step 7: Exam shortcut</span>
+  <div class="box mem">
+    <span class="bt">The 3-3-1 rule</span>
+    <p>Aim for about <strong>3 strong points per box</strong>, each in about <strong>3 parts</strong> (fact, comparison, so what), then finish with <strong>1 overall conclusion</strong>.</p>
+  </div>
+</section>
+<section class="chapter" id="s10">
+  <h2><span class="no">10</span>Timed mini-case: Northway Couriers</h2>
+  <p class="lead">Allow 39 minutes. SBL gives you 195 minutes for 100 marks, so about 2 minutes per mark. Close your notes, type your answer, then compare.</p>
+  <div class="box exam">
+    <span class="bt">Exhibit 1: Background</span>
+    <p>Northway Couriers (Northway) is a fictional family-owned delivery company, founded 30 years ago. It has 420 vans and 500 drivers, and operates in one country. It has two divisions: <strong>Parcels</strong>, which delivers for online retailers, and <strong>Northway Cold</strong>, which delivers temperature-controlled medicines to pharmacies and laboratories. Medicine couriers must hold a pharmaceutical distribution licence. Three firms in the region hold one, including Northway.</p>
+  </div>
+  <div class="box exam">
+    <span class="bt">Exhibit 2: Data for last year</span>
+    <div class="tablewrap"><table>
+      <tr><th>Measure</th><th class="n">Parcels</th><th class="n">Cold</th><th class="n">Group</th><th class="n">Sector</th></tr>
+      <tr><td>Revenue ($m)</td><td class="n">93.6</td><td class="n">26.4</td><td class="n">120.0</td><td class="n">–</td></tr>
+      <tr><td>Operating profit ($m)</td><td class="n">3.9</td><td class="n">3.6</td><td class="n">7.5</td><td class="n">–</td></tr>
+      <tr><td>Operating margin</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="n">7.0%</td></tr>
+      <tr><td>Market growth a year</td><td class="n">2%</td><td class="n">9%</td><td class="n">–</td><td class="n">–</td></tr>
+      <tr><td>On-time delivery</td><td class="n">94.2%</td><td class="n">99.2%</td><td class="n">–</td><td class="n">94.0%</td></tr>
+      <tr><td>Driver turnover</td><td class="n">–</td><td class="n">–</td><td class="n">31%</td><td class="n">24%</td></tr>
+      <tr><td>Average van age (years)</td><td class="n">–</td><td class="n">–</td><td class="n">8.4</td><td class="n">5.0</td></tr>
+    </table></div>
+    <p>Northway holds $4m cash. One customer, PharmaLink, provides 30% of Cold's revenue. Its contract ends in 14 months.</p>
+  </div>
+  <div class="box exam">
+    <span class="bt">Exhibit 3: Extract from a board meeting</span>
+    <p><strong>Chief executive:</strong> "Our routing software is our crown jewel. Two of our engineers wrote it, and nobody can copy it. That is why we win."</p>
+    <p><strong>Operations director:</strong> "Those two engineers hold it all in their heads, and it is barely documented. Meanwhile, a global courier has applied for a medicine licence and has bought an off-the-shelf AI routing tool."</p>
+    <p><strong>Finance director:</strong> "From 2028 two major cities will ban older diesel vans. About 120 of our vans operate there, and each electric replacement costs $20,000 more than a diesel van. The ageing population should keep increasing home delivery of medicines."</p>
+  </div>
+  <div class="box exam">
+    <span class="bt">Your task (20 marks)</span>
+    <p>You are a strategy adviser. Prepare a briefing paper for the board which:</p>
+    <p>(a) Evaluates Northway's strategic capabilities, including whether its advantage is sustainable. <span class="marks">(9 marks)</span></p>
+    <p>(b) Presents a prioritised SWOT analysis. <span class="marks">(5 marks)</span></p>
+    <p>(c) Recommends the two priorities for the next 12 months. <span class="marks">(2 marks)</span></p>
+    <p>Professional skills: evaluation, scepticism and commercial acumen. <span class="marks">(4 marks)</span></p>
+  </div>
+  <div class="box tip">
+    <span class="bt">Use your time like this</span>
+    <p>Read and calculate for 10 minutes. Plan for 4 minutes. Write for 23 minutes. Check for 2 minutes.</p>
+  </div>
+
+  <details>
+    <summary>Open after your attempt: the calculations a good candidate does first</summary>
+    <div class="tablewrap"><table>
+      <tr><th>Calculation</th><th>Working</th><th class="n">Result</th></tr>
+      <tr><td>Parcels margin</td><td>3.9 ÷ 93.6</td><td class="n">4.2%</td></tr>
+      <tr><td>Cold margin</td><td>3.6 ÷ 26.4</td><td class="n">13.6%</td></tr>
+      <tr><td>Group margin</td><td>7.5 ÷ 120</td><td class="n">6.3%</td></tr>
+      <tr><td>Cold's share of revenue</td><td>26.4 ÷ 120</td><td class="n">22%</td></tr>
+      <tr><td>Cold's share of profit</td><td>3.6 ÷ 7.5</td><td class="n">48%</td></tr>
+      <tr><td>PharmaLink revenue</td><td>30% × 26.4</td><td class="n">$7.9m</td></tr>
+      <tr><td>Profit at Cold's average margin</td><td>7.92 × 13.6%</td><td class="n">about $1.1m</td></tr>
+      <tr><td>Extra electric van cost</td><td>120 × $20,000</td><td class="n">$2.4m</td></tr>
+      <tr><td>That cost against cash</td><td>2.4 ÷ 4.0</td><td class="n">60%</td></tr>
+    </table></div>
+  </details>
+
+  <details>
+    <summary>Open after your attempt: a weak answer, and why it would fail</summary>
+    <div class="box bad">
+      <span class="bt">Weak answer extract</span>
+      <p>"Strategic capability means resources and competences. Northway has good resources such as vans and drivers. Its competence is delivery. The software is unique so it is a core competence that gives sustainable advantage. Strengths: good software, profitable. Weaknesses: old vans. Opportunities: buy electric vans, grow Cold. Threats: competition. Northway should invest in new vans and improve software."</p>
+    </div>
+    <p><strong>Estimated mark: 5 out of 20.</strong> Here is why:</p>
+    <ul>
+      <li>It opens with a definition, which gains little or nothing in a level 3 evaluation.</li>
+      <li>It has no calculations, so it misses the fact that Cold earns 48% of profit from 22% of revenue.</li>
+      <li>It accepts the chief executive's claim without any challenge, so scepticism scores poorly.</li>
+      <li>"Buy electric vans" and "grow Cold" are actions, not opportunities.</li>
+      <li>The recommendation has no reasoning, priority, cost or timing.</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Open after your attempt: distinction-level answer</summary>
+    <div class="box tip">
+      <span class="bt">Briefing paper to the board of Northway Couriers</span>
+      <p><strong>Key message.</strong> Northway's advantage lies in Northway Cold, not in its routing software. Cold earns 48% of group profit from 22% of revenue, in a market growing 9% a year. That position has about 14 months to be secured, because a key contract expires and a global rival is seeking a licence.</p>
+      <p><strong>(a) Strategic capabilities</strong></p>
+      <p><strong>Parcels: threshold only.</strong> Vans, drivers and on-time delivery are the basics of the industry. Parcels' 94.2% on-time rate is level with the sector's 94.0%, so it provides parity and no advantage. Its 4.2% margin is well below the 7.0% sector average. With market growth of 2%, it should be run for efficiency rather than treated as a source of advantage. <span class="marks">[2]</span></p>
+      <p><strong>Medicine licence: unique for now.</strong> Only three firms hold one, so it is valuable and rare. But a licence is an entry requirement rather than a permanent wall. The global courier's application shows it can be obtained, so this advantage is shrinking. <span class="marks">[2]</span></p>
+      <p><strong>Cold chain delivery: the core competence.</strong> On-time delivery of 99.2% is 5 points above the sector, and it matters greatly when late medicines can spoil or put patients at risk. A 13.6% margin suggests that customers pay for this reliability. It rests on licensed processes, trained people and relationships, which together are harder to copy than any one part, so it is the strongest candidate for lasting advantage. <span class="marks">[2]</span></p>
+      <p><strong>Routing software: challenge to the chief executive's view.</strong> The evidence does not support "nobody can copy it". Parcels uses the same software, I assume, yet performs only at sector level. If so, the software cannot on its own explain why Northway wins. A rival has also bought an alternative off the shelf, which provides a substitute. The software may be valuable, but it fails the non-substitutability test. It is also a weakness in one respect: the know-how sits with two people and is poorly documented, so it is a key-person risk. We should confirm how much the software actually contributes, and that Northway legally owns the code. <span class="marks">[2]</span></p>
+      <p><strong>Overall.</strong> The advantage is real but only partly sustainable. Driver turnover of 31% against 24% may threaten the reliability on which Cold depends. <span class="marks">[1]</span></p>
+      <p><strong>(b) Prioritised SWOT</strong></p>
+      <div class="tablewrap"><table>
+        <tr><th>Strengths</th><th>Weaknesses</th></tr>
+        <tr><td>1. Cold's 99.2% reliability and 13.6% margin.<br>2. One of three licensed medicine couriers.</td><td>1. PharmaLink is 30% of Cold ($7.9m revenue, about $1.1m profit), and its contract ends in 14 months.<br>2. Software depends on two people.<br>3. Vans average 8.4 years against 5.0, and Parcels earns only 4.2%.</td></tr>
+        <tr><th>Opportunities</th><th>Threats</th></tr>
+        <tr><td>1. Cold market growing 9% a year, against 2% for parcels.<br>2. Ageing population raises home delivery of medicines.</td><td>1. Global courier entering with a licence and AI routing.<br>2. Diesel bans from 2028 affect 120 vans, at an extra $2.4m (60% of cash).</td></tr>
+      </table></div>
+      <p><span class="marks">[5]</span></p>
+      <p><strong>(c) Recommendations for the next 12 months</strong></p>
+      <p><strong>Priority 1: secure Northway Cold.</strong> Open early renewal talks with PharmaLink now, aiming for a multi-year contract before the global courier has a licence. Add new customers from the growing home-delivery market to reduce reliance on one contract. <span class="marks">[1]</span></p>
+      <p><strong>Priority 2: reduce the dependence on two engineers.</strong> Document the software, confirm ownership, put retention terms in place for both people and compare the cost of keeping it with buying a similar tool. This is low in cost and removes a serious risk quickly. <span class="marks">[1]</span></p>
+      <p><strong>Vans.</strong> The $2.4m replacement is needed, but it can be phased towards 2028. Start with vans used by Cold, and explore leasing, so that 60% of cash is not used at once while contract talks are underway.</p>
+    </div>
+    <div class="box def">
+      <span class="bt">Where the 4 professional skills marks come from</span>
+      <ul>
+        <li><strong>Evaluation:</strong> clear verdicts on each capability, and a ranked set of priorities.</li>
+        <li><strong>Scepticism:</strong> testing the chief executive's claim, and stating the assumption about Parcels using the software.</li>
+        <li><strong>Commercial acumen:</strong> seeing the 14-month window, the competitor's timing and the need to protect cash.</li>
+      </ul>
+      <p>These allocations are my own illustration of how a marker might think. They are not an official ACCA marking scheme.</p>
+    </div>
+  </details>
+</section>
+
+<section class="chapter" id="s11">
+  <h2><span class="no">11</span>Common mistakes</h2>
+  <div class="tablewrap"><table>
+    <tr><th>Students write</th><th>Better answer</th></tr>
+    <tr><td>"Staff are a strength."</td><td>"Master watchmaker turnover of 3% against 9% keeps rare skills, though the average age of 57 creates a retirement risk."</td></tr>
+    <tr><td>"The company has a core competence in customer service."</td><td>Show the evidence, such as a satisfaction score against rivals, and explain why it is hard to copy.</td></tr>
+    <tr><td>"The new system gives a competitive advantage."</td><td>"The system is a temporary advantage, since rivals can buy it. The lasting benefit depends on how staff use it."</td></tr>
+    <tr><td>Opportunity: "Expand into Asia."</td><td>Opportunity: "Luxury demand in Asia is growing." Then put the expansion in your recommendations.</td></tr>
+    <tr><td>Strength: "The market is growing."</td><td>That is external, so it is an opportunity.</td></tr>
+    <tr><td>"We need a knowledge management system."</td><td>Say what type of knowledge is at risk, then match the method to it.</td></tr>
+    <tr><td>"The CEO is right."</td><td>Test the claim against data from the case before agreeing.</td></tr>
+    <tr><td>A long list of 15 SWOT points</td><td>3 or 4 per box, ranked, with a conclusion.</td></tr>
+  </table></div>
+</section>
+
+<section class="chapter" id="s12">
+  <h2><span class="no">12</span>One-page cheat sheet</h2>
+  <div class="grid2">
+    <div class="cell"><h4>Vocabulary</h4><ul><li>Resources: what we have</li><li>Competences: what we do well</li><li>Physical, Financial, Human, Intellectual</li></ul></div>
+    <div class="cell"><h4>Threshold or distinctive</h4><ul><li>Threshold: ticket to play</li><li>Unique resources and core competences: reason to win</li><li>Tests: Customer value, Different, Extendable</li></ul></div>
+    <div class="cell"><h4>Lasting advantage</h4><ul><li>VRIN: Valuable, Rare, Inimitable, Non-substitutable</li><li>3 Cs: Complexity, Causal ambiguity, Culture and history</li><li>Risk: core rigidity</li><li>Renew: Sense, Seize, Reconfigure</li></ul></div>
+    <div class="cell"><h4>Knowledge</h4><ul><li>Data, information, knowledge</li><li>Explicit: can be written down</li><li>Tacit: in heads and hands</li><li>SECI: Socialisation, Externalisation, Combination, Internalisation</li></ul></div>
+    <div class="cell b"><h4>Diagnosing</h4><ul><li>Resource audit: the M checklist</li><li>Value chain: where is it?</li><li>Benchmarking: past, industry, best in class</li><li>Number, Compare, Meaning, Action</li></ul></div>
+    <div class="cell b"><h4>SWOT and TOWS</h4><ul><li>S and W are "we"; O and T are "world"</li><li>Opportunities are not actions</li><li>3-3-1 rule</li><li>TOWS: SO, WO, ST, WT</li></ul></div>
+  </div>
+  <div class="box mem">
+    <span class="bt">The sentence that earns marks</span>
+    <p><strong>"[Capability] is [threshold / temporary / sustained] because [evidence], so we should [action]."</strong></p>
+  </div>
+</section>
+
+<section class="chapter" id="s13">
+  <h2><span class="no">13</span>Quiz</h2>
+  <p>Twelve questions. Choose an answer to see the explanation.</p>
+  <div class="activity" id="quiz"></div>
+</section>
+
+<section class="chapter" id="s14">
+  <h2><span class="no">14</span>What comes next</h2>
+  <div class="box tip">
+    <span class="bt">How to use this chapter</span>
+    <ol>
+      <li>Read it once, then write out the cheat sheet from memory.</li>
+      <li>Complete the quiz and aim for at least 10 out of 12.</li>
+      <li>Attempt Northway Couriers in 39 minutes, with notes closed, and send your answer for marking.</li>
+    </ol>
+  </div>
+  <p>The next chapter is <strong>Strategic Choices (C5)</strong>. Everything so far told you where the organisation stands. Next, you decide where it should go: Ansoff, the BCG matrix, price and differentiation strategies, and how to grow through internal development, acquisition or alliance. Your SWOT and TOWS work leads straight into it.</p>
+  <footer>
+    ACCA Strategic Business Leader (SBL), Internal Capability (C4), syllabus September 2026 to June 2027.<br>
+    Maison Varenne and all case organisations are fictional. Public company examples are simplified for learning. Mark allocations are illustrative and are not official ACCA marking schemes. Study notes for educational purposes.
+  </footer>
+</section>
+</main>
+</div>
+<a class="top" href="#top" title="Back to top" aria-label="Back to top">↑</a>
+
+<script>
+(function(){
+  // Reading progress and scroll-driven gears
+  var bar=document.getElementById('progress'),g1=document.getElementById('g1'),g2=document.getElementById('g2'),g3=document.getElementById('g3');
+  var still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function onScroll(){
+    var h=document.documentElement,max=h.scrollHeight-h.clientHeight,y=h.scrollTop||document.body.scrollTop;
+    bar.style.width=(max>0?y/max*100:0)+'%';
+    if(!still&&g1&&y<900){var a=y/5;g1.style.transform='rotate('+a+'deg)';g2.style.transform='rotate('+(-a*1.5)+'deg)';g3.style.transform='rotate('+(a*1.2)+'deg)';}
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // Contents: copy to phone menu, highlight current section
+  var rail=document.getElementById('railList'),mob=document.getElementById('mobileList');
+  mob.innerHTML=rail.innerHTML;
+  var links={};rail.querySelectorAll('a').forEach(function(a){links[a.getAttribute('href').slice(1)]=a;});
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){
+      Object.keys(links).forEach(function(k){links[k].classList.remove('on');links[k].removeAttribute('aria-current');});
+      var a=links[e.target.id];if(a){a.classList.add('on');a.setAttribute('aria-current','true');}}});},{rootMargin:'-20% 0px -70% 0px'});
+    document.querySelectorAll('section.chapter').forEach(function(s){io.observe(s);});
+  }
+
+  // VRIN tester
+  var tool=document.getElementById('vrinTool'),ans={},out=document.getElementById('vrinOut');
+  function verdict(){
+    if(ans.v===undefined)return 'Answer the questions in order to see the verdict.';
+    if(ans.v==='0')return 'Competitive disadvantage or wasted cost. If nobody values it, stop spending on it.';
+    if(ans.r===undefined)return 'Valuable so far. Is it rare?';
+    if(ans.r==='0')return 'Competitive parity. It is a threshold capability, so protect it but do not rely on it to win.';
+    if(ans.i===undefined)return 'Valuable and rare so far. Is it hard to copy?';
+    if(ans.i==='0')return 'Temporary advantage. Use the lead while it lasts, and build something harder to copy.';
+    if(ans.n===undefined)return 'Valuable, rare and hard to copy so far. Is it hard to substitute?';
+    if(ans.n==='0')return 'At risk from substitutes. Rivals cannot copy it, but they may go around it, so watch alternatives closely.';
+    return 'Sustained advantage, for now. This is a likely core competence or unique resource. Check what could erode it.';
+  }
+  tool.addEventListener('click',function(e){var b=e.target.closest('button.opt');if(!b)return;
+    ans[b.dataset.k]=b.dataset.a;
+    tool.querySelectorAll('button[data-k="'+b.dataset.k+'"]').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});
+    out.textContent=verdict();});
+
+  // SWOT sort
+  var S=[
+   ['Our brand is trusted by 70% of customers, the highest in the sector','S','Internal, positive and compared with rivals.'],
+   ['A government subsidy for electric vans begins next year','O','It comes from the outside world and could help us.'],
+   ['Our staff turnover is double the sector average','W','Internal and worse than rivals.'],
+   ['A global competitor has entered our biggest market','T','External and harmful.'],
+   ['Open three new stores in Spain','A','This is an action. Find the market change behind it.'],
+   ['An ageing population is raising demand for home care','O','An external trend that we could benefit from, if we offer home care.'],
+   ['We own three patents on our main production process','S','An internal resource that rivals lack. Check when the patents expire.'],
+   ['Interest rates are expected to rise','T','External. It hurts more if we have floating-rate debt, which would be the linked weakness.'],
+   ['Our billing system is 18 years old and fails weekly','W','Internal, and we could replace it ourselves.'],
+   ['Partner with a local university','A','This is a possible strategy, so it belongs in TOWS or your recommendations.']];
+  var names={S:'Strength',W:'Weakness',O:'Opportunity',T:'Threat',A:'Action, not SWOT'},order=['S','W','O','T','A'],rows=document.getElementById('swotRows'),done=0,good=0;
+  S.forEach(function(item){
+    var r=document.createElement('div');r.className='row';
+    var q=document.createElement('p');q.className='q';q.textContent=item[0];r.appendChild(q);
+    var fb=document.createElement('p');fb.className='fb';
+    order.forEach(function(k){var b=document.createElement('button');b.className='opt';b.textContent=names[k];b.dataset.k=k;
+      b.addEventListener('click',function(){
+        var right=k===item[1];r.querySelectorAll('button').forEach(function(x){x.disabled=true;if(x.dataset.k===item[1])x.classList.add('right');});
+        if(!right)b.classList.add('wrong');
+        fb.className='fb '+(right?'ok':'no');fb.textContent=(right?'Correct. ':'Answer: '+names[item[1]]+'. ')+item[2];
+        done++;if(right)good++;
+        if(done===S.length)document.getElementById('swotScore').textContent='You scored '+good+' out of '+S.length+'.';
+      });r.appendChild(b);});
+    r.appendChild(fb);rows.appendChild(r);
+  });
+
+  // Quiz
+  var Q=[
+   ['Which is a competence rather than a resource?',['A patented process','A fleet of 400 vans','Reliably delivering 98% of parcels on time','$50m of cash'],2,'A competence is what the organisation does well. The others are things it has.'],
+   ['All five banks in a market offer a mobile app. For each bank, the app is:',['A core competence','A threshold capability','A unique resource','A dynamic capability'],1,'Every serious rival has it, so it only allows them to compete.'],
+   ['A hospital buys a scanner that no rival has yet, but rivals can order it. This is best described as:',['Sustained advantage','Temporary advantage','Threshold competence','Tacit knowledge'],1,'It is rare today, but it can be bought, so it fails the "hard to copy" test.'],
+   ['Which is not one of the core competence tests?',['Customer value','Different from rivals','Extendable to other markets','Lowest cost to run'],3,'The tests are customer value, differentiation from rivals and extendability.'],
+   ['In VRIN, a capability that is valuable and rare but easily copied gives:',['Competitive disadvantage','Competitive parity','Temporary advantage','Sustained advantage'],2,'It wins until rivals catch up.'],
+   ['Rivals visit a factory, but still cannot work out why its results are so good. This is:',['Causal ambiguity','Economies of scale','Benchmarking','Strategic drift'],0,'Nobody can pinpoint the cause, so copying it is difficult.'],
+   ['A firm\'s pride in film chemistry stopped it from moving to digital. This is an example of:',['A dynamic capability','A core rigidity','Socialisation','A threshold resource'],1,'A past strength has become a barrier to change.'],
+   ['An apprentice learns a skill by working beside a master. In SECI, this is:',['Socialisation','Externalisation','Combination','Internalisation'],0,'Tacit knowledge passes to another person through shared experience.'],
+   ['An expert explains her method in a recorded video guide. This converts:',['Tacit to tacit','Tacit to explicit','Explicit to explicit','Explicit to tacit'],1,'That is externalisation.'],
+   ['Which is a correctly written opportunity?',['Launch a new app','Buy our competitor','Demand for home delivery is growing','Hire more sales staff'],2,'An opportunity is an outside change. The others are actions.'],
+   ['Gross margin is above the sector average, but operating margin is below it. The best first conclusion is:',['Customers will not pay a premium','Direct costs are too high','Overheads are probably too high','Revenue is overstated'],2,'The gap between the two margins is overheads, so investigate there.'],
+   ['"Use our trusted brand to enter a growing market" is which TOWS strategy?',['SO','WO','ST','WT'],0,'It uses a strength to seize an opportunity.']];
+  var box=document.getElementById('quiz'),qd=0,qg=0,sc=document.createElement('p');sc.className='score';sc.setAttribute('aria-live','polite');
+  Q.forEach(function(x,i){
+    var r=document.createElement('div');r.className='row';
+    var p=document.createElement('p');p.className='q';p.innerHTML='<strong>'+(i+1)+'.</strong> ';p.appendChild(document.createTextNode(x[0]));r.appendChild(p);
+    var fb=document.createElement('p');fb.className='fb';
+    x[1].forEach(function(t,j){var b=document.createElement('button');b.className='opt long';b.textContent=t;
+      b.addEventListener('click',function(){
+        r.querySelectorAll('button').forEach(function(y,k){y.disabled=true;if(k===x[2])y.classList.add('right');});
+        if(j!==x[2])b.classList.add('wrong');else qg++;
+        fb.className='fb '+(j===x[2]?'ok':'no');fb.textContent=(j===x[2]?'Correct. ':'Not quite. ')+x[3];
+        qd++;if(qd===Q.length)sc.textContent='You scored '+qg+' out of '+Q.length+'.';
+      });r.appendChild(b);});
+    r.appendChild(fb);box.appendChild(r);
+  });
+  box.appendChild(sc);
+})();
+</script>
+</body>
+</html>
