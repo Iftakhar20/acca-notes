@@ -8,6 +8,26 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- ╔══════════════════════════════════════════════════════════════════╗
+     ║  HOW TO ADD A NEW NOTE                                           ║
+     ║  1. Upload the HTML file to the exam folder (e.g. SBL/).         ║
+     ║  2. Scroll down to "NOTES LIST" (inside the <script> near the    ║
+     ║     bottom of this file).                                        ║
+     ║  3. Copy any existing line in the right exam, paste it below,    ║
+     ║     and change file / title / icon. That's it.                   ║
+     ║                                                                  ║
+     ║  Fields:  file  = path exactly as it is in the repo (required)   ║
+     ║           title = card heading (required)                        ║
+     ║           icon  = one emoji (optional)                           ║
+     ║           desc  = short subtitle (optional)                      ║
+     ║           tag   = small label, e.g. "C5" or "Cheatsheet"         ║
+     ║                   (optional — defaults to the exam code)         ║
+     ║           ai    = source label, e.g. "Kimi" (optional)           ║
+     ║           featured: true = wide highlighted card (optional)      ║
+     ║  Counts, search and filters update automatically.               ║
+     ╚══════════════════════════════════════════════════════════════════╝ -->
+
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -88,9 +108,7 @@ body {
   backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
   margin-bottom: 18px;
 }
-.search {
-  flex: 1 1 280px; position: relative;
-}
+.search { flex: 1 1 280px; position: relative; }
 .search input {
   width: 100%; font: inherit; font-size: 15px;
   padding: 12px 44px 12px 44px;
@@ -113,12 +131,7 @@ body {
   transition: all .15s;
 }
 .chip:hover { border-color: var(--ink-3); color: var(--ink); }
-.chip.active { background: var(--ink); border-color: var(--ink); color: #fff; }
-.chip[data-filter="sbl"].active { background: var(--sbl); border-color: var(--sbl); }
-.chip[data-filter="sbr"].active { background: var(--sbr); border-color: var(--sbr); }
-.chip[data-filter="fm"].active  { background: var(--fm);  border-color: var(--fm); }
-.chip[data-filter="tx"].active  { background: var(--tx);  border-color: var(--tx); }
-.chip[data-filter="aa"].active  { background: var(--aa);  border-color: var(--aa); }
+.chip.active { background: var(--c, var(--ink)); border-color: var(--c, var(--ink)); color: #fff; }
 
 /* ── SECTION ── */
 .section { margin-bottom: 40px; scroll-margin-top: 90px; animation: fadeUp .5s ease both; }
@@ -140,12 +153,6 @@ body {
   font-size: 12px; font-weight: 600; color: var(--c);
   background: var(--c-soft); padding: 5px 12px; border-radius: 999px; white-space: nowrap;
 }
-
-.s-sbl { --c: var(--sbl); --c-soft: var(--sbl-soft); }
-.s-sbr { --c: var(--sbr); --c-soft: var(--sbr-soft); }
-.s-fm  { --c: var(--fm);  --c-soft: var(--fm-soft); }
-.s-tx  { --c: var(--tx);  --c-soft: var(--tx-soft); }
-.s-aa  { --c: var(--aa);  --c-soft: var(--aa-soft); }
 
 /* ── GRID & CARD ── */
 .cards-grid {
@@ -183,7 +190,6 @@ body {
   font-size: 10.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
   padding: 4px 8px; border-radius: 7px; color: var(--c); background: var(--c-soft);
 }
-.tag-new { color: #fff; background: var(--sbl); }
 .tag-ai { color: var(--ink-2); background: var(--bg); border: 1px solid var(--border); text-transform: none; letter-spacing: 0; font-weight: 600; }
 
 .card-name { font-size: 15.5px; font-weight: 700; line-height: 1.4; flex: 1; letter-spacing: -0.005em; }
@@ -204,13 +210,13 @@ body {
 .card:hover .card-open { color: var(--c); }
 .card:hover .card-arrow { background: var(--c); border-color: var(--c); color: #fff; transform: translateX(3px); }
 
-/* featured (SBL) */
+/* featured */
 .card.featured {
   grid-column: span 2;
-  background: linear-gradient(135deg, var(--sbl-soft), #fff 60%);
+  background: linear-gradient(135deg, var(--c-soft), #fff 60%);
 }
 .card.featured .card-name { font-size: 19px; }
-.card.featured .card-icon { width: 54px; height: 54px; font-size: 26px; background: #fff; border: 1px solid #ffd0db; }
+.card.featured .card-icon { width: 54px; height: 54px; font-size: 26px; background: #fff; border: 1px solid var(--border); }
 
 /* ── EMPTY ── */
 .empty {
@@ -238,9 +244,6 @@ body {
 .to-top.show { opacity: 1; pointer-events: auto; }
 
 @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
-.section:nth-of-type(1){animation-delay:.04s}.section:nth-of-type(2){animation-delay:.1s}
-.section:nth-of-type(3){animation-delay:.16s}.section:nth-of-type(4){animation-delay:.22s}
-.section:nth-of-type(5){animation-delay:.28s}
 
 @media (max-width: 640px) {
   .page { padding: 0 14px 70px; }
@@ -255,370 +258,27 @@ body {
 <body id="top">
 <div class="page">
 
-  <!-- HERO -->
   <header class="hero">
     <span class="hero-kicker"><span class="dot"></span> Hosted on GitHub Pages · Updated for December 2026</span>
     <h1>ACCA <span>Study Notes</span></h1>
     <p>Exam-focused notes, cheatsheets and quizzes for the ACCA Applied Skills and Strategic Professional exams.</p>
     <div class="stats">
       <div class="stat"><b id="stat-notes">–</b><small>Notes</small></div>
-      <div class="stat"><b id="stat-exams">5</b><small>Exams</small></div>
-      <div class="stat"><b>SBL</b><small>Current focus</small></div>
+      <div class="stat"><b id="stat-exams">–</b><small>Exams</small></div>
+      <div class="stat"><b id="stat-focus">–</b><small>Current focus</small></div>
     </div>
   </header>
 
-  <!-- TOOLBAR -->
   <div class="toolbar">
     <label class="search">
       <span class="ico">🔍</span>
       <input id="q" type="search" placeholder="Search notes… e.g. NPV, VAT, ethics" autocomplete="off" aria-label="Search notes">
       <span class="kbd">/</span>
     </label>
-    <div class="chips" role="tablist">
-      <button class="chip active" data-filter="all">All</button>
-      <button class="chip" data-filter="sbl">SBL</button>
-      <button class="chip" data-filter="sbr">SBR</button>
-      <button class="chip" data-filter="fm">FM</button>
-      <button class="chip" data-filter="tx">TX</button>
-      <button class="chip" data-filter="aa">AA</button>
-    </div>
+    <div class="chips" id="chips" role="tablist"></div>
   </div>
 
-  <!-- ══════════ SBL ══════════ -->
-  <section id="sbl" class="section s-sbl" data-exam="sbl">
-    <div class="section-head">
-      <div class="section-left">
-        <div class="section-icon">SBL</div>
-        <div>
-          <div class="section-title">Strategic Business Leader</div>
-          <div class="section-sub">Strategic Professional · December 2026</div>
-        </div>
-      </div>
-      <span class="section-count"></span>
-    </div>
-    <div class="cards-grid">
-
-      <a class="card featured" href="SBL/SBL Exam Technique and Professional Skills Notes Dec2026.html">
-        <div class="card-top">
-          <div class="card-icon">🧭</div>
-          <div class="tags"><span class="tag tag-new">New</span><span class="tag">SBL</span></div>
-        </div>
-        <span class="card-name">Exam Technique &amp; Professional Skills</span>
-        <span class="card-desc">How SBL is marked · the 5 professional skills · answer formats · time management · worked mini-case</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="SBL/SBL Strategy Concepts and External Environment Notes Dec2026.html">
-        <div class="card-top"><div class="card-icon">🌍</div><div class="tags"><span class="tag tag-new">New</span><span class="tag">C1–C2</span></div></div>
-        <span class="card-name">Strategy Concepts &amp; External Environment</span>
-        <span class="card-desc">JSW &amp; SAF · PESTEL · key drivers · strategic drift · Porter's Diamond · scenarios</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="SBL/SBL Competitive Forces and Value Chain Notes Dec2026.html">
-  <div class="card-top"><div class="card-icon">⚔️</div><div class="tags"><span class="tag">SBL</span></div></div>
-  <span class="card-name">Competitive Forces &amp; Value Chain</span>
-  <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-</a>
-
-      <a class="card" href="SBL/SBL Internal Capability and SWOT Notes Dec2026.html">
-  <div class="card-top"><div class="card-icon">⚙️</div><div class="tags"><span class="tag">SBL</span></div></div>
-  <span class="card-name">Internal Capability &amp; SWOT</span>
-  <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-</a>
-      
-    </div>
-  </section>
-
-  <!-- ══════════ SBR ══════════ -->
-  <section id="sbr" class="section s-sbr" data-exam="sbr">
-    <div class="section-head">
-      <div class="section-left">
-        <div class="section-icon">SBR</div>
-        <div>
-          <div class="section-title">Strategic Business Reporting</div>
-          <div class="section-sub">Strategic Professional · December 2026</div>
-        </div>
-      </div>
-      <span class="section-count"></span>
-    </div>
-    <div class="cards-grid">
-
-      <a class="card" href="SBR/IFRS2_Share_Based_Payment_SBR_Notes.html">
-        <div class="card-top"><div class="card-icon">💼</div><div class="tags"><span class="tag">SBR</span></div></div>
-        <span class="card-name">IFRS 2 — Share-based Payment</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-    </div>
-  </section>
-
-  <!-- ══════════ FM ══════════ -->
-  <section id="fm" class="section s-fm" data-exam="fm">
-    <div class="section-head">
-      <div class="section-left">
-        <div class="section-icon">FM</div>
-        <div>
-          <div class="section-title">Financial Management</div>
-          <div class="section-sub">Corporate Finance · June 2026</div>
-        </div>
-      </div>
-      <span class="section-count"></span>
-    </div>
-    <div class="cards-grid">
-
-      <a class="card" href="FM/FM Financial Management Function.html">
-        <div class="card-top"><div class="card-icon">🎯</div><div class="tags"><span class="tag">FM</span></div></div>
-        <span class="card-name">Financial Management Function</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="FM/FM Investment Appraisal Notes.html">
-        <div class="card-top"><div class="card-icon">💹</div><div class="tags"><span class="tag">FM</span></div></div>
-        <span class="card-name">Investment Appraisal</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="FM/Investment Appraisal _ DeepSeek Notes.html">
-        <div class="card-top"><div class="card-icon">🔭</div><div class="tags"><span class="tag tag-ai">DeepSeek</span><span class="tag">FM</span></div></div>
-        <span class="card-name">Investment Appraisal</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="FM/Investment Appraisal _ Kimi Notes.html">
-        <div class="card-top"><div class="card-icon">🧮</div><div class="tags"><span class="tag tag-ai">Kimi</span><span class="tag">FM</span></div></div>
-        <span class="card-name">Investment Appraisal</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="FM/FM_NPV_Complete_Notes.html">
-        <div class="card-top"><div class="card-icon">📐</div><div class="tags"><span class="tag">FM</span></div></div>
-        <span class="card-name">NPV — Complete Notes</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="FM/FM Investment Appraisal Cheatsheet.html">
-        <div class="card-top"><div class="card-icon">🗒️</div><div class="tags"><span class="tag">Cheatsheet</span></div></div>
-        <span class="card-name">Investment Appraisal Cheatsheet</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="FM/FM_Working_Capital_Management.html">
-        <div class="card-top"><div class="card-icon">💰</div><div class="tags"><span class="tag">FM</span></div></div>
-        <span class="card-name">Working Capital Management</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="FM/FM_Working_Capital_Management_Kimi_Notes.html">
-        <div class="card-top"><div class="card-icon">🔄</div><div class="tags"><span class="tag tag-ai">Kimi</span><span class="tag">FM</span></div></div>
-        <span class="card-name">Working Capital Management</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="FM/FM_Working_Capital_Management_DeepSeek_Notes.html">
-        <div class="card-top"><div class="card-icon">🌊</div><div class="tags"><span class="tag tag-ai">DeepSeek</span><span class="tag">FM</span></div></div>
-        <span class="card-name">Working Capital Management</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="FM/FM_Business_Finance_WACC.html">
-        <div class="card-top"><div class="card-icon">🏦</div><div class="tags"><span class="tag">FM</span></div></div>
-        <span class="card-name">Business Finance &amp; WACC</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="FM/FM_Business_Valuations.html">
-        <div class="card-top"><div class="card-icon">💎</div><div class="tags"><span class="tag">FM</span></div></div>
-        <span class="card-name">Business Valuations</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="FM/FM_Risk_Management_Notes.html">
-        <div class="card-top"><div class="card-icon">🛡️</div><div class="tags"><span class="tag">FM</span></div></div>
-        <span class="card-name">Risk Management</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="FM/ACCA FM Risk Management Grok Notes.html">
-        <div class="card-top"><div class="card-icon">🌪️</div><div class="tags"><span class="tag tag-ai">Grok</span><span class="tag">FM</span></div></div>
-        <span class="card-name">Risk Management</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="FM/ACCA FM - Risk Management Perplxity Notes.html">
-        <div class="card-top"><div class="card-icon">🧩</div><div class="tags"><span class="tag tag-ai">Perplexity</span><span class="tag">FM</span></div></div>
-        <span class="card-name">Risk Management</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="FM/ACCA FM - Risk Management DeepSeek Notes.html">
-        <div class="card-top"><div class="card-icon">🎲</div><div class="tags"><span class="tag tag-ai">DeepSeek</span><span class="tag">FM</span></div></div>
-        <span class="card-name">Risk Management</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="FM/ACCA FM - Risk Management Copilot Notes.html">
-        <div class="card-top"><div class="card-icon">⚓</div><div class="tags"><span class="tag tag-ai">Copilot</span><span class="tag">FM</span></div></div>
-        <span class="card-name">Risk Management</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-    </div>
-  </section>
-
-  <!-- ══════════ TX ══════════ -->
-  <section id="tx" class="section s-tx" data-exam="tx">
-    <div class="section-head">
-      <div class="section-left">
-        <div class="section-icon">TX</div>
-        <div>
-          <div class="section-title">Taxation</div>
-          <div class="section-sub">Finance Act 2025 · June 2026</div>
-        </div>
-      </div>
-      <span class="section-count"></span>
-    </div>
-    <div class="cards-grid">
-
-      <a class="card" href="TX/CGT Notes ACCA TX June2026.html">
-        <div class="card-top"><div class="card-icon">🏠</div><div class="tags"><span class="tag">TX</span></div></div>
-        <span class="card-name">Capital Gains Tax</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="TX/TX Corporation Tax Notes.html">
-        <div class="card-top"><div class="card-icon">🏢</div><div class="tags"><span class="tag">TX</span></div></div>
-        <span class="card-name">Corporation Tax</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="TX/TX EMPLOYMENT BENEFITS.html">
-        <div class="card-top"><div class="card-icon">👔</div><div class="tags"><span class="tag">TX</span></div></div>
-        <span class="card-name">Employment Benefits</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="TX/TX Trading Income Notes.html">
-        <div class="card-top"><div class="card-icon">📈</div><div class="tags"><span class="tag">TX</span></div></div>
-        <span class="card-name">Trading Income</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="TX/TX Inheretence Tax Notes.html">
-        <div class="card-top"><div class="card-icon">🏛️</div><div class="tags"><span class="tag">TX</span></div></div>
-        <span class="card-name">Inheritance Tax</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="TX/TX VAT Notes.html">
-        <div class="card-top"><div class="card-icon">🧾</div><div class="tags"><span class="tag">TX</span></div></div>
-        <span class="card-name">VAT</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="TX/TX Pension &amp; NIC.html">
-        <div class="card-top"><div class="card-icon">🏖️</div><div class="tags"><span class="tag">TX</span></div></div>
-        <span class="card-name">Pensions &amp; NIC</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="TX/TX Key Dates Notes.html">
-        <div class="card-top"><div class="card-icon">📅</div><div class="tags"><span class="tag">TX</span></div></div>
-        <span class="card-name">Key Dates</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="TX/TX Refresher Notes.html">
-        <div class="card-top"><div class="card-icon">🔁</div><div class="tags"><span class="tag">Refresher</span></div></div>
-        <span class="card-name">Refresher Notes</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="TX/TX Revision Cheatsheet       .html">
-        <div class="card-top"><div class="card-icon">⚡</div><div class="tags"><span class="tag">Cheatsheet</span></div></div>
-        <span class="card-name">Revision Cheatsheet</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-    </div>
-  </section>
-
-  <!-- ══════════ AA ══════════ -->
-  <section id="aa" class="section s-aa" data-exam="aa">
-    <div class="section-head">
-      <div class="section-left">
-        <div class="section-icon">AA</div>
-        <div>
-          <div class="section-title">Audit &amp; Assurance</div>
-          <div class="section-sub">External Audit · June 2026</div>
-        </div>
-      </div>
-      <span class="section-count"></span>
-    </div>
-    <div class="cards-grid">
-
-      <a class="card" href="AA/AA Ethics and Acceptance.html">
-        <div class="card-top"><div class="card-icon">⚖️</div><div class="tags"><span class="tag">AA</span></div></div>
-        <span class="card-name">Ethics &amp; Acceptance</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="AA/AA Controls Testing Notes.html">
-        <div class="card-top"><div class="card-icon">🔍</div><div class="tags"><span class="tag">AA</span></div></div>
-        <span class="card-name">Controls Testing</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="AA/AA Substantive Procedures.html">
-        <div class="card-top"><div class="card-icon">🔬</div><div class="tags"><span class="tag">AA</span></div></div>
-        <span class="card-name">Substantive Procedures</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="AA/AA Substantive Procedures Cheatsheet.html">
-        <div class="card-top"><div class="card-icon">🗂️</div><div class="tags"><span class="tag">Cheatsheet</span></div></div>
-        <span class="card-name">Substantive Procedures Cheatsheet</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="AA/AA Automated Tools Techniques.html">
-        <div class="card-top"><div class="card-icon">🤖</div><div class="tags"><span class="tag">AA</span></div></div>
-        <span class="card-name">Automated Tools &amp; Techniques</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="AA/AA_Written_Representations_Tutorial.html">
-        <div class="card-top"><div class="card-icon">✍️</div><div class="tags"><span class="tag">AA</span></div></div>
-        <span class="card-name">Written Representations</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="AA/AA Audit Reports.html">
-        <div class="card-top"><div class="card-icon">📋</div><div class="tags"><span class="tag">AA</span></div></div>
-        <span class="card-name">Audit Reports</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="AA/AA_Auditors_Report_TCWG_Chapter12.html">
-        <div class="card-top"><div class="card-icon">🗣️</div><div class="tags"><span class="tag">AA</span></div></div>
-        <span class="card-name">Auditor's Report &amp; TCWG (Ch. 12)</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="AA/AA_Audit_Reports_Quiz.html">
-        <div class="card-top"><div class="card-icon">❓</div><div class="tags"><span class="tag">Quiz</span></div></div>
-        <span class="card-name">Audit Reports Quiz</span>
-        <div class="card-footer"><span class="card-open">Open quiz</span><span class="card-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="AA/AA Revision Cheatsheet______.html">
-        <div class="card-top"><div class="card-icon">🚀</div><div class="tags"><span class="tag">Cheatsheet</span></div></div>
-        <span class="card-name">Revision Cheatsheet</span>
-        <div class="card-footer"><span class="card-open">Open note</span><span class="card-arrow">→</span></div>
-      </a>
-
-    </div>
-  </section>
+  <main id="sections"></main>
 
   <div class="empty" id="empty"><b>🔎</b>No notes match your search.</div>
 
@@ -631,42 +291,195 @@ body {
 <a href="#top" class="to-top" id="toTop" aria-label="Back to top">↑</a>
 
 <script>
+/* ════════════════════════════════════════════════════════════════════
+   SETTINGS
+   ════════════════════════════════════════════════════════════════════ */
+var CURRENT_FOCUS = 'sbl';   // exam code shown in the "Current focus" stat
+
+/* ════════════════════════════════════════════════════════════════════
+   NOTES LIST — edit here. One line per note. Order = display order.
+   ════════════════════════════════════════════════════════════════════ */
+var EXAMS = [
+
+  { code: 'sbl', name: 'Strategic Business Leader', sub: 'Strategic Professional · December 2026',
+    notes: [
+      { file: 'SBL/SBL Exam Technique and Professional Skills Notes Dec2026.html', title: 'Exam Technique & Professional Skills', icon: '🧭', featured: true,
+        desc: 'How SBL is marked · the 5 professional skills · answer formats · time management · worked mini-case' },
+      { file: 'SBL/SBL Strategy Concepts and External Environment Notes Dec2026.html', title: 'Strategy Concepts & External Environment', icon: '🌍', tag: 'C1–C2',
+        desc: "JSW & SAF · PESTEL · key drivers · strategic drift · Porter's Diamond · scenarios" },
+      { file: 'SBL/SBL Competitive Forces and Value Chain Notes Dec2026.html', title: 'Competitive Forces & Value Chain', icon: '⚔️', tag: 'C3' },
+      { file: 'SBL/SBL Internal Capability and SWOT Notes Dec2026.html', title: 'Internal Capability & SWOT', icon: '⚙️', tag: 'C4' },
+      { file: 'SBL/SBL Strategic Choices Notes Dec2026.html', title: 'Strategic Choices', icon: '♟️', tag: 'C5',
+        desc: 'Porter · strategy clock · Ansoff · BCG · public sector matrix · M&A & alliances · SAF' },
+    ]
+  },
+
+  { code: 'sbr', name: 'Strategic Business Reporting', sub: 'Strategic Professional · December 2026',
+    notes: [
+      { file: 'SBR/IFRS2_Share_Based_Payment_SBR_Notes.html', title: 'IFRS 2 — Share-based Payment', icon: '💼' },
+    ]
+  },
+
+  { code: 'fm', name: 'Financial Management', sub: 'Corporate Finance · June 2026',
+    notes: [
+      { file: 'FM/FM Financial Management Function.html', title: 'Financial Management Function', icon: '🎯' },
+      { file: 'FM/FM Investment Appraisal Notes.html', title: 'Investment Appraisal', icon: '💹' },
+      { file: 'FM/Investment Appraisal _ DeepSeek Notes.html', title: 'Investment Appraisal', icon: '🔭', ai: 'DeepSeek' },
+      { file: 'FM/Investment Appraisal _ Kimi Notes.html', title: 'Investment Appraisal', icon: '🧮', ai: 'Kimi' },
+      { file: 'FM/FM_NPV_Complete_Notes.html', title: 'NPV — Complete Notes', icon: '📐' },
+      { file: 'FM/FM Investment Appraisal Cheatsheet.html', title: 'Investment Appraisal Cheatsheet', icon: '🗒️', tag: 'Cheatsheet' },
+      { file: 'FM/FM_Working_Capital_Management.html', title: 'Working Capital Management', icon: '💰' },
+      { file: 'FM/FM_Working_Capital_Management_Kimi_Notes.html', title: 'Working Capital Management', icon: '🔄', ai: 'Kimi' },
+      { file: 'FM/FM_Working_Capital_Management_DeepSeek_Notes.html', title: 'Working Capital Management', icon: '🌊', ai: 'DeepSeek' },
+      { file: 'FM/FM_Business_Finance_WACC.html', title: 'Business Finance & WACC', icon: '🏦' },
+      { file: 'FM/FM_Business_Valuations.html', title: 'Business Valuations', icon: '💎' },
+      { file: 'FM/FM_Risk_Management_Notes.html', title: 'Risk Management', icon: '🛡️' },
+      { file: 'FM/ACCA FM Risk Management Grok Notes.html', title: 'Risk Management', icon: '🌪️', ai: 'Grok' },
+      { file: 'FM/ACCA FM - Risk Management Perplxity Notes.html', title: 'Risk Management', icon: '🧩', ai: 'Perplexity' },
+      { file: 'FM/ACCA FM - Risk Management DeepSeek Notes.html', title: 'Risk Management', icon: '🎲', ai: 'DeepSeek' },
+      { file: 'FM/ACCA FM - Risk Management Copilot Notes.html', title: 'Risk Management', icon: '⚓', ai: 'Copilot' },
+    ]
+  },
+
+  { code: 'tx', name: 'Taxation', sub: 'Finance Act 2025 · June 2026',
+    notes: [
+      { file: 'TX/CGT Notes ACCA TX June2026.html', title: 'Capital Gains Tax', icon: '🏠' },
+      { file: 'TX/TX Corporation Tax Notes.html', title: 'Corporation Tax', icon: '🏢' },
+      { file: 'TX/TX EMPLOYMENT BENEFITS.html', title: 'Employment Benefits', icon: '👔' },
+      { file: 'TX/TX Trading Income Notes.html', title: 'Trading Income', icon: '📈' },
+      { file: 'TX/TX Inheretence Tax Notes.html', title: 'Inheritance Tax', icon: '🏛️' },
+      { file: 'TX/TX VAT Notes.html', title: 'VAT', icon: '🧾' },
+      { file: 'TX/TX Pension & NIC.html', title: 'Pensions & NIC', icon: '🏖️' },
+      { file: 'TX/TX Key Dates Notes.html', title: 'Key Dates', icon: '📅' },
+      { file: 'TX/TX Refresher Notes.html', title: 'Refresher Notes', icon: '🔁', tag: 'Refresher' },
+      { file: 'TX/TX Revision Cheatsheet       .html', title: 'Revision Cheatsheet', icon: '⚡', tag: 'Cheatsheet' },
+    ]
+  },
+
+  { code: 'aa', name: 'Audit & Assurance', sub: 'External Audit · June 2026',
+    notes: [
+      { file: 'AA/AA Ethics and Acceptance.html', title: 'Ethics & Acceptance', icon: '⚖️' },
+      { file: 'AA/AA Controls Testing Notes.html', title: 'Controls Testing', icon: '🔍' },
+      { file: 'AA/AA Substantive Procedures.html', title: 'Substantive Procedures', icon: '🔬' },
+      { file: 'AA/AA Substantive Procedures Cheatsheet.html', title: 'Substantive Procedures Cheatsheet', icon: '🗂️', tag: 'Cheatsheet' },
+      { file: 'AA/AA Automated Tools Techniques.html', title: 'Automated Tools & Techniques', icon: '🤖' },
+      { file: 'AA/AA_Written_Representations_Tutorial.html', title: 'Written Representations', icon: '✍️' },
+      { file: 'AA/AA Audit Reports.html', title: 'Audit Reports', icon: '📋' },
+      { file: 'AA/AA_Auditors_Report_TCWG_Chapter12.html', title: "Auditor's Report & TCWG (Ch. 12)", icon: '🗣️' },
+      { file: 'AA/AA_Audit_Reports_Quiz.html', title: 'Audit Reports Quiz', icon: '❓', tag: 'Quiz' },
+      { file: 'AA/AA Revision Cheatsheet______.html', title: 'Revision Cheatsheet', icon: '🚀', tag: 'Cheatsheet' },
+    ]
+  },
+
+];
+/* ═════════════════════ END OF NOTES LIST ═════════════════════════════
+   You shouldn't need to edit anything below this line.
+   ════════════════════════════════════════════════════════════════════ */
+
 (function () {
-  var sections = Array.prototype.slice.call(document.querySelectorAll('.section'));
-  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  function plural(n) { return n + (n === 1 ? ' note' : ' notes'); }
+  function colourVars(node, code) {
+    node.style.setProperty('--c', 'var(--' + code + ', var(--ink))');
+    node.style.setProperty('--c-soft', 'var(--' + code + '-soft, var(--bg))');
+  }
+
+  var root = document.getElementById('sections');
+  var chipsBox = document.getElementById('chips');
+  var total = 0;
+
+  // ── Filter chips ──
+  var allChip = el('button', 'chip active', 'All');
+  allChip.dataset.filter = 'all';
+  chipsBox.appendChild(allChip);
+
+  // ── Build sections and cards ──
+  EXAMS.forEach(function (exam) {
+    var code = exam.code.toLowerCase();
+    var chip = el('button', 'chip', code.toUpperCase());
+    chip.dataset.filter = code;
+    colourVars(chip, code);
+    chipsBox.appendChild(chip);
+
+    var sec = el('section', 'section');
+    sec.id = code;
+    sec.dataset.exam = code;
+    colourVars(sec, code);
+
+    var head = el('div', 'section-head');
+    var left = el('div', 'section-left');
+    left.appendChild(el('div', 'section-icon', code.toUpperCase()));
+    var titles = el('div');
+    titles.appendChild(el('div', 'section-title', exam.name));
+    if (exam.sub) titles.appendChild(el('div', 'section-sub', exam.sub));
+    left.appendChild(titles);
+    head.appendChild(left);
+    head.appendChild(el('span', 'section-count', plural(exam.notes.length)));
+    sec.appendChild(head);
+
+    var grid = el('div', 'cards-grid');
+    exam.notes.forEach(function (n) {
+      var a = el('a', 'card' + (n.featured ? ' featured' : ''));
+      a.href = encodeURI(n.file).replace(/#/g, '%23');
+
+      var top = el('div', 'card-top');
+      top.appendChild(el('div', 'card-icon', n.icon || '📄'));
+      var tags = el('div', 'tags');
+      if (n.ai) tags.appendChild(el('span', 'tag tag-ai', n.ai));
+      tags.appendChild(el('span', 'tag', n.tag || code.toUpperCase()));
+      top.appendChild(tags);
+      a.appendChild(top);
+
+      a.appendChild(el('span', 'card-name', n.title));
+      if (n.desc) a.appendChild(el('span', 'card-desc', n.desc));
+
+      var foot = el('div', 'card-footer');
+      var isQuiz = (n.tag || '').toLowerCase() === 'quiz';
+      foot.appendChild(el('span', 'card-open', isQuiz ? 'Open quiz' : 'Open note'));
+      foot.appendChild(el('span', 'card-arrow', '→'));
+      a.appendChild(foot);
+
+      a.dataset.search = [n.title, n.desc, n.tag, n.ai, n.file, code].join(' ').toLowerCase();
+      grid.appendChild(a);
+      total++;
+    });
+    sec.appendChild(grid);
+    root.appendChild(sec);
+  });
+
+  // ── Stats ──
+  document.getElementById('stat-notes').textContent = total;
+  document.getElementById('stat-exams').textContent = EXAMS.length;
+  document.getElementById('stat-focus').textContent = CURRENT_FOCUS.toUpperCase();
+
+  // ── Search + filter ──
+  var sections = Array.prototype.slice.call(root.querySelectorAll('.section'));
+  var chips = Array.prototype.slice.call(chipsBox.querySelectorAll('.chip'));
   var q = document.getElementById('q');
   var empty = document.getElementById('empty');
   var filter = 'all';
-
-  function plural(n) { return n + (n === 1 ? ' note' : ' notes'); }
-
-  // Static counts
-  var total = 0;
-  sections.forEach(function (s) {
-    var n = s.querySelectorAll('.card').length;
-    total += n;
-    s.querySelector('.section-count').textContent = plural(n);
-  });
-  document.getElementById('stat-notes').textContent = total;
-  document.getElementById('stat-exams').textContent = sections.length;
 
   function apply() {
     var term = q.value.trim().toLowerCase();
     var anyVisible = false;
     sections.forEach(function (s) {
       var examOk = filter === 'all' || s.dataset.exam === filter;
+      var cards = s.querySelectorAll('.card');
       var shown = 0;
-      s.querySelectorAll('.card').forEach(function (c) {
-        var text = (c.textContent + ' ' + s.dataset.exam).toLowerCase();
-        var ok = examOk && (!term || text.indexOf(term) !== -1);
+      cards.forEach(function (c) {
+        var ok = examOk && (!term || c.dataset.search.indexOf(term) !== -1);
         c.style.display = ok ? '' : 'none';
         if (ok) shown++;
       });
       s.style.display = shown ? '' : 'none';
       if (shown) {
         anyVisible = true;
-        var all = s.querySelectorAll('.card').length;
-        s.querySelector('.section-count').textContent = term ? shown + ' of ' + all : plural(all);
+        s.querySelector('.section-count').textContent = term ? shown + ' of ' + cards.length : plural(cards.length);
       }
     });
     empty.style.display = anyVisible ? 'none' : 'block';
