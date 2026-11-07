@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SBL Chapter C5 – Strategic Choices</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fbfaf7; --paper:#ffffff; --ink:#1f2328; --muted:#5b6470; --line:#e6e2da;
+  --brand:#1d4ed8; --brand-soft:#e8efff; --green:#0f7a4a; --green-soft:#e6f6ee;
+  --amber:#a15c00; --amber-soft:#fff4e0; --red:#b42318; --red-soft:#fdecea;
+  --purple:#6d28d9; --purple-soft:#f1eafe; --teal:#0e7490; --teal-soft:#e3f5f9;
+  --radius:14px; --shadow:0 1px 2px rgba(0,0,0,.04),0 4px 16px rgba(0,0,0,.05);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;font-size:19px;line-height:1.75;-webkit-font-smoothing:antialiased}
+#progress{position:fixed;top:0;left:0;height:4px;background:var(--brand);width:0;z-index:50;transition:width .1s}
+.layout{display:grid;grid-template-columns:290px minmax(0,1fr);max-width:1320px;margin:0 auto}
+nav.toc{position:sticky;top:0;height:100vh;overflow-y:auto;padding:28px 18px 40px 24px;border-right:1px solid var(--line);font-size:15px;line-height:1.45}
+nav.toc .brand{font-weight:800;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);margin-bottom:14px}
+nav.toc a{display:block;padding:7px 10px;border-radius:8px;color:var(--muted);text-decoration:none;margin:1px 0}
+nav.toc a:hover{background:#f1efe9;color:var(--ink)}
+nav.toc a.active{background:var(--brand-soft);color:var(--brand);font-weight:600}
+nav.toc .grp{margin:16px 10px 4px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#9aa1ab}
+main{padding:36px 56px 120px;max-width:920px}
+header.hero{background:linear-gradient(135deg,#1d4ed8 0%,#4338ca 100%);color:#fff;border-radius:22px;padding:44px 44px 38px;margin-bottom:40px;box-shadow:var(--shadow)}
+header.hero .kicker{font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.85}
+header.hero h1{font-size:46px;line-height:1.1;margin:10px 0 14px;letter-spacing:-.02em}
+header.hero p{font-size:19px;opacity:.95;margin:0 0 18px;max-width:680px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);padding:4px 12px;border-radius:999px;font-size:14px;font-weight:500}
+section{scroll-margin-top:20px;margin-bottom:56px}
+h2{font-size:32px;line-height:1.2;letter-spacing:-.015em;margin:0 0 6px;padding-top:12px}
+h2 .num{color:var(--brand);margin-right:10px}
+.sub{color:var(--muted);margin:0 0 22px;font-size:17px}
+h3{font-size:23px;margin:34px 0 10px;letter-spacing:-.01em}
+h4{font-size:19px;margin:24px 0 6px}
+p{margin:0 0 16px}
+strong{font-weight:650}
+ul,ol{padding-left:26px;margin:0 0 16px}
+li{margin:5px 0}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:24px 26px;margin:20px 0;box-shadow:var(--shadow)}
+.box{border-radius:var(--radius);padding:18px 22px;margin:20px 0;border-left:5px solid}
+.box .t{font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;display:block}
+.box p:last-child,.box ul:last-child{margin-bottom:0}
+.simple{background:var(--brand-soft);border-color:var(--brand)} .simple .t{color:var(--brand)}
+.example{background:var(--green-soft);border-color:var(--green)} .example .t{color:var(--green)}
+.exam{background:var(--purple-soft);border-color:var(--purple)} .exam .t{color:var(--purple)}
+.warn{background:var(--red-soft);border-color:var(--red)} .warn .t{color:var(--red)}
+.tip{background:var(--amber-soft);border-color:var(--amber)} .tip .t{color:var(--amber)}
+.health{background:var(--teal-soft);border-color:var(--teal)} .health .t{color:var(--teal)}
+table{width:100%;border-collapse:collapse;margin:16px 0 22px;font-size:16.5px;line-height:1.55;background:var(--paper);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+th{background:#f3f1ec;text-align:left;padding:12px 14px;font-weight:700;border-bottom:1px solid var(--line)}
+td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:none}
+.tablewrap{overflow-x:auto}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:18px 0}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}
+.mini{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px 18px;box-shadow:var(--shadow);font-size:17px;line-height:1.6}
+.mini h4{margin:0 0 6px;font-size:18px}
+.mini p:last-child{margin:0}
+/* matrices */
+.matrix{display:grid;grid-template-columns:44px 1fr 1fr;grid-template-rows:auto 1fr 1fr;gap:10px;margin:22px 0}
+.matrix .ylab{grid-row:2/4;writing-mode:vertical-rl;transform:rotate(180deg);text-align:center;font-weight:700;color:var(--muted);font-size:14px;letter-spacing:.05em;text-transform:uppercase}
+.matrix .xlab{grid-column:2/4;text-align:center;font-weight:700;color:var(--muted);font-size:14px;letter-spacing:.05em;text-transform:uppercase}
+.matrix .xh{font-size:14px;color:var(--muted);text-align:center;font-weight:600}
+.cell{border-radius:12px;padding:16px 18px;font-size:16.5px;line-height:1.5;min-height:130px}
+.cell b{display:block;font-size:19px;margin-bottom:4px}
+.c1{background:#e6f6ee;border:1px solid #bfe6d1}.c2{background:#e8efff;border:1px solid #c7d6fb}.c3{background:#fff4e0;border:1px solid #f4d9a8}.c4{background:#fdecea;border:1px solid #f5c2bd}
+.ladder{display:flex;flex-direction:column;gap:6px;margin:16px 0}
+.rung{display:flex;align-items:center;gap:14px;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:17px}
+.rung .bar{height:10px;border-radius:5px;background:linear-gradient(90deg,#16a34a,#f59e0b,#dc2626)}
+details{background:var(--paper);border:1px solid var(--line);border-radius:12px;margin:14px 0;box-shadow:var(--shadow)}
+summary{cursor:pointer;padding:16px 20px;font-weight:600;list-style:none;display:flex;gap:10px;align-items:flex-start}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"▸";color:var(--brand);transition:transform .15s;display:inline-block}
+details[open] summary::before{transform:rotate(90deg)}
+details .ans{padding:0 22px 18px 42px;border-top:1px dashed var(--line);padding-top:14px}
+.answer{font-family:"Source Serif 4",Georgia,serif;font-size:19px;line-height:1.75;background:#fffdf8;border:1px solid #ece4d3;border-radius:var(--radius);padding:28px 32px;margin:18px 0}
+.answer h4{font-family:Inter,sans-serif;font-size:17px;color:var(--brand);margin-top:22px}
+.answer .memo{font-family:Inter,sans-serif;font-size:15px;color:var(--muted);border-bottom:1px solid #ece4d3;padding-bottom:12px;margin-bottom:16px}
+.ps{display:inline-block;font-family:Inter,sans-serif;font-size:12px;font-weight:700;background:var(--purple-soft);color:var(--purple);border-radius:6px;padding:1px 7px;margin-left:4px;vertical-align:2px;letter-spacing:.03em}
+.mk{display:inline-block;font-family:Inter,sans-serif;font-size:12px;font-weight:700;background:var(--green-soft);color:var(--green);border-radius:6px;padding:1px 7px;margin-left:4px;vertical-align:2px}
+.flow{display:flex;gap:10px;align-items:stretch;flex-wrap:wrap;margin:18px 0}
+.flow div{flex:1;min-width:150px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-align:center;font-size:16px;box-shadow:var(--shadow)}
+.flow div b{display:block;font-size:18px;color:var(--brand)}
+.flow div.on{background:var(--brand);color:#fff;border-color:var(--brand)}
+.flow div.on b{color:#fff}
+.kbd{font-family:ui-monospace,Menlo,monospace;background:#f1efe9;border-radius:6px;padding:1px 6px;font-size:.9em}
+footer{color:var(--muted);font-size:15px;border-top:1px solid var(--line);padding-top:20px;margin-top:60px}
+#menuBtn{display:none}
+@media (max-width:980px){
+  .layout{grid-template-columns:1fr}
+  nav.toc{position:fixed;left:0;top:0;width:290px;background:var(--bg);z-index:40;transform:translateX(-100%);transition:transform .2s;box-shadow:var(--shadow)}
+  nav.toc.open{transform:none}
+  #menuBtn{display:block;position:fixed;right:16px;bottom:16px;z-index:45;background:var(--brand);color:#fff;border:none;border-radius:999px;padding:12px 18px;font-weight:700;font-size:15px;box-shadow:var(--shadow)}
+  main{padding:24px 18px 100px}
+  header.hero{padding:30px 24px}
+  header.hero h1{font-size:34px}
+  .grid2,.grid3{grid-template-columns:1fr}
+  body{font-size:18px}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<button id="menuBtn" type="button">☰ Contents</button>
+<div class="layout">
+<nav class="toc" id="toc">
+  <div class="brand">SBL · Chapter C5</div>
+  <div class="grp">Start</div>
+  <a href="#big-picture">0. The big picture</a>
+  <div class="grp">How to compete</div>
+  <a href="#generic">1. Porter's generic strategies</a>
+  <a href="#clock">2. Strategy clock</a>
+  <a href="#sustain">3. Sustaining advantage: price, differentiation, lock-in, 7Ps</a>
+  <div class="grp">Where to grow</div>
+  <a href="#ansoff">4. Ansoff matrix</a>
+  <a href="#diversification">5. Diversification</a>
+  <a href="#international">6. Going international</a>
+  <div class="grp">Managing the portfolio</div>
+  <a href="#bcg">7. BCG matrix</a>
+  <a href="#public">8. Public sector portfolio matrix</a>
+  <div class="grp">How to grow</div>
+  <a href="#methods">9. Organic, M&amp;A, alliances</a>
+  <div class="grp">Choosing</div>
+  <a href="#saf">10. Suitability, Acceptability, Feasibility</a>
+  <div class="grp">Exam</div>
+  <a href="#case">11. Worked case + model answer</a>
+  <a href="#examiner">12. How it's examined</a>
+  <a href="#mistakes">13. Common mistakes</a>
+  <a href="#memory">14. Memory tips</a>
+  <a href="#practice">15. Practice questions</a>
+  <a href="#cheat">16. One-page cheat sheet</a>
+</nav>
+
+<main>
+<header class="hero">
+  <div class="kicker">ACCA Strategic Business Leader · Syllabus area C5</div>
+  <h1>Strategic Choices</h1>
+  <p>You've finished analysing the business (environment, five forces, capabilities, SWOT). Now the board has to decide what to <em>do</em>. This chapter gives you the tools to generate options, choose between them, and defend that choice like a senior adviser.</p>
+  <div class="chips">
+    <span class="chip">Syllabus C5 a–f</span>
+    <span class="chip">Intellectual level 2–3</span>
+    <span class="chip">Very high exam frequency</span>
+    <span class="chip">≈ 75 min read</span>
+  </div>
+</header>
+
+<!-- ============ 0 ============ -->
+<section id="big-picture">
+<h2><span class="num">0</span>The big picture</h2>
+<p class="sub">Where this chapter sits, and the four questions it answers.</p>
+
+<p>The Johnson, Scholes &amp; Whittington model (syllabus C1) splits strategy into three parts. You've done the first. This chapter is the second.</p>
+<div class="flow">
+  <div><b>Strategic position</b>Where are we now? PESTEL, 5 Forces, value chain, SWOT</div>
+  <div class="on"><b>Strategic choices</b>What should we do? ← this chapter</div>
+  <div><b>Strategy in action</b>How do we make it happen? Change, projects, structure</div>
+</div>
+
+<div class="box simple"><span class="t">In very simple language</span>
+<p>Imagine you own a small hospital. After your SWOT you know your strengths and the opportunities around you. Now you must decide four things:</p>
+<ol>
+<li><strong>How will we win against competitors?</strong> Cheaper? Better? Specialist? → <em>Porter's generic strategies, the strategy clock, the 7Ps, lock-in</em></li>
+<li><strong>Which direction should we grow in?</strong> Same patients, new services? New cities? → <em>Ansoff, diversification, international expansion</em></li>
+<li><strong>Which of our existing services deserve money?</strong> → <em>BCG matrix (private sector) and the public sector portfolio matrix</em></li>
+<li><strong>How do we actually grow?</strong> Build it ourselves, buy someone, or partner? → <em>Organic growth, acquisitions, alliances, joint ventures, franchising</em></li>
+</ol>
+<p>Then one final test checks if the chosen option is any good: <strong>Suitability, Acceptability, Feasibility (SAF)</strong>.</p>
+</div>
+
+<div class="tablewrap"><table>
+<tr><th>Syllabus outcome</th><th>What it means for you</th><th>Section</th></tr>
+<tr><td>C5(a) Assess and advise on strategic options</td><td>Generate options and evaluate them (SAF)</td><td>1, 2, 10</td></tr>
+<tr><td>C5(b) Product/market diversification – national, multinational, global</td><td>Diversification types; going abroad</td><td>5, 6</td></tr>
+<tr><td>C5(c) 7Ps, price-based strategies, differentiation, lock-in</td><td>How advantage is <em>sustained</em></td><td>3</td></tr>
+<tr><td>C5(d) BCG and public sector portfolio matrix</td><td>Portfolio management</td><td>7, 8</td></tr>
+<tr><td>C5(e) Ansoff growth vector matrix</td><td>Direction of growth</td><td>4</td></tr>
+<tr><td>C5(f) Internal development, combinations, alliances, partnering</td><td>Method of growth</td><td>9</td></tr>
+</table></div>
+
+<div class="box tip"><span class="t">Remember the order: HOW → WHERE → WHICH → METHOD → TEST</span>
+<p><strong>How</strong> to compete (Porter) → <strong>Where</strong> to grow (Ansoff) → <strong>Which</strong> units to fund (BCG) → <strong>Method</strong> (organic / buy / partner) → <strong>Test</strong> it (SAF). In a real exam you rarely need all five. You pick the one tool that answers the requirement.</p>
+</div>
+</section>
+
+<!-- ============ 1 ============ -->
+<section id="generic">
+<h2><span class="num">1</span>Porter's generic strategies</h2>
+<p class="sub">The basic answer to "how do we beat our competitors?"</p>
+
+<div class="box simple"><span class="t">In very simple language</span>
+<p>Michael Porter said there are only two ways to win: be the <strong>cheapest to operate</strong> or be <strong>different enough that customers pay more</strong>. You can do either across the whole market or for one small slice of it.</p>
+</div>
+
+<div class="matrix">
+  <div></div><div class="xh">Lower cost</div><div class="xh">Differentiation</div>
+  <div class="ylab">Competitive scope</div>
+  <div class="cell c2"><b>Cost leadership</b>Broad market. Be the lowest-cost producer in the industry. Keep prices at industry level and earn higher margin, or cut price and win volume.</div>
+  <div class="cell c1"><b>Differentiation</b>Broad market. Offer something customers value as unique (quality, brand, service, innovation) and charge a premium.</div>
+  <div class="cell c3"><b>Cost focus</b>Narrow segment. Lowest cost in serving one niche.</div>
+  <div class="cell c4" style="background:#f1eafe;border-color:#d8c8fb"><b>Differentiation focus</b>Narrow segment. A specialist that serves one niche better than anyone.</div>
+  <div></div><div class="xlab">Source of competitive advantage</div>
+</div>
+<p style="font-size:15px;color:var(--muted);margin-top:-8px">Top row = broad target, bottom row = narrow target.</p>
+
+<h3>Examples you can remember</h3>
+<div class="tablewrap"><table>
+<tr><th>Strategy</th><th>Everyday example</th><th>Healthcare example</th></tr>
+<tr><td><strong>Cost leadership</strong></td><td>Budget airlines (Ryanair): one aircraft type, no free food, fast turnarounds</td><td>A high-volume day-surgery centre doing cataract operations in a standardised, conveyor-like process (similar to Aravind Eye Hospitals in India)</td></tr>
+<tr><td><strong>Differentiation</strong></td><td>Apple: design, brand, ecosystem, premium prices</td><td>A premium private hospital: celebrity consultants, private suites, short waiting times, concierge service</td></tr>
+<tr><td><strong>Cost focus</strong></td><td>Aldi/Lidl for price-sensitive shoppers with a limited range</td><td>A low-cost clinic network serving only blue-collar workers covered by basic insurance</td></tr>
+<tr><td><strong>Differentiation focus</strong></td><td>Rolex, Ferrari</td><td>A specialist IVF or cardiac centre known as the best in the region</td></tr>
+</table></div>
+
+<h3>"Stuck in the middle"</h3>
+<p>Porter warned that a firm that tries to be <em>both</em> cheap and special, without excelling at either, ends up with no advantage. Customers who want cheap go to the cost leader; customers who want quality go to the differentiator.</p>
+<div class="box example"><span class="t">Example</span>
+<p>A mid-sized FMCG tea brand charges 10% more than supermarket own-label tea, but its packaging and taste are no better than own-label. It isn't cheapest and it isn't special. Its market share drops every year. That is <strong>stuck in the middle</strong>.</p>
+</div>
+<div class="box exam"><span class="t">Exam angle — be sceptical of Porter</span>
+<p>Modern critics say a <strong>hybrid</strong> strategy can work (e.g. IKEA, Toyota, Amazon combine low cost <em>and</em> differentiation through scale and technology). Showing you know this limitation earns <strong>scepticism/evaluation</strong> marks.</p>
+</div>
+
+<h3>Risks of each strategy</h3>
+<div class="grid2">
+<div class="mini"><h4>Cost leadership risks</h4><ul><li>Price wars squeeze everyone</li><li>A competitor finds a cheaper technology</li><li>Cost-cutting damages quality and reputation (very serious in healthcare: patient safety)</li></ul></div>
+<div class="mini"><h4>Differentiation risks</h4><ul><li>Customers stop valuing the difference</li><li>Competitors copy it</li><li>The premium becomes too high, e.g. in a recession</li></ul></div>
+</div>
+</section>
+
+<!-- ============ 2 ============ -->
+<section id="clock">
+<h2><span class="num">2</span>Bowman's strategy clock</h2>
+<p class="sub">Porter's idea seen from the <strong>customer's</strong> point of view: price vs perceived value.</p>
+
+<div class="box simple"><span class="t">In very simple language</span>
+<p>Porter looks at the company's <em>costs</em>. The strategy clock looks at what the <em>customer sees</em>: the price they pay and the value they think they get. There are 8 positions, like hours on a clock.</p>
+</div>
+
+<div class="tablewrap"><table>
+<tr><th>#</th><th>Route</th><th>Price / Perceived value</th><th>Example</th><th>Will it work?</th></tr>
+<tr><td>1</td><td><strong>No frills</strong></td><td>Low price / low value</td><td>Budget motels, basic generic medicines</td><td style="color:var(--green)">Yes, for price-sensitive segment</td></tr>
+<tr><td>2</td><td><strong>Low price</strong></td><td>Low price / standard value</td><td>Supermarket own-label goods</td><td style="color:var(--green)">Yes, if costs are low (else price war)</td></tr>
+<tr><td>3</td><td><strong>Hybrid</strong></td><td>Low-ish price / high value</td><td>IKEA, Uniqlo</td><td style="color:var(--green)">Yes, needs scale and efficient processes</td></tr>
+<tr><td>4</td><td><strong>Differentiation</strong></td><td>Standard–high price / high value</td><td>Branded FMCG (Nestlé), premium hospitals</td><td style="color:var(--green)">Yes</td></tr>
+<tr><td>5</td><td><strong>Focused differentiation</strong></td><td>Very high price / very high value</td><td>Luxury brands, VIP medical suites</td><td style="color:var(--green)">Yes, for a niche</td></tr>
+<tr><td>6</td><td>Increased price / standard value</td><td>Higher price, nothing extra</td><td>Raising prices without improving service</td><td style="color:var(--red)">Fails unless monopoly</td></tr>
+<tr><td>7</td><td>Increased price / low value</td><td>Pay more, get less</td><td>Only possible for monopolies</td><td style="color:var(--red)">Fails</td></tr>
+<tr><td>8</td><td>Low value / standard price</td><td>Same price, worse product</td><td>Shrinkflation noticed by customers</td><td style="color:var(--red)">Fails, loses share</td></tr>
+</table></div>
+
+<div class="box tip"><span class="t">Memory trick</span>
+<p><strong>Routes 1–5 = "survive". Routes 6–8 = "die".</strong> If a case shows a company raising prices while complaints rise and quality falls, call it out: "The company is drifting towards routes 6–8 of the strategy clock, which are failure strategies."</p>
+</div>
+
+<div class="box health"><span class="t">Healthcare example</span>
+<p>A private hospital raises consultation fees by 15% but waiting times get longer and patient-satisfaction scores fall. Customers see a <strong>higher price for lower value</strong>: route 7. Insurers and patients will switch to competitors unless the hospital is the only provider in the area.</p>
+</div>
+</section>
+
+<!-- ============ 3 ============ -->
+<section id="sustain">
+<h2><span class="num">3</span>Sustaining competitive advantage</h2>
+<p class="sub">Syllabus C5(c): price-based strategies, differentiation, lock-in and the 7Ps.</p>
+
+<p>Getting an advantage is one thing. <strong>Keeping it</strong> is harder, because competitors copy you. The examiner wants you to explain <em>how</em> an advantage can be protected.</p>
+
+<h3>3.1 Sustaining price-based strategies</h3>
+<ul>
+<li><strong>Genuinely lower costs</strong>: economies of scale, experience curve, efficient processes, automation/RPA, cheap supply contracts.</li>
+<li><strong>Accept lower margins</strong>: only works if you have deep pockets (e.g. cash from another business).</li>
+<li><strong>Win a price war</strong>: need the lowest cost base, otherwise you lose.</li>
+<li><strong>Focus on segments where competitors can't follow</strong>: e.g. a no-frills clinic in an area large hospitals don't serve.</li>
+</ul>
+
+<h3>3.2 Sustaining differentiation</h3>
+<ul>
+<li><strong>Hard to imitate</strong>: unique resources, patents, culture, reputation, know-how of key staff (link to core competences from chapter C4).</li>
+<li><strong>Imperfect mobility</strong>: the resource can't easily be bought or moved, e.g. a top surgeon tied into a long contract, brand reputation built over 50 years.</li>
+<li><strong>Continuous innovation</strong>: stay one step ahead.</li>
+<li><strong>Re-invest the price premium</strong> in R&amp;D, marketing and service.</li>
+</ul>
+
+<h3>3.3 Lock-in</h3>
+<div class="box simple"><span class="t">In very simple language</span>
+<p>Lock-in means the customer <strong>could</strong> leave, but switching is so costly, risky or annoying that they don't. Often the product becomes the <strong>industry standard</strong>.</p>
+</div>
+<div class="tablewrap"><table>
+<tr><th>Example</th><th>Why customers are locked in</th></tr>
+<tr><td>Microsoft Office / Windows</td><td>Industry standard; everyone shares files in that format; retraining staff is expensive</td></tr>
+<tr><td>Apple ecosystem</td><td>Photos, apps, iCloud, Watch all linked; switching means losing purchases and convenience</td></tr>
+<tr><td>Nespresso, printer ink cartridges</td><td>Cheap machine, then only compatible capsules/cartridges</td></tr>
+<tr><td>Hospital Electronic Health Record (EHR) systems</td><td>Years of patient data, staff trained, integrations with billing and labs; migrating costs millions and carries patient-safety risk</td></tr>
+<tr><td>ERP systems (e.g. Oracle, SAP)</td><td>Data, customisation and processes all built around one vendor</td></tr>
+</table></div>
+<div class="box exam"><span class="t">Exam angle</span>
+<p>Lock-in has a downside: regulators may see it as anti-competitive, and customers may resent it, which damages reputation. Also, if YOUR organisation is the customer (e.g. choosing a cloud provider), lock-in is a <strong>risk</strong> to mention: "Vendor lock-in would weaken our bargaining power in future contract renewals."</p>
+</div>
+
+<h3>3.4 The 7Ps (extended marketing mix)</h3>
+<p>The 7Ps are the practical tools used to <em>deliver</em> the chosen strategy. The first four are for products; the extra three were added for <strong>services</strong> (which makes them perfect for hospitals, banks, consultancies).</p>
+
+<div class="tablewrap"><table>
+<tr><th>P</th><th>Meaning</th><th>Differentiation hospital</th><th>Cost-leader clinic</th></tr>
+<tr><td><strong>Product</strong></td><td>What is offered: features, quality, range</td><td>Full range of specialties, latest robotic surgery</td><td>Limited set of routine services: GP visits, vaccinations, basic tests</td></tr>
+<tr><td><strong>Price</strong></td><td>Price level, discounts, payment terms</td><td>Premium; packages for VIP patients</td><td>Low fixed prices; accepts basic insurance plans</td></tr>
+<tr><td><strong>Place</strong></td><td>Where and how customers get it</td><td>Flagship campus plus home visits</td><td>Small clinics near labour camps and metro stations; telehealth</td></tr>
+<tr><td><strong>Promotion</strong></td><td>Advertising, PR, social media</td><td>Brand campaigns, doctor reputation, international patient marketing</td><td>Price-led messages, employer partnerships</td></tr>
+<tr><td><strong>People</strong></td><td>Staff who deliver the service</td><td>Renowned consultants, high nurse-to-patient ratio</td><td>Nurse practitioners and GPs; standardised protocols</td></tr>
+<tr><td><strong>Process</strong></td><td>How the service is delivered</td><td>Personal care coordinator, no queues</td><td>Online booking, 15-minute slots, high throughput</td></tr>
+<tr><td><strong>Physical evidence</strong></td><td>Tangible clues of quality</td><td>Hotel-like rooms, marble lobby, accreditation badges (e.g. JCI)</td><td>Clean, simple, functional; visible price list</td></tr>
+</table></div>
+
+<div class="box tip"><span class="t">Exam tip</span>
+<p>Never just list the 7Ps. In SBL each P must be <strong>applied to the case</strong> and <strong>linked to the strategy</strong>. Write: "Process: the 45-minute average wait in Exhibit 3 contradicts the premium positioning; an online check-in system would…"</p>
+</div>
+</section>
+
+<!-- ============ 4 ============ -->
+<section id="ansoff">
+<h2><span class="num">4</span>Ansoff's growth vector matrix</h2>
+<p class="sub">The direction of growth: which products, which markets.</p>
+
+<div class="box simple"><span class="t">In very simple language</span>
+<p>To grow, you can sell <strong>more of what you have</strong>, sell <strong>new things</strong>, go to <strong>new customers</strong>, or do <strong>both new</strong>. The further you move from what you know, the higher the risk.</p>
+</div>
+
+<div class="matrix">
+  <div></div><div class="xh">Existing products</div><div class="xh">New products</div>
+  <div class="ylab">Markets</div>
+  <div class="cell c1"><b>Market penetration</b><em>Existing markets.</em> Grow share with current products: price promotions, loyalty, marketing. <strong>Lowest risk.</strong></div>
+  <div class="cell c2"><b>Product development</b><em>Existing markets.</em> New products for current customers. Uses customer knowledge; needs R&amp;D.</div>
+  <div class="cell c3"><b>Market development</b><em>New markets.</em> Current products to new customers, new geographies or new segments.</div>
+  <div class="cell c4"><b>Diversification</b><em>New markets.</em> New products for new markets. <strong>Highest risk.</strong></div>
+  <div></div><div class="xlab">Products</div>
+</div>
+<p style="font-size:15px;color:var(--muted);margin-top:-8px">Top row = existing markets, bottom row = new markets.</p>
+
+<h3>One company, four directions</h3>
+<p>Take a fictional private hospital group, <strong>"Crescent Health"</strong>, with two hospitals in one city.</p>
+<div class="tablewrap"><table>
+<tr><th>Ansoff box</th><th>Crescent Health option</th><th>Key risk / requirement</th></tr>
+<tr><td><strong>Market penetration</strong></td><td>Sign more insurance companies, launch a loyalty-style family health plan, advertise maternity services in its own city</td><td>Competitors may respond with price cuts; is the market saturated?</td></tr>
+<tr><td><strong>Product development</strong></td><td>Add an oncology centre or telehealth consultations for existing patients</td><td>Capital cost, specialist staff, regulatory licences</td></tr>
+<tr><td><strong>Market development</strong></td><td>Open a hospital in another emirate or country, or target medical tourists</td><td>Local regulations, culture, brand unknown in new market</td></tr>
+<tr><td><strong>Diversification</strong></td><td>Launch a health-insurance company or a medical equipment manufacturing unit</td><td>No experience; very different skills; highest risk</td></tr>
+</table></div>
+
+<h3>The risk ladder</h3>
+<div class="ladder">
+  <div class="rung"><div class="bar" style="width:20%"></div>Market penetration: known product, known customers</div>
+  <div class="rung"><div class="bar" style="width:45%"></div>Product development: known customers, unknown product</div>
+  <div class="rung"><div class="bar" style="width:60%"></div>Market development: known product, unknown customers</div>
+  <div class="rung"><div class="bar" style="width:100%"></div>Diversification: everything unknown</div>
+</div>
+<p style="font-size:16px;color:var(--muted)">Whether product development or market development is riskier depends on the case. Argue it from the facts.</p>
+
+<h3>Don't forget: "do nothing", consolidation and withdrawal</h3>
+<p>Johnson, Scholes &amp; Whittington remind us that not every option is growth. Strong candidates also consider:</p>
+<ul>
+<li><strong>Consolidation / protect and build</strong>: defend current position, improve efficiency, maybe shrink to profitable core.</li>
+<li><strong>Withdrawal</strong>: sell or close a unit that destroys value, e.g. a loss-making outlet in a declining area.</li>
+<li><strong>Do nothing</strong>: almost never acceptable in a changing environment (strategic drift, chapter C2), but a useful baseline for comparison.</li>
+</ul>
+
+<div class="box exam"><span class="t">Exam angle</span>
+<p>A typical SBL requirement: "<em>Using Ansoff's matrix, evaluate the growth options proposed by the CEO.</em>" Marks come from: correctly classifying each option (1 mark each, roughly), then evaluating each one with case facts (risk, fit with competences, resources, stakeholder reaction), then a recommendation.</p>
+</div>
+</section>
+
+<!-- ============ 5 ============ -->
+<section id="diversification">
+<h2><span class="num">5</span>Diversification in depth</h2>
+<p class="sub">The riskiest Ansoff box, so the examiner loves to test it.</p>
+
+<h3>5.1 Related diversification</h3>
+<p>Moving into areas <strong>connected</strong> to what you already do, so you can share skills, customers, technology or supply chain.</p>
+
+<div class="grid3">
+<div class="mini"><h4>Backward vertical</h4><p>Move <strong>up</strong> the supply chain, towards suppliers.</p><p><em>Hospital group opens its own pharmacy distribution company or diagnostic lab.</em></p></div>
+<div class="mini"><h4>Forward vertical</h4><p>Move <strong>down</strong> the chain, towards customers.</p><p><em>A tea manufacturer opens its own branded tea cafés; a drug maker opens pharmacies.</em></p></div>
+<div class="mini"><h4>Horizontal</h4><p>Move into <strong>complementary or competing</strong> activities at the same stage.</p><p><em>A hospital adds physiotherapy and home-care services; an FMCG firm adds coffee to tea.</em></p></div>
+</div>
+
+<div class="grid2">
+<div class="mini"><h4>✅ Benefits of vertical integration</h4><ul><li>Secures supplies or distribution</li><li>Captures the supplier's or retailer's margin</li><li>Better quality control</li><li>Barrier to entry for competitors</li></ul></div>
+<div class="mini"><h4>⚠️ Risks of vertical integration</h4><ul><li>"All eggs in one basket": one industry downturn hits every stage</li><li>Less flexibility to switch to cheaper suppliers</li><li>New skills needed (running a lab ≠ running a ward)</li><li>Internal supplier may become inefficient (no competition)</li></ul></div>
+</div>
+
+<h3>5.2 Unrelated (conglomerate) diversification</h3>
+<p>Moving into a business with <strong>no link</strong> to the current one. Example: a hospital group buying a hotel chain; Tata Group (steel, cars, tea, IT, salt).</p>
+<div class="grid2">
+<div class="mini"><h4>Arguments for</h4><ul><li>Spreads risk across different economic cycles</li><li>Uses surplus cash</li><li>Exploits management or parent skills (e.g. turnaround expertise)</li><li>Can work in emerging markets where capital markets are weak</li></ul></div>
+<div class="mini"><h4>Arguments against</h4><ul><li>Shareholders can diversify themselves more cheaply by holding a portfolio</li><li>No synergy, so where does added value come from?</li><li>Management lacks knowledge of the new industry</li><li>"Conglomerate discount": markets often value the group at less than the sum of its parts</li></ul></div>
+</div>
+
+<h3>5.3 Synergy: the "2 + 2 = 5" test</h3>
+<p>Diversification only creates value if the combined business is worth more than the two separately. Sources of synergy:</p>
+<ul>
+<li><strong>Cost synergies</strong>: shared purchasing, one finance shared-service centre, closing duplicate sites.</li>
+<li><strong>Revenue synergies</strong>: cross-selling (hospital patients referred to the group's own physiotherapy unit).</li>
+<li><strong>Knowledge synergies</strong>: sharing expertise, systems, brand.</li>
+</ul>
+<div class="box warn"><span class="t">Scepticism alert</span>
+<p>In SBL cases, a CEO or acquisition target often <strong>claims</strong> large synergies. The examiner expects you to question them: "The projected synergy of $8m a year is not supported by any analysis in Exhibit 4. Research shows many acquisitions fail to deliver expected synergies. The board should commission independent due diligence before relying on this figure."</p>
+</div>
+</section>
+
+<!-- ============ 6 ============ -->
+<section id="international">
+<h2><span class="num">6</span>National, multinational and global perspectives</h2>
+<p class="sub">Syllabus C5(b): going international as a growth option.</p>
+
+<h3>6.1 Why go international?</h3>
+<ul>
+<li>Home market saturated: growth must come from elsewhere</li>
+<li>Economies of scale: spread R&amp;D and brand costs over a bigger market</li>
+<li>Follow customers who are expanding abroad</li>
+<li>Access cheaper resources (labour, materials) or skills</li>
+<li>Spread risk across economies</li>
+</ul>
+
+<h3>6.2 Yip's globalisation drivers</h3>
+<p>Yip says an industry "goes global" when four types of driver push it there. Use this to judge whether an <strong>industry</strong> suits a global strategy.</p>
+<div class="tablewrap"><table>
+<tr><th>Driver</th><th>Meaning</th><th>Example</th></tr>
+<tr><td><strong>Market</strong></td><td>Customer needs are similar across countries; global customers; global brands</td><td>Smartphones, soft drinks</td></tr>
+<tr><td><strong>Cost</strong></td><td>Big scale economies; cheaper locations available</td><td>Generic drug manufacturing in India</td></tr>
+<tr><td><strong>Government</strong></td><td>Low trade barriers, free-trade zones, common standards</td><td>Free zones; EU single market</td></tr>
+<tr><td><strong>Competitive</strong></td><td>Rivals are global, so you must be too</td><td>Big pharma, consulting firms</td></tr>
+</table></div>
+<p style="font-size:16px">Healthcare delivery is a <em>weak</em> global industry: regulation is national, licences are local and patients want care close to home. Pharmaceuticals and medical devices are <em>strongly</em> global.</p>
+
+<h3>6.3 International strategy types (Bartlett &amp; Ghoshal)</h3>
+<div class="matrix">
+  <div></div><div class="xh">Low local responsiveness</div><div class="xh">High local responsiveness</div>
+  <div class="ylab">Global integration</div>
+  <div class="cell c2"><b>Global strategy</b><em>High integration.</em> Same product everywhere, run from the centre. E.g. Intel, Apple.</div>
+  <div class="cell c1"><b>Transnational</b><em>High integration.</em> Global efficiency and local adaptation together. E.g. McDonald's (global system, local menus such as the McArabia).</div>
+  <div class="cell c3"><b>Export / international</b><em>Low integration.</em> Home-country product sold abroad with little change.</div>
+  <div class="cell c4"><b>Multi-domestic</b><em>Low integration.</em> Each country run almost independently, adapted to local tastes. E.g. food companies with local brands.</div>
+  <div></div><div class="xlab">Local responsiveness</div>
+</div>
+
+<h3>6.4 Market entry modes, from lowest to highest commitment</h3>
+<div class="tablewrap"><table>
+<tr><th>Mode</th><th>How it works</th><th>Pros</th><th>Cons</th></tr>
+<tr><td><strong>Exporting</strong></td><td>Produce at home, sell abroad (direct or via agents)</td><td>Low cost and risk; easy exit</td><td>Tariffs, transport costs, little local knowledge</td></tr>
+<tr><td><strong>Licensing</strong></td><td>Foreign firm uses your patent/brand for a royalty</td><td>Fast, no capital needed</td><td>Low control; may create a future competitor</td></tr>
+<tr><td><strong>Franchising</strong></td><td>Franchisee runs a business using your format, pays fees</td><td>Rapid expansion with others' capital; local owners motivated</td><td>Quality control risk; brand damage from a bad franchisee</td></tr>
+<tr><td><strong>Joint venture</strong></td><td>Create a new company jointly owned with a local partner</td><td>Shared cost and risk; local knowledge and contacts; may be legally required</td><td>Disagreements; shared profits; knowledge leakage</td></tr>
+<tr><td><strong>Wholly owned subsidiary</strong> (greenfield or acquisition)</td><td>Build or buy your own operation abroad</td><td>Full control and profits</td><td>Highest cost and risk; slow (greenfield)</td></tr>
+</table></div>
+
+<div class="box health"><span class="t">Healthcare example</span>
+<p>Crescent Health wants to enter a neighbouring country where foreign ownership of hospitals is limited to 49%. A <strong>joint venture</strong> with a local healthcare group is the realistic route: it meets the law, brings licences and relationships with the Ministry of Health, and shares the capital cost. The risks are cultural clashes between partners and disputes over clinical standards, so the JV agreement must cover governance, quality protocols and exit terms.</p>
+</div>
+
+<div class="box tip"><span class="t">Link back</span>
+<p><strong>Porter's Diamond</strong> (chapter C2) explains why a country breeds competitive firms. Use it alongside this section to assess an overseas market: factor conditions, demand conditions, related and supporting industries, and firm strategy, structure and rivalry.</p>
+</div>
+</section>
+
+<!-- ============ 7 ============ -->
+<section id="bcg">
+<h2><span class="num">7</span>The BCG matrix</h2>
+<p class="sub">Which business units or products deserve investment, and which should be milked or sold?</p>
+
+<div class="box simple"><span class="t">In very simple language</span>
+<p>A company with many products is like a farmer with different animals. Some give milk every day (cash cows), some are young and promising (stars), some are uncertain (question marks), and some just eat food (dogs). The BCG matrix tells the farmer where to spend money.</p>
+</div>
+
+<div class="matrix">
+  <div></div><div class="xh">High relative market share</div><div class="xh">Low relative market share</div>
+  <div class="ylab">Market growth</div>
+  <div class="cell c3"><b>⭐ Star</b><em>High growth.</em> Market leader in a fast-growing market. Earns cash but needs heavy investment to keep up with growth. <strong>Strategy: BUILD / HOLD.</strong></div>
+  <div class="cell c2"><b>❓ Question mark</b><em>High growth.</em> Also called the problem child. Small share of a growing market; uses lots of cash. <strong>Strategy: BUILD selectively or DIVEST.</strong></div>
+  <div class="cell c1"><b>🐄 Cash cow</b><em>Low growth.</em> Leader in a mature market. Generates surplus cash with little investment. <strong>Strategy: HOLD / HARVEST.</strong></div>
+  <div class="cell c4"><b>🐕 Dog</b><em>Low growth.</em> Small share of a mature or declining market. <strong>Strategy: DIVEST / HARVEST</strong>, unless it supports other products.</div>
+  <div></div><div class="xlab">Relative market share</div>
+</div>
+<p style="font-size:15px;color:var(--muted);margin-top:-8px">Top row = high market growth, bottom row = low market growth.</p>
+
+<h3>How to calculate the axes</h3>
+<div class="card">
+<p><strong>Relative market share</strong> = Our market share ÷ Market share of the <strong>largest competitor</strong></p>
+<ul>
+<li>Above 1.0 means we are the market leader, so <strong>high</strong> share</li>
+<li>Below 1.0 means someone is bigger, so <strong>low</strong> share</li>
+</ul>
+<p><strong>Market growth</strong> = annual growth of the whole market. Traditionally above roughly <strong>10%</strong> counts as high, but judge it against the industry and economy in the case.</p>
+</div>
+
+<h3>Worked example: an FMCG beverages company</h3>
+<div class="tablewrap"><table>
+<tr><th>Product</th><th>Our share</th><th>Largest rival</th><th>Relative share</th><th>Market growth</th><th>Category</th></tr>
+<tr><td>Loose black tea</td><td>40%</td><td>20%</td><td>40/20 = <strong>2.0</strong></td><td>2%</td><td>🐄 Cash cow</td></tr>
+<tr><td>Ready-to-drink iced tea</td><td>30%</td><td>15%</td><td><strong>2.0</strong></td><td>18%</td><td>⭐ Star</td></tr>
+<tr><td>Energy drinks</td><td>5%</td><td>35%</td><td><strong>0.14</strong></td><td>15%</td><td>❓ Question mark</td></tr>
+<tr><td>Instant coffee</td><td>8%</td><td>45%</td><td><strong>0.18</strong></td><td>1%</td><td>🐕 Dog</td></tr>
+</table></div>
+<div class="box example"><span class="t">How to write it up</span>
+<p>"Loose tea is a cash cow (relative share 2.0, growth 2%). It should be managed for cash, with minimal investment, and that cash used to fund iced tea, a star in an 18% growth market, to protect its leadership. Energy drinks are a question mark: with only 0.14 relative share against a dominant rival, the board must decide whether it can realistically gain share. If not, it should exit. Instant coffee is a dog but should not be dropped automatically. It may be needed to give supermarkets a full hot-beverage range, so the board should check whether its removal would hurt tea sales."</p>
+</div>
+
+<h3>BCG in healthcare</h3>
+<div class="box health"><span class="t">Hospital service lines</span>
+<ul>
+<li><strong>Star</strong>: Cardiology, which is the regional leader in a fast-growing market (ageing population, rising diabetes)</li>
+<li><strong>Cash cow</strong>: Maternity, a market leader in a stable market with predictable income</li>
+<li><strong>Question mark</strong>: Telehealth, with a small share in a booming market</li>
+<li><strong>Dog</strong>: Cosmetic dermatology, with a small share in a crowded, slow market</li>
+</ul>
+<p>Careful: a hospital may have to keep a "dog" like the Emergency Department because it is a licensing requirement and feeds patients into profitable departments.</p>
+</div>
+
+<h3>Limitations (= scepticism marks)</h3>
+<ul>
+<li>Only two factors. Ignores profitability, competitive strength, synergies and strategic importance.</li>
+<li>Defining "the market" changes everything: is it the global tea market or the UAE premium-tea market?</li>
+<li>Assumes high market share = high profit (experience curve), which isn't always true.</li>
+<li>Labelling a unit a "dog" can demotivate staff and become self-fulfilling.</li>
+<li>Not designed for public sector or not-for-profit organisations. Use the public sector portfolio matrix instead.</li>
+</ul>
+</section>
+
+<!-- ============ 8 ============ -->
+<section id="public">
+<h2><span class="num">8</span>The public sector portfolio matrix</h2>
+<p class="sub">Montanari &amp; Bracker's version of the BCG for government and not-for-profit bodies.</p>
+
+<div class="box simple"><span class="t">In very simple language</span>
+<p>A government health authority doesn't care about market share or profit. It cares about two questions: <strong>Does the public need and support this service?</strong> and <strong>Are we actually good at delivering it?</strong></p>
+</div>
+
+<div class="matrix">
+  <div></div><div class="xh">High ability to serve effectively</div><div class="xh">Low ability to serve effectively</div>
+  <div class="ylab">Public need &amp; support</div>
+  <div class="cell c1"><b>Public sector star</b><em>High need and support.</em> Valued by public and politicians, and done well. <strong>Strategy: protect, maintain, showcase.</strong></div>
+  <div class="cell c3"><b>Political hot box</b><em>High need and support.</em> Public demands it but we can't deliver it well. Highly visible and politically risky. <strong>Strategy: invest urgently to build capability, or partner/outsource.</strong></div>
+  <div class="cell c2"><b>Golden fleece</b><em>Low need and support.</em> Done well but little demand, so it may look like a waste of public money. <strong>Strategy: reduce resources, communicate value, or transfer.</strong></div>
+  <div class="cell c4"><b>Back drawer issue</b><em>Low need and support.</em> Done badly and not valued. <strong>Strategy: cut, close, or let another body take it.</strong></div>
+  <div></div><div class="xlab">Ability of the organisation to serve effectively</div>
+</div>
+<p style="font-size:15px;color:var(--muted);margin-top:-8px">Top row = high public need and support, bottom row = low.</p>
+
+<h3>Example: a city government health authority</h3>
+<div class="tablewrap"><table>
+<tr><th>Service</th><th>Evidence in a case</th><th>Category</th><th>What to recommend</th></tr>
+<tr><td>Childhood vaccination programme</td><td>98% coverage; strong public support</td><td><strong>Public sector star</strong></td><td>Maintain funding; publish results as public value</td></tr>
+<tr><td>Mental health outpatient services</td><td>Demand rising sharply; 6-month waiting lists; media criticism</td><td><strong>Political hot box</strong></td><td>Priority investment; recruit staff; partner with private providers; digital therapy</td></tr>
+<tr><td>Specialist travel-medicine clinic</td><td>Excellent ratings but only 3 patients a day</td><td><strong>Golden fleece</strong></td><td>Merge into general clinics; free up specialists</td></tr>
+<tr><td>Outdated paper-based health-certificate office</td><td>Long queues, low usage since private clinics offer it online</td><td><strong>Back drawer</strong></td><td>Close or digitise and transfer</td></tr>
+</table></div>
+
+<div class="box exam"><span class="t">Exam angle — link to public sector governance (B6)</span>
+<p>Always add the political and value-for-money angle: decisions must meet the <strong>3Es</strong> (economy, efficiency, effectiveness), and closing a service has <strong>political</strong> consequences even if the matrix says "back drawer". A strong answer says: "Although the matrix suggests closure, the authority should consult stakeholders (Mendelow: the public and elected officials have high interest), and phase the change with a communication plan."</p>
+</div>
+</section>
+
+<!-- ============ 9 ============ -->
+<section id="methods">
+<h2><span class="num">9</span>Methods of growth</h2>
+<p class="sub">Syllabus C5(f): build it, buy it, or partner for it.</p>
+
+<div class="box simple"><span class="t">In very simple language</span>
+<p>You've decided <em>where</em> to grow (Ansoff). Now: do you <strong>build</strong> it yourself (organic), <strong>buy</strong> a company that already does it (acquisition/merger), or <strong>team up</strong> with someone (alliance, joint venture, franchise, licence)?</p>
+</div>
+
+<h3>9.1 Organic (internal) development</h3>
+<div class="grid2">
+<div class="mini"><h4>✅ Advantages</h4><ul><li>Full control over quality and culture</li><li>Learning: builds the organisation's own competences</li><li>Cost spread over time; can stop if it fails</li><li>No integration problems; no acquisition premium</li></ul></div>
+<div class="mini"><h4>⚠️ Disadvantages</h4><ul><li><strong>Slow</strong>: competitors may get there first</li><li>The organisation carries all the risk</li><li>May lack skills or licences for new markets</li><li>Adds capacity to the market, which may trigger a competitive reaction</li></ul></div>
+</div>
+<p><strong>Best when:</strong> the move is close to existing competences, speed is not critical, culture and quality control matter (e.g. clinical standards), or there are no suitable targets.</p>
+
+<h3>9.2 Mergers and acquisitions</h3>
+<p><strong>Acquisition</strong>: one company buys control of another. <strong>Merger</strong>: two companies combine on roughly equal terms.</p>
+<div class="grid2">
+<div class="mini"><h4>✅ Advantages</h4><ul><li><strong>Speed</strong>: instant market presence, customers, staff, licences</li><li>Buys capabilities you lack (technology, brand, know-how)</li><li>Removes a competitor; increases market power</li><li>Economies of scale and synergies</li></ul></div>
+<div class="mini"><h4>⚠️ Disadvantages</h4><ul><li>Expensive: an acquisition premium (often 20–40% above market value)</li><li><strong>Cultural clash</strong>: the most common reason for failure</li><li>Hidden problems: liabilities, poor systems, lawsuits</li><li>Key staff may leave</li><li>Competition authority approval may be needed</li></ul></div>
+</div>
+
+<div class="box warn"><span class="t">Why acquisitions fail: write these in exams</span>
+<ul>
+<li>Overpaying ("winner's curse" in a bidding war; CEO hubris and empire-building, an <strong>agency problem</strong>, chapter B1)</li>
+<li>Over-optimistic synergy estimates</li>
+<li>Poor integration planning, especially IT systems and culture</li>
+<li>Inadequate <strong>due diligence</strong>: financial, legal, operational, IT, HR, and in healthcare clinical/regulatory</li>
+</ul>
+</div>
+
+<h3>9.3 Strategic alliances and partnering</h3>
+<div class="tablewrap"><table>
+<tr><th>Type</th><th>What it is</th><th>Example</th></tr>
+<tr><td><strong>Joint venture</strong></td><td>A separate company jointly owned by two or more parents, sharing investment, risk and profit</td><td>A hospital group and a tech firm create a jointly owned telehealth company</td></tr>
+<tr><td><strong>Non-equity alliance</strong></td><td>Contractual co-operation, no shared company</td><td>Airline alliances (Star Alliance); hospital and university research partnership</td></tr>
+<tr><td><strong>Licensing</strong></td><td>Right to use IP for a fee</td><td>A pharma company licenses a drug formula to a local manufacturer</td></tr>
+<tr><td><strong>Franchising</strong></td><td>Right to operate a whole business format</td><td>McDonald's, Starbucks; clinic chains such as dental franchises</td></tr>
+<tr><td><strong>Outsourcing / partnering</strong></td><td>A long-term contract for a service</td><td>A hospital outsources laundry, catering or IT to specialists</td></tr>
+<tr><td><strong>Public–private partnership (PPP)</strong></td><td>Government partners with private firms to build or run services</td><td>A private company builds and runs a hospital; the government pays an annual fee</td></tr>
+</table></div>
+
+<div class="grid2">
+<div class="mini"><h4>✅ Why alliances</h4><ul><li>Faster than organic and cheaper than buying</li><li>Share cost and risk</li><li>Access partner's skills, technology, licences, local knowledge</li><li>Easier exit than an acquisition</li><li>May be the only legal option abroad</li></ul></div>
+<div class="mini"><h4>⚠️ Risks</h4><ul><li>Conflicting objectives between partners</li><li>Loss of control over quality and brand</li><li>Leakage of know-how; partner becomes a competitor</li><li>Profit must be shared</li><li>Who leads? Governance disputes</li></ul></div>
+</div>
+
+<h3>9.4 Quick decision guide</h3>
+<div class="tablewrap"><table>
+<tr><th>If the case says…</th><th>Lean towards…</th></tr>
+<tr><td>"We must move quickly before competitors"</td><td>Acquisition or alliance</td></tr>
+<tr><td>"We lack the technology / licence / local knowledge"</td><td>Acquisition, JV, or alliance</td></tr>
+<tr><td>"Foreign ownership is restricted"</td><td>Joint venture</td></tr>
+<tr><td>"Cash is limited; high debt"</td><td>Organic, licensing, franchising (others' capital)</td></tr>
+<tr><td>"Quality and culture are critical to our brand"</td><td>Organic (or careful acquisition with strong integration)</td></tr>
+<tr><td>"The market is uncertain; we want to test it"</td><td>Alliance or licensing (easy exit)</td></tr>
+</table></div>
+
+<div class="box tip"><span class="t">Link to other chapters</span>
+<p>Growth method decisions pull in <strong>finance</strong> (G2: sources of finance, NPV, payback), <strong>risk</strong> (D: ERM, TARA), <strong>change management</strong> (H5: integrating cultures with Lewin, Balogun &amp; Hope Hailey) and <strong>governance</strong> (B: board approval, directors' motives). SBL rewards these links. That's what "integrated case study" means.</p>
+</div>
+</section>
+
+<!-- ============ 10 ============ -->
+<section id="saf">
+<h2><span class="num">10</span>Evaluating options: Suitability, Acceptability, Feasibility</h2>
+<p class="sub">The most useful exam framework in this chapter. Learn it perfectly.</p>
+
+<div class="box simple"><span class="t">In very simple language</span>
+<p>Before saying "yes" to any strategy, ask three questions:</p>
+<ul>
+<li><strong>Suitability</strong>: Does it make sense? Does it fit our situation?</li>
+<li><strong>Acceptability</strong>: Will the people who matter be happy with the outcome (returns, risk, reactions)?</li>
+<li><strong>Feasibility</strong>: Can we actually do it? Do we have the money, people, skills and time?</li>
+</ul>
+</div>
+
+<div class="tablewrap"><table>
+<tr><th>Test</th><th>Key questions to ask</th><th>Tools / evidence</th></tr>
+<tr><td><strong>Suitability</strong><br><em>"Does it fit?"</em></td><td>
+<ul style="margin:0"><li>Does it exploit our strengths and opportunities?</li><li>Does it fix weaknesses or counter threats?</li><li>Does it fit our mission, objectives and culture?</li><li>Does it use our core competences?</li><li>Is it consistent with our generic strategy?</li></ul></td><td>SWOT, PESTEL, 5 Forces, value chain, mission statement</td></tr>
+<tr><td><strong>Acceptability</strong><br><em>"Will stakeholders accept it?"</em></td><td>
+<ul style="margin:0"><li><strong>Return</strong>: NPV, ROI, payback, shareholder value, public value</li><li><strong>Risk</strong>: within risk appetite? Gearing? Sensitivity?</li><li><strong>Stakeholder reactions</strong>: shareholders, regulators, staff, unions, government, community</li></ul></td><td>NPV, payback, ratios, Mendelow, risk appetite, ethics</td></tr>
+<tr><td><strong>Feasibility</strong><br><em>"Can we do it?"</em></td><td>
+<ul style="margin:0"><li>Finance: can we raise the funds?</li><li>People: enough skilled staff?</li><li>Technology, systems, licences, supplies</li><li>Time: can it be done in time?</li><li>Can we cope with competitor reaction?</li></ul></td><td>Cash-flow forecasts, funding sources, resource audit</td></tr>
+</table></div>
+
+<div class="box tip"><span class="t">Memory trick: "Fit, Folk, Funds"</span>
+<p><strong>S</strong>uitability = <strong>Fit</strong> · <strong>A</strong>cceptability = <strong>Folk</strong> (stakeholders) · <strong>F</strong>easibility = <strong>Funds</strong> &amp; resources.<br>
+Acceptability has its own <strong>3 Rs</strong>: <strong>R</strong>eturn, <strong>R</strong>isk, <strong>R</strong>eactions.</p>
+</div>
+
+<div class="box exam"><span class="t">How to use SAF in the exam</span>
+<ol>
+<li>Use the three headings for each option (or compare options under each heading).</li>
+<li>Every point must use a <strong>fact or number from the exhibits</strong>.</li>
+<li>Be balanced: show the good and the bad.</li>
+<li>Finish with a <strong>clear recommendation and justification</strong>. "It depends" earns nothing.</li>
+<li>Don't forget a <strong>next step</strong> (e.g. due diligence, pilot, further data), which shows commercial acumen.</li>
+</ol>
+</div>
+</section>
+
+<!-- ============ 11 ============ -->
+<section id="case">
+<h2><span class="num">11</span>Worked case study with model answer</h2>
+<p class="sub">SBL style. Read the exhibit, plan, then compare with the model answer.</p>
+
+<div class="card">
+<h3 style="margin-top:0">Meridian Health Group (fictional)</h3>
+<p><strong>Background.</strong> Meridian is a privately owned group running three general hospitals in one Gulf city. Revenue last year was $320m with an operating margin of 11% (industry average 14%). Its strengths are a strong brand for maternity and cardiology and good relationships with the major insurers. Its weaknesses are high fixed costs and an outdated patient app with a 2.1-star rating. The population is growing at 4% a year, government is pushing digital health, and three new competitor hospitals open within two years.</p>
+
+<p><strong>Exhibit: Email from the CEO to the board</strong></p>
+<p style="font-style:italic;background:#f7f6f2;padding:14px 18px;border-radius:10px">"We have two exciting options. <strong>Option A:</strong> acquire QuickCare, a chain of 12 outpatient clinics, for $90 million. QuickCare has revenue of $40m, but its profit has fallen for two years. I am confident we will achieve synergies of $8m per year from referrals and shared purchasing. <strong>Option B:</strong> a 50:50 joint venture with TechMed, a telehealth software company, to launch a virtual-consultation app. Our share of the investment is $15m. TechMed forecasts 200,000 users in year one. Our current gearing is 55% and the bank has said it will not lend above 60%. The family shareholders want stable dividends. Both options are brilliant, and frankly I'd like us to do both."</p>
+
+<p><strong>Requirement (20 marks, including 4 professional skills marks)</strong><br>
+As a strategic adviser to the board, write a briefing paper which evaluates Options A and B using the suitability, acceptability and feasibility criteria, and recommends which option the board should pursue. <span class="ps">Evaluation</span> <span class="ps">Scepticism</span> <span class="ps">Communication</span></p>
+</div>
+
+<div class="box tip"><span class="t">Plan (spend ~8–10 minutes)</span>
+<ul>
+<li>Format: briefing paper → To / From / Date / Subject, headings, short paragraphs.</li>
+<li>Classify: A = acquisition, market penetration/development (outpatients, near Ansoff box 1); B = JV, product development.</li>
+<li>Numbers to use: $90m price; $40m revenue (2.25× revenue); $8m synergy (11.25-year simple payback on price); gearing 55% vs 60% cap; $15m JV; 200,000 users.</li>
+<li>Scepticism targets: CEO "confident" synergies; TechMed's user forecast (it's the partner selling the deal); "do both" is unaffordable.</li>
+<li>Recommendation: B now, A only after due diligence and if financed with equity, or reject.</li>
+</ul>
+</div>
+
+<div class="answer">
+<div class="memo"><strong>BRIEFING PAPER</strong><br>To: Board of Directors, Meridian Health Group<br>From: Strategic Adviser<br>Date: [Exam date]<br>Subject: Evaluation of growth Options A (QuickCare acquisition) and B (TechMed telehealth JV)</div>
+
+<h4>1. Purpose</h4>
+<p>This paper evaluates the two growth options proposed by the CEO against the criteria of suitability, acceptability and feasibility, and recommends which the board should pursue. <span class="ps">Communication</span></p>
+
+<h4>2. Option A: Acquisition of QuickCare</h4>
+<p><strong>Suitability.</strong> Meridian faces three new competitor hospitals within two years. Owning 12 outpatient clinics would give it a "feeder" network that refers patients into its hospitals, strengthening its position in maternity and cardiology, where its brand is already strong. This is largely <strong>market penetration</strong>, which is low-risk because Meridian understands the local market. <span class="mk">✓</span> However, it does nothing to fix Meridian's main weakness, its poor digital offering, at a time when the government is promoting digital health. QuickCare's falling profits also suggest it may be losing patients to more convenient models, possibly digital ones. <span class="ps">Commercial acumen</span></p>
+<p><strong>Acceptability.</strong> The price of $90m is 2.25 times QuickCare's revenue for a business with declining profits. If the $8m synergies are achieved, the simple payback on the price alone is over 11 years, which is unlikely to satisfy family shareholders seeking stable dividends. <span class="mk">✓</span> The synergy figure is the CEO's own estimate and no supporting analysis has been provided. Acquisition synergies are frequently overstated, and the CEO may have a personal interest in growing the group. The board should not rely on this figure without independent verification. <span class="ps">Scepticism</span> Insurers may welcome the wider network, but QuickCare staff may resist integration into a more hospital-centric culture.</p>
+<p><strong>Feasibility.</strong> This is the decisive problem. Meridian's gearing is already 55% and the bank's limit is 60%. Borrowing $90m would almost certainly breach that limit. The acquisition could only be financed through new equity (diluting the family) or by cutting dividends, both of which conflict with shareholder objectives. Meridian also lacks experience integrating an acquired business. <span class="mk">✓</span></p>
+
+<h4>3. Option B: Telehealth joint venture with TechMed</h4>
+<p><strong>Suitability.</strong> This is <strong>product development</strong>: a new service for Meridian's existing patients and insurers. It directly addresses Meridian's weakest area (its 2.1-star app) and the government's digital health opportunity, and the JV gives access to TechMed's technology skills that Meridian lacks. Virtual consultations can also lower cost per patient, helping close the gap between Meridian's 11% margin and the 14% industry average. <span class="ps">Analysis</span></p>
+<p><strong>Acceptability.</strong> The investment of $15m is one-sixth of Option A, so the downside risk is far smaller, which suits shareholders who want stable dividends. However, the 200,000-user forecast comes from TechMed, which benefits from Meridian signing the deal. It is unverified, and it is ambitious for a city where the population (4% growth) and insured base are not given. <span class="ps">Scepticism</span> Doctors may resist remote consultations because of clinical-liability concerns, and the regulator will need assurance on data privacy.</p>
+<p><strong>Feasibility.</strong> $15m could be funded with a small increase in borrowing within the 60% limit, or from operating cash flow. TechMed supplies the technology; Meridian supplies doctors and patients. The main feasibility risks are JV governance (50:50 ownership can lead to deadlock) and the integration of patient data with Meridian's systems.</p>
+
+<h4>4. Should Meridian do both?</h4>
+<p>No. The combined cost of $105m cannot be financed within the bank's gearing limit without new equity, and management attention would be split during a period of strong new competition. <span class="ps">Evaluation</span></p>
+
+<h4>5. Recommendation</h4>
+<p>The board should <strong>pursue Option B, the telehealth joint venture</strong>. It is more suitable because it tackles Meridian's main weakness and fits the government's direction. It is more acceptable because the downside risk is lower, protecting dividends. And unlike Option A, it is feasible within current borrowing limits.</p>
+<p>Before signing, the board should:</p>
+<ul>
+<li>commission an independent market study to test the 200,000-user forecast;</li>
+<li>agree a JV contract covering deadlock resolution, data ownership, clinical governance and an exit clause;</li>
+<li>run a 6-month pilot with maternity and cardiology follow-up appointments, where Meridian's brand is strongest.</li>
+</ul>
+<p>Option A should not proceed at this time. If the board wishes to keep it under review, independent due diligence should verify the synergy estimate and QuickCare's reasons for declining profits, and the deal should be revisited only if equity financing acceptable to the family shareholders is available. <span class="ps">Commercial acumen</span></p>
+</div>
+
+<div class="box exam"><span class="t">Why this answer scores well</span>
+<ul>
+<li>Uses <strong>every number</strong> in the exhibit (gearing, price, revenue, synergies, users, margin).</li>
+<li>Questions <strong>who produced each forecast</strong> and why they might be biased: that's scepticism.</li>
+<li>Deals with the CEO's "do both" remark: a classic examiner trap.</li>
+<li>Gives a <strong>clear, justified recommendation</strong> plus practical next steps.</li>
+<li>Format fits the requested document (briefing paper) and the audience (board).</li>
+</ul>
+<p><strong>Estimated mark:</strong> 14–15 technical out of 16, and 3.5–4 professional skills out of 4.</p>
+</div>
+</section>
+
+<!-- ============ 12 ============ -->
+<section id="examiner">
+<h2><span class="num">12</span>How this chapter is examined</h2>
+<p class="sub">What the examiner actually wants to see.</p>
+
+<h3>Typical requirement wording</h3>
+<ul>
+<li>"<em>Evaluate</em> the proposed strategic options using the suitability, acceptability and feasibility framework."</li>
+<li>"<em>Advise</em> the board on the most appropriate method of entering Country X."</li>
+<li>"<em>Using the BCG matrix, assess</em> the company's portfolio and recommend actions for each business unit."</li>
+<li>"<em>Assess</em> the public sector portfolio of the health authority's services."</li>
+<li>"<em>Discuss</em> how the company can sustain its competitive advantage."</li>
+<li>"Prepare <em>presentation slides with notes</em> evaluating the acquisition proposal."</li>
+</ul>
+
+<h3>Examiner expectations</h3>
+<div class="grid2">
+<div class="mini"><h4>Application over theory</h4><p>Theory alone earns very little. One mark typically needs: a point + case evidence + consequence for the organisation.</p></div>
+<div class="mini"><h4>Use the numbers</h4><p>If the exhibit has figures (market share, growth, gearing), calculate something with them: relative share, payback, % growth, revenue multiples.</p></div>
+<div class="mini"><h4>Balanced, then decisive</h4><p>Show both sides, then commit to a recommendation. The examiner has repeatedly said that weak candidates fail to conclude.</p></div>
+<div class="mini"><h4>Right role and format</h4><p>If you are "the CFO writing to the board", write like one: report/memo headings, professional tone, no "I think".</p></div>
+</div>
+
+<h3>Where the professional skills marks come from</h3>
+<div class="tablewrap"><table>
+<tr><th>Skill</th><th>How to earn it in a strategic choices question</th></tr>
+<tr><td><strong>Communication</strong></td><td>Correct format, clear headings per option, concise, appropriate for the board</td></tr>
+<tr><td><strong>Commercial acumen</strong></td><td>Realistic recommendations, awareness of competitors, practical next steps (due diligence, pilot)</td></tr>
+<tr><td><strong>Analysis</strong></td><td>Calculations from exhibits; linking data to conclusions</td></tr>
+<tr><td><strong>Scepticism</strong></td><td>Challenging forecasts, synergy claims, the motives of whoever proposes the option</td></tr>
+<tr><td><strong>Evaluation</strong></td><td>Weighing pros and cons, ranking options, justifying the final choice</td></tr>
+</table></div>
+
+<div class="box tip"><span class="t">Time management</span>
+<p>The exam is 3 hours 15 minutes for 100 marks, so roughly <strong>1.9 minutes per mark</strong> including reading and planning. A 20-mark task gives about 38 minutes: about 8–10 to read and plan, 28–30 to write.</p>
+</div>
+</section>
+
+<!-- ============ 13 ============ -->
+<section id="mistakes">
+<h2><span class="num">13</span>Common mistakes students make</h2>
+
+<div class="box warn"><span class="t">Avoid these</span>
+<ol>
+<li><strong>Drawing or describing the model instead of using it.</strong> Explaining what a "cash cow" is gets almost nothing. Saying <em>which</em> unit is a cash cow and what to do with it earns the marks.</li>
+<li><strong>Using BCG for a public sector body.</strong> Use the public sector portfolio matrix.</li>
+<li><strong>Mixing up Ansoff (direction) with growth method (how).</strong> "Acquisition" is not an Ansoff box. An acquisition can be <em>used for</em> market development.</li>
+<li><strong>No recommendation, or "both options are good".</strong> Always choose, and say why.</li>
+<li><strong>Accepting management's numbers at face value.</strong> Synergy figures, forecasts and "I am confident" statements are scepticism invitations.</li>
+<li><strong>Ignoring finance constraints.</strong> Gearing limits, cash and covenants often make an attractive option unfeasible.</li>
+<li><strong>Forgetting stakeholders</strong> in acceptability: staff, unions, regulators, government, family owners.</li>
+<li><strong>Calculating relative market share wrongly.</strong> Divide by the <em>largest competitor</em>, not by the total market. And if you <em>are</em> the leader, divide by the second-largest firm.</li>
+<li><strong>Auto-killing dogs.</strong> Check whether the product supports others or is strategically or legally required.</li>
+<li><strong>Generic lists</strong> of advantages of joint ventures copied from a textbook, with no case link.</li>
+</ol>
+</div>
+</section>
+
+<!-- ============ 14 ============ -->
+<section id="memory">
+<h2><span class="num">14</span>Memory tips and shortcuts</h2>
+
+<div class="grid2">
+<div class="mini"><h4>🧭 Chapter flow</h4><p><strong>"How Will We Make Tests?"</strong><br>How to compete → Where to grow → Which units (portfolio) → Method → Test (SAF)</p></div>
+<div class="mini"><h4>✅ SAF</h4><p><strong>Fit · Folk · Funds</strong><br>Acceptability = <strong>3 Rs</strong>: Return, Risk, Reactions</p></div>
+<div class="mini"><h4>📈 Ansoff risk</h4><p><strong>"Penny Develops Markets Daringly"</strong><br>Penetration → Development (product) → Market development → Diversification. Risk rises as you go.</p></div>
+<div class="mini"><h4>🐄 BCG</h4><p><strong>Stars shine, Cows give milk, Dogs bite, Question marks ask for money.</strong><br>Strategies: <strong>Build · Hold · Harvest · Divest</strong></p></div>
+<div class="mini"><h4>🏛️ Public sector matrix</h4><p><strong>"Stars, Hot boxes, Golden fleeces, Back drawers"</strong><br>Wanted &amp; good = Star · Wanted but bad = Hot box · Good but unwanted = Golden fleece · Bad &amp; unwanted = Back drawer</p></div>
+<div class="mini"><h4>🕐 Strategy clock</h4><p><strong>1–5 survive, 6–8 die.</strong><br>Failure routes all mean "pay more, or get less, for nothing extra".</p></div>
+<div class="mini"><h4>🌍 Yip's drivers</h4><p><strong>"My Cat Got Cold"</strong><br>Market · Cost · Government · Competition</p></div>
+<div class="mini"><h4>🛒 7Ps</h4><p>4 classic Ps + <strong>"PPP for services"</strong>: People, Process, Physical evidence</p></div>
+</div>
+
+<div class="box tip"><span class="t">One-line answer template</span>
+<p><strong>Point</strong> (theory word) → <strong>Evidence</strong> (exhibit fact/number) → <strong>So what</strong> (impact on the organisation) → <strong>Therefore</strong> (action).<br>
+<em>"Energy drinks are a question mark (relative share 0.14, market growth 15%), so they will consume cash without a realistic path to leadership against a rival with a 35% share. The board should therefore divest unless a niche can be identified."</em></p>
+</div>
+</section>
+
+<!-- ============ 15 ============ -->
+<section id="practice">
+<h2><span class="num">15</span>Practice questions</h2>
+<p class="sub">Try each one first, then click to reveal the answer.</p>
+
+<details><summary>Q1. A tea company that sells loose tea to supermarkets launches bottled iced tea through the same supermarkets. Which Ansoff box?</summary>
+<div class="ans"><p><strong>Product development</strong>: new product, existing market (same supermarket channel and customers). The company uses its existing customer relationships and brand, but needs new production skills (bottling, cold-chain), so the risk is moderate.</p></div></details>
+
+<details><summary>Q2. Our share of the dialysis-services market is 25%. The largest competitor has 50%. Market growth is 12%. Classify and recommend.</summary>
+<div class="ans"><p>Relative market share = 25 ÷ 50 = <strong>0.5</strong> (low). Growth 12% (high). This is a <strong>question mark</strong>. Rising diabetes rates mean the market is growing, so the board must decide: invest heavily to build share (e.g. acquire smaller providers or open satellite units) or exit. Recommendation depends on available cash and whether dialysis supports other services (e.g. nephrology referrals).</p></div></details>
+
+<details><summary>Q3. A government health department runs a mobile breast-screening unit. Public demand and political support are very high, but the unit is old, often broken, and waiting lists are 9 months. Classify using the public sector portfolio matrix and advise.</summary>
+<div class="ans"><p><strong>Political hot box</strong>: high public need and support, low ability to serve effectively. This is highly visible and politically risky. Advise urgent investment in new equipment, a temporary contract with private screening providers to clear the backlog, and clear public communication of the improvement plan. Measure progress with waiting-time KPIs to demonstrate value for money (3Es).</p></div></details>
+
+<details><summary>Q4. A private clinic raised its prices by 20% last year. Patient complaints about waiting times rose by 35%. Which strategy-clock route is it moving towards, and what is the consequence?</summary>
+<div class="ans"><p>Route 7: <strong>increased price, low value</strong>. It is a failure strategy. Unless the clinic has a monopoly, patients and insurers will switch to competitors offering better value. It should either restore service value (reduce waits, improve process) to justify the premium (route 4), or reverse the price increase.</p></div></details>
+
+<details><summary>Q5. A hospital group wants to enter a country where foreign companies can own at most 49% of a healthcare business, and where it has no local contacts. Which entry method should it use, and what are the key risks?</summary>
+<div class="ans"><p>A <strong>joint venture</strong> with a local partner. It meets the ownership law and brings licences, relationships with regulators and local market knowledge. Key risks: conflicting objectives, control over clinical quality and the brand, profit sharing, cultural clashes and deadlock. Mitigate with a detailed JV agreement (governance, quality standards, dispute resolution, exit clause) and thorough due diligence on the partner.</p></div></details>
+
+<details><summary>Q6. Give an example of lock-in in a B2B setting and explain one risk it creates for the customer.</summary>
+<div class="ans"><p>A hospital's Electronic Health Record (EHR) or an organisation's ERP system. Migrating data, retraining staff and rebuilding integrations would be very costly and risky, so the customer stays. Risk for the customer: weak bargaining power at contract renewal, so the vendor can raise licence fees or slow innovation. The customer should negotiate long-term price caps and data-portability clauses.</p></div></details>
+
+<details><summary>Q7. The target company's CEO tells your board the acquisition will "easily deliver $12m of synergies". Write two sentences demonstrating scepticism.</summary>
+<div class="ans"><p>"The $12m synergy estimate comes from the target's own CEO, who has a clear interest in maximising the sale price, and no supporting analysis has been provided. The board should commission independent due diligence to verify the achievable cost and revenue synergies, and the integration costs needed to deliver them, before agreeing any price."</p></div></details>
+
+<details><summary>Q8. Mini essay (10 marks): An FMCG company with high gearing wants to expand into three new Asian countries quickly. Advise on suitable methods of growth.</summary>
+<div class="ans">
+<p><strong>Key points to include:</strong></p>
+<ul>
+<li><strong>Organic</strong>: full control but too slow for "quickly" and capital-intensive. Not feasible with high gearing.</li>
+<li><strong>Acquisition</strong>: fast and gives brands and distribution, but expensive. Debt financing is unlikely with high gearing. Equity dilution and integration risk across three different cultures at once.</li>
+<li><strong>Joint ventures</strong>: share capital and risk; local partners give distribution and regulatory knowledge. Lower capital need fits the gearing problem. Risk of conflict and know-how leakage.</li>
+<li><strong>Licensing / franchising / distributors</strong>: very low capital, fast, easy exit; lower control and margin. Good for testing demand.</li>
+<li><strong>Recommendation</strong>: a phased approach. Start with distributors or licensing (or a JV where local law or distribution needs it), test demand, then convert successful markets to JVs or acquisitions once gearing has fallen. Use Yip's drivers and Porter's Diamond to prioritise the three countries.</li>
+</ul>
+<p>Professional skills: tie every point to gearing and speed, which are the two constraints in the question.</p></div></details>
+</section>
+
+<!-- ============ 16 ============ -->
+<section id="cheat">
+<h2><span class="num">16</span>One-page cheat sheet</h2>
+
+<div class="tablewrap"><table>
+<tr><th>Model</th><th>Answers the question</th><th>Key words</th><th>Watch out</th></tr>
+<tr><td><strong>Porter generic</strong></td><td>How do we compete?</td><td>Cost leadership, differentiation, focus, stuck in the middle</td><td>Hybrid strategies can work</td></tr>
+<tr><td><strong>Strategy clock</strong></td><td>How does the customer see our price and value?</td><td>Routes 1–8; 6–8 fail</td><td>Based on perceived value</td></tr>
+<tr><td><strong>Sustaining advantage</strong></td><td>How do we keep our edge?</td><td>Low cost base, hard-to-imitate resources, lock-in, 7Ps</td><td>Lock-in may draw regulators</td></tr>
+<tr><td><strong>Ansoff</strong></td><td>Which direction to grow?</td><td>Penetration, product dev, market dev, diversification</td><td>Not a method of growth</td></tr>
+<tr><td><strong>Diversification</strong></td><td>Related or unrelated?</td><td>Backward/forward vertical, horizontal, conglomerate, synergy</td><td>Question claimed synergies</td></tr>
+<tr><td><strong>International</strong></td><td>Should and how do we go abroad?</td><td>Yip drivers; global, multi-domestic, transnational; entry modes</td><td>Regulation, culture, currency</td></tr>
+<tr><td><strong>BCG</strong></td><td>Which units to fund? (private)</td><td>Star, cash cow, question mark, dog; build, hold, harvest, divest</td><td>Relative share ÷ largest rival</td></tr>
+<tr><td><strong>Public sector matrix</strong></td><td>Which services to fund? (public)</td><td>Star, political hot box, golden fleece, back drawer</td><td>Politics, 3Es, consultation</td></tr>
+<tr><td><strong>Growth methods</strong></td><td>Build, buy or partner?</td><td>Organic, M&amp;A, JV, alliance, licensing, franchising, PPP</td><td>Speed vs control vs cost</td></tr>
+<tr><td><strong>SAF</strong></td><td>Is the option any good?</td><td>Fit · Folk (Return, Risk, Reactions) · Funds</td><td>Always end with a recommendation</td></tr>
+</table></div>
+
+<div class="box exam"><span class="t">Final reminder</span>
+<p>In SBL, models are just <strong>thinking tools</strong>. You get marks for <strong>applying</strong> them to the case, <strong>using the numbers</strong>, <strong>challenging</strong> assumptions, and <strong>making a clear recommendation</strong> in the format requested.</p>
+</div>
+
+<p><strong>Next chapter:</strong> D: Risk (identification, assessment, ERM, risk appetite, TARA).</p>
+</section>
+
+<footer>
+SBL Study Notes · Chapter C5 Strategic Choices · Based on the ACCA SBL Syllabus and Study Guide, September 2026 – June 2027. Companies named as "fictional" are invented for teaching; real-company examples are simplified illustrations.
+</footer>
+</main>
+</div>
+
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('nav.toc a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'));});
+  var bar=document.getElementById('progress');
+  function onScroll(){
+    var h=document.documentElement;
+    var p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;
+    bar.style.width=p+'%';
+    var idx=0;
+    secs.forEach(function(s,i){ if(s && s.getBoundingClientRect().top<140) idx=i; });
+    links.forEach(function(a,i){a.classList.toggle('active',i===idx);});
+  }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  var toc=document.getElementById('toc'), btn=document.getElementById('menuBtn');
+  btn.addEventListener('click',function(){toc.classList.toggle('open');});
+  links.forEach(function(a){a.addEventListener('click',function(){toc.classList.remove('open');});});
+})();
+</script>
+</body>
+</html>
