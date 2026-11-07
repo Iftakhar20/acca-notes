@@ -2,1142 +2,509 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SBL Chapter D – Risk: Identify, Assess, Manage &amp; Monitor</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACCA Study Notes</title>
+<meta name="description" content="Structured ACCA study notes: SBL, SBR, FM, TX and AA.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- ╔══════════════════════════════════════════════════════════════════╗
+     ║  HOW TO ADD A NEW NOTE                                           ║
+     ║  1. Upload the HTML file to the exam folder (e.g. SBL/).         ║
+     ║  2. Scroll down to "NOTES LIST" (inside the <script> near the    ║
+     ║     bottom of this file).                                        ║
+     ║  3. Copy any existing line in the right exam, paste it below,    ║
+     ║     and change file / title / icon. That's it.                   ║
+     ║                                                                  ║
+     ║  Fields:  file  = path exactly as it is in the repo (required)   ║
+     ║           title = card heading (required)                        ║
+     ║           icon  = one emoji (optional)                           ║
+     ║           desc  = short subtitle (optional)                      ║
+     ║           tag   = small label, e.g. "C5" or "Cheatsheet"         ║
+     ║                   (optional — defaults to the exam code)         ║
+     ║           ai    = source label, e.g. "Kimi" (optional)           ║
+     ║           featured: true = wide highlighted card (optional)      ║
+     ║  Counts, search and filters update automatically.               ║
+     ╚══════════════════════════════════════════════════════════════════╝ -->
+
 <style>
-:root{--bg:#FBF6F0;--paper:#FFFFFF;--ink:#2A1F17;--ink-soft:#5E4B3C;--rust:#9A3B10;--orange:#C9581A;--amber:#E39B2D;--leaf:#6F7B34;--line:#E8DACB;--tint:#FBEBDB;--fs:18px}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:"Source Sans 3",Segoe UI,Arial,sans-serif;font-size:var(--fs);line-height:1.65}
-h1,h2,h3,h4{font-family:Georgia,"Times New Roman",serif;line-height:1.3;color:var(--rust)}
-h2{font-size:1.6em;margin:0 0 .4em}
-h3{font-size:1.2em;margin:1.4em 0 .5em;color:var(--orange)}
-h4{font-size:1.02em;margin:1em 0 .3em}
-p{margin:.6em 0} a{color:var(--orange)} ul,ol{padding-left:1.3em} li{margin:.25em 0}
-.hero{background:var(--rust);color:#FFF4E8;padding:36px 24px}
-.hero-inner,.navwrap,main{max-width:1200px;margin:0 auto}
-.hero .tag{font-size:.8em;letter-spacing:.05em;text-transform:uppercase;opacity:.85}
-.hero h1{color:#fff;font-size:2.2em;margin:.2em 0}
-.hero p{margin:.3em 0;color:#FBE3CC}
-.hero .meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px;font-size:.88em;color:#FBE3CC}
-nav.top{background:#fff;border-bottom:1px solid var(--line);padding:12px 24px}
-.navwrap{display:flex;gap:12px;align-items:flex-start}
-.chips{display:flex;flex-wrap:wrap;gap:6px;flex:1}
-a.chip{text-decoration:none;color:var(--rust);font-size:.8em;padding:4px 10px;border:1px solid var(--line);border-radius:6px;background:#FFF9F3}
-a.chip:hover{background:var(--tint)}
-.fontbtns{display:flex;gap:4px}
-.fontbtns button{border:1px solid var(--line);background:#fff;color:var(--rust);border-radius:6px;padding:3px 10px;font-weight:700;cursor:pointer}
-main{padding:24px 24px 60px}
-section.chapter{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:28px 34px;margin:22px 0}
-@media(max-width:640px){section.chapter{padding:20px 16px}main{padding:16px 10px}}
-.sec-num{display:inline-block;font-size:.8em;color:#fff;background:var(--orange);border-radius:4px;padding:1px 10px;margin-bottom:8px}
-.syl{font-size:.78em;color:var(--ink-soft);background:var(--tint);border-radius:4px;padding:1px 8px;margin-left:6px}
-.box{border-radius:6px;padding:12px 18px;margin:14px 0;border-left:4px solid;background:#FFFaf5}
-.box>.lbl{display:block;font-weight:700;font-size:.76em;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
-.simple{border-color:var(--amber);background:#FFF6E8}.simple>.lbl{color:#A0640E}
-.example{border-color:var(--leaf);background:#F5F6EC}.example>.lbl{color:var(--leaf)}
-.exam{border-color:var(--orange);background:#FDF0E7}.exam>.lbl{color:var(--orange)}
-.model{border-color:var(--rust);background:#fff;border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}.model>.lbl{color:var(--rust)}
-.examiner{border-color:#8B5E3C;background:#F8F1EA}.examiner>.lbl{color:#8B5E3C}
-.mistakes{border-color:#B23A2A;background:#FCEDEA}.mistakes>.lbl{color:#B23A2A}
-.memory{border-color:#D9731C;background:#FFF0DE}.memory>.lbl{color:#B5550C}
-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.92em}
-th{background:#F3E2D1;color:var(--rust);text-align:left;padding:8px 10px}
-td{border-bottom:1px solid var(--line);padding:8px 10px;vertical-align:top}
-.tblwrap{overflow-x:auto}
-.erm{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin:14px 0}
-.erm div{border-radius:6px;padding:10px 8px;text-align:center;font-size:.8em;font-weight:600;color:#fff;line-height:1.35}
-.erm div b{display:block;font-size:1.4em}
-@media(max-width:640px){.erm{grid-template-columns:1fr 1fr}}
-.heat{display:grid;grid-template-columns:70px repeat(5,1fr);gap:3px;margin:14px 0;font-size:.75em;max-width:560px}
-.heat div{padding:10px 4px;text-align:center;border-radius:4px;font-weight:600}
-.heat .ax{background:none;color:var(--ink-soft)}
-.g{background:#CFE0A4}.y{background:#F7DC8A}.o{background:#F4A85A}.r{background:#D9502B;color:#fff}
-.tara{display:grid;grid-template-columns:50px 1fr 1fr;gap:6px;margin:14px 0;max-width:680px}
-.tara .cell{border-radius:6px;padding:14px;color:#fff;min-height:110px}
-.tara .cell b{font-size:1.15em;display:block}
-.tara .cell span{font-size:.84em}
-.tara .ylab{writing-mode:vertical-rl;transform:rotate(180deg);text-align:center;font-weight:700;color:var(--ink-soft);font-size:.78em;grid-row:2/4;align-self:center}
-.tara .xlab{grid-column:2/4;text-align:center;font-weight:700;color:var(--ink-soft);font-size:.78em}
-.tara .hd{font-size:.75em;font-weight:700;color:var(--ink-soft);text-align:center}
-.lines{display:grid;gap:6px;margin:14px 0}
-.lines .ln{display:flex;gap:14px;border:1px solid var(--line);border-radius:6px;overflow:hidden}
-.lines .ln .n{min-width:70px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
-.lines .ln .t{padding:10px 12px 10px 0;font-size:.94em}
-.pill{display:inline-block;background:var(--tint);color:var(--rust);border-radius:4px;padding:0 8px;font-size:.85em;font-weight:600;margin:2px 0}
-.big-quote{font-family:Georgia,serif;font-size:1.15em;color:var(--rust);border-left:4px solid var(--amber);padding:4px 0 4px 16px;margin:16px 0}
-.exhibit{background:#FFFCF8;border:1px solid var(--line);border-radius:6px;padding:14px 18px;margin:12px 0;font-size:.95em}
-.exhibit h4{margin-top:0;color:#6B3A16}
-details{border:1px solid var(--line);border-radius:6px;padding:10px 16px;margin:10px 0;background:#FFFaf5}
-details summary{cursor:pointer;font-weight:700;color:var(--rust)}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media(max-width:700px){.grid2{grid-template-columns:1fr}}
-.card{background:#FFFaf5;border:1px solid var(--line);border-radius:6px;padding:12px 16px}
-.card h4{margin-top:0}
-.q{border:1px solid var(--line);border-radius:6px;padding:14px 16px;margin:12px 0}
-.q .opts{display:grid;gap:6px;margin-top:8px}
-.q button.opt{text-align:left;padding:8px 12px;border-radius:6px;border:1px solid var(--line);background:#fff;font:inherit;font-size:.94em;cursor:pointer;color:var(--ink)}
-.q button.opt:hover{background:#FFF6EC}
-.q button.right{background:#E3EDC6;border-color:var(--leaf)}
-.q button.wrong{background:#F8D7CF;border-color:#B23A2A}
-.q .fb{display:none;margin-top:8px;font-size:.92em;padding:8px 12px;border-radius:6px;background:var(--tint)}
-#score{font-weight:700;color:var(--rust);margin-top:10px}
-footer{text-align:center;color:var(--ink-soft);font-size:.8em;padding:24px}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:       #F6F7FB;
+  --surface:  #FFFFFF;
+  --border:   #E6E8EF;
+  --ink:      #141826;
+  --ink-2:    #4E5568;
+  --ink-3:    #8A90A2;
+
+  --sbl: #E11D48; --sbl-soft: #FFE8EE;
+  --sbr: #7C3AED; --sbr-soft: #F1EAFE;
+  --fm:  #2F5BEA; --fm-soft:  #E9EFFE;
+  --tx:  #EA6A0C; --tx-soft:  #FFF0E3;
+  --aa:  #17956A; --aa-soft:  #E4F6EE;
+
+  --radius: 18px;
+  --shadow: 0 1px 2px rgba(20,24,38,.04), 0 4px 14px rgba(20,24,38,.05);
+  --shadow-hover: 0 10px 30px rgba(20,24,38,.10);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Plus Jakarta Sans', 'Segoe UI', Arial, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+.page { max-width: 1160px; margin: 0 auto; padding: 0 24px 80px; }
+
+/* ── HERO ── */
+.hero {
+  position: relative; overflow: hidden;
+  margin: 28px 0 22px;
+  padding: 44px 40px 36px;
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at 12% 20%, rgba(225,29,72,.10), transparent 40%),
+    radial-gradient(circle at 88% 10%, rgba(124,58,237,.12), transparent 42%),
+    radial-gradient(circle at 70% 95%, rgba(47,91,234,.10), transparent 45%),
+    var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+.hero-kicker {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 600; color: var(--ink-2);
+  background: var(--bg); border: 1px solid var(--border);
+  padding: 6px 14px; border-radius: 999px;
+}
+.hero-kicker .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--aa); box-shadow: 0 0 0 4px rgba(23,149,106,.15); }
+.hero h1 {
+  font-size: clamp(32px, 5vw, 48px); font-weight: 800;
+  letter-spacing: -0.03em; margin: 16px 0 8px; line-height: 1.1;
+}
+.hero h1 span {
+  background: linear-gradient(90deg, var(--sbl), var(--sbr) 50%, var(--fm));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.hero p { font-size: 17px; color: var(--ink-2); max-width: 620px; line-height: 1.6; }
+
+.stats { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.stat {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 14px; padding: 10px 16px; min-width: 110px;
+}
+.stat b { display: block; font-size: 22px; font-weight: 800; letter-spacing: -0.02em; }
+.stat small { font-size: 12px; color: var(--ink-3); font-weight: 500; }
+
+/* ── TOOLBAR ── */
+.toolbar {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 12px;
+  padding: 14px 0;
+  background: rgba(246,247,251,.88);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  margin-bottom: 18px;
+}
+.search { flex: 1 1 280px; position: relative; }
+.search input {
+  width: 100%; font: inherit; font-size: 15px;
+  padding: 12px 44px 12px 44px;
+  border: 1.5px solid var(--border); border-radius: 14px;
+  background: var(--surface); color: var(--ink); outline: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+.search input:focus { border-color: var(--fm); box-shadow: 0 0 0 4px rgba(47,91,234,.12); }
+.search .ico { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--ink-3); font-size: 16px; }
+.search .kbd {
+  position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+  font-size: 12px; color: var(--ink-3); border: 1px solid var(--border);
+  border-radius: 6px; padding: 1px 7px; background: var(--bg);
+}
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  font: inherit; font-size: 13px; font-weight: 600; cursor: pointer;
+  padding: 9px 16px; border-radius: 999px;
+  border: 1.5px solid var(--border); background: var(--surface); color: var(--ink-2);
+  transition: all .15s;
+}
+.chip:hover { border-color: var(--ink-3); color: var(--ink); }
+.chip.active { background: var(--c, var(--ink)); border-color: var(--c, var(--ink)); color: #fff; }
+
+/* ── SECTION ── */
+.section { margin-bottom: 40px; scroll-margin-top: 90px; animation: fadeUp .5s ease both; }
+.section-head {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  margin-bottom: 16px;
+}
+.section-left { display: flex; align-items: center; gap: 14px; }
+.section-icon {
+  width: 48px; height: 48px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 800; color: #fff; letter-spacing: .02em;
+  box-shadow: 0 6px 16px -6px var(--c);
+  background: var(--c);
+}
+.section-title { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; }
+.section-sub { font-size: 13px; color: var(--ink-3); margin-top: 2px; font-weight: 500; }
+.section-count {
+  font-size: 12px; font-weight: 600; color: var(--c);
+  background: var(--c-soft); padding: 5px 12px; border-radius: 999px; white-space: nowrap;
+}
+
+/* ── GRID & CARD ── */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 14px;
+}
+.card {
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column; gap: 14px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 18px 18px 16px;
+  text-decoration: none; color: var(--ink);
+  box-shadow: var(--shadow);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.card::after {
+  content: ''; position: absolute; inset: 0 0 auto 0; height: 4px;
+  background: var(--c); transform: scaleX(0); transform-origin: left;
+  transition: transform .25s ease;
+}
+.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: transparent; }
+.card:hover::after { transform: scaleX(1); }
+.card:focus-visible { outline: 3px solid var(--c); outline-offset: 2px; }
+
+.card-top { display: flex; align-items: center; justify-content: space-between; }
+.card-icon {
+  width: 46px; height: 46px; border-radius: 13px;
+  background: var(--c-soft);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+}
+.tags { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.tag {
+  font-size: 10.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  padding: 4px 8px; border-radius: 7px; color: var(--c); background: var(--c-soft);
+}
+.tag-ai { color: var(--ink-2); background: var(--bg); border: 1px solid var(--border); text-transform: none; letter-spacing: 0; font-weight: 600; }
+
+.card-name { font-size: 15.5px; font-weight: 700; line-height: 1.4; flex: 1; letter-spacing: -0.005em; }
+.card-desc { font-size: 13px; color: var(--ink-3); line-height: 1.5; margin-top: -8px; }
+
+.card-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 12px; border-top: 1px dashed var(--border);
+}
+.card-open { font-size: 12.5px; font-weight: 600; color: var(--ink-3); transition: color .15s; }
+.card-arrow {
+  width: 32px; height: 32px; border-radius: 10px;
+  background: var(--bg); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px; color: var(--ink-3);
+  transition: all .18s;
+}
+.card:hover .card-open { color: var(--c); }
+.card:hover .card-arrow { background: var(--c); border-color: var(--c); color: #fff; transform: translateX(3px); }
+
+/* featured */
+.card.featured {
+  grid-column: span 2;
+  background: linear-gradient(135deg, var(--c-soft), #fff 60%);
+}
+.card.featured .card-name { font-size: 19px; }
+.card.featured .card-icon { width: 54px; height: 54px; font-size: 26px; background: #fff; border: 1px solid var(--border); }
+
+/* ── EMPTY ── */
+.empty {
+  display: none; text-align: center; padding: 60px 20px;
+  color: var(--ink-3); font-size: 16px;
+}
+.empty b { display: block; font-size: 40px; margin-bottom: 8px; }
+
+/* ── FOOTER ── */
+.footer {
+  margin-top: 30px; padding-top: 22px; border-top: 1px solid var(--border);
+  display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between;
+  font-size: 13px; color: var(--ink-3);
+}
+.footer strong { color: var(--ink); font-weight: 700; }
+
+.to-top {
+  position: fixed; right: 22px; bottom: 22px;
+  width: 46px; height: 46px; border-radius: 14px;
+  background: var(--ink); color: #fff; text-decoration: none;
+  display: flex; align-items: center; justify-content: center; font-size: 20px;
+  box-shadow: 0 8px 20px rgba(20,24,38,.25);
+  opacity: 0; pointer-events: none; transition: opacity .2s;
+}
+.to-top.show { opacity: 1; pointer-events: auto; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+
+@media (max-width: 640px) {
+  .page { padding: 0 14px 70px; }
+  .hero { padding: 30px 22px 26px; border-radius: 20px; }
+  .cards-grid { grid-template-columns: 1fr; }
+  .card.featured { grid-column: auto; }
+  .search .kbd { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
 </style>
 </head>
-<body>
+<body id="top">
+<div class="page">
 
-<header class="hero">
-  <div class="hero-inner">
-    <span class="tag">ACCA SBL · Syllabus Area D</span>
-    <h1>Risk</h1>
-    <p>How organisations find, measure, manage and monitor risk. This area shows up in nearly every SBL exam, usually mixed in with strategy, governance, technology or projects.</p>
-    <div class="meta">
-      <span>📘 D1 Identify, assess &amp; measure</span>
-      <span>🛡️ D2 Manage, monitor &amp; mitigate</span>
-      <span>⏱️ ~4–5 hours study</span>
-      <span>🎯 Sept 2026 – June 2027 syllabus</span>
+  <header class="hero">
+    <span class="hero-kicker"><span class="dot"></span> Hosted on GitHub Pages · Updated for December 2026</span>
+    <h1>ACCA <span>Study Notes</span></h1>
+    <p>Exam-focused notes, cheatsheets and quizzes for the ACCA Applied Skills and Strategic Professional exams.</p>
+    <div class="stats">
+      <div class="stat"><b id="stat-notes">–</b><small>Notes</small></div>
+      <div class="stat"><b id="stat-exams">–</b><small>Exams</small></div>
+      <div class="stat"><b id="stat-focus">–</b><small>Current focus</small></div>
     </div>
-  </div>
-</header>
-
-<nav class="top" aria-label="Chapter sections">
-  <div class="navwrap">
-    <div class="chips">
-      <a class="chip" href="#s0">Start</a>
-      <a class="chip" href="#s1">Strategy &amp; risk</a>
-      <a class="chip" href="#s2">ERM</a>
-      <a class="chip" href="#s3">Types of risk</a>
-      <a class="chip" href="#s4">Appetite</a>
-      <a class="chip" href="#s5">Dynamic risk</a>
-      <a class="chip" href="#s6">Assessing</a>
-      <a class="chip" href="#s7">Correlated</a>
-      <a class="chip" href="#s8">Risk manager</a>
-      <a class="chip" href="#s9">Register &amp; heat map</a>
-      <a class="chip" href="#s10">Risk culture</a>
-      <a class="chip" href="#s11">Diversifying</a>
-      <a class="chip" href="#s12">TARA</a>
-      <a class="chip" href="#s13">ALARP</a>
-      <a class="chip" href="#s14">4 lines</a>
-      <a class="chip" href="#case">Case study</a>
-      <a class="chip" href="#quiz">Quiz</a>
-      <a class="chip" href="#cheat">Cheat sheet</a>
-    </div>
-    <div class="fontbtns" aria-label="Text size">
-      <button id="fminus" title="Smaller text">A−</button>
-      <button id="fplus" title="Larger text">A+</button>
-    </div>
-  </div>
-</nav>
-
-<main>
-
-<!-- ============ 0 ============ -->
-<section class="chapter" id="s0">
-  <span class="sec-num">Start here</span>
-  <h2>The big picture in 2 minutes</h2>
-  <p>You've just done <strong>Strategic Choices</strong>, so you know how a company picks a direction: Ansoff, BCG, acquisitions, alliances. <strong>Risk is the other side of that.</strong> Any choice you recommend in the exam carries risks, and the examiner wants you to spot them, rate them and say what to do about them.</p>
-  <div class="big-quote">Strategy = where we want to go.<br>Risk management = making sure we get there without crashing.</div>
-
-  <h3>The risk management cycle (the backbone of this chapter)</h3>
-  <div class="erm">
-    <div style="background:#E9A23B"><b>1</b>Identify<br>what could go wrong (or right)?</div>
-    <div style="background:#D97F27"><b>2</b>Assess<br>how likely? how bad?</div>
-    <div style="background:#C2541B"><b>3</b>Respond<br>TARA</div>
-    <div style="background:#9A3B10"><b>4</b>Monitor<br>register, heat map, KRIs</div>
-    <div style="background:#6F7B34"><b>5</b>Assure<br>4 lines of defence</div>
-  </div>
-  <p>Every section below fits into one of these five steps. If an exam task says "advise the board on risk", you can almost always build your answer as <strong>identify → assess → respond → monitor</strong>.</p>
-
-  <h3>How each topic is taught</h3>
-  <div class="grid2">
-    <div class="box simple"><span class="lbl">① Simple explanation</span>Plain English, no jargon.</div>
-    <div class="box example"><span class="lbl">② Real business example</span>Hospitals, government, FMCG, tech.</div>
-    <div class="box exam"><span class="lbl">③ How it appears in the exam</span>Typical task wording.</div>
-    <div class="box model"><span class="lbl">④ Model answer</span>Written the way a marker wants it.</div>
-    <div class="box examiner"><span class="lbl">⑤ Examiner expectations</span>Where the marks come from.</div>
-    <div class="box mistakes"><span class="lbl">⑥ Common mistakes</span>How students lose marks.</div>
-  </div>
-  <div class="box memory"><span class="lbl">⑦ Memory tip</span>A shortcut to remember it under exam pressure.</div>
-</section>
-
-<!-- ============ 1 ============ -->
-<section class="chapter" id="s1">
-  <span class="sec-num">1</span><span class="syl">D1a</span>
-  <h2>What is risk, and how does it link to strategy?</h2>
-
-  <div class="box simple"><span class="lbl">① Simple explanation</span>
-    <p><strong>Risk</strong> is the chance that what actually happens is different from what you expected. The difference can be bad (<em>downside risk</em>, i.e. a loss) or good (<em>upside risk</em>, i.e. an opportunity).</p>
-    <p>Risk and reward go together. A company that takes <strong>no risk</strong> makes <strong>no return</strong>. So the aim is not to remove all risk. The aim is to take the <strong>right risks</strong> (ones that fit the strategy) and keep them at a level the board is comfortable with.</p>
-    <p>The link to strategy works both ways:</p>
-    <ul>
-      <li><strong>Strategy creates risk.</strong> Every new market, product or acquisition brings new risks with it.</li>
-      <li><strong>Risk shapes strategy.</strong> If a risk is too big for the company to handle, that strategy should be rejected or changed.</li>
-    </ul>
-    <p>So the <strong>risk management strategy</strong> (how much risk we accept and how we handle it) must be aligned with the <strong>organisational strategy</strong>, and the two should be set together.</p>
-  </div>
-
-  <div class="box example"><span class="lbl">② Real business example</span>
-    <p><strong>Private hospital group expanding into medical tourism.</strong> The strategy is to attract patients from overseas. The new risks include currency swings, international legal claims, reputational damage if a foreign patient has a bad outcome and gets publicity online, visa problems, and reliance on travel agents.</p>
-    <p>If the board decides it cannot tolerate international legal exposure, it might change the strategy. For example, it could partner with a licensed facilitator who takes on part of that risk, rather than go in alone.</p>
-    <p><strong>Upside example:</strong> a food manufacturer sees demand for halal-certified snacks growing in Europe. If it does nothing, the risk is that a competitor grabs the opportunity first. Missing out is a risk too.</p>
-  </div>
-
-  <div class="box exam"><span class="lbl">③ How it appears in the exam</span>
-    <ul>
-      <li>"Discuss how the proposed strategy will change the risk profile of X."</li>
-      <li>"Explain to the board why risk management should be integrated with strategy setting."</li>
-      <li>Often <strong>hidden</strong> inside a strategy task: "Evaluate the acquisition…". Part of the evaluation marks are for risks.</li>
-    </ul>
-  </div>
-
-  <div class="box model"><span class="lbl">④ Model answer extract</span>
-    <p><strong>Why risk management must be linked to the expansion strategy</strong></p>
-    <p>The board's plan to open three outpatient clinics in neighbouring emirates will significantly change the group's risk profile. At present its risks are concentrated in one regulated market where it has 15 years of experience. The expansion brings new regulatory regimes, recruitment risk for scarce specialist staff, and capital at risk of around AED 40m.</p>
-    <p>If risk is considered only after the decision is made, the board may commit to a strategy whose risks exceed what the group can bear. If, for example, licensing approval takes 12 months longer than planned, the clinics would carry fixed costs with no revenue, which could breach the bank covenant noted in Exhibit 3.</p>
-    <p><strong>Recommendation:</strong> the board should agree its risk appetite for the expansion <em>before</em> approving it, and require the business case to include a risk assessment of the three most significant risks with costed responses.</p>
-  </div>
-
-  <div class="box examiner"><span class="lbl">⑤ Examiner expectations</span>
-    <ul>
-      <li>Use the <strong>case numbers and facts</strong>, e.g. "AED 40m", "Exhibit 3 covenant".</li>
-      <li>Show the <strong>two-way link</strong>: the strategy creates risk, and the risk should shape the strategy.</li>
-      <li>Mention <strong>upside risk</strong> where relevant. It shows maturity (commercial acumen).</li>
-    </ul>
-  </div>
-  <div class="box mistakes"><span class="lbl">⑥ Common mistakes</span>
-    <ul><li>Treating risk as only "bad things". Upside risk is examinable.</li>
-    <li>Writing "all risks should be eliminated". That is wrong and costs credibility.</li></ul>
-  </div>
-  <div class="box memory"><span class="lbl">⑦ Memory tip</span>
-    <strong>"No risk, no return. Wrong risk, no future."</strong> The board's job is to choose the right risks, not avoid all of them.
-  </div>
-</section>
-
-<!-- ============ 2 ============ -->
-<section class="chapter" id="s2">
-  <span class="sec-num">2</span><span class="syl">D1b</span>
-  <h2>Enterprise Risk Management (ERM): the COSO 2017 framework</h2>
-
-  <div class="box simple"><span class="lbl">① Simple explanation</span>
-    <p><strong>Old approach (silo):</strong> each department manages its own risk separately. Finance looks at currency risk, IT looks at cyber risk, HR looks at staff turnover, and nobody sees the whole picture.</p>
-    <p><strong>ERM (enterprise-wide):</strong> risk is managed <strong>across the whole organisation</strong>, linked to strategy and performance, and owned by the board. It also looks at how risks <strong>combine</strong> (a cyber attack causes reputational damage, which causes loss of customers).</p>
-    <p>The COSO ERM framework (2017), <em>"Integrating with Strategy and Performance"</em>, has <strong>5 components</strong> and 20 principles. You need the 5 components:</p>
-  </div>
-
-  <div class="erm">
-    <div style="background:#E9A23B"><b>1</b>Governance &amp; Culture</div>
-    <div style="background:#D97F27"><b>2</b>Strategy &amp; Objective-Setting</div>
-    <div style="background:#C2541B"><b>3</b>Performance</div>
-    <div style="background:#9A3B10"><b>4</b>Review &amp; Revision</div>
-    <div style="background:#6F7B34"><b>5</b>Information, Communication &amp; Reporting</div>
-  </div>
-
-  <div class="tblwrap"><table>
-    <tr><th>Component</th><th>What it means (simple)</th><th>Hospital example</th></tr>
-    <tr><td><strong>1. Governance &amp; culture</strong></td><td>Board oversight of risk, the right structures (e.g. risk committee), the right values and "tone from the top", attracting capable people.</td><td>The board sets up a risk committee chaired by a NED. The CEO says openly that reporting clinical near-misses is welcomed, not punished.</td></tr>
-    <tr><td><strong>2. Strategy &amp; objective-setting</strong></td><td>Analyse the business context, define risk appetite, look at alternative strategies, and set objectives that fit the appetite.</td><td>Board states: "Zero appetite for patient safety risk; moderate appetite for financial risk in new service lines."</td></tr>
-    <tr><td><strong>3. Performance</strong></td><td>Identify risks, assess severity, prioritise them, choose responses, and build a portfolio view (all risks together).</td><td>Each department identifies risks. They are scored on a 5×5 matrix and top risks get owners and action plans.</td></tr>
-    <tr><td><strong>4. Review &amp; revision</strong></td><td>Watch for big changes in the environment, review risk and performance, improve ERM itself.</td><td>After a new health regulation, the risk profile is reassessed. ERM effectiveness is reviewed every year.</td></tr>
-    <tr><td><strong>5. Information, communication &amp; reporting</strong></td><td>Use information systems, communicate risk information, report on risk, culture and performance.</td><td>A monthly risk dashboard goes to the executive team and a quarterly report goes to the board.</td></tr>
-  </table></div>
-
-  <div class="box example"><span class="lbl">② Real business example</span>
-    <p><strong>A government utility</strong> (water and electricity) runs separate risk lists in operations, finance and IT. During a heatwave, demand spikes (an operations risk), a cyber attack hits the billing system (an IT risk) and cash collection drops (a finance risk), all in the same week. Nobody had linked these. With ERM, a single <strong>portfolio view</strong> would have shown that a heatwave scenario makes several risks worse at once, so contingency plans would have been joined up.</p>
-  </div>
-
-  <div class="box exam"><span class="lbl">③ How it appears in the exam</span>
-    <ul>
-      <li>"Using the COSO ERM framework, evaluate X's current approach to risk management." <span class="pill">Very common</span></li>
-      <li>"Advise the board how ERM could improve risk management following the incident in Exhibit 4."</li>
-      <li>You might be a consultant or a newly appointed risk manager writing a <strong>briefing note</strong>.</li>
-    </ul>
-  </div>
-
-  <div class="box model"><span class="lbl">④ Model answer extract (evaluating against COSO)</span>
-    <p><strong>Governance and culture:</strong> CityCare's board has no risk committee, and Exhibit 2 shows risk was last discussed at board level 14 months ago. This suggests risk is not seen as a board responsibility. The CEO's comment that "risk is the finance team's job" sets a poor tone from the top. Staff are unlikely to report risks if leaders don't value it.</p>
-    <p><strong>Strategy and objective-setting:</strong> No risk appetite has been defined. As a result, the decision to launch a home-care service was taken without agreeing how much financial or clinical risk was acceptable, which is a significant weakness.</p>
-    <p><strong>Performance:</strong> Risks are identified, but only within departments. The pharmacy's supplier risk and the finance team's cash flow risk are linked (a supplier failure forces expensive emergency buying), but neither register shows the connection.</p>
-    <p><strong>Review and revision:</strong> The risk register has not been updated since the new government funding model was announced, so it no longer reflects reality.</p>
-    <p><strong>Information, communication and reporting:</strong> Risk reports are 40-page spreadsheets that board members admit they do not read. A one-page dashboard showing the top 10 risks and their trends would be more effective.</p>
-    <p><strong>Overall:</strong> CityCare has the basics of risk identification but not an enterprise approach. The most urgent priority is component 1. Without board ownership the other improvements will not stick.</p>
-  </div>
-
-  <div class="box examiner"><span class="lbl">⑤ Examiner expectations</span>
-    <ul>
-      <li>Use the 5 components as <strong>headings</strong>. It's easy structure and marks.</li>
-      <li>For each component: <strong>case evidence → weakness or strength → consequence</strong>. Theory alone gets almost nothing.</li>
-      <li>End with an <strong>overall judgement / priority</strong>. This earns <em>evaluation</em> skills marks.</li>
-    </ul>
-  </div>
-  <div class="box mistakes"><span class="lbl">⑥ Common mistakes</span>
-    <ul>
-      <li>Using the <strong>old 2004 COSO cube</strong> (8 components). Use the 2017 five components.</li>
-      <li>Explaining each component in theory for half a page and never mentioning the company.</li>
-      <li>Confusing COSO <strong>ERM</strong> (risk) with the COSO <strong>internal control</strong> framework (Control environment, Risk assessment, Control activities, Information &amp; communication, Monitoring), which belongs to Chapter F.</li>
-    </ul>
-  </div>
-  <div class="box memory"><span class="lbl">⑦ Memory tip</span>
-    <strong>"Good Students Perform Really Intelligently"</strong> → <strong>G</strong>overnance &amp; culture · <strong>S</strong>trategy &amp; objectives · <strong>P</strong>erformance · <strong>R</strong>eview &amp; revision · <strong>I</strong>nformation, communication &amp; reporting.
-  </div>
-</section>
-
-<!-- ============ 3 ============ -->
-<section class="chapter" id="s3">
-  <span class="sec-num">3</span><span class="syl">D1c, D1d</span>
-  <h2>Types of risk: strategic vs operational, and the key risk categories</h2>
-
-  <div class="box simple"><span class="lbl">① Simple explanation</span>
-    <div class="grid2">
-      <div class="card"><h4>🧭 Strategic risk</h4>Risks from the <strong>big decisions</strong> and the <strong>overall position</strong> of the organisation. They are long-term, affect the whole organisation and are managed by the <strong>board</strong>.<br><em>Examples: wrong acquisition, new competitor, technology making the product obsolete, losing a major government contract.</em></div>
-      <div class="card"><h4>⚙️ Operational risk</h4>Risks from <strong>day-to-day running</strong>: people, processes, systems, external events. They are shorter-term, usually affect one area, and are managed by <strong>operational managers</strong>.<br><em>Examples: machine breakdown, data entry errors, staff fraud, IT outage, supplier late delivery.</em></div>
-    </div>
-    <p style="margin-top:14px"><strong>Watch out:</strong> an operational risk can become strategic if it is big enough. A single data breach is operational, but a breach of 2 million patient records that destroys public trust becomes strategic.</p>
-  </div>
-
-  <h3>Key risk categories you can use in any case</h3>
-  <div class="tblwrap"><table>
-    <tr><th>Risk</th><th>Meaning</th><th>Example</th></tr>
-    <tr><td><strong>Business / market</strong></td><td>Demand, competition, pricing</td><td>Discount supermarket entering the market cuts an FMCG firm's margins</td></tr>
-    <tr><td><strong>Financial</strong></td><td>Liquidity, credit, FX, interest rates, gearing</td><td>Hospital paid by insurers 120 days late → cash shortage</td></tr>
-    <tr><td><strong>Compliance / legal</strong></td><td>Breaking laws or regulations</td><td>Breach of data protection law → fines</td></tr>
-    <tr><td><strong>Reputational</strong></td><td>Loss of trust or brand damage (often a <em>result</em> of other risks)</td><td>A viral video of poor patient care</td></tr>
-    <tr><td><strong>Technology / cyber</strong></td><td>System failure, hacking, data loss</td><td>Ransomware locks the patient record system</td></tr>
-    <tr><td><strong>People / HR</strong></td><td>Key staff loss, skills gaps, strikes</td><td>Shortage of ICU nurses</td></tr>
-    <tr><td><strong>Health &amp; safety</strong></td><td>Harm to staff, customers, public</td><td>Factory worker injury; hospital-acquired infection</td></tr>
-    <tr><td><strong>Political</strong></td><td>Government action, instability</td><td>Change in health funding policy</td></tr>
-    <tr><td><strong>Supply chain</strong></td><td>Supplier failure, single-sourcing</td><td>Only one supplier of a critical drug</td></tr>
-    <tr><td><strong>Fraud</strong></td><td>Deliberate deception for gain</td><td>Procurement officer takes bribes</td></tr>
-    <tr><td><strong>Project</strong></td><td>Overruns of time, cost, scope</td><td>ERP implementation 9 months late</td></tr>
-    <tr><td><strong>Environmental &amp; climate</strong></td><td>See below <span class="pill">Explicitly in syllabus</span></td><td>Flooding, carbon taxes</td></tr>
-  </table></div>
-
-  <h3>🌍 Environmental and climate-related risk (named in the syllabus, so expect it)</h3>
-  <div class="grid2">
-    <div class="card"><h4>Physical risks</h4><strong>Acute:</strong> extreme events such as floods, storms, wildfires and heatwaves.<br><strong>Chronic:</strong> long-term shifts such as rising temperatures, sea levels and water scarcity.<br><em>Hospital: extreme heat raises patient admissions and cooling costs; flooding could close a ground-floor emergency department.</em></div>
-    <div class="card"><h4>Transition risks</h4>Risks from the move to a low-carbon economy:<br>• <strong>Policy/legal:</strong> carbon taxes, emissions rules<br>• <strong>Technology:</strong> old assets become obsolete<br>• <strong>Market:</strong> customers switch to greener products<br>• <strong>Reputation:</strong> accused of greenwashing<br><em>FMCG: plastic packaging tax, retailers demanding recyclable packs.</em></div>
-  </div>
-
-  <div class="box example"><span class="lbl">② Real business example</span>
-    <p><strong>A tea and beverages company</strong> (FMCG) buys most of its tea from two growing regions.</p>
-    <ul>
-      <li><strong>Strategic:</strong> younger consumers moving to energy drinks; a large competitor launching cheaper own-label tea.</li>
-      <li><strong>Operational:</strong> packaging line breakdowns; quality failures in a batch.</li>
-      <li><strong>Climate (physical):</strong> drought in the growing region cuts the crop and raises prices.</li>
-      <li><strong>Climate (transition):</strong> new rules on plastic sachets.</li>
-      <li><strong>Financial:</strong> tea is priced in USD, so currency weakness raises costs.</li>
-    </ul>
-  </div>
-
-  <div class="box exam"><span class="lbl">③ How it appears in the exam</span>
-    <ul>
-      <li>"Identify and evaluate the key risks facing X as a result of the proposed strategy."</li>
-      <li>"Distinguish between strategic and operational risks, using examples from the case."</li>
-      <li>"Assess the climate-related risks facing X." Use the physical vs transition split.</li>
-    </ul>
-  </div>
-
-  <div class="box model"><span class="lbl">④ Model answer extract ("evaluate the key risks")</span>
-    <p><strong>1. Regulatory risk (strategic, high impact):</strong> The new telemedicine service must be licensed in every emirate it serves. Exhibit 5 shows approval has been obtained in only one. If the service treats patients from elsewhere without a licence, the group faces fines and possible suspension of its main hospital licence, which would threaten 70% of revenue. <em>This is the most significant risk because of its severity, even though the likelihood is moderate.</em></p>
-    <p><strong>2. Data security risk (operational, could become strategic):</strong> Video consultations will transmit sensitive patient data through a third-party app. A breach would bring regulatory penalties and serious reputational damage among patients who value confidentiality.</p>
-    <p><strong>3. Clinical quality risk:</strong> Doctors cannot physically examine patients, so misdiagnosis is more likely. This creates litigation risk and patient harm.</p>
-  </div>
-
-  <div class="box examiner"><span class="lbl">⑤ Examiner expectations</span>
-    <ul>
-      <li>"Evaluate" = name the risk <strong>+ explain the cause from the case + the consequence + how significant it is</strong>.</li>
-      <li><strong>Prioritise.</strong> Saying which risk is most significant and why earns evaluation and commercial acumen marks.</li>
-      <li>Usually 3–5 well-developed risks are better than 12 one-liners.</li>
-    </ul>
-  </div>
-  <div class="box mistakes"><span class="lbl">⑥ Common mistakes</span>
-    <ul>
-      <li>Listing generic risks ("there is a risk of fraud") without linking them to the case.</li>
-      <li>Calling "reputation" the risk without saying <strong>what causes it</strong>. Reputation is usually a consequence.</li>
-      <li>Forgetting to classify when the task asks you to <em>distinguish</em>.</li>
-    </ul>
-  </div>
-  <div class="box memory"><span class="lbl">⑦ Memory tip</span>
-    <strong>Strategic = "Should we?" (board). Operational = "Are we doing it right?" (managers).</strong><br>
-    Climate risk = <strong>"Weather &amp; Rules"</strong>: physical (weather) and transition (rules, tech, markets).<br>
-    Writing a risk = <strong>C-R-C</strong>: <strong>C</strong>ause (case fact) → <strong>R</strong>isk event → <strong>C</strong>onsequence (£/reputation/patients).
-  </div>
-</section>
-
-<!-- ============ 4 ============ -->
-<section class="chapter" id="s4">
-  <span class="sec-num">4</span><span class="syl">D1e</span>
-  <h2>Risk attitude, risk appetite and risk policy</h2>
-
-  <div class="box simple"><span class="lbl">① Simple explanation</span>
-    <div class="tblwrap"><table>
-      <tr><th>Term</th><th>Simple meaning</th><th>Personal analogy</th></tr>
-      <tr><td><strong>Risk attitude</strong></td><td>The <em>general mindset</em> of the board towards risk: averse, neutral or seeking.</td><td>"I'm a cautious person."</td></tr>
-      <tr><td><strong>Risk appetite</strong></td><td>The <em>amount and type</em> of risk the organisation is <strong>willing</strong> to accept to achieve its objectives.</td><td>"I'll put 20% of my savings into shares."</td></tr>
-      <tr><td><strong>Risk capacity</strong></td><td>The <em>maximum</em> risk the organisation is <strong>able</strong> to bear before it fails.</td><td>"If I lost more than 50%, I couldn't pay my mortgage."</td></tr>
-      <tr><td><strong>Risk tolerance</strong></td><td>The acceptable <em>variation</em> around an objective, often a measurable limit.</td><td>"I accept a fall of up to 10% in a year."</td></tr>
-    </table></div>
-    <ul>
-      <li><strong>Risk-averse:</strong> prefers certainty and accepts lower returns (typical of public sector bodies, charities, hospitals on safety matters).</li>
-      <li><strong>Risk-neutral:</strong> judges purely on expected value.</li>
-      <li><strong>Risk-seeking:</strong> chases high returns and accepts high uncertainty (typical of tech start-ups, venture capital).</li>
-    </ul>
-    <p><strong>Risk policy</strong> is the written rules that put the appetite into practice: limits, approval levels, which risks are never accepted.</p>
-    <p><strong>Rule: appetite must always be below capacity.</strong> If a board's appetite exceeds its capacity, it is gambling with the company's survival.</p>
-  </div>
-
-  <h3>What shapes risk appetite?</h3>
-  <ul>
-    <li><strong>Stakeholders' expectations</strong>: shareholders in a tech growth fund vs taxpayers funding a hospital</li>
-    <li><strong>Industry/sector</strong>: aviation and healthcare have very low appetite for safety risk</li>
-    <li><strong>Financial strength</strong>: high cash and low gearing allow more risk</li>
-    <li><strong>Personal views of directors</strong>: a founder-entrepreneur vs a cautious ex-civil servant</li>
-    <li><strong>Regulation</strong>: banks have regulatory capital limits</li>
-    <li><strong>Stage of the business life cycle</strong>: start-ups seek risk; mature firms protect what they have</li>
-  </ul>
-
-  <div class="box example"><span class="lbl">② Real business example</span>
-    <p><strong>One organisation can have different appetites for different risks.</strong> A government health authority might state:</p>
-    <ul>
-      <li>Patient safety: <strong>zero / very low</strong> appetite</li>
-      <li>Regulatory compliance: <strong>low</strong></li>
-      <li>Financial: <strong>low–moderate</strong> (must stay within budget)</li>
-      <li>Innovation (e.g. piloting AI triage): <strong>moderate</strong>, because it wants to modernise</li>
-    </ul>
-    <p>Compare a <strong>fintech start-up</strong>: high appetite for market and innovation risk, but it still needs low appetite for regulatory risk, because losing its licence would end the business.</p>
-  </div>
-
-  <div class="box exam"><span class="lbl">③ How it appears in the exam</span>
-    <ul>
-      <li>"Discuss how the board's attitude to risk may affect its decision on the proposed investment."</li>
-      <li>Case clue: the founder says "We didn't get here by playing safe!" while the new NED is cautious. This is a <strong>conflict of risk attitudes</strong>.</li>
-    </ul>
-  </div>
-
-  <div class="box model"><span class="lbl">④ Model answer extract</span>
-    <p>The CEO's comments in Exhibit 1 suggest a <strong>risk-seeking</strong> attitude, having built the business through bold acquisitions. However, the company is now listed and its shareholders include pension funds who, according to the investor letter, expect steady dividends. This suggests a <strong>lower appetite</strong> than the CEO's.</p>
-    <p>The proposed USD 80m acquisition would raise gearing from 35% to 68%, close to the 70% bank covenant. This brings the company near its <strong>risk capacity</strong>: a single bad year could trigger a covenant breach. The board should therefore formally agree a risk appetite statement, for example a maximum gearing of 50%, and assess the acquisition against it, rather than letting the CEO's personal attitude drive the decision.</p>
-  </div>
-
-  <div class="box examiner"><span class="lbl">⑤ Examiner expectations</span>
-    <ul><li>Spot <strong>whose</strong> attitude is driving decisions and whether it matches what <strong>stakeholders</strong> expect.</li>
-    <li>Use numbers to show <strong>capacity</strong> (gearing, cash, covenants).</li>
-    <li>Recommend a <strong>formal risk appetite statement</strong> approved by the board.</li></ul>
-  </div>
-  <div class="box mistakes"><span class="lbl">⑥ Common mistakes</span>
-    <ul><li>Using appetite, attitude and capacity as if they meant the same thing.</li>
-    <li>Saying "the company is risk-averse" without case evidence.</li></ul>
-  </div>
-  <div class="box memory"><span class="lbl">⑦ Memory tip</span>
-    <strong>Attitude = personality. Appetite = how much I WANT to eat. Capacity = how much my stomach CAN hold. Tolerance = how far from the plan I'll accept.</strong>
-  </div>
-</section>
-
-<!-- ============ 5 ============ -->
-<section class="chapter" id="s5">
-  <span class="sec-num">5</span><span class="syl">D1f</span>
-  <h2>The dynamic nature of risk: how risk varies</h2>
-
-  <div class="box simple"><span class="lbl">① Simple explanation</span>
-    <p>Risks <strong>don't stay still</strong>. New risks appear, old ones disappear, and probability and impact change as the world and the organisation change. That's why a risk register must be a <strong>living document</strong>, not a once-a-year exercise.</p>
-    <p>Risk also <strong>varies</strong> with these features of an organisation:</p>
-    <div class="tblwrap"><table>
-      <tr><th>Factor</th><th>How it changes risk</th></tr>
-      <tr><td><strong>Size</strong></td><td>Small firms depend on a few people, customers and suppliers, so key-person risk is high. Large firms face complexity, slow communication and control risk across many sites.</td></tr>
-      <tr><td><strong>Structure</strong></td><td>Decentralised or divisional structures mean local managers may take risks the centre doesn't see. Matrix structures blur accountability.</td></tr>
-      <tr><td><strong>Industry</strong></td><td>Pharma: product liability and R&amp;D failure. Banks: credit and liquidity. Tech: obsolescence. Healthcare: clinical risk.</td></tr>
-      <tr><td><strong>Sector</strong></td><td>Public sector: political, budget and accountability risk. Private: market and shareholder risk. Charities: donor and reputational risk.</td></tr>
-      <tr><td><strong>Development (life cycle)</strong></td><td>Start-up: survival and cash-burn risk. Growth: overtrading and control lagging behind growth. Mature: strategic drift. Decline: going-concern risk.</td></tr>
-    </table></div>
-  </div>
-
-  <div class="box example"><span class="lbl">② Real business example</span>
-    <p><strong>A food delivery app over 6 years:</strong></p>
-    <ul>
-      <li><strong>Year 1 (start-up):</strong> runs out of cash; app doesn't work; founders are the only people who know the code.</li>
-      <li><strong>Year 3 (rapid growth):</strong> controls fail to keep up, with fake driver accounts and refund fraud; rider employment law challenges.</li>
-      <li><strong>Year 6 (mature, listed):</strong> regulatory scrutiny, competition from bigger platforms, ESG pressure about rider welfare and packaging waste.</li>
-    </ul>
-    <p>The <strong>same company</strong> faces a completely different risk profile at each stage.</p>
-  </div>
-
-  <div class="box exam"><span class="lbl">③ How it appears in the exam</span>
-    <p>"The company has grown from 50 to 600 staff in three years. Discuss how its risk profile has changed and why the existing approach to risk management is no longer adequate."</p>
-  </div>
-  <div class="box model"><span class="lbl">④ Model answer extract</span>
-    <p>When the company had 50 staff, the two founders knew every customer and approved every payment personally. This informal control was effective at that size. With 600 staff across four countries, the founders can no longer oversee everything, yet Exhibit 2 shows they still approve all spending over USD 5,000 by email. This causes delays, and expenses below that limit are not reviewed at all, which creates fraud risk.</p>
-    <p>Expansion abroad has also brought new risks (currency, local labour law, tax compliance) that the current risk register, written three years ago, does not include. Because risk is dynamic, the company should move to formal ERM with quarterly register reviews.</p>
-  </div>
-  <div class="box examiner"><span class="lbl">⑤ Examiner expectations</span>
-    <ul><li>Compare <strong>then vs now</strong> with case facts.</li><li>Conclude with what must change in risk management.</li></ul>
-  </div>
-  <div class="box mistakes"><span class="lbl">⑥ Common mistakes</span>
-    <ul><li>Describing life cycle theory without applying it to the case.</li></ul>
-  </div>
-  <div class="box memory"><span class="lbl">⑦ Memory tip</span>
-    <strong>"SSISD"</strong>: Size, Structure, Industry, Sector, Development. Risk is like weather: <strong>check it daily, not yearly.</strong>
-  </div>
-</section>
-
-<!-- ============ 6 ============ -->
-<section class="chapter" id="s6">
-  <span class="sec-num">6</span><span class="syl">D1g</span>
-  <h2>Assessing severity and probability</h2>
-
-  <div class="box simple"><span class="lbl">① Simple explanation</span>
-    <p>Once risks are identified, you must decide <strong>which matter most</strong>. You score each risk on two things:</p>
-    <ul>
-      <li><strong>Probability (likelihood):</strong> how likely is it to happen? (e.g. 1 = rare to 5 = almost certain)</li>
-      <li><strong>Severity (impact/hazard):</strong> how bad would it be? (e.g. 1 = negligible to 5 = catastrophic)</li>
-    </ul>
-    <p><strong>Risk score = Probability × Impact.</strong> A risk scoring 4 × 5 = 20 needs action before a risk scoring 2 × 2 = 4.</p>
-    <p><strong>Gross (inherent) risk</strong> is the risk <em>before</em> any controls. <strong>Net (residual) risk</strong> is the risk <em>after</em> controls. If net risk is still above appetite, more action is needed.</p>
-    <p><strong>Quantitative vs qualitative:</strong> some risks can be measured in money (expected value, sensitivity, scenario analysis, Value at Risk). Others need judgement (reputation, morale).</p>
-  </div>
-
-  <div class="box example"><span class="lbl">② Real business example</span>
-    <div class="tblwrap"><table>
-      <tr><th>Risk (hospital)</th><th>Probability</th><th>Impact</th><th>Score</th><th>Priority</th></tr>
-      <tr><td>Ransomware attack on patient records</td><td>4</td><td>5</td><td>20</td><td>🔴 Critical</td></tr>
-      <tr><td>Nurse shortage in ICU</td><td>4</td><td>4</td><td>16</td><td>🔴 High</td></tr>
-      <tr><td>Insurer pays late</td><td>4</td><td>2</td><td>8</td><td>🟠 Medium</td></tr>
-      <tr><td>Earthquake damages building</td><td>1</td><td>5</td><td>5</td><td>🟡 Low–Med (but plan for it)</td></tr>
-      <tr><td>Cafeteria supplier late</td><td>3</td><td>1</td><td>3</td><td>🟢 Low</td></tr>
-    </table></div>
-    <p><strong>Quantified example:</strong> a 10% chance of a AED 5m regulatory fine gives an expected loss of AED 0.5m. If a compliance system costs AED 0.2m a year and halves the probability, it saves AED 0.25m in expected loss, so it's worth doing even before you count the reputational benefit.</p>
-  </div>
-
-  <div class="box exam"><span class="lbl">③ How it appears in the exam</span>
-    <ul><li>"Assess the risks in Exhibit 3 and advise which should be prioritised."</li>
-    <li>You may get a spreadsheet exhibit with probabilities to calculate expected values.</li></ul>
-  </div>
-  <div class="box model"><span class="lbl">④ Model answer extract</span>
-    <p>Although an earthquake would be catastrophic, the probability is very low. The board should focus first on the ransomware risk, which is both <strong>highly likely</strong> (Exhibit 4 notes three attempted attacks on regional hospitals this year) and <strong>severe</strong>, since all surgeries would stop if patient records were unavailable. This should be rated critical and dealt with immediately. The earthquake risk is better handled by insurance and a business continuity plan than by significant investment.</p>
-  </div>
-  <div class="box examiner"><span class="lbl">⑤ Examiner expectations</span>
-    <ul><li>Justify the rating with <strong>case evidence</strong> for both likelihood <em>and</em> impact.</li>
-    <li>Be <strong>sceptical</strong> where you see a reason to: "Management rates this as low, but given…, this appears understated." That earns scepticism skill marks.</li></ul>
-  </div>
-  <div class="box mistakes"><span class="lbl">⑥ Common mistakes</span>
-    <ul><li>Giving scores without reasons.</li><li>Ignoring low-probability, high-impact risks completely. They still need a plan, usually transfer (insurance) or contingency.</li></ul>
-  </div>
-  <div class="box memory"><span class="lbl">⑦ Memory tip</span>
-    <strong>"How Likely? How Ugly?"</strong> Likely × Ugly = Priority. <strong>Gross = Before, Net = After</strong> (think "gross salary before tax, net after").
-  </div>
-</section>
-
-<!-- ============ 7 ============ -->
-<section class="chapter" id="s7">
-  <span class="sec-num">7</span><span class="syl">D1h</span>
-  <h2>Related and correlated risk factors</h2>
-
-  <div class="box simple"><span class="lbl">① Simple explanation</span>
-    <p><strong>Related risks</strong> are connected, so one risk can <strong>trigger or worsen</strong> another, like dominoes.</p>
-    <p><strong>Correlated risks</strong> move together statistically:</p>
-    <ul>
-      <li><strong>Positive correlation:</strong> when risk A rises, risk B rises too. This is dangerous because risks pile up together.</li>
-      <li><strong>Negative correlation:</strong> when A rises, B falls. This is useful for <em>hedging</em> or diversifying.</li>
-    </ul>
-    <p>Why it matters: if you assess each risk alone, you <strong>underestimate</strong> the total risk when several are positively correlated.</p>
-  </div>
-
-  <div class="box example"><span class="lbl">② Real business example</span>
-    <p><strong>Domino chain (related risks) in a hospital:</strong></p>
-    <p style="text-align:center;font-weight:600;color:var(--rust)">Nurse shortage → more agency staff → higher costs <em>and</em> agency staff unfamiliar with procedures → more clinical errors → patient complaints → reputational damage → fewer insured patients → lower revenue → less money to recruit nurses → worse nurse shortage 🔁</p>
-    <p><strong>Positive correlation:</strong> an airline's fuel costs and a tourism downturn often rise together during an oil price shock, hitting both cost and revenue at once.</p>
-    <p><strong>Negative correlation:</strong> a company that sells both umbrellas and sunscreen. A rainy summer hurts sunscreen sales but helps umbrellas.</p>
-    <p><strong>Environmental–social–governance link:</strong> pollution from a factory (environmental) leads to community health complaints (social), which leads to regulatory fines and director liability (governance).</p>
-  </div>
-
-  <div class="box exam"><span class="lbl">③ How it appears in the exam</span>
-    <p>"Explain how the risks identified are related and why this matters for the board's risk assessment."</p>
-  </div>
-  <div class="box model"><span class="lbl">④ Model answer extract</span>
-    <p>The risks in Exhibit 3 should not be assessed in isolation. The supplier's financial difficulty (supply risk) and the plan to stop holding safety stock (operational decision) are <strong>positively correlated</strong>. If the supplier fails, the lack of buffer stock means production stops within two days instead of four weeks. Taken together, the impact is far greater than the separate ratings suggest. The board should consider these risks as a group and postpone the stock reduction until a second supplier has been approved.</p>
-  </div>
-  <div class="box examiner"><span class="lbl">⑤ Examiner expectations</span>
-    <ul><li>Show you can <strong>connect exhibits</strong>. This is a sign of a strong candidate (analysis skill).</li></ul>
-  </div>
-  <div class="box mistakes"><span class="lbl">⑥ Common mistakes</span>
-    <ul><li>Defining correlation in maths terms only, with no business consequence.</li></ul>
-  </div>
-  <div class="box memory"><span class="lbl">⑦ Memory tip</span>
-    <strong>Positive correlation = "trouble comes in pairs." Negative correlation = "umbrella and sunscreen."</strong>
-  </div>
-</section>
+  </header>
 
-<!-- ============ 8 ============ -->
-<section class="chapter" id="s8">
-  <span class="sec-num">8</span><span class="syl">D2a</span>
-  <h2>The role of the risk manager (and the risk committee)</h2>
-
-  <div class="box simple"><span class="lbl">① Simple explanation</span>
-    <p>The <strong>risk manager</strong> (or Chief Risk Officer, CRO, in large organisations) <strong>does not own all the risks</strong>. Line managers own their risks. The risk manager <strong>builds the system and supports everyone</strong>.</p>
-    <h4>Typical duties</h4>
-    <ul>
-      <li>Provide the overall <strong>leadership and framework</strong> for ERM: policies, methods, templates</li>
-      <li>Help develop and communicate the <strong>risk appetite and policy</strong></li>
-      <li>Build a <strong>risk-aware culture</strong> through training and awareness</li>
-      <li>Coordinate and maintain the <strong>risk register</strong>; consolidate risks across departments</li>
-      <li>Prepare <strong>risk reports</strong> for the board and risk committee</li>
-      <li>Coordinate responses to <strong>major incidents</strong> and business continuity planning</li>
-      <li>Manage <strong>insurance</strong> (risk transfer)</li>
-      <li>Ensure <strong>compliance</strong> with regulation</li>
-      <li>Investigate incidents and share <strong>lessons learned</strong></li>
-    </ul>
-    <h4>Is the role effective? Assess these factors</h4>
-    <ul>
-      <li><strong>Seniority and authority:</strong> are they listened to by the board?</li>
-      <li><strong>Independence:</strong> do they report to the risk committee, not only the CEO?</li>
-      <li><strong>Resources:</strong> do they have staff, budget and systems?</li>
-      <li><strong>Skills:</strong> technical, communication, industry knowledge</li>
-      <li><strong>Culture:</strong> does management see the risk manager as a partner or a "police officer"?</li>
-    </ul>
-    <h4>Risk committee (board level)</h4>
-    <p>A board committee, ideally made up mainly of <strong>independent NEDs</strong>, that oversees risk appetite, the risk framework, the top risks, and the work of the risk manager. In smaller firms the audit committee may cover risk.</p>
-  </div>
-
-  <div class="box example"><span class="lbl">② Real business example</span>
-    <p>A hospital appointed a risk manager two years ago, but they report to the Finance Director, are graded below department heads, and have no team. Surgeons ignore their requests to update the clinical risk register. The role exists on paper but is <strong>ineffective</strong> because of a lack of authority and independence.</p>
-  </div>
-
-  <div class="box exam"><span class="lbl">③ How it appears in the exam</span>
-    <p>"Draft a briefing paper for the board explaining the role of a risk manager and assessing whether the current arrangements are effective."</p>
-  </div>
-  <div class="box model"><span class="lbl">④ Model answer extract</span>
-    <p><strong>Assessment of current arrangements:</strong> The risk manager role is undermined in three ways. First, reporting to the FD means clinical and operational risks are seen through a financial lens and may be filtered before reaching the board. Second, the role's junior grade means senior clinicians do not engage, which is shown by only 4 of 11 departments submitting risk updates (Exhibit 2). Third, without staff the risk manager spends most of the time compiling spreadsheets rather than advising.</p>
-    <p><strong>Recommendations:</strong> (1) Give the risk manager a direct reporting line to the chair of a new board risk committee. (2) Raise the grade to department head level. (3) Have the CEO formally require all departments to update risks quarterly, setting the right tone from the top.</p>
-  </div>
-  <div class="box examiner"><span class="lbl">⑤ Examiner expectations</span>
-    <ul><li>Don't only list duties. <strong>Assess</strong> effectiveness using case evidence.</li><li>Recommendations should be specific and practical.</li></ul>
-  </div>
-  <div class="box mistakes"><span class="lbl">⑥ Common mistakes</span>
-    <ul><li>Saying "the risk manager is responsible for managing all risks". No: risk owners manage risks, and the board is ultimately accountable.</li></ul>
-  </div>
-  <div class="box memory"><span class="lbl">⑦ Memory tip</span>
-    <strong>The risk manager is the "coach", not the "player".</strong> Players (line managers) own the risks; the coach builds the system; the club owner (board) is accountable.
-  </div>
-</section>
-
-<!-- ============ 9 ============ -->
-<section class="chapter" id="s9">
-  <span class="sec-num">9</span><span class="syl">D2b</span>
-  <h2>Risk register and heat maps</h2>
-
-  <div class="box simple"><span class="lbl">① Simple explanation</span>
-    <p>A <strong>risk register</strong> is a table listing all key risks, with the details needed to manage them. A <strong>heat map</strong> is a colour-coded picture of the same risks plotted by likelihood and impact, so the board can see the worst ones at a glance.</p>
-    <h4>Typical register columns</h4>
-    <p><span class="pill">Risk ID</span> <span class="pill">Description (cause → event → effect)</span> <span class="pill">Category</span> <span class="pill">Owner</span> <span class="pill">Gross likelihood &amp; impact</span> <span class="pill">Existing controls</span> <span class="pill">Net likelihood &amp; impact</span> <span class="pill">Response (TARA)</span> <span class="pill">Actions &amp; deadline</span> <span class="pill">KRI</span> <span class="pill">Trend ↑↓</span> <span class="pill">Last review date</span></p>
-  </div>
-
-  <h3>Heat map example (Likelihood → / Impact ↑)</h3>
-  <div class="heat">
-    <div class="ax">Impact 5</div><div class="y"></div><div class="o"></div><div class="r"></div><div class="r">R2</div><div class="r">R1</div>
-    <div class="ax">4</div><div class="g"></div><div class="y"></div><div class="o"></div><div class="r">R3</div><div class="r"></div>
-    <div class="ax">3</div><div class="g"></div><div class="y">R5</div><div class="o"></div><div class="o"></div><div class="r"></div>
-    <div class="ax">2</div><div class="g"></div><div class="g"></div><div class="y"></div><div class="o">R4</div><div class="o"></div>
-    <div class="ax">1</div><div class="g"></div><div class="g">R6</div><div class="g"></div><div class="y"></div><div class="y"></div>
-    <div class="ax"></div><div class="ax">L1</div><div class="ax">L2</div><div class="ax">L3</div><div class="ax">L4</div><div class="ax">L5</div>
-  </div>
-  <p style="font-size:.85em;color:var(--ink-soft)">R1 Ransomware · R2 Licence breach · R3 ICU nurse shortage · R4 Late insurer payments · R5 Equipment downtime · R6 Café supplier late</p>
-
-  <div class="box example"><span class="lbl">② Real business example: register entry</span>
-    <div class="tblwrap"><table>
-      <tr><th>Field</th><th>Entry</th></tr>
-      <tr><td>Risk</td><td>R3: Shortage of ICU nurses due to higher overseas pay offers → unable to staff 20 beds → cancelled surgeries, patient harm, AED 1.2m monthly revenue loss</td></tr>
-      <tr><td>Owner</td><td>Director of Nursing</td></tr>
-      <tr><td>Gross</td><td>L4 × I5 = 20</td></tr>
-      <tr><td>Controls</td><td>Agency staff contract; retention bonus</td></tr>
-      <tr><td>Net</td><td>L4 × I4 = 16 (still above appetite)</td></tr>
-      <tr><td>Response</td><td>Reduce: nursing academy partnership, flexible rosters</td></tr>
-      <tr><td>KRI</td><td>Nurse vacancy rate (trigger &gt; 12%); exit-interview reasons</td></tr>
-      <tr><td>Trend / review</td><td>↑ worsening / reviewed monthly</td></tr>
-    </table></div>
-  </div>
-
-  <div class="box exam"><span class="lbl">③ How it appears in the exam</span>
-    <ul><li>An exhibit shows the company's risk register and asks you to <strong>"evaluate the risk register"</strong>. <span class="pill">Very likely</span></li>
-    <li>"Prepare a heat map / risk register for the three risks identified."</li></ul>
-  </div>
-  <div class="box model"><span class="lbl">④ Model answer extract (critiquing a register)</span>
-    <p><strong>Weaknesses in the current risk register (Exhibit 6):</strong></p>
-    <ul>
-      <li><strong>Vague descriptions:</strong> "IT risk" gives no cause or consequence, so no one can design a response. It should read: "Unpatched servers → ransomware attack → loss of patient records for several days."</li>
-      <li><strong>No owners:</strong> 7 of 10 risks have no named owner, so no one is accountable for action.</li>
-      <li><strong>Out of date:</strong> last reviewed in January, before the merger, so merger-related integration risks are missing entirely.</li>
-      <li><strong>Gross only:</strong> no net risk is shown, so the board cannot tell whether controls work.</li>
-      <li><strong>Missing risks:</strong> climate-related risk is absent despite the coastal location noted in the pre-seen.</li>
-      <li><strong>Questionable ratings:</strong> cyber risk is rated "low", yet Exhibit 4 reports two phishing incidents this quarter. This appears understated.</li>
-    </ul>
-    <p><strong>Benefits of a heat map:</strong> it would let board members, many without a technical background, see immediately that cyber and staffing risks sit in the red zone. That focuses limited board time on what matters most.</p>
-    <p><strong>Limitations:</strong> heat maps simplify reality. Scores are subjective, they don't show correlations between risks, and they give a snapshot that can quickly go out of date.</p>
-  </div>
-  <div class="box examiner"><span class="lbl">⑤ Examiner expectations</span>
-    <ul><li>"Evaluate" means <strong>strengths and weaknesses</strong>, plus limitations of the tool itself.</li>
-    <li>Questioning management's ratings = <strong>scepticism marks</strong>.</li></ul>
-  </div>
-  <div class="box mistakes"><span class="lbl">⑥ Common mistakes</span>
-    <ul><li>Only describing what a register is.</li><li>Forgetting the limitations of heat maps.</li></ul>
-  </div>
-  <div class="box memory"><span class="lbl">⑦ Memory tip</span>
-    A good register entry answers <strong>"What, Who, How bad, What now, When next?"</strong> (description, owner, score, response, review date).
-  </div>
-</section>
-
-<!-- ============ 10 ============ -->
-<section class="chapter" id="s10">
-  <span class="sec-num">10</span><span class="syl">D2c</span>
-  <h2>Embedding risk in culture and values</h2>
-
-  <div class="box simple"><span class="lbl">① Simple explanation</span>
-    <p><strong>Embedded risk management</strong> means thinking about risk is part of <strong>everyone's normal job</strong>, not a separate box-ticking exercise done by the risk team once a year. Like safety on an oil rig: every worker thinks about it automatically.</p>
-    <h4>How to embed it</h4>
-    <ul>
-      <li><strong>Tone from the top:</strong> the board and CEO talk about risk and act on it</li>
-      <li><strong>Policies and procedures</strong> that include risk steps (e.g. every business case must include a risk section)</li>
-      <li><strong>Training and induction</strong> for all staff</li>
-      <li><strong>Clear risk ownership</strong> in job descriptions</li>
-      <li><strong>Performance appraisal and rewards</strong> that include risk behaviour, not just sales or targets</li>
-      <li><strong>No-blame reporting</strong> of near-misses and whistleblowing channels</li>
-      <li><strong>Communication:</strong> share lessons from incidents</li>
-    </ul>
-    <h4>Benefits vs barriers</h4>
-    <div class="grid2">
-      <div class="card"><h4>✅ Benefits</h4>Early warning of problems; better decisions; fewer incidents; staff who protect the business; regulator and investor confidence.</div>
-      <div class="card"><h4>⛔ Barriers</h4>Cost and time; staff see it as bureaucracy; blame culture stops reporting; targets reward risk-taking; leaders who don't lead by example.</div>
-    </div>
-    <p><strong>Link to Chapter A:</strong> use the <strong>cultural web</strong> to diagnose why risk isn't embedded (stories, symbols, power structures, controls, rituals).</p>
-  </div>
-
-  <div class="box example"><span class="lbl">② Real business example</span>
-    <p><strong>Aviation-style "just culture" in a hospital:</strong> a nurse gives the wrong dose but reports it immediately. In a blame culture she would be disciplined, so next time nobody reports. In a just culture the hospital investigates the system (the two drug labels looked almost identical) and changes the supplier's labelling. The <strong>whole organisation learns</strong>.</p>
-    <p><strong>Counter-example:</strong> a bank whose sales staff are paid bonuses purely on the number of accounts opened. Risk policies say "treat customers fairly", but the reward system says "sell at any cost". This leads to mis-selling scandals. The <strong>culture beats the policy</strong>.</p>
-  </div>
-
-  <div class="box exam"><span class="lbl">③ How it appears in the exam</span>
-    <p>"Advise how the CEO could embed risk awareness into the culture of the organisation following the incident."</p>
-  </div>
-  <div class="box model"><span class="lbl">④ Model answer extract</span>
-    <p>The interviews in Exhibit 3 suggest staff hid the faulty equipment because they feared being blamed. Risk cannot be embedded while this fear exists. I recommend:</p>
-    <ol>
-      <li><strong>The CEO should personally launch</strong> a no-blame incident reporting system and publicly thank staff who report issues.</li>
-      <li><strong>Appraisals should include a risk objective</strong> for all managers, so ward managers are judged on safety as well as bed occupancy.</li>
-      <li><strong>A monthly "lessons learned" bulletin</strong> should show staff that reported risks lead to real changes.</li>
-    </ol>
-    <p>These actions cost little but will take 12–18 months to change behaviour, so the board should track progress using the number of near-misses reported (a <em>rise</em> is initially a good sign).</p>
-  </div>
-  <div class="box examiner"><span class="lbl">⑤ Examiner expectations</span>
-    <ul><li>Link to <strong>leadership and tone from the top</strong>, which ties in syllabus area A.</li><li>Give practical, sequenced actions.</li></ul>
-  </div>
-  <div class="box mistakes"><span class="lbl">⑥ Common mistakes</span>
-    <ul><li>Saying "provide training" and stopping there. Training alone doesn't change culture.</li></ul>
-  </div>
-  <div class="box memory"><span class="lbl">⑦ Memory tip</span>
-    <strong>"Policy on paper, culture in the canteen."</strong> To embed risk, align <strong>TRAP</strong>: <strong>T</strong>one, <strong>R</strong>ewards, <strong>A</strong>ccountability, <strong>P</strong>rocesses.
-  </div>
-</section>
-
-<!-- ============ 11 ============ -->
-<section class="chapter" id="s11">
-  <span class="sec-num">11</span><span class="syl">D2d</span>
-  <h2>Spreading and diversifying risk</h2>
-
-  <div class="box simple"><span class="lbl">① Simple explanation</span>
-    <p><strong>"Don't put all your eggs in one basket."</strong></p>
-    <ul>
-      <li><strong>Spreading risk:</strong> splitting an exposure across several sources so one failure isn't fatal: multiple suppliers, several data centres, a customer base not reliant on one client, staff cross-trained.</li>
-      <li><strong>Diversification:</strong> operating in a range of products, markets or investments whose risks are <strong>not perfectly positively correlated</strong>, so losses in one are offset by gains in another.</li>
-    </ul>
-    <h4>When is it appropriate?</h4>
-    <ul>
-      <li>✅ When there is <strong>high concentration</strong> (one supplier, one customer, one market)</li>
-      <li>✅ When the risks are <strong>uncorrelated or negatively correlated</strong></li>
-      <li>⚠️ <strong>Not always:</strong> diversifying into areas you don't understand can <em>add</em> risk and destroy value. Shareholders can diversify their own portfolios, so they may prefer focused companies.</li>
-      <li>⚠️ Spreading has <strong>costs</strong>: losing volume discounts, managing more relationships</li>
-    </ul>
-    <p><strong>Link to Strategic Choices:</strong> Ansoff diversification and BCG portfolios are partly about spreading strategic risk.</p>
-  </div>
-
-  <div class="box example"><span class="lbl">② Real business example</span>
-    <p><strong>Spreading:</strong> after a fire at a single glove factory in 2021, many hospitals ran short. A health authority now requires every critical consumable to have <strong>at least two approved suppliers from different countries</strong>.</p>
-    <p><strong>Diversification gone wrong:</strong> a successful bottled water company diversifies into restaurants. It has no restaurant expertise, management attention is stretched, and both businesses suffer.</p>
-    <p><strong>Natural diversification:</strong> a beverage group selling hot tea (strong in winter) and iced drinks (strong in summer) smooths seasonal cash flows.</p>
-  </div>
-  <div class="box exam"><span class="lbl">③ How it appears in the exam</span>
-    <p>"Discuss whether diversifying the supplier base / entering a new market would reduce the company's overall risk."</p>
-  </div>
-  <div class="box model"><span class="lbl">④ Model answer extract</span>
-    <p>Exhibit 2 shows 85% of the hospital's surgical supplies come from one distributor. This concentration means any disruption at that distributor would stop most surgeries. Adding a second distributor would spread the risk. Although Exhibit 2 notes a 3% volume discount would be lost (around AED 180k a year), this is small compared with the AED 1m+ weekly revenue at risk if surgeries were cancelled. I therefore recommend a dual-sourcing strategy with a 70/30 split, keeping most of the volume discount while removing the single point of failure.</p>
-  </div>
-  <div class="box examiner"><span class="lbl">⑤ Examiner expectations</span>
-    <ul><li>Weigh <strong>cost vs benefit</strong> using the case numbers.</li><li>Show balance: diversification isn't automatically good.</li></ul>
-  </div>
-  <div class="box mistakes"><span class="lbl">⑥ Common mistakes</span>
-    <ul><li>Recommending diversification without considering correlation, cost or competence.</li></ul>
-  </div>
-  <div class="box memory"><span class="lbl">⑦ Memory tip</span>
-    <strong>Eggs in many baskets, but only baskets you know how to carry.</strong>
-  </div>
-</section>
-
-<!-- ============ 12 ============ -->
-<section class="chapter" id="s12">
-  <span class="sec-num">12</span><span class="syl">D2e</span>
-  <h2>Risk responses: the TARA model ⭐ (most examined)</h2>
-
-  <div class="box simple"><span class="lbl">① Simple explanation</span>
-    <p>Once a risk is assessed, choose one (or a mix) of four responses. Which one depends on <strong>likelihood</strong> and <strong>impact</strong>:</p>
-  </div>
-
-  <div class="tara">
-    <div></div><div class="hd">Low likelihood</div><div class="hd">High likelihood</div>
-    <div class="ylab">IMPACT (severity) → High at top</div>
-    <div class="cell" style="background:#D97F27"><b>TRANSFER</b><span>Low likelihood, high impact.<br>Pass it to someone else: insurance, outsourcing, contracts, hedging, joint ventures.</span></div>
-    <div class="cell" style="background:#9A3B10"><b>AVOID</b><span>High likelihood, high impact.<br>Don't do the activity, or stop it. Exit the market, cancel the project.</span></div>
-    <div class="cell" style="background:#8F9A4A"><b>ACCEPT</b><span>Low likelihood, low impact.<br>Live with it and monitor. Cost of control &gt; benefit.</span></div>
-    <div class="cell" style="background:#E9A23B"><b>REDUCE</b><span>High likelihood, low impact.<br>Controls to cut likelihood or impact: training, systems, procedures.</span></div>
-    <div></div><div class="xlab">LIKELIHOOD (probability) →</div>
-  </div>
-
-  <div class="box simple"><span class="lbl">More detail</span>
-    <ul>
-      <li><strong>Transfer (share):</strong> insurance, outsourcing with penalty clauses, hedging FX with forwards, sharing risk with a JV partner. <em>Note: reputational risk usually <strong>cannot</strong> be transferred.</em></li>
-      <li><strong>Avoid (terminate):</strong> the risk is outside appetite and can't be reduced cheaply. This often means giving up an opportunity.</li>
-      <li><strong>Reduce (treat/mitigate):</strong> the most common response. Use preventive controls (to cut likelihood) and detective/corrective controls (to cut impact).</li>
-      <li><strong>Accept (tolerate/retain):</strong> a conscious decision, ideally with monitoring and contingency. "Self-insurance" is a form of acceptance.</li>
-    </ul>
-    <p><strong>Two things to remember:</strong> (1) the matrix is a <em>guide</em>, not a rule. Appetite and cost–benefit matter too. (2) Net risk after the response should fall within appetite.</p>
-  </div>
-
-  <div class="box example"><span class="lbl">② Real business examples (one per quadrant)</span>
-    <div class="tblwrap"><table>
-      <tr><th>Organisation</th><th>Risk</th><th>Response</th></tr>
-      <tr><td>Hospital</td><td>Earthquake or fire destroys building (rare, catastrophic)</td><td><strong>Transfer</strong>: property and business interruption insurance</td></tr>
-      <tr><td>Tea exporter</td><td>USD weakens on a big contract</td><td><strong>Transfer</strong>: forward contract hedge</td></tr>
-      <tr><td>FMCG firm</td><td>Entering a country with active armed conflict (likely, severe)</td><td><strong>Avoid</strong>: don't enter</td></tr>
-      <tr><td>Hospital</td><td>Planning a high-risk experimental surgery programme with unproven outcomes</td><td><strong>Avoid</strong>: postpone until evidence improves</td></tr>
-      <tr><td>Government dept.</td><td>Staff making data-entry errors in payroll (frequent, small)</td><td><strong>Reduce</strong>: system validation checks, automation (RPA)</td></tr>
-      <tr><td>Hospital</td><td>Phishing emails</td><td><strong>Reduce</strong>: staff training, multi-factor authentication</td></tr>
-      <tr><td>Any office</td><td>Stationery theft (rare, tiny)</td><td><strong>Accept</strong></td></tr>
-      <tr><td>Retailer</td><td>Occasional minor breakage of stock</td><td><strong>Accept</strong>: build into pricing</td></tr>
-    </table></div>
-  </div>
-
-  <div class="box exam"><span class="lbl">③ How it appears in the exam</span>
-    <ul><li>"Using an appropriate framework, recommend how X should respond to each of the risks identified." <span class="pill">Classic</span></li>
-    <li>Often combined: "Identify the key risks <em>and</em> recommend responses" (e.g. 15–20 marks).</li></ul>
-  </div>
-
-  <div class="box model"><span class="lbl">④ Model answer extract</span>
-    <p><strong>Risk 1: Ransomware attack on patient records</strong> (high likelihood, high impact)<br>
-    In principle a risk this severe would be avoided, but the hospital cannot stop using digital records. So the board should <strong>reduce</strong> the risk urgently through offline backups tested monthly, multi-factor authentication and phishing training. It should also <strong>transfer</strong> the remaining financial impact through cyber insurance. Reputational damage cannot be insured, which is why reduction must come first.</p>
-    <p><strong>Risk 2: Overseas patient legal claims</strong> (low likelihood, high impact)<br>
-    <strong>Transfer</strong> through international medical malpractice insurance, and require patients to sign contracts specifying UAE jurisdiction.</p>
-    <p><strong>Risk 3: Expanding into cosmetic surgery in Country Z</strong> (Exhibit 4: unregulated market, two clinics closed after scandals)<br>
-    The likelihood of reputational damage is high and the impact on the group's core reputation for clinical quality would be severe. This is outside the board's stated low appetite for reputational risk. <strong>Avoid</strong>: I recommend the board does not proceed.</p>
-    <p><strong>Risk 4: Minor delays in non-clinical supplies</strong><br>
-    <strong>Accept</strong> and monitor. The cost of extra controls would exceed the small impact.</p>
-  </div>
-  <div class="box examiner"><span class="lbl">⑤ Examiner expectations</span>
-    <ul><li><strong>Justify</strong> each response. Why this one, using likelihood, impact, appetite and cost.</li>
-    <li>Give a <strong>specific action</strong> (not just "reduce", but <em>how</em>).</li>
-    <li>Combining responses (reduce + transfer) shows depth.</li></ul>
-  </div>
-  <div class="box mistakes"><span class="lbl">⑥ Common mistakes</span>
-    <ul><li>Writing the label only ("Transfer.") with no action. That's almost zero marks.</li>
-    <li>Recommending "avoid" for a core activity the business can't stop.</li>
-    <li>Claiming reputational risk can be insured.</li></ul>
-  </div>
-  <div class="box memory"><span class="lbl">⑦ Memory tip</span>
-    Draw the 2×2 in your planning. Going clockwise from bottom-left: <strong>Accept → Transfer → Avoid → Reduce</strong>.<br>
-    Or: <strong>"Small &amp; rare? Accept. Big &amp; rare? Insure. Big &amp; frequent? Run! Small &amp; frequent? Fix it."</strong>
-  </div>
-</section>
-
-<!-- ============ 13 ============ -->
-<section class="chapter" id="s13">
-  <span class="sec-num">13</span><span class="syl">D2f</span>
-  <h2>Accepting some risk: the ALARP principle</h2>
-
-  <div class="box simple"><span class="lbl">① Simple explanation</span>
-    <p><strong>ALARP = "As Low As Reasonably Practicable."</strong> Risk should be reduced until the <strong>cost of reducing it further</strong> (money, time, effort) becomes <strong>grossly disproportionate</strong> to the benefit gained. After that point, the remaining risk is accepted.</p>
-    <p>You can never make anything 100% safe. A hospital with zero infection risk would have to close. ALARP is about being <strong>reasonable</strong>.</p>
-    <div class="tblwrap"><table>
-      <tr><th>Zone</th><th>Meaning</th></tr>
-      <tr><td style="background:#F6C9BB"><strong>Unacceptable region</strong></td><td>Risk is intolerable. Must reduce or stop, whatever the cost.</td></tr>
-      <tr><td style="background:#F8E1A8"><strong>ALARP / tolerable region</strong></td><td>Accept only if further reduction is impracticable or the cost is grossly disproportionate.</td></tr>
-      <tr><td style="background:#DCE8B8"><strong>Broadly acceptable region</strong></td><td>Risk is negligible. Just monitor.</td></tr>
-    </table></div>
-    <p><strong>Why accept some risk at all?</strong> Taking risk is how businesses earn returns and compete. Over-controlling causes high costs, slow decisions, lost opportunities and less innovation.</p>
-  </div>
-
-  <div class="box example"><span class="lbl">② Real business example</span>
-    <p><strong>Hospital car park:</strong> the risk of a slip on a wet surface. Anti-slip paint, signage and lighting cost AED 50k and cut accidents by 80%, so do it. Covering the entire car park with a roof would cost AED 8m to remove the last small risk. That is grossly disproportionate, so the remaining risk is accepted under ALARP.</p>
-    <p><strong>Tech company:</strong> releasing software with zero bugs would take years. It releases when critical bugs are fixed and accepts minor ones, fixing them in updates. This keeps it competitive.</p>
-  </div>
-  <div class="box exam"><span class="lbl">③ How it appears in the exam</span>
-    <p>"A director argues all risks should be eliminated. Explain why this is neither possible nor desirable, referring to ALARP."</p>
-  </div>
-  <div class="box model"><span class="lbl">④ Model answer extract</span>
-    <p>The Operations Director's demand for "zero risk" in the new laboratory is understandable given the serious incident last year, but it is neither achievable nor commercially sensible. Some residual risk exists in any activity. The goal should be to reduce risk to as low as reasonably practicable.</p>
-    <p>The proposed controls (Exhibit 5) already reduce the contamination risk by 90% for AED 300k. The additional automated sealing system would cost AED 2.5m to remove a further 2%. That cost is grossly disproportionate to the benefit, and would delay the laboratory by 6 months, during which patients would wait longer for test results. I recommend the board accepts the remaining risk, documents the ALARP justification, and monitors it through monthly contamination tests.</p>
-  </div>
-  <div class="box examiner"><span class="lbl">⑤ Examiner expectations</span>
-    <ul><li>Use numbers to show <strong>disproportion</strong>.</li><li>Professionally <strong>counter-argue</strong> the director's view (communication skill: persuade and counter-argue).</li></ul>
-  </div>
-  <div class="box mistakes"><span class="lbl">⑥ Common mistakes</span>
-    <ul><li>Using ALARP to justify accepting risks in the <em>unacceptable</em> zone (e.g. serious patient safety risks).</li></ul>
-  </div>
-  <div class="box memory"><span class="lbl">⑦ Memory tip</span>
-    <strong>ALARP = "Stop spending when the next dirham buys almost no safety."</strong>
-  </div>
-</section>
-
-<!-- ============ 14 ============ -->
-<section class="chapter" id="s14">
-  <span class="sec-num">14</span><span class="syl">D2g</span>
-  <h2>Assurance mapping and the four lines of defence</h2>
-
-  <div class="box simple"><span class="lbl">① Simple explanation</span>
-    <p>The board needs <strong>assurance</strong>, meaning confidence, that key risks are really being managed. Different groups give that assurance at different levels of independence:</p>
-  </div>
-  <div class="lines">
-    <div class="ln"><div class="n" style="background:#E9A23B">1st</div><div class="t"><strong>Operational management</strong>: the people who own and manage risk day to day. Controls built into processes (e.g. ward manager checks drug stock; supervisor approves invoices).</div></div>
-    <div class="ln"><div class="n" style="background:#D2601A">2nd</div><div class="t"><strong>Risk management and compliance functions</strong>: set frameworks, monitor the 1st line, challenge it (risk manager, compliance officer, health &amp; safety, information security).</div></div>
-    <div class="ln"><div class="n" style="background:#9A3B10">3rd</div><div class="t"><strong>Internal audit</strong>: independent, objective assurance on whether lines 1 and 2 work. Reports to the <strong>audit committee</strong>.</div></div>
-    <div class="ln"><div class="n" style="background:#6F7B34">4th</div><div class="t"><strong>External assurance</strong>: external auditors, regulators (e.g. health authority inspectors), and other independent external reviewers. Fully outside the organisation.</div></div>
-  </div>
-
-  <div class="box simple"><span class="lbl">Assurance mapping</span>
-    <p>An <strong>assurance map</strong> is a chart showing, for each key risk, <strong>which line(s) provide assurance</strong>, how strong that assurance is, and where there are <strong>gaps</strong> (no one checking) or <strong>duplications</strong> (three teams checking the same thing).</p>
-    <div class="tblwrap"><table>
-      <tr><th>Key risk</th><th>1st line</th><th>2nd line</th><th>3rd line (IA)</th><th>4th line</th><th>Overall</th></tr>
-      <tr><td>Patient safety</td><td>✅ Strong</td><td>✅ Clinical governance</td><td>✅ Annual audit</td><td>✅ Health regulator</td><td>🟢 Possible duplication</td></tr>
-      <tr><td>Cyber security</td><td>⚠️ Weak</td><td>❌ None</td><td>❌ Not audited in 3 yrs</td><td>❌ None</td><td>🔴 <strong>Gap</strong></td></tr>
-      <tr><td>Financial reporting</td><td>✅</td><td>✅ Finance control</td><td>✅</td><td>✅ External auditor</td><td>🟢</td></tr>
-      <tr><td>Supplier fraud</td><td>⚠️</td><td>❌</td><td>⚠️ Partial</td><td>❌</td><td>🟠 Gap</td></tr>
-    </table></div>
-    <p><strong>Benefits:</strong> shows the board where it's relying on hope; avoids duplicated effort and wasted cost; helps internal audit plan its work on the riskiest areas; supports the board's annual statement on risk and control.</p>
-    <p><strong>Limitations:</strong> takes time; relies on honest self-assessment; can become a static document.</p>
-  </div>
-
-  <div class="box example"><span class="lbl">② Real business example</span>
-    <p>A government health department's assurance map reveals that patient-safety reviews are performed by the ward, the quality team, internal audit and the regulator, so there is lots of overlap. Meanwhile <strong>no one</strong> independently checks the AI triage tool introduced last year. The board redirects some internal audit time from patient safety to a review of the AI tool's accuracy and data controls.</p>
-  </div>
-  <div class="box exam"><span class="lbl">③ How it appears in the exam</span>
-    <p>"Explain the four lines of defence model and assess how assurance mapping could help the audit committee."</p>
-  </div>
-  <div class="box model"><span class="lbl">④ Model answer extract</span>
-    <p>The audit committee currently receives separate reports from compliance, internal audit and the external auditor but has no overall view of which risks are covered. An assurance map would plot each of the top 15 risks against the four lines. Based on Exhibit 5, this would quickly show that cyber risk has no second- or third-line assurance: the IT team marks its own work, and internal audit has not reviewed IT for three years. Given the ransomware threat, this is a serious gap. In contrast, financial controls are reviewed by all four lines, suggesting some internal audit effort could be moved. I recommend internal audit prepares an assurance map before setting next year's audit plan.</p>
-  </div>
-  <div class="box examiner"><span class="lbl">⑤ Examiner expectations</span>
-    <ul><li>Identify <strong>gaps and overlaps</strong> from the case. That's where the marks are.</li><li>Link to internal audit and the audit committee (ties in Chapter F).</li></ul>
-  </div>
-  <div class="box mistakes"><span class="lbl">⑥ Common mistakes</span>
-    <ul><li>Mixing up the order (internal audit is the 3rd line, not the 2nd).</li><li>Forgetting that the 1st line <em>owns</em> the risk.</li></ul>
-  </div>
-  <div class="box memory"><span class="lbl">⑦ Memory tip</span>
-    <strong>"Do it → Check it → Audit it → Inspect it."</strong> Managers → Risk/Compliance → Internal audit → External auditors/Regulators.
-  </div>
-</section>
-
-<!-- ============ CASE ============ -->
-<section class="chapter" id="case">
-  <span class="sec-num">Case study</span>
-  <h2>Integrated practice: Sandhill Health Network</h2>
-  <p>Fictitious government-owned hospital network. Try writing your own answer first (35 minutes), then compare with the model.</p>
-
-  <div class="exhibit"><h4>Exhibit 1 – Background</h4>
-  Sandhill Health Network (SHN) is owned by a regional government and runs four hospitals and 12 clinics, employing 6,500 staff. Its funding comes 70% from the government budget and 30% from private insurers. The government has set SHN two targets for the next three years: cut waiting times for surgery by 40%, and stay within budget. Any overspend must be explained to the government's Finance Committee.</div>
-
-  <div class="exhibit"><h4>Exhibit 2 – CEO's proposal (board minutes)</h4>
-  The CEO proposes "Project Swift": a USD 35m programme to (a) introduce an AI-based triage and scheduling system, supplied by a start-up, TriageNow, and (b) outsource all hospital laboratory testing to a private lab company. The CEO said: "We must be bold. Waiting times are a political issue and the minister wants results by next year." A NED asked about risks. The CEO replied: "The finance team will handle that."</div>
-
-  <div class="exhibit"><h4>Exhibit 3 – Risk register extract (last updated 18 months ago)</h4>
-  <div class="tblwrap"><table>
-    <tr><th>Risk</th><th>Rating</th><th>Owner</th></tr>
-    <tr><td>IT risk</td><td>Low</td><td>–</td></tr>
-    <tr><td>Staff shortage</td><td>Medium</td><td>HR</td></tr>
-    <tr><td>Budget overspend</td><td>High</td><td>Finance</td></tr>
-  </table></div></div>
-
-  <div class="exhibit"><h4>Exhibit 4 – Email from Head of IT</h4>
-  "TriageNow has only two other clients and was founded 3 years ago. Their system would need full access to our patient records. We had 4 phishing attempts last month. Also, the lab company being considered is the only one in the region with enough capacity."</div>
-
-  <div class="box exam"><span class="lbl">Task (30 marks, including 6 professional skills marks)</span>
-    <p>You are an adviser to the board's audit and risk committee. Prepare a <strong>briefing paper</strong> that:</p>
-    <p>(a) Evaluates the key risks of Project Swift. <strong>(12 marks)</strong><br>
-    (b) Recommends responses to these risks using an appropriate framework. <strong>(8 marks)</strong><br>
-    (c) Assesses SHN's current approach to risk management and recommends improvements. <strong>(4 marks)</strong></p>
-    <p><em>Professional skills: Evaluation (judgement, prioritising) and Scepticism (challenging the CEO's assumptions). (6 marks)</em></p>
+  <div class="toolbar">
+    <label class="search">
+      <span class="ico">🔍</span>
+      <input id="q" type="search" placeholder="Search notes… e.g. NPV, VAT, ethics" autocomplete="off" aria-label="Search notes">
+      <span class="kbd">/</span>
+    </label>
+    <div class="chips" id="chips" role="tablist"></div>
   </div>
 
-  <details>
-    <summary>📝 Show the distinction-level model answer</summary>
-    <div class="model box" style="margin-top:6px"><span class="lbl">Briefing paper</span>
-      <p><strong>To:</strong> Audit and Risk Committee, SHN · <strong>From:</strong> Risk Adviser · <strong>Re:</strong> Risks of Project Swift</p>
-      <p><strong>Purpose:</strong> To evaluate the main risks of Project Swift, recommend responses, and comment on SHN's risk management arrangements.</p>
+  <main id="sections"></main>
 
-      <h4>(a) Key risks</h4>
-      <p><strong>1. Supplier (third-party) risk: TriageNow (strategic, high likelihood, high impact).</strong> TriageNow is a three-year-old start-up with only two clients. There is a real chance it fails financially or cannot support a network of SHN's size. SHN would then be locked into a system with no support, and scheduling of patients across four hospitals could fail. This would directly undermine the waiting-time target that the whole project is meant to achieve. <em>I rate this as one of the two most significant risks.</em></p>
-      <p><strong>2. Cyber and data security risk (operational, but could become strategic).</strong> The system needs full access to patient records, and SHN already faces frequent phishing (four attempts last month). Granting a small external supplier full access widens the attack surface. A breach of patient data would bring regulatory penalties and a loss of public trust, which would be politically damaging for a government-owned body. <em>The register rates "IT risk" as low, but this evidence suggests it is significantly understated.</em></p>
-      <p><strong>3. Clinical and ethical risk of AI triage.</strong> If the algorithm prioritises patients incorrectly, for example because it was trained on data from a different population, seriously ill patients could wait too long. This creates patient harm and liability, and raises ethical questions about accountability for decisions. SHN's appetite for patient safety risk should be close to zero.</p>
-      <p><strong>4. Outsourcing concentration risk: lab company.</strong> The lab is the only one in the region with enough capacity. Outsourcing all testing creates a single point of failure and weakens SHN's negotiating position at contract renewal, so prices could rise. If the lab suffers an outage, diagnosis across all hospitals stops.</p>
-      <p><strong>5. Related and correlated risks:</strong> these risks are linked. The 40% waiting-time target and the political pressure "for results by next year" create a <strong>risk of rushed implementation</strong>, which increases the likelihood of risks 1–4. Delay or failure would also cause a budget overspend that must be explained to the Finance Committee. So the risks reinforce each other.</p>
-      <p><strong>Prioritisation:</strong> risks 1 and 2 are the most urgent because they are both likely and severe, and the project cannot succeed without addressing them.</p>
+  <div class="empty" id="empty"><b>🔎</b>No notes match your search.</div>
 
-      <h4>(b) Recommended responses (TARA)</h4>
-      <ul>
-        <li><strong>TriageNow supplier risk: Reduce and Transfer.</strong> Carry out financial and technical due diligence before signing. Require source code escrow so SHN can keep the system running if TriageNow fails. Include penalty clauses and service level agreements. Pilot the system in one hospital for six months before roll-out across the network.</li>
-        <li><strong>Cyber risk: Reduce, then Transfer the residual.</strong> Grant TriageNow access only to the minimum data needed, enforce multi-factor authentication, commission an independent penetration test before go-live, and buy cyber insurance. Reputational damage cannot be insured, so reduction is the priority.</li>
-        <li><strong>Clinical AI risk: Reduce.</strong> Keep a clinician involved in every triage decision during the pilot, validate the algorithm against local patient data, and set up clinical governance oversight. If the pilot shows unsafe outcomes, <strong>avoid</strong> by abandoning the AI element.</li>
-        <li><strong>Lab outsourcing risk: Reduce through spreading.</strong> Outsource routine tests only and keep an in-house capability for urgent tests, so diagnosis can continue if the lab fails. Negotiate a long-term contract with price caps.</li>
-      </ul>
-
-      <h4>(c) Current approach to risk management</h4>
-      <p>SHN's approach is weak. The CEO's statement that "the finance team will handle" risk shows a poor <strong>tone from the top</strong> and treats risk as a financial matter only. The register is 18 months out of date, has vague descriptions ("IT risk"), a missing owner, and does not include the risks of Project Swift. The NED's question was dismissed, which suggests board challenge is not encouraged.</p>
-      <p><strong>Recommendations:</strong> (1) The board should require a full risk assessment of Project Swift <em>before</em> approving funding. (2) Appoint a risk manager reporting to this committee. (3) Agree a risk appetite statement with explicitly low appetite for patient safety and data risk. (4) Review the risk register quarterly.</p>
-
-      <h4>Conclusion</h4>
-      <p>Project Swift could deliver the waiting-time target, but at present its risks are unassessed and in some cases understated. I recommend the board approves only a <strong>phased pilot</strong>, conditional on the safeguards above. This balances the government's demand for faster results against SHN's duty to protect patients and public funds.</p>
-    </div>
-  </details>
-
-  <details>
-    <summary>🎯 Why this answer scores highly (marker's view)</summary>
-    <ul>
-      <li><strong>Format:</strong> a briefing paper with To/From/Purpose (communication marks).</li>
-      <li><strong>Every risk uses case facts</strong>: start-up with 2 clients, 4 phishing attempts, only lab in the region.</li>
-      <li><strong>Scepticism:</strong> challenges the "Low" IT rating and the CEO's dismissal of risk.</li>
-      <li><strong>Evaluation:</strong> prioritises risks and concludes with a balanced, conditional recommendation.</li>
-      <li><strong>Commercial acumen:</strong> recognises the political pressure and the public sector context (government budget, Finance Committee).</li>
-      <li><strong>Technical:</strong> ERM thinking, TARA, correlated risks, spreading, AI ethics (links to Chapter E).</li>
-    </ul>
-  </details>
-</section>
-
-<!-- ============ EXAM TECHNIQUE ============ -->
-<section class="chapter" id="technique">
-  <span class="sec-num">Exam technique</span>
-  <h2>Turning risk knowledge into marks</h2>
-  <h3>A 4-step answer template for any risk task</h3>
-  <ol>
-    <li><strong>Identify:</strong> name the risk, with its cause from the case.</li>
-    <li><strong>Assess:</strong> likelihood and impact, with evidence. Is it strategic or operational? How significant?</li>
-    <li><strong>Respond:</strong> TARA plus the specific action, and who should own it.</li>
-    <li><strong>Monitor:</strong> KRI, review frequency, assurance from which line.</li>
-  </ol>
-
-  <h3>Command verbs</h3>
-  <div class="tblwrap"><table>
-    <tr><th>Verb</th><th>What the marker wants</th></tr>
-    <tr><td>Identify</td><td>Name the risk with a brief case link</td></tr>
-    <tr><td>Explain</td><td>Make it clear: what, why, consequence</td></tr>
-    <tr><td>Assess / Evaluate</td><td>Weigh significance, pros and cons, reach a judgement</td></tr>
-    <tr><td>Advise / Recommend</td><td>Clear action, justified, practical, with who and when</td></tr>
-    <tr><td>Discuss</td><td>Explore more than one side</td></tr>
-  </table></div>
-
-  <h3>Where the professional skills marks are in risk tasks</h3>
-  <div class="grid2">
-    <div class="card"><h4>🔍 Scepticism</h4>Question management's risk ratings, overly optimistic forecasts, a CEO who says "there's no risk", or unverified supplier claims.</div>
-    <div class="card"><h4>⚖️ Evaluation</h4>Prioritise risks, weigh cost vs benefit of controls, and give a clear final recommendation.</div>
-    <div class="card"><h4>💼 Commercial acumen</h4>Use the industry context (patient safety, political pressure, regulators) and realistic solutions.</div>
-    <div class="card"><h4>📣 Communication</h4>Right format (briefing note, email, slides), right tone for the audience, concise headings.</div>
-  </div>
-
-  <h3>Time guide</h3>
-  <p>About <strong>1.95 minutes per mark</strong> (195 min ÷ 100). A 20-mark risk task ≈ <strong>39 minutes</strong>: about 8 minutes reading and planning, 31 minutes writing. Aim for roughly one well-developed point (3–4 sentences) per 2 marks.</p>
-
-  <div class="box mistakes"><span class="lbl">Top 7 chapter-wide mistakes</span>
-    <ol>
-      <li>Generic risks with no case link</li>
-      <li>TARA labels with no action</li>
-      <li>No prioritisation or overall conclusion</li>
-      <li>Ignoring the role or audience (writing an essay instead of a briefing note)</li>
-      <li>Using the outdated 8-component COSO cube</li>
-      <li>Forgetting upside risk and opportunities</li>
-      <li>Spending too long on one risk and running out of time</li>
-    </ol>
-  </div>
-</section>
-
-<!-- ============ QUIZ ============ -->
-<section class="chapter" id="quiz">
-  <span class="sec-num">Quiz</span>
-  <h2>Test yourself (10 questions)</h2>
-  <p>Click an answer to see the explanation.</p>
-  <div id="quizbox"></div>
-  <div id="score">Score: 0 / 0</div>
-</section>
-
-<!-- ============ CHEAT SHEET ============ -->
-<section class="chapter" id="cheat">
-  <span class="sec-num">Cheat sheet</span>
-  <h2>One-page revision summary</h2>
-  <div class="tblwrap"><table>
-    <tr><th>Topic</th><th>Remember this</th></tr>
-    <tr><td>Strategy &amp; risk</td><td>Two-way link. Risk includes upside. No risk = no return.</td></tr>
-    <tr><td>COSO ERM 2017</td><td>Governance &amp; culture · Strategy &amp; objective-setting · Performance · Review &amp; revision · Information, communication &amp; reporting ("Good Students Perform Really Intelligently")</td></tr>
-    <tr><td>Strategic vs operational</td><td>Board / long-term / whole organisation vs managers / day-to-day / one area</td></tr>
-    <tr><td>Climate risk</td><td>Physical (acute, chronic) + Transition (policy, tech, market, reputation)</td></tr>
-    <tr><td>Appetite family</td><td>Attitude (mindset) · Appetite (willing) · Capacity (able) · Tolerance (variation). Appetite &lt; Capacity.</td></tr>
-    <tr><td>Dynamic risk</td><td>Size, Structure, Industry, Sector, Development (life cycle)</td></tr>
-    <tr><td>Assessment</td><td>Likelihood × Impact. Gross (before controls) vs Net (after).</td></tr>
-    <tr><td>Correlated</td><td>Positive = pile up; Negative = hedge. Assess related risks together.</td></tr>
-    <tr><td>Risk manager</td><td>Coach, not player. Effectiveness = seniority, independence, resources, skills, culture.</td></tr>
-    <tr><td>Register / heat map</td><td>What, Who, How bad, What now, When next. Heat map = visual, but subjective and static.</td></tr>
-    <tr><td>Embedding</td><td>TRAP: Tone, Rewards, Accountability, Processes. No-blame reporting.</td></tr>
-    <tr><td>Diversify</td><td>Spread concentrations; check correlation, cost and competence.</td></tr>
-    <tr><td>TARA</td><td>Low/Low Accept · Low L/High I Transfer · High/High Avoid · High L/Low I Reduce</td></tr>
-    <tr><td>ALARP</td><td>Reduce until further cost is grossly disproportionate to benefit.</td></tr>
-    <tr><td>4 lines</td><td>Management → Risk &amp; compliance → Internal audit → External auditors / regulators. Assurance map shows gaps and overlaps.</td></tr>
-  </table></div>
-  <div class="box memory"><span class="lbl">Final exam mantra</span>
-    <strong>Cause → Risk → Consequence → Rating → Response (with action) → Owner → Monitor.</strong> Do this for each risk and you'll pick up most of the marks available.
-  </div>
-</section>
+  <footer class="footer">
+    <span><strong>ACCA Study Notes</strong> · for educational purposes</span>
+    <span>Hosted on GitHub Pages · June &amp; December 2026 sessions</span>
+  </footer>
+</div>
 
-</main>
-<footer>SBL Study Notes · Chapter D – Risk · Sept 2026 – June 2027 syllabus · All organisations in examples are fictitious.</footer>
+<a href="#top" class="to-top" id="toTop" aria-label="Back to top">↑</a>
 
 <script>
+/* ════════════════════════════════════════════════════════════════════
+   SETTINGS
+   ════════════════════════════════════════════════════════════════════ */
+var CURRENT_FOCUS = 'sbl';   // exam code shown in the "Current focus" stat
 
-// font size
-let fs=18;try{fs=parseInt(localStorage.getItem('sbl-fs2'))||18}catch(e){}
-const setFs=v=>{fs=Math.min(26,Math.max(15,v));document.documentElement.style.setProperty('--fs',fs+'px');try{localStorage.setItem('sbl-fs2',fs)}catch(e){}};
-setFs(fs);
-document.getElementById('fplus').onclick=()=>setFs(fs+1);
-document.getElementById('fminus').onclick=()=>setFs(fs-1);
+/* ════════════════════════════════════════════════════════════════════
+   NOTES LIST — edit here. One line per note. Order = display order.
+   ════════════════════════════════════════════════════════════════════ */
+var EXAMS = [
 
-// quiz
-const Q=[
- {q:"Under the 2017 COSO ERM framework, which component includes defining risk appetite?",o:["Governance & Culture","Strategy & Objective-Setting","Performance","Review & Revision"],a:1,e:"Risk appetite is set as part of Strategy & Objective-Setting, alongside analysing business context and evaluating alternative strategies."},
- {q:"A hospital faces a rare but catastrophic risk of fire destroying its main building. Which TARA response is most appropriate?",o:["Accept","Reduce only","Transfer (with reduction)","Avoid"],a:2,e:"Low likelihood, high impact means Transfer, e.g. property and business interruption insurance, alongside sensible fire controls."},
- {q:"Which statement about risk capacity is correct?",o:["It is the amount of risk the board wants to take","It is the maximum risk the organisation can bear","It equals risk tolerance","It is always lower than risk appetite"],a:1,e:"Capacity is what you are ABLE to bear. Appetite (what you're WILLING to take) should sit below capacity."},
- {q:"Internal audit belongs to which line of defence?",o:["1st","2nd","3rd","4th"],a:2,e:"3rd line: independent assurance on lines 1 and 2, reporting to the audit committee. The 4th line is external assurance (external auditors, regulators)."},
- {q:"The ALARP principle means:",o:["Eliminate all risk","Reduce risk until further reduction costs are grossly disproportionate to the benefit","Accept all low risks automatically","Transfer risk wherever possible"],a:1,e:"As Low As Reasonably Practicable: stop spending on reduction when the cost becomes grossly disproportionate to the extra safety gained."},
- {q:"Rising fuel prices and falling tourist demand hitting an airline at the same time is an example of:",o:["Negatively correlated risks","Positively correlated risks","Operational risk only","Risk transfer"],a:1,e:"The risks move together and pile up. Assessing each alone would underestimate the total exposure."},
- {q:"Which is a TRANSITION climate risk for an FMCG company?",o:["Flood damages a factory","Drought cuts crop yields","A new tax on plastic packaging","A heatwave increases staff absence"],a:2,e:"Transition risks come from the shift to a low-carbon economy: policy, technology, market, reputation. The others are physical risks."},
- {q:"A risk register shows only 'gross' scores. The main problem is:",o:["The register is too long","The board can't see whether existing controls are effective","Risks have no category","It breaks COSO law"],a:1,e:"Without net (residual) risk, you can't tell whether controls bring risk within appetite."},
- {q:"Which best describes the risk manager's role?",o:["Owns and manages every risk personally","Designs the framework, supports risk owners and reports to the board/committee","Performs the external audit","Sets the company's strategy"],a:1,e:"The risk manager is the 'coach'. Line managers own risks; the board is ultimately accountable."},
- {q:"An assurance map is MOST useful for:",o:["Calculating NPV","Identifying gaps and duplication in assurance over key risks","Setting director pay","Choosing a pricing strategy"],a:1,e:"It plots each key risk against the lines of defence to show where assurance is missing or duplicated."}
+  { code: 'sbl', name: 'Strategic Business Leader', sub: 'Strategic Professional · December 2026',
+    notes: [
+      { file: 'SBL/SBL Exam Technique and Professional Skills Notes Dec2026.html', title: 'Exam Technique & Professional Skills', icon: '🧭', featured: true,
+        desc: 'How SBL is marked · the 5 professional skills · answer formats · time management · worked mini-case' },
+      { file: 'SBL/SBL Strategy Concepts and External Environment Notes Dec2026.html', title: 'Strategy Concepts & External Environment', icon: '🌍', tag: 'C1–C2',
+        desc: "JSW & SAF · PESTEL · key drivers · strategic drift · Porter's Diamond · scenarios" },
+      { file: 'SBL/SBL Competitive Forces and Value Chain Notes Dec2026.html', title: 'Competitive Forces & Value Chain', icon: '⚔️', tag: 'C3' },
+      { file: 'SBL/SBL Internal Capability and SWOT Notes Dec2026.html', title: 'Internal Capability & SWOT', icon: '⚙️', tag: 'C4' },
+      { file: 'SBL/SBL Strategic Choices Notes Dec2026.html', title: 'Strategic Choices', icon: '♟️', tag: 'C5',
+        desc: 'Porter · strategy clock · Ansoff · BCG · public sector matrix · M&A & alliances · SAF' },
+    ]
+  },
+
+  { code: 'sbr', name: 'Strategic Business Reporting', sub: 'Strategic Professional · December 2026',
+    notes: [
+      { file: 'SBR/IFRS2_Share_Based_Payment_SBR_Notes.html', title: 'IFRS 2 — Share-based Payment', icon: '💼' },
+    ]
+  },
+
+  { code: 'fm', name: 'Financial Management', sub: 'Corporate Finance · June 2026',
+    notes: [
+      { file: 'FM/FM Financial Management Function.html', title: 'Financial Management Function', icon: '🎯' },
+      { file: 'FM/FM Investment Appraisal Notes.html', title: 'Investment Appraisal', icon: '💹' },
+      { file: 'FM/Investment Appraisal _ DeepSeek Notes.html', title: 'Investment Appraisal', icon: '🔭', ai: 'DeepSeek' },
+      { file: 'FM/Investment Appraisal _ Kimi Notes.html', title: 'Investment Appraisal', icon: '🧮', ai: 'Kimi' },
+      { file: 'FM/FM_NPV_Complete_Notes.html', title: 'NPV — Complete Notes', icon: '📐' },
+      { file: 'FM/FM Investment Appraisal Cheatsheet.html', title: 'Investment Appraisal Cheatsheet', icon: '🗒️', tag: 'Cheatsheet' },
+      { file: 'FM/FM_Working_Capital_Management.html', title: 'Working Capital Management', icon: '💰' },
+      { file: 'FM/FM_Working_Capital_Management_Kimi_Notes.html', title: 'Working Capital Management', icon: '🔄', ai: 'Kimi' },
+      { file: 'FM/FM_Working_Capital_Management_DeepSeek_Notes.html', title: 'Working Capital Management', icon: '🌊', ai: 'DeepSeek' },
+      { file: 'FM/FM_Business_Finance_WACC.html', title: 'Business Finance & WACC', icon: '🏦' },
+      { file: 'FM/FM_Business_Valuations.html', title: 'Business Valuations', icon: '💎' },
+      { file: 'FM/FM_Risk_Management_Notes.html', title: 'Risk Management', icon: '🛡️' },
+      { file: 'FM/ACCA FM Risk Management Grok Notes.html', title: 'Risk Management', icon: '🌪️', ai: 'Grok' },
+      { file: 'FM/ACCA FM - Risk Management Perplxity Notes.html', title: 'Risk Management', icon: '🧩', ai: 'Perplexity' },
+      { file: 'FM/ACCA FM - Risk Management DeepSeek Notes.html', title: 'Risk Management', icon: '🎲', ai: 'DeepSeek' },
+      { file: 'FM/ACCA FM - Risk Management Copilot Notes.html', title: 'Risk Management', icon: '⚓', ai: 'Copilot' },
+    ]
+  },
+
+  { code: 'tx', name: 'Taxation', sub: 'Finance Act 2025 · June 2026',
+    notes: [
+      { file: 'TX/CGT Notes ACCA TX June2026.html', title: 'Capital Gains Tax', icon: '🏠' },
+      { file: 'TX/TX Corporation Tax Notes.html', title: 'Corporation Tax', icon: '🏢' },
+      { file: 'TX/TX EMPLOYMENT BENEFITS.html', title: 'Employment Benefits', icon: '👔' },
+      { file: 'TX/TX Trading Income Notes.html', title: 'Trading Income', icon: '📈' },
+      { file: 'TX/TX Inheretence Tax Notes.html', title: 'Inheritance Tax', icon: '🏛️' },
+      { file: 'TX/TX VAT Notes.html', title: 'VAT', icon: '🧾' },
+      { file: 'TX/TX Pension & NIC.html', title: 'Pensions & NIC', icon: '🏖️' },
+      { file: 'TX/TX Key Dates Notes.html', title: 'Key Dates', icon: '📅' },
+      { file: 'TX/TX Refresher Notes.html', title: 'Refresher Notes', icon: '🔁', tag: 'Refresher' },
+      { file: 'TX/TX Revision Cheatsheet       .html', title: 'Revision Cheatsheet', icon: '⚡', tag: 'Cheatsheet' },
+    ]
+  },
+
+  { code: 'aa', name: 'Audit & Assurance', sub: 'External Audit · June 2026',
+    notes: [
+      { file: 'AA/AA Ethics and Acceptance.html', title: 'Ethics & Acceptance', icon: '⚖️' },
+      { file: 'AA/AA Controls Testing Notes.html', title: 'Controls Testing', icon: '🔍' },
+      { file: 'AA/AA Substantive Procedures.html', title: 'Substantive Procedures', icon: '🔬' },
+      { file: 'AA/AA Substantive Procedures Cheatsheet.html', title: 'Substantive Procedures Cheatsheet', icon: '🗂️', tag: 'Cheatsheet' },
+      { file: 'AA/AA Automated Tools Techniques.html', title: 'Automated Tools & Techniques', icon: '🤖' },
+      { file: 'AA/AA_Written_Representations_Tutorial.html', title: 'Written Representations', icon: '✍️' },
+      { file: 'AA/AA Audit Reports.html', title: 'Audit Reports', icon: '📋' },
+      { file: 'AA/AA_Auditors_Report_TCWG_Chapter12.html', title: "Auditor's Report & TCWG (Ch. 12)", icon: '🗣️' },
+      { file: 'AA/AA_Audit_Reports_Quiz.html', title: 'Audit Reports Quiz', icon: '❓', tag: 'Quiz' },
+      { file: 'AA/AA Revision Cheatsheet______.html', title: 'Revision Cheatsheet', icon: '🚀', tag: 'Cheatsheet' },
+    ]
+  },
+
 ];
-const box=document.getElementById('quizbox');let right=0,done=0;
-Q.forEach((it,i)=>{
-  const d=document.createElement('div');d.className='q';
-  d.innerHTML=`<strong>Q${i+1}. ${it.q}</strong><div class="opts"></div><div class="fb"></div>`;
-  const opts=d.querySelector('.opts'),fb=d.querySelector('.fb');
-  it.o.forEach((t,j)=>{const b=document.createElement('button');b.className='opt';b.textContent=t;
-    b.onclick=()=>{if(d.dataset.ans)return;d.dataset.ans=1;done++;
-      if(j===it.a){b.classList.add('right');right++;fb.innerHTML='✅ <strong>Correct.</strong> '+it.e;}
-      else{b.classList.add('wrong');opts.children[it.a].classList.add('right');fb.innerHTML='❌ <strong>Not quite.</strong> '+it.e;}
-      fb.style.display='block';document.getElementById('score').textContent=`Score: ${right} / ${done}`;};
-    opts.appendChild(b);});
-  box.appendChild(d);
-});
+/* ═════════════════════ END OF NOTES LIST ═════════════════════════════
+   You shouldn't need to edit anything below this line.
+   ════════════════════════════════════════════════════════════════════ */
+
+(function () {
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  function plural(n) { return n + (n === 1 ? ' note' : ' notes'); }
+  function colourVars(node, code) {
+    node.style.setProperty('--c', 'var(--' + code + ', var(--ink))');
+    node.style.setProperty('--c-soft', 'var(--' + code + '-soft, var(--bg))');
+  }
+
+  var root = document.getElementById('sections');
+  var chipsBox = document.getElementById('chips');
+  var total = 0;
+
+  // ── Filter chips ──
+  var allChip = el('button', 'chip active', 'All');
+  allChip.dataset.filter = 'all';
+  chipsBox.appendChild(allChip);
+
+  // ── Build sections and cards ──
+  EXAMS.forEach(function (exam) {
+    var code = exam.code.toLowerCase();
+    var chip = el('button', 'chip', code.toUpperCase());
+    chip.dataset.filter = code;
+    colourVars(chip, code);
+    chipsBox.appendChild(chip);
+
+    var sec = el('section', 'section');
+    sec.id = code;
+    sec.dataset.exam = code;
+    colourVars(sec, code);
+
+    var head = el('div', 'section-head');
+    var left = el('div', 'section-left');
+    left.appendChild(el('div', 'section-icon', code.toUpperCase()));
+    var titles = el('div');
+    titles.appendChild(el('div', 'section-title', exam.name));
+    if (exam.sub) titles.appendChild(el('div', 'section-sub', exam.sub));
+    left.appendChild(titles);
+    head.appendChild(left);
+    head.appendChild(el('span', 'section-count', plural(exam.notes.length)));
+    sec.appendChild(head);
+
+    var grid = el('div', 'cards-grid');
+    exam.notes.forEach(function (n) {
+      var a = el('a', 'card' + (n.featured ? ' featured' : ''));
+      a.href = encodeURI(n.file).replace(/#/g, '%23');
+
+      var top = el('div', 'card-top');
+      top.appendChild(el('div', 'card-icon', n.icon || '📄'));
+      var tags = el('div', 'tags');
+      if (n.ai) tags.appendChild(el('span', 'tag tag-ai', n.ai));
+      tags.appendChild(el('span', 'tag', n.tag || code.toUpperCase()));
+      top.appendChild(tags);
+      a.appendChild(top);
+
+      a.appendChild(el('span', 'card-name', n.title));
+      if (n.desc) a.appendChild(el('span', 'card-desc', n.desc));
+
+      var foot = el('div', 'card-footer');
+      var isQuiz = (n.tag || '').toLowerCase() === 'quiz';
+      foot.appendChild(el('span', 'card-open', isQuiz ? 'Open quiz' : 'Open note'));
+      foot.appendChild(el('span', 'card-arrow', '→'));
+      a.appendChild(foot);
+
+      a.dataset.search = [n.title, n.desc, n.tag, n.ai, n.file, code].join(' ').toLowerCase();
+      grid.appendChild(a);
+      total++;
+    });
+    sec.appendChild(grid);
+    root.appendChild(sec);
+  });
+
+  // ── Stats ──
+  document.getElementById('stat-notes').textContent = total;
+  document.getElementById('stat-exams').textContent = EXAMS.length;
+  document.getElementById('stat-focus').textContent = CURRENT_FOCUS.toUpperCase();
+
+  // ── Search + filter ──
+  var sections = Array.prototype.slice.call(root.querySelectorAll('.section'));
+  var chips = Array.prototype.slice.call(chipsBox.querySelectorAll('.chip'));
+  var q = document.getElementById('q');
+  var empty = document.getElementById('empty');
+  var filter = 'all';
+
+  function apply() {
+    var term = q.value.trim().toLowerCase();
+    var anyVisible = false;
+    sections.forEach(function (s) {
+      var examOk = filter === 'all' || s.dataset.exam === filter;
+      var cards = s.querySelectorAll('.card');
+      var shown = 0;
+      cards.forEach(function (c) {
+        var ok = examOk && (!term || c.dataset.search.indexOf(term) !== -1);
+        c.style.display = ok ? '' : 'none';
+        if (ok) shown++;
+      });
+      s.style.display = shown ? '' : 'none';
+      if (shown) {
+        anyVisible = true;
+        s.querySelector('.section-count').textContent = term ? shown + ' of ' + cards.length : plural(cards.length);
+      }
+    });
+    empty.style.display = anyVisible ? 'none' : 'block';
+  }
+
+  chips.forEach(function (ch) {
+    ch.addEventListener('click', function () {
+      chips.forEach(function (c) { c.classList.remove('active'); });
+      ch.classList.add('active');
+      filter = ch.dataset.filter;
+      apply();
+    });
+  });
+  q.addEventListener('input', apply);
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === '/' && document.activeElement !== q) { e.preventDefault(); q.focus(); }
+    if (e.key === 'Escape' && document.activeElement === q) { q.value = ''; apply(); q.blur(); }
+  });
+
+  var toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', function () {
+    toTop.classList.toggle('show', window.scrollY > 500);
+  }, { passive: true });
+})();
 </script>
 </body>
 </html>
