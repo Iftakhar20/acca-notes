@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SBL Governance 1 – Agency, Stakeholders, CSR &amp; Governance Approaches</title>
+<style>
+  :root{
+    --bg:#f3faf7; --card:#ffffff; --ink:#1d2b27; --muted:#4f6660;
+    --main:#0f766e; --main-dark:#0b4f4a; --main-soft:#d6f1ec;
+    --accent:#d97706; --accent-soft:#fff3dc;
+    --red:#b42318; --red-soft:#fde8e6; --green:#15803d; --green-soft:#e3f6e8;
+    --line:#cfe3dd;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:auto}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",Calibri,Arial,sans-serif;font-size:20px;line-height:1.7}
+  .wrap{max-width:1300px;margin:0 auto;padding:0 32px 60px}
+  header{background:linear-gradient(135deg,var(--main-dark),var(--main));color:#fff;padding:44px 32px 36px}
+  header .wrap{padding-bottom:0}
+  header h1{margin:0 0 8px;font-size:42px;line-height:1.2}
+  header p{margin:4px 0;font-size:21px;opacity:.95}
+  .tag{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.4);border-radius:20px;padding:3px 14px;margin:10px 8px 0 0;font-size:17px}
+  h2{font-size:34px;color:var(--main-dark);border-bottom:4px solid var(--main);padding-bottom:8px;margin:56px 0 20px}
+  h3{font-size:26px;color:var(--main);margin:34px 0 12px}
+  h4{font-size:22px;margin:22px 0 8px;color:var(--main-dark)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px 28px;margin:18px 0;box-shadow:0 2px 6px rgba(15,118,110,.06)}
+  .toc{background:var(--card);border:2px solid var(--main);border-radius:12px;padding:20px 28px;margin-top:30px}
+  .toc ol{columns:2;column-gap:40px;margin:8px 0}
+  .toc a{color:var(--main-dark);text-decoration:none;font-weight:600}
+  .toc a:hover{text-decoration:underline}
+  .step{border-left:8px solid var(--main);background:var(--card);border-radius:10px;padding:16px 26px;margin:20px 0;box-shadow:0 2px 6px rgba(0,0,0,.04)}
+  .step .lbl{display:inline-block;background:var(--main);color:#fff;font-weight:700;border-radius:6px;padding:2px 12px;font-size:17px;margin-bottom:6px}
+  .s2{border-color:#2563eb}.s2 .lbl{background:#2563eb}
+  .s3{border-color:#7c3aed}.s3 .lbl{background:#7c3aed}
+  .s4{border-color:var(--accent)}.s4 .lbl{background:var(--accent)}
+  .s5{border-color:var(--green)}.s5 .lbl{background:var(--green)}
+  .s6{border-color:var(--red)}.s6 .lbl{background:var(--red)}
+  .s7{border-color:#db2777}.s7 .lbl{background:#db2777}
+  .scenario{background:#eef6ff;border:2px dashed #2563eb;border-radius:10px;padding:14px 22px;margin:12px 0}
+  .scenario b.t{color:#1d4ed8}
+  .answer{background:var(--accent-soft);border:1px solid #f3c77a;border-radius:10px;padding:16px 24px;margin:12px 0}
+  .tip{background:#fdf2f8;border-radius:10px;padding:12px 22px;font-weight:600}
+  table{border-collapse:collapse;width:100%;margin:14px 0;font-size:19px}
+  th,td{border:1px solid var(--line);padding:10px 14px;vertical-align:top;text-align:left}
+  th{background:var(--main);color:#fff}
+  tr:nth-child(even) td{background:#f6fbf9}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .mend{display:grid;grid-template-columns:120px 1fr 1fr;gap:0;max-width:900px;margin:16px 0}
+  .mend div{padding:16px;border:2px solid #fff;text-align:center;font-weight:600}
+  .mend .ax{background:transparent;color:var(--muted);display:flex;align-items:center;justify-content:center}
+  .q1{background:#e3f6e8}.q2{background:#fff3dc}.q3{background:#dbeafe}.q4{background:#fde8e6}
+  .key{color:var(--main-dark);font-weight:700}
+  ul,ol{margin:6px 0 6px 4px}
+  li{margin:4px 0}
+  footer{text-align:center;color:var(--muted);font-size:16px;padding:30px}
+  @media(max-width:850px){.grid2{grid-template-columns:1fr}.toc ol{columns:1}body{font-size:18px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>Governance 1</h1>
+    <p>Agency · Stakeholders · Social Responsibility · Governance Scope &amp; Approaches</p>
+    <span class="tag">Syllabus B1 – B3</span><span class="tag">ACCA SBL · Sep 2026 – Jun 2027</span><span class="tag">Novice-friendly</span>
+  </div>
+</header>
+
+<div class="wrap">
+
+<div class="toc">
+  <b style="font-size:22px;color:var(--main-dark)">Contents</b>
+  <ol>
+    <li><a href="#big">The big picture: why governance exists</a></li>
+    <li><a href="#agency">Agency theory (B1)</a></li>
+    <li><a href="#stake">Stakeholders and Mendelow (B2a–b)</a></li>
+    <li><a href="#csr">Social responsibility and sustainability (B2c)</a></li>
+    <li><a href="#rules">Rules vs principles (B3b)</a></li>
+    <li><a href="#inst">Institutional investors (B3a)</a></li>
+    <li><a href="#own">Ownership models: family vs joint stock (B3c)</a></li>
+    <li><a href="#icgn">ICGN Global Governance Principles (B3d)</a></li>
+    <li><a href="#case">Integrated case practice: hospital group</a></li>
+    <li><a href="#sheet">One-page revision sheet</a></li>
+  </ol>
+</div>
+
+<!-- ============ 1 BIG PICTURE ============ -->
+<h2 id="big">1. The big picture: why governance exists</h2>
+<div class="card">
+  <p><span class="key">Corporate governance</span> is the system by which organisations are <b>directed and controlled</b>. It answers three simple questions:</p>
+  <ol>
+    <li><b>Who is in charge?</b> (the board, management)</li>
+    <li><b>For whose benefit?</b> (shareholders and other stakeholders)</li>
+    <li><b>How do we check they are doing the job properly?</b> (accountability, transparency, controls, reporting)</li>
+  </ol>
+  <p>Think of it like a building. Leadership and ethics (Section A) are the foundation. Governance is the structure on top. Strategy, risk and control (C, D, F) are the rooms inside. If the structure is weak, the whole building is at risk, however good the strategy looks.</p>
+  <h4>Core principles of good governance (useful in any answer)</h4>
+  <table>
+    <tr><th>Principle</th><th>What it means in plain words</th></tr>
+    <tr><td>Accountability</td><td>Directors must answer to the owners and stakeholders for their decisions</td></tr>
+    <tr><td>Transparency</td><td>Open disclosure; no hiding bad news</td></tr>
+    <tr><td>Integrity</td><td>Honesty and straightforward dealing</td></tr>
+    <tr><td>Independence</td><td>Freedom from conflicts so judgement is objective (e.g. NEDs, auditors)</td></tr>
+    <tr><td>Probity / honesty</td><td>Not misleading people, especially with financial information</td></tr>
+    <tr><td>Responsibility</td><td>Accepting consequences, including for mistakes</td></tr>
+    <tr><td>Fairness</td><td>Treating all shareholders and stakeholders equitably (e.g. minorities)</td></tr>
+    <tr><td>Reputation</td><td>Behaving so that trust in the organisation is protected</td></tr>
+    <tr><td>Judgement</td><td>Balancing competing interests sensibly</td></tr>
+  </table>
+  <p class="tip">Memory tip: <b>"A TIP I R F R J"</b> → Accountability, Transparency, Integrity, Probity, Independence, Responsibility, Fairness, Reputation, Judgement. Use them as the ruler against which you measure the case.</p>
+</div>
+
+<!-- ============ 2 AGENCY ============ -->
+<h2 id="agency">2. Agency theory (B1)</h2>
+
+<div class="step"><span class="lbl">Step 1 · Simple explanation</span>
+  <p>An <b>agency relationship</b> exists when one party (the <b>principal</b>) hires another (the <b>agent</b>) to act on its behalf. In a company, shareholders (principals) appoint directors (agents) to run the business.</p>
+  <p>The problem: the agent may act in <b>their own interest</b> rather than the principal's. This is the <span class="key">agency problem</span>. It happens because of <b>separation of ownership and control</b>: the owners do not manage, and the managers do not own.</p>
+  <div class="grid2">
+    <div class="card"><h4>Why agents misbehave</h4>
+      <ul>
+        <li><b>Different goals</b>: directors want salary, bonus, status, job security; shareholders want long-term value</li>
+        <li><b>Information asymmetry</b>: directors know far more than shareholders</li>
+        <li><b>Different risk appetite</b>: directors may be too cautious (protect job) or too risky (chase bonus)</li>
+        <li><b>Short-termism</b>: bonuses based on this year's profit</li>
+      </ul></div>
+    <div class="card"><h4>Agency costs</h4>
+      <ul>
+        <li><b>Monitoring costs</b>: audits, NEDs, board committees, reports</li>
+        <li><b>Bonding costs</b>: incentives paid to align the agent (share options, LTIPs)</li>
+        <li><b>Residual loss</b>: value still lost despite monitoring and bonding</li>
+      </ul></div>
+  </div>
+  <p><b>Fiduciary duty:</b> directors must act in good faith in the best interests of the company. This is the legal backbone of the agent's obligation.</p>
+  <p><b>Other agency chains:</b> shareholders → board → CEO → managers; pension savers → fund managers → company; citizens → government → hospital board. SBL loves the <b>public sector chain</b>: the public are the ultimate principals, and the agent's duty is to deliver public value.</p>
+</div>
+
+<div class="step s2"><span class="lbl">Step 2 · Real business example</span>
+  <p>A listed private hospital group pays its CEO a large bonus based on annual EBITDA. The CEO delays replacing old MRI machines and freezes nurse recruitment. EBITDA rises this year and the bonus is paid. Next year, machine breakdowns cancel appointments, overtime costs rise and patient satisfaction falls. Shareholders have paid a bonus for a result that <b>destroyed long-term value</b>. That is the agency problem in action.</p>
+  <p><b>Solution in practice:</b> link part of the bonus to multi-year targets (3-year EPS growth, patient outcome scores, staff turnover), pay part in shares held for several years, and include <b>malus and clawback</b>.</p>
+</div>
+
+<div class="step s3"><span class="lbl">Step 3 · How it appears in the SBL exam</span>
+  <ul>
+    <li>"Discuss the agency issues between the shareholders and the board of X" (often 8–12 marks)</li>
+    <li>A family member or founder dominates the board → agency problem between majority and minority shareholders</li>
+    <li>A public body whose management is pursuing its own agenda instead of the ministry's policy</li>
+    <li>Usually combined with remuneration (Governance 2) or ethics (Section A)</li>
+  </ul>
+</div>
+
+<div class="step s4"><span class="lbl">Step 4 · Model exam answer</span>
+  <div class="scenario"><b class="t">Scenario (all facts you need):</b> MedLine plc is a listed group of 12 private clinics. The founder, Dr Rana, is CEO and holds 8% of the shares; 70% is held by institutional investors. Last year the board approved a CEO bonus of 150% of salary based only on annual operating profit. Operating profit rose 18%, but capital expenditure fell by 40% and two clinics failed their regulatory inspection due to poorly maintained equipment. The share price fell 22% after the inspection results were published. Shareholders have requested a meeting with the chair.</div>
+  <p><b>Requirement:</b> Discuss the agency problem at MedLine plc and recommend how it could be reduced. (10 marks)</p>
+  <div class="answer">
+    <p><b>Briefing note to: Chair, MedLine plc &nbsp;|&nbsp; Subject: Agency issues raised by shareholders</b></p>
+    <p><b>The agency relationship.</b> MedLine's institutional investors own 70% of the shares but do not manage the clinics. They rely on the board, and especially Dr Rana as CEO, to act in their long-term interests. Because Dr Rana owns only 8%, most of the value lost from poor decisions falls on other shareholders, which weakens his personal incentive to protect long-term value.</p>
+    <p><b>Misaligned incentive.</b> The bonus is 150% of salary and based only on annual operating profit. This rewards short-term profit, and the 40% fall in capital expenditure suggests profit was increased by cutting investment rather than by improving performance. Shareholders have effectively paid a bonus for an 18% profit rise that was followed by a 22% share price fall, so value was transferred from owners to the agent.</p>
+    <p><b>Information asymmetry.</b> Shareholders only discovered the impact of under-investment when inspection results were published. This shows the board did not report the risk of declining equipment standards. The NEDs and remuneration committee should have challenged a capex cut of this size.</p>
+    <p><b>Wider stakeholder impact.</b> Failing inspections puts patient safety and the group's licence to operate at risk. The agency problem therefore damages patients and regulators as well as shareholders, which increases reputational risk.</p>
+    <p><b>Recommendations.</b></p>
+    <ol>
+      <li><b>Redesign the bonus</b>: no more than half based on profit, the rest on quality measures (inspection ratings, patient safety incidents, equipment uptime). <i>Justification:</i> rewards the outcomes shareholders and patients actually value.</li>
+      <li><b>Introduce a long-term incentive plan</b> with three-year performance and shares held for a further two years, plus malus and clawback. <i>Justification:</i> the CEO bears the long-term consequences of decisions.</li>
+      <li><b>Strengthen monitoring</b>: the board should approve a minimum maintenance capex budget and receive quarterly regulatory compliance reports, with the audit/risk committee reviewing them.</li>
+      <li><b>Engage with institutional investors</b>: the chair should meet them, explain the actions and put the revised remuneration policy to a shareholder vote. <i>Justification:</i> rebuilds trust and reduces the risk of a vote against the board.</li>
+    </ol>
+    <p><b>Conclusion.</b> The root cause is an incentive scheme that paid for short-term profit. Rebalancing pay towards long-term, quality-based outcomes and improving board oversight will realign Dr Rana's interests with those of shareholders and patients.</p>
+  </div>
+</div>
+
+<div class="step s5"><span class="lbl">Step 5 · Examiner expectations</span>
+  <ul>
+    <li>Name the principal and the agent <b>from the case</b>; don't define agency in the abstract</li>
+    <li>Use the numbers (8%, 70%, 150%, −40%) to <b>prove</b> the misalignment (analysis and scepticism marks)</li>
+    <li>Recommendations must be practical and <b>justified</b> (evaluation marks)</li>
+    <li>Write in the format asked (briefing note, report, email) with a professional tone (communication marks)</li>
+  </ul>
+</div>
+
+<div class="step s6"><span class="lbl">Step 6 · Common mistakes</span>
+  <ul>
+    <li>Writing half a page on Jensen &amp; Meckling theory with no link to the case</li>
+    <li>Saying "the CEO is greedy" instead of analysing <b>why</b> the incentive structure caused the behaviour</li>
+    <li>Recommending "pay less" without explaining how to align interests</li>
+    <li>Forgetting agency in non-company settings (hospitals, charities, government)</li>
+  </ul>
+</div>
+
+<div class="step s7"><span class="lbl">Step 7 · Memory tip</span>
+  <p class="tip">Agency = <b>"GIRS"</b> problems: different <b>G</b>oals, <b>I</b>nformation asymmetry, different <b>R</b>isk appetite, <b>S</b>hort-termism. Solutions = <b>"Monitor + Bond"</b>: watch them (NEDs, audit, reporting) and tie them in (long-term pay).</p>
+</div>
+
+<!-- ============ 3 STAKEHOLDERS ============ -->
+<h2 id="stake">3. Stakeholders and the Mendelow matrix (B2a–b)</h2>
+
+<div class="step"><span class="lbl">Step 1 · Simple explanation</span>
+  <p>A <b>stakeholder</b> is anyone who affects, or is affected by, the organisation. Stakeholders have <b>claims</b>: things they want from the organisation.</p>
+  <table>
+    <tr><th>Classification</th><th>Meaning</th><th>Hospital example</th></tr>
+    <tr><td>Internal</td><td>Inside the organisation</td><td>Doctors, nurses, managers</td></tr>
+    <tr><td>Connected</td><td>Have a contract with the organisation</td><td>Insurers, suppliers, lenders, patients</td></tr>
+    <tr><td>External</td><td>No contract but affected or influential</td><td>Health regulator, government, local community, media</td></tr>
+    <tr><td>Direct claim</td><td>Can speak for themselves</td><td>Unions, shareholders</td></tr>
+    <tr><td>Indirect claim</td><td>Cannot speak for themselves; someone must represent them</td><td>Future patients, the environment, unborn generations</td></tr>
+  </table>
+  <h4>Mendelow's power/interest matrix</h4>
+  <p><b>Power</b> = ability to influence the organisation's decisions. <b>Interest</b> = how much they care (how much they will act).</p>
+  <div class="mend">
+    <div class="ax"></div><div class="ax">Low interest</div><div class="ax">High interest</div>
+    <div class="ax">Low power</div><div class="q1">A · Minimal effort</div><div class="q3">B · Keep informed</div>
+    <div class="ax">High power</div><div class="q2">C · Keep satisfied</div><div class="q4">D · Key players</div>
+  </div>
+  <ul>
+    <li><b>Key players (D)</b>: involve them in decisions; strategy must be acceptable to them</li>
+    <li><b>Keep satisfied (C)</b>: dangerous because they can move to D if annoyed (e.g. a regulator that suddenly becomes interested)</li>
+    <li><b>Keep informed (B)</b>: they can lobby or join forces to gain power (e.g. a patient group joining with the media)</li>
+    <li><b>Minimal effort (A)</b>: monitor them</li>
+  </ul>
+  <p><b>Critical assessment (needed for level-3 marks):</b> the matrix is a <b>snapshot</b>. Positions move over time. It is subjective, it ignores whether a stakeholder's claim is <b>ethically legitimate</b> (a low-power group may still deserve protection), and power is hard to measure.</p>
+  <h4>Resolving conflicts between stakeholders</h4>
+  <ul>
+    <li>Prioritise using Mendelow but test fairness and legitimacy</li>
+    <li>Negotiation and compromise (e.g. phase a change)</li>
+    <li>Communication and consultation to reduce resistance</li>
+    <li>Use the organisation's mission and values as the tie-breaker</li>
+    <li>Consider the public interest, especially in public sector bodies</li>
+  </ul>
+</div>
+
+<div class="step s2"><span class="lbl">Step 2 · Real business example</span>
+  <p>A government health authority plans to close a small emergency department and centralise emergency care in a larger hospital 25 km away. The <b>ministry</b> (key player) supports it because it saves cost and improves specialist cover. <b>Local residents</b> (keep informed) are highly interested but individually weak. They start a media campaign and get elected officials involved. Their power rises and they move towards the key-player quadrant. The authority then has to consult publicly and add a 24-hour urgent care clinic to win acceptance.</p>
+</div>
+
+<div class="step s3"><span class="lbl">Step 3 · How it appears in the SBL exam</span>
+  <ul>
+    <li>"Analyse the power and interest of the stakeholders affected by the proposal" (often 8–10 marks)</li>
+    <li>"Discuss the conflicts between stakeholder claims and advise how they could be resolved"</li>
+    <li>Frequently combined with strategic choices (acceptability in Johnson, Scholes and Whittington's suitability/acceptability/feasibility test) or with change management</li>
+  </ul>
+</div>
+
+<div class="step s4"><span class="lbl">Step 4 · Model exam answer</span>
+  <div class="scenario"><b class="t">Scenario:</b> CityCare is a government-owned hospital trust. It plans to outsource its hospital laundry and catering to a private contractor, saving 12% of the annual cost. 180 staff would transfer to the contractor. The workers' union represents 90% of these staff and has threatened strike action. The Department of Health has set CityCare a target to cut non-clinical costs by 10% within two years. A local patient group has complained in the press that outsourced catering in another hospital led to poor-quality meals. The hospital's medical director is concerned about infection-control standards for laundry.</div>
+  <p><b>Requirement:</b> Using Mendelow's matrix, analyse the stakeholders and recommend how CityCare should manage them. (10 marks)</p>
+  <div class="answer">
+    <p><b>Department of Health – Key player (high power, high interest).</b> It funds CityCare and set the 10% cost target. The 12% saving exceeds that target, so it is likely to support the plan. CityCare should involve the department early and show that quality safeguards are built in, because it will not want negative press either.</p>
+    <p><b>Union and the 180 staff – Key player (high power, high interest).</b> Representing 90% of affected staff and threatening a strike, the union can disrupt services patients rely on. Its claim is job security and protected terms. CityCare should consult formally, negotiate guaranteed terms on transfer and agree a timetable. If a strike stops laundry, operations could be cancelled, which would wipe out much of the saving.</p>
+    <p><b>Medical director – Keep satisfied, could quickly become key player.</b> Normally less interested in support services, but infection control is a patient-safety matter on which the medical director's view would carry great weight with the board and regulators. CityCare should make infection-control standards and audits mandatory contract terms and give the medical director sign-off.</p>
+    <p><b>Patient group – Keep informed, power rising.</b> Individually weak, but using the media raises its power. Its concern is legitimate. CityCare should publish meal-quality standards, include patient representatives in contract monitoring and communicate proactively.</p>
+    <p><b>Scepticism.</b> The 12% saving should be challenged. It may not include transition costs, contract monitoring, or the cost of service failures. The board should ask for a fully costed business case before committing.</p>
+    <p><b>Recommendation.</b> Proceed only if the contract contains enforceable quality and infection-control KPIs with penalty clauses, staff terms are protected, and the business case still shows a saving of at least 10% after hidden costs. This balances the department's cost target with the legitimate claims of staff and patients.</p>
+  </div>
+</div>
+
+<div class="step s5"><span class="lbl">Step 5 · Examiner expectations</span>
+  <ul>
+    <li>Classify each stakeholder <b>with evidence</b> from the case (why high power? why high interest?)</li>
+    <li>State their <b>claim</b> (what they want) and the <b>action</b> required</li>
+    <li>Recognise <b>movement</b> between quadrants: this shows insight (commercial acumen)</li>
+    <li>Don't draw the grid and stop. The marks are for <b>analysis and management actions</b></li>
+  </ul>
+</div>
+
+<div class="step s6"><span class="lbl">Step 6 · Common mistakes</span>
+  <ul>
+    <li>Listing every possible stakeholder, including ones not in the case</li>
+    <li>Calling "customers" one group when the case shows different groups with different interests</li>
+    <li>Ignoring stakeholders with indirect claims (environment, future patients)</li>
+    <li>Treating the matrix as fact and not critiquing it when the question says "critically assess"</li>
+  </ul>
+</div>
+
+<div class="step s7"><span class="lbl">Step 7 · Memory tip</span>
+  <p class="tip">For every stakeholder write <b>"P-I-C-A"</b>: <b>P</b>ower (why), <b>I</b>nterest (why), <b>C</b>laim (what they want), <b>A</b>ction (how to manage). Four short sentences per stakeholder = full marks structure.</p>
+</div>
+
+<!-- ============ 4 CSR ============ -->
+<h2 id="csr">4. Social responsibility and sustainability (B2c)</h2>
+
+<div class="step"><span class="lbl">Step 1 · Simple explanation</span>
+  <p><b>Corporate social responsibility (CSR)</b> means an organisation accepts duties to society beyond simply making profit and obeying the law. <b>Sustainability</b> means meeting today's needs without harming the ability of future generations to meet theirs.</p>
+  <h4>Carroll's four responsibilities (pyramid, bottom to top)</h4>
+  <table>
+    <tr><th>Level</th><th>Meaning</th><th>Healthcare example</th></tr>
+    <tr><td>1 Economic</td><td>Be profitable / financially viable</td><td>Hospital stays within budget so it can keep operating</td></tr>
+    <tr><td>2 Legal</td><td>Obey the law</td><td>Meets licensing, data protection and employment law</td></tr>
+    <tr><td>3 Ethical</td><td>Do what is right even if not legally required</td><td>Honest disclosure of medical errors to patients</td></tr>
+    <tr><td>4 Philanthropic</td><td>Give back voluntarily</td><td>Free health screening camps for low-income communities</td></tr>
+  </table>
+  <h4>Positions on social responsibility (Gray, Owen and Adams): from narrow to wide</h4>
+  <table>
+    <tr><th>Position</th><th>View</th></tr>
+    <tr><td>Pristine capitalist</td><td>Only duty is to maximise shareholder wealth (Friedman view)</td></tr>
+    <tr><td>Expedient</td><td>Do CSR only where it helps profit (e.g. reputation)</td></tr>
+    <tr><td>Proactive / social contractarian</td><td>The organisation has a "contract" with society; it exists because society allows it</td></tr>
+    <tr><td>Social ecologist</td><td>The organisation must reduce its environmental and social damage</td></tr>
+    <tr><td>Socialist</td><td>Business should redistribute power and wealth more equally</td></tr>
+    <tr><td>Radical feminist / deep ecologist</td><td>Current economic systems are fundamentally harmful; nature has rights</td></tr>
+  </table>
+  <p><b>Triple bottom line (Elkington):</b> report on <b>Profit, People, Planet</b>.</p>
+  <p><b>Business case for CSR:</b> reputation, staff attraction and retention, access to ESG-focused investors, lower regulatory risk, cost savings (energy and waste), licence to operate.</p>
+</div>
+
+<div class="step s2"><span class="lbl">Step 2 · Real business example</span>
+  <p>Hospitals are among the largest energy users in any city and produce clinical waste. A health system that installs solar panels, switches to low-emission anaesthetic gases and reduces single-use plastics cuts both cost and carbon. In the Gulf region, healthcare providers increasingly link this to national net-zero strategies. That is CSR that supports economic, legal and ethical goals at the same time.</p>
+</div>
+
+<div class="step s3"><span class="lbl">Step 3 · How it appears in the SBL exam</span>
+  <ul>
+    <li>"Evaluate the board's view that the company's only responsibility is to its shareholders"</li>
+    <li>A scenario where cutting cost harms the community or the environment</li>
+    <li>Often linked to integrated reporting (Governance 2) and climate risk (D1c)</li>
+  </ul>
+</div>
+
+<div class="step s4"><span class="lbl">Step 4 · Model exam answer</span>
+  <div class="scenario"><b class="t">Scenario:</b> FreshFoods, an FMCG company, owns a factory in a small town where it is the largest employer. A board member, Mr Klein, argues: "Our only job is to make money for shareholders. CSR is a cost we can't afford." The CSR budget (community health programme and water recycling) costs $2m a year against profit of $60m. Last year a competitor faced a consumer boycott after it was found to be polluting a river. Two of FreshFoods' largest investors have signed up to responsible investment principles.</div>
+  <p><b>Requirement:</b> Evaluate Mr Klein's view. (8 marks)</p>
+  <div class="answer">
+    <p><b>Support for Mr Klein's view.</b> Mr Klein holds the pristine capitalist position: directors are agents of shareholders and should not spend shareholders' money on social goals. The $2m CSR spend reduces profit, and if shareholders want to support social causes they can do so themselves with their dividends.</p>
+    <p><b>Against his view.</b></p>
+    <ul>
+      <li><b>Small cost, large risk reduction.</b> $2m is only 3.3% of profit. The competitor's boycott shows the cost of being seen as irresponsible can far exceed this amount. Water recycling directly reduces the pollution risk that caused that boycott.</li>
+      <li><b>Investor expectations.</b> Two of the largest investors follow responsible investment principles. Cutting CSR could lead them to sell shares or vote against directors, which contradicts Mr Klein's aim of serving shareholders.</li>
+      <li><b>Licence to operate.</b> As the town's largest employer, FreshFoods depends on community goodwill, staff recruitment and local permits. The community health programme supports a healthy, productive workforce.</li>
+      <li><b>Ethical duty.</b> Beyond profit, FreshFoods has an ethical responsibility not to harm the community, consistent with Carroll's ethical level.</li>
+    </ul>
+    <p><b>Conclusion.</b> Mr Klein's view is too narrow. Serving shareholders' long-term interests requires CSR, especially activity that reduces environmental risk. The board should keep the programme but measure and report its benefits (water saved, staff absence reduced) so its value to shareholders is visible.</p>
+  </div>
+</div>
+
+<div class="step s5"><span class="lbl">Step 5 · Examiner expectations</span>
+  <ul>
+    <li>"Evaluate" = <b>both sides</b> plus a clear conclusion</li>
+    <li>Use numbers to put cost in proportion (2/60 = 3.3%)</li>
+    <li>Show CSR as <b>enlightened self-interest</b>, not just charity</li>
+  </ul>
+</div>
+
+<div class="step s6"><span class="lbl">Step 6 · Common mistakes</span>
+  <ul>
+    <li>Writing a moral lecture with no commercial reasoning</li>
+    <li>Listing all of Gray, Owen and Adams' positions without applying any</li>
+    <li>No conclusion</li>
+  </ul>
+</div>
+
+<div class="step s7"><span class="lbl">Step 7 · Memory tip</span>
+  <p class="tip">Carroll = <b>"ELEP"</b> (Economic, Legal, Ethical, Philanthropic), from "must do" to "nice to do". CSR argument formula: <b>cost vs risk avoided + investor view + licence to operate + ethics</b>.</p>
+</div>
+
+<!-- ============ 5 RULES vs PRINCIPLES ============ -->
+<h2 id="rules">5. Rules-based vs principles-based governance (B3b)</h2>
+
+<div class="step"><span class="lbl">Step 1 · Simple explanation</span>
+  <table>
+    <tr><th></th><th>Rules-based</th><th>Principles-based</th></tr>
+    <tr><td>Idea</td><td>Governance is set in <b>law</b>; you must comply</td><td>Governance is set in a <b>code</b>; you comply or explain why not</td></tr>
+    <tr><td>Example</td><td>USA – Sarbanes-Oxley Act 2002 (after Enron/WorldCom)</td><td>UK Corporate Governance Code; many codes worldwide</td></tr>
+    <tr><td>Penalty</td><td>Legal sanctions, fines, prison</td><td>Market discipline: investors judge the explanation</td></tr>
+    <tr><td>Advantages</td><td>Clear, consistent, enforceable, high investor confidence</td><td>Flexible, fits different sizes and sectors, focuses on spirit not letter, lower cost</td></tr>
+    <tr><td>Disadvantages</td><td>Costly ("one size fits all"), box-ticking, loopholes ("if it's not banned it's allowed")</td><td>Can be ignored with weak explanations, less certainty, depends on active investors</td></tr>
+  </table>
+  <p><b>"Comply or explain"</b>: a listed company states whether it has complied with each provision; where it hasn't, it explains why. Shareholders decide if the explanation is acceptable.</p>
+  <p><b>When is each appropriate?</b> Rules suit situations with low trust, weak investor activism, or after major scandals. Principles suit mature markets with strong institutional investors and varied company types.</p>
+</div>
+
+<div class="step s2"><span class="lbl">Step 2 · Real business example</span>
+  <p>A small newly listed technology firm may explain that it combines the chair and CEO roles for two years because the founder's expertise is critical, with a senior independent director appointed as a safeguard. Under principles-based governance this is acceptable if investors agree. Under a strict rules-based regime it may simply be prohibited.</p>
+</div>
+
+<div class="step s3"><span class="lbl">Step 3 · How it appears in the SBL exam</span>
+  <p>"The CFO has suggested the company does not need to comply with the code as it is only voluntary. Discuss." Here you explain comply-or-explain and the consequences of a poor explanation (investor pressure, share price, reputation, listing rule obligation to disclose).</p>
+</div>
+
+<div class="step s4"><span class="lbl">Step 4 · Model exam answer</span>
+  <div class="scenario"><b class="t">Scenario:</b> TechServe plc recently listed on a stock exchange that uses a principles-based governance code. The CFO tells the board: "The code is voluntary, so we can ignore the requirement to have a majority of independent NEDs. We only have 2 NEDs on a board of 9." Pension funds hold 45% of TechServe's shares.</div>
+  <p><b>Requirement:</b> Explain to the board why the CFO's view is mistaken. (6 marks)</p>
+  <div class="answer">
+    <p><b>Comply or explain is not optional.</b> Listing rules require TechServe to disclose in its annual report whether it complies with the code and to explain any departure. TechServe can deviate, but it cannot stay silent.</p>
+    <p><b>Explanation must convince investors.</b> With only 2 independent NEDs out of 9 directors (22%), the board has little independent challenge. Pension funds holding 45% of shares are likely to treat a weak explanation as a governance risk. They could vote against director re-elections, engage publicly or sell shares, which would lower the share price and increase TechServe's cost of capital.</p>
+    <p><b>Spirit of the code.</b> Principles-based codes rely on companies adopting best practice voluntarily. Ignoring the code signals a poor tone at the top.</p>
+    <p><b>Recommendation.</b> TechServe should appoint additional independent NEDs to reach a majority over the next 12 months and, until then, explain the timetable to shareholders in the annual report.</p>
+  </div>
+</div>
+
+<div class="step s5"><span class="lbl">Step 5 · Examiner expectations</span>
+  <p>Correct technical understanding (voluntary ≠ ignorable), applied to the investors in the case, with a practical recommendation.</p>
+</div>
+<div class="step s6"><span class="lbl">Step 6 · Common mistakes</span>
+  <ul><li>Saying principles-based codes have "no consequences"</li><li>Describing SOX in detail; SBL needs the concept, not section numbers</li></ul>
+</div>
+<div class="step s7"><span class="lbl">Step 7 · Memory tip</span>
+  <p class="tip">Rules = <b>"Letter of the law"</b> (US, SOX, comply or else). Principles = <b>"Spirit of the code"</b> (comply or explain, investors are the police).</p>
+</div>
+
+<!-- ============ 6 INSTITUTIONAL INVESTORS ============ -->
+<h2 id="inst">6. Institutional investors (B3a)</h2>
+
+<div class="step"><span class="lbl">Step 1 · Simple explanation</span>
+  <p><b>Institutional investors</b> are organisations that invest large pools of other people's money: pension funds, insurance companies, investment trusts, unit trusts/mutual funds, sovereign wealth funds. Together they own most shares in large listed companies, so they have real power.</p>
+  <p><b>Their role in governance (stewardship):</b> monitor the board, vote at AGMs, engage with directors, and intervene when needed.</p>
+  <h4>Escalating ladder of intervention</h4>
+  <ol>
+    <li>Private meetings and letters with the chair / senior independent director</li>
+    <li>Expressing concerns to the company's advisers</li>
+    <li>Meeting other shareholders to act collectively</li>
+    <li>Making a public statement</li>
+    <li>Voting against resolutions / director re-election</li>
+    <li>Requisitioning a general meeting to replace directors</li>
+    <li>Last resort: selling the shares (exit)</li>
+  </ol>
+  <p><b>Reasons to intervene:</b> poor strategy, poor performance, excessive remuneration, weak internal control, governance non-compliance, ethical and environmental failures, failure to manage risk.</p>
+  <p><b>Limitations:</b> they may be short-term focused, passive (index funds), have conflicts of interest, or simply sell rather than engage.</p>
+</div>
+
+<div class="step s2"><span class="lbl">Step 2 · Real business example</span>
+  <p>"Say on pay" votes: institutional investors regularly vote against executive pay reports they consider excessive. Large shareholder revolts make headlines and usually force the remuneration committee to redesign the policy the following year.</p>
+</div>
+<div class="step s3"><span class="lbl">Step 3 · How it appears in the SBL exam</span>
+  <p>"Advise the pension fund on the actions it could take regarding its concerns about X's board." Your answer should follow the escalation ladder and recommend the <b>appropriate</b> starting point, not jump to selling or replacing the board.</p>
+</div>
+<div class="step s4"><span class="lbl">Step 4 · Model exam answer</span>
+  <div class="scenario"><b class="t">Scenario:</b> Gulf Pension Fund holds 9% of HealthBridge plc. HealthBridge's CEO has also become chair. Two independent NEDs resigned last month, saying they were "not given information on time". The share price is down 15% this year, while competitors rose 5%.</div>
+  <p><b>Requirement:</b> Advise Gulf Pension Fund on how it should respond. (8 marks)</p>
+  <div class="answer">
+    <p><b>Why intervention is justified.</b> Three warning signs exist: the CEO/chair combination concentrates power, the NED resignations suggest the board is not receiving information and cannot challenge, and the 20-percentage-point underperformance against competitors shows value is being lost. As a 9% holder, the fund has a stewardship duty to its pension members to act.</p>
+    <p><b>Recommended approach (escalating).</b></p>
+    <ol>
+      <li><b>Request a private meeting</b> with the senior independent director to understand the reasons for the role combination and the resignations. This is low-cost and keeps the relationship constructive.</li>
+      <li><b>If not satisfied, coordinate with other institutions.</b> 9% alone is significant, but joint action carries far more weight.</li>
+      <li><b>Vote</b> against the CEO's re-election as chair at the AGM and make the reasons public.</li>
+      <li><b>Requisition a general meeting</b> only if the board refuses to separate the roles or appoint new NEDs.</li>
+    </ol>
+    <p><b>Why not sell immediately?</b> Selling a 9% stake would depress the price further and crystallise losses for pension members. Engagement offers a better chance of recovering value.</p>
+  </div>
+</div>
+<div class="step s5"><span class="lbl">Step 5 · Examiner expectations</span><p>Justify <b>why</b> intervention is needed using case evidence, then recommend a <b>proportionate sequence</b> of actions.</p></div>
+<div class="step s6"><span class="lbl">Step 6 · Common mistakes</span><ul><li>Recommending "sell the shares" first</li><li>Listing the ladder without saying which step fits the case</li></ul></div>
+<div class="step s7"><span class="lbl">Step 7 · Memory tip</span><p class="tip"><b>"Talk → Team up → Tell the world → Vote → Remove → Run"</b>: from quiet conversation to exit.</p></div>
+
+<!-- ============ 7 OWNERSHIP MODELS ============ -->
+<h2 id="own">7. Ownership models: insider (family) vs outsider (joint stock) (B3c)</h2>
+
+<div class="step"><span class="lbl">Step 1 · Simple explanation</span>
+  <table>
+    <tr><th></th><th>Insider-dominated (family / founder / state)</th><th>Outsider-dominated (joint stock, dispersed shareholders)</th></tr>
+    <tr><td>Where common</td><td>Middle East, Asia, much of Europe, family conglomerates</td><td>UK, USA</td></tr>
+    <tr><td>Who owns</td><td>A family, founder, bank or government holds majority</td><td>Many shareholders, mostly institutions</td></tr>
+    <tr><td>Agency problem</td><td>Small between owners and managers (they are the same people), but large between <b>majority and minority</b> shareholders</td><td>Large between shareholders and managers</td></tr>
+    <tr><td>Advantages</td><td>Long-term view, quick decisions, strong values, low agency cost</td><td>Easier to raise capital, professional management, more transparency, market discipline</td></tr>
+    <tr><td>Disadvantages</td><td>Family disputes, succession problems, minority abuse, nepotism, less transparency, harder to raise external capital</td><td>Short-termism, high agency costs, hostile takeover pressure</td></tr>
+  </table>
+</div>
+<div class="step s2"><span class="lbl">Step 2 · Real business example</span>
+  <p>A family-owned regional trading and healthcare group with the second generation running it. The founder's sons are all directors, but two disagree on expansion. The group wants an IPO to fund new hospitals. To attract outside investors, it must appoint independent NEDs, form audit and nomination committees, and document related-party transactions. This is a classic move from an insider to an outsider model.</p>
+</div>
+<div class="step s3"><span class="lbl">Step 3 · How it appears in the SBL exam</span>
+  <p>Family company preparing to list or raise equity; governance weaknesses due to family control; succession planning after a founder retires.</p>
+</div>
+<div class="step s4"><span class="lbl">Step 4 · Model exam answer</span>
+  <div class="scenario"><b class="t">Scenario:</b> Al Noor Group is owned 100% by the Haddad family. Five of the six directors are family members; the sixth is a family friend. The group buys all its medical supplies from a company owned by the chair's brother, without tender. The board plans to sell 30% of the shares to outside investors through a listing next year.</div>
+  <p><b>Requirement:</b> Discuss the governance issues Al Noor must address before listing. (8 marks)</p>
+  <div class="answer">
+    <p><b>Lack of independence.</b> Five family directors and a family friend means there is no independent challenge. Outside investors buying 30% would be minority shareholders with no voice. Al Noor should appoint independent NEDs, ideally at least half the board excluding the chair, and a senior independent director.</p>
+    <p><b>Related-party transactions.</b> Buying all supplies from the chair's brother without tender creates a conflict of interest and risks overpaying. After listing, this could transfer value from minority shareholders to the family. Al Noor should introduce competitive tendering and require independent approval and disclosure of related-party transactions.</p>
+    <p><b>Board committees.</b> No audit, remuneration or nomination committees exist. These must be set up with independent NEDs to provide assurance over reporting, pay and appointments.</p>
+    <p><b>Transparency and reporting.</b> Listed companies must publish audited reports and a governance statement under comply-or-explain. The family must accept greater disclosure.</p>
+    <p><b>Succession and family governance.</b> A family charter separating family matters from business decisions would reduce the risk of family disputes affecting the company.</p>
+    <p><b>Conclusion.</b> Investors will pay a lower price for shares (a governance discount) unless these changes are made before listing, so reform is in the family's own financial interest.</p>
+  </div>
+</div>
+<div class="step s5"><span class="lbl">Step 5 · Examiner expectations</span><p>Identify the <b>majority vs minority</b> agency problem, use specific facts (5 of 6 directors, supplier owned by the brother), and give practical fixes.</p></div>
+<div class="step s6"><span class="lbl">Step 6 · Common mistakes</span><ul><li>Saying family firms have "no agency problem"</li><li>Being culturally dismissive of family business; acknowledge its strengths</li></ul></div>
+<div class="step s7"><span class="lbl">Step 7 · Memory tip</span><p class="tip"><b>Insider</b> problem = majority vs minority. <b>Outsider</b> problem = shareholders vs managers.</p></div>
+
+<!-- ============ 8 ICGN ============ -->
+<h2 id="icgn">8. ICGN Global Governance Principles (B3d)</h2>
+
+<div class="step"><span class="lbl">Step 1 · Simple explanation</span>
+  <p>The <b>International Corporate Governance Network (ICGN)</b> is a global investor-led organisation. Its Global Governance Principles set out what investors expect from company boards anywhere in the world. They are useful as a <b>checklist</b> for evaluating a board in any SBL case.</p>
+  <table>
+    <tr><th>#</th><th>Principle</th><th>In plain words</th></tr>
+    <tr><td>1</td><td>Board role and responsibilities</td><td>The board promotes long-term value, oversees strategy, and is accountable to shareholders and relevant stakeholders</td></tr>
+    <tr><td>2</td><td>Leadership and independence</td><td>Separate chair and CEO; independent chair or lead independent director; enough independent directors</td></tr>
+    <tr><td>3</td><td>Composition and appointment</td><td>Right mix of skills, experience and diversity; formal appointment and regular evaluation</td></tr>
+    <tr><td>4</td><td>Corporate culture</td><td>The board sets and monitors values, ethics and behaviour</td></tr>
+    <tr><td>5</td><td>Remuneration</td><td>Pay aligned with long-term performance and transparent</td></tr>
+    <tr><td>6</td><td>Risk oversight</td><td>The board oversees risk, including sustainability and climate risks</td></tr>
+    <tr><td>7</td><td>Corporate reporting</td><td>Accurate, timely, understandable financial and non-financial (sustainability) reporting</td></tr>
+    <tr><td>8</td><td>Internal and external audit</td><td>Independent, effective audit with an audit committee overseeing it</td></tr>
+    <tr><td>9</td><td>Shareholder rights</td><td>Equal treatment; protect minority shareholders; approve major decisions</td></tr>
+    <tr><td>10</td><td>Shareholder meetings</td><td>Meetings are accessible; voting is fair and results are disclosed</td></tr>
+  </table>
+</div>
+<div class="step s2"><span class="lbl">Step 2 · Real business example</span><p>Investors use principles like these when they vote. For instance, if a company proposes a dual-class share structure giving founders super-voting rights, investors cite principle 9 (equal shareholder rights) to oppose it.</p></div>
+<div class="step s3"><span class="lbl">Step 3 · How it appears in the SBL exam</span><p>"Using the ICGN principles, assess the corporate governance of X." Pick the 4–5 principles most relevant to the case evidence. Do not go through all 10 mechanically.</p></div>
+<div class="step s4"><span class="lbl">Step 4 · Model exam answer (extract)</span>
+  <div class="scenario"><b class="t">Scenario:</b> PrimeLabs, a listed diagnostics company, has a combined chair/CEO. The board has not discussed climate risk although its main laboratory is in a flood zone. The annual report contains no sustainability information. Minority shareholders were not allowed to vote on a large acquisition from a company owned by the CEO.</div>
+  <div class="answer">
+    <p><b>Leadership and independence (P2).</b> The combined chair/CEO role means nobody leads the board independently of management. PrimeLabs should separate the roles or at least appoint a lead independent director.</p>
+    <p><b>Risk oversight (P6).</b> Failure to discuss flood risk at the main laboratory is a serious gap. A flood could stop testing entirely. The board should add climate risk to the risk register and test business continuity plans.</p>
+    <p><b>Corporate reporting (P7).</b> No sustainability disclosure means investors cannot assess environmental exposure. PrimeLabs should report climate-related risks.</p>
+    <p><b>Shareholder rights (P9).</b> Denying minorities a vote on a related-party acquisition from the CEO's company risks value transfer. Such transactions should require approval by independent shareholders.</p>
+  </div>
+</div>
+<div class="step s5"><span class="lbl">Step 5 · Examiner expectations</span><p>Apply selectively; each point = principle + case evidence + consequence + fix.</p></div>
+<div class="step s6"><span class="lbl">Step 6 · Common mistakes</span><ul><li>Reciting all 10 principles from memory with no application</li></ul></div>
+<div class="step s7"><span class="lbl">Step 7 · Memory tip</span><p class="tip">Group the 10 into <b>"Board (1–4) · Pay &amp; Risk (5–6) · Report &amp; Audit (7–8) · Shareholders (9–10)"</b>.</p></div>
+
+<!-- ============ 9 INTEGRATED CASE ============ -->
+<h2 id="case">9. Integrated case practice: hospital group</h2>
+<div class="card">
+  <div class="scenario">
+    <p><b class="t">Case: VitaHealth Group</b></p>
+    <p>VitaHealth is a private hospital group with 6 hospitals in the Gulf region. It was founded 20 years ago by Mr Saeed, who is chair and CEO and owns 55% of the shares. The remaining 45% was sold to two institutional investors three years ago: a sovereign wealth fund (25%) and an international private equity fund (20%).</p>
+    <p>The board has 7 members: Mr Saeed, his two sons (operations director and finance director), two long-serving managers and two NEDs. One NED is Mr Saeed's former university classmate; the other was appointed by the sovereign wealth fund.</p>
+    <p>Recent events:</p>
+    <ul>
+      <li>VitaHealth plans to open a 7th hospital funded by $80m of new debt. The private equity fund opposes this and prefers dividends.</li>
+      <li>Nurses at two hospitals have complained about staff-to-patient ratios. Nurse turnover rose from 12% to 21% this year.</li>
+      <li>VitaHealth's laundry contract is with a firm owned by the operations director's wife.</li>
+      <li>The health regulator has announced new rules on medical waste disposal from next year.</li>
+    </ul>
+  </div>
+  <h4>Task (20 marks + 4 professional skills marks)</h4>
+  <p>As an adviser to the sovereign wealth fund's representative NED, prepare a briefing paper which:</p>
+  <ol type="a">
+    <li>Analyses the agency issues at VitaHealth (8 marks)</li>
+    <li>Analyses the key stakeholders of the 7th hospital proposal using Mendelow (6 marks)</li>
+    <li>Recommends governance improvements, justifying each (6 marks)</li>
+  </ol>
+  <h4>Marking guide (how marks are earned)</h4>
+  <table>
+    <tr><th>Part</th><th>Points that earn marks (1 mark each, well applied)</th></tr>
+    <tr><td>(a)</td><td>Majority (55%) vs minority (45%) conflict; family dominance of the board (5 of 7 are family or close associates); NED independence questionable (classmate); combined chair/CEO; related-party laundry contract; conflicting investor goals (growth vs dividends); information asymmetry for minority investors; nurse turnover suggests cost pressure sacrificing quality</td></tr>
+    <tr><td>(b)</td><td>Mr Saeed: key player; private equity fund: key player, opposed; sovereign wealth fund: key player, long-term view; lenders: keep satisfied (will set covenants); nurses: keep informed, but 21% turnover means power is rising (staffing the new hospital); regulator: keep satisfied, interest rising with new waste rules; patients/community: keep informed</td></tr>
+    <tr><td>(c)</td><td>Separate chair/CEO; add genuinely independent NEDs; appoint SID; set up audit, remuneration, nomination committees; tender the laundry contract and create a related-party policy; shareholders' agreement on dividend policy; board-level quality and safety committee; compliance plan for waste rules</td></tr>
+    <tr><td>Prof. skills</td><td><b>Communication</b> (briefing paper format, clear to the NED); <b>Commercial acumen</b> (links governance to funding and staffing risk); <b>Scepticism</b> (questions the classmate NED's independence and the expansion's case given nurse shortages)</td></tr>
+  </table>
+  <p class="tip">Try writing this in 45 minutes (≈1.95 minutes per mark), then paste your answer into chat for marking.</p>
+</div>
+
+<!-- ============ 10 REVISION SHEET ============ -->
+<h2 id="sheet">10. One-page revision sheet</h2>
+<div class="card">
+  <table>
+    <tr><th>Topic</th><th>Must-remember points</th><th>Exam trigger words</th></tr>
+    <tr><td>Agency</td><td>Principal/agent; separation of ownership and control; GIRS problems; monitoring + bonding costs + residual loss; fiduciary duty</td><td>"conflict of interest between shareholders and directors", "bonus", "short-term"</td></tr>
+    <tr><td>Stakeholders</td><td>Internal/connected/external; direct/indirect claims; Mendelow 4 quadrants; movement; P-I-C-A</td><td>"opposition", "union", "regulator", "community", "consultation"</td></tr>
+    <tr><td>CSR</td><td>Carroll ELEP; Gray Owen Adams positions; TBL; business case for CSR</td><td>"only responsibility is to shareholders", "community", "environment"</td></tr>
+    <tr><td>Rules vs principles</td><td>SOX vs codes; comply or explain; pros and cons; when each fits</td><td>"code is voluntary", "regulation", "listing"</td></tr>
+    <tr><td>Institutional investors</td><td>Stewardship; intervention ladder; reasons to intervene; limitations</td><td>"pension fund", "AGM vote", "shareholder concerns"</td></tr>
+    <tr><td>Ownership models</td><td>Insider vs outsider; majority vs minority agency problem; family firm pros and cons</td><td>"family-owned", "founder", "listing", "related party"</td></tr>
+    <tr><td>ICGN</td><td>10 principles in 4 groups; apply selectively</td><td>"international investors", "best practice", "assess the governance"</td></tr>
+  </table>
+</div>
+
+</div>
+<footer>SBL Study Notes · Governance 1 (Syllabus B1–B3) · For personal exam preparation</footer>
+</body>
+</html>

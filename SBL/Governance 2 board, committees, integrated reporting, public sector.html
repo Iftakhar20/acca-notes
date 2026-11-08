@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SBL Governance 2 – Board, Committees, Integrated Reporting &amp; Public Sector</title>
+<style>
+  :root{
+    --bg:#f8f5fc; --card:#ffffff; --ink:#241d2e; --muted:#5e5470;
+    --main:#6d28d9; --main-dark:#4c1d95; --main-soft:#ede5fb;
+    --accent:#c2410c; --accent-soft:#fff1e8;
+    --red:#be123c; --green:#047857; --blue:#1d4ed8;
+    --line:#ddd2ee;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:auto}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",Calibri,Arial,sans-serif;font-size:20px;line-height:1.7}
+  .wrap{max-width:1300px;margin:0 auto;padding:0 32px 60px}
+  header{background:linear-gradient(135deg,var(--main-dark),var(--main) 60%,#a21caf);color:#fff;padding:44px 32px 36px}
+  header .wrap{padding-bottom:0}
+  header h1{margin:0 0 8px;font-size:42px;line-height:1.2}
+  header p{margin:4px 0;font-size:21px;opacity:.95}
+  .tag{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.4);border-radius:20px;padding:3px 14px;margin:10px 8px 0 0;font-size:17px}
+  h2{font-size:34px;color:var(--main-dark);border-bottom:4px solid var(--main);padding-bottom:8px;margin:56px 0 20px}
+  h3{font-size:26px;color:var(--main);margin:34px 0 12px}
+  h4{font-size:22px;margin:22px 0 8px;color:var(--main-dark)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px 28px;margin:18px 0;box-shadow:0 2px 6px rgba(109,40,217,.06)}
+  .toc{background:var(--card);border:2px solid var(--main);border-radius:12px;padding:20px 28px;margin-top:30px}
+  .toc ol{columns:2;column-gap:40px;margin:8px 0}
+  .toc a{color:var(--main-dark);text-decoration:none;font-weight:600}
+  .toc a:hover{text-decoration:underline}
+  .step{border-left:8px solid var(--main);background:var(--card);border-radius:10px;padding:16px 26px;margin:20px 0;box-shadow:0 2px 6px rgba(0,0,0,.04)}
+  .step .lbl{display:inline-block;background:var(--main);color:#fff;font-weight:700;border-radius:6px;padding:2px 12px;font-size:17px;margin-bottom:6px}
+  .s2{border-color:var(--blue)}.s2 .lbl{background:var(--blue)}
+  .s3{border-color:#0e7490}.s3 .lbl{background:#0e7490}
+  .s4{border-color:var(--accent)}.s4 .lbl{background:var(--accent)}
+  .s5{border-color:var(--green)}.s5 .lbl{background:var(--green)}
+  .s6{border-color:var(--red)}.s6 .lbl{background:var(--red)}
+  .s7{border-color:#a21caf}.s7 .lbl{background:#a21caf}
+  .scenario{background:#eff6ff;border:2px dashed var(--blue);border-radius:10px;padding:14px 22px;margin:12px 0}
+  .scenario b.t{color:var(--blue)}
+  .answer{background:var(--accent-soft);border:1px solid #f5b98d;border-radius:10px;padding:16px 24px;margin:12px 0}
+  .tip{background:#fae8ff;border-radius:10px;padding:12px 22px;font-weight:600}
+  table{border-collapse:collapse;width:100%;margin:14px 0;font-size:19px}
+  th,td{border:1px solid var(--line);padding:10px 14px;vertical-align:top;text-align:left}
+  th{background:var(--main);color:#fff}
+  tr:nth-child(even) td{background:#faf7fe}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .cap{background:var(--main-soft);border-radius:10px;padding:14px 18px}
+  .cap b{color:var(--main-dark);font-size:21px}
+  .key{color:var(--main-dark);font-weight:700}
+  ul,ol{margin:6px 0 6px 4px}
+  li{margin:4px 0}
+  footer{text-align:center;color:var(--muted);font-size:16px;padding:30px}
+  @media(max-width:850px){.grid2,.grid3{grid-template-columns:1fr}.toc ol{columns:1}body{font-size:18px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>Governance 2</h1>
+    <p>Board of Directors · Committees · Remuneration · Integrated Reporting · Public Sector Governance</p>
+    <span class="tag">Syllabus B4 – B6</span><span class="tag">ACCA SBL · Sep 2026 – Jun 2027</span><span class="tag">Novice-friendly</span>
+  </div>
+</header>
+
+<div class="wrap">
+
+<div class="toc">
+  <b style="font-size:22px;color:var(--main-dark)">Contents</b>
+  <ol>
+    <li><a href="#board">Directors' duties and the board's role (B5a)</a></li>
+    <li><a href="#struct">Unitary vs two-tier boards (B5b)</a></li>
+    <li><a href="#ned">Non-executive directors (B5c)</a></li>
+    <li><a href="#dev">Induction, appraisal, CPD and diversity (B5d–e)</a></li>
+    <li><a href="#comm">Board committees (B5f)</a></li>
+    <li><a href="#rem">Directors' remuneration (B5g–h)</a></li>
+    <li><a href="#report">Reporting to stakeholders and integrated reporting (B4)</a></li>
+    <li><a href="#env">Footprints, EMAS, ISO 14001 and assurance of &lt;IR&gt; (B4d–f)</a></li>
+    <li><a href="#public">Public sector governance (B6)</a></li>
+    <li><a href="#case">Integrated case practice: government hospital authority</a></li>
+    <li><a href="#sheet">One-page revision sheet</a></li>
+  </ol>
+</div>
+
+<!-- ============ BOARD ROLE ============ -->
+<h2 id="board">1. Directors' duties and the role of the board (B5a)</h2>
+
+<div class="step"><span class="lbl">Step 1 · Simple explanation</span>
+  <p>The <b>board</b> is the top decision-making body. It does not run the business day to day (that is management's job). It <b>sets direction, oversees management, and is accountable</b> to shareholders and stakeholders.</p>
+  <div class="grid2">
+    <div class="card"><h4>Main functions of the board</h4>
+      <ul>
+        <li>Set <b>strategy</b>, purpose, values and objectives</li>
+        <li>Set the <b>"tone from the top"</b>: culture and ethics</li>
+        <li>Monitor management and performance</li>
+        <li>Oversee <b>risk management and internal control</b></li>
+        <li>Approve major decisions (acquisitions, large capex, dividends)</li>
+        <li>Appoint, appraise and plan succession for senior executives</li>
+        <li>Ensure reliable <b>reporting</b> to shareholders and stakeholders</li>
+      </ul></div>
+    <div class="card"><h4>Legal duties of directors (typical)</h4>
+      <ul>
+        <li>Act within powers (constitution)</li>
+        <li>Promote the success of the company (considering employees, suppliers, community, environment)</li>
+        <li>Exercise independent judgement</li>
+        <li>Exercise reasonable care, skill and diligence</li>
+        <li>Avoid conflicts of interest</li>
+        <li>Do not accept benefits from third parties</li>
+        <li>Declare interests in proposed transactions</li>
+      </ul></div>
+  </div>
+  <h4>Chair vs CEO: why separate them?</h4>
+  <table>
+    <tr><th>Chair</th><th>CEO</th></tr>
+    <tr><td>Runs the <b>board</b>; sets agenda; ensures directors get timely information; leads board evaluation; main link with shareholders</td><td>Runs the <b>business</b>; implements strategy; leads the executive team</td></tr>
+  </table>
+  <p>Combining both roles concentrates too much power in one person and removes the check on management. Best practice: separate roles, with an independent chair. If combined, appoint a <b>senior independent director (SID)</b> and explain to shareholders.</p>
+</div>
+
+<div class="step s2"><span class="lbl">Step 2 · Real business example</span>
+  <p>Many corporate collapses (Enron, Carillion and others) shared a pattern: a dominant executive, a board that accepted management information without challenge, and weak oversight of risk. In each case the board <b>existed</b> but did not <b>function</b>.</p>
+</div>
+<div class="step s3"><span class="lbl">Step 3 · How it appears in the SBL exam</span>
+  <ul><li>"Assess the effectiveness of X's board"</li><li>"Evaluate whether the directors have fulfilled their duties"</li><li>An exhibit with board minutes showing that the CEO dominates and NEDs stay silent</li></ul>
+</div>
+<div class="step s4"><span class="lbl">Step 4 · Model exam answer</span>
+  <div class="scenario"><b class="t">Scenario:</b> Board minutes of PharmaPlus plc, a listed pharmacy chain: the CEO, who is also chair, presented a $40m acquisition of a rival chain. Board papers were circulated on the morning of the meeting. One NED asked for a due diligence report; the CEO replied "there's no time, the seller wants an answer today". The acquisition was approved in 20 minutes. The board has not discussed the company's risk register in 14 months.</div>
+  <p><b>Requirement:</b> Assess the effectiveness of PharmaPlus's board. (8 marks)</p>
+  <div class="answer">
+    <p><b>Concentration of power.</b> The CEO is also chair, so the person proposing the deal also controls the meeting and its agenda. Nobody independent ensured that the board considered the deal properly.</p>
+    <p><b>Inadequate information.</b> Papers circulated the same morning for a $40m decision did not allow directors to exercise reasonable care, skill and diligence. A decision of this size requires time for analysis.</p>
+    <p><b>Challenge was overridden.</b> The NED's request for due diligence was reasonable and showed appropriate scepticism. Approving without it exposes the company to unknown liabilities in the acquired chain, such as regulatory breaches or overstated profits.</p>
+    <p><b>Risk oversight failure.</b> Not reviewing the risk register for 14 months means the board cannot know whether risks are being managed. This is a core board responsibility.</p>
+    <p><b>Conclusion and recommendations.</b> The board is ineffective. PharmaPlus should separate the chair and CEO roles, set a policy that major-transaction papers are circulated at least one week in advance, require due diligence for acquisitions above a set threshold, and schedule quarterly risk reviews through a risk committee.</p>
+  </div>
+</div>
+<div class="step s5"><span class="lbl">Step 5 · Examiner expectations</span><p>Use the evidence (same-day papers, 20 minutes, 14 months) and link each weakness to a <b>consequence</b> and a <b>fix</b>. Scepticism marks come from questioning the "no time" pressure.</p></div>
+<div class="step s6"><span class="lbl">Step 6 · Common mistakes</span><ul><li>Listing board functions without assessing the case</li><li>Not noticing "soft" evidence such as the time taken or the tone of minutes</li></ul></div>
+<div class="step s7"><span class="lbl">Step 7 · Memory tip</span><p class="tip">Effective board = <b>"SCRIPT"</b>: <b>S</b>trategy, <b>C</b>ulture, <b>R</b>isk, <b>I</b>nformation, <b>P</b>eople (appointments), <b>T</b>ransparency (reporting).</p></div>
+
+<!-- ============ STRUCTURE ============ -->
+<h2 id="struct">2. Unitary vs two-tier boards (B5b)</h2>
+<div class="step"><span class="lbl">Step 1 · Simple explanation</span>
+  <table>
+    <tr><th></th><th>Unitary board</th><th>Two-tier board</th></tr>
+    <tr><td>Structure</td><td>One board with executive and non-executive directors together</td><td><b>Supervisory board</b> (non-executives, may include employee representatives) oversees a separate <b>management board</b> (executives)</td></tr>
+    <tr><td>Where</td><td>UK, USA, most Commonwealth and GCC countries</td><td>Germany, Netherlands, parts of Europe, China</td></tr>
+    <tr><td>Advantages</td><td>All directors share information and responsibility; faster decisions; NEDs closer to the business</td><td>Clear separation of monitoring from management; independent oversight; employee voice (co-determination)</td></tr>
+    <tr><td>Disadvantages</td><td>NEDs may be too close to executives to challenge; executives may dominate</td><td>Supervisory board can be poorly informed (depends on management board); slower decisions; may be bureaucratic</td></tr>
+  </table>
+</div>
+<div class="step s2"><span class="lbl">Step 2 · Real business example</span><p>Large German companies have supervisory boards with up to half employee representatives under co-determination law. Many public hospitals and government entities use a similar idea: a governing board (oversight) and an executive team (management).</p></div>
+<div class="step s3"><span class="lbl">Step 3 · How it appears in the SBL exam</span><p>"A shareholder suggested moving to a two-tier structure. Evaluate the proposal." Often in a merger with a European company.</p></div>
+<div class="step s4"><span class="lbl">Step 4 · Model answer (short)</span>
+  <div class="scenario"><b class="t">Scenario:</b> CareWorld plc (unitary board; 7 executives, 3 NEDs) is merging with a German clinic operator. An investor suggests adopting a two-tier structure, saying that the NEDs "never challenge the executives".</div>
+  <div class="answer">
+    <p><b>For.</b> With 7 executives and only 3 NEDs, executives dominate and NED challenge appears weak. A supervisory board made up of independent members would separate oversight from management and suit the German partner's familiar structure.</p>
+    <p><b>Against.</b> The supervisory board relies on management for information, so it may be no better informed than the current NEDs. Decision-making would slow during a complex merger, and the change is costly.</p>
+    <p><b>Recommendation.</b> The real problem is board <b>balance</b>, not structure. Keep the unitary board but increase independent NEDs to at least half (excluding the chair) and appoint a SID. Review the structure again after integration.</p>
+  </div>
+</div>
+<div class="step s5"><span class="lbl">Step 5 · Examiner expectations</span><p>Diagnose the <b>root cause</b> in the case before recommending a structure.</p></div>
+<div class="step s6"><span class="lbl">Step 6 · Common mistakes</span><ul><li>Claiming two-tier boards are "always better"</li></ul></div>
+<div class="step s7"><span class="lbl">Step 7 · Memory tip</span><p class="tip">Two-tier = <b>"watchers upstairs, workers downstairs"</b>.</p></div>
+
+<!-- ============ NEDs ============ -->
+<h2 id="ned">3. Non-executive directors (NEDs) (B5c)</h2>
+<div class="step"><span class="lbl">Step 1 · Simple explanation</span>
+  <p>NEDs are board members who are <b>not employees</b>. They bring outside experience and independent challenge.</p>
+  <h4>Four roles of NEDs (Higgs Report)</h4>
+  <div class="grid2">
+    <div class="cap"><b>1 Strategy</b><br>Contribute to and challenge strategic direction</div>
+    <div class="cap"><b>2 Scrutiny</b><br>Monitor management performance against goals</div>
+    <div class="cap"><b>3 Risk</b><br>Ensure financial information is accurate and controls are robust</div>
+    <div class="cap"><b>4 People</b><br>Set executive pay; appoint and remove executives; succession planning</div>
+  </div>
+  <h4>Independence: what can make a NED NOT independent?</h4>
+  <ul>
+    <li>Employee of the company in the last 5 years</li>
+    <li>Material business relationship in the last 3 years (e.g. supplier, adviser, auditor)</li>
+    <li>Receives pay other than the director's fee (share options, performance pay, pension)</li>
+    <li>Close family ties with directors or senior employees</li>
+    <li>Cross-directorships (sits on another board with an executive director)</li>
+    <li>Represents a significant shareholder</li>
+    <li>Has served more than 9 years</li>
+  </ul>
+  <h4>Board balance (typical code expectations)</h4>
+  <p>At least half the board (excluding the chair) should be independent NEDs. Smaller listed companies: at least two.</p>
+  <h4>Limitations of NEDs</h4>
+  <p>Limited time, dependence on management for information, possible lack of industry knowledge, "groupthink", and being chosen by the CEO (so not truly independent in mind).</p>
+</div>
+<div class="step s2"><span class="lbl">Step 2 · Real business example</span><p>A hospital group appoints a retired senior doctor as a NED. She brings clinical credibility and challenges the board on patient safety (risk role). But if she previously worked as a paid consultant to the group, investors could question her independence.</p></div>
+<div class="step s3"><span class="lbl">Step 3 · How it appears in the SBL exam</span><p>"Assess the independence of the proposed NEDs" (exhibit gives backgrounds); "Discuss the contribution NEDs can make to X".</p></div>
+<div class="step s4"><span class="lbl">Step 4 · Model exam answer</span>
+  <div class="scenario"><b class="t">Scenario:</b> NewDawn plc (a healthcare IT firm) proposes three NEDs:
+    <ul>
+      <li><b>Ms Lee</b>: former NewDawn sales director, left 2 years ago.</li>
+      <li><b>Mr Ortiz</b>: partner at the law firm that has advised NewDawn on all contracts for 6 years.</li>
+      <li><b>Dr Yusuf</b>: former hospital chief medical officer with no previous link to NewDawn; sits on no other boards.</li>
+    </ul></div>
+  <p><b>Requirement:</b> Assess the independence of each proposed NED. (6 marks)</p>
+  <div class="answer">
+    <p><b>Ms Lee – not independent.</b> She was an employee within the last 5 years. She may be reluctant to criticise strategies she helped create and still has relationships with executives. Her sales knowledge is valuable, but she should not be counted as independent.</p>
+    <p><b>Mr Ortiz – not independent.</b> His firm has a material business relationship with NewDawn. Challenging management could put his firm's fees at risk. If appointed, his firm should stop advising NewDawn, or he should be classed as non-independent.</p>
+    <p><b>Dr Yusuf – independent.</b> No previous connection and no other boards means he has time and objectivity. His hospital background gives insight into customers' needs, adding value to strategy as well as scrutiny.</p>
+    <p><b>Recommendation.</b> Appoint Dr Yusuf and seek at least one further independent candidate through the nomination committee using an external search firm.</p>
+  </div>
+</div>
+<div class="step s5"><span class="lbl">Step 5 · Examiner expectations</span><p>Test each person against specific independence criteria and give a clear <b>verdict</b> for each.</p></div>
+<div class="step s6"><span class="lbl">Step 6 · Common mistakes</span><ul><li>Confusing "non-executive" with "independent": a NED can be non-independent</li><li>Forgetting the value a non-independent NED may still bring</li></ul></div>
+<div class="step s7"><span class="lbl">Step 7 · Memory tip</span><p class="tip">NED roles = <b>"SSRP"</b> (Strategy, Scrutiny, Risk, People). Independence red flags = <b>"5-3-9"</b>: employee in last 5 years, business link in last 3, served more than 9.</p></div>
+
+<!-- ============ DEVELOPMENT & DIVERSITY ============ -->
+<h2 id="dev">4. Induction, appraisal, CPD and diversity (B5d–e)</h2>
+<div class="step"><span class="lbl">Step 1 · Simple explanation</span>
+  <table>
+    <tr><th>Element</th><th>What it involves</th><th>Why it matters</th></tr>
+    <tr><td><b>Induction</b></td><td>Site visits, meeting key managers, auditors, major shareholders; briefing on strategy, risks, financials, governance documents</td><td>New directors become effective quickly</td></tr>
+    <tr><td><b>Performance appraisal</b></td><td>Annual evaluation of the board, committees and individuals; external evaluation every 3 years (larger listed companies); chair evaluated by NEDs led by the SID</td><td>Identifies skill gaps and poor performers; supports re-election decisions</td></tr>
+    <tr><td><b>CPD</b></td><td>Ongoing training on regulation, technology, ESG, cyber risk, industry changes</td><td>Keeps skills current as the environment changes</td></tr>
+    <tr><td><b>Diversity</b></td><td>Gender, ethnicity, age, nationality, skills, experience, thinking style</td><td>Reduces groupthink, better reflects customers and society, wider talent pool, better risk challenge</td></tr>
+  </table>
+  <p><b>Critical evaluation of diversity:</b> benefits are hard to measure; risk of "tokenism" (appointing for appearance only); quotas may be resented; diversity without inclusion (being listened to) achieves little.</p>
+</div>
+<div class="step s2"><span class="lbl">Step 2 · Real business example</span><p>Many countries, including those in the GCC, have introduced requirements or targets for women on listed company boards. Companies that meet the target simply by appointing one woman, while excluding her from committees, gain little: diversity of <b>influence</b> matters more than numbers.</p></div>
+<div class="step s3"><span class="lbl">Step 3 · How it appears in the SBL exam</span><p>"The board has no formal induction and has never been evaluated. Advise." or "Critically evaluate the chair's view that diversity is a distraction."</p></div>
+<div class="step s4"><span class="lbl">Step 4 · Model answer (short)</span>
+  <div class="scenario"><b class="t">Scenario:</b> The chair of a hospital group says: "Our 8 directors are all male engineers or accountants aged 55–65. We work well together and never argue. Diversity is a distraction." 70% of the group's patients and 80% of its staff are women.</div>
+  <div class="answer">
+    <p>"Never arguing" is a warning sign of <b>groupthink</b>, not effectiveness. A board with identical backgrounds is likely to miss risks and opportunities. With 70% female patients and 80% female staff, the board lacks insight into its main customers and workforce, for example on women's health services or retention of nurses. Diversity would also widen the talent pool for succession. However, appointments must be on merit and new directors fully included, or diversity becomes tokenism. <b>Recommendation:</b> the nomination committee should set measurable diversity objectives, including clinical and digital skills, and report progress annually.</p>
+  </div>
+</div>
+<div class="step s5"><span class="lbl">Step 5 · Examiner expectations</span><p>Link diversity to <b>business outcomes</b> in the case, not just to fairness.</p></div>
+<div class="step s6"><span class="lbl">Step 6 · Common mistakes</span><ul><li>Treating diversity as gender only</li><li>No counter-argument when asked to "critically evaluate"</li></ul></div>
+<div class="step s7"><span class="lbl">Step 7 · Memory tip</span><p class="tip"><b>"I-A-C-D"</b>: Induct them, Appraise them, keep them Current, make them Diverse.</p></div>
+
+<!-- ============ COMMITTEES ============ -->
+<h2 id="comm">5. Board committees (B5f)</h2>
+<div class="step"><span class="lbl">Step 1 · Simple explanation</span>
+  <p>Committees are small groups of directors, mainly independent NEDs, who examine specialist areas in depth and report to the full board. The full board stays responsible.</p>
+  <table>
+    <tr><th>Committee</th><th>Membership</th><th>Key responsibilities</th></tr>
+    <tr><td><b>Audit</b></td><td>At least 3 independent NEDs; at least one with recent, relevant financial experience</td><td>Monitor integrity of financial statements; review internal control and risk systems (if no risk committee); oversee internal audit; recommend appointment of external auditor; review auditor independence and non-audit services; whistleblowing arrangements</td></tr>
+    <tr><td><b>Remuneration</b></td><td>At least 3 independent NEDs</td><td>Set remuneration policy for executive directors and senior management; design incentive schemes; ensure no director decides own pay</td></tr>
+    <tr><td><b>Nomination</b></td><td>Majority independent NEDs</td><td>Review board structure, size, skills and diversity; lead appointment process; succession planning</td></tr>
+    <tr><td><b>Risk</b></td><td>Mainly NEDs (may include executives such as the CRO in some models)</td><td>Advise on risk appetite; oversee the risk management framework; review risk register and key risk exposures; oversee the risk manager</td></tr>
+  </table>
+  <p><b>Why committees help:</b> specialist focus, independence (no one marks their own homework), time-saving for the full board, and investor confidence.</p>
+</div>
+<div class="step s2"><span class="lbl">Step 2 · Real business example</span><p>Government entities in the UAE and elsewhere commonly have audit and risk committees overseeing internal audit. If the internal audit director reports to the CFO instead of the audit committee, findings about the finance department could be suppressed. That is a classic independence weakness.</p></div>
+<div class="step s3"><span class="lbl">Step 3 · How it appears in the SBL exam</span><p>"Explain the role of an audit committee and assess whether X's committee is effective." Links to internal audit (Section F).</p></div>
+<div class="step s4"><span class="lbl">Step 4 · Model exam answer</span>
+  <div class="scenario"><b class="t">Scenario:</b> MetroHealth's audit committee has 3 members: the CFO, one independent NED (a marketing expert) and the chair of the board. It meets once a year, after the annual accounts are finalised. The head of internal audit reports to the CFO. The external auditor also provides tax and IT consulting worth twice the audit fee.</div>
+  <p><b>Requirement:</b> Evaluate the effectiveness of MetroHealth's audit committee. (8 marks)</p>
+  <div class="answer">
+    <p><b>Composition.</b> The CFO is an executive and is responsible for the accounts the committee should review, so he would be reviewing his own work. The chair of the board should not normally sit on the audit committee. Only one member is independent, and that member has no financial expertise. The committee cannot provide independent, informed challenge.</p>
+    <p><b>Frequency and timing.</b> One meeting after the accounts are finalised means the committee cannot influence judgements or review control issues during the year. Best practice is at least three meetings aligned to the reporting cycle.</p>
+    <p><b>Internal audit independence.</b> Internal audit reporting to the CFO means findings about finance could be filtered. Internal audit should report functionally to the audit committee chair.</p>
+    <p><b>External auditor independence.</b> Non-audit fees twice the audit fee create a self-interest threat. The auditor may avoid challenging management to protect consulting income.</p>
+    <p><b>Recommendations.</b> Replace the CFO and board chair with independent NEDs, including one with recent financial experience; meet at least quarterly; change internal audit's reporting line to the committee; set a policy capping non-audit fees and requiring committee approval for them.</p>
+  </div>
+</div>
+<div class="step s5"><span class="lbl">Step 5 · Examiner expectations</span><p>Spot every weakness in the exhibit (composition, expertise, frequency, reporting line, auditor independence) and give a specific fix for each.</p></div>
+<div class="step s6"><span class="lbl">Step 6 · Common mistakes</span><ul><li>Describing the ideal committee without comparing it to the case</li><li>Missing the non-audit fee independence threat</li></ul></div>
+<div class="step s7"><span class="lbl">Step 7 · Memory tip</span><p class="tip">Committees = <b>"ARNR"</b>: <b>A</b>udit checks the numbers, <b>R</b>emuneration sets pay, <b>N</b>omination picks people, <b>R</b>isk watches threats.</p></div>
+
+<!-- ============ REMUNERATION ============ -->
+<h2 id="rem">6. Directors' remuneration (B5g–h)</h2>
+<div class="step"><span class="lbl">Step 1 · Simple explanation</span>
+  <p><b>Purpose of pay:</b> attract, retain and motivate the right directors, and <b>align</b> their interests with shareholders and stakeholders (solving the agency problem).</p>
+  <table>
+    <tr><th>Component</th><th>Purpose</th><th>Risk if badly designed</th></tr>
+    <tr><td>Basic salary</td><td>Market rate for the job</td><td>Too high = no link to performance</td></tr>
+    <tr><td>Annual bonus</td><td>Reward short-term targets</td><td>Short-termism, manipulation of results</td></tr>
+    <tr><td>Long-term incentive plan (LTIP)</td><td>Shares awarded if 3–5 year targets are met</td><td>Targets set too easy</td></tr>
+    <tr><td>Share options</td><td>Right to buy shares at a fixed price</td><td>Encourages excessive risk-taking; rewards general market rises</td></tr>
+    <tr><td>Pension and benefits</td><td>Retention and security</td><td>Expensive; not performance linked</td></tr>
+  </table>
+  <h4>Principles of good remuneration</h4>
+  <ul>
+    <li>Set by an <b>independent remuneration committee</b>; no one sets their own pay</li>
+    <li>Significant proportion linked to <b>long-term</b> performance</li>
+    <li>Include <b>non-financial measures</b> (quality, safety, ESG, customer)</li>
+    <li><b>Malus</b> (reduce unpaid awards) and <b>clawback</b> (recover paid awards) for misconduct or misstatement</li>
+    <li>Share holding periods after vesting</li>
+    <li>Transparent disclosure and shareholder vote ("say on pay")</li>
+    <li>Consider pay across the workforce (CEO-to-employee pay ratio)</li>
+  </ul>
+  <h4>Issues in determining pay (B5h)</h4>
+  <div class="grid3">
+    <div class="cap"><b>Regulatory</b><br>Codes, disclosure rules, shareholder votes, caps in some sectors (e.g. banking bonuses)</div>
+    <div class="cap"><b>Strategic</b><br>Pay must reward the behaviour the strategy needs (e.g. growth, quality, innovation)</div>
+    <div class="cap"><b>Labour market</b><br>Competitive market rates, scarcity of talent, international mobility, "ratchet" effect of benchmarking</div>
+  </div>
+</div>
+<div class="step s2"><span class="lbl">Step 2 · Real business example</span><p>Following the 2008 financial crisis, regulators introduced bonus caps and deferral rules for banks because bonuses based on short-term revenue had encouraged excessive risk. Clawback provisions are now standard in many listed companies.</p></div>
+<div class="step s3"><span class="lbl">Step 3 · How it appears in the SBL exam</span><p>"Evaluate the proposed remuneration package for the new CEO", with the package details provided in an exhibit.</p></div>
+<div class="step s4"><span class="lbl">Step 4 · Model exam answer</span>
+  <div class="scenario"><b class="t">Scenario:</b> SunPharm plc's strategy for the next 5 years is to grow through research and development. The proposed package for the new CEO:
+    <ul>
+      <li>Salary $900,000 (industry median $700,000)</li>
+      <li>Annual bonus up to 200% of salary, based only on revenue growth</li>
+      <li>Share options vesting after 1 year, with no performance conditions</li>
+      <li>No malus or clawback</li>
+    </ul>
+    At last year's AGM, 38% of shareholders voted against the remuneration report.</div>
+  <p><b>Requirement:</b> Evaluate the proposed package and recommend changes. (10 marks)</p>
+  <div class="answer">
+    <p><b>Salary.</b> $900,000 is 29% above the median. This may be needed to attract talent, but the committee should justify it, especially given the 38% vote against last year's report, which shows shareholders are already concerned.</p>
+    <p><b>Bonus.</b> Up to 200% of salary ($1.8m) based only on revenue growth encourages buying revenue through discounting or acquisitions, possibly at the expense of profit and R&amp;D investment. It does not reflect the 5-year R&amp;D strategy.</p>
+    <p><b>Share options.</b> Vesting after one year with no performance conditions rewards the CEO for general market movements and encourages short-term thinking. R&amp;D benefits take years to appear, so a one-year horizon is inconsistent with strategy.</p>
+    <p><b>No malus/clawback.</b> SunPharm cannot recover pay if results are later found to be misstated, which falls short of best practice.</p>
+    <p><b>Recommendations.</b></p>
+    <ol>
+      <li>Reduce salary towards the median, or justify the premium in the remuneration report.</li>
+      <li>Cap the bonus at 100–150% and base it on a balanced scorecard: profit, R&amp;D pipeline milestones, regulatory compliance and staff engagement.</li>
+      <li>Replace options with an LTIP: 3-year performance (e.g. relative total shareholder return and R&amp;D milestones) plus a 2-year holding period.</li>
+      <li>Introduce malus and clawback.</li>
+      <li>Consult major shareholders before the AGM vote.</li>
+    </ol>
+    <p><b>Conclusion.</b> As proposed, the package rewards short-term revenue rather than the long-term R&amp;D strategy and is likely to face a larger shareholder revolt. The recommended changes align pay with strategy and shareholder interests.</p>
+  </div>
+</div>
+<div class="step s5"><span class="lbl">Step 5 · Examiner expectations</span><p>Evaluate <b>each component against the strategy</b> in the case. Calculations (29% above median, $1.8m bonus) earn analysis marks.</p></div>
+<div class="step s6"><span class="lbl">Step 6 · Common mistakes</span><ul><li>Saying "pay is too high" without linking it to strategy or alignment</li><li>Ignoring shareholder vote evidence</li></ul></div>
+<div class="step s7"><span class="lbl">Step 7 · Memory tip</span><p class="tip">Good pay = <b>"LIMBS"</b>: <b>L</b>ong-term, <b>I</b>ndependent committee, <b>M</b>alus/clawback, <b>B</b>alanced measures, <b>S</b>hareholder approval.</p></div>
+
+<!-- ============ REPORTING / IR ============ -->
+<h2 id="report">7. Reporting to stakeholders and integrated reporting &lt;IR&gt; (B4a–c)</h2>
+<div class="step"><span class="lbl">Step 1 · Simple explanation</span>
+  <h4>Factors that determine what an organisation reports (B4a)</h4>
+  <ul>
+    <li><b>Legal and listing requirements</b> (minimum disclosure)</li>
+    <li><b>Stakeholder power and interest</b>: powerful stakeholders demand more (e.g. ESG investors, regulators)</li>
+    <li><b>Industry norms</b> and competitor practice</li>
+    <li><b>Reputation and legitimacy</b>: voluntary disclosure to maintain the licence to operate</li>
+    <li><b>Cost and commercial sensitivity</b></li>
+    <li><b>Organisation's values</b> and its CSR position</li>
+  </ul>
+  <h4>What is integrated reporting?</h4>
+  <p>Traditional annual reports focus on <b>financial</b> results. An <b>integrated report</b> explains, in one concise document, <b>how the organisation creates value over the short, medium and long term</b> using all its resources (the six capitals). It connects strategy, governance, performance and prospects. The &lt;IR&gt; Framework is now maintained by the IFRS Foundation alongside the ISSB sustainability standards.</p>
+  <h4>The six capitals</h4>
+  <div class="grid3">
+    <div class="cap"><b>Financial</b><br>Funds from debt, equity, grants, operations</div>
+    <div class="cap"><b>Manufactured</b><br>Buildings, equipment, infrastructure (hospital wards, MRI machines)</div>
+    <div class="cap"><b>Intellectual</b><br>Patents, software, systems, brand, know-how</div>
+    <div class="cap"><b>Human</b><br>Staff skills, experience, motivation, alignment with values</div>
+    <div class="cap"><b>Social &amp; relationship</b><br>Trust and relationships with patients, communities, suppliers, regulators</div>
+    <div class="cap"><b>Natural</b><br>Water, energy, land, air, biodiversity</div>
+  </div>
+  <p class="tip" style="margin-top:12px">Six capitals: <b>"FM-IH-SN"</b> → "Friendly Managers In Hospitals Serve Nurses".</p>
+  <h4>Seven guiding principles</h4>
+  <ol>
+    <li><b>Strategic focus and future orientation</b>: explains strategy and how value will be created in the future</li>
+    <li><b>Connectivity of information</b>: shows links between capitals, strategy, risks and performance</li>
+    <li><b>Stakeholder relationships</b>: how the organisation understands and responds to stakeholder needs</li>
+    <li><b>Materiality</b>: reports only matters that substantively affect value creation</li>
+    <li><b>Conciseness</b>: short and to the point</li>
+    <li><b>Reliability and completeness</b>: includes all material matters, positive and negative, free from error</li>
+    <li><b>Consistency and comparability</b>: consistent over time and comparable with others</li>
+  </ol>
+  <h4>Eight content elements</h4>
+  <table>
+    <tr><th>Content element</th><th>Question it answers</th></tr>
+    <tr><td>Organisational overview and external environment</td><td>What does the organisation do and in what environment?</td></tr>
+    <tr><td>Governance</td><td>How does the governance structure support value creation?</td></tr>
+    <tr><td>Business model</td><td>How are inputs (capitals) turned into outputs and outcomes?</td></tr>
+    <tr><td>Risks and opportunities</td><td>What could affect value creation, and how is it managed?</td></tr>
+    <tr><td>Strategy and resource allocation</td><td>Where does it want to go and how will it get there?</td></tr>
+    <tr><td>Performance</td><td>To what extent were objectives achieved?</td></tr>
+    <tr><td>Outlook</td><td>What challenges and uncertainties lie ahead?</td></tr>
+    <tr><td>Basis of preparation and presentation</td><td>How were matters selected, measured and evaluated?</td></tr>
+  </table>
+  <h4>Usefulness and limitations of &lt;IR&gt;</h4>
+  <div class="grid2">
+    <div class="card"><b>Benefits</b><ul><li>Long-term view reduces short-termism</li><li>Better investor understanding of value drivers</li><li>Encourages "integrated thinking" inside the organisation</li><li>Improves trust and transparency</li></ul></div>
+    <div class="card"><b>Limitations</b><ul><li>Costly and time-consuming</li><li>Non-financial capitals are hard to measure</li><li>Risk of "greenwashing" (selective positive disclosure)</li><li>Commercially sensitive information</li><li>Assurance is more difficult than for financial statements</li></ul></div>
+  </div>
+</div>
+<div class="step s2"><span class="lbl">Step 2 · Real business example</span><p>A government health authority's integrated report could show: <b>financial</b> capital (budget utilisation), <b>manufactured</b> (new hospital wings), <b>human</b> (doctor and nurse numbers, training hours, Emiratisation), <b>intellectual</b> (electronic health record system), <b>social</b> (patient satisfaction, community screening programmes) and <b>natural</b> (energy use, medical waste reduction). It tells a far fuller value story than the budget report alone.</p></div>
+<div class="step s3"><span class="lbl">Step 3 · How it appears in the SBL exam</span><ul><li>"Advise the board on how adopting &lt;IR&gt; would benefit stakeholders" (8–12 marks)</li><li>"Explain how the six capitals apply to X"</li><li>Often a slide or report task, so communication marks are significant</li></ul></div>
+<div class="step s4"><span class="lbl">Step 4 · Model exam answer</span>
+  <div class="scenario"><b class="t">Scenario:</b> CareNet is a listed group of 15 elderly care homes. Its annual report contains only audited financial statements and the minimum governance statement. Investors have asked about: staff turnover (35% last year), the energy efficiency of its older buildings, and resident satisfaction. A new CEO wants to adopt &lt;IR&gt;. The finance director argues: "Investors only care about profit. &lt;IR&gt; is expensive marketing."</div>
+  <p><b>Requirement:</b> Advise the board on how the six capitals could be reported and whether &lt;IR&gt; would benefit CareNet's stakeholders. (10 marks)</p>
+  <div class="answer">
+    <p><b>Applying the six capitals to CareNet</b></p>
+    <ul>
+      <li><b>Financial:</b> revenue, occupancy rates, debt and cash flow.</li>
+      <li><b>Manufactured:</b> condition and age of the 15 homes; planned refurbishment.</li>
+      <li><b>Intellectual:</b> care protocols, digital care-record systems, brand reputation.</li>
+      <li><b>Human:</b> staff numbers, training, and the 35% turnover with actions to reduce it. This is a critical value driver because care quality depends on stable staff.</li>
+      <li><b>Social &amp; relationship:</b> resident and family satisfaction, inspection ratings, relationships with local health authorities.</li>
+      <li><b>Natural:</b> energy use and carbon emissions of the older buildings; improvement targets.</li>
+    </ul>
+    <p><b>Benefits to stakeholders.</b> Investors are already asking about turnover, energy and satisfaction, which shows the finance director's assumption is wrong. &lt;IR&gt; would answer these questions in a connected way, for example showing how reducing turnover improves care quality, occupancy and therefore profit (connectivity). Families choosing homes would gain confidence, and regulators would see transparency.</p>
+    <p><b>Costs and risks.</b> The FD is right that &lt;IR&gt; requires investment in data collection, and non-financial measures are harder to verify. Disclosing 35% turnover may initially attract criticism. However, investors already know about it, and explaining the action plan is better than silence.</p>
+    <p><b>Recommendation.</b> Adopt &lt;IR&gt; over two years, starting with the material capitals (human, social, natural), and obtain limited assurance on key non-financial KPIs to build credibility.</p>
+  </div>
+</div>
+<div class="step s5"><span class="lbl">Step 5 · Examiner expectations</span><p>Apply each capital to the <b>specific organisation</b>; address the counter-argument (FD view) with evidence (investors are already asking).</p></div>
+<div class="step s6"><span class="lbl">Step 6 · Common mistakes</span><ul><li>Listing the capitals with textbook definitions only</li><li>Confusing &lt;IR&gt; with a CSR report; &lt;IR&gt; is about <b>value creation</b>, aimed mainly at providers of financial capital</li><li>Ignoring the cost and greenwashing risk</li></ul></div>
+<div class="step s7"><span class="lbl">Step 7 · Memory tip</span><p class="tip">&lt;IR&gt; = <b>6 capitals · 7 principles · 8 content elements</b>, "6-7-8 like a countdown". Guiding principles: <b>"SCSM-CRC"</b> → Strategic, Connectivity, Stakeholders, Materiality, Conciseness, Reliability, Comparability.</p></div>
+
+<!-- ============ ENVIRONMENTAL ============ -->
+<h2 id="env">8. Footprints, EMAS, ISO 14001 and assurance of &lt;IR&gt; (B4d–f)</h2>
+<div class="step"><span class="lbl">Step 1 · Simple explanation</span>
+  <h4>Social and environmental footprints</h4>
+  <p>A <b>footprint</b> measures the impact an organisation leaves behind. <b>Environmental:</b> carbon emissions, water use, waste, pollution, land use. <b>Social:</b> effect on employment, health, community wellbeing, human rights in the supply chain.</p>
+  <p><b>Sustainability accounting issues:</b> hard to measure and value; no single global standard (though ISSB IFRS S1/S2 are increasingly adopted); data reliability; boundary issues (include suppliers? Scope 3 emissions?).</p>
+  <h4>Environmental management systems</h4>
+  <table>
+    <tr><th></th><th>ISO 14001</th><th>EMAS (EU Eco-Management and Audit Scheme)</th></tr>
+    <tr><td>Type</td><td>International standard, voluntary, certified by an external body</td><td>EU regulation, voluntary, stricter</td></tr>
+    <tr><td>Requires</td><td>Environmental policy, planning, implementation, checking, management review (Plan-Do-Check-Act)</td><td>Everything in ISO 14001, <b>plus</b> a public environmental statement, legal compliance demonstrated, employee involvement, verified performance improvement</td></tr>
+    <tr><td>Public reporting</td><td>Not required</td><td>Required (validated environmental statement)</td></tr>
+  </table>
+  <h4>Assurance of integrated reports (B4f)</h4>
+  <ul>
+    <li><b>Why:</b> increases credibility; reduces greenwashing risk; gives investors confidence in non-financial KPIs</li>
+    <li><b>How:</b> independent assurance provider (e.g. under ISAE 3000 or ISAE 3410 for greenhouse gases); <b>limited</b> assurance (negative conclusion: "nothing has come to our attention") or <b>reasonable</b> assurance (positive opinion)</li>
+    <li><b>Challenges:</b> immature systems for non-financial data; subjective and forward-looking information; lack of agreed criteria; cost; assurer competence (needs environmental expertise)</li>
+  </ul>
+</div>
+<div class="step s2"><span class="lbl">Step 2 · Real business example</span><p>A hospital certified to ISO 14001 sets targets to reduce clinical waste sent to incineration. It tracks kilograms of waste per patient day monthly and reviews them at management meetings. An external assurer then gives limited assurance on the waste figures in the integrated report.</p></div>
+<div class="step s3"><span class="lbl">Step 3 · How it appears in the SBL exam</span><p>"Investors doubt the reliability of the sustainability figures. Advise how assurance could help and its limitations." or "Compare ISO 14001 and EMAS for X."</p></div>
+<div class="step s4"><span class="lbl">Step 4 · Model answer (short)</span>
+  <div class="scenario"><b class="t">Scenario:</b> GreenCare's integrated report claims a "40% cut in carbon emissions". The figure was compiled by the marketing department from estimates, and no external review was performed. A newspaper has questioned the claim.</div>
+  <div class="answer">
+    <p>Because the 40% figure came from marketing estimates without review, it risks being seen as greenwashing, as the newspaper's challenge shows. GreenCare should move responsibility for data to finance or sustainability teams with documented controls, and obtain independent <b>limited assurance</b> on the carbon figure in year one, moving to reasonable assurance as systems mature. This will restore credibility with investors and the public. Limitations include cost, the need for assurers with environmental expertise, and the fact that limited assurance provides only moderate comfort. Assurance should be overseen by the audit committee.</p>
+  </div>
+</div>
+<div class="step s5"><span class="lbl">Step 5 · Examiner expectations</span><p>Practical controls over data plus assurance, with the limitations stated.</p></div>
+<div class="step s6"><span class="lbl">Step 6 · Common mistakes</span><ul><li>Assuming non-financial data can be audited exactly like accounts</li><li>Confusing ISO 14001 (system) with environmental reporting (disclosure)</li></ul></div>
+<div class="step s7"><span class="lbl">Step 7 · Memory tip</span><p class="tip">EMAS = <b>"ISO 14001 + Public statement + Legal compliance + Proof of improvement"</b>. EMAS is the stricter "big brother".</p></div>
+
+<!-- ============ PUBLIC SECTOR ============ -->
+<h2 id="public">9. Public sector governance (B6)</h2>
+<div class="step"><span class="lbl">Step 1 · Simple explanation</span>
+  <h4>Types of organisation (B6a)</h4>
+  <table>
+    <tr><th>Type</th><th>Principal (owner)</th><th>Main objective</th><th>Performance measured by</th></tr>
+    <tr><td>Private sector</td><td>Shareholders</td><td>Profit and shareholder value</td><td>Profit, EPS, share price, ROCE</td></tr>
+    <tr><td>Public sector</td><td>Government on behalf of citizens/taxpayers</td><td>Public service and public value</td><td>3Es, service outcomes, budget compliance</td></tr>
+    <tr><td>Charity</td><td>Donors, beneficiaries (trustees govern)</td><td>Charitable purpose</td><td>Impact on beneficiaries, cost ratios</td></tr>
+    <tr><td>NGO / quasi-NGO (quango)</td><td>Members or government sponsor, but operating independently</td><td>Specific social or regulatory mission</td><td>Mission achievement, value for money</td></tr>
+  </table>
+  <h4>How public sector governance differs (B6b–c)</h4>
+  <ul>
+    <li><b>Multiple objectives</b>, often non-financial and sometimes conflicting (quality vs cost vs access)</li>
+    <li><b>Democratic control:</b> elected politicians set policy; officials implement it</li>
+    <li><b>Political influence:</b> short election cycles, ministerial priorities can change suddenly</li>
+    <li><b>Long agency chain:</b> citizens → government/parliament → ministry → agency board → managers</li>
+    <li><b>Accountability</b> to many stakeholders; strong scrutiny (auditor general, parliament, media)</li>
+    <li><b>Funding</b> mainly from taxes and budgets; "use it or lose it" behaviour</li>
+    <li><b>Board</b> may be appointed by ministers, not elected by shareholders</li>
+    <li><b>Policy implementation:</b> officials must deliver policy even if they disagree; risk of policy changes mid-project</li>
+  </ul>
+  <h4>The 3Es and Value for Money (B6d)</h4>
+  <div class="grid3">
+    <div class="cap"><b>Economy</b><br>Buy inputs at the lowest cost for the right quality<br><i>"spending less"</i><br>e.g. price per vaccine dose</div>
+    <div class="cap"><b>Efficiency</b><br>Maximum output from given input<br><i>"spending well"</i><br>e.g. patients treated per doctor, bed occupancy</div>
+    <div class="cap"><b>Effectiveness</b><br>Achieving the intended outcome<br><i>"spending wisely"</i><br>e.g. lower infection rates, improved life expectancy</div>
+  </div>
+  <p><b>Danger:</b> focusing on economy alone (cheapest inputs) can destroy effectiveness. Many add a fourth E, <b>Equity</b> (fair access for all).</p>
+  <p><b>Public value (Moore):</b> public managers create value when they deliver outcomes citizens value, with <b>legitimacy and support</b> from politicians and the public, and with the <b>operational capacity</b> to deliver. All three must be in place.</p>
+</div>
+<div class="step s2"><span class="lbl">Step 2 · Real business example</span><p>A government health system introduces a target that 95% of emergency patients are seen within 4 hours. Hospitals improve efficiency (patient flow). But if some hospitals simply move patients to corridors to "stop the clock", the measure shows efficiency while effectiveness (patient outcome) suffers. That is the classic public sector performance-measurement trap.</p></div>
+<div class="step s3"><span class="lbl">Step 3 · How it appears in the SBL exam</span><ul><li>"Discuss how the governance of a public hospital differs from a private hospital"</li><li>"Assess the performance of the agency using the 3Es" (exhibit with data)</li><li>"Explain the impact of political influence on the project"</li></ul></div>
+<div class="step s4"><span class="lbl">Step 4 · Model exam answer</span>
+  <div class="scenario"><b class="t">Scenario:</b> The Northern Health Authority (NHA) is government-funded. Data for the last two years:
+    <table>
+      <tr><th>Measure</th><th>Year 1</th><th>Year 2</th></tr>
+      <tr><td>Total budget</td><td>$500m</td><td>$480m</td></tr>
+      <tr><td>Average cost per hip operation</td><td>$9,000</td><td>$7,800</td></tr>
+      <tr><td>Operations per surgeon per month</td><td>18</td><td>22</td></tr>
+      <tr><td>30-day readmission rate after surgery</td><td>4%</td><td>7%</td></tr>
+      <tr><td>Patient satisfaction</td><td>82%</td><td>74%</td></tr>
+    </table>
+    The Minister has praised the NHA for "achieving more with less". An election is due next year, and the Minister has promised a new hospital in the region.</div>
+  <p><b>Requirement:</b> Assess the NHA's performance using the 3Es and discuss the governance implications of political influence. (12 marks)</p>
+  <div class="answer">
+    <p><b>Economy.</b> The budget fell by 4% ($20m) and the cost per hip operation fell by 13.3% ($1,200). The NHA is buying resources more cheaply. However, the board should check whether savings came from cheaper implants or reduced nursing, which could affect quality.</p>
+    <p><b>Efficiency.</b> Operations per surgeon rose 22% (18 to 22 a month). Output per resource has improved. Higher throughput may also mean less time per patient.</p>
+    <p><b>Effectiveness.</b> The readmission rate rose from 4% to 7%, a 75% increase, and satisfaction fell 8 percentage points. The intended outcome, patients recovering well, has worsened. Each readmission also costs money, so part of the economy saving may be reversed elsewhere in the system.</p>
+    <p><b>Overall.</b> The Minister's "more with less" claim is only partly true. Economy and efficiency improved, but effectiveness has declined. Value for money is questionable because the purpose of the service is patient health, not operation counts.</p>
+    <p><b>Political influence.</b></p>
+    <ul>
+      <li>With an election due, the Minister has an incentive to highlight favourable measures and promise visible projects such as a new hospital. Decisions may be driven by the electoral cycle rather than by need or long-term value.</li>
+      <li>The NHA board must give objective advice. Professional scepticism requires it to report the worsening readmission rate to the ministry even though it is politically unwelcome.</li>
+      <li>The new hospital promise could commit capital before a proper business case. The board should insist on a needs assessment and option appraisal.</li>
+    </ul>
+    <p><b>Recommendations.</b> Adopt a balanced performance framework that gives effectiveness and equity equal weight with cost; investigate the causes of the readmission rise immediately; publish the full results transparently to maintain public trust; and require an independent business case for the new hospital.</p>
+  </div>
+</div>
+<div class="step s5"><span class="lbl">Step 5 · Examiner expectations</span><ul><li><b>Calculate</b> changes (%) and interpret them; data exhibits reward analysis</li><li>Challenge the Minister's claim professionally (scepticism)</li><li>Show awareness of democratic accountability and public value</li></ul></div>
+<div class="step s6"><span class="lbl">Step 6 · Common mistakes</span><ul><li>Mixing up efficiency and effectiveness</li><li>Treating a public body as if profit were the goal</li><li>Being disrespectful about politicians; keep the tone professional and evidence-based</li></ul></div>
+<div class="step s7"><span class="lbl">Step 7 · Memory tip</span><p class="tip">3Es: <b>Economy = spend less · Efficiency = spend well · Effectiveness = spend wisely.</b> Inputs → Outputs → Outcomes. Always check the outcome.</p></div>
+
+<!-- ============ INTEGRATED CASE ============ -->
+<h2 id="case">10. Integrated case practice: government hospital authority</h2>
+<div class="card">
+  <div class="scenario">
+    <p><b class="t">Case: Coastal Health Services (CHS)</b></p>
+    <p>CHS is a government-owned authority running 4 hospitals and 20 clinics, funded through an annual budget of $1.2bn from the Ministry of Health. Its governing board has 9 members appointed by the Minister: the Director General (DG, the chief executive), 4 senior civil servants from the ministry, 2 retired hospital directors and 2 business people.</p>
+    <p>Information:</p>
+    <ul>
+      <li>The DG chairs the board and its audit committee. The head of internal audit reports to the DG.</li>
+      <li>Board members receive no induction and the board has never been evaluated.</li>
+      <li>The DG receives an annual bonus based solely on staying within budget. Last year CHS underspent by 6%, but waiting times for specialist appointments rose from 3 weeks to 7 weeks.</li>
+      <li>The Minister wants CHS to publish its first integrated report next year as part of a government transparency initiative.</li>
+      <li>CHS's medical waste is incinerated on site; residents near one hospital have complained about smoke.</li>
+    </ul>
+  </div>
+  <h4>Task (22 marks + 4 professional skills marks)</h4>
+  <p>You are a governance adviser reporting to the Minister. Prepare a report which:</p>
+  <ol type="a">
+    <li>Evaluates the effectiveness of CHS's board and committee arrangements (10 marks)</li>
+    <li>Evaluates the DG's remuneration and recommends improvements (6 marks)</li>
+    <li>Explains how the six capitals of &lt;IR&gt; could be applied to CHS (6 marks)</li>
+  </ol>
+  <h4>Marking guide</h4>
+  <table>
+    <tr><th>Part</th><th>Points that earn marks</th></tr>
+    <tr><td>(a)</td><td>DG as chair concentrates power; DG chairing audit committee destroys its independence; internal audit reporting to DG; 4 civil servants mean ministry dominance (political influence) and limited independent challenge; positive: clinical expertise of retired directors and business skills; no induction or evaluation; need for independent chair, independent audit committee, internal audit reporting to the committee, a skills matrix, annual evaluation</td></tr>
+    <tr><td>(b)</td><td>Budget-only bonus rewards economy, ignores effectiveness; waiting times more than doubled (3 to 7 weeks) – harm to patients; 6% underspend may reflect withheld services; recommend balanced scorecard (3Es + patient outcomes + staff), set by an independent committee, with public disclosure</td></tr>
+    <tr><td>(c)</td><td>Financial (budget, utilisation); manufactured (hospitals, equipment, incinerator); intellectual (health IT, protocols); human (clinicians, training, turnover); social &amp; relationship (patients, community complaints, trust); natural (emissions from incineration, energy, water); links between capitals (e.g. underspend vs patient outcomes)</td></tr>
+    <tr><td>Prof. skills</td><td><b>Communication</b> (report format, respectful tone to the Minister); <b>Scepticism</b> (challenging whether the underspend is a success); <b>Evaluation</b> (balanced judgement on the board); <b>Commercial acumen</b> (public value, reputation with residents)</td></tr>
+  </table>
+  <p class="tip">Time allowance: about 51 minutes. Write your answer, then paste it into chat for marking.</p>
+</div>
+
+<!-- ============ REVISION SHEET ============ -->
+<h2 id="sheet">11. One-page revision sheet</h2>
+<div class="card">
+  <table>
+    <tr><th>Topic</th><th>Must-remember points</th></tr>
+    <tr><td>Board role</td><td>SCRIPT; directors' duties; separate chair/CEO; SID if combined</td></tr>
+    <tr><td>Board structure</td><td>Unitary (one board) vs two-tier (supervisory + management); diagnose root cause first</td></tr>
+    <tr><td>NEDs</td><td>SSRP roles; independence red flags 5-3-9, family, cross-directorships, major shareholder rep; ≥ half the board independent</td></tr>
+    <tr><td>Development</td><td>Induction, annual evaluation (external every 3 years), CPD, diversity beyond gender; groupthink</td></tr>
+    <tr><td>Committees</td><td>Audit (3 independent NEDs, financial expert, IA reports here), Remuneration, Nomination, Risk</td></tr>
+    <tr><td>Remuneration</td><td>LIMBS; components and risks; regulatory/strategic/labour market issues</td></tr>
+    <tr><td>&lt;IR&gt;</td><td>6 capitals (FM-IH-SN), 7 guiding principles, 8 content elements; benefits vs limitations; value creation over time</td></tr>
+    <tr><td>Environment</td><td>Footprints; ISO 14001 vs EMAS (public statement); limited vs reasonable assurance</td></tr>
+    <tr><td>Public sector</td><td>Multiple objectives; democratic control; political influence; long agency chain; 3Es (+ Equity); public value</td></tr>
+  </table>
+</div>
+
+</div>
+<footer>SBL Study Notes · Governance 2 (Syllabus B4–B6) · For personal exam preparation</footer>
+</body>
+</html>
