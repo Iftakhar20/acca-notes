@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SBL Chapter E – Technology and Data Analytics</title>
+<style>
+:root{--bg:#FBF6F0;--paper:#FFFFFF;--ink:#2A1F17;--ink-soft:#5E4B3C;--rust:#9A3B10;--orange:#C9581A;--amber:#E39B2D;--leaf:#5F6E2A;--line:#E8DACB;--tint:#FBEBDB;--fs:19px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",Arial,sans-serif;font-size:var(--fs);line-height:1.7}
+h1,h2,h3,h4{font-family:Georgia,"Times New Roman",serif;line-height:1.3;color:var(--rust)}
+h2{font-size:1.65em;margin:0 0 .3em}
+h3{font-size:1.2em;margin:1.5em 0 .5em;color:var(--orange);border-bottom:1px solid var(--line);padding-bottom:4px}
+h4{font-size:1.04em;margin:1em 0 .3em}
+p{margin:.6em 0} a{color:var(--orange)} ul,ol{padding-left:1.3em} li{margin:.3em 0}
+strong{color:#3B2412}
+.hero{background:var(--rust);color:#FFF4E8;padding:36px 24px}
+.hero-inner,.navwrap,main{max-width:1200px;margin:0 auto}
+.hero .tag{font-size:.8em;letter-spacing:.05em;text-transform:uppercase;opacity:.85}
+.hero h1{color:#fff;font-size:2.2em;margin:.2em 0}
+.hero p{margin:.3em 0;color:#FBE3CC}
+nav.top{background:#fff;border-bottom:1px solid var(--line);padding:12px 24px}
+.navwrap{display:flex;gap:12px;align-items:flex-start}
+.chips{display:flex;flex-wrap:wrap;gap:6px;flex:1}
+a.chip{text-decoration:none;color:var(--rust);font-size:.8em;padding:4px 10px;border:1px solid var(--line);border-radius:6px;background:#FFF9F3}
+a.chip:hover{background:var(--tint)}
+.fontbtns{display:flex;gap:4px}
+.fontbtns button{border:1px solid var(--line);background:#fff;color:var(--rust);font-size:.85em;padding:4px 10px;border-radius:6px;cursor:pointer}
+main{padding:24px}
+section.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:28px 32px;margin:0 0 26px}
+.ref{display:inline-block;font-size:.8em;color:var(--ink-soft);background:var(--tint);padding:2px 10px;border-radius:5px;margin-bottom:8px}
+.box{border-radius:8px;padding:14px 18px;margin:14px 0}
+.simple{background:#FFF4E6;border-left:5px solid var(--amber)}
+.example{background:#F4F6EC;border-left:5px solid var(--leaf)}
+.exam{background:#FDF0EA;border-left:5px solid var(--orange)}
+.scenario{background:#FFFDF8;border:2px solid #8A5A3B;border-left:8px solid #8A5A3B}
+.scenario h4{margin-top:0;color:#6B3F22}
+.model{background:#fff;border:1px dashed var(--orange);border-radius:8px;padding:16px 20px}
+.model h4{color:var(--orange)}
+.examiner{background:#EEF3F7;border-left:5px solid #3E6A8A}
+.mistakes{background:#FBECEC;border-left:5px solid #A33A3A}
+.memo{background:#FFF8D9;border-left:5px solid #C9A21B}
+.box > h4:first-child{margin-top:0}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:.93em}
+th,td{border:1px solid var(--line);padding:8px 10px;vertical-align:top;text-align:left}
+th{background:var(--tint);color:var(--rust)}
+.grid{display:grid;gap:12px;margin:14px 0}
+.g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)} .g5{grid-template-columns:repeat(5,1fr)} .g6{grid-template-columns:repeat(6,1fr)}
+.tile{background:#FFF9F3;border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+.tile b{display:block;color:var(--rust);margin-bottom:4px}
+.steps{display:flex;gap:8px;flex-wrap:wrap;align-items:stretch;margin:14px 0}
+.steps .tile{flex:1;min-width:150px}
+.arrow{align-self:center;color:var(--orange);font-size:1.4em}
+.calc{font-family:Consolas,monospace;background:#FAF4EC;border:1px solid var(--line);border-radius:6px;padding:10px 14px;font-size:.9em;white-space:pre-wrap}
+details{border:1px solid var(--line);border-radius:8px;margin:14px 0;background:#FFFCF8}
+summary{cursor:pointer;padding:12px 16px;font-weight:700;color:var(--rust)}
+details > div{padding:4px 20px 16px}
+.exhibit{background:#fff;border:1px solid #C9B49F;border-radius:6px;padding:14px 18px;margin:12px 0}
+.exhibit h4{margin-top:0;color:#6B3F22}
+.task{background:var(--tint);border-radius:8px;padding:12px 16px;margin:10px 0}
+.q{border:1px solid var(--line);border-radius:8px;padding:14px 18px;margin:12px 0;background:#FFFCF8}
+.q button{display:block;width:100%;text-align:left;margin:6px 0;padding:8px 12px;border:1px solid var(--line);border-radius:6px;background:#fff;font-size:.95em;cursor:pointer;color:var(--ink)}
+.q button.right{background:#E3F0D8;border-color:#6F9A45}
+.q button.wrong{background:#F7DADA;border-color:#B04848}
+.q .why{display:none;margin-top:8px;color:var(--ink-soft)}
+#score{font-weight:700;color:var(--rust);font-size:1.1em}
+footer{text-align:center;color:var(--ink-soft);font-size:.85em;padding:20px}
+@media(max-width:800px){.g3,.g4,.g5,.g6{grid-template-columns:1fr 1fr}.g2{grid-template-columns:1fr}section.card{padding:20px}}
+</style>
+</head>
+<body>
+
+<header class="hero"><div class="hero-inner">
+<div class="tag">ACCA Strategic Business Leader · Syllabus Area E · Sept 2026 – June 2027</div>
+<h1>Chapter E – Technology and Data Analytics</h1>
+<p>Cloud, mobile &amp; smart tech · Big data &amp; analytics · AI, ML &amp; robotics · E-business · IT security &amp; cyber controls</p>
+<p>14 topics, each in 7 steps · Mini case study (40 marks) · Exam technique · Quiz · Cheat sheet</p>
+</div></header>
+
+<nav class="top"><div class="navwrap">
+<div class="chips">
+<a class="chip" href="#start">Start here</a>
+<a class="chip" href="#t1">1 Tech &amp; strategy</a>
+<a class="chip" href="#t2">2 Cloud</a>
+<a class="chip" href="#t3">3 Mobile &amp; IoT</a>
+<a class="chip" href="#t4">4 Big data</a>
+<a class="chip" href="#t5">5 Data analytics</a>
+<a class="chip" href="#t6">6 AI &amp; RPA benefits</a>
+<a class="chip" href="#t7">7 AI risks &amp; ethics</a>
+<a class="chip" href="#t8">8 E-business &amp; value chain</a>
+<a class="chip" href="#t9">9 The 6 I's</a>
+<a class="chip" href="#t10">10 Online branding</a>
+<a class="chip" href="#t11">11 Suppliers &amp; customers</a>
+<a class="chip" href="#t12">12 IS controls</a>
+<a class="chip" href="#t13">13 Cyber security</a>
+<a class="chip" href="#t14">14 Safeguarding IT assets</a>
+<a class="chip" href="#case">Case study</a>
+<a class="chip" href="#technique">Exam technique</a>
+<a class="chip" href="#quiz">Quiz</a>
+<a class="chip" href="#cheat">Cheat sheet</a>
+</div>
+<div class="fontbtns"><button onclick="fsz(-1)">A−</button><button onclick="fsz(1)">A+</button></div>
+</div></nav>
+
+<main>
+
+<!-- START -->
+<section class="card" id="start">
+<h2>Start here</h2>
+<p><strong>What this chapter is about:</strong> technology is how most strategies are now carried out. In SBL you will often play an adviser who must tell the board whether a technology is worth adopting, what could go wrong, and how to control it. The examiner does <em>not</em> want an IT specialist. They want a business leader who understands what the technology does for the <strong>strategy, the customers, the costs and the risks</strong>.</p>
+
+<div class="grid g5">
+<div class="tile"><b>E1 Cloud, mobile, smart</b>Topics 1–3</div>
+<div class="tile"><b>E2 Big data &amp; analytics</b>Topics 4–5</div>
+<div class="tile"><b>E3 AI, ML, robotics</b>Topics 6–7</div>
+<div class="tile"><b>E4 E-business</b>Topics 8–11</div>
+<div class="tile"><b>E5 IT security &amp; control</b>Topics 12–14</div>
+</div>
+
+<h3>How this chapter links to what you have already studied</h3>
+<ul>
+<li><strong>Chapter C (Strategy):</strong> technology changes the Five Forces (for example, online price comparison increases buyer power) and digitises the value chain.</li>
+<li><strong>Chapter D (Risk):</strong> cyber risk, data risk and AI risk all go on the risk register and are managed with TARA. The same risk-assessment skills apply here.</li>
+<li><strong>Chapter F (Control) and Chapter H (Change):</strong> IT controls are a type of internal control, and new systems are change projects.</li>
+</ul>
+
+<h3>How to use this page</h3>
+<p>Every topic follows the same 7 steps: <strong>1</strong> simple explanation → <strong>2</strong> real business example → <strong>3</strong> how it is examined → <strong>4</strong> model answer → <strong>5</strong> what the examiner wants → <strong>6</strong> common mistakes → <strong>7</strong> memory tip.</p>
+<p>Above every model answer there is a brown <strong>📄 Scenario</strong> box. It holds <em>every</em> fact the model answer uses. Read the scenario first, try a quick plan in your head, then read the model answer and see how each fact is used. In the real exam these facts arrive as <strong>exhibits</strong> (emails, minutes, reports, spreadsheets). The case study near the end prints its exhibits in full.</p>
+<p>All the organisations in the scenarios are fictional. The "real business examples" are real, well-known cases.</p>
+</section>
+
+<!-- T1 -->
+<section class="card" id="t1">
+<span class="ref">Syllabus E1(a)</span>
+<h2>1. Technology as a strategic issue</h2>
+
+<h3>Step 1 – In simple words</h3>
+<div class="box simple">
+<p>Technology is not just "an IT department matter". It is a <strong>board-level strategy question</strong>, for three reasons:</p>
+<ol>
+<li><strong>FIT:</strong> technology must support the strategy we have already chosen (for example, a cost-leadership strategy needs systems that cut cost).</li>
+<li><strong>OPTION:</strong> technology can open completely new strategies (new products, new channels, new markets).</li>
+<li><strong>DRIFT:</strong> if competitors adopt technology and we don't, we slowly fall behind. This is <strong>strategic drift</strong> (you met it in Chapter C).</li>
+</ol>
+<p>Technology can be a <strong>competitive necessity</strong> (everyone has it, and you lose customers without it, like online banking) or a source of <strong>competitive advantage</strong> (you do it first or better than others).</p>
+</div>
+
+<h3>Step 2 – Real business example</h3>
+<div class="box example">
+<p><strong>Kodak:</strong> a Kodak engineer built the first digital camera in 1975, but the company kept protecting its profitable film business. Competitors moved to digital and Kodak filed for bankruptcy in 2012. This is classic strategic drift: the technology existed <em>inside</em> the company, but leadership didn't treat it as a strategy question.</p>
+<p><strong>Blockbuster vs Netflix:</strong> Netflix used the internet to change how films were rented (first by post, then by streaming). Blockbuster stayed with physical stores and went bankrupt in 2010.</p>
+</div>
+
+<h3>Step 3 – How it appears in the exam</h3>
+<div class="box exam">
+<p>Typical task: <em>"Discuss why the board should consider adopting new technology"</em>, often because a CEO or director in the case is sceptical ("we are a hospital, not a tech company"). You may be asked to write a briefing note or a set of slides with notes.</p>
+</div>
+
+<div class="box scenario">
+<h4>📄 Scenario – MedCare Clinics</h4>
+<ul>
+<li>MedCare runs 12 private outpatient clinics. Appointments are booked by phone and written in paper diaries at each clinic.</li>
+<li>A competitor launched a mobile app with online booking 18 months ago. It says average waiting time to book fell from 9 minutes to under 1 minute.</li>
+<li>In MedCare's latest patient survey, 38% of patients complained about long phone waits.</li>
+<li>MedCare's IT spending is 0.8% of revenue. The sector average is 3%.</li>
+<li>The CEO said at the last board meeting: <em>"We are a healthcare business, not a technology company. Our doctors are our advantage."</em></li>
+</ul>
+<p><strong>Task:</strong> Discuss why the board should treat technology as a strategic issue. (8 marks)</p>
+</div>
+
+<h3>Step 4 – Model answer</h3>
+<div class="model">
+<h4>Briefing note to the Board of MedCare Clinics</h4>
+<p><strong>Risk of strategic drift.</strong> The CEO is right that doctors are MedCare's core competence, but patients now judge the <em>whole</em> experience, including how easy it is to book. The competitor has already cut booking time from 9 minutes to under 1 minute. If MedCare does nothing, it risks gradual loss of patients to a competitor that is easier to deal with. This is strategic drift: the environment is changing while MedCare is standing still.</p>
+<p><strong>Customer dissatisfaction is already visible.</strong> 38% of patients complained about phone waits. Online booking is quickly becoming a <em>threshold</em> requirement in private healthcare: it won't win patients on its own, but not having it will lose them.</p>
+<p><strong>Under-investment compared with the sector.</strong> MedCare spends 0.8% of revenue on IT against a sector average of 3%. This suggests the gap with competitors is structural and will widen unless the board makes a deliberate decision.</p>
+<p><strong>Technology can support the existing strategy.</strong> Digital booking frees reception staff, reduces no-shows through automatic reminders and gives data on demand by clinic and specialty, which supports better doctor rostering. So technology <em>strengthens</em> the doctor-led advantage rather than replacing it.</p>
+<p><strong>New strategic options.</strong> An app could later support teleconsultations, online prescriptions and follow-ups, which could increase the number of patients each doctor sees.</p>
+<p><strong>Caution.</strong> Technology should follow strategy. The board should approve a technology plan linked to clear objectives (for example, booking time, patient satisfaction, no-show rate), not buy systems for their own sake. Clinic staff will also need training and support, because moving from paper diaries is a significant cultural change.</p>
+<p><strong>Recommendation:</strong> the board should put a digital patient-access strategy on the next board agenda, set measurable targets, and commission a costed proposal for online booking as the first step.</p>
+</div>
+
+<h3>Step 5 – What the examiner wants</h3>
+<div class="box examiner">
+<ul>
+<li>Use the facts: the 38%, the 0.8% vs 3%, the competitor's results.</li>
+<li>Respond respectfully to the CEO's view. Accept what is right in it, then challenge it with evidence (this is <strong>scepticism</strong> and <strong>commercial acumen</strong>).</li>
+<li>Link technology to the strategy and to strategic drift. Don't describe the technology's features.</li>
+</ul>
+</div>
+
+<h3>Step 6 – Common mistakes</h3>
+<div class="box mistakes">
+<ul>
+<li>Listing generic benefits ("technology improves efficiency") with no link to the case.</li>
+<li>Saying "adopt all new technology", which ignores cost, culture and whether it fits the strategy.</li>
+<li>Dismissing the CEO rudely. Professional skills marks reward a <em>courteous</em> challenge.</li>
+</ul>
+</div>
+
+<h3>Step 7 – Memory tip</h3>
+<div class="box memo"><p><strong>"Tech is a strategy question, not an IT question."</strong> Ask three things: <strong>FIT</strong> (does it support our strategy?), <strong>OPTION</strong> (what new strategies does it open?), <strong>DRIFT</strong> (what happens if we don't?).</p></div>
+</section>
+
+<!-- T2 -->
+<section class="card" id="t2">
+<span class="ref">Syllabus E1(b), E1(c)</span>
+<h2>2. Cloud computing</h2>
+
+<h3>Step 1 – In simple words</h3>
+<div class="box simple">
+<p>Cloud computing means <strong>renting</strong> computing power, storage and software over the internet instead of <strong>owning</strong> your own servers. Think of electricity: you don't build a power station, you plug into the grid and pay for what you use.</p>
+<h4>Three service models (what you rent)</h4>
+<div class="grid g3">
+<div class="tile"><b>IaaS – Infrastructure as a Service</b>You rent servers and storage. You still install and manage your own software. <em>Example: renting virtual servers to run your own hospital system.</em></div>
+<div class="tile"><b>PaaS – Platform as a Service</b>You rent a ready platform to build and run your own apps. The provider manages servers and operating systems. <em>Example: developers building a patient app on a cloud platform.</em></div>
+<div class="tile"><b>SaaS – Software as a Service</b>You simply use the finished software in a browser and pay a subscription. <em>Example: cloud email, cloud payroll, cloud ERP.</em></div>
+</div>
+<p><strong>Pizza way to remember it:</strong> IaaS = you get the oven and cook yourself · PaaS = pizza delivered, you set the table · SaaS = you eat at the restaurant.</p>
+<h4>Four deployment models (who shares it)</h4>
+<table>
+<tr><th>Public cloud</th><th>Private cloud</th><th>Hybrid cloud</th><th>Community cloud</th></tr>
+<tr><td>Shared infrastructure owned by a provider and used by many customers. Cheapest and most scalable.</td><td>Used only by one organisation. More control and security, but more expensive.</td><td>A mix: sensitive data in private, the rest in public.</td><td>Shared by organisations with similar needs (for example, several government bodies).</td></tr>
+</table>
+<h4>Benefits vs risks</h4>
+<table>
+<tr><th>Benefits</th><th>Risks</th></tr>
+<tr><td>
+<ul>
+<li><strong>Cost:</strong> capital spending becomes operating spending, and you pay for what you use</li>
+<li><strong>Scalability:</strong> capacity can grow or shrink quickly (for example, at busy seasons)</li>
+<li><strong>Access anywhere:</strong> supports remote and mobile working and multiple sites</li>
+<li><strong>Latest software:</strong> the provider applies updates and security patches</li>
+<li><strong>Expert resilience:</strong> professional data centres, backups and disaster recovery</li>
+<li>Focus internal staff on core business, not on running servers</li>
+</ul></td>
+<td>
+<ul>
+<li><strong>Lock-in:</strong> hard and costly to switch provider</li>
+<li><strong>Outages:</strong> depends on the internet connection and the provider's uptime</li>
+<li><strong>Compliance and data location:</strong> laws may require data to stay in the country</li>
+<li><strong>Keeping costs under control:</strong> subscriptions rise over time and usage can creep up</li>
+<li><strong>Security and privacy:</strong> data is held by a third party</li>
+<li>Loss of in-house skills and control; migration risk</li>
+</ul></td></tr>
+</table>
+</div>
+
+<h3>Step 2 – Real business example</h3>
+<div class="box example"><p><strong>Netflix</strong> suffered a major database corruption in its own data centre in 2008, which disrupted DVD shipments. It decided to move to Amazon Web Services and completed the move in 2016. This let it scale globally without building data centres in every country. It also shows the trade-off: Netflix now depends heavily on one provider.</p></div>
+
+<h3>Step 3 – How it appears in the exam</h3>
+<div class="box exam"><p>Very common: <em>"Evaluate the proposal to move the organisation's systems to the cloud"</em> or <em>"Advise whether the cloud is a suitable alternative to replacing our own servers."</em> There are usually numbers to compare, and someone in the case who is over-enthusiastic or over-cautious.</p></div>
+
+<div class="box scenario">
+<h4>📄 Scenario – Gulf Specialist Hospitals (GSH)</h4>
+<ul>
+<li>GSH owns 2 private hospitals. Its server room is 9 years old. Replacing it would cost <strong>AED 4.2m</strong> now, plus running costs of <strong>AED 0.6m per year</strong>.</li>
+<li>A cloud provider offers SaaS hospital systems for <strong>AED 1.1m per year</strong> on a <strong>5-year minimum contract</strong>, with an exit fee if GSH leaves early.</li>
+<li>Health regulations require patient data to be stored inside the country. The provider's standard data centre is abroad. An in-country data centre is available for a <strong>15% premium</strong>.</li>
+<li>Last year the server room had 2 outages totalling 14 hours. Two of the 6 IT staff resigned recently and have not been replaced.</li>
+<li>The IT manager is worried that "we will lose control of our own systems".</li>
+</ul>
+<p><strong>Task:</strong> Evaluate whether GSH should move to the cloud rather than replace its server room. (12 marks)</p>
+</div>
+
+<h3>Step 4 – Model answer</h3>
+<div class="model">
+<h4>Financial comparison (5 years)</h4>
+<div class="calc">Replace server room: 4.2m + (0.6m × 5) = AED 7.2m
+Cloud, standard:      1.1m × 5         = AED 5.5m  (not allowed – data abroad)
+Cloud, in-country:    1.1m × 1.15 × 5  = AED 6.325m
+Saving with compliant cloud:            AED 0.875m over 5 years (≈12%)</div>
+<p>Even with the 15% premium, the compliant cloud option is about AED 0.9m cheaper and avoids a AED 4.2m up-front outlay, which protects GSH's cash.</p>
+<h4>Benefits for GSH</h4>
+<p><strong>Reliability.</strong> 14 hours of outage in a hospital can affect patient safety (records, lab results, pharmacy). A professional provider with a guaranteed uptime should reduce this.</p>
+<p><strong>Skills gap.</strong> GSH has lost 2 of its 6 IT staff. Running an ageing server room with a shrinking team is a serious operational risk, and cloud transfers much of that work to a specialist.</p>
+<p><strong>Up-to-date systems and security.</strong> The provider patches and updates software continuously, which a stretched team may struggle to do.</p>
+<h4>Risks for GSH</h4>
+<p><strong>Regulatory compliance.</strong> The standard offer is not an option because patient data must stay in the country. Only the in-country option is acceptable, and GSH must get this in writing in the contract.</p>
+<p><strong>Lock-in.</strong> A 5-year minimum with an exit fee makes it hard to leave if service is poor. GSH needs strong service level agreements (uptime, response times, penalties) and a clear exit and data-return clause.</p>
+<p><strong>Dependence on the internet.</strong> If the hospital's connection fails, systems become unavailable. GSH would need a second, independent internet line.</p>
+<p><strong>Loss of control.</strong> The IT manager's concern is valid. However, control can be kept through the contract, regular service reviews and the right to audit the provider. Remaining IT staff can move into managing the provider and supporting users.</p>
+<p><strong>Price over time.</strong> The comparison assumes the fee stays at AED 1.1m. GSH should negotiate a price cap for renewal.</p>
+<h4>Recommendation</h4>
+<p>GSH should move to the <strong>in-country cloud option</strong>, because it is cheaper, more reliable and reduces dependence on a shrinking IT team. This should be <strong>conditional</strong> on: written data-location guarantees, an SLA with penalties, a backup internet line, an exit clause that returns all data, and a phased migration starting with non-clinical systems.</p>
+</div>
+
+<h3>Step 5 – What the examiner wants</h3>
+<div class="box examiner"><ul>
+<li>A <strong>balanced</strong> evaluation (benefits AND risks), then a clear <strong>recommendation with conditions</strong>. This is where the Evaluation professional skills marks come from.</li>
+<li>Use the numbers, even a simple calculation. Spot that the non-compliant option is not a real option.</li>
+<li>Treat people's concerns (the IT manager) seriously and answer them.</li>
+</ul></div>
+
+<h3>Step 6 – Common mistakes</h3>
+<div class="box mistakes"><ul>
+<li>Writing only benefits ("cloud is cheaper and flexible") with no risks.</li>
+<li>Forgetting data protection and data location rules, which are huge in healthcare and government.</li>
+<li>Explaining IaaS/PaaS/SaaS at length when the task is to <em>evaluate</em>. Definitions earn very few marks.</li>
+<li>No final recommendation, or "it depends" with no decision.</li>
+</ul></div>
+
+<h3>Step 7 – Memory tip</h3>
+<div class="box memo"><p>Benefits = <strong>SCALE</strong>: Scalability, Cost (capex → opex), Access anywhere, Latest software, Expert resilience.<br>Risks = <strong>LOCKS</strong>: Lock-in, Outages, Compliance &amp; data location, Keeping costs under control, Security &amp; privacy.</p></div>
+</section>
+
+<!-- T3 -->
+<section class="card" id="t3">
+<span class="ref">Syllabus E1(a), E1(b)</span>
+<h2>3. Mobile and smart technology (Internet of Things)</h2>
+
+<h3>Step 1 – In simple words</h3>
+<div class="box simple">
+<p><strong>Mobile technology:</strong> staff and customers use phones and tablets to reach systems from anywhere. Examples: sales reps taking orders on tablets, patients booking through an app, managers approving invoices on their phone.</p>
+<p><strong>Smart technology / Internet of Things (IoT):</strong> ordinary physical objects fitted with sensors and connected to the internet, so they send data automatically. Examples: smart electricity meters, fitness watches, hospital infusion pumps, shop fridges that report temperature and stock.</p>
+<div class="steps">
+<div class="tile"><b>1. Sense</b>A sensor measures something (temperature, location, stock)</div><div class="arrow">→</div>
+<div class="tile"><b>2. Send</b>The data travels over the internet</div><div class="arrow">→</div>
+<div class="tile"><b>3. Make sense</b>Software analyses it and spots problems</div><div class="arrow">→</div>
+<div class="tile"><b>4. Act</b>Someone (or a system) takes action</div>
+</div>
+<table>
+<tr><th>Benefits</th><th>Risks</th></tr>
+<tr><td><ul><li>Real-time information for decisions</li><li>Remote monitoring and <strong>predictive maintenance</strong> (fix before it breaks)</li><li>Customer convenience (apps, self-service)</li><li>New business models, such as selling a service instead of a product</li><li>Productivity of mobile staff</li></ul></td>
+<td><ul><li>Security: many devices mean many entry points, and cheap devices are often poorly protected</li><li>Lost or stolen devices</li><li>Privacy and consent over the data collected</li><li>Connectivity gaps in remote areas</li><li>Data overload with no one acting on it</li><li>Staff resistance; cost of devices and platforms</li></ul></td></tr>
+</table>
+</div>
+
+<h3>Step 2 – Real business example</h3>
+<div class="box example"><p><strong>Rolls-Royce</strong> aircraft engines contain sensors that send performance data while the plane is flying. Under its "Power by the Hour" / TotalCare approach, airlines pay for each hour the engine flies, and Rolls-Royce uses the data to plan maintenance before faults happen. IoT turned a product sale into a long-term service revenue stream.</p></div>
+
+<h3>Step 3 – How it appears in the exam</h3>
+<div class="box exam"><p><em>"Discuss the benefits and risks of the proposed smart technology"</em> or <em>"Advise how mobile technology could improve the sales team's performance."</em></p></div>
+
+<div class="box scenario">
+<h4>📄 Scenario – ColdChain Beverages</h4>
+<ul>
+<li>ColdChain supplies drinks and owns <strong>2,400 branded fridges</strong> placed in small grocery shops.</li>
+<li>Sales reps visit each shop every 2 weeks. On visits, <strong>9% of fridges</strong> are found broken or switched off.</li>
+<li>Management estimates empty or broken fridges cost <strong>AED 3.5m of lost sales per year</strong>.</li>
+<li>Proposal: fit IoT sensors at <strong>AED 180 per fridge</strong> plus a platform fee of <strong>AED 60,000 per year</strong>. Sensors report temperature, door openings and stock level. Reps get alerts on their tablets.</li>
+<li>Some shops are in rural areas with weak mobile signal. Several senior reps say they "know their shops" and don't need alerts.</li>
+</ul>
+<p><strong>Task:</strong> Discuss the benefits and risks of the IoT proposal. (10 marks)</p>
+</div>
+
+<h3>Step 4 – Model answer</h3>
+<div class="model">
+<div class="calc">Sensor cost: 2,400 × AED 180 = AED 432,000 (one-off)
+Platform:    AED 60,000 per year
+If sensors recover only 20% of the AED 3.5m lost sales = AED 700,000 a year of sales</div>
+<h4>Benefits</h4>
+<p><strong>Recovering lost sales.</strong> Today a broken fridge can go unnoticed for up to 2 weeks. Real-time temperature and power alerts let ColdChain fix faults within a day. Even recovering a small share of the AED 3.5m of lost sales would pay back the AED 432,000 quickly (sales, not profit, so contribution margin should be checked).</p>
+<p><strong>Smarter rep routes.</strong> Stock-level data lets reps visit shops that actually need restocking instead of following a fixed 2-week cycle. This saves time and fuel.</p>
+<p><strong>Customer insight.</strong> Door-opening data shows footfall and buying patterns by shop and time, which can guide promotions and where to place fridges.</p>
+<p><strong>Better relationships with shopkeepers,</strong> who lose fewer sales from broken fridges.</p>
+<h4>Risks</h4>
+<p><strong>Connectivity.</strong> Rural shops with weak signal may not send data, so the system will have blind spots exactly where visits are hardest.</p>
+<p><strong>Staff resistance.</strong> Senior reps may ignore alerts. Without changing how reps work and how they are measured, the data will not lead to action.</p>
+<p><strong>Security and privacy.</strong> Poorly secured devices could be hacked, and shopkeepers should be told what data is collected from fridges in their shops.</p>
+<p><strong>Uncertain benefits.</strong> The AED 3.5m figure is a management estimate and should be tested before it is relied on.</p>
+<h4>Recommendation</h4>
+<p>Run a <strong>pilot of about 200 fridges</strong> across urban and rural shops for 3 months. Measure recovered sales and connectivity, involve senior reps in designing the alerts, then decide on full rollout.</p>
+</div>
+
+<h3>Step 5 – What the examiner wants</h3>
+<div class="box examiner"><ul><li>Link the technology to <strong>business results</strong> (lost sales, efficiency), not technical features.</li><li>Scepticism about estimates such as "AED 3.5m".</li><li>Remember the human side: technology fails if people don't use it.</li></ul></div>
+
+<h3>Step 6 – Common mistakes</h3>
+<div class="box mistakes"><ul><li>Describing how sensors work technically.</li><li>Forgetting that data is useless unless someone acts on it.</li><li>Ignoring a cheap way to reduce risk, such as a pilot.</li></ul></div>
+
+<h3>Step 7 – Memory tip</h3>
+<div class="box memo"><p><strong>Sense → Send → Make sense → Act.</strong> Marks come from the last two steps: what decisions improve, and who acts.</p></div>
+</section>
+
+<!-- T4 -->
+<section class="card" id="t4">
+<span class="ref">Syllabus E2(b)</span>
+<h2>4. Big data</h2>
+
+<h3>Step 1 – In simple words</h3>
+<div class="box simple">
+<p><strong>Big data</strong> is data that is too large, too fast and too varied to handle with normal tools like spreadsheets. It is described with the <strong>5 Vs</strong>:</p>
+<div class="grid g5">
+<div class="tile"><b>Volume</b>Huge amounts of data (millions of records)</div>
+<div class="tile"><b>Velocity</b>Arrives fast, often in real time (card payments, sensor readings)</div>
+<div class="tile"><b>Variety</b>Many forms: numbers, text, images, video, social media posts</div>
+<div class="tile"><b>Veracity</b>How accurate and trustworthy it is</div>
+<div class="tile"><b>Value</b>Only worth collecting if it leads to better decisions</div>
+</div>
+<p><strong>Sources:</strong> sales transactions, loyalty cards, website clicks, social media, GPS, IoT sensors, wearables, call-centre recordings, patient records.</p>
+<table>
+<tr><th>Opportunities</th><th>Threats</th></tr>
+<tr><td><ul><li>Understand customers better and personalise offers</li><li>Better forecasting of demand</li><li>Spot fraud and risk early</li><li>Improve efficiency (for example, staffing to match demand)</li><li>Find ideas for new products</li><li>Competitive advantage if competitors are slower</li></ul></td>
+<td><ul><li>Cost of systems and scarce analyst skills</li><li>Data protection laws, with heavy fines for misuse</li><li>Poor-quality data leads to wrong decisions</li><li>Larger target for hackers</li><li>Information overload</li><li>Ethical misuse damages trust</li><li>Competitors who use data better</li></ul></td></tr>
+</table>
+</div>
+
+<h3>Step 2 – Real business example</h3>
+<div class="box example"><p><strong>Tesco Clubcard</strong> (launched 1995): Tesco used loyalty-card data on what each customer bought to send personalised coupons and decide product ranges for each store. It helped Tesco grow into the UK's largest supermarket. It also shows the threat side: customers must trust how their data is used.</p></div>
+
+<h3>Step 3 – How it appears in the exam</h3>
+<div class="box exam"><p><em>"Discuss the opportunities and threats that big data presents to the organisation."</em> Use the 5 Vs as a structure only if they help; marks come from applying them to the case.</p></div>
+
+<div class="box scenario">
+<h4>📄 Scenario – Riverside Health</h4>
+<ul>
+<li>Riverside runs 3 private hospitals with <strong>1.2 million patient visits per year</strong> and 8 years of electronic patient records.</li>
+<li>Its wellness app has <strong>40,000 users</strong> who share step counts and heart-rate data from wearables.</li>
+<li>The appointment <strong>no-show rate is 18%</strong>, which leaves doctors idle.</li>
+<li>The board wants to use data to predict no-shows and plan staffing.</li>
+<li>Data sits in <strong>5 separate systems</strong> with different patient ID formats. Riverside employs <strong>2 data analysts</strong>.</li>
+<li>The health regulator has recently fined two other hospitals for misusing patient data.</li>
+</ul>
+<p><strong>Task:</strong> Discuss the opportunities and threats big data presents to Riverside Health. (10 marks)</p>
+</div>
+
+<h3>Step 4 – Model answer</h3>
+<div class="model">
+<h4>Opportunities</h4>
+<p><strong>Reducing no-shows.</strong> With 1.2m visits a year, even a small cut in the 18% no-show rate frees thousands of appointments. Using 8 years of history (day, time, specialty, distance, past no-shows), Riverside could predict who is likely to miss an appointment, send targeted reminders, or carefully overbook high-risk slots.</p>
+<p><strong>Staffing to match demand.</strong> The same data can forecast busy periods by hospital and specialty, so rosters match patient demand. This reduces overtime and idle time.</p>
+<p><strong>Preventive health services.</strong> Wearable data from 40,000 app users could support new services, such as early alerts or wellness programmes. These can build loyalty and new revenue.</p>
+<h4>Threats</h4>
+<p><strong>Data quality (veracity).</strong> 5 systems with different patient IDs mean the same patient may appear several times. Predictions built on duplicated or mismatched records will be wrong. Data must be cleaned and linked first.</p>
+<p><strong>Regulation and trust.</strong> Health data is highly sensitive, and the regulator is actively fining hospitals. Using wearable data for purposes patients didn't agree to could breach data protection rules and damage reputation. Riverside needs clear consent and a data protection review before any project.</p>
+<p><strong>Skills and cost.</strong> 2 analysts cannot build and run predictive models across 3 hospitals. Riverside will need to recruit, train or use a specialist partner, which adds cost.</p>
+<p><strong>Security.</strong> Putting data together in one place makes it a bigger target for hackers, so security must increase at the same time.</p>
+<h4>Conclusion</h4>
+<p>The opportunity is real, but Riverside should first fix data quality and governance, then start with one focused project (no-show prediction), measure the results and expand.</p>
+</div>
+
+<h3>Step 5 – What the examiner wants</h3>
+<div class="box examiner"><ul><li>Specific opportunities tied to the case's problems (here, the 18% no-shows).</li><li>Threats that come from the facts (5 systems, 2 analysts, regulator fines).</li><li>A practical next step.</li></ul></div>
+
+<h3>Step 6 – Common mistakes</h3>
+<div class="box mistakes"><ul><li>Defining all 5 Vs with no application. This earns about 1 mark at most.</li><li>Assuming more data automatically means better decisions.</li><li>Forgetting consent and data protection.</li></ul></div>
+
+<h3>Step 7 – Memory tip</h3>
+<div class="box memo"><p><strong>5 Vs:</strong> "Very Very Varied, Verify Value" → Volume, Velocity, Variety, Veracity, Value. Veracity (data quality) is the V the examiner most likes you to question.</p></div>
+</section>
+
+<!-- T5 -->
+<section class="card" id="t5">
+<span class="ref">Syllabus E2(a), E2(c)</span>
+<h2>5. Data analytics for strategic decisions (new products, marketing and pricing)</h2>
+
+<h3>Step 1 – In simple words</h3>
+<div class="box simple">
+<p>Data analytics means turning data into decisions. There are four levels, each more advanced:</p>
+<div class="steps">
+<div class="tile"><b>Descriptive</b>What happened?<br><em>"Sales fell 5% in Q3."</em></div><div class="arrow">→</div>
+<div class="tile"><b>Diagnostic</b>Why did it happen?<br><em>"A competitor cut prices."</em></div><div class="arrow">→</div>
+<div class="tile"><b>Predictive</b>What will happen?<br><em>"Sales will fall another 8%."</em></div><div class="arrow">→</div>
+<div class="tile"><b>Prescriptive</b>What should we do?<br><em>"Cut price 3% in these 10 stores."</em></div>
+</div>
+<table>
+<tr><th>Decision area</th><th>How data helps</th></tr>
+<tr><td><strong>New product development</strong></td><td>Spot unmet needs from search trends, reviews, social media and complaints. Test ideas with small trials before full launch.</td></tr>
+<tr><td><strong>Marketing</strong></td><td>Segment customers, target the most valuable groups, personalise offers, measure which channels actually bring sales, calculate customer lifetime value.</td></tr>
+<tr><td><strong>Pricing</strong></td><td>Measure how sales react to price changes (price sensitivity), test prices in some stores, monitor competitor prices, and use dynamic pricing (prices change with demand).</td></tr>
+</table>
+</div>
+
+<h3>Step 2 – Real business example</h3>
+<div class="box example"><p><strong>Airlines and ride-hailing apps such as Uber</strong> use dynamic pricing: prices rise automatically when demand is high (surge pricing) and fall when it is low. <strong>Amazon</strong> uses purchase and browsing history to recommend products, a large driver of extra sales. Both show analytics moving from "describe" to "prescribe".</p></div>
+
+<h3>Step 3 – How it appears in the exam</h3>
+<div class="box exam"><p>You are often given a small table of data and asked to <em>"advise how data analytics could support decisions on pricing, marketing and new products"</em>. There are marks for actually <strong>using the numbers</strong> and for questioning them (scepticism).</p></div>
+
+<div class="box scenario">
+<h4>📄 Scenario – FreshBake</h4>
+<ul>
+<li>FreshBake sells packaged bread through supermarkets. Its main loaf sells for <strong>AED 8</strong>, with a variable cost of <strong>AED 5</strong>, and sells <strong>10,000 units per week</strong>.</li>
+<li>A price test charged <strong>AED 9</strong> in 4 stores for 3 weeks. Scaled to all stores, sales would be <strong>9,400 units per week</strong>. The test took place during a public holiday period.</li>
+<li>Social media monitoring found <strong>2,300 posts</strong> in 6 months asking for a sugar-free loaf. Online searches for "sugar-free bread" in the region rose <strong>60%</strong> year on year.</li>
+<li>FreshBake's app users are <strong>22% of customers</strong> but generate <strong>41% of revenue</strong>.</li>
+</ul>
+<p><strong>Task:</strong> Using the data provided, advise how data analytics can support FreshBake's pricing, new product and marketing decisions. (10 marks)</p>
+</div>
+
+<h3>Step 4 – Model answer</h3>
+<div class="model">
+<h4>Pricing</h4>
+<div class="calc">At AED 8: (8 − 5) × 10,000 = AED 30,000 contribution per week
+At AED 9: (9 − 5) × 9,400  = AED 37,600 contribution per week
+Increase: AED 7,600 per week (+25%), about AED 395,000 per year</div>
+<p>The test suggests demand is not very price-sensitive: a 12.5% price rise lost only 6% of volume. <strong>However</strong>, the test covered just 4 stores for 3 weeks during a holiday, when buying patterns are unusual. FreshBake should repeat the test in more stores during a normal period, and watch competitor reactions, before changing the price everywhere.</p>
+<h4>New product development</h4>
+<p>2,300 customer requests and a 60% rise in searches point to real demand for a sugar-free loaf. Analytics can size the opportunity (search volumes by area), and a small test launch in selected stores can confirm actual purchases before full investment. Social media posts can be biased towards a vocal minority, so actual sales in the test are the real proof.</p>
+<h4>Marketing</h4>
+<p>App users are 22% of customers but 41% of revenue, so each app user is worth roughly 2.5 times an average non-app customer (41/22 ÷ 59/78). Marketing should focus on moving more customers onto the app, using personalised offers based on purchase history. It should also measure customer lifetime value to decide how much is worth spending to win each customer.</p>
+<h4>Conclusion</h4>
+<p>Analytics can move FreshBake from guessing to evidence-based decisions. It should run a larger price test, a controlled launch of the sugar-free loaf, and an app-focused marketing campaign, each with clear measures of success.</p>
+</div>
+
+<h3>Step 5 – What the examiner wants</h3>
+<div class="box examiner"><ul><li><strong>Analysis:</strong> calculate something simple and meaningful from the data (contribution, percentage change, value per customer).</li><li><strong>Scepticism:</strong> question the sample size, period and source of data.</li><li>Clear advice for each decision area.</li></ul></div>
+
+<h3>Step 6 – Common mistakes</h3>
+<div class="box mistakes"><ul><li>Ignoring the numbers given.</li><li>Looking at revenue instead of contribution or profit.</li><li>Treating a small test as proof.</li></ul></div>
+
+<h3>Step 7 – Memory tip</h3>
+<div class="box memo"><p><strong>"What? Why? What next? What now?"</strong> = Descriptive, Diagnostic, Predictive, Prescriptive. For any data table: <strong>calculate → question → advise</strong>.</p></div>
+</section>
+
+<!-- T6 -->
+<section class="card" id="t6">
+<span class="ref">Syllabus E3(a)</span>
+<h2>6. AI, machine learning, robotics and RPA – the benefits</h2>
+
+<h3>Step 1 – In simple words</h3>
+<div class="box simple">
+<div class="grid g4">
+<div class="tile"><b>Artificial intelligence (AI)</b>Computers doing tasks that normally need human intelligence: understanding language, recognising images, making decisions.</div>
+<div class="tile"><b>Machine learning (ML)</b>A type of AI that <em>learns patterns from data</em> instead of following rules written by people. For example, it learns which transactions look like fraud.</div>
+<div class="tile"><b>Robotic process automation (RPA)</b>Software "bots" that copy what a clerk does on a computer: open emails, copy data, match invoices. They follow fixed rules and don't "think".</div>
+<div class="tile"><b>Robotics</b>Physical machines doing physical work: warehouse robots, surgical robots, factory arms.</div>
+</div>
+<p><strong>Generative AI</strong> (for example, chatbots that write text) is a newer form of AI that creates content.</p>
+<p><strong>Benefits:</strong> speed · accuracy and consistency · 24/7 operation · lower cost · better predictions and decisions · staff freed from boring work for higher-value tasks · easy to scale up.</p>
+</div>
+
+<h3>Step 2 – Real business example</h3>
+<div class="box example"><p><strong>Amazon</strong> bought the warehouse robot maker Kiva Systems in 2012. Robots now bring shelves to workers instead of workers walking the aisles, which speeds up order picking. In finance departments, <strong>RPA</strong> is widely used for bank reconciliations and invoice matching, the kind of high-volume, rule-based work it suits best.</p></div>
+
+<h3>Step 3 – How it appears in the exam</h3>
+<div class="box exam"><p><em>"Explain the potential benefits of using AI/RPA to support the organisation's objectives."</em> In public sector cases, link the benefits to the <strong>3 Es</strong> (economy, efficiency, effectiveness) and public value.</p></div>
+
+<div class="box scenario">
+<h4>📄 Scenario – Municipal Services Authority (MSA)</h4>
+<ul>
+<li>MSA is a government body. Its finance shared service processes <strong>220,000 supplier invoices per year</strong> using <strong>38 accounts payable clerks</strong>.</li>
+<li>Processing cost is <strong>AED 32 per invoice</strong>, and <strong>2.5%</strong> of invoices contain errors (duplicate or wrong payments).</li>
+<li><strong>70%</strong> of invoices arrive in a standard electronic format.</li>
+<li>A vendor proposes RPA with machine learning for invoice matching: <strong>AED 1.6m</strong> to implement plus <strong>AED 300,000 per year</strong>. The vendor estimates automated invoices would cost <strong>AED 6 each</strong>.</li>
+<li>The vendor also proposes a chatbot for supplier queries. The team currently handles <strong>14,000 supplier calls per month</strong>, mostly "when will I be paid?".</li>
+<li>Government policy says no civil servant will be made redundant because of automation.</li>
+</ul>
+<p><strong>Task:</strong> Explain the potential benefits of the proposal to MSA. (10 marks)</p>
+</div>
+
+<h3>Step 4 – Model answer</h3>
+<div class="model">
+<div class="calc">Current cost: 220,000 × AED 32 = AED 7.04m per year
+Automated invoices: 70% × 220,000 = 154,000
+Saving: 154,000 × (32 − 6) = AED 4.0m per year
+Less running cost AED 0.3m → net saving ≈ AED 3.7m per year
+Payback on AED 1.6m ≈ 5–6 months (if the vendor's estimate is right)</div>
+<p><strong>Economy and efficiency.</strong> The proposal could save about AED 3.7m a year, a very fast payback. This is public money, so the saving supports the economy and efficiency duties of a public body.</p>
+<p><strong>Accuracy.</strong> A 2.5% error rate on 220,000 invoices means about 5,500 wrong invoices a year, with risk of duplicate payments and fraud. Bots apply the same matching rules every time, and ML can flag unusual invoices for review.</p>
+<p><strong>Better service to suppliers.</strong> Faster processing means faster payment, which matters to small local suppliers. The chatbot could answer most of the 14,000 monthly "when will I be paid?" calls instantly, 24/7.</p>
+<p><strong>Better use of staff.</strong> Because no staff will be made redundant, the 38 clerks can move to higher-value work: handling exceptions, supplier relationships, analysing spending and spotting savings. This improves <em>effectiveness</em> and staff development.</p>
+<p><strong>Scalability.</strong> If invoice volumes grow, bots can handle the extra work without more hiring.</p>
+<p><strong>Note of caution.</strong> The AED 6 cost per invoice is the vendor's own estimate, so MSA should check it with references from other users or a pilot. Also, the saving will only become a cash saving if staff are genuinely redeployed to useful work.</p>
+</div>
+
+<h3>Step 5 – What the examiner wants</h3>
+<div class="box examiner"><ul><li>Benefits quantified where the data allows.</li><li>Public sector context: 3 Es, public value, staff policy.</li><li>Recognise who provided the figures (a vendor has a reason to be optimistic).</li></ul></div>
+
+<h3>Step 6 – Common mistakes</h3>
+<div class="box mistakes"><ul><li>Confusing RPA (follows rules) with ML (learns).</li><li>Assuming all invoices can be automated. Only the 70% in standard format can.</li><li>Promising headcount savings when the case says redundancy is not allowed.</li></ul></div>
+
+<h3>Step 7 – Memory tip</h3>
+<div class="box memo"><p><strong>RPA = hands</strong> (follows rules) · <strong>ML = brain that learns</strong> · <strong>Robotics = body</strong>. RPA suits work that is high-volume, rule-based, repetitive and uses digital inputs.</p></div>
+</section>
+
+<!-- T7 -->
+<section class="card" id="t7">
+<span class="ref">Syllabus E3(b)</span>
+<h2>7. AI – risks, controls and ethics</h2>
+
+<h3>Step 1 – In simple words</h3>
+<div class="box simple">
+<table>
+<tr><th>Risk</th><th>What it means</th></tr>
+<tr><td><strong>Bias</strong></td><td>AI learns from past data. If past decisions were unfair, the AI repeats the unfairness, at scale.</td></tr>
+<tr><td><strong>Black box</strong></td><td>Some models cannot explain <em>why</em> they made a decision, a problem when people or regulators need reasons.</td></tr>
+<tr><td><strong>Errors at scale</strong></td><td>One wrong rule can affect thousands of decisions before anyone notices.</td></tr>
+<tr><td><strong>Accountability</strong></td><td>Who is responsible when AI gets it wrong: the vendor, IT, or the manager?</td></tr>
+<tr><td><strong>Privacy</strong></td><td>AI needs lots of personal data.</td></tr>
+<tr><td><strong>People</strong></td><td>Job losses, low morale, and staff losing skills by relying on the machine.</td></tr>
+<tr><td><strong>Security</strong></td><td>Models can be attacked or fed false data. Generative AI can "hallucinate" (invent false answers).</td></tr>
+</table>
+<h4>Controls – remember HUMAN</h4>
+<div class="grid g5">
+<div class="tile"><b>H – Human in the loop</b>People review high-impact decisions</div>
+<div class="tile"><b>U – Understandable</b>Use explainable models; record reasons</div>
+<div class="tile"><b>M – Monitor</b>Test for bias before launch; monitor results continuously</div>
+<div class="tile"><b>A – Accountability</b>A named owner; an AI policy and governance committee</div>
+<div class="tile"><b>N – Notify</b>Be open with customers that AI is used; offer appeal</div>
+</div>
+<p><strong>Ethics:</strong> link to the ACCA fundamental principles. <em>Objectivity</em> (bias), <em>professional competence</em> (understand the tool before relying on it), <em>confidentiality</em> (data), <em>integrity</em> and <em>professional behaviour</em> (honesty with customers and regulators).</p>
+</div>
+
+<h3>Step 2 – Real business example</h3>
+<div class="box example"><p><strong>Amazon</strong> built an AI tool to screen job applications. It was trained on 10 years of past CVs, mostly from men, and learned to downgrade CVs that included the word "women's" (as in "women's chess club"). Amazon stopped using it (reported in 2018). This is the classic example of AI copying historic bias.</p></div>
+
+<h3>Step 3 – How it appears in the exam</h3>
+<div class="box exam"><p><em>"Assess the risks and ethical implications of the proposed use of AI and recommend controls."</em> There are often ethical marks for spotting unfair treatment of a group.</p></div>
+
+<div class="box scenario">
+<h4>📄 Scenario – CareFirst Insurance</h4>
+<ul>
+<li>CareFirst, a health insurer, wants a machine learning model to <strong>automatically approve or reject</strong> medical claims.</li>
+<li>The model was trained on <strong>5 years of decisions</strong> made by human claims assessors.</li>
+<li>In testing, the model rejected <strong>11% of claims from one region</strong>, against a <strong>4% average</strong> elsewhere. The region has a large low-income population.</li>
+<li>The model cannot show the reasons for individual decisions. The insurance regulator requires written reasons for every rejected claim.</li>
+<li>The claims team has <strong>120 staff</strong>. The COO plans to reduce this to <strong>40</strong> within a year.</li>
+</ul>
+<p><strong>Task:</strong> Assess the risks and ethical issues of the proposal and recommend controls. (12 marks)</p>
+</div>
+
+<h3>Step 4 – Model answer</h3>
+<div class="model">
+<h4>Risks and ethical issues</h4>
+<p><strong>Possible bias.</strong> A rejection rate of 11% in one region against 4% elsewhere is almost three times higher. The model learned from human decisions, so it may have copied past unfairness, and the region's low-income profile raises a serious fairness concern. Automating this would apply any discrimination to every claim, quickly and invisibly. This conflicts with the principle of <em>objectivity</em> and could seriously damage CareFirst's reputation.</p>
+<p><strong>Regulatory breach.</strong> The regulator requires written reasons for every rejection, but the model cannot give reasons. Using it for rejections would breach regulation and could lead to fines or loss of licence.</p>
+<p><strong>Accountability.</strong> If a wrong rejection harms a patient (for example, treatment is delayed), it must be clear who is responsible. Right now there is no named owner.</p>
+<p><strong>People risk.</strong> Cutting from 120 to 40 staff in one year removes the experienced assessors needed to check the model and handle complex claims. Morale among remaining staff may fall, and knowledge will be lost.</p>
+<h4>Recommended controls</h4>
+<ul>
+<li><strong>Automate approvals only.</strong> Let the model auto-approve straightforward claims, but send every proposed <em>rejection</em> to a human assessor, who writes the reasons. This meets the regulation and keeps a human in the loop.</li>
+<li><strong>Investigate the regional difference</strong> before launch. Check whether it reflects genuine claim differences or bias, and retrain the model if needed.</li>
+<li><strong>Explainability.</strong> Ask the vendor for a model, or an add-on tool, that shows the main factors behind each decision.</li>
+<li><strong>Governance.</strong> Appoint a senior owner, add AI risk to the risk register, and report bias test results to the risk committee every quarter.</li>
+<li><strong>Phased staff reduction.</strong> Reduce headcount gradually, based on proven accuracy, and retrain some assessors as model reviewers.</li>
+</ul>
+</div>
+
+<h3>Step 5 – What the examiner wants</h3>
+<div class="box examiner"><ul><li>Spot the ethical issue from the data (11% vs 4%) and say why it matters.</li><li>Link to regulation and reputation.</li><li>Practical controls that still let the business get benefits. Don't just say "don't use AI".</li></ul></div>
+
+<h3>Step 6 – Common mistakes</h3>
+<div class="box mistakes"><ul><li>Generic "AI is risky" answers.</li><li>Recommending a total ban. The examiner prefers balanced, controlled use.</li><li>Missing the people and skills risk.</li></ul></div>
+
+<h3>Step 7 – Memory tip</h3>
+<div class="box memo"><p>Ethics = <strong>FAT-P</strong>: Fairness, Accountability, Transparency, Privacy. Controls = <strong>HUMAN</strong>.</p></div>
+</section>
+
+<!-- T8 -->
+<section class="card" id="t8">
+<span class="ref">Syllabus E4(a), E4(b)</span>
+<h2>8. E-business and the value chain</h2>
+
+<h3>Step 1 – In simple words</h3>
+<div class="box simple">
+<p><strong>E-commerce</strong> = buying and selling online. <strong>E-business</strong> = using digital technology in <em>every</em> part of the business: buying, making, storing, selling, HR, finance. <strong>E-commerce is the shop window; e-business is the whole shop.</strong></p>
+<h4>Stages of e-business adoption (assess where the organisation is)</h4>
+<div class="steps">
+<div class="tile"><b>1. Brochureware</b>Website shows information only</div><div class="arrow">→</div>
+<div class="tile"><b>2. Interaction</b>Enquiries, forms, basic accounts</div><div class="arrow">→</div>
+<div class="tile"><b>3. E-commerce</b>Online ordering and payment</div><div class="arrow">→</div>
+<div class="tile"><b>4. Integrated e-business</b>Online channel linked to stock, finance and suppliers</div><div class="arrow">→</div>
+<div class="tile"><b>5. Transformation</b>Business model changed by digital</div>
+</div>
+<h4>Applying technology to Porter's value chain</h4>
+<table>
+<tr><th>Activity</th><th>Examples of technology</th></tr>
+<tr><td>Inbound logistics</td><td>E-procurement, supplier portals, barcode/RFID receiving, automatic reordering</td></tr>
+<tr><td>Operations</td><td>Production planning systems, IoT machine monitoring, robotics</td></tr>
+<tr><td>Outbound logistics</td><td>Route optimisation, delivery tracking for customers</td></tr>
+<tr><td>Marketing &amp; sales</td><td>Website, app, social media, online ordering, personalised offers</td></tr>
+<tr><td>Service</td><td>Self-service portals, chatbots, online FAQs, remote diagnostics</td></tr>
+<tr><td>Support activities</td><td><em>Procurement:</em> e-tendering · <em>Technology:</em> cloud, data analytics · <em>HR:</em> online recruitment, e-learning, self-service · <em>Infrastructure:</em> ERP, dashboards</td></tr>
+</table>
+<p><strong>Upstream</strong> = supply side (dealing with suppliers). <strong>Downstream</strong> = sell side (dealing with customers).</p>
+<p><strong>Disintermediation</strong> = cutting out the middleman (selling direct online). <strong>Reintermediation</strong> = new online middlemen appear (comparison sites, booking platforms, delivery apps).</p>
+</div>
+
+<h3>Step 2 – Real business example</h3>
+<div class="box example"><p><strong>Dell</strong> grew by selling computers directly to customers online and building each one to order, cutting out retailers (disintermediation). In travel the opposite happened: online platforms such as Booking.com became powerful <em>new</em> middlemen between hotels and guests (reintermediation).</p></div>
+
+<h3>Step 3 – How it appears in the exam</h3>
+<div class="box exam"><p><em>"Assess the organisation's current approach to e-business"</em> and <em>"Advise how information technology could support the value chain."</em> Using value chain headings gives a clear structure.</p></div>
+
+<div class="box scenario">
+<h4>📄 Scenario – Al Waha Pharmacies</h4>
+<ul>
+<li>Al Waha has <strong>45 pharmacies</strong>. Its website only shows store locations and opening hours.</li>
+<li>A new online competitor delivers medicines within 2 hours of ordering.</li>
+<li><strong>30% of Al Waha's customers</strong> collect repeat prescriptions every month.</li>
+<li>The central warehouse uses paper picking lists. Expired medicines written off cost <strong>AED 2.1m per year</strong>.</li>
+<li>Staff rosters for all 45 stores are kept on separate spreadsheets.</li>
+</ul>
+<p><strong>Task:</strong> Assess Al Waha's current approach to e-business and advise how technology could support its value chain. (12 marks)</p>
+</div>
+
+<h3>Step 4 – Model answer</h3>
+<div class="model">
+<h4>Current approach</h4>
+<p>Al Waha is at the <strong>brochureware</strong> stage: its website gives information but no way to order, track or interact. Inside the business, key processes (warehouse picking, rostering) are manual. Meanwhile a competitor with 2-hour delivery is attacking the most valuable customers. Al Waha is behind its market and at risk of strategic drift.</p>
+<h4>How technology could help across the value chain</h4>
+<p><strong>Marketing &amp; sales:</strong> online and app ordering with prescription upload, particularly for the 30% of customers on repeat prescriptions. Automatic reminders ("your refill is due") and a choice of collection or delivery would protect this loyal, regular revenue from the competitor.</p>
+<p><strong>Outbound logistics:</strong> click-and-collect from any of the 45 stores, plus delivery from the nearest store. The store network is a strength the online competitor lacks, and it allows fast delivery without a new warehouse.</p>
+<p><strong>Inbound logistics &amp; operations:</strong> a warehouse management system with barcode scanning and "first-expiry-first-out" picking would reduce the AED 2.1m of expired stock. Linking store sales data to automatic reordering would keep the right stock in each store.</p>
+<p><strong>Service:</strong> online chat with a pharmacist and digital medication reminders would improve care and build loyalty.</p>
+<p><strong>HR:</strong> a central rostering system would match pharmacist hours to busy periods across all stores and ensure a qualified pharmacist is always present.</p>
+<h4>Recommendation</h4>
+<p>Priority 1 is a repeat-prescription app with collection and delivery, because it protects the most valuable customers. Priority 2 is the warehouse system, whose savings on expired stock can help fund the change. Integration between the app, store stock and the warehouse is essential, so customers aren't promised items that are out of stock.</p>
+</div>
+
+<h3>Step 5 – What the examiner wants</h3>
+<div class="box examiner"><ul><li>An <strong>assessment</strong> (where they are now, and how that compares with competitors), not just ideas.</li><li>Ideas mapped to real problems in the case.</li><li>Prioritisation, which shows commercial acumen.</li></ul></div>
+
+<h3>Step 6 – Common mistakes</h3>
+<div class="box mistakes"><ul><li>Covering every value chain activity with generic tech, including ones irrelevant to the case.</li><li>Forgetting the support activities.</li><li>No prioritisation.</li></ul></div>
+
+<h3>Step 7 – Memory tip</h3>
+<div class="box memo"><p>Value chain primary activities: <strong>"I Only Order Mangoes Saturday"</strong> = Inbound, Operations, Outbound, Marketing &amp; sales, Service. Then add the 4 support activities.</p></div>
+</section>
+
+<!-- T9 -->
+<section class="card" id="t9">
+<span class="ref">Syllabus E4(c)</span>
+<h2>9. E-marketing and the 6 I's</h2>
+
+<h3>Step 1 – In simple words</h3>
+<div class="box simple">
+<p>The 6 I's explain how digital marketing differs from traditional marketing:</p>
+<table>
+<tr><th>The "I"</th><th>Simple meaning</th><th>Everyday example</th></tr>
+<tr><td><strong>Interactivity</strong></td><td>Two-way conversation instead of one-way broadcast</td><td>Customers comment, chat and review; the business replies</td></tr>
+<tr><td><strong>Intelligence</strong></td><td>Online activity creates data about customers, cheaply</td><td>Seeing which products customers view but don't buy</td></tr>
+<tr><td><strong>Individualisation</strong></td><td>Tailoring messages and offers to each person</td><td>"Recommended for you" lists; personalised emails</td></tr>
+<tr><td><strong>Integration</strong></td><td>Joining online and offline channels and systems</td><td>Order online, collect in store; one customer record everywhere</td></tr>
+<tr><td><strong>Industry structure</strong></td><td>The internet changes who sits between the business and customers</td><td>Selling direct (disintermediation); delivery apps as new middlemen</td></tr>
+<tr><td><strong>Independence of location</strong></td><td>Reach customers anywhere, regardless of distance</td><td>A local brand selling across the country or abroad</td></tr>
+</table>
+</div>
+
+<h3>Step 2 – Real business example</h3>
+<div class="box example"><p><strong>Spotify</strong> uses listening data (intelligence) to create a personal weekly playlist for each user (individualisation), works the same in any country (independence of location), and lets users share and follow (interactivity). It also changed the music industry structure: listeners stream rather than buy CDs from stores.</p></div>
+
+<h3>Step 3 – How it appears in the exam</h3>
+<div class="box exam"><p><em>"Explore how the 6 I's could help the organisation develop its e-marketing."</em> Use each I as a heading and apply it.</p></div>
+
+<div class="box scenario">
+<h4>📄 Scenario – Desert Spring Water</h4>
+<ul>
+<li>Desert Spring sells bottled water. Its <strong>AED 6m</strong> marketing budget goes mostly on billboards and TV adverts. It holds almost no data on end customers.</li>
+<li>It sells through distributors who take an <strong>18% margin</strong>.</li>
+<li>It is launching a home-delivery subscription app aimed at families across the whole country, not just its home city.</li>
+<li>Customer complaints currently arrive by letter or phone and take about 10 days to answer.</li>
+</ul>
+<p><strong>Task:</strong> Explore how the 6 I's could help Desert Spring's e-marketing. (12 marks)</p>
+</div>
+
+<h3>Step 4 – Model answer</h3>
+<div class="model">
+<p><strong>Interactivity:</strong> the app allows two-way contact. Complaints can be answered through in-app chat within hours instead of 10 days, and customers can rate deliveries. Fast responses build loyalty in a market where products are very similar.</p>
+<p><strong>Intelligence:</strong> for the first time Desert Spring will know who its customers are, what they order, how often, and where. This data shows which areas and family sizes are most profitable, so the AED 6m budget can be moved towards channels that actually bring subscribers.</p>
+<p><strong>Individualisation:</strong> the app can suggest the right delivery size for each household, send reminders before a family usually runs out, and make offers based on order history (for example, a discount for adding sparkling water). This raises order value and retention.</p>
+<p><strong>Integration:</strong> the app must link to stock, delivery routes and billing, so customers see accurate delivery times. Billboards and TV should carry the app download link, so traditional and digital marketing support each other.</p>
+<p><strong>Industry structure:</strong> selling direct removes the distributor's 18% margin on those sales (disintermediation). Distributors may react badly, for example by giving competitors better shelf space, so Desert Spring must manage the relationship carefully. One option is to use distributors for delivery.</p>
+<p><strong>Independence of location:</strong> the app can reach families in every part of the country without new sales offices. The real limit is delivery logistics, so Desert Spring should expand area by area as delivery capacity allows.</p>
+<p><strong>Recommendation:</strong> move part of the AED 6m from billboards and TV to app promotion, and track the cost to acquire each subscriber against their lifetime value.</p>
+</div>
+
+<h3>Step 5 – What the examiner wants</h3>
+<div class="box examiner"><ul><li>All 6 I's <em>applied</em>, each with a benefit to the business.</li><li>Notice the conflict with distributors, which shows commercial acumen.</li></ul></div>
+
+<h3>Step 6 – Common mistakes</h3>
+<div class="box mistakes"><ul><li>Only defining the 6 I's.</li><li>Mixing up intelligence (gathering data) and individualisation (using it to tailor offers).</li></ul></div>
+
+<h3>Step 7 – Memory tip</h3>
+<div class="box memo"><p>The 6 I's in plain words: <strong>Talk · Learn · Tailor · Join up · Reshape · Anywhere</strong>.</p></div>
+</section>
+
+<!-- T10 -->
+<section class="card" id="t10">
+<span class="ref">Syllabus E4(d)</span>
+<h2>10. Online branding vs traditional branding</h2>
+
+<h3>Step 1 – In simple words</h3>
+<div class="box simple">
+<p>A <strong>brand</strong> is the promise and identity customers associate with an organisation. Online, the brand is built mainly by customers' <em>experience</em> and what other customers say about it.</p>
+<table>
+<tr><th></th><th>Traditional branding</th><th>Online branding</th></tr>
+<tr><td>Direction</td><td>One-way: company talks, customers listen</td><td>Two-way: customers talk back and to each other</td></tr>
+<tr><td>Control</td><td>Company controls the message</td><td>Customers share control (reviews, social media)</td></tr>
+<tr><td>Speed</td><td>Built slowly; damage spreads slowly</td><td>Built fast; damage can spread in hours</td></tr>
+<tr><td>Cost</td><td>Expensive mass media</td><td>Cheaper and targeted, but needs constant effort</td></tr>
+<tr><td>Measurement</td><td>Hard to measure</td><td>Easy to measure: clicks, ratings, followers</td></tr>
+<tr><td>Built by</td><td>Advertising, logo, packaging</td><td>Website/app experience, search ranking, reviews, response speed, social media</td></tr>
+</table>
+<p><strong>Key elements of a strong online brand:</strong> an easy-to-find web address, a fast mobile-friendly site, search engine visibility, active social media, good review ratings, quick responses to complaints, and a consistent look and message on every channel.</p>
+</div>
+
+<h3>Step 2 – Real business example</h3>
+<div class="box example"><p><strong>United Airlines (2009):</strong> a musician whose guitar was broken by baggage handlers posted a song called "United Breaks Guitars" on YouTube after the airline refused compensation. It was watched millions of times and became a famous example of how one customer can damage a big brand online when complaints aren't handled.</p></div>
+
+<h3>Step 3 – How it appears in the exam</h3>
+<div class="box exam"><p><em>"Assess the importance of online branding to the organisation and compare it with its traditional approach."</em></p></div>
+
+<div class="box scenario">
+<h4>📄 Scenario – Lotus Women &amp; Children Hospital</h4>
+<ul>
+<li>Lotus has built a strong reputation over <strong>20 years</strong>, mainly through word of mouth from doctors and families.</li>
+<li>Its online review rating is <strong>3.6 out of 5</strong>. Its two main competitors are rated <strong>4.5</strong> and <strong>4.4</strong>.</li>
+<li><strong>62%</strong> of new patients now say they found Lotus by searching online.</li>
+<li>A video complaining about a <strong>4-hour wait</strong> in the emergency department had <strong>1.1m views</strong>. Lotus did not respond for <strong>6 days</strong>.</li>
+<li>The hospital website does not work well on mobile phones.</li>
+</ul>
+<p><strong>Task:</strong> Assess the importance of online branding to Lotus compared with its traditional approach. (10 marks)</p>
+</div>
+
+<h3>Step 4 – Model answer</h3>
+<div class="model">
+<p><strong>The way patients choose has changed.</strong> Lotus's brand was built over 20 years through word of mouth, which is slow but trusted. Now 62% of new patients find Lotus online, so for most new patients the <em>online</em> brand is the first, and possibly the only, impression.</p>
+<p><strong>Lotus is losing the online comparison.</strong> A 3.6 rating next to competitors' 4.5 and 4.4 means a family comparing hospitals on their phone is likely to choose a competitor, however good Lotus's doctors are. Online, the brand is what customers <em>say</em>, not what the hospital says.</p>
+<p><strong>Speed of damage.</strong> The waiting-time video reached 1.1m views. Traditional reputation problems spread slowly; online, they spread in hours. Six days without a reply makes Lotus look as if it doesn't care, which is especially damaging for a hospital where trust is everything.</p>
+<p><strong>Basic weaknesses.</strong> A website that doesn't work on phones loses people at the moment they are searching, often parents in a hurry.</p>
+<p><strong>Recommendations:</strong></p>
+<ul>
+<li>Set up a social media and reviews team with a target to respond to complaints within 24 hours, with clinical leaders involved in serious cases.</li>
+<li>Fix the cause, not just the message. Review emergency department waiting times; good branding cannot hide poor service for long.</li>
+<li>Redesign the website for mobile, with online booking and clear waiting-time information.</li>
+<li>Invite satisfied families to leave reviews, to bring the rating closer to the real quality of care.</li>
+</ul>
+</div>
+
+<h3>Step 5 – What the examiner wants</h3>
+<div class="box examiner"><ul><li>A real <strong>comparison</strong> (traditional vs online) applied to the case.</li><li>Commercial acumen: online branding problems often come from service problems, so fix the root cause.</li></ul></div>
+
+<h3>Step 6 – Common mistakes</h3>
+<div class="box mistakes"><ul><li>Recommending more advertising when the issue is reviews and service.</li><li>Ignoring the time-critical crisis (the unanswered video).</li></ul></div>
+
+<h3>Step 7 – Memory tip</h3>
+<div class="box memo"><p><strong>"Traditional brand = what you SAY. Online brand = what customers SAY about you."</strong></p></div>
+</section>
+
+<!-- T11 -->
+<section class="card" id="t11">
+<span class="ref">Syllabus E4(e)</span>
+<h2>11. Managing suppliers and customers through e-business</h2>
+
+<h3>Step 1 – In simple words</h3>
+<div class="box simple">
+<h4>Suppliers (upstream) – e-procurement</h4>
+<table>
+<tr><th>Tool</th><th>What it does</th></tr>
+<tr><td>E-catalogues</td><td>Staff order only from approved items at agreed prices</td></tr>
+<tr><td>E-tendering</td><td>Tenders published, submitted and evaluated online. Faster, transparent, auditable.</td></tr>
+<tr><td>Reverse e-auctions</td><td>Suppliers bid prices <em>down</em> online in real time</td></tr>
+<tr><td>E-invoicing / EDI</td><td>Orders and invoices exchanged electronically between systems</td></tr>
+<tr><td>Supplier portals</td><td>Suppliers check orders, payment status and forecasts themselves</td></tr>
+<tr><td>Vendor-managed inventory</td><td>The supplier sees your stock levels and refills automatically</td></tr>
+</table>
+<p><strong>Benefits:</strong> lower prices, fewer off-contract purchases ("maverick spend"), faster cycles, transparency, an audit trail against fraud, better supplier relationships. <strong>Risks:</strong> system cost, supplier resistance (especially small suppliers), damaging relationships by pushing prices too hard, cyber risk.</p>
+<h4>Customers (downstream) – e-CRM lifecycle</h4>
+<div class="steps">
+<div class="tile"><b>1. Select</b>Use data to choose which customers to target</div><div class="arrow">→</div>
+<div class="tile"><b>2. Acquire</b>Win them (online ads, search, referral offers)</div><div class="arrow">→</div>
+<div class="tile"><b>3. Retain</b>Keep them (personal service, loyalty apps, self-service)</div><div class="arrow">→</div>
+<div class="tile"><b>4. Extend</b>Sell more (cross-selling, up-selling, recommendations)</div>
+</div>
+<p><em>Example:</em> a gym chain uses its app to <strong>select</strong> young professionals near each branch, <strong>acquire</strong> them with a 7-day free pass, <strong>retain</strong> them with class booking and progress tracking, and <strong>extend</strong> by selling personal training to members who attend often.</p>
+</div>
+
+<h3>Step 2 – Real business example</h3>
+<div class="box example"><p><strong>Walmart's Retail Link</strong> system (since the early 1990s) gives suppliers access to sales and stock data for their products in Walmart stores. Suppliers such as Procter &amp; Gamble use it to plan production and restock, sharing responsibility for stock levels. This is a classic example of integrating the supply chain through e-business.</p></div>
+
+<h3>Step 3 – How it appears in the exam</h3>
+<div class="box exam"><p><em>"Explore how the organisation could use e-business technologies to manage its suppliers more effectively"</em> (very common in public sector procurement cases) or <em>"... to acquire and retain customers."</em></p></div>
+
+<div class="box scenario">
+<h4>📄 Scenario – Northern Region Health Authority (NRHA)</h4>
+<ul>
+<li>NRHA buys for <strong>6 public hospitals</strong> from about <strong>1,800 suppliers</strong>, using paper-based tenders.</li>
+<li>A tender takes an average of <strong>94 days</strong> from start to contract.</li>
+<li><strong>23%</strong> of purchases are made outside agreed contracts ("maverick spend").</li>
+<li>The price paid for the same item varies by up to <strong>30%</strong> between hospitals.</li>
+<li>Suppliers are paid in <strong>87 days</strong> on average. Several small local suppliers have complained to a government minister.</li>
+</ul>
+<p><strong>Task:</strong> Explore how e-business technologies could help NRHA manage its suppliers. (10 marks)</p>
+</div>
+
+<h3>Step 4 – Model answer</h3>
+<div class="model">
+<p><strong>E-tendering to speed up buying.</strong> Running tenders online (publishing, receiving bids and evaluating them on one platform) would cut the 94-day cycle, because there are no paper documents to move and approvals can happen online. It also creates a full audit trail, which supports transparency and reduces the risk of corruption, important for a public body accountable for public money.</p>
+<p><strong>E-catalogues to stop maverick spend.</strong> If hospital staff can only order through an online catalogue of contracted items at agreed prices, the 23% of off-contract buying would fall sharply. It would also remove the 30% price differences, since every hospital pays the same contract price. This directly supports <em>economy</em>.</p>
+<p><strong>Combining demand.</strong> One system across all 6 hospitals shows total demand, so NRHA can negotiate volume discounts or run reverse e-auctions for standard items such as gloves and syringes.</p>
+<p><strong>E-invoicing and a supplier portal.</strong> Electronic invoices matched automatically to orders would cut the 87-day payment time. A portal lets suppliers check payment status themselves, reducing complaints and political pressure. Paying small local suppliers promptly also supports the government's wider public value goals.</p>
+<p><strong>Risks to manage.</strong> Small suppliers may lack the skills or systems to use e-tendering, so NRHA should provide training and a simple portal so they aren't excluded. Clinicians may resist catalogue restrictions, so clinical staff should help choose catalogue items. The system needs strong access controls, because it handles large payments.</p>
+</div>
+
+<h3>Step 5 – What the examiner wants</h3>
+<div class="box examiner"><ul><li>Each technology linked to a specific problem (94 days, 23%, 30%, 87 days).</li><li>Public sector angle: transparency, 3 Es, public value.</li><li>Risks, especially for small suppliers.</li></ul></div>
+
+<h3>Step 6 – Common mistakes</h3>
+<div class="box mistakes"><ul><li>Listing tools without linking them to the problems.</li><li>Forgetting the supplier's point of view.</li></ul></div>
+
+<h3>Step 7 – Memory tip</h3>
+<div class="box memo"><p>Suppliers: <strong>Tender → Catalogue → Invoice → Portal</strong>. Customers: <strong>Select → Acquire → Retain → Extend</strong> ("SARE").</p></div>
+</section>
+
+<!-- T12 -->
+<section class="card" id="t12">
+<span class="ref">Syllabus E5(a), E5(b)</span>
+<h2>12. Information systems control – general and application controls</h2>
+
+<h3>Step 1 – In simple words</h3>
+<div class="box simple">
+<p>IT controls make sure systems and data are:</p>
+<div class="grid g3">
+<div class="tile"><b>C – Confidential</b>Only the right people can see the data</div>
+<div class="tile"><b>I – Integrity</b>Data is complete, accurate and not tampered with</div>
+<div class="tile"><b>A – Available</b>Systems work when needed</div>
+</div>
+<p><strong>Why this is a strategic issue:</strong> data is a key asset; decisions and financial reports depend on it; regulations demand it; and a failure can stop the business and destroy reputation.</p>
+<table>
+<tr><th>General controls – the whole IT environment<br><em>("locks on the building")</em></th><th>Application controls – inside one system<br><em>("checks at each counter")</em></th></tr>
+<tr><td><ul>
+<li>IT governance, policies, IT steering committee</li>
+<li><strong>Access controls:</strong> unique user IDs, strong passwords, multi-factor authentication (MFA), least privilege, removing leavers quickly, segregation of duties</li>
+<li>Physical security of servers</li>
+<li><strong>Change management:</strong> test and approve system changes before use</li>
+<li>Backups, disaster recovery</li>
+<li>Network security: firewalls, antivirus, patching</li>
+<li>Staff vetting and training</li></ul></td>
+<td><ul>
+<li><strong>Input controls:</strong> validation checks (format, range, existence, completeness), authorisation, mandatory fields</li>
+<li><strong>Processing controls:</strong> control totals, reconciliations, exception reports</li>
+<li><strong>Output controls:</strong> review of reports, controlled distribution</li>
+<li><strong>Master file controls:</strong> restricted, logged changes to standing data (for example, supplier bank details)</li>
+<li><strong>Audit trail:</strong> logs of who did what and when</li></ul></td></tr>
+</table>
+</div>
+
+<h3>Step 2 – Real business example</h3>
+<div class="box example"><p><strong>Equifax (2017):</strong> hackers exploited a known software weakness for which a fix (patch) had been available for months but hadn't been applied. Personal data of about 147 million people was stolen. The company's CEO left, and it later agreed a settlement with US authorities reported at up to about USD 700m. One missed general control (patching) became a strategic disaster.</p></div>
+
+<h3>Step 3 – How it appears in the exam</h3>
+<div class="box exam"><p><em>"Assess the adequacy of the organisation's IT controls and recommend improvements."</em> The best format is a table: <strong>Weakness → Implication → Recommendation</strong>.</p></div>
+
+<div class="box scenario">
+<h4>📄 Scenario – Horizon Medical Labs</h4>
+<p>An internal audit review of Horizon's laboratory information system found:</p>
+<ol>
+<li><strong>14 lab staff share one administrator login.</strong></li>
+<li><strong>9 accounts</strong> of employees who left are still active.</li>
+<li>Test results can be edited <strong>after</strong> a doctor approves them, and no record is kept of changes.</li>
+<li>Backups are made to an external drive kept <strong>in the same room as the server</strong>. No restore has been tested in 2 years.</li>
+<li><strong>63 critical security patches</strong> are outstanding. Patches are applied "when IT has time".</li>
+<li>The sample-entry screen accepts any date, including future dates.</li>
+</ol>
+<p><strong>Task:</strong> Assess the adequacy of Horizon's IT controls and recommend improvements. (12 marks)</p>
+</div>
+
+<h3>Step 4 – Model answer</h3>
+<div class="model">
+<p>Overall, Horizon's controls are <strong>inadequate</strong> for an organisation handling sensitive patient results that doctors rely on for treatment. The weaknesses threaten all three aims of confidentiality, integrity and availability.</p>
+<table>
+<tr><th>Weakness</th><th>Implication</th><th>Recommendation</th></tr>
+<tr><td>14 staff share one admin login (general – access)</td><td>No accountability: nobody can tell who did what. Every user has full admin rights.</td><td>Unique user IDs for everyone; admin rights only for 1–2 named IT staff; MFA for admin accounts.</td></tr>
+<tr><td>9 leavers' accounts still active (general – access)</td><td>Former staff, or anyone who has their passwords, can access patient data. Confidentiality and data protection breach.</td><td>Disable these accounts immediately. HR leaver forms should trigger same-day removal. Quarterly user-access review signed off by managers.</td></tr>
+<tr><td>Results editable after approval, no log (application – integrity)</td><td>Results could be changed by error or on purpose, and a wrong result could harm a patient. No audit trail to investigate.</td><td>Lock results once approved. Any correction needs a new, separately approved version, with a full audit log.</td></tr>
+<tr><td>Backup in the same room; no restore test (general – availability)</td><td>A fire or flood destroys both server and backup. Untested backups may not work when needed.</td><td>Keep an off-site or cloud copy (3-2-1 rule). Test a restore at least every quarter.</td></tr>
+<tr><td>63 critical patches outstanding (general – network security)</td><td>Known weaknesses that attackers actively exploit, the same failure that caused the Equifax breach.</td><td>Formal patch policy: critical patches within 14 days; monthly patch report to management.</td></tr>
+<tr><td>Accepts any date, including future dates (application – input)</td><td>Wrong dates affect result validity and the order samples are processed in.</td><td>Add a range check: no future dates, and a warning for dates older than a set number of days.</td></tr>
+</table>
+<p><strong>Priority:</strong> remove leavers' access and shared logins immediately (quick and cheap), then backups and patching within one month. The board should ask internal audit to follow up in 3 months.</p>
+</div>
+
+<h3>Step 5 – What the examiner wants</h3>
+<div class="box examiner"><ul><li>An overall <strong>conclusion</strong> on adequacy ("inadequate because…"). The word "assess" requires a judgement.</li><li>Implication explained in business terms (patient safety, data protection, reputation).</li><li>Specific, practical recommendations, with priorities.</li></ul></div>
+
+<h3>Step 6 – Common mistakes</h3>
+<div class="box mistakes"><ul><li>Recommending "improve controls" with no detail.</li><li>Not explaining <em>why</em> each weakness matters.</li><li>No overall judgement.</li></ul></div>
+
+<h3>Step 7 – Memory tip</h3>
+<div class="box memo"><p><strong>CIA</strong> = Confidentiality, Integrity, Availability. <strong>General = building locks, Application = counter checks.</strong> Answer format: <strong>Weakness → So what? → Fix</strong>.</p></div>
+</section>
+
+<!-- T13 -->
+<section class="card" id="t13">
+<span class="ref">Syllabus E5(c)</span>
+<h2>13. Cyber security</h2>
+
+<h3>Step 1 – In simple words</h3>
+<div class="box simple">
+<p>Cyber security means protecting systems, networks and data from digital attacks.</p>
+<table>
+<tr><th>Threat</th><th>Simple meaning</th></tr>
+<tr><td>Phishing</td><td>Fake emails or messages that trick people into clicking links or giving passwords</td></tr>
+<tr><td>Business email compromise</td><td>A fraudster pretends to be the CEO or a supplier and asks for an urgent payment</td></tr>
+<tr><td>Ransomware</td><td>Malware that locks (encrypts) data and demands payment</td></tr>
+<tr><td>Malware / viruses</td><td>Harmful software that damages systems or steals data</td></tr>
+<tr><td>Denial of service (DDoS)</td><td>Flooding a website with traffic so it crashes</td></tr>
+<tr><td>Insider threat</td><td>Staff misusing access, on purpose or by carelessness</td></tr>
+<tr><td>Supply chain attack</td><td>Attackers get in through a supplier's system or software</td></tr>
+</table>
+<h4>Promoting cyber security – People, Process, Technology</h4>
+<div class="grid g3">
+<div class="tile"><b>People</b>Board ownership of cyber risk · regular training · phishing simulation tests · a culture where staff report mistakes quickly</div>
+<div class="tile"><b>Process</b>Cyber risk on the risk register · patching policy · payment verification (call back on a known number) · incident response plan · checking suppliers' security · offline backups</div>
+<div class="tile"><b>Technology</b>MFA · firewalls · endpoint protection · encryption · network segmentation · 24/7 monitoring · penetration testing</div>
+</div>
+<p>A helpful structure is the US NIST Cybersecurity Framework: <strong>Identify → Protect → Detect → Respond → Recover</strong> (version 2.0 in 2024 added <strong>Govern</strong> at the centre). Cyber insurance is a way to <em>transfer</em> part of the risk (the T in TARA).</p>
+</div>
+
+<h3>Step 2 – Real business example</h3>
+<div class="box example"><p><strong>WannaCry (2017):</strong> ransomware spread worldwide through computers that hadn't been updated. Parts of the UK's NHS were affected, and thousands of appointments and operations were cancelled. <strong>Maersk (2017):</strong> the shipping company was hit by the NotPetya malware and had to rebuild thousands of computers. It estimated the cost at USD 250–300m.</p></div>
+
+<h3>Step 3 – How it appears in the exam</h3>
+<div class="box exam"><p><em>"Evaluate and recommend ways in which the organisation could promote cyber security."</em> Often after an incident described in an exhibit. Mark-scoring answers cover people, process and technology, and give the <strong>board</strong> a role.</p></div>
+
+<div class="box scenario">
+<h4>📄 Scenario – Prime Payroll Services</h4>
+<ul>
+<li>Prime runs outsourced payroll for <strong>300 client companies</strong>, holding employees' salary and bank details.</li>
+<li>Last month a finance clerk paid <strong>AED 780,000</strong> to a fake supplier after an email that appeared to come from the CEO asked for an "urgent, confidential payment". The money was not recovered.</li>
+<li>Email accounts have no multi-factor authentication.</li>
+<li>Staff last received cyber security training <strong>3 years ago</strong>.</li>
+<li>Board minutes show the board considers cyber security to be "an IT matter". There is no incident response plan.</li>
+</ul>
+<p><strong>Task:</strong> Evaluate Prime's approach to cyber security and recommend how it could be improved. (12 marks)</p>
+</div>
+
+<h3>Step 4 – Model answer</h3>
+<div class="model">
+<h4>Evaluation</h4>
+<p>Prime's approach is <strong>weak</strong>, and the AED 780,000 loss shows the risk has already materialised. For a business whose whole service depends on clients trusting it with salary and bank data, a major breach could lose clients, bring regulatory penalties and threaten the business itself. Cyber risk is therefore a <strong>strategic</strong> risk, not an IT matter.</p>
+<h4>Recommendations</h4>
+<p><strong>Governance (board level):</strong> the board should take ownership: put cyber risk on the risk register, set a risk appetite, appoint a director responsible, and receive a cyber report every quarter. This sets the tone from the top.</p>
+<p><strong>People:</strong> the fraud succeeded because a clerk trusted an email. Annual training for all staff, plus regular phishing simulation tests, would teach staff to spot fake requests. Staff should feel safe to question even the CEO about unusual payment requests.</p>
+<p><strong>Process:</strong> require every new supplier and every change of bank details to be verified by phoning a known number (not one in the email), plus two-person approval for payments above a set limit. This control alone would probably have stopped the AED 780,000 fraud.</p>
+<p><strong>Technology:</strong> turn on MFA for all email accounts, which makes stolen passwords far less useful. Add email filtering that flags external emails pretending to be internal, encrypt client data, and commission an annual penetration test.</p>
+<p><strong>Respond and recover:</strong> write and rehearse an incident response plan covering who decides, how clients and regulators are informed, and how systems are restored from offline backups. Consider cyber insurance to transfer part of the financial risk.</p>
+<p><strong>Priority:</strong> payment verification and MFA can be done within weeks at low cost and should come first.</p>
+</div>
+
+<h3>Step 5 – What the examiner wants</h3>
+<div class="box examiner"><ul><li>An evaluation first (how weak, and why it matters for <em>this</em> business).</li><li>Recommendations that fix the actual causes in the case (no MFA, no training, no verification, board indifference).</li><li>A board-level role: SBL is a leadership exam.</li></ul></div>
+
+<h3>Step 6 – Common mistakes</h3>
+<div class="box mistakes"><ul><li>Only technology answers ("install a firewall"). Most incidents start with people.</li><li>Not mentioning the board.</li><li>No incident response or recovery element.</li></ul></div>
+
+<h3>Step 7 – Memory tip</h3>
+<div class="box memo"><p><strong>People · Process · Technology</strong>, wrapped in <strong>Govern → Identify → Protect → Detect → Respond → Recover</strong>. "Humans are the weakest link, and the strongest defence."</p></div>
+</section>
+
+<!-- T14 -->
+<section class="card" id="t14">
+<span class="ref">Syllabus E5(d)</span>
+<h2>14. Safeguarding IT assets, business continuity and data protection</h2>
+
+<h3>Step 1 – In simple words</h3>
+<div class="box simple">
+<p><strong>IT assets</strong> = hardware (servers, laptops, phones), software and licences, <strong>data</strong> (often the most valuable), networks, and the knowledge of IT staff.</p>
+<table>
+<tr><th>Control area</th><th>Examples</th></tr>
+<tr><td>Physical</td><td>Locked server rooms, CCTV, fire suppression, air conditioning, backup power (UPS), flood protection</td></tr>
+<tr><td>Asset management</td><td>An IT asset register, tagging, regular checks, secure disposal (wipe drives)</td></tr>
+<tr><td>Mobile devices</td><td>Encrypted laptops and phones, mobile device management (remote wipe if stolen), clear rules for personal devices</td></tr>
+<tr><td>Backups</td><td><strong>3-2-1 rule:</strong> 3 copies of data, on 2 different media, 1 kept off-site (or offline). Test restores regularly.</td></tr>
+<tr><td>Business continuity</td><td><strong>Business continuity plan (BCP):</strong> how the business keeps running in a disaster. <strong>Disaster recovery plan (DRP):</strong> how IT is restored. Key targets: how fast systems must be back (recovery time objective) and how much data loss is acceptable (recovery point objective). Plans must be tested.</td></tr>
+<tr><td>Data protection</td><td>Laws (for example, the EU's GDPR and the UAE's Personal Data Protection Law) require personal data to be collected lawfully, used only for agreed purposes, limited to what's needed, kept accurate, not kept longer than necessary, and kept secure. Breaches can bring heavy fines.</td></tr>
+</table>
+</div>
+
+<h3>Step 2 – Real business example</h3>
+<div class="box example"><p><strong>OVHcloud fire (2021):</strong> a fire destroyed a data centre in Strasbourg, France. Many websites went offline, and some customers permanently lost data because their only backups were in the same building. This is a clear lesson in why one copy should always be kept elsewhere.</p></div>
+
+<h3>Step 3 – How it appears in the exam</h3>
+<div class="box exam"><p><em>"Evaluate and recommend improvements to the controls over the safeguarding of the organisation's IT assets."</em> Link each control to the business objective it protects.</p></div>
+
+<div class="box scenario">
+<h4>📄 Scenario – City Dental Group</h4>
+<ul>
+<li>City Dental runs <strong>18 clinics</strong>. Patient X-rays and records are stored on a local PC in each clinic.</li>
+<li>Last year <strong>3 laptops</strong> with patient data were stolen. None were encrypted.</li>
+<li>There is no IT asset register.</li>
+<li>One clinic was flooded and lost <strong>2 years of patient records</strong>. It was closed for <strong>5 days</strong>.</li>
+<li>There is no business continuity plan. The group's objective is "to be the most trusted dental provider in the city".</li>
+</ul>
+<p><strong>Task:</strong> Evaluate City Dental's controls over its IT assets and recommend improvements. (10 marks)</p>
+</div>
+
+<h3>Step 4 – Model answer</h3>
+<div class="model">
+<p><strong>Overall:</strong> controls are poor and directly threaten the objective of being the "most trusted" provider. Patients trust a dentist with sensitive health data, and City Dental has already lost data twice.</p>
+<p><strong>Data stored on local PCs.</strong> Keeping records on 18 separate PCs means each clinic is a single point of failure, as the flood showed when 2 years of records were lost. <em>Recommendation:</em> move records to a central, secure system (for example, a compliant cloud service) with automatic backups following the 3-2-1 rule, so no clinic holds the only copy.</p>
+<p><strong>Unencrypted laptops.</strong> 3 stolen laptops means patient data may now be in criminal hands. This is likely a reportable data protection breach that could bring fines and patient claims. <em>Recommendation:</em> encrypt all laptops and phones immediately, add remote-wipe software, and review whether patient data needs to be on laptops at all.</p>
+<p><strong>No asset register.</strong> Without one, City Dental doesn't know what devices it owns, where they are, or what data they hold, so it can't even confirm what was lost. <em>Recommendation:</em> create a register with tags, assigned users and a check every 6 months.</p>
+<p><strong>No business continuity plan.</strong> A 5-day closure means lost income, cancelled treatments and patients moving to competitors. <em>Recommendation:</em> write a BCP setting out how patients are moved to nearby clinics, how records are reached from any site, and targets for how quickly services and data must be restored. Test it each year.</p>
+<p><strong>Priority:</strong> encryption and the central backup first, because they address the biggest risks to patients and reputation.</p>
+</div>
+
+<h3>Step 5 – What the examiner wants</h3>
+<div class="box examiner"><ul><li>Link controls to the organisation's <strong>objectives</strong> (the syllabus says "to ensure the organisation meets its business objectives").</li><li>Spot the legal or data protection consequences.</li><li>Practical, prioritised recommendations.</li></ul></div>
+
+<h3>Step 6 – Common mistakes</h3>
+<div class="box mistakes"><ul><li>Forgetting that data, not hardware, is the most valuable asset.</li><li>Recommending backups without saying where they are kept or that they must be tested.</li></ul></div>
+
+<h3>Step 7 – Memory tip</h3>
+<div class="box memo"><p><strong>"Lock it, Log it, Back it up, Plan for it, Train for it."</strong> Backups: <strong>3-2-1</strong>.</p></div>
+</section>
+
+<!-- CASE STUDY -->
+<section class="card" id="case">
+<h2>Mini case study – Oasisfield Foods (40 marks, about 78 minutes)</h2>
+<p>Practise this under exam conditions. Read the exhibits, plan, write your answers, then open the model answers. You are an <strong>external consultant</strong> advising the Board of Oasisfield Foods.</p>
+
+<div class="exhibit">
+<h4>Exhibit 1 – Company background and email from the Chief Financial Officer</h4>
+<p>Oasisfield Foods is a dairy and juice manufacturer in the Gulf region with revenue of AED 1.4bn, 2,100 employees and 3 factories.</p>
+<p><em>From: CFO · To: Board · Subject: ERP replacement – decision needed this month</em></p>
+<p>Our on-premise ERP system is 11 years old, and vendor support ends in December 2027. We have two options:</p>
+<ul>
+<li><strong>Option A – Upgrade on-premise:</strong> AED 9.5m for hardware and licences now, plus AED 2.0m per year running costs (IT staff, power, maintenance).</li>
+<li><strong>Option B – Cloud ERP (SaaS):</strong> AED 3.0m migration cost now, plus AED 3.2m per year subscription. 5-year contract. Exit fee of AED 2m if we leave in the first 3 years.</li>
+</ul>
+<p>Under Option B we would need 6 IT staff instead of our current 14. The cloud provider's data centre is in Ireland; it says a Gulf data centre is "expected to open next year". Factory 3, in a rural area, had 11 internet outages last year.</p>
+<p>Cloud is obviously cheaper and safer. I propose we sign this month.</p>
+</div>
+
+<div class="exhibit">
+<h4>Exhibit 2 – Memo from the Marketing Director: "Oasisfield Direct" app</h4>
+<p>Our 6-month trial of a home-delivery subscription app in Dubai has been a success: <strong>85,000 downloads</strong>, <strong>21,000 active subscribers</strong>, average order <strong>AED 64 per week</strong>.</p>
+<p>The app collects purchase history, location, delivery times, family size and the ages of children (parents enter these to receive "kids' nutrition tips").</p>
+<p>Order trends during the trial: oat milk orders <strong>+140%</strong>, lactose-free milk <strong>+70%</strong>, full-fat milk <strong>−12%</strong>.</p>
+<p>My plans:</p>
+<ol>
+<li>Sell anonymised customer data to a baby-food company for <strong>AED 1.5m per year</strong>.</li>
+<li>Introduce automatic dynamic pricing that adds <strong>15%</strong> to prices for customers in high-income postcodes.</li>
+</ol>
+</div>
+
+<div class="exhibit">
+<h4>Exhibit 3 – Internal audit memo: ransomware incident, August 2026</h4>
+<ul>
+<li>Ransomware entered through a phishing email opened by a production planner at Factory 2. It encrypted the production planning server.</li>
+<li>Factory 2 stopped production for <strong>3 days</strong>. Estimated lost sales: <strong>AED 4.8m</strong>. No ransom was paid.</li>
+<li>Backups were stored on a network drive connected to the same server and were also encrypted. Data was restored from a 3-week-old tape.</li>
+<li>Last phishing training: 2023, head office staff only. Factory staff have never been trained.</li>
+<li>Multi-factor authentication is used only by directors.</li>
+<li><strong>31%</strong> of factory PCs run an operating system no longer supported by its vendor.</li>
+<li>There is no incident response plan. The IT manager learned of the attack from factory staff <strong>9 hours</strong> after it began.</li>
+<li>Board minutes for the last 2 years contain no discussion of cyber security.</li>
+</ul>
+</div>
+
+<h3>Tasks</h3>
+<div class="task"><strong>Task 1 (14 marks, about 27 minutes).</strong> Evaluate the CFO's proposal to adopt the cloud ERP (Option B) rather than upgrade on-premise (Option A), and recommend a course of action. <em>(12 technical marks + 2 professional skills marks for evaluation)</em></div>
+<div class="task"><strong>Task 2 (12 marks, about 23 minutes).</strong> Advise how data from the Oasisfield Direct app can support pricing and new product decisions, and assess the ethical issues raised by the Marketing Director's plans. <em>(10 technical marks + 2 professional skills marks for commercial acumen)</em></div>
+<div class="task"><strong>Task 3 (14 marks, about 28 minutes).</strong> Prepare a briefing note for the Board that assesses the adequacy of Oasisfield's cyber security controls, as revealed by the incident, and recommends improvements. <em>(12 technical marks + 2 professional skills marks for communication)</em></div>
+
+<details><summary>▶ Model answer – Task 1 (open after you have tried it)</summary><div>
+<div class="calc">5-year cost:
+Option A: 9.5m + (2.0m × 5) = AED 19.5m
+Option B: 3.0m + (3.2m × 5) = AED 19.0m
+Difference: AED 0.5m in favour of B (≈2.6%)</div>
+<p><strong>Cost.</strong> The CFO says cloud is "obviously cheaper", but over 5 years it is only AED 0.5m cheaper, about 2.6%. That difference could disappear if subscription fees rise, or if extra costs arise such as a second internet line for Factory 3. Cost alone does not decide this; the decision should rest on non-financial factors. Option B does, however, reduce the up-front cash outlay from AED 9.5m to AED 3.0m.</p>
+<p><strong>Benefits of Option B.</strong> Oasisfield would always be on the latest version with vendor support, avoiding a repeat of today's end-of-support problem. The provider brings professional security and resilience, which matters given the recent ransomware attack. Capacity can grow if the business expands across the region.</p>
+<p><strong>Data location risk.</strong> The data centre is in Ireland, and the Gulf centre is only "expected". Oasisfield must check whether local laws allow its customer and employee data (including the app data) to be stored abroad. Signing before this is confirmed could create a compliance breach.</p>
+<p><strong>Connectivity risk.</strong> Factory 3 had 11 internet outages last year. With cloud ERP, every outage would stop production planning, stock and despatch at that factory. A backup connection (a second provider or satellite) is essential.</p>
+<p><strong>Lock-in.</strong> A 5-year contract with an AED 2m exit fee makes it costly to leave if service is poor. Service level agreements with penalties and a data-return clause are needed.</p>
+<p><strong>People.</strong> Reducing IT staff from 14 to 6 brings savings but also loss of knowledge and possible resistance during migration, exactly when that knowledge is most needed. Some staff should be retrained to manage the provider and support users.</p>
+<p><strong>Timing.</strong> Support ends December 2027, so there is time to negotiate properly. "Sign this month" is unnecessary pressure and increases the risk of a poor contract.</p>
+<p><strong>Recommendation.</strong> Proceed with Option B <strong>in principle</strong>, but do not sign this month. Over the next 2–3 months: (1) obtain legal advice on data location and negotiate a contractual date for Gulf hosting, (2) negotiate SLAs, a price cap and exit terms, (3) install a backup internet link at Factory 3, and (4) plan a phased migration with a retained IT team.</p>
+<p><em>Marker's comments: the calculation showing the costs are almost equal is the key insight, and it challenges the CFO's "obviously cheaper" with evidence (scepticism and evaluation). Balanced points plus a conditional recommendation earn the professional skills marks.</em></p>
+</div></details>
+
+<details><summary>▶ Model answer – Task 2</summary><div>
+<h4>Using the data for decisions</h4>
+<div class="calc">Annual revenue from app subscribers: 21,000 × AED 64 × 52 ≈ AED 69.9m (if the trial pattern holds)
+Conversion: 21,000 / 85,000 ≈ 25% of downloads became active subscribers</div>
+<p><strong>New products.</strong> Oat milk +140% and lactose-free +70%, with full-fat −12%, show a clear shift towards plant-based and specialist products. This supports developing a wider plant-based range (for example, oat-based yoghurt and juice blends). The data comes from Dubai app users only, who may be younger and wealthier than the average customer, so supermarket sales data should confirm the trend before major factory investment.</p>
+<p><strong>Pricing.</strong> Purchase data shows how often customers order and how they respond to promotions, so Oasisfield can test prices and bundles (for example, a discounted family subscription) and measure the effect on order value and on customers cancelling. Customer lifetime value can guide how much to spend winning each subscriber.</p>
+<h4>Ethical issues</h4>
+<p><strong>Selling customer data.</strong> Customers gave their data, including children's ages, to receive nutrition tips, not to be sold to a baby-food company. Selling it would break the purpose they agreed to, may breach data protection law, and "anonymised" data with location and children's ages can often be traced back to families. The AED 1.5m is small compared with the AED 70m subscription revenue that depends on customer trust. <em>This plan should be rejected.</em></p>
+<p><strong>Postcode pricing.</strong> Automatically charging 15% more by postcode, without telling customers, lacks transparency and could be seen as unfair. If discovered, it could cause serious reputational damage on social media. It also conflicts with integrity and fairness. A more acceptable approach is open pricing, with premium options that customers can choose.</p>
+<p><strong>Recommendation.</strong> Use the data internally for product development and transparent pricing tests, update the privacy notice, and set up a data ethics review for any future use of customer data.</p>
+<p><em>Marker's comments: commercial acumen marks come from comparing the AED 1.5m with the much larger revenue that depends on trust, and from questioning whether the Dubai trial represents all customers.</em></p>
+</div></details>
+
+<details><summary>▶ Model answer – Task 3</summary><div>
+<p><strong>Briefing note</strong><br>To: Board of Directors, Oasisfield Foods · From: External consultant · Subject: Cyber security after the August 2026 ransomware incident</p>
+<h4>1. Overall assessment</h4>
+<p>Oasisfield's cyber security controls are <strong>inadequate</strong>. The August attack cost an estimated AED 4.8m in lost sales from a single phishing email. The weaknesses are in people, process, technology and governance, so a similar or worse attack is likely without action.</p>
+<h4>2. Weaknesses and recommendations</h4>
+<table>
+<tr><th>Weakness</th><th>Implication</th><th>Recommendation</th></tr>
+<tr><td>No board discussion of cyber security in 2 years</td><td>Cyber risk is not governed. No risk appetite, no budget priority, no oversight.</td><td>Add cyber risk to the board risk register; name a responsible director; quarterly cyber report to the audit/risk committee.</td></tr>
+<tr><td>Factory staff never trained; last training 2023</td><td>The attack started with a factory planner opening a phishing email. Staff are the main entry point.</td><td>Annual training for <em>all</em> staff including factories, plus regular phishing simulations.</td></tr>
+<tr><td>Backups on a network drive linked to the same server</td><td>Ransomware encrypted the backups too, forcing restoration from a 3-week-old tape and losing 3 weeks of data.</td><td>3-2-1 backup with at least one offline or immutable copy; test restores every quarter.</td></tr>
+<tr><td>31% of factory PCs on an unsupported operating system</td><td>No security patches, so known weaknesses stay open (the WannaCry pattern).</td><td>Replace or upgrade these PCs within 6 months, or isolate them from the network until then.</td></tr>
+<tr><td>MFA for directors only</td><td>Stolen passwords of any other employee give attackers access.</td><td>MFA for all staff, starting with finance, IT and remote access.</td></tr>
+<tr><td>No incident response plan; IT learned of the attack 9 hours late</td><td>Slow detection let the attack spread; no clear roles in the crisis.</td><td>Written, rehearsed incident response plan; 24/7 monitoring service; clear reporting route for staff.</td></tr>
+<tr><td>Factory network not separated from planning systems</td><td>One infected PC can stop a whole factory.</td><td>Separate (segment) factory networks so an infection can be contained.</td></tr>
+</table>
+<h4>3. Priorities</h4>
+<p>Within 1 month: offline backups, MFA for all, isolate unsupported PCs. Within 3 months: training for all staff, incident response plan, board reporting. Within 6 months: replace unsupported PCs and segment the networks. The cost should be weighed against the AED 4.8m lost in a single incident.</p>
+<p><em>Marker's comments: communication marks come from the briefing note format, a clear overall judgement up front, a table that is easy for the board to read, and time-bound priorities.</em></p>
+</div></details>
+</section>
+
+<!-- TECHNIQUE -->
+<section class="card" id="technique">
+<h2>Exam technique for technology tasks</h2>
+
+<h3>Roles and formats you may be given</h3>
+<p>IT or digital consultant, adviser to the board, head of internal audit, CFO's assistant. Formats: briefing note, report, slides with notes, email. <strong>Use the format asked for</strong>, because the communication marks depend on it.</p>
+
+<h3>A 5-step plan for any technology task</h3>
+<div class="steps">
+<div class="tile"><b>1. Verb</b>Evaluate, assess, advise or recommend? Evaluate and assess need a judgement.</div><div class="arrow">→</div>
+<div class="tile"><b>2. Facts</b>Highlight numbers, people's opinions and constraints (laws, staff, connectivity).</div><div class="arrow">→</div>
+<div class="tile"><b>3. Calculate</b>Do one or two quick sums (5-year cost, saving, payback).</div><div class="arrow">→</div>
+<div class="tile"><b>4. Balance</b>Benefits AND risks, each applied to the case.</div><div class="arrow">→</div>
+<div class="tile"><b>5. Recommend</b>A clear decision, with conditions and priorities.</div>
+</div>
+
+<h3>Where the professional skills marks come from in this chapter</h3>
+<table>
+<tr><th>Skill</th><th>How to show it in technology questions</th></tr>
+<tr><td>Communication</td><td>Correct format, headings, tables for weaknesses, plain English (no technical jargon for the board)</td></tr>
+<tr><td>Commercial acumen</td><td>Link technology to customers, competitors, costs and regulation; prioritise; spot what really matters financially</td></tr>
+<tr><td>Analysis</td><td>Use the numbers: costs over the contract life, savings, percentages</td></tr>
+<tr><td>Scepticism</td><td>Question vendor estimates, small trials, "obviously cheaper" claims and data quality</td></tr>
+<tr><td>Evaluation</td><td>Weigh benefits against risks and reach a justified, conditional recommendation</td></tr>
+</table>
+
+<h3>Useful phrases</h3>
+<ul>
+<li>"While the proposal offers [benefit], this depends on [condition], which the board should confirm before…"</li>
+<li>"The figure of AED __ is the vendor's own estimate and should be tested through…"</li>
+<li>"This weakness matters because…" (always explain the "so what")</li>
+<li>"On balance, I recommend… provided that…"</li>
+</ul>
+
+<h3>Timing</h3>
+<p>About <strong>1.95 minutes per mark</strong> (195 minutes ÷ 100 marks), including reading. A 12-mark technology task ≈ 23 minutes: about 6 minutes to read and plan, 17 minutes to write.</p>
+</section>
+
+<!-- QUIZ -->
+<section class="card" id="quiz">
+<h2>Quick quiz – 10 questions</h2>
+<p>Click an answer to see whether it is right. Score: <span id="score">0 / 0</span></p>
+<div id="quizbox"></div>
+</section>
+
+<!-- CHEAT SHEET -->
+<section class="card" id="cheat">
+<h2>One-page cheat sheet</h2>
+<table>
+<tr><th>Topic</th><th>Remember</th></tr>
+<tr><td>Tech &amp; strategy</td><td>FIT · OPTION · DRIFT. Competitive necessity vs advantage.</td></tr>
+<tr><td>Cloud</td><td>IaaS / PaaS / SaaS · public, private, hybrid, community · benefits <strong>SCALE</strong> · risks <strong>LOCKS</strong> · recommend with conditions (SLA, exit, data location)</td></tr>
+<tr><td>Mobile &amp; IoT</td><td>Sense → Send → Make sense → Act · predictive maintenance · product-to-service · pilot first</td></tr>
+<tr><td>Big data</td><td>5 Vs: Volume, Velocity, Variety, Veracity, Value · question data quality and consent</td></tr>
+<tr><td>Analytics</td><td>Descriptive → Diagnostic → Predictive → Prescriptive · new products, marketing, pricing · calculate → question → advise</td></tr>
+<tr><td>AI / ML / RPA</td><td>RPA = hands, ML = learning brain, robotics = body · benefits: speed, accuracy, 24/7, cost, staff redeployed · public sector → 3 Es</td></tr>
+<tr><td>AI risks &amp; ethics</td><td>Bias, black box, scale, accountability, privacy, people · ethics <strong>FAT-P</strong> · controls <strong>HUMAN</strong></td></tr>
+<tr><td>E-business</td><td>Brochureware → Interaction → E-commerce → Integrated → Transformation · value chain "I Only Order Mangoes Saturday" + support · dis-/reintermediation</td></tr>
+<tr><td>6 I's</td><td>Interactivity, Intelligence, Individualisation, Integration, Industry structure, Independence of location (Talk, Learn, Tailor, Join up, Reshape, Anywhere)</td></tr>
+<tr><td>Online branding</td><td>Two-way, shared control, fast, measurable · fix the service, not just the message</td></tr>
+<tr><td>Suppliers &amp; customers</td><td>E-tendering, e-catalogues, reverse auctions, e-invoicing, portals, VMI · CRM: Select → Acquire → Retain → Extend</td></tr>
+<tr><td>IS controls</td><td>CIA · general (access, change, backup, patching, physical) vs application (input, processing, output, master file, audit trail) · Weakness → Implication → Recommendation</td></tr>
+<tr><td>Cyber security</td><td>Phishing, BEC, ransomware, DDoS, insider, supply chain · People, Process, Technology · Govern, Identify, Protect, Detect, Respond, Recover · board ownership</td></tr>
+<tr><td>Safeguarding assets</td><td>Lock it, Log it, Back it up (3-2-1), Plan for it (BCP/DRP), Train for it · data protection principles · link to objectives</td></tr>
+</table>
+</section>
+
+</main>
+<footer>SBL Study Notes · Chapter E – Technology and Data Analytics · Syllabus September 2026 – June 2027</footer>
+
+<script>
+var fs=19;try{fs=parseInt(localStorage.getItem('sbl-fs2'))||19}catch(e){}
+document.documentElement.style.setProperty('--fs',fs+'px');
+function fsz(d){fs=Math.min(26,Math.max(15,fs+d));document.documentElement.style.setProperty('--fs',fs+'px');try{localStorage.setItem('sbl-fs2',fs)}catch(e){}}
+
+var Q=[
+["Which of these is an example of SaaS?",["Renting virtual servers to install your own software","Using a cloud payroll system through a web browser","Renting a platform to build your own app","Buying new servers for the head office"],1,"SaaS = using finished software on subscription. Renting servers is IaaS; a platform to build apps is PaaS."],
+["Which of the 5 Vs of big data is about how accurate and trustworthy the data is?",["Volume","Velocity","Veracity","Variety"],2,"Veracity = trustworthiness. Examiners like you to question it."],
+["'Sales will probably fall 8% next quarter' is an example of which type of analytics?",["Descriptive","Diagnostic","Predictive","Prescriptive"],2,"Predictive answers 'what will happen?'. Prescriptive would say what to do about it."],
+["RPA is best suited to which kind of task?",["Deciding the company's strategy","High-volume, rule-based, repetitive computer tasks","Tasks needing judgement and empathy","Physical work in a warehouse"],1,"RPA bots follow fixed rules on computer tasks such as invoice matching. Physical work is robotics."],
+["Which of these is a GENERAL IT control?",["A range check that rejects future dates","Control totals in a payroll run","A same-day process for removing leavers' system access","Review of an exception report"],2,"Access management covers the whole IT environment, so it is a general control. The others are application controls."],
+["'Disintermediation' means:",["Adding a new online middleman","Removing intermediaries and selling direct","Outsourcing IT","Merging with a distributor"],1,"Disintermediation = cutting out the middleman. Reintermediation = new online middlemen."],
+["In the 6 I's, 'independence of location' means:",["Staff can work from home","Customers can be reached wherever they are, regardless of distance","Data is stored in another country","Suppliers deliver from anywhere"],1,"Digital channels reach customers anywhere without physical branches."],
+["An AI model rejects claims from one region much more often than others. The BEST first response is:",["Ban AI entirely","Launch it and monitor complaints","Investigate for bias and keep humans reviewing rejections","Ignore it: AI is objective"],2,"Investigate and keep a human in the loop for high-impact decisions. Balanced, controlled use beats a ban."],
+["The 3-2-1 backup rule means:",["3 backups a day, 2 staff, 1 server","3 copies, on 2 different media, 1 kept off-site or offline","Backups every 3 days, kept 2 weeks, tested once a year","3 passwords, 2 factors, 1 administrator"],1,"Keeping one copy offline or off-site protects against fire, flood and ransomware."],
+["Which answer would score HIGHEST on 'Evaluate the move to cloud'?",["A clear explanation of IaaS, PaaS and SaaS","A list of cloud benefits","Benefits and risks applied to the case, numbers used, and a conditional recommendation","A statement that cloud is always cheaper"],2,"Evaluate = balanced, applied, with a justified recommendation. That is where the professional skills marks are."]
+];
+var answered=0,correct=0,box=document.getElementById('quizbox');
+Q.forEach(function(q,i){
+ var d=document.createElement('div');d.className='q';
+ var h=document.createElement('p');h.innerHTML='<strong>Q'+(i+1)+'.</strong> '+q[0];d.appendChild(h);
+ var why=document.createElement('p');why.className='why';why.textContent=q[3];
+ q[1].forEach(function(opt,j){
+  var b=document.createElement('button');b.textContent=opt;
+  b.onclick=function(){
+   if(d.dataset.done)return;d.dataset.done=1;answered++;
+   if(j===q[2]){b.className='right';correct++;}else{b.className='wrong';d.querySelectorAll('button')[q[2]].className='right';}
+   why.style.display='block';
+   document.getElementById('score').textContent=correct+' / '+answered;
+  };
+  d.appendChild(b);
+ });
+ d.appendChild(why);box.appendChild(d);
+});
+</script>
+</body>
+</html>
