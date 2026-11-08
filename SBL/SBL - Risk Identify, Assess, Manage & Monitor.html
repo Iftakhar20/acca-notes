@@ -114,6 +114,8 @@ tr:nth-child(even) td{background:#FFF9F2}
 /* exhibit */
 .exhibit{background:#FFFCF7;border:1px solid #E2C9AB;border-radius:12px;padding:16px 20px;margin:14px 0;font-size:.93em}
 .exhibit h4{margin-top:0;color:#6B3A16}
+.scenario{border-left:5px solid #8B5E3C;background:#FFFAF3}
+.scenario ul{margin:4px 0 0}
 
 details{background:#FFF9F2;border:1px solid var(--line);border-radius:12px;padding:12px 18px;margin:12px 0}
 details summary{cursor:pointer;font-weight:700;color:var(--rust)}
@@ -204,6 +206,8 @@ footer{text-align:center;color:var(--ink-soft);font-size:.8em;padding:30px}
   </div>
   <p>Every section below fits into one of these five steps. If an exam task says "advise the board on risk", you can almost always build your answer as <strong>identify → assess → respond → monitor</strong>.</p>
 
+  <div class="box exam"><span class="lbl">About "exhibits" and the scenarios in these notes</span>In the real SBL exam, the facts come in <strong>exhibits</strong>: emails, board minutes, reports and spreadsheets about the company. In these notes, every model answer has a <strong>📄 Scenario</strong> box just above it. That box holds all the facts the answer uses, so read the scenario first, then the model answer, and check how each fact is used. The full practice case at the end has its own numbered exhibits (Exhibits 1–4).</div>
+
   <h3>How each topic is taught</h3>
   <div class="grid2">
     <div class="box simple"><span class="lbl">① Simple explanation</span>Plain English, no jargon.</div>
@@ -246,16 +250,18 @@ footer{text-align:center;color:var(--ink-soft);font-size:.8em;padding:30px}
     </ul>
   </div>
 
+  <div class="exhibit scenario"><h4>📄 Scenario: MedLink Healthcare Group</h4><p style="margin:0 0 6px;font-size:.88em;color:var(--ink-soft)">Read this first. The model answer below uses only these facts.</p><ul><li>Private hospital group that has operated in <strong>one emirate for 15 years</strong>.</li><li>The board plans to open <strong>three outpatient clinics in neighbouring emirates</strong>, investing about <strong>AED 40m</strong>, mostly funded by a bank loan.</li><li>Each clinic needs a licence from a <strong>different health regulator</strong>. Approval usually takes 6–9 months, but has sometimes taken 18 months.</li><li>The clinics need specialist doctors, who are in <strong>short supply</strong>.</li><li>The bank loan has a <strong>covenant</strong>: if interest cover falls below 3 times, the bank can demand immediate repayment.</li><li>The board has never discussed how much risk it is willing to take on this expansion.</li></ul></div>
+
   <div class="box model"><span class="lbl">④ Model answer extract</span>
     <p><strong>Why risk management must be linked to the expansion strategy</strong></p>
     <p>The board's plan to open three outpatient clinics in neighbouring emirates will significantly change the group's risk profile. At present its risks are concentrated in one regulated market where it has 15 years of experience. The expansion brings new regulatory regimes, recruitment risk for scarce specialist staff, and capital at risk of around AED 40m.</p>
-    <p>If risk is considered only after the decision is made, the board may commit to a strategy whose risks exceed what the group can bear. If, for example, licensing approval takes 12 months longer than planned, the clinics would carry fixed costs with no revenue, which could breach the bank covenant noted in Exhibit 3.</p>
+    <p>If risk is considered only after the decision is made, the board may commit to a strategy whose risks exceed what the group can bear. If, for example, licensing approval takes 12 months longer than planned, the clinics would carry fixed costs with no revenue, which could breach the bank covenant mentioned in the scenario.</p>
     <p><strong>Recommendation:</strong> the board should agree its risk appetite for the expansion <em>before</em> approving it, and require the business case to include a risk assessment of the three most significant risks with costed responses.</p>
   </div>
 
   <div class="box examiner"><span class="lbl">⑤ Examiner expectations</span>
     <ul>
-      <li>Use the <strong>case numbers and facts</strong>, e.g. "AED 40m", "Exhibit 3 covenant".</li>
+      <li>Use the <strong>case numbers and facts</strong>, e.g. "AED 40m", "the interest cover covenant".</li>
       <li>Show the <strong>two-way link</strong>: the strategy creates risk, and the risk should shape the strategy.</li>
       <li>Mention <strong>upside risk</strong> where relevant. It shows maturity (commercial acumen).</li>
     </ul>
@@ -304,13 +310,15 @@ footer{text-align:center;color:var(--ink-soft);font-size:.8em;padding:30px}
   <div class="box exam"><span class="lbl">③ How it appears in the exam</span>
     <ul>
       <li>"Using the COSO ERM framework, evaluate X's current approach to risk management." <span class="pill">Very common</span></li>
-      <li>"Advise the board how ERM could improve risk management following the incident in Exhibit 4."</li>
+      <li>"Advise the board how ERM could improve risk management following the incident described in the case."</li>
       <li>You might be a consultant or a newly appointed risk manager writing a <strong>briefing note</strong>.</li>
     </ul>
   </div>
 
+  <div class="exhibit scenario"><h4>📄 Scenario: CityCare (three hospitals and a pharmacy)</h4><p style="margin:0 0 6px;font-size:.88em;color:var(--ink-soft)">Read this first. The model answer below uses only these facts.</p><ul><li>Board minutes show there is <strong>no risk committee</strong>, and the board last discussed risk <strong>14 months ago</strong>.</li><li>The CEO said at a management meeting: <em>"Risk is the finance team's job."</em></li><li>Last year CityCare launched a <strong>home-care service</strong>. The board approved it without discussing how much financial or clinical risk was acceptable. <strong>No risk appetite</strong> has ever been set.</li><li>Each department keeps its <strong>own risk register</strong>. The pharmacy lists "main drug supplier fails"; finance lists "cash shortage".</li><li>Last month the drug supplier delivered late, and the pharmacy bought emergency stock at 40% higher prices, which made the cash position worse.</li><li>Six months ago the government announced a <strong>new funding model</strong> (payment based on patient outcomes). No risk register has been updated since.</li><li>The board receives a <strong>40-page spreadsheet</strong> risk report each quarter. Two NEDs admitted they do not read it.</li></ul></div>
+
   <div class="box model"><span class="lbl">④ Model answer extract (evaluating against COSO)</span>
-    <p><strong>Governance and culture:</strong> CityCare's board has no risk committee, and Exhibit 2 shows risk was last discussed at board level 14 months ago. This suggests risk is not seen as a board responsibility. The CEO's comment that "risk is the finance team's job" sets a poor tone from the top. Staff are unlikely to report risks if leaders don't value it.</p>
+    <p><strong>Governance and culture:</strong> CityCare's board has no risk committee, and the board minutes show risk was last discussed at board level 14 months ago. This suggests risk is not seen as a board responsibility. The CEO's comment that "risk is the finance team's job" sets a poor tone from the top. Staff are unlikely to report risks if leaders don't value it.</p>
     <p><strong>Strategy and objective-setting:</strong> No risk appetite has been defined. As a result, the decision to launch a home-care service was taken without agreeing how much financial or clinical risk was acceptable, which is a significant weakness.</p>
     <p><strong>Performance:</strong> Risks are identified, but only within departments. The pharmacy's supplier risk and the finance team's cash flow risk are linked (a supplier failure forces expensive emergency buying), but neither register shows the connection.</p>
     <p><strong>Review and revision:</strong> The risk register has not been updated since the new government funding model was announced, so it no longer reflects reality.</p>
@@ -392,8 +400,10 @@ footer{text-align:center;color:var(--ink-soft);font-size:.8em;padding:30px}
     </ul>
   </div>
 
+  <div class="exhibit scenario"><h4>📄 Scenario: Hospital group launching telemedicine</h4><p style="margin:0 0 6px;font-size:.88em;color:var(--ink-soft)">Read this first. The model answer below uses only these facts.</p><ul><li>The group's main hospital earns <strong>70% of group revenue</strong> and operates under a single hospital licence.</li><li>The group is launching <strong>video consultations</strong> for patients anywhere in the UAE.</li><li>Doctors must be licensed in each emirate where the patient is located. So far approval has been obtained in <strong>only one emirate</strong>.</li><li>Consultations run on a <strong>third-party video app</strong>, and patient records are shared through it.</li><li>Doctors will diagnose <strong>without physically examining</strong> the patient.</li></ul></div>
+
   <div class="box model"><span class="lbl">④ Model answer extract ("evaluate the key risks")</span>
-    <p><strong>1. Regulatory risk (strategic, high impact):</strong> The new telemedicine service must be licensed in every emirate it serves. Exhibit 5 shows approval has been obtained in only one. If the service treats patients from elsewhere without a licence, the group faces fines and possible suspension of its main hospital licence, which would threaten 70% of revenue. <em>This is the most significant risk because of its severity, even though the likelihood is moderate.</em></p>
+    <p><strong>1. Regulatory risk (strategic, high impact):</strong> The new telemedicine service must be licensed in every emirate it serves. So far approval has been obtained in only one. If the service treats patients from elsewhere without a licence, the group faces fines and possible suspension of its main hospital licence, which would threaten 70% of revenue. <em>This is the most significant risk because of its severity, even though the likelihood is moderate.</em></p>
     <p><strong>2. Data security risk (operational, could become strategic):</strong> Video consultations will transmit sensitive patient data through a third-party app. A breach would bring regulatory penalties and serious reputational damage among patients who value confidentiality.</p>
     <p><strong>3. Clinical quality risk:</strong> Doctors cannot physically examine patients, so misdiagnosis is more likely. This creates litigation risk and patient harm.</p>
   </div>
@@ -469,8 +479,10 @@ footer{text-align:center;color:var(--ink-soft);font-size:.8em;padding:30px}
     </ul>
   </div>
 
+  <div class="exhibit scenario"><h4>📄 Scenario: Brightline Foods (listed FMCG company)</h4><p style="margin:0 0 6px;font-size:.88em;color:var(--ink-soft)">Read this first. The model answer below uses only these facts.</p><ul><li>The founder-CEO built the company through acquisitions. At the last board meeting he said: <em>"We built this company through bold acquisitions. Playing safe never made anyone successful."</em></li><li>The company listed on the stock exchange 4 years ago. <strong>30% of shares</strong> are held by pension funds.</li><li>A letter from the largest pension fund says it values <strong>steady, reliable dividends</strong>.</li><li>The CEO proposes a <strong>USD 80m acquisition</strong>, funded entirely by debt.</li><li>Gearing would rise from <strong>35% to 68%</strong>. The bank covenant sets a <strong>maximum of 70%</strong>.</li></ul></div>
+
   <div class="box model"><span class="lbl">④ Model answer extract</span>
-    <p>The CEO's comments in Exhibit 1 suggest a <strong>risk-seeking</strong> attitude, having built the business through bold acquisitions. However, the company is now listed and its shareholders include pension funds who, according to the investor letter, expect steady dividends. This suggests a <strong>lower appetite</strong> than the CEO's.</p>
+    <p>The CEO's comment about bold acquisitions suggests a <strong>risk-seeking</strong> attitude, having built the business through bold acquisitions. However, the company is now listed and its shareholders include pension funds who, according to the investor letter, expect steady dividends. This suggests a <strong>lower appetite</strong> than the CEO's.</p>
     <p>The proposed USD 80m acquisition would raise gearing from 35% to 68%, close to the 70% bank covenant. This brings the company near its <strong>risk capacity</strong>: a single bad year could trigger a covenant breach. The board should therefore formally agree a risk appetite statement, for example a maximum gearing of 50%, and assess the acquisition against it, rather than letting the CEO's personal attitude drive the decision.</p>
   </div>
 
@@ -519,8 +531,10 @@ footer{text-align:center;color:var(--ink-soft);font-size:.8em;padding:30px}
   <div class="box exam"><span class="lbl">③ How it appears in the exam</span>
     <p>"The company has grown from 50 to 600 staff in three years. Discuss how its risk profile has changed and why the existing approach to risk management is no longer adequate."</p>
   </div>
+  <div class="exhibit scenario"><h4>📄 Scenario: Fast-growing services company</h4><p style="margin:0 0 6px;font-size:.88em;color:var(--ink-soft)">Read this first. The model answer below uses only these facts.</p><ul><li>Three years ago the company had <strong>50 staff</strong> in one country. It now has <strong>600 staff in four countries</strong>.</li><li>The two founders still personally approve <strong>every payment over USD 5,000 by email</strong>. Managers complain of delays of up to two weeks.</li><li>Payments <strong>below USD 5,000 are not reviewed by anyone</strong>.</li><li>The risk register was written <strong>three years ago</strong>, when the company only operated in its home country.</li></ul></div>
+
   <div class="box model"><span class="lbl">④ Model answer extract</span>
-    <p>When the company had 50 staff, the two founders knew every customer and approved every payment personally. This informal control was effective at that size. With 600 staff across four countries, the founders can no longer oversee everything, yet Exhibit 2 shows they still approve all spending over USD 5,000 by email. This causes delays, and expenses below that limit are not reviewed at all, which creates fraud risk.</p>
+    <p>When the company had 50 staff, the two founders knew every customer and approved every payment personally. This informal control was effective at that size. With 600 staff across four countries, the founders can no longer oversee everything, yet they still approve all spending over USD 5,000 by email. This causes delays, and expenses below that limit are not reviewed at all, which creates fraud risk.</p>
     <p>Expansion abroad has also brought new risks (currency, local labour law, tax compliance) that the current risk register, written three years ago, does not include. Because risk is dynamic, the company should move to formal ERM with quarterly register reviews.</p>
   </div>
   <div class="box examiner"><span class="lbl">⑤ Examiner expectations</span>
@@ -563,11 +577,13 @@ footer{text-align:center;color:var(--ink-soft);font-size:.8em;padding:30px}
   </div>
 
   <div class="box exam"><span class="lbl">③ How it appears in the exam</span>
-    <ul><li>"Assess the risks in Exhibit 3 and advise which should be prioritised."</li>
+    <ul><li>"Assess the risks set out in the exhibit and advise which should be prioritised." (In the real exam, an <em>exhibit</em> is one of the documents given to you with the task: emails, minutes, reports or spreadsheets.)</li>
     <li>You may get a spreadsheet exhibit with probabilities to calculate expected values.</li></ul>
   </div>
+  <div class="exhibit scenario"><h4>📄 Scenario: Hospital: two risks for the risk committee</h4><p style="margin:0 0 6px;font-size:.88em;color:var(--ink-soft)">Read this first. The model answer below uses only these facts.</p><ul><li><strong>Ransomware:</strong> the Head of IT reports <strong>three attempted ransomware attacks</strong> on hospitals in the region this year. If patient records were unavailable, all surgeries would have to stop.</li><li><strong>Earthquake:</strong> the hospital is in a low-seismic zone, and there has been no significant earthquake in the area for decades. An earthquake could, however, seriously damage the building.</li><li>The board has limited money and asks which risk to deal with first.</li></ul></div>
+
   <div class="box model"><span class="lbl">④ Model answer extract</span>
-    <p>Although an earthquake would be catastrophic, the probability is very low. The board should focus first on the ransomware risk, which is both <strong>highly likely</strong> (Exhibit 4 notes three attempted attacks on regional hospitals this year) and <strong>severe</strong>, since all surgeries would stop if patient records were unavailable. This should be rated critical and dealt with immediately. The earthquake risk is better handled by insurance and a business continuity plan than by significant investment.</p>
+    <p>Although an earthquake would be catastrophic, the probability is very low. The board should focus first on the ransomware risk, which is both <strong>highly likely</strong> (the Head of IT reports three attempted attacks on hospitals in the region this year) and <strong>severe</strong>, since all surgeries would stop if patient records were unavailable. This should be rated critical and dealt with immediately. The earthquake risk is better handled by insurance and a business continuity plan than by significant investment.</p>
   </div>
   <div class="box examiner"><span class="lbl">⑤ Examiner expectations</span>
     <ul><li>Justify the rating with <strong>case evidence</strong> for both likelihood <em>and</em> impact.</li>
@@ -607,8 +623,10 @@ footer{text-align:center;color:var(--ink-soft);font-size:.8em;padding:30px}
   <div class="box exam"><span class="lbl">③ How it appears in the exam</span>
     <p>"Explain how the risks identified are related and why this matters for the board's risk assessment."</p>
   </div>
+  <div class="exhibit scenario"><h4>📄 Scenario: Drinks manufacturer: two separate register entries</h4><p style="margin:0 0 6px;font-size:.88em;color:var(--ink-soft)">Read this first. The model answer below uses only these facts.</p><ul><li>Entry 1: the <strong>sole supplier of bottles</strong> has reported losses for two years and is paying its own creditors late. Rated "medium".</li><li>Entry 2: the Operations Director plans to cut <strong>safety stock of bottles from 4 weeks to 2 days</strong> to free up cash. Rated "medium".</li><li>The two entries were assessed by different managers and are not linked in the register.</li></ul></div>
+
   <div class="box model"><span class="lbl">④ Model answer extract</span>
-    <p>The risks in Exhibit 3 should not be assessed in isolation. The supplier's financial difficulty (supply risk) and the plan to stop holding safety stock (operational decision) are <strong>positively correlated</strong>. If the supplier fails, the lack of buffer stock means production stops within two days instead of four weeks. Taken together, the impact is far greater than the separate ratings suggest. The board should consider these risks as a group and postpone the stock reduction until a second supplier has been approved.</p>
+    <p>The two register entries should not be assessed in isolation. The supplier's financial difficulty (supply risk) and the plan to stop holding safety stock (operational decision) are <strong>positively correlated</strong>. If the supplier fails, the lack of buffer stock means production stops within two days instead of four weeks. Taken together, the impact is far greater than the separate ratings suggest. The board should consider these risks as a group and postpone the stock reduction until a second supplier has been approved.</p>
   </div>
   <div class="box examiner"><span class="lbl">⑤ Examiner expectations</span>
     <ul><li>Show you can <strong>connect exhibits</strong>. This is a sign of a strong candidate (analysis skill).</li></ul>
@@ -659,8 +677,10 @@ footer{text-align:center;color:var(--ink-soft);font-size:.8em;padding:30px}
   <div class="box exam"><span class="lbl">③ How it appears in the exam</span>
     <p>"Draft a briefing paper for the board explaining the role of a risk manager and assessing whether the current arrangements are effective."</p>
   </div>
+  <div class="exhibit scenario"><h4>📄 Scenario: Hospital risk manager</h4><p style="margin:0 0 6px;font-size:.88em;color:var(--ink-soft)">Read this first. The model answer below uses only these facts.</p><ul><li>A risk manager was appointed two years ago. The role <strong>reports to the Finance Director</strong>, not to the board.</li><li>The role is graded <strong>below department heads</strong>, and the risk manager has <strong>no team</strong>.</li><li>Last quarter only <strong>4 of 11 departments</strong> submitted risk updates. Senior surgeons ignored the requests.</li><li>The risk manager spends most of the week <strong>copying data into spreadsheets</strong>.</li></ul></div>
+
   <div class="box model"><span class="lbl">④ Model answer extract</span>
-    <p><strong>Assessment of current arrangements:</strong> The risk manager role is undermined in three ways. First, reporting to the FD means clinical and operational risks are seen through a financial lens and may be filtered before reaching the board. Second, the role's junior grade means senior clinicians do not engage, which is shown by only 4 of 11 departments submitting risk updates (Exhibit 2). Third, without staff the risk manager spends most of the time compiling spreadsheets rather than advising.</p>
+    <p><strong>Assessment of current arrangements:</strong> The risk manager role is undermined in three ways. First, reporting to the FD means clinical and operational risks are seen through a financial lens and may be filtered before reaching the board. Second, the role's junior grade means senior clinicians do not engage, which is shown by only 4 of 11 departments submitting risk updates last quarter. Third, without staff the risk manager spends most of the time compiling spreadsheets rather than advising.</p>
     <p><strong>Recommendations:</strong> (1) Give the risk manager a direct reporting line to the chair of a new board risk committee. (2) Raise the grade to department head level. (3) Have the CEO formally require all departments to update risks quarterly, setting the right tone from the top.</p>
   </div>
   <div class="box examiner"><span class="lbl">⑤ Examiner expectations</span>
@@ -714,15 +734,17 @@ footer{text-align:center;color:var(--ink-soft);font-size:.8em;padding:30px}
     <ul><li>An exhibit shows the company's risk register and asks you to <strong>"evaluate the risk register"</strong>. <span class="pill">Very likely</span></li>
     <li>"Prepare a heat map / risk register for the three risks identified."</li></ul>
   </div>
+  <div class="exhibit scenario"><h4>📄 Scenario: Hospital group risk register</h4><p style="margin:0 0 6px;font-size:.88em;color:var(--ink-soft)">Read this first. The model answer below uses only these facts.</p><ul><li>The group <strong>merged</strong> with another hospital group in March. The register was last reviewed in <strong>January</strong>.</li><li>The register lists 10 risks. <strong>7 of them have no named owner</strong>.</li><li>Descriptions are one or two words, e.g. <strong>"IT risk"</strong> and "Staff risk".</li><li>Each risk has only one score, given <strong>before controls</strong>. No score is given after controls.</li><li>Cyber risk is rated <strong>"Low"</strong>. The IT security report shows <strong>two phishing incidents</strong> this quarter in which staff clicked malicious links.</li><li>The main hospital is on the <strong>coast</strong>, and its ground floor flooded briefly last year. There is no climate-related risk in the register.</li></ul></div>
+
   <div class="box model"><span class="lbl">④ Model answer extract (critiquing a register)</span>
-    <p><strong>Weaknesses in the current risk register (Exhibit 6):</strong></p>
+    <p><strong>Weaknesses in the current risk register (see scenario):</strong></p>
     <ul>
       <li><strong>Vague descriptions:</strong> "IT risk" gives no cause or consequence, so no one can design a response. It should read: "Unpatched servers → ransomware attack → loss of patient records for several days."</li>
       <li><strong>No owners:</strong> 7 of 10 risks have no named owner, so no one is accountable for action.</li>
       <li><strong>Out of date:</strong> last reviewed in January, before the merger, so merger-related integration risks are missing entirely.</li>
       <li><strong>Gross only:</strong> no net risk is shown, so the board cannot tell whether controls work.</li>
-      <li><strong>Missing risks:</strong> climate-related risk is absent despite the coastal location noted in the pre-seen.</li>
-      <li><strong>Questionable ratings:</strong> cyber risk is rated "low", yet Exhibit 4 reports two phishing incidents this quarter. This appears understated.</li>
+      <li><strong>Missing risks:</strong> climate-related risk is absent despite the main hospital's coastal location and last year's flooding.</li>
+      <li><strong>Questionable ratings:</strong> cyber risk is rated "low", yet the IT security report shows two phishing incidents this quarter. This appears understated.</li>
     </ul>
     <p><strong>Benefits of a heat map:</strong> it would let board members, many without a technical background, see immediately that cyber and staffing risks sit in the red zone. That focuses limited board time on what matters most.</p>
     <p><strong>Limitations:</strong> heat maps simplify reality. Scores are subjective, they don't show correlations between risks, and they give a snapshot that can quickly go out of date.</p>
@@ -772,8 +794,10 @@ footer{text-align:center;color:var(--ink-soft);font-size:.8em;padding:30px}
   <div class="box exam"><span class="lbl">③ How it appears in the exam</span>
     <p>"Advise how the CEO could embed risk awareness into the culture of the organisation following the incident."</p>
   </div>
+  <div class="exhibit scenario"><h4>📄 Scenario: Hospital: hidden equipment fault</h4><p style="margin:0 0 6px;font-size:.88em;color:var(--ink-soft)">Read this first. The model answer below uses only these facts.</p><ul><li>An infusion pump on a ward was faulty for <strong>three weeks</strong>. Nurses knew about it but did not report it.</li><li>Staff interviews after the incident: <em>"The last person who reported an error was given a written warning."</em> And: <em>"Ward managers are judged only on bed occupancy."</em></li></ul></div>
+
   <div class="box model"><span class="lbl">④ Model answer extract</span>
-    <p>The interviews in Exhibit 3 suggest staff hid the faulty equipment because they feared being blamed. Risk cannot be embedded while this fear exists. I recommend:</p>
+    <p>The staff interviews suggest staff hid the faulty equipment because they feared being blamed. Risk cannot be embedded while this fear exists. I recommend:</p>
     <ol>
       <li><strong>The CEO should personally launch</strong> a no-blame incident reporting system and publicly thank staff who report issues.</li>
       <li><strong>Appraisals should include a risk objective</strong> for all managers, so ward managers are judged on safety as well as bed occupancy.</li>
@@ -821,8 +845,10 @@ footer{text-align:center;color:var(--ink-soft);font-size:.8em;padding:30px}
   <div class="box exam"><span class="lbl">③ How it appears in the exam</span>
     <p>"Discuss whether diversifying the supplier base / entering a new market would reduce the company's overall risk."</p>
   </div>
+  <div class="exhibit scenario"><h4>📄 Scenario: Hospital supplies</h4><p style="margin:0 0 6px;font-size:.88em;color:var(--ink-soft)">Read this first. The model answer below uses only these facts.</p><ul><li><strong>85%</strong> of the hospital's surgical supplies come from <strong>one distributor</strong>.</li><li>This distributor gives a <strong>3% volume discount</strong>, worth about <strong>AED 180k a year</strong>.</li><li>Surgery generates over <strong>AED 1m of revenue every week</strong>.</li><li>A second distributor has offered similar prices, but without the volume discount.</li></ul></div>
+
   <div class="box model"><span class="lbl">④ Model answer extract</span>
-    <p>Exhibit 2 shows 85% of the hospital's surgical supplies come from one distributor. This concentration means any disruption at that distributor would stop most surgeries. Adding a second distributor would spread the risk. Although Exhibit 2 notes a 3% volume discount would be lost (around AED 180k a year), this is small compared with the AED 1m+ weekly revenue at risk if surgeries were cancelled. I therefore recommend a dual-sourcing strategy with a 70/30 split, keeping most of the volume discount while removing the single point of failure.</p>
+    <p>The procurement data shows that 85% of the hospital's surgical supplies come from one distributor. This concentration means any disruption at that distributor would stop most surgeries. Adding a second distributor would spread the risk. Although a 3% volume discount would be lost (around AED 180k a year), this is small compared with the AED 1m+ weekly revenue at risk if surgeries were cancelled. I therefore recommend a dual-sourcing strategy with a 70/30 split, keeping most of the volume discount while removing the single point of failure.</p>
   </div>
   <div class="box examiner"><span class="lbl">⑤ Examiner expectations</span>
     <ul><li>Weigh <strong>cost vs benefit</strong> using the case numbers.</li><li>Show balance: diversification isn't automatically good.</li></ul>
@@ -883,12 +909,14 @@ footer{text-align:center;color:var(--ink-soft);font-size:.8em;padding:30px}
     <li>Often combined: "Identify the key risks <em>and</em> recommend responses" (e.g. 15–20 marks).</li></ul>
   </div>
 
+  <div class="exhibit scenario"><h4>📄 Scenario: Private hospital group: four risks</h4><p style="margin:0 0 6px;font-size:.88em;color:var(--ink-soft)">Read this first. The model answer below uses only these facts.</p><ul><li><strong>Ransomware</strong> attacks on regional hospitals are increasing. The hospital cannot operate without its digital patient records.</li><li>The group treats a growing number of <strong>overseas patients</strong>. A legal claim from one is rare but could be very expensive.</li><li>The CEO wants to open a <strong>cosmetic surgery clinic in Country Z</strong>, an unregulated market where <strong>two clinics have closed after scandals</strong>. The board has said it has a <strong>low appetite for reputational risk</strong>.</li><li>Deliveries of <strong>non-clinical supplies</strong> (stationery, cafeteria items) are occasionally a day or two late.</li></ul></div>
+
   <div class="box model"><span class="lbl">④ Model answer extract</span>
     <p><strong>Risk 1: Ransomware attack on patient records</strong> (high likelihood, high impact)<br>
     In principle a risk this severe would be avoided, but the hospital cannot stop using digital records. So the board should <strong>reduce</strong> the risk urgently through offline backups tested monthly, multi-factor authentication and phishing training. It should also <strong>transfer</strong> the remaining financial impact through cyber insurance. Reputational damage cannot be insured, which is why reduction must come first.</p>
     <p><strong>Risk 2: Overseas patient legal claims</strong> (low likelihood, high impact)<br>
     <strong>Transfer</strong> through international medical malpractice insurance, and require patients to sign contracts specifying UAE jurisdiction.</p>
-    <p><strong>Risk 3: Expanding into cosmetic surgery in Country Z</strong> (Exhibit 4: unregulated market, two clinics closed after scandals)<br>
+    <p><strong>Risk 3: Expanding into cosmetic surgery in Country Z</strong> (unregulated market; two clinics closed after scandals)<br>
     The likelihood of reputational damage is high and the impact on the group's core reputation for clinical quality would be severe. This is outside the board's stated low appetite for reputational risk. <strong>Avoid</strong>: I recommend the board does not proceed.</p>
     <p><strong>Risk 4: Minor delays in non-clinical supplies</strong><br>
     <strong>Accept</strong> and monitor. The cost of extra controls would exceed the small impact.</p>
@@ -933,9 +961,11 @@ footer{text-align:center;color:var(--ink-soft);font-size:.8em;padding:30px}
   <div class="box exam"><span class="lbl">③ How it appears in the exam</span>
     <p>"A director argues all risks should be eliminated. Explain why this is neither possible nor desirable, referring to ALARP."</p>
   </div>
+  <div class="exhibit scenario"><h4>📄 Scenario: New hospital laboratory</h4><p style="margin:0 0 6px;font-size:.88em;color:var(--ink-soft)">Read this first. The model answer below uses only these facts.</p><ul><li>Last year a contamination incident occurred in the old laboratory.</li><li>The Operations Director now demands <strong>"zero risk"</strong> in the new laboratory.</li><li>The proposed controls cost <strong>AED 300k</strong> and reduce contamination risk by <strong>90%</strong>.</li><li>An extra automated sealing system would cost <strong>AED 2.5m</strong>, reduce the risk by a further <strong>2%</strong>, and delay opening by <strong>6 months</strong>.</li></ul></div>
+
   <div class="box model"><span class="lbl">④ Model answer extract</span>
     <p>The Operations Director's demand for "zero risk" in the new laboratory is understandable given the serious incident last year, but it is neither achievable nor commercially sensible. Some residual risk exists in any activity. The goal should be to reduce risk to as low as reasonably practicable.</p>
-    <p>The proposed controls (Exhibit 5) already reduce the contamination risk by 90% for AED 300k. The additional automated sealing system would cost AED 2.5m to remove a further 2%. That cost is grossly disproportionate to the benefit, and would delay the laboratory by 6 months, during which patients would wait longer for test results. I recommend the board accepts the remaining risk, documents the ALARP justification, and monitors it through monthly contamination tests.</p>
+    <p>The proposed controls already reduce the contamination risk by 90% for AED 300k. The additional automated sealing system would cost AED 2.5m to remove a further 2%. That cost is grossly disproportionate to the benefit, and would delay the laboratory by 6 months, during which patients would wait longer for test results. I recommend the board accepts the remaining risk, documents the ALARP justification, and monitors it through monthly contamination tests.</p>
   </div>
   <div class="box examiner"><span class="lbl">⑤ Examiner expectations</span>
     <ul><li>Use numbers to show <strong>disproportion</strong>.</li><li>Professionally <strong>counter-argue</strong> the director's view (communication skill: persuade and counter-argue).</li></ul>
@@ -982,8 +1012,10 @@ footer{text-align:center;color:var(--ink-soft);font-size:.8em;padding:30px}
   <div class="box exam"><span class="lbl">③ How it appears in the exam</span>
     <p>"Explain the four lines of defence model and assess how assurance mapping could help the audit committee."</p>
   </div>
+  <div class="exhibit scenario"><h4>📄 Scenario: Health organisation audit committee</h4><p style="margin:0 0 6px;font-size:.88em;color:var(--ink-soft)">Read this first. The model answer below uses only these facts.</p><ul><li>The audit committee receives separate reports from compliance, internal audit and the external auditor. Nobody has mapped which of the <strong>top 15 risks</strong> each one covers.</li><li><strong>Cyber security:</strong> the IT team checks its own controls. There is no information security or compliance review, and internal audit last reviewed IT <strong>three years ago</strong>.</li><li>Ransomware attacks on healthcare organisations are rising.</li><li><strong>Financial controls</strong> are checked by finance managers, the finance control team, internal audit (yearly) and the external auditor.</li></ul></div>
+
   <div class="box model"><span class="lbl">④ Model answer extract</span>
-    <p>The audit committee currently receives separate reports from compliance, internal audit and the external auditor but has no overall view of which risks are covered. An assurance map would plot each of the top 15 risks against the four lines. Based on Exhibit 5, this would quickly show that cyber risk has no second- or third-line assurance: the IT team marks its own work, and internal audit has not reviewed IT for three years. Given the ransomware threat, this is a serious gap. In contrast, financial controls are reviewed by all four lines, suggesting some internal audit effort could be moved. I recommend internal audit prepares an assurance map before setting next year's audit plan.</p>
+    <p>The audit committee currently receives separate reports from compliance, internal audit and the external auditor but has no overall view of which risks are covered. An assurance map would plot each of the top 15 risks against the four lines. Based on the facts in the scenario, this would quickly show that cyber risk has no second- or third-line assurance: the IT team marks its own work, and internal audit has not reviewed IT for three years. Given the ransomware threat, this is a serious gap. In contrast, financial controls are reviewed by all four lines, suggesting some internal audit effort could be moved. I recommend internal audit prepares an assurance map before setting next year's audit plan.</p>
   </div>
   <div class="box examiner"><span class="lbl">⑤ Examiner expectations</span>
     <ul><li>Identify <strong>gaps and overlaps</strong> from the case. That's where the marks are.</li><li>Link to internal audit and the audit committee (ties in Chapter F).</li></ul>
