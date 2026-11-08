@@ -6,104 +6,141 @@
 <title>SBL Chapter D – Risk: Identify, Assess, Manage &amp; Monitor</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f0f4f8;--surface:#fff;--surface2:#e8eef5;--border:#c8d8e8;--border-light:#dce9f4;--primary:#1a4f82;--primary-mid:#2563a8;--primary-light:#3d7fc1;--accent:#0891b2;--accent-light:#e0f2fe;--teal:#0f766e;--teal-light:#ccfbf1;--warn:#b45309;--warn-light:#fef3c7;--danger:#b91c1c;--danger-light:#fee2e2;--success:#15803d;--success-light:#dcfce7;--purple:#7c3aed;--purple-light:#ede9fe;--text:#1e293b;--text-mid:#334155;--text-light:#64748b;--radius:12px;--radius-sm:8px;--shadow:0 2px 12px rgba(26,79,130,.1);--maxw:1100px;--fs:17px}
-*,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:"DM Sans",system-ui,sans-serif;background:var(--bg);color:var(--text);font-size:var(--fs);line-height:1.75}
-h1,h2,h3,h4{font-family:"Lora",Georgia,serif;line-height:1.3;color:var(--primary)}
-h2{font-size:1.6rem;margin:0 0 .5em;padding-bottom:14px;border-bottom:2px solid var(--border-light)}
-h3{font-size:1.15rem;margin:1.6em 0 .6em}
-h4{font-size:1rem;margin:1em 0 .3em}
-p{margin:.6em 0} ul,ol{padding-left:1.3em} li{margin:.25em 0} strong{color:var(--text)} a{color:var(--primary-mid)}
-/* header */
-.hero{background:linear-gradient(135deg,#0f2d52 0%,#1a4f82 50%,#2563a8 100%);color:#fff;padding:48px 32px 40px;position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;top:-60px;right:-60px;width:300px;height:300px;background:radial-gradient(circle,rgba(59,130,246,.25) 0%,transparent 70%);border-radius:50%}
-.hero-inner{max-width:var(--maxw);margin:0 auto;position:relative;z-index:1}
-.hero .tag{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#bfdbfe;font-size:12.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:4px 14px;border-radius:20px;margin-bottom:16px}
-.hero h1{font-size:2.3rem;color:#fff;margin:0 0 12px}
-.hero p{color:#bfdbfe;max-width:680px;line-height:1.6;margin:0}
-.hero .meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
-.hero .meta span{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#e0f2fe;font-size:12px;padding:3px 12px;border-radius:20px;font-weight:500}
-/* nav */
-nav.top{background:var(--surface);border-bottom:2px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(26,79,130,.08)}
-.navwrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:8px}
-.chips{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;flex:1}
-.chips::-webkit-scrollbar{display:none}
-a.chip{display:block;padding:14px 12px;color:var(--text-light);text-decoration:none;font-size:13.5px;font-weight:500;white-space:nowrap;border-bottom:3px solid transparent;transition:all .2s}
-a.chip:hover{color:var(--primary-mid);border-bottom-color:var(--border)}
-a.chip.active{color:var(--primary);border-bottom-color:var(--primary)}
-.fontbtns{display:flex;gap:4px;flex-shrink:0}
-.fontbtns button{border:1px solid var(--border);background:var(--surface2);color:var(--primary);border-radius:6px;padding:3px 9px;font-weight:600;cursor:pointer;font-family:inherit;font-size:13px}
-/* layout */
-main{max-width:var(--maxw);margin:0 auto;padding:40px 24px 80px}
-section.chapter{background:var(--surface);border:1px solid var(--border-light);border-radius:var(--radius);padding:30px 34px;margin-bottom:32px;box-shadow:var(--shadow);scroll-margin-top:64px}
-@media(max-width:640px){section.chapter{padding:22px 18px}main{padding:24px 12px 60px}.hero h1{font-size:1.8rem}}
-.sec-num{display:inline-block;background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:3px 12px;border-radius:20px;margin-bottom:10px}
-.syl{display:inline-block;background:#dbeafe;color:#1d4ed8;font-size:12px;font-weight:600;padding:3px 10px;border-radius:12px;margin-left:6px}
-/* callouts */
-.box{border-radius:var(--radius-sm);padding:16px 22px;margin:18px 0;font-size:.97rem;border-left:4px solid}
-.box>.lbl{display:block;margin-bottom:4px;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
-.simple{background:var(--accent-light);border-color:var(--accent)}.simple>.lbl{color:var(--accent)}
-.example{background:var(--success-light);border-color:var(--success)}.example>.lbl{color:var(--success)}
-.exam{background:var(--warn-light);border-color:var(--warn)}.exam>.lbl{color:var(--warn)}
-.model{background:#f8fafc;border:1px solid var(--border);border-left:4px solid var(--primary)}.model>.lbl{color:var(--primary)}
-.examiner{background:var(--purple-light);border-color:var(--purple)}.examiner>.lbl{color:var(--purple)}
-.mistakes{background:var(--danger-light);border-color:var(--danger)}.mistakes>.lbl{color:var(--danger)}
-.memory{background:var(--teal-light);border-color:var(--teal)}.memory>.lbl{color:var(--teal)}
-/* tables */
-.tblwrap{overflow-x:auto;margin:18px 0;border-radius:var(--radius-sm);border:1px solid var(--border);box-shadow:var(--shadow)}
-.tblwrap table{margin:0}
-table{width:100%;border-collapse:collapse;font-size:.92rem;background:#fff}
-th{background:linear-gradient(to right,var(--primary),var(--primary-mid));color:#fff;padding:12px 16px;text-align:left;font-weight:600;font-size:.82rem;letter-spacing:.03em;text-transform:uppercase}
-td{padding:11px 16px;border-bottom:1px solid var(--border-light);vertical-align:top;line-height:1.6}
-tr:nth-child(even) td{background:var(--surface2)}
-tr:hover td{background:#dce9f5}
-/* diagrams */
-.erm{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:18px 0}
-.erm div{border-radius:var(--radius-sm);padding:14px 8px;text-align:center;font-size:.82rem;font-weight:600;color:#fff;line-height:1.35;box-shadow:var(--shadow)}
-.erm div b{display:block;font-family:Lora,serif;font-size:1.5em}
+:root{
+  --bg:#FFF7EE;
+  --paper:#FFFFFF;
+  --ink:#2A1C12;
+  --ink-soft:#5A4636;
+  --rust:#9A3B10;
+  --orange:#D2601A;
+  --amber:#E9A23B;
+  --gold:#F4C976;
+  --leaf:#6F7B34;
+  --line:#EBD9C4;
+  --tint:#FDEBD8;
+  --fs:19px;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Source Sans 3",system-ui,sans-serif;font-size:var(--fs);line-height:1.7}
+h1,h2,h3,h4{font-family:"Fraunces",Georgia,serif;line-height:1.25;color:var(--rust)}
+h2{font-size:1.75em;margin:0 0 .4em}
+h3{font-size:1.25em;margin:1.6em 0 .5em;color:var(--orange)}
+h4{font-size:1.05em;margin:1.2em 0 .3em}
+p{margin:.6em 0}
+strong{color:#3B2412}
+a{color:var(--orange)}
+ul,ol{padding-left:1.3em}
+li{margin:.3em 0}
+
+/* progress */
+#progress{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,var(--amber),var(--orange),var(--rust));z-index:100}
+
+/* hero */
+.hero{background:radial-gradient(circle at 85% 20%,rgba(244,201,118,.55),transparent 45%),linear-gradient(135deg,#7E2E0C 0%,#B9481A 45%,#E08A2E 100%);color:#FFF6EA;padding:64px 20px 56px;position:relative;overflow:hidden}
+.hero::after{content:"🍁";position:absolute;right:6%;bottom:-20px;font-size:150px;opacity:.18;transform:rotate(-18deg)}
+.hero-inner{max-width:1100px;margin:0 auto}
+.hero .tag{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);padding:4px 14px;border-radius:999px;font-size:.8em;letter-spacing:.06em;text-transform:uppercase}
+.hero h1{color:#FFF;font-size:2.6em;margin:.35em 0 .2em}
+.hero p{font-size:1.1em;max-width:700px;color:#FFEBD3}
+.hero .meta{display:flex;gap:14px;flex-wrap:wrap;margin-top:20px}
+.hero .meta span{background:rgba(0,0,0,.18);padding:6px 14px;border-radius:10px;font-size:.85em}
+
+/* top nav */
+nav.top{position:sticky;top:0;z-index:50;background:rgba(255,247,238,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav.top .wrap{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:10px;padding:10px 14px}
+nav.top .chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:thin;flex:1;padding-bottom:2px}
+nav.top a.chip{white-space:nowrap;text-decoration:none;color:var(--ink-soft);font-size:.78em;font-weight:600;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:#fff;transition:.2s}
+nav.top a.chip:hover,nav.top a.chip.active{background:var(--orange);color:#fff;border-color:var(--orange)}
+.fontbtns{display:flex;gap:4px}
+.fontbtns button{border:1px solid var(--line);background:#fff;color:var(--rust);border-radius:8px;padding:4px 10px;font-weight:700;cursor:pointer;font-size:.8em}
+
+main{max-width:1100px;margin:0 auto;padding:30px 20px 80px}
+section.chapter{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:36px 40px;margin:34px 0;box-shadow:0 6px 24px -14px rgba(122,52,12,.35)}
+@media(max-width:640px){section.chapter{padding:24px 18px}.hero h1{font-size:2em}}
+.sec-num{display:inline-block;font-family:"Fraunces",serif;font-size:.85em;color:#fff;background:var(--orange);border-radius:10px;padding:2px 12px;margin-bottom:10px}
+.syl{font-size:.8em;color:var(--ink-soft);background:var(--tint);border-radius:8px;padding:2px 10px;margin-left:6px}
+
+/* step boxes */
+.box{border-radius:14px;padding:16px 20px 14px 20px;margin:18px 0;border-left:6px solid;position:relative}
+.box > .lbl{display:block;font-weight:700;font-size:.78em;text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px}
+.simple{background:#FFF4E2;border-color:var(--amber)} .simple>.lbl{color:#A86A0E}
+.example{background:#F3F5E6;border-color:var(--leaf)} .example>.lbl{color:var(--leaf)}
+.exam{background:#FDECE2;border-color:var(--orange)} .exam>.lbl{color:var(--orange)}
+.model{background:#fff;border:1px dashed #D9B48E;border-left:6px solid var(--rust)} .model>.lbl{color:var(--rust)}
+.examiner{background:#F7EFE6;border-color:#8B5E3C} .examiner>.lbl{color:#8B5E3C}
+.mistakes{background:#FBE7E3;border-color:#B23A2A} .mistakes>.lbl{color:#B23A2A}
+.memory{background:linear-gradient(135deg,#FFF1D6,#FFE2C2);border-color:#E07B1F} .memory>.lbl{color:#B5550C}
+.model p,.model li{font-family:Georgia,serif;font-size:.96em}
+
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.9em}
+th{background:var(--rust);color:#fff;text-align:left;padding:10px 12px;font-weight:600}
+td{border-bottom:1px solid var(--line);padding:10px 12px;vertical-align:top}
+tr:nth-child(even) td{background:#FFF9F2}
+.tblwrap{overflow-x:auto}
+
+/* ERM wheel */
+.erm{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:16px 0}
+.erm div{border-radius:12px;padding:12px 8px;text-align:center;font-size:.78em;font-weight:600;color:#fff;line-height:1.35}
+.erm div b{display:block;font-size:1.6em;font-family:Fraunces,serif}
 @media(max-width:640px){.erm{grid-template-columns:1fr 1fr}}
-.heat{display:grid;grid-template-columns:70px repeat(5,1fr);gap:4px;margin:16px 0;font-size:.76rem;max-width:580px}
-.heat div{padding:12px 4px;text-align:center;border-radius:5px;font-weight:600}
-.heat .ax{background:none;color:var(--text-light)}
-.g{background:#bbf7d0}.y{background:#fde68a}.o{background:#fdba74}.r{background:#dc2626;color:#fff}
-.tara{display:grid;grid-template-columns:50px 1fr 1fr;gap:8px;margin:18px 0;max-width:700px}
-.tara .cell{border-radius:var(--radius-sm);padding:16px;color:#fff;min-height:115px;box-shadow:var(--shadow)}
-.tara .cell b{font-family:Lora,serif;font-size:1.2em;display:block}
-.tara .cell span{font-size:.85em}
-.tara .ylab{writing-mode:vertical-rl;transform:rotate(180deg);text-align:center;font-weight:600;color:var(--text-light);font-size:.78em;grid-row:2/4;align-self:center}
-.tara .xlab{grid-column:2/4;text-align:center;font-weight:600;color:var(--text-light);font-size:.78em}
-.tara .hd{font-size:.76em;font-weight:600;color:var(--text-light);text-align:center}
-.lines{display:grid;gap:8px;margin:16px 0}
-.lines .ln{display:flex;gap:14px;border:1px solid var(--border-light);border-radius:var(--radius-sm);overflow:hidden;background:#fff;box-shadow:var(--shadow)}
-.lines .ln .n{min-width:72px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:Lora,serif;font-weight:700;font-size:1.15em}
-.lines .ln .t{padding:12px 14px 12px 0;font-size:.94em}
-.pill{display:inline-block;background:#dbeafe;color:#1d4ed8;padding:2px 9px;border-radius:12px;font-size:.78rem;font-weight:600;margin:2px 0}
-.big-quote{font-family:Lora,serif;font-size:1.2em;color:var(--primary);border-left:4px solid var(--primary-light);background:var(--surface2);padding:12px 18px;border-radius:0 8px 8px 0;margin:18px 0}
+
+/* heat map */
+.heat{display:grid;grid-template-columns:70px repeat(5,1fr);gap:4px;margin:16px 0;font-size:.75em;max-width:560px}
+.heat div{padding:12px 4px;text-align:center;border-radius:6px;font-weight:600}
+.heat .ax{background:none;color:var(--ink-soft);font-weight:700}
+.g{background:#CFE0A4}.y{background:#F7DC8A}.o{background:#F4A85A}.r{background:#D9502B;color:#fff}
+
+/* TARA */
+.tara{display:grid;grid-template-columns:60px 1fr 1fr;grid-template-rows:auto 1fr 1fr auto;gap:8px;margin:18px 0;max-width:640px}
+.tara .cell{border-radius:14px;padding:16px;color:#fff;min-height:120px}
+.tara .cell b{font-family:Fraunces,serif;font-size:1.25em;display:block}
+.tara .cell span{font-size:.82em;opacity:.95}
+.tara .ylab{writing-mode:vertical-rl;transform:rotate(180deg);text-align:center;font-weight:700;color:var(--ink-soft);font-size:.8em;grid-row:2/4;align-self:center}
+.tara .xlab{grid-column:2/4;text-align:center;font-weight:700;color:var(--ink-soft);font-size:.8em}
+.tara .hd{font-size:.75em;font-weight:700;color:var(--ink-soft);text-align:center}
+
+/* four lines */
+.lines{display:grid;gap:10px;margin:16px 0}
+.lines .ln{display:flex;gap:14px;align-items:stretch;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.lines .ln .n{min-width:84px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:Fraunces,serif;font-size:1.3em}
+.lines .ln .t{padding:12px 14px 12px 0;font-size:.92em}
+
+.pill{display:inline-block;background:var(--tint);color:var(--rust);border-radius:999px;padding:1px 10px;font-size:.85em;font-weight:600}
+.big-quote{font-family:Fraunces,serif;font-size:1.3em;color:var(--rust);border-left:5px solid var(--amber);padding:6px 0 6px 18px;margin:20px 0}
+
+/* exhibit */
+.exhibit{background:#FFFCF7;border:1px solid #E2C9AB;border-radius:12px;padding:16px 20px;margin:14px 0;font-size:.93em}
+.exhibit h4{margin-top:0;color:#6B3A16}
+
+details{background:#FFF9F2;border:1px solid var(--line);border-radius:12px;padding:12px 18px;margin:12px 0}
+details summary{cursor:pointer;font-weight:700;color:var(--rust)}
+details[open] summary{margin-bottom:8px}
+
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media(max-width:700px){.grid2{grid-template-columns:1fr}}
-.card{background:#fff;border:1px solid var(--border-light);border-radius:var(--radius-sm);padding:18px 20px;box-shadow:var(--shadow)}
+@media(max-width:640px){.grid2{grid-template-columns:1fr}}
+.card{background:#FFF9F2;border:1px solid var(--line);border-radius:14px;padding:14px 18px}
 .card h4{margin-top:0}
-/* case / exhibits */
-.exhibit{background:#f8fafc;border:1px solid var(--border-light);border-radius:var(--radius-sm);padding:16px 22px;margin:14px 0;font-size:.94rem;color:var(--text-mid)}
-.exhibit h4{margin-top:0}
-details{background:#fff;border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 18px;margin:14px 0;box-shadow:var(--shadow)}
-details summary{cursor:pointer;font-weight:600;color:var(--primary)}
+
 /* quiz */
-.q{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:18px 22px;margin:16px 0;box-shadow:var(--shadow)}
-.q .opts{display:grid;gap:8px;margin-top:12px}
-.q button.opt{text-align:left;padding:10px 14px;border:1px solid var(--border-light);border-radius:6px;background:#fff;font:inherit;font-size:.92rem;cursor:pointer;color:var(--text);transition:all .2s}
-.q button.opt:hover{border-color:var(--primary-light);background:var(--surface2)}
-.q button.right{background:#dcfce7;border-color:#16a34a;color:#14532d}
-.q button.wrong{background:#fee2e2;border-color:#dc2626;color:#7f1d1d}
-.q .fb{display:none;margin-top:12px;padding:14px 16px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:var(--radius-sm);font-size:.9rem;color:#14532d}
-#score{display:inline-block;margin-top:8px;background:var(--primary);color:#fff;padding:8px 18px;border-radius:var(--radius-sm);font-weight:600;font-size:.9rem}
-footer{text-align:center;color:var(--text-light);font-size:.82rem;padding:28px}
+.q{border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:14px 0;background:#fff}
+.q .opts{display:grid;gap:8px;margin-top:10px}
+.q button.opt{text-align:left;padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:#FFF9F2;font:inherit;font-size:.92em;cursor:pointer;color:var(--ink)}
+.q button.opt:hover{border-color:var(--amber)}
+.q button.right{background:#E3EDC6;border-color:var(--leaf)}
+.q button.wrong{background:#F8D7CF;border-color:#B23A2A}
+.q .fb{display:none;margin-top:10px;font-size:.9em;padding:10px 14px;border-radius:10px;background:var(--tint)}
+#score{position:sticky;bottom:16px;margin-left:auto;width:max-content;background:var(--rust);color:#fff;padding:8px 16px;border-radius:999px;font-weight:700;font-size:.85em;box-shadow:0 6px 18px -6px rgba(0,0,0,.4)}
+
+#toTop{position:fixed;right:18px;bottom:18px;width:46px;height:46px;border-radius:50%;border:none;background:var(--orange);color:#fff;font-size:1.3em;cursor:pointer;box-shadow:0 8px 20px -8px rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:.3s}
+#toTop.show{opacity:1;pointer-events:auto}
+footer{text-align:center;color:var(--ink-soft);font-size:.8em;padding:30px}
 </style>
 </head>
 <body>
+<div id="progress"></div>
 
 <header class="hero">
   <div class="hero-inner">
@@ -120,7 +157,7 @@ footer{text-align:center;color:var(--text-light);font-size:.82rem;padding:28px}
 </header>
 
 <nav class="top" aria-label="Chapter sections">
-  <div class="navwrap">
+  <div class="wrap">
     <div class="chips">
       <a class="chip" href="#s0">Start</a>
       <a class="chip" href="#s1">Strategy &amp; risk</a>
@@ -159,11 +196,11 @@ footer{text-align:center;color:var(--text-light);font-size:.82rem;padding:28px}
 
   <h3>The risk management cycle (the backbone of this chapter)</h3>
   <div class="erm">
-    <div style="background:#3d7fc1"><b>1</b>Identify<br>what could go wrong (or right)?</div>
-    <div style="background:#2563a8"><b>2</b>Assess<br>how likely? how bad?</div>
-    <div style="background:#1a4f82"><b>3</b>Respond<br>TARA</div>
-    <div style="background:#0f2d52"><b>4</b>Monitor<br>register, heat map, KRIs</div>
-    <div style="background:#0f766e"><b>5</b>Assure<br>4 lines of defence</div>
+    <div style="background:#E9A23B"><b>1</b>Identify<br>what could go wrong (or right)?</div>
+    <div style="background:#D97F27"><b>2</b>Assess<br>how likely? how bad?</div>
+    <div style="background:#C2541B"><b>3</b>Respond<br>TARA</div>
+    <div style="background:#9A3B10"><b>4</b>Monitor<br>register, heat map, KRIs</div>
+    <div style="background:#6F7B34"><b>5</b>Assure<br>4 lines of defence</div>
   </div>
   <p>Every section below fits into one of these five steps. If an exam task says "advise the board on risk", you can almost always build your answer as <strong>identify → assess → respond → monitor</strong>.</p>
 
@@ -244,11 +281,11 @@ footer{text-align:center;color:var(--text-light);font-size:.82rem;padding:28px}
   </div>
 
   <div class="erm">
-    <div style="background:#3d7fc1"><b>1</b>Governance &amp; Culture</div>
-    <div style="background:#2563a8"><b>2</b>Strategy &amp; Objective-Setting</div>
-    <div style="background:#1a4f82"><b>3</b>Performance</div>
-    <div style="background:#0f2d52"><b>4</b>Review &amp; Revision</div>
-    <div style="background:#0f766e"><b>5</b>Information, Communication &amp; Reporting</div>
+    <div style="background:#E9A23B"><b>1</b>Governance &amp; Culture</div>
+    <div style="background:#D97F27"><b>2</b>Strategy &amp; Objective-Setting</div>
+    <div style="background:#C2541B"><b>3</b>Performance</div>
+    <div style="background:#9A3B10"><b>4</b>Review &amp; Revision</div>
+    <div style="background:#6F7B34"><b>5</b>Information, Communication &amp; Reporting</div>
   </div>
 
   <div class="tblwrap"><table>
@@ -561,7 +598,7 @@ footer{text-align:center;color:var(--text-light);font-size:.82rem;padding:28px}
 
   <div class="box example"><span class="lbl">② Real business example</span>
     <p><strong>Domino chain (related risks) in a hospital:</strong></p>
-    <p style="text-align:center;font-weight:600;color:var(--primary)">Nurse shortage → more agency staff → higher costs <em>and</em> agency staff unfamiliar with procedures → more clinical errors → patient complaints → reputational damage → fewer insured patients → lower revenue → less money to recruit nurses → worse nurse shortage 🔁</p>
+    <p style="text-align:center;font-weight:600;color:var(--rust)">Nurse shortage → more agency staff → higher costs <em>and</em> agency staff unfamiliar with procedures → more clinical errors → patient complaints → reputational damage → fewer insured patients → lower revenue → less money to recruit nurses → worse nurse shortage 🔁</p>
     <p><strong>Positive correlation:</strong> an airline's fuel costs and a tourism downturn often rise together during an oil price shock, hitting both cost and revenue at once.</p>
     <p><strong>Negative correlation:</strong> a company that sells both umbrellas and sunscreen. A rainy summer hurts sunscreen sales but helps umbrellas.</p>
     <p><strong>Environmental–social–governance link:</strong> pollution from a factory (environmental) leads to community health complaints (social), which leads to regulatory fines and director liability (governance).</p>
@@ -657,7 +694,7 @@ footer{text-align:center;color:var(--text-light);font-size:.82rem;padding:28px}
     <div class="ax">1</div><div class="g"></div><div class="g">R6</div><div class="g"></div><div class="y"></div><div class="y"></div>
     <div class="ax"></div><div class="ax">L1</div><div class="ax">L2</div><div class="ax">L3</div><div class="ax">L4</div><div class="ax">L5</div>
   </div>
-  <p style="font-size:.85em;color:var(--text-light)">R1 Ransomware · R2 Licence breach · R3 ICU nurse shortage · R4 Late insurer payments · R5 Equipment downtime · R6 Café supplier late</p>
+  <p style="font-size:.85em;color:var(--ink-soft)">R1 Ransomware · R2 Licence breach · R3 ICU nurse shortage · R4 Late insurer payments · R5 Equipment downtime · R6 Café supplier late</p>
 
   <div class="box example"><span class="lbl">② Real business example: register entry</span>
     <div class="tblwrap"><table>
@@ -810,10 +847,10 @@ footer{text-align:center;color:var(--text-light);font-size:.82rem;padding:28px}
   <div class="tara">
     <div></div><div class="hd">Low likelihood</div><div class="hd">High likelihood</div>
     <div class="ylab">IMPACT (severity) → High at top</div>
-    <div class="cell" style="background:#2563a8"><b>TRANSFER</b><span>Low likelihood, high impact.<br>Pass it to someone else: insurance, outsourcing, contracts, hedging, joint ventures.</span></div>
-    <div class="cell" style="background:#0f2d52"><b>AVOID</b><span>High likelihood, high impact.<br>Don't do the activity, or stop it. Exit the market, cancel the project.</span></div>
-    <div class="cell" style="background:#0891b2"><b>ACCEPT</b><span>Low likelihood, low impact.<br>Live with it and monitor. Cost of control &gt; benefit.</span></div>
-    <div class="cell" style="background:#3d7fc1"><b>REDUCE</b><span>High likelihood, low impact.<br>Controls to cut likelihood or impact: training, systems, procedures.</span></div>
+    <div class="cell" style="background:#D97F27"><b>TRANSFER</b><span>Low likelihood, high impact.<br>Pass it to someone else: insurance, outsourcing, contracts, hedging, joint ventures.</span></div>
+    <div class="cell" style="background:#9A3B10"><b>AVOID</b><span>High likelihood, high impact.<br>Don't do the activity, or stop it. Exit the market, cancel the project.</span></div>
+    <div class="cell" style="background:#8F9A4A"><b>ACCEPT</b><span>Low likelihood, low impact.<br>Live with it and monitor. Cost of control &gt; benefit.</span></div>
+    <div class="cell" style="background:#E9A23B"><b>REDUCE</b><span>High likelihood, low impact.<br>Controls to cut likelihood or impact: training, systems, procedures.</span></div>
     <div></div><div class="xlab">LIKELIHOOD (probability) →</div>
   </div>
 
@@ -882,9 +919,9 @@ footer{text-align:center;color:var(--text-light);font-size:.82rem;padding:28px}
     <p>You can never make anything 100% safe. A hospital with zero infection risk would have to close. ALARP is about being <strong>reasonable</strong>.</p>
     <div class="tblwrap"><table>
       <tr><th>Zone</th><th>Meaning</th></tr>
-      <tr><td style="background:#fee2e2"><strong>Unacceptable region</strong></td><td>Risk is intolerable. Must reduce or stop, whatever the cost.</td></tr>
-      <tr><td style="background:#fef3c7"><strong>ALARP / tolerable region</strong></td><td>Accept only if further reduction is impracticable or the cost is grossly disproportionate.</td></tr>
-      <tr><td style="background:#dcfce7"><strong>Broadly acceptable region</strong></td><td>Risk is negligible. Just monitor.</td></tr>
+      <tr><td style="background:#F6C9BB"><strong>Unacceptable region</strong></td><td>Risk is intolerable. Must reduce or stop, whatever the cost.</td></tr>
+      <tr><td style="background:#F8E1A8"><strong>ALARP / tolerable region</strong></td><td>Accept only if further reduction is impracticable or the cost is grossly disproportionate.</td></tr>
+      <tr><td style="background:#DCE8B8"><strong>Broadly acceptable region</strong></td><td>Risk is negligible. Just monitor.</td></tr>
     </table></div>
     <p><strong>Why accept some risk at all?</strong> Taking risk is how businesses earn returns and compete. Over-controlling causes high costs, slow decisions, lost opportunities and less innovation.</p>
   </div>
@@ -920,10 +957,10 @@ footer{text-align:center;color:var(--text-light);font-size:.82rem;padding:28px}
     <p>The board needs <strong>assurance</strong>, meaning confidence, that key risks are really being managed. Different groups give that assurance at different levels of independence:</p>
   </div>
   <div class="lines">
-    <div class="ln"><div class="n" style="background:#3d7fc1">1st</div><div class="t"><strong>Operational management</strong>: the people who own and manage risk day to day. Controls built into processes (e.g. ward manager checks drug stock; supervisor approves invoices).</div></div>
-    <div class="ln"><div class="n" style="background:#2563a8">2nd</div><div class="t"><strong>Risk management and compliance functions</strong>: set frameworks, monitor the 1st line, challenge it (risk manager, compliance officer, health &amp; safety, information security).</div></div>
-    <div class="ln"><div class="n" style="background:#0f2d52">3rd</div><div class="t"><strong>Internal audit</strong>: independent, objective assurance on whether lines 1 and 2 work. Reports to the <strong>audit committee</strong>.</div></div>
-    <div class="ln"><div class="n" style="background:#0f766e">4th</div><div class="t"><strong>External assurance</strong>: external auditors, regulators (e.g. health authority inspectors), and other independent external reviewers. Fully outside the organisation.</div></div>
+    <div class="ln"><div class="n" style="background:#E9A23B">1st</div><div class="t"><strong>Operational management</strong>: the people who own and manage risk day to day. Controls built into processes (e.g. ward manager checks drug stock; supervisor approves invoices).</div></div>
+    <div class="ln"><div class="n" style="background:#D2601A">2nd</div><div class="t"><strong>Risk management and compliance functions</strong>: set frameworks, monitor the 1st line, challenge it (risk manager, compliance officer, health &amp; safety, information security).</div></div>
+    <div class="ln"><div class="n" style="background:#9A3B10">3rd</div><div class="t"><strong>Internal audit</strong>: independent, objective assurance on whether lines 1 and 2 work. Reports to the <strong>audit committee</strong>.</div></div>
+    <div class="ln"><div class="n" style="background:#6F7B34">4th</div><div class="t"><strong>External assurance</strong>: external auditors, regulators (e.g. health authority inspectors), and other independent external reviewers. Fully outside the organisation.</div></div>
   </div>
 
   <div class="box simple"><span class="lbl">Assurance mapping</span>
@@ -1118,15 +1155,31 @@ footer{text-align:center;color:var(--text-light);font-size:.82rem;padding:28px}
 
 </main>
 <footer>SBL Study Notes · Chapter D – Risk · Sept 2026 – June 2027 syllabus · All organisations in examples are fictitious.</footer>
+<button id="toTop" aria-label="Back to top">↑</button>
 
 <script>
-const navLinks=document.querySelectorAll('a.chip');
-const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){navLinks.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id));}});},{rootMargin:'-20% 0px -70% 0px'});
-document.querySelectorAll('section[id]').forEach(x=>obs.observe(x));
+// progress + back to top + active chip
+const prog=document.getElementById('progress'),toTop=document.getElementById('toTop');
+const chips=[...document.querySelectorAll('a.chip')];
+const secs=chips.map(c=>document.querySelector(c.getAttribute('href')));
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement;
+  prog.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
+  toTop.classList.toggle('show',h.scrollTop>600);
+  let idx=0;secs.forEach((s,i)=>{if(s&&s.getBoundingClientRect().top<120)idx=i;});
+  chips.forEach((c,i)=>c.classList.toggle('active',i===idx));
+  // keep the active link visible by scrolling ONLY the menu bar sideways (never the page)
+  const a=chips[idx];
+  if(a&&a.dataset.vis!=='1'){chips.forEach(c=>c.dataset.vis='');a.dataset.vis='1';
+    const bar=a.parentElement,br=bar.getBoundingClientRect(),ar=a.getBoundingClientRect();
+    bar.scrollLeft+=(ar.left-br.left)-(br.width-ar.width)/2;}
+},{passive:true});
+toTop.onclick=()=>{window.scrollTo({top:0,behavior:'smooth'});toTop.blur();};
+chips.forEach(c=>c.addEventListener('click',()=>setTimeout(()=>c.blur(),0)));
 
 // font size
-let fs=17;try{fs=parseInt(localStorage.getItem('sbl-fs3'))||17}catch(e){}
-const setFs=v=>{fs=Math.min(26,Math.max(15,v));document.documentElement.style.setProperty('--fs',fs+'px');try{localStorage.setItem('sbl-fs3',fs)}catch(e){}};
+let fs=19;try{fs=parseInt(localStorage.getItem('sbl-fs'))||19}catch(e){}
+const setFs=v=>{fs=Math.min(26,Math.max(15,v));document.documentElement.style.setProperty('--fs',fs+'px');try{localStorage.setItem('sbl-fs',fs)}catch(e){}};
 setFs(fs);
 document.getElementById('fplus').onclick=()=>setFs(fs+1);
 document.getElementById('fminus').onclick=()=>setFs(fs-1);
