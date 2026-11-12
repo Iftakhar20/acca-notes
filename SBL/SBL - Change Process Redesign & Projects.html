@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Change, Process Redesign &amp; Projects</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,800;1,6..12,400&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: sticky chapter rail on the left, long-form notes on the right; each model gets a coloured "lens" (saffron = exam tip, razz = mistake, mint = example, tomato = warning, dusk = structure). */
+:root{
+  --saffron:#EAC435; --dusk:#345995; --razz:#E40066; --mint:#03CEA4; --tomato:#FB4D3D;
+  --bg:#F6F7FB; --surface:#FFFFFF; --ink:#18213A; --muted:#55607A; --line:#DDE2EE;
+  --dusk-soft:#E6ECF7; --saffron-soft:#FCF4D4; --razz-soft:#FDE3EF; --mint-soft:#D6F7EF; --tomato-soft:#FEE4E1;
+  --on-saffron:#18213A; --on-mint:#0B2B26;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"Nunito Sans", "Segoe UI", system-ui, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1424; --surface:#171E33; --ink:#E8ECF6; --muted:#A3AEC8; --line:#2A3452;
+    --dusk:#7C9FDB; --dusk-soft:#1E2A47; --saffron-soft:#2E2913; --razz-soft:#36122A; --mint-soft:#0E3029; --tomato-soft:#3A1A18;
+    --razz:#FF4D9A; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F1424; --surface:#171E33; --ink:#E8ECF6; --muted:#A3AEC8; --line:#2A3452;
+  --dusk:#7C9FDB; --dusk-soft:#1E2A47; --saffron-soft:#2E2913; --razz-soft:#36122A; --mint-soft:#0E3029; --tomato-soft:#3A1A18;
+  --razz:#FF4D9A; color-scheme: dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65}
+a{color:var(--dusk)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--razz);outline-offset:2px;border-radius:4px}
+h1,h2,h3,h4{font-family:var(--display);line-height:1.2;text-wrap:balance;margin:0}
+h2{font-size:1.9rem;margin-bottom:.4rem}
+h3{font-size:1.3rem;margin:1.8rem 0 .5rem}
+h4{font-size:1.05rem;margin:1.2rem 0 .3rem}
+p{margin:.6rem 0}
+ul,ol{margin:.5rem 0;padding-left:1.3rem}
+li{margin:.25rem 0}
+strong{font-weight:800}
+
+/* Hero */
+.hero{background:var(--dusk);color:#fff;padding:48px 24px 0;position:relative;overflow:hidden}
+:root[data-theme="dark"] .hero{background:#22345A}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .hero{background:#22345A}}
+.hero-inner{max-width:1180px;margin:0 auto}
+.eyebrow{font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.78rem;color:var(--saffron)}
+.hero h1{font-size:clamp(2rem,5vw,3.3rem);font-weight:800;margin:.4rem 0 .6rem;max-width:20ch}
+.hero p{max-width:65ch;color:#DCE4F5;margin:0 0 1.2rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);padding:4px 12px;border-radius:999px;font-size:.85rem;font-weight:600}
+.stripe{display:grid;grid-template-columns:repeat(5,1fr);height:10px}
+.stripe span:nth-child(1){background:#EAC435}.stripe span:nth-child(2){background:#345995;filter:brightness(1.4)}.stripe span:nth-child(3){background:#E40066}.stripe span:nth-child(4){background:#03CEA4}.stripe span:nth-child(5){background:#FB4D3D}
+
+/* Layout */
+.wrap{max-width:1180px;margin:0 auto;padding:28px 16px 80px;display:grid;grid-template-columns:250px minmax(0,1fr);gap:36px}
+@media (max-width:900px){.wrap{grid-template-columns:1fr}.rail{position:static!important;max-height:none!important}}
+.rail{position:sticky;top:16px;align-self:start;max-height:calc(100vh - 32px);overflow:auto;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.rail h4{margin:0 0 .5rem;font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.rail ol{list-style:none;padding:0;margin:0;counter-reset:t}
+.rail li{margin:0}
+.rail a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;text-decoration:none;color:var(--ink);font-size:.92rem;line-height:1.35}
+.rail a::before{counter-increment:t;content:counter(t,decimal-leading-zero);font-family:var(--display);font-weight:800;color:var(--dusk);font-size:.8rem;min-width:20px;padding-top:2px}
+.rail a:hover,.rail a.active{background:var(--dusk-soft)}
+.rail a.active{font-weight:800}
+
+main{min-width:0}
+section{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px clamp(18px,3vw,36px);margin-bottom:28px;scroll-margin-top:16px}
+.sec-head{display:flex;align-items:flex-start;gap:14px;margin-bottom:.6rem}
+.num{font-family:var(--display);font-weight:800;font-size:1rem;background:var(--saffron);color:var(--on-saffron);border-radius:10px;min-width:44px;height:44px;display:grid;place-items:center}
+.ref{font-size:.8rem;color:var(--muted);font-weight:600}
+.prose{max-width:72ch}
+
+/* Callouts */
+.box{border-radius:12px;padding:14px 18px;margin:1rem 0;border-left:6px solid}
+.box > .lbl{display:block;font-family:var(--display);font-weight:800;font-size:.8rem;text-transform:uppercase;letter-spacing:.07em;margin-bottom:.2rem}
+.simple{background:var(--dusk-soft);border-color:var(--dusk)} .simple > .lbl{color:var(--dusk)}
+.example{background:var(--mint-soft);border-color:var(--mint)} .example > .lbl{color:#029C7C}
+.exam{background:var(--saffron-soft);border-color:var(--saffron)} .exam > .lbl{color:#9A7A00}
+.mistake{background:var(--razz-soft);border-color:var(--razz)} .mistake > .lbl{color:var(--razz)}
+.memory{background:var(--tomato-soft);border-color:var(--tomato)} .memory > .lbl{color:var(--tomato)}
+:root[data-theme="dark"] .example > .lbl{color:var(--mint)} :root[data-theme="dark"] .exam > .lbl{color:var(--saffron)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .example > .lbl{color:var(--mint)} :root:not([data-theme="light"]) .exam > .lbl{color:var(--saffron)}}
+
+/* Tables */
+.tbl{overflow-x:auto;margin:1rem 0;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;font-size:.95rem;min-width:560px}
+th,td{padding:10px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+th{background:var(--dusk);color:#fff;font-family:var(--display);font-weight:600}
+tr:last-child td{border-bottom:none}
+tbody tr:nth-child(even) td{background:color-mix(in srgb,var(--dusk-soft) 45%,transparent)}
+td.num-c{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+
+/* Matrices */
+.matrix{display:grid;grid-template-columns:44px 1fr 1fr;grid-template-rows:1fr 1fr 40px;gap:8px;margin:1.2rem 0;max-width:720px}
+.mcell{border-radius:12px;padding:14px;color:#fff;min-height:130px}
+.mcell h4{margin:0 0 .3rem;color:inherit}
+.mcell p{margin:0;font-size:.92rem}
+.yaxis{writing-mode:vertical-rl;transform:rotate(180deg);text-align:center;font-weight:800;font-size:.82rem;color:var(--muted);grid-row:1/3;display:flex;align-items:center;justify-content:center}
+.xaxis{grid-column:2/4;text-align:center;font-weight:800;font-size:.82rem;color:var(--muted);display:flex;justify-content:space-between;align-items:center;padding:0 8px}
+.c-dusk{background:#345995}.c-razz{background:#E40066}.c-mint{background:#03CEA4;color:#0B2B26}.c-sat{background:#EAC435;color:#18213A}.c-tom{background:#FB4D3D}
+
+/* Cards grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:1rem 0}
+.card{border:1px solid var(--line);border-radius:12px;padding:14px;background:var(--bg);border-top:5px solid var(--dusk)}
+.card h4{margin:0 0 .25rem}
+.card p{margin:.2rem 0;font-size:.93rem}
+.card .q{font-style:italic;color:var(--muted);font-size:.9rem}
+.card.t-s{border-top-color:var(--saffron)}.card.t-r{border-top-color:var(--razz)}.card.t-m{border-top-color:var(--mint)}.card.t-t{border-top-color:var(--tomato)}
+
+/* Steps */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:1rem 0;counter-reset:s}
+.step{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 14px;position:relative}
+.step::before{counter-increment:s;content:counter(s);font-family:var(--display);font-weight:800;background:var(--razz);color:#fff;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;margin-bottom:6px;font-size:.9rem}
+.step h4{margin:0 0 .2rem;font-size:1rem}
+.step p{margin:0;font-size:.9rem}
+
+/* Force field */
+.ff{display:grid;grid-template-columns:1fr 6px 1fr;gap:10px;margin:1rem 0;align-items:center}
+.ff .col{display:grid;gap:8px}
+.bar{padding:8px 10px;border-radius:8px;font-size:.88rem;font-weight:600}
+.drive .bar{background:var(--mint-soft);border-right:5px solid var(--mint);text-align:right}
+.resist .bar{background:var(--tomato-soft);border-left:5px solid var(--tomato)}
+.ff .mid{background:var(--ink);height:100%;border-radius:3px}
+.ff-h{display:grid;grid-template-columns:1fr 6px 1fr;gap:10px;font-weight:800;font-family:var(--display)}
+.ff-h span:first-child{text-align:right;color:#029C7C}.ff-h span:last-child{color:var(--tomato)}
+
+/* Swimlane */
+.lanes{border:1px solid var(--line);border-radius:12px;overflow-x:auto;margin:1rem 0}
+.lane{display:grid;grid-template-columns:130px repeat(6,minmax(110px,1fr));min-width:820px;border-bottom:1px solid var(--line)}
+.lane:last-child{border-bottom:none}
+.lane > div{padding:10px 8px;font-size:.82rem}
+.lane .who{background:var(--dusk);color:#fff;font-weight:800;font-family:var(--display)}
+.act{background:var(--dusk-soft);border-radius:8px;margin:6px 4px;text-align:center;font-weight:600}
+.act.bad{background:var(--tomato-soft);border:2px dashed var(--tomato)}
+.act.wait{background:var(--saffron-soft);border:2px dashed var(--saffron)}
+
+/* Gantt */
+.gantt{overflow-x:auto;border:1px solid var(--line);border-radius:12px;margin:1rem 0}
+.g-row{display:grid;grid-template-columns:190px repeat(12,minmax(34px,1fr));min-width:660px;align-items:center;border-bottom:1px solid var(--line)}
+.g-row:last-child{border-bottom:none}
+.g-row > div{height:34px;display:flex;align-items:center;font-size:.82rem}
+.g-row .g-l{padding:0 10px;font-weight:600}
+.g-head > div{font-weight:800;justify-content:center;color:var(--muted);font-variant-numeric:tabular-nums}
+.g-bar{border-radius:6px;height:20px!important;margin:7px 1px;color:#fff;font-weight:800;justify-content:center}
+.g-crit{background:var(--razz)} .g-ok{background:var(--dusk)} .g-float{background:repeating-linear-gradient(45deg,var(--line),var(--line) 4px,transparent 4px,transparent 8px);height:20px!important;margin:7px 1px;border-radius:6px}
+
+/* Network */
+.net{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:1rem 0}
+.node{border:2px solid var(--dusk);border-radius:10px;padding:8px 12px;text-align:center;font-weight:800;background:var(--surface);font-size:.9rem}
+.node small{display:block;font-weight:600;color:var(--muted)}
+.node.crit{border-color:var(--razz);background:var(--razz-soft)}
+.arrow{color:var(--muted);font-weight:800}
+
+/* Model answer */
+.answer{border:2px solid var(--dusk);border-radius:14px;margin:1.2rem 0;overflow:hidden}
+.answer .a-head{background:var(--dusk);color:#fff;padding:10px 16px;font-family:var(--display);font-weight:600;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.answer .a-head span:last-child{background:var(--saffron);color:var(--on-saffron);border-radius:999px;padding:0 10px;font-size:.85rem;font-weight:800}
+.answer .a-body{padding:16px 20px}
+.answer .a-body h4{color:var(--dusk);margin-top:1rem}
+.answer .a-body h4:first-child{margin-top:0}
+.mark{display:inline-block;background:var(--mint);color:var(--on-mint);font-weight:800;font-size:.72rem;border-radius:6px;padding:0 6px;margin-left:4px;vertical-align:1px}
+.ps{display:inline-block;background:var(--razz);color:#fff;font-weight:800;font-size:.72rem;border-radius:6px;padding:0 6px;margin-left:4px;vertical-align:1px}
+
+/* Quiz */
+details{border:1px solid var(--line);border-radius:12px;margin:.6rem 0;background:var(--bg)}
+summary{cursor:pointer;padding:12px 16px;font-weight:700}
+summary::marker{color:var(--razz)}
+details > div{padding:0 16px 14px;border-top:1px dashed var(--line)}
+details[open] summary{color:var(--dusk)}
+
+.kicker{font-size:1.1rem;color:var(--muted);max-width:68ch}
+.pill{display:inline-block;padding:1px 10px;border-radius:999px;font-size:.8rem;font-weight:800}
+.p-hi{background:var(--razz);color:#fff}.p-md{background:var(--saffron);color:var(--on-saffron)}.p-lo{background:var(--mint);color:var(--on-mint)}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+footer{text-align:center;color:var(--muted);font-size:.85rem;padding:20px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">ACCA Strategic Business Leader · Syllabus areas H3–H6</div>
+    <h1>Change, Process Redesign &amp; Projects</h1>
+    <p>Complete exam notes for the September 2026 to June 2027 syllabus. Every model is explained simply, shown working in a real organisation, then turned into the kind of answer that earns technical and professional skills marks.</p>
+    <div class="chips">
+      <span class="chip">H5 Managing strategic change</span>
+      <span class="chip">H6 Leading &amp; managing projects</span>
+      <span class="chip">H3b POPIT</span>
+      <span class="chip">A2b Leadership style for change</span>
+      <span class="chip">I1–I5 Professional skills</span>
+    </div>
+  </div>
+  <div class="stripe" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+</header>
+
+<div class="wrap">
+<nav class="rail" aria-label="Chapter contents">
+  <h4>Contents</h4>
+  <ol id="toc">
+    <li><a href="#map">Chapter map &amp; how it's examined</a></li>
+    <li><a href="#types">Types of strategic change</a></li>
+    <li><a href="#context">Contextual features (Balogun &amp; Hope Hailey)</a></li>
+    <li><a href="#lewin">Lewin &amp; force field analysis</a></li>
+    <li><a href="#resistance">Resistance &amp; change leadership</a></li>
+    <li><a href="#evaluate">Evaluating current processes</a></li>
+    <li><a href="#popit">POPIT model</a></li>
+    <li><a href="#harmon">Harmon's process-strategy matrix</a></li>
+    <li><a href="#redesign">Redesign options</a></li>
+    <li><a href="#method">Redesign methodology</a></li>
+    <li><a href="#projects">What makes a project</a></li>
+    <li><a href="#bizcase">Business case &amp; PID</a></li>
+    <li><a href="#costben">Classifying costs &amp; benefits</a></li>
+    <li><a href="#roles">Sponsor vs project manager</a></li>
+    <li><a href="#plan">The project plan</a></li>
+    <li><a href="#control">Risks, slippage &amp; control</a></li>
+    <li><a href="#reviews">Post-implementation &amp; post-project reviews</a></li>
+    <li><a href="#case">Integrated case &amp; model answers</a></li>
+    <li><a href="#skills">Professional skills marks</a></li>
+    <li><a href="#cheat">Cheat sheet &amp; mnemonics</a></li>
+    <li><a href="#quiz">Self-test</a></li>
+  </ol>
+</nav>
+
+<main>
+
+<!-- 01 MAP -->
+<section id="map">
+  <div class="sec-head"><div class="num">01</div><div><h2>Chapter map &amp; how it's examined</h2><div class="ref">Read this first. It tells you where the marks are.</div></div></div>
+  <div class="prose">
+    <p>This chapter answers three questions a board always asks after it has chosen a strategy:</p>
+    <ol>
+      <li><strong>How big is the change and how do we lead people through it?</strong> (types of change, contextual features, Lewin, resistance)</li>
+      <li><strong>Which processes must change, and how radically?</strong> (process evaluation, POPIT, Harmon's matrix, redesign options, methodology)</li>
+      <li><strong>How do we deliver it on time, on budget and to scope?</strong> (projects, business case, PID, roles, plan, control, reviews)</li>
+    </ol>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Typical task wording</th><th>Model to use</th><th>Usual marks</th></tr></thead>
+    <tbody>
+      <tr><td>"Assess the type of change…" / "Advise the board on the nature and scope of change"</td><td>Balogun &amp; Hope Hailey types (adaptation, reconstruction, evolution, revolution)</td><td>4–8</td></tr>
+      <tr><td>"Assess the implications of the change using contextual features"</td><td>Balogun &amp; Hope Hailey 8 contextual features</td><td>8–16</td></tr>
+      <tr><td>"Advise how the change should be managed"</td><td>Lewin unfreeze–change–refreeze, force field, Kotter &amp; Schlesinger</td><td>6–12</td></tr>
+      <tr><td>"Evaluate the current process" / "Recommend improvements"</td><td>Process mapping, POPIT, redesign patterns</td><td>8–15</td></tr>
+      <tr><td>"Establish the scope and focus of process change"</td><td>Harmon's process-strategy matrix</td><td>6–10</td></tr>
+      <tr><td>"Prepare a business case / PID / briefing note"</td><td>Business case contents, PID contents, cost/benefit classification</td><td>10–20</td></tr>
+      <tr><td>"Explain the roles of sponsor and project manager"</td><td>Role tables</td><td>4–8</td></tr>
+      <tr><td>"Discuss the benefits of a post-implementation review"</td><td>PIR vs PPR</td><td>4–8</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box exam"><span class="lbl">Exam reality</span>SBL has 3 tasks totalling 100 marks (80 technical + 20 professional skills) in 3 hours 15 minutes. Project and change requirements appear in almost every sitting, often as the final task where the board has already chosen a strategy and now needs it delivered. Roughly <strong>1 technical mark per well-explained, case-applied point</strong>. Budget about 1.95 minutes per mark including reading time.</div>
+  <div class="box memory"><span class="lbl">One-line chapter summary</span><strong>Size it → Read the context → Unfreeze people → Fix the process → Run it as a project → Review the benefits.</strong></div>
+</section>
+
+<!-- 02 TYPES -->
+<section id="types">
+  <div class="sec-head"><div class="num">02</div><div><h2>Types of strategic change</h2><div class="ref">H5b · Balogun &amp; Hope Hailey</div></div></div>
+  <div class="box simple"><span class="lbl">In simple words</span>Every change has two dimensions. <strong>Scope</strong>: does it keep the current way of doing things (realignment) or change the organisation's fundamental culture and paradigm (transformation)? <strong>Nature</strong>: does it happen step by step (incremental) or all at once (big bang)? Cross the two and you get four types.</div>
+  <div class="matrix" role="img" aria-label="Balogun and Hope Hailey types of change matrix">
+    <div class="yaxis">NATURE OF CHANGE</div>
+    <div class="mcell c-mint"><h4>Adaptation</h4><p><strong>Incremental + Realignment.</strong> Small steps within the existing paradigm. Most common type.</p></div>
+    <div class="mcell c-dusk"><h4>Evolution</h4><p><strong>Incremental + Transformation.</strong> Planned, gradual move to a new paradigm over years.</p></div>
+    <div class="mcell c-sat"><h4>Reconstruction</h4><p><strong>Big bang + Realignment.</strong> Rapid, often painful change (cost cuts, restructuring) without changing the paradigm.</p></div>
+    <div class="mcell c-razz"><h4>Revolution</h4><p><strong>Big bang + Transformation.</strong> Fast, fundamental change, often in a crisis or after strategic drift.</p></div>
+    <div class="xaxis"><span>← Realignment</span><span>SCOPE OF CHANGE</span><span>Transformation →</span></div>
+  </div>
+  <p style="font-size:.85rem;color:var(--muted)">Top row = incremental, bottom row = big bang.</p>
+  <h3>Real-world examples</h3>
+  <div class="grid">
+    <div class="card t-m"><h4>Adaptation</h4><p>A hospital extends outpatient clinic hours to 9 pm and adds a self-check-in kiosk. Same model of care, small steps.</p></div>
+    <div class="card"><h4>Evolution</h4><p>A government health authority moves over five years from paper to fully digital patient records, changing how clinicians think and work.</p></div>
+    <div class="card t-s"><h4>Reconstruction</h4><p>An FMCG company facing falling margins closes two of six factories in one quarter. Still a mass-market manufacturer, just smaller.</p></div>
+    <div class="card t-r"><h4>Revolution</h4><p>A camera film maker that must become a digital imaging company within 18 months to survive. Culture, skills and business model all change fast.</p></div>
+  </div>
+  <div class="box exam"><span class="lbl">How it appears in the exam</span>"The CEO describes the proposed change as 'just a system upgrade'. Assess the type of change." The examiner wants <strong>scepticism</strong>: if the case shows new roles, new culture and job losses, it is not adaptation. Classify it, justify with evidence from the exhibits on <em>both</em> axes, then state the implication (e.g. revolution needs strong directive leadership and a clear sense of urgency).</div>
+  <div class="box mistake"><span class="lbl">Common mistakes</span>
+    <ul><li>Describing all four types when the task asks you to classify <em>this</em> change. Name one, justify it, and move on.</li>
+    <li>Confusing "big" with "transformational". A huge cost-cutting programme can still be reconstruction if the paradigm is unchanged.</li>
+    <li>Forgetting the time dimension: a change can start as reconstruction and need to become evolution.</li></ul></div>
+  <div class="box memory"><span class="lbl">Memory tip</span><strong>"A-E-R-R"</strong> clockwise from top-left: <strong>A</strong>daptation, <strong>E</strong>volution, <strong>R</strong>evolution, <strong>R</strong>econstruction. Evolution and revolution both <em>transform</em> (like species do); the "re-" words that build rather than transform are on the left.</div>
+</section>
+
+<!-- 03 CONTEXT -->
+<section id="context">
+  <div class="sec-head"><div class="num">03</div><div><h2>Contextual features of change</h2><div class="ref">H5g · Balogun &amp; Hope Hailey's change kaleidoscope · High-probability exam model</div></div></div>
+  <div class="box simple"><span class="lbl">In simple words</span>Before deciding <em>how</em> to change, check the conditions you are changing in. Eight features tell you whether the change will be easy or hard and what approach suits. Think of it as a health check of the organisation's readiness.</div>
+  <div class="grid">
+    <div class="card t-r"><h4>1. Time</h4><p>How long do we have? A crisis forces fast, directive change.</p><p class="q">Is there a deadline (regulator, cash, contract)?</p></div>
+    <div class="card t-s"><h4>2. Scope</h4><p>How much changes: one department or the whole organisation? Realignment or transformation?</p><p class="q">How many people, sites and processes are affected?</p></div>
+    <div class="card t-m"><h4>3. Preservation</h4><p>What must be kept: key staff, knowledge, brand, culture, assets?</p><p class="q">Who will we lose if we get this wrong?</p></div>
+    <div class="card"><h4>4. Diversity</h4><p>How varied are the groups, cultures and experiences? Diversity makes uniform change harder but brings ideas.</p><p class="q">Are there distinct professional or national subcultures?</p></div>
+    <div class="card t-t"><h4>5. Capability</h4><p>Do managers and staff have the <em>skills and experience</em> to manage change?</p><p class="q">Has the organisation done change like this before?</p></div>
+    <div class="card t-r"><h4>6. Capacity</h4><p>Are there enough <em>resources</em>: money, people, time, IT?</p><p class="q">Can we fund it while running daily operations?</p></div>
+    <div class="card t-s"><h4>7. Readiness</h4><p>Are staff aware of the need and <em>willing</em> to change? Is there resistance?</p><p class="q">Do they see the burning platform?</p></div>
+    <div class="card t-m"><h4>8. Power</h4><p>Does the change leader have the authority to impose change? Who else holds power (unions, doctors, ministry)?</p><p class="q">Can the sponsor actually make this happen?</p></div>
+  </div>
+  <div class="box example"><span class="lbl">Worked example: a public hospital moving to a new electronic medical record (EMR)</span>
+    <ul>
+      <li><strong>Time:</strong> the health ministry requires go-live in 14 months, so there is pressure for a phased but firm timetable.</li>
+      <li><strong>Scope:</strong> every clinical department and 3,200 staff. This is transformation of clinical workflows, not a simple IT upgrade.</li>
+      <li><strong>Preservation:</strong> 15 years of patient history must migrate accurately; senior consultants must not leave.</li>
+      <li><strong>Diversity:</strong> staff from 40+ nationalities, plus distinct medical, nursing and admin subcultures with different priorities.</li>
+      <li><strong>Capability:</strong> the IT team has done finance ERP projects but never a clinical system. External expertise is needed.</li>
+      <li><strong>Capacity:</strong> AED 45m budget approved, but clinicians cannot be taken off wards for long training sessions.</li>
+      <li><strong>Readiness:</strong> nurses welcome less paperwork; some consultants fear typing will slow consultations.</li>
+      <li><strong>Power:</strong> the CEO has ministry backing, but department heads (consultants) hold strong informal power and must be won over.</li>
+    </ul>
+    <p><strong>Conclusion:</strong> capacity and power are adequate, but capability and readiness are weak. Use an evolutionary, participative approach with clinical champions in each department.</p>
+  </div>
+  <div class="box exam"><span class="lbl">How it appears in the exam &amp; what the examiner expects</span>
+    <ul>
+      <li>Usually "Assess the implications of the proposed change using Balogun and Hope Hailey's contextual features" for 8–16 marks.</li>
+      <li>Expect <strong>1 mark per feature applied with case evidence</strong>, plus up to 1 more for an implication (what it means for how the change is managed).</li>
+      <li>The examiner rewards a final <strong>overall conclusion</strong>: is the organisation ready? What is the biggest barrier? This earns evaluation marks.</li>
+      <li>You don't need all 8 if the case gives no evidence for one. Six well-applied features beat eight thin ones.</li>
+    </ul></div>
+  <div class="box mistake"><span class="lbl">Common mistakes</span>
+    <ul><li>Mixing up <strong>capability</strong> (skills, experience) with <strong>capacity</strong> (resources, money, time). Markers check this.</li>
+    <li>Defining each feature without linking it to the scenario. Definitions score almost zero in SBL.</li>
+    <li>No conclusion, so you lose the evaluation professional skills mark.</li></ul></div>
+  <div class="box memory"><span class="lbl">Mnemonic</span><strong>"TSP DC CRP"</strong>: <strong>T</strong>ime, <strong>S</strong>cope, <strong>P</strong>reservation, <strong>D</strong>iversity, <strong>C</strong>apability, <strong>C</strong>apacity, <strong>R</strong>eadiness, <strong>P</strong>ower. Say it as <em>"The Smart Planner Doesn't Change Course Rashly, Promptly."</em><br>Capa<strong>bility</strong> = a<strong>bility</strong> (skills). Capa<strong>city</strong> = <strong>city</strong> of resources (money, people).</div>
+</section>
+
+<!-- 04 LEWIN -->
+<section id="lewin">
+  <div class="sec-head"><div class="num">04</div><div><h2>Lewin's three-stage model &amp; force field analysis</h2><div class="ref">H5f · Managing change</div></div></div>
+  <div class="box simple"><span class="lbl">In simple words</span>People are like a block of ice. To reshape it you must <strong>unfreeze</strong> it (make people see why the old way must go), <strong>change</strong> it (move to the new way with support), then <strong>refreeze</strong> it (lock the new way in so people don't slide back).</div>
+  <div class="steps">
+    <div class="step"><h4>Unfreeze</h4><p>Create awareness and urgency. Communicate the "burning platform". Use data, show the gap, involve opinion leaders. Weaken restraining forces.</p></div>
+    <div class="step"><h4>Change (move)</h4><p>Implement the new process or structure. Train, coach, pilot, give quick wins. Provide support and two-way communication.</p></div>
+    <div class="step"><h4>Refreeze</h4><p>Embed the change: new policies, KPIs, rewards, appraisals and procedures aligned to the new behaviour. Celebrate success. Remove old systems.</p></div>
+  </div>
+  <div class="box example"><span class="lbl">Example: FMCG sales team moving to a mobile ordering app</span>
+    <p><strong>Unfreeze:</strong> show that competitors process orders in 2 hours vs our 2 days, and that 8% of paper orders contain errors. <strong>Change:</strong> pilot with the best-performing region, train with ride-along coaches, keep a help desk. <strong>Refreeze:</strong> commission calculated only from app orders, paper order books withdrawn, app usage added to the monthly scorecard.</p></div>
+
+  <h3>Force field analysis</h3>
+  <p class="prose">Lewin also said every situation is held in balance by <strong>driving forces</strong> (pushing for change) and <strong>restraining forces</strong> (resisting it). Change happens when you strengthen drivers or, often more effectively, <strong>weaken the restrainers</strong>. Pushing harder on drivers alone tends to increase resistance.</p>
+  <div class="ff-h" aria-hidden="true"><span>Driving forces →</span><span></span><span>← Restraining forces</span></div>
+  <div class="ff" role="img" aria-label="Force field example for hospital e-prescribing">
+    <div class="col drive">
+      <div class="bar">Regulator patient-safety target</div>
+      <div class="bar">Medication errors costing AED 3m a year</div>
+      <div class="bar">Nursing staff support</div>
+      <div class="bar">CEO and board sponsorship</div>
+    </div>
+    <div class="mid"></div>
+    <div class="col resist">
+      <div class="bar">Consultants fear slower ward rounds</div>
+      <div class="bar">Limited IT training capacity</div>
+      <div class="bar">Past failed IT project memories</div>
+      <div class="bar">Cost of new devices on wards</div>
+    </div>
+  </div>
+  <p class="prose"><strong>Action:</strong> weaken the restrainers. Give consultants voice-to-text and tablets, run 20-minute bedside training, publicise lessons learned from the past failure.</p>
+
+  <div class="box exam"><span class="lbl">How it appears in the exam</span>"Advise the board how Lewin's model could be used to manage the implementation." Structure your answer under the three stage headings, with 2–3 <strong>case-specific actions</strong> in each. A typical allocation is 2–3 marks per stage. Refreeze is where weaker scripts lose marks, so link it to KPIs, rewards and the culture.</div>
+  <div class="box mistake"><span class="lbl">Common mistakes</span>
+    <ul><li>Treating "refreeze" as "do nothing". It means actively embedding through systems, rewards and culture.</li>
+    <li>Skipping unfreeze and jumping to training. Without perceived need, training is wasted.</li>
+    <li>Listing generic actions ("communicate well") instead of specific ones ("CEO town-hall at each of the 3 hospitals showing the error data").</li></ul></div>
+  <div class="box memory"><span class="lbl">Memory tip</span><strong>Ice cube → water → new-shaped ice cube.</strong> For force field remember: <em>"remove the brakes before pressing the accelerator."</em></div>
+</section>
+
+<!-- 05 RESISTANCE -->
+<section id="resistance">
+  <div class="sec-head"><div class="num">05</div><div><h2>Resistance to change &amp; change leadership styles</h2><div class="ref">H5f, A2b · Kotter &amp; Schlesinger · Johnson, Scholes &amp; Whittington styles</div></div></div>
+  <h3>Why people resist</h3>
+  <div class="grid">
+    <div class="card t-t"><h4>Self-interest</h4><p>Fear of losing job, status, pay or power.</p></div>
+    <div class="card t-t"><h4>Misunderstanding</h4><p>Lack of trust or information about why change is needed.</p></div>
+    <div class="card t-t"><h4>Different assessment</h4><p>Staff genuinely believe the change is wrong (sometimes they are right; listen).</p></div>
+    <div class="card t-t"><h4>Low tolerance for change</h4><p>Fear of being unable to cope with new skills or ways of working.</p></div>
+  </div>
+  <h3>Kotter &amp; Schlesinger: six ways to overcome resistance</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Approach</th><th>When to use</th><th>Drawback</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Education &amp; communication</strong></td><td>Resistance comes from lack of information</td><td>Slow when many people are involved</td><td>Town-halls explaining the regulator's new standard</td></tr>
+      <tr><td><strong>Participation &amp; involvement</strong></td><td>Initiators lack full information; resisters have power</td><td>Time-consuming; may lead to poor compromise</td><td>Nurses co-design the new discharge checklist</td></tr>
+      <tr><td><strong>Facilitation &amp; support</strong></td><td>Resistance comes from anxiety and adjustment problems</td><td>Costly and may still fail</td><td>Floor-walkers and a 24/7 help desk at go-live</td></tr>
+      <tr><td><strong>Negotiation &amp; agreement</strong></td><td>A powerful group will clearly lose out</td><td>Expensive; others may demand the same</td><td>Agree retraining guarantees with the union</td></tr>
+      <tr><td><strong>Manipulation &amp; co-optation</strong></td><td>Other tactics too expensive or won't work</td><td>Backfires badly if discovered; <em>ethical risk</em></td><td>Giving a resisting consultant a token "clinical lead" title</td></tr>
+      <tr><td><strong>Explicit &amp; implicit coercion</strong></td><td>Speed is essential; initiators have power</td><td>Resentment, loss of key staff</td><td>"Paper prescriptions will not be accepted after 1 March"</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Leadership styles for strategic change</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Style</th><th>What it means</th><th>Best fit</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Education &amp; delegation</strong></td><td>Explain the reasons; trust staff to deliver</td><td>Incremental change, plenty of time, mature workforce</td></tr>
+      <tr><td><strong>Collaboration / participation</strong></td><td>Involve staff in deciding <em>how</em> to change</td><td>Evolution or adaptation; knowledge workers such as clinicians</td></tr>
+      <tr><td><strong>Intervention</strong></td><td>Leader keeps control but delegates parts</td><td>Mixed situations; moderate time pressure</td></tr>
+      <tr><td><strong>Direction</strong></td><td>Top-down authority decides and announces</td><td>Reconstruction or revolution; time pressure</td></tr>
+      <tr><td><strong>Coercion</strong></td><td>Imposed change using power</td><td>Crisis only; high resistance cost</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box exam"><span class="lbl">Examiner expectations</span>Link style to the <strong>type of change</strong> and the <strong>contextual features</strong>. Example: "Because the change is a revolution and time is short (14 months to regulatory deadline), a directive style is needed at the top, but participation with clinical leads on <em>how</em> the workflow changes will reduce resistance from consultants who hold informal power." A balanced, blended answer shows commercial acumen.</div>
+  <div class="box mistake"><span class="lbl">Common mistakes</span>Recommending manipulation or coercion without flagging the <strong>ethical</strong> risk. SBL is a leadership and ethics paper, so always note the cost to trust and culture.</div>
+  <div class="box memory"><span class="lbl">Memory tip</span>Kotter &amp; Schlesinger go from soft to hard: <strong>"Every Person Feels Nervous, Manage Carefully"</strong>: Education, Participation, Facilitation, Negotiation, Manipulation, Coercion.</div>
+</section>
+
+<!-- 06 EVALUATE -->
+<section id="evaluate">
+  <div class="sec-head"><div class="num">06</div><div><h2>Evaluating current processes</h2><div class="ref">H5a · Process mapping and diagnosis</div></div></div>
+  <div class="box simple"><span class="lbl">In simple words</span>A process is a set of steps that turns inputs into an output for a customer. To evaluate it, map the "as-is" flow, then hunt for delays, duplication, errors, hand-offs and steps that add no value to the customer.</div>
+  <h3>What a good process looks like (your evaluation criteria)</h3>
+  <div class="two">
+    <ul>
+      <li><strong>Effective</strong>: achieves its objective and customer need</li>
+      <li><strong>Efficient</strong>: minimal time, cost and resources</li>
+      <li><strong>Controlled</strong>: errors and fraud prevented, segregation of duties</li>
+      <li><strong>Flexible</strong>: copes with volume changes and exceptions</li>
+    </ul>
+    <ul>
+      <li><strong>Simple</strong>: few hand-offs and approvals</li>
+      <li><strong>Measured</strong>: has KPIs (cycle time, error rate, cost per transaction)</li>
+      <li><strong>Owned</strong>: one accountable process owner end-to-end</li>
+      <li><strong>Strategically aligned</strong>: supports the CSFs and the generic strategy</li>
+    </ul>
+  </div>
+  <h3>Worked example: "as-is" hospital discharge process (swimlane map)</h3>
+  <div class="lanes" role="img" aria-label="Swimlane map of a hospital discharge process with problem steps highlighted">
+    <div class="lane"><div class="who">Doctor</div><div class="act">Decides patient fit for discharge (ward round 10:00)</div><div></div><div></div><div class="act bad">Writes discharge summary by hand (often after clinic, 16:00)</div><div></div><div></div></div>
+    <div class="lane"><div class="who">Nurse</div><div></div><div class="act bad">Re-types doctor's notes into system</div><div></div><div></div><div class="act">Educates patient</div><div class="act">Patient leaves (avg 18:30)</div></div>
+    <div class="lane"><div class="who">Pharmacy</div><div></div><div></div><div class="act wait">Waits for paper prescription to arrive by porter</div><div class="act">Dispenses take-home meds</div><div></div><div></div></div>
+    <div class="lane"><div class="who">Billing</div><div></div><div></div><div class="act bad">Manually checks insurance approval by phone</div><div></div><div class="act wait">Patient waits for final bill</div><div></div></div>
+  </div>
+  <p style="font-size:.85rem;color:var(--muted)">Dashed red = non-value-adding or duplicated step. Dashed yellow = waiting.</p>
+  <div class="box example"><span class="lbl">Diagnosis (what you would write)</span>
+    <ul>
+      <li><strong>Long cycle time:</strong> 8.5 hours from decision to departure. The bed is blocked, so emergency admissions wait in A&amp;E.</li>
+      <li><strong>Duplication:</strong> nurse re-types the doctor's notes, adding transcription error risk (patient safety).</li>
+      <li><strong>Hand-offs and disconnects:</strong> four departments, paper moved by porters, no one owns the end-to-end discharge.</li>
+      <li><strong>Sequential steps that could be parallel:</strong> pharmacy and billing only start after the summary is written.</li>
+      <li><strong>No KPI:</strong> nobody measures "time of discharge decision to bed free".</li>
+    </ul></div>
+  <div class="box exam"><span class="lbl">How it appears in the exam</span>An exhibit describes a process in narrative form (an email from an operations manager, or interview notes). You are asked to "evaluate the effectiveness of the current process". Rewarded points are <strong>specific weaknesses + their consequence</strong> (cost, customer, risk, strategy). Always quantify where the exhibit gives numbers.</div>
+  <div class="box mistake"><span class="lbl">Common mistakes</span>Listing weaknesses without their <strong>impact</strong>. "The nurse re-types notes" is half a point. "…which wastes about 20 minutes per patient and introduces transcription errors that threaten patient safety and the hospital's accreditation" is a full point.</div>
+  <div class="box memory"><span class="lbl">Memory tip: process waste "DOWNTIME"</span><strong>D</strong>efects, <strong>O</strong>verproduction, <strong>W</strong>aiting, <strong>N</strong>on-used talent, <strong>T</strong>ransport, <strong>I</strong>nventory, <strong>M</strong>otion, <strong>E</strong>xtra processing. A quick checklist for scanning any process exhibit (from lean, not the syllabus, but it helps you spot points fast).</div>
+</section>
+
+<!-- 07 POPIT -->
+<section id="popit">
+  <div class="sec-head"><div class="num">07</div><div><h2>POPIT: the four-view model</h2><div class="ref">H3b · People, Organisation, Processes, Information Technology</div></div></div>
+  <div class="box simple"><span class="lbl">In simple words</span>Most failed change projects fix only one thing, usually the IT. POPIT reminds you that real change needs all four views to move together. Buy a new system without training people, changing the structure or redesigning the process, and it fails.</div>
+  <div class="grid">
+    <div class="card t-r"><h4>People</h4><p>Skills, training, motivation, job roles, culture, recruitment, reward.</p></div>
+    <div class="card t-s"><h4>Organisation</h4><p>Structure, reporting lines, management style, policies, location, relationships between departments.</p></div>
+    <div class="card t-m"><h4>Processes</h4><p>The steps of work, rules, hand-offs, controls, KPIs.</p></div>
+    <div class="card"><h4>Information Technology</h4><p>Systems, hardware, software, data, integration, security.</p></div>
+  </div>
+  <div class="box example"><span class="lbl">Example: the discharge process again, with POPIT</span>
+    <ul>
+      <li><strong>People:</strong> train doctors on electronic discharge summaries; create a "discharge coordinator" role.</li>
+      <li><strong>Organisation:</strong> make the ward manager the single process owner; set up a daily 09:00 bed-flow huddle.</li>
+      <li><strong>Processes:</strong> plan discharge from the day of admission; run pharmacy and billing in parallel.</li>
+      <li><strong>IT:</strong> e-discharge module integrated with pharmacy and insurer pre-approval via API.</li>
+    </ul></div>
+  <div class="box exam"><span class="lbl">Examiner expectations</span>Use POPIT when a requirement says "analyse opportunities for organisational improvement" or when an IT solution is proposed and you need to show what else must change. Use the four views as <strong>headings</strong>. The interdependency point (all four must align) is a strong scepticism and evaluation point.</div>
+  <div class="box memory"><span class="lbl">Memory tip</span>POPIT sounds like "pop it": <em>the change will pop like a balloon if any one of the four is missing.</em></div>
+</section>
+
+<!-- 08 HARMON -->
+<section id="harmon">
+  <div class="sec-head"><div class="num">08</div><div><h2>Harmon's process-strategy matrix</h2><div class="ref">H5c · Setting the scope and focus of process change · High-probability exam model</div></div></div>
+  <div class="box simple"><span class="lbl">In simple words</span>Not every process deserves the same attention. Harmon asks two questions about each process: <strong>how complex and changing is it?</strong> and <strong>how strategically important is it?</strong> The answers tell you whether to automate it, outsource it, or invest heavily in improving it.</div>
+  <div class="matrix" role="img" aria-label="Harmon's process-strategy matrix">
+    <div class="yaxis">STRATEGIC IMPORTANCE</div>
+    <div class="mcell c-dusk"><h4>Automate / systematise</h4><p><strong>High importance, low complexity.</strong> Important but stable and rule-based. Automate it (ERP, workflow, RPA) to make it fast, cheap and error-free.</p></div>
+    <div class="mcell c-razz"><h4>Improve with human expertise</h4><p><strong>High importance, high complexity.</strong> Core competences and sources of competitive advantage. Keep in-house, invest in skilled people, redesign continuously.</p></div>
+    <div class="mcell c-mint"><h4>Minimal effort / standardise</h4><p><strong>Low importance, low complexity.</strong> Do it cheaply: standard package, automate or outsource. Spend little management time.</p></div>
+    <div class="mcell c-sat"><h4>Outsource</h4><p><strong>Low importance, high complexity.</strong> Needs expertise but gives no advantage. Let a specialist do it.</p></div>
+    <div class="xaxis"><span>← Low</span><span>PROCESS COMPLEXITY &amp; DYNAMICS</span><span>High →</span></div>
+  </div>
+  <h3>Examples across sectors</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Organisation</th><th>Process</th><th>Quadrant</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>Specialist hospital</td><td>Complex cardiac surgery pathway</td><td><span class="pill p-hi">Human expertise</span></td><td>Reputation and referrals depend on it; highly variable patients</td></tr>
+      <tr><td>Specialist hospital</td><td>Appointment booking</td><td><span class="pill p-md">Automate</span></td><td>Patient experience matters, but steps are rule-based (online portal)</td></tr>
+      <tr><td>Specialist hospital</td><td>Payroll</td><td><span class="pill p-lo">Minimal effort</span></td><td>Simple, stable, no advantage; standard package or shared service</td></tr>
+      <tr><td>Specialist hospital</td><td>Medical equipment maintenance, legal claims handling</td><td><span class="pill p-md">Outsource</span></td><td>Complex, needs specialists, but not what patients choose the hospital for</td></tr>
+      <tr><td>FMCG company</td><td>New product development &amp; brand marketing</td><td><span class="pill p-hi">Human expertise</span></td><td>Source of differentiation</td></tr>
+      <tr><td>FMCG company</td><td>Order-to-cash</td><td><span class="pill p-md">Automate</span></td><td>High volume, important for customers, standard rules</td></tr>
+      <tr><td>Government department</td><td>Policy design</td><td><span class="pill p-hi">Human expertise</span></td><td>Core purpose, complex and political</td></tr>
+      <tr><td>Government department</td><td>Licence renewals</td><td><span class="pill p-md">Automate</span></td><td>Citizen-facing, rule-based; e-government portal</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box exam"><span class="lbl">How it appears in the exam</span>"Using Harmon's process-strategy matrix, advise the board on the appropriate approach to the processes described in Exhibit 4." You get <strong>1 mark for correct positioning with justification</strong> (both axes) and <strong>1 mark for a sensible recommendation</strong> per process. The board has often proposed outsourcing a core process, so the scepticism mark is for saying "this should <em>not</em> be outsourced because…"</div>
+  <div class="box mistake"><span class="lbl">Common mistakes</span>
+    <ul><li>Positioning on only one axis ("it's important, so keep it"). Always justify <em>both</em> complexity and importance.</li>
+    <li>Saying a core process should be automated just because it can be. Complex core processes need people.</li>
+    <li>Ignoring risks of outsourcing (loss of control, data security, supplier dependence). Mention them briefly.</li></ul></div>
+  <div class="box memory"><span class="lbl">Memory tip</span>Read the matrix like a hospital: the <strong>surgeon</strong> (top-right, human expertise), the <strong>booking robot</strong> (top-left, automate), the <strong>payroll clerk</strong> (bottom-left, minimal effort), the <strong>outside lawyer</strong> (bottom-right, outsource).</div>
+</section>
+
+<!-- 09 REDESIGN -->
+<section id="redesign">
+  <div class="sec-head"><div class="num">09</div><div><h2>Process redesign options</h2><div class="ref">H5d · Harmon's redesign patterns · BPR</div></div></div>
+  <div class="box simple"><span class="lbl">In simple words</span>Once you know a process needs to change, choose <em>how much</em> to change it. Small fixes are <strong>process improvement</strong>; a fresh design of the steps is <strong>redesign</strong>; starting from a blank sheet is <strong>re-engineering</strong>. Harmon gives four practical redesign patterns.</div>
+  <h3>The spectrum of change</h3>
+  <div class="tbl"><table>
+    <thead><tr><th></th><th>Process improvement</th><th>Process redesign</th><th>Process re-engineering (BPR)</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Degree</strong></td><td>Incremental</td><td>Moderate</td><td>Radical, fundamental</td></tr>
+      <tr><td><strong>Starting point</strong></td><td>Existing process</td><td>Existing process, rethought</td><td>Blank sheet</td></tr>
+      <tr><td><strong>Risk</strong></td><td>Low</td><td>Medium</td><td>High (many BPR projects fail)</td></tr>
+      <tr><td><strong>Typical gain</strong></td><td>5–10%</td><td>20–40%</td><td>Large step change</td></tr>
+      <tr><td><strong>Link to change type</strong></td><td>Adaptation</td><td>Adaptation / Reconstruction</td><td>Revolution / Reconstruction</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Harmon's four redesign patterns</h3>
+  <div class="grid">
+    <div class="card t-r"><h4>1. Re-engineering</h4><p>Radically rethink the whole process from scratch, often enabled by new IT.</p><p><em>Example:</em> a bank replaces branch-based loan approval (5 days) with an app using automated credit scoring (5 minutes).</p></div>
+    <div class="card t-s"><h4>2. Simplification</h4><p>Remove duplication, redundant steps and unnecessary approvals.</p><p><em>Example:</em> purchase requests under AED 5,000 no longer need three signatures, only the budget holder's.</p></div>
+    <div class="card t-m"><h4>3. Value-added analysis</h4><p>Classify every step as value-adding, business-necessary (e.g. control or regulatory) or non-value-adding, then eliminate the last group.</p><p><em>Example:</em> patient asked for the same details at reception, triage and billing. Capture once.</p></div>
+    <div class="card"><h4>4. Gaps &amp; disconnects</h4><p>Focus on hand-offs between departments, where most delays and errors occur. Fix the interfaces and ownership.</p><p><em>Example:</em> sales promises delivery dates that production can't meet. Create a shared planning system and S&amp;OP meeting.</p></div>
+  </div>
+
+  <h3>Hammer's BPR principles (great for "recommend" points)</h3>
+  <ol class="prose">
+    <li>Organise around <strong>outcomes</strong>, not tasks (one person or team handles the whole case).</li>
+    <li>Have those who <strong>use the output</strong> perform the process (self-service).</li>
+    <li>Merge information processing into the real work that produces it.</li>
+    <li>Treat geographically dispersed resources as if centralised (shared services, cloud).</li>
+    <li>Link <strong>parallel activities</strong> instead of integrating results at the end.</li>
+    <li>Put the decision point where the work is done and build control into the process.</li>
+    <li><strong>Capture information once</strong>, at source.</li>
+  </ol>
+  <div class="box example"><span class="lbl">Example: "to-be" discharge process</span>Discharge planned on admission (outcome-focused). Doctor completes an e-summary on a tablet during the ward round (capture once, at source). Pharmacy and insurer pre-approval are triggered automatically and run in parallel (link parallel activities). The ward discharge coordinator owns the whole process (gaps and disconnects). Target: patient leaves by 13:00. Each bed released 5 hours earlier creates extra capacity worth roughly 0.2 bed-days per discharge.</div>
+  <div class="box exam"><span class="lbl">Examiner expectations</span>Recommendations must be <strong>specific, practical and justified</strong>: what to change, why it helps (time, cost, quality, risk), and any downside. Consider the <strong>controls</strong> you might remove; removing an approval could create fraud risk, which is a scepticism point. Link back to strategy: does the redesign support the organisation's CSFs?</div>
+  <div class="box mistake"><span class="lbl">Common mistakes</span>
+    <ul><li>Recommending radical BPR for everything. Match the redesign level to the strategic importance and the change context.</li>
+    <li>Saying "use technology" without naming what the technology does in the process.</li>
+    <li>Forgetting staff and job implications (redundancy, reskilling). That is where the change management marks link in.</li></ul></div>
+  <div class="box memory"><span class="lbl">Memory tip</span>Harmon's four patterns: <strong>"R-S-V-G"</strong>, "<em>Really Simple Value Gains</em>": Re-engineering, Simplification, Value-added analysis, Gaps &amp; disconnects.</div>
+</section>
+
+<!-- 10 METHOD -->
+<section id="method">
+  <div class="sec-head"><div class="num">10</div><div><h2>Process redesign methodology</h2><div class="ref">H5e · Recommending a structured approach</div></div></div>
+  <div class="box simple"><span class="lbl">In simple words</span>Redesign is done in a sensible order: understand the project, study the current process, design the new one, build what's needed, roll it out, and check it works.</div>
+  <div class="steps">
+    <div class="step"><h4>Understand the project</h4><p>Agree scope, objectives, sponsor, team, timescale, link to strategy. Which process and why?</p></div>
+    <div class="step"><h4>Analyse the "as-is"</h4><p>Map the current process (swimlanes), measure baseline KPIs, find root causes, consult staff and customers.</p></div>
+    <div class="step"><h4>Design the "to-be"</h4><p>Apply redesign patterns, benchmark best practice, model the new flow, test with users.</p></div>
+    <div class="step"><h4>Develop resources</h4><p>Build or buy IT, write procedures, define new roles, train staff, run pilots.</p></div>
+    <div class="step"><h4>Implement</h4><p>Roll out (pilot, phased or big bang), manage the change and resistance, communicate.</p></div>
+    <div class="step"><h4>Review &amp; improve</h4><p>Measure new KPIs against baseline; continuous improvement; post-implementation review.</p></div>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Implementation option</th><th>Pros</th><th>Cons</th><th>Use when</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Pilot</strong></td><td>Low risk, learn before full rollout</td><td>Slower; pilot site may be unrepresentative</td><td>High risk, safety-critical (e.g. one ward first)</td></tr>
+      <tr><td><strong>Phased</strong></td><td>Spreads workload, lessons carry forward</td><td>Two systems run side by side; interfaces</td><td>Large multi-site organisations</td></tr>
+      <tr><td><strong>Parallel running</strong></td><td>Safety net if new system fails</td><td>Double workload and cost</td><td>Financial or clinical data where errors are unacceptable</td></tr>
+      <tr><td><strong>Direct (big bang)</strong></td><td>Fast, cheap, clean break</td><td>Highest risk; no fallback</td><td>Simple systems or when old system cannot continue</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box exam"><span class="lbl">How it appears in the exam</span>"Recommend a methodology the company should use to redesign its procurement process." Write each stage as a heading with <strong>case-specific actions</strong> (who, what, how). Finish with a justified recommendation on rollout approach. Example: "pilot at the Deira clinic because it has the highest volume and a supportive manager."</div>
+  <div class="box mistake"><span class="lbl">Common mistakes</span>Forgetting to <strong>measure the baseline</strong> in the analysis stage. Without it you cannot prove benefits later, which is a strong scepticism and evaluation point.</div>
+  <div class="box memory"><span class="lbl">Memory tip</span><strong>"U-A-D-D-I-R"</strong>: "<em>U Are Designing, Developing, Implementing, Reviewing.</em>"</div>
+</section>
+
+<!-- 11 PROJECTS -->
+<section id="projects">
+  <div class="sec-head"><div class="num">11</div><div><h2>What makes a project &amp; its constraints</h2><div class="ref">H6a, H6b · Features, triple constraint, life cycle</div></div></div>
+  <div class="box simple"><span class="lbl">In simple words</span>A project is a <strong>temporary</strong> piece of work with a <strong>defined start and end</strong> that produces a <strong>unique</strong> output. Running the hospital pharmacy each day is <em>operations</em>; installing a new pharmacy robot is a <em>project</em>.</div>
+  <h3>Distinguishing features</h3>
+  <div class="grid">
+    <div class="card"><h4>Specific objective</h4><p>A defined deliverable (e.g. new EMR live in all wards).</p></div>
+    <div class="card t-s"><h4>Defined start and end</h4><p>Temporary; disbands on completion.</p></div>
+    <div class="card t-m"><h4>Unique</h4><p>Not routine; involves uncertainty and novelty.</p></div>
+    <div class="card t-r"><h4>Resource constrained</h4><p>Budget, people and time are limited.</p></div>
+    <div class="card t-t"><h4>Cross-functional</h4><p>Draws people from several departments.</p></div>
+    <div class="card"><h4>Has risk</h4><p>Uncertain outcome, so needs active risk management.</p></div>
+  </div>
+  <h3>The triple constraint (iron triangle)</h3>
+  <div class="two">
+    <div>
+      <p class="prose">Every project balances <strong>scope (and quality)</strong>, <strong>time</strong> and <strong>cost</strong>. Change one and at least one other must move. The sponsor must decide which constraint is <em>fixed</em> and which can flex.</p>
+      <ul>
+        <li><strong>Time fixed</strong>: regulatory deadline (e.g. new tax e-invoicing go-live). Flex cost or scope.</li>
+        <li><strong>Cost fixed</strong>: government grant capped. Flex scope (deliver phase 1 only) or time.</li>
+        <li><strong>Scope/quality fixed</strong>: patient-safety system can't cut features. Flex time or cost.</li>
+      </ul>
+    </div>
+    <svg viewBox="0 0 300 250" role="img" aria-label="Triple constraint triangle of scope, time and cost" style="max-width:320px;width:100%">
+      <polygon points="150,22 278,228 22,228" fill="none" stroke="#345995" stroke-width="5" stroke-linejoin="round"/>
+      <circle cx="150" cy="22" r="16" fill="#E40066"/><circle cx="278" cy="228" r="16" fill="#03CEA4"/><circle cx="22" cy="228" r="16" fill="#EAC435"/>
+      <text x="150" y="140" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="20" fill="currentColor">QUALITY</text>
+      <text x="150" y="68" text-anchor="middle" font-family="Nunito Sans, sans-serif" font-weight="800" font-size="15" fill="currentColor">SCOPE</text>
+      <text x="240" y="208" text-anchor="end" font-family="Nunito Sans, sans-serif" font-weight="800" font-size="15" fill="currentColor">COST</text>
+      <text x="60" y="208" font-family="Nunito Sans, sans-serif" font-weight="800" font-size="15" fill="currentColor">TIME</text>
+    </svg>
+  </div>
+  <h3>Project life cycle</h3>
+  <div class="steps">
+    <div class="step"><h4>Initiation</h4><p>Idea, feasibility, business case, appoint sponsor and PM, PID.</p></div>
+    <div class="step"><h4>Planning</h4><p>WBS, schedule, budget, resources, risk register, quality and communications plans.</p></div>
+    <div class="step"><h4>Execution</h4><p>Do the work, manage team and suppliers.</p></div>
+    <div class="step"><h4>Control</h4><p>Monitor progress vs plan, manage change requests, risks and issues.</p></div>
+    <div class="step"><h4>Completion</h4><p>Handover, acceptance, close contracts, post-project review, disband team.</p></div>
+  </div>
+  <div class="box exam"><span class="lbl">Examiner expectations</span>When the case says "the CEO wants it faster, cheaper and with more features", the examiner wants you to <strong>challenge this professionally</strong> (scepticism) using the triple constraint, and advise which constraint should be fixed given the organisation's priorities.</div>
+  <div class="box mistake"><span class="lbl">Common mistakes</span>Calling routine, ongoing work a "project". Also forgetting <strong>scope creep</strong> as the main threat to the triangle: uncontrolled additions to scope without matching time or cost changes.</div>
+  <div class="box memory"><span class="lbl">Memory tip</span><em>"Good, fast, cheap: pick two."</em></div>
+</section>
+
+<!-- 12 BIZCASE -->
+<section id="bizcase">
+  <div class="sec-head"><div class="num">12</div><div><h2>The business case &amp; project initiation document (PID)</h2><div class="ref">H6c · Very commonly examined as a document you must write</div></div></div>
+  <div class="two">
+    <div class="box simple" style="margin:0"><span class="lbl">Business case: "Should we do it?"</span>Justifies the investment to decision-makers. Produced <strong>before</strong> approval. Owned by the <strong>sponsor</strong>. Re-checked at every stage gate.</div>
+    <div class="box simple" style="margin:0"><span class="lbl">PID: "How will we do it?"</span>The project's rulebook and contract between sponsor and PM. Produced <strong>after</strong> approval, before work starts. Owned by the <strong>project manager</strong>.</div>
+  </div>
+  <h3>Contents of a business case</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Section</th><th>What to include</th><th>Hospital e-prescribing example</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1. Introduction / background</strong></td><td>Context, the problem or opportunity</td><td>1,400 medication errors last year; regulator inspection due</td></tr>
+      <tr><td><strong>2. Strategic fit</strong></td><td>Link to mission, objectives, CSFs</td><td>Supports "zero harm" strategy and accreditation</td></tr>
+      <tr><td><strong>3. Options considered</strong></td><td>Including "do nothing" and "do minimum"</td><td>(a) do nothing, (b) improve paper process, (c) e-prescribing module, (d) full EMR replacement</td></tr>
+      <tr><td><strong>4. Costs</strong></td><td>One-off, recurring, intangible</td><td>AED 2.4m set-up, AED 0.3m a year support</td></tr>
+      <tr><td><strong>5. Benefits</strong></td><td>Classified (see next section), with owners</td><td>Wastage savings, fewer errors, pharmacist time</td></tr>
+      <tr><td><strong>6. Investment appraisal</strong></td><td>NPV, IRR, payback, sensitivity</td><td>Payback 4 years; NPV positive at 8%</td></tr>
+      <tr><td><strong>7. Risks</strong></td><td>Key risks and mitigations</td><td>Clinician adoption, data migration, downtime</td></tr>
+      <tr><td><strong>8. Recommendation</strong></td><td>Preferred option and why</td><td>Option (c): best balance of cost, benefit and risk</td></tr>
+      <tr><td><strong>9. Implementation outline</strong></td><td>High-level timeline, resources, governance</td><td>12 months, pilot in 2 wards first</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Contents of a PID</h3>
+  <div class="grid">
+    <div class="card"><h4>Objectives &amp; scope</h4><p>What is in and, just as important, what is <em>out</em> of scope.</p></div>
+    <div class="card t-s"><h4>Deliverables</h4><p>What will be handed over, with acceptance criteria.</p></div>
+    <div class="card t-m"><h4>Organisation &amp; roles</h4><p>Sponsor, PM, board, team, users, suppliers.</p></div>
+    <div class="card t-r"><h4>Plan</h4><p>Schedule, milestones, budget, resources.</p></div>
+    <div class="card t-t"><h4>Constraints &amp; assumptions</h4><p>Fixed deadlines, budget caps, dependencies.</p></div>
+    <div class="card"><h4>Risk &amp; quality</h4><p>Initial risk register; quality standards and testing approach.</p></div>
+    <div class="card t-s"><h4>Controls &amp; reporting</h4><p>Progress reports, tolerances, change control, escalation.</p></div>
+    <div class="card t-m"><h4>Communication plan</h4><p>Who gets told what, when and how.</p></div>
+    <div class="card t-r"><h4>Business case</h4><p>Summary or reference to the approved case.</p></div>
+  </div>
+  <div class="box exam"><span class="lbl">How it appears in the exam</span>"Prepare the sections of the business case for the proposed project" (15–20 marks with 3–4 professional skills marks for communication). Use the <strong>document format</strong>: title, To/From/Date, headings for each section, and numbers from the exhibits. The examiner awards communication marks for a document that looks like a real business case, so a well-laid-out answer earns marks in its own right.</div>
+  <div class="box mistake"><span class="lbl">Common mistakes</span>
+    <ul><li>Mixing up business case and PID. The business case justifies; the PID organises.</li>
+    <li>Leaving out the <strong>"do nothing"</strong> option, which is the baseline every option is compared to.</li>
+    <li>Accepting the finance director's benefit estimates without question. Challenge optimistic assumptions (scepticism).</li></ul></div>
+  <div class="box memory"><span class="lbl">Memory tip</span>Business case = <strong>WHY</strong> (sponsor). PID = <strong>HOW</strong> (project manager). Business case contents: <strong>"B-S-O-C-B-I-R-R-I"</strong>, or just think of it as <em>Problem → Options → Numbers → Risks → Recommendation</em>.</div>
+</section>
+
+<!-- 13 COSTBEN -->
+<section id="costben">
+  <div class="sec-head"><div class="num">13</div><div><h2>Classifying costs &amp; benefits</h2><div class="ref">H6d · Analyse, assess and classify the costs and benefits of a project investment</div></div></div>
+  <div class="box simple"><span class="lbl">In simple words</span>Not all benefits are equally certain. Some are cash you can count today; others you can only "see". Classifying them tells the board how much weight to give each one and how it will be proved later.</div>
+  <h3>Benefits, from most to least certain (Ward &amp; Daniel)</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Class</th><th>Meaning</th><th>Hospital e-prescribing example</th></tr></thead>
+    <tbody>
+      <tr><td><span class="pill p-hi">Financial</span></td><td>Can be expressed in money with reasonable confidence <em>in advance</em></td><td>Drug wastage falls by AED 0.9m a year (stock data supports this)</td></tr>
+      <tr><td><span class="pill p-md">Quantifiable</span></td><td>Can be estimated in numbers in advance, but not reliably in money</td><td>Medication errors expected to fall by ~50%</td></tr>
+      <tr><td><span class="pill p-lo">Measurable</span></td><td>Can be measured once achieved, but impact can't be estimated in advance</td><td>Pharmacist time freed (tracked after go-live)</td></tr>
+      <tr><td><span class="pill" style="background:var(--dusk);color:#fff">Observable</span></td><td>Judged by opinion or observation only</td><td>Better clinician morale; improved patient confidence</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Costs</h3>
+  <div class="grid">
+    <div class="card t-r"><h4>One-off (capital / set-up)</h4><p>Licences, hardware, implementation consultants, data migration, initial training, recruitment.</p></div>
+    <div class="card t-s"><h4>Recurring (ongoing)</h4><p>Support and maintenance fees, cloud subscription, extra IT staff, refresher training.</p></div>
+    <div class="card t-t"><h4>Intangible</h4><p>Disruption during go-live, temporary productivity dip, staff stress, management distraction, risk to reputation.</p></div>
+  </div>
+  <div class="box example"><span class="lbl">Worked numbers (AED '000)</span>
+    <div class="tbl"><table>
+      <thead><tr><th>Item</th><th>Year 0</th><th>Years 1–5 (each)</th><th>Class</th></tr></thead>
+      <tbody>
+        <tr><td>Software, hardware, implementation</td><td class="num-c">(2,400)</td><td class="num-c">–</td><td>One-off cost</td></tr>
+        <tr><td>Support &amp; maintenance</td><td class="num-c">–</td><td class="num-c">(300)</td><td>Recurring cost</td></tr>
+        <tr><td>Drug wastage saving</td><td class="num-c">–</td><td class="num-c">900</td><td>Financial benefit</td></tr>
+        <tr><td><strong>Net cash flow</strong></td><td class="num-c"><strong>(2,400)</strong></td><td class="num-c"><strong>600</strong></td><td></td></tr>
+      </tbody>
+    </table></div>
+    <p><strong>Payback</strong> = 2,400 ÷ 600 = <strong>4 years</strong>. <strong>NPV at 8%</strong> = −2,400 + 600 × 3.993 (5-year annuity factor) = <strong>−4</strong>, i.e. roughly break-even on financial benefits alone.</p>
+    <p><strong>The evaluation point that earns marks:</strong> on cash alone the project is marginal, but the quantifiable benefit (halving medication errors) protects patients and accreditation, and avoided litigation is not yet counted. The board should approve on strategic and safety grounds, but must <strong>test the AED 0.9m wastage assumption</strong> and assign a benefit owner.</p>
+  </div>
+  <div class="box exam"><span class="lbl">Examiner expectations</span>Classify each cost and benefit from the exhibit correctly, <strong>question</strong> the estimates (who prepared them? are they optimistic?), and draw a conclusion on whether the investment is justified. Exhibits often include a deliberate error or optimistic assumption, which earns a scepticism mark when you spot it.</div>
+  <div class="box mistake"><span class="lbl">Common mistakes</span>
+    <ul><li>Mixing up <strong>quantifiable</strong> (estimable <em>before</em>) and <strong>measurable</strong> (only measurable <em>after</em>).</li>
+    <li>Ignoring intangible costs. Go-live disruption in a hospital can be a patient-safety risk.</li>
+    <li>Rejecting a project purely on negative NPV in the public sector, where public value and the 3Es matter.</li></ul></div>
+  <div class="box memory"><span class="lbl">Memory tip</span>Benefits ladder from certain to fuzzy: <strong>"F-Q-M-O"</strong>, "<em>Financial Quality Means Outcomes</em>". Quantifiable = <strong>before</strong> (forecast); Measurable = <strong>after</strong> (meter it).</div>
+</section>
+
+<!-- 14 ROLES -->
+<section id="roles">
+  <div class="sec-head"><div class="num">14</div><div><h2>Project sponsor vs project manager</h2><div class="ref">H6e · Roles and responsibilities</div></div></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Project sponsor</th><th>Project manager</th></tr></thead>
+    <tbody>
+      <tr><td>Senior executive who <strong>owns the business case</strong> and is accountable for benefits</td><td>Manages the <strong>day-to-day delivery</strong> to scope, time, cost and quality</td></tr>
+      <tr><td>Secures funding and resources</td><td>Prepares the PID and detailed plan</td></tr>
+      <tr><td>Appoints the project manager</td><td>Leads and motivates the project team</td></tr>
+      <tr><td>Champions the project at board level; removes political barriers</td><td>Monitors progress, reports to sponsor/board</td></tr>
+      <tr><td>Resolves issues beyond the PM's authority (escalations)</td><td>Manages risks, issues and change requests within tolerance</td></tr>
+      <tr><td>Approves major changes to scope, budget, timeline</td><td>Manages suppliers and stakeholders</td></tr>
+      <tr><td>Signs off final acceptance; ensures benefits are realised after closure</td><td>Hands over deliverables; runs the post-project review</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Other roles</h3>
+  <div class="grid">
+    <div class="card"><h4>Project board / steering committee</h4><p>Sponsor plus senior user and senior supplier. Approves stages and major changes.</p></div>
+    <div class="card t-m"><h4>Senior user</h4><p>Represents those who will use the output (e.g. chief nursing officer).</p></div>
+    <div class="card t-s"><h4>Senior supplier</h4><p>Represents those designing and building it (e.g. IT director or vendor).</p></div>
+    <div class="card t-r"><h4>Project team</h4><p>Specialists who do the work; may be part-time from operations.</p></div>
+    <div class="card t-t"><h4>Project assurance / PMO</h4><p>Independent check on standards, reporting and methodology.</p></div>
+  </div>
+  <div class="box example"><span class="lbl">Example of role failure</span>In a case, the CFO is sponsor but has "delegated everything to the PM and attends no meetings". The PM, a junior IT analyst, cannot get ward managers to release staff for testing. <strong>Your point:</strong> the sponsor is failing to champion and remove barriers; the PM lacks authority. Recommend the sponsor chairs a fortnightly steering committee and a senior clinician joins as senior user.</div>
+  <div class="box exam"><span class="lbl">Examiner expectations</span>Don't just list duties. <strong>Evaluate the people in the case</strong> against the role. Are they doing it? Do they have the skills, time and seniority? This is classic scepticism and commercial acumen.</div>
+  <div class="box memory"><span class="lbl">Memory tip</span><strong>Sponsor = "owner and wallet"</strong> (why, money, benefits). <strong>PM = "driver"</strong> (how, daily delivery). The owner chooses the destination; the driver gets you there.</div>
+</section>
+
+<!-- 15 PLAN -->
+<section id="plan">
+  <div class="sec-head"><div class="num">15</div><div><h2>The project plan &amp; its key elements</h2><div class="ref">H6f · Importance of planning; WBS, network, Gantt</div></div></div>
+  <div class="box simple"><span class="lbl">In simple words</span>A plan breaks the project into tasks, puts them in order, gives each a time and cost, and shows who does what. It is the baseline against which progress is measured. Without a plan you cannot know whether you are late.</div>
+  <h3>Key elements</h3>
+  <div class="grid">
+    <div class="card"><h4>Work breakdown structure (WBS)</h4><p>Splits the project into deliverables and then into manageable work packages.</p></div>
+    <div class="card t-r"><h4>Network / critical path analysis</h4><p>Shows task dependencies and the longest path that sets project duration.</p></div>
+    <div class="card t-s"><h4>Gantt chart</h4><p>Bar chart of tasks against time; easy for stakeholders to read progress.</p></div>
+    <div class="card t-m"><h4>Resource plan &amp; histogram</h4><p>Who is needed when; reveals overloads.</p></div>
+    <div class="card t-t"><h4>Budget</h4><p>Cost per work package and phasing over time; contingency.</p></div>
+    <div class="card"><h4>Milestones</h4><p>Key checkpoints (e.g. "data migration signed off").</p></div>
+    <div class="card t-r"><h4>Risk register</h4><p>Risks, likelihood, impact, owner, response.</p></div>
+    <div class="card t-s"><h4>Quality &amp; communication plans</h4><p>Standards, testing, stakeholder updates.</p></div>
+  </div>
+  <h3>Worked critical path example</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Activity</th><th>Description</th><th>Depends on</th><th>Weeks</th></tr></thead>
+    <tbody>
+      <tr><td>A</td><td>Requirements &amp; design</td><td>–</td><td class="num-c">3</td></tr>
+      <tr><td>B</td><td>System build &amp; configuration</td><td>A</td><td class="num-c">5</td></tr>
+      <tr><td>C</td><td>Purchase &amp; install ward tablets</td><td>A</td><td class="num-c">2</td></tr>
+      <tr><td>D</td><td>Testing &amp; training</td><td>B, C</td><td class="num-c">4</td></tr>
+    </tbody>
+  </table></div>
+  <div class="net" role="img" aria-label="Network diagram showing critical path A to B to D">
+    <div class="node crit">A<small>3 wks</small></div><span class="arrow">→</span>
+    <div style="display:grid;gap:8px"><div class="node crit">B<small>5 wks</small></div><div class="node">C<small>2 wks · float 3</small></div></div><span class="arrow">→</span>
+    <div class="node crit">D<small>4 wks</small></div><span class="arrow">→</span>
+    <div class="node">End<small>week 12</small></div>
+  </div>
+  <div class="gantt" role="img" aria-label="Gantt chart of activities A to D over 12 weeks">
+    <div class="g-row g-head"><div class="g-l" style="justify-content:flex-start">Week</div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div></div>
+    <div class="g-row"><div class="g-l">A Requirements</div><div class="g-bar g-crit" style="grid-column:2/5">A</div></div>
+    <div class="g-row"><div class="g-l">B Build</div><div class="g-bar g-crit" style="grid-column:5/10">B</div></div>
+    <div class="g-row"><div class="g-l">C Tablets</div><div class="g-bar g-ok" style="grid-column:5/7">C</div><div class="g-float" style="grid-column:7/10"></div></div>
+    <div class="g-row"><div class="g-l">D Test &amp; train</div><div class="g-bar g-crit" style="grid-column:10/14">D</div></div>
+  </div>
+  <p class="prose"><strong>Critical path: A → B → D = 12 weeks.</strong> Activity C has <strong>3 weeks' float</strong> (B takes 5 weeks, C only 2). A one-week delay to B delays the whole project; a two-week delay to C does not. Management attention goes to critical activities.</p>
+  <div class="box exam"><span class="lbl">Examiner expectations</span>SBL rarely asks you to draw a full network, but it does ask you to <strong>assess the importance of planning</strong> or to <strong>criticise a weak plan</strong> in an exhibit. Look for: no contingency, no slack, unrealistic durations, key staff double-booked, no milestones, no testing phase, plan prepared by the supplier only.</div>
+  <div class="box mistake"><span class="lbl">Common mistakes</span>Saying "the plan should have a Gantt chart" without explaining <em>why</em> that matters in the case (e.g. "so the board, who currently get no progress information, can see slippage early").</div>
+  <div class="box memory"><span class="lbl">Memory tip</span><strong>Critical path = longest path = zero float.</strong> "<em>The chain is only as fast as its longest link.</em>"</div>
+</section>
+
+<!-- 16 CONTROL -->
+<section id="control">
+  <div class="sec-head"><div class="num">16</div><div><h2>Monitoring &amp; controlling risks and slippage</h2><div class="ref">H6g · Monitor and control project risks and slippages, recommending improvements</div></div></div>
+  <h3>Common project risks</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Risk</th><th>Example</th><th>Mitigation</th></tr></thead>
+    <tbody>
+      <tr><td>Scope creep</td><td>Departments keep adding "small" reports</td><td>Formal change control; impact assessed before approval</td></tr>
+      <tr><td>Unrealistic estimates</td><td>Supplier quotes 6 months to win the contract</td><td>Independent review; contingency; fixed-price contract</td></tr>
+      <tr><td>Weak sponsorship</td><td>Sponsor absent, decisions stall</td><td>Steering committee; escalation route</td></tr>
+      <tr><td>Key staff unavailable</td><td>Clinicians can't leave wards for testing</td><td>Backfill budget; schedule around rosters</td></tr>
+      <tr><td>Supplier failure</td><td>Vendor misses deliveries or goes bust</td><td>Due diligence, penalties, escrow of source code</td></tr>
+      <tr><td>Technical / integration</td><td>New system won't talk to lab system</td><td>Early prototype; integration testing</td></tr>
+      <tr><td>Data migration</td><td>Patient allergies lost in transfer</td><td>Data cleansing, reconciliation, parallel run</td></tr>
+      <tr><td>User resistance</td><td>Staff keep using paper</td><td>Change management (Lewin, champions)</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Dealing with slippage: corrective options</h3>
+  <div class="grid">
+    <div class="card t-r"><h4>Add resources ("crashing")</h4><p>More staff or overtime on critical tasks. Raises cost; adding people late can slow things down.</p></div>
+    <div class="card t-s"><h4>Fast-tracking</h4><p>Run tasks in parallel that were planned in sequence. Raises risk of rework.</p></div>
+    <div class="card t-m"><h4>Reduce scope</h4><p>Deliver core features now, others in phase 2. Agree with sponsor and users.</p></div>
+    <div class="card"><h4>Accept the delay</h4><p>Revise the plan and baseline, and inform stakeholders, if quality and safety matter more.</p></div>
+    <div class="card t-t"><h4>Improve productivity</h4><p>Better tools, remove blockers, motivate team, clarify priorities.</p></div>
+  </div>
+  <h3>Control tools</h3>
+  <ul class="prose">
+    <li><strong>Progress reports</strong> against baseline: RAG (red/amber/green) status on time, cost, scope, risk.</li>
+    <li><strong>Milestone and stage-gate reviews</strong>: continue, change or cancel? Re-check the business case.</li>
+    <li><strong>Tolerances</strong>: e.g. PM can absorb ±5% cost or 2 weeks; beyond that, escalate to the board.</li>
+    <li><strong>Earned value</strong>: compares planned value, earned value and actual cost to spot overspend or delay early. Example: 50% of budget spent but only 30% of work done means a problem.</li>
+    <li><strong>Risk and issue logs</strong>: reviewed at every steering meeting with owners and due dates.</li>
+  </ul>
+  <div class="box example"><span class="lbl">Exam-style scenario</span>The project status report says "all green", yet the exhibit shows 70% of budget spent with testing not started and the go-live date unchanged. <strong>Your scepticism point:</strong> the reporting is unreliable (optimism bias, or PM reluctant to report bad news). Recommend independent project assurance, earned-value reporting and a re-baselined plan.</div>
+  <div class="box exam"><span class="lbl">Examiner expectations</span>Identify the <strong>causes</strong> of slippage from the exhibits (not generic), assess their <strong>impact</strong> on the triple constraint and benefits, then <strong>recommend</strong> realistic actions with trade-offs. Always consider whether the business case is still valid. Recommending cancellation can be the right answer.</div>
+  <div class="box mistake"><span class="lbl">Common mistakes</span>Recommending "add more people" as the only fix. Show the trade-off (cost, coordination, learning curve) and consider scope reduction or phasing.</div>
+  <div class="box memory"><span class="lbl">Memory tip</span>Slippage fixes: <strong>"MORE, FASTER, LESS, LATER"</strong> = add resources, fast-track, reduce scope, accept delay.</div>
+</section>
+
+<!-- 17 REVIEWS -->
+<section id="reviews">
+  <div class="sec-head"><div class="num">17</div><div><h2>Post-implementation review vs post-project review</h2><div class="ref">H6h · Frequently examined as a short requirement</div></div></div>
+  <div class="tbl"><table>
+    <thead><tr><th></th><th>Post-project review (PPR)</th><th>Post-implementation review (PIR)</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Focus</strong></td><td>The <strong>project process</strong>: how well was it managed?</td><td>The <strong>product or outcome</strong>: did it deliver the benefits?</td></tr>
+      <tr><td><strong>Timing</strong></td><td>Soon after project closure</td><td>Some months after go-live (e.g. 6–12 months), once benefits can show</td></tr>
+      <tr><td><strong>Key questions</strong></td><td>On time, on budget, to scope? What went well or badly? Was the plan realistic? How did the team and suppliers perform?</td><td>Are the business case benefits achieved? Is the system used as intended? Are users satisfied? Any unexpected problems?</td></tr>
+      <tr><td><strong>Led by</strong></td><td>Project manager and team, ideally with an independent facilitator</td><td>Sponsor / benefit owners; often internal audit</td></tr>
+      <tr><td><strong>Output</strong></td><td>Lessons-learned report for future projects</td><td>Benefits realisation report; corrective actions</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Benefits of conducting them</h3>
+  <div class="two">
+    <ul>
+      <li><strong>Organisational learning</strong>: avoid repeating mistakes and improve estimating</li>
+      <li><strong>Accountability</strong>: managers know they will be reviewed, so forecasts are more honest (reduces optimism bias in future business cases)</li>
+      <li><strong>Benefit realisation</strong>: actions to capture benefits not yet achieved</li>
+    </ul>
+    <ul>
+      <li><strong>Identifies further improvements</strong> to the system or process</li>
+      <li><strong>Recognises</strong> team performance; supports appraisals</li>
+      <li>Demonstrates <strong>value for money</strong> to stakeholders, especially in the public sector (economy, efficiency, effectiveness)</li>
+    </ul>
+  </div>
+  <div class="box example"><span class="lbl">Example</span>A government entity's new procurement portal finished 2 months late. The PPR found user requirements were signed off by IT, not procurement officers. The PIR 9 months later found tender cycle time fell from 45 to 28 days (benefit achieved) but supplier registration complaints rose. Action: a supplier help desk and simplified registration form.</div>
+  <div class="box mistake"><span class="lbl">Common mistakes</span>Using the two terms interchangeably. Markers look for the distinction: <strong>project process</strong> vs <strong>benefits of the outcome</strong>.</div>
+  <div class="box memory"><span class="lbl">Memory tip</span>PP<strong>R</strong> = how we <strong>R</strong>an it. PI<strong>R</strong> = what it <strong>R</strong>eturned.</div>
+</section>
+
+<!-- 18 CASE -->
+<section id="case">
+  <div class="sec-head"><div class="num">18</div><div><h2>Integrated case &amp; model answers</h2><div class="ref">Practise as the exam does it: exhibits first, then requirements</div></div></div>
+  <div class="box simple"><span class="lbl">Scenario: Crescent Bay Health (fictitious)</span>
+    <p>Crescent Bay Health (CBH) is a government-owned group of 3 hospitals and 12 clinics serving 1.2 million residents. Its strategy is "right care, first time, close to home". The board has approved a <strong>Patient Flow Transformation Programme</strong> (budget AED 38m, 18 months) to cut emergency waiting times, which the Health Ministry wants below 4 hours for 95% of patients by the end of next year (currently 71%).</p>
+    <p><strong>Exhibit A, COO's email:</strong> "Discharges happen late in the afternoon, so beds are blocked and A&amp;E patients wait for admission. Each department blames another. We should outsource the whole bed-management and discharge process to a private patient-flow company. It's quicker."</p>
+    <p><strong>Exhibit B, HR director's note:</strong> "Nurses are exhausted after the last restructuring two years ago, which was announced with no consultation. Some senior consultants say the programme is 'an IT project dreamed up by managers'. We have never run a programme this large. Our IT team is fully committed to the ERP upgrade until March."</p>
+    <p><strong>Exhibit C, project update:</strong> The CFO is sponsor. The project manager is a seconded finance analyst. The plan shows go-live at all three hospitals on the same day. No testing phase is shown. Reported status: green.</p>
+  </div>
+
+  <h4>Requirement 1 (12 marks, including 2 professional skills marks for commercial acumen)</h4>
+  <p class="prose">Using Balogun and Hope Hailey's contextual features, assess the context of the proposed change at CBH and its implications for managing the programme.</p>
+  <div class="answer">
+    <div class="a-head"><span>Model answer: Briefing note to the CBH Board</span><span>12 marks</span></div>
+    <div class="a-body">
+      <p><strong>To:</strong> Board of Directors, Crescent Bay Health<br><strong>From:</strong> Strategy Advisor<br><strong>Subject:</strong> Context for the Patient Flow Transformation Programme</p>
+      <h4>Time</h4>
+      <p>The Ministry target of 95% within 4 hours by the end of next year gives CBH about 18 months to improve performance by 24 percentage points. This is a firm external deadline, so CBH cannot rely on slow, purely voluntary change. A clear timetable with interim milestones (e.g. 80% by month 9) is needed. <span class="mark">✓1</span></p>
+      <h4>Scope</h4>
+      <p>Although the COO frames the problem as discharge, patient flow cuts across A&amp;E, wards, pharmacy, transport and billing at three hospitals. Clinicians will need to change when and how they make decisions, so this is closer to <strong>transformation</strong> than realignment. Change of this breadth needs strong programme governance across sites. <span class="mark">✓1</span></p>
+      <h4>Preservation</h4>
+      <p>CBH must preserve the goodwill and expertise of experienced nurses and consultants. Losing them would worsen flow and patient safety. Clinical quality and patient safety must also be protected during the change, so it should be phased rather than introduced on one day. <span class="mark">✓1</span></p>
+      <h4>Diversity</h4>
+      <p>There are distinct professional subcultures (consultants, nurses, managers) and three hospitals that may work differently. The "each department blames another" comment suggests a silo culture. One standard approach imposed on everyone is likely to be resisted; site-level adaptation within common principles is preferable. <span class="mark">✓1</span></p>
+      <h4>Capability</h4>
+      <p>HR states CBH has "never run a programme this large", and the project manager is a seconded finance analyst with no evident change or clinical project experience. Capability is a serious weakness. CBH should appoint an experienced programme director and train clinical change champions. <span class="mark">✓1</span></p>
+      <h4>Capacity</h4>
+      <p>The AED 38m budget appears adequate, but people capacity is not. Nurses are exhausted and IT is fully committed to the ERP upgrade until March. Any IT-dependent elements should be scheduled after March or resourced externally; backfill funding is needed to release clinical staff. <span class="mark">✓1</span></p>
+      <h4>Readiness</h4>
+      <p>Readiness is low. The previous restructuring was imposed without consultation, which has damaged trust, and consultants see the programme as a managers' IT project. CBH must first unfreeze by sharing the waiting-time data and the patient-safety consequences, and by involving clinicians in redesigning the process. <span class="mark">✓1</span></p>
+      <h4>Power</h4>
+      <p>The board and CFO sponsor have formal authority and Ministry backing, but senior consultants hold strong informal power over clinical decisions such as discharge timing. Without their support the change will stall. A respected senior consultant should be appointed as clinical co-sponsor. <span class="mark">✓1</span></p>
+      <h4>Overall conclusion and implications</h4>
+      <p>The context is <strong>challenging</strong>: time pressure and power support change, but low readiness, weak capability and stretched capacity are major barriers. CBH should not rush into a single-day launch. It should use an evolutionary but firmly time-bound approach: participative with clinicians on <em>how</em> to change, directive on <em>what</em> must be achieved and by when. <span class="mark">✓2</span> <span class="ps">PS: commercial acumen</span></p>
+    </div>
+  </div>
+
+  <h4>Requirement 2 (10 marks, including 2 professional skills marks for scepticism)</h4>
+  <p class="prose">Evaluate the COO's proposal to outsource bed management and discharge, using Harmon's process-strategy matrix, and recommend an alternative approach to redesigning the process.</p>
+  <div class="answer">
+    <div class="a-head"><span>Model answer</span><span>10 marks</span></div>
+    <div class="a-body">
+      <h4>Positioning the process</h4>
+      <p><strong>Strategic importance: high.</strong> Patient flow directly drives the Ministry's 4-hour target, CBH's public reputation and its strategy of "right care, first time". Delays in discharge create A&amp;E crowding, which is a patient-safety risk. <span class="mark">✓1</span></p>
+      <p><strong>Complexity: high.</strong> Discharge depends on clinical judgement, varying patient needs, coordination across pharmacy, transport and social care, and three different sites. It is dynamic, not rule-based. <span class="mark">✓1</span></p>
+      <p>The process therefore sits in the <strong>high-importance, high-complexity</strong> quadrant, where Harmon recommends improving the process <strong>in-house through skilled people and continuous redesign</strong>, not outsourcing. <span class="mark">✓1</span></p>
+      <h4>Evaluation of the COO's proposal</h4>
+      <p>Outsourcing would hand control of a core public-service process to a private firm. Clinical discharge decisions cannot legally or ethically be made by a third party, so the supplier could only coordinate, and the root cause (late clinical decisions, poor hand-offs) would remain. <span class="mark">✓1</span> It also creates dependency, data-privacy risk over patient records, and may further damage trust among staff who already feel change is imposed on them. The COO's claim that "it's quicker" is unsupported by any evidence and should be challenged. <span class="mark">✓1</span> <span class="ps">PS: scepticism</span></p>
+      <h4>Recommended alternative</h4>
+      <ul>
+        <li><strong>Gaps and disconnects:</strong> appoint a single end-to-end process owner per hospital (discharge coordinator) and a daily bed-flow huddle so departments stop working in silos. <span class="mark">✓1</span></li>
+        <li><strong>Value-added analysis and simplification:</strong> plan the expected discharge date on admission; remove re-typing of notes by moving to an electronic discharge summary completed during the ward round. <span class="mark">✓1</span></li>
+        <li><strong>Parallel activities:</strong> trigger pharmacy and transport automatically once the discharge decision is recorded, rather than after the summary is written. <span class="mark">✓1</span></li>
+        <li>Selected <strong>non-core supporting activities</strong> (e.g. patient transport) could be outsourced, since they are lower in strategic importance. A specialist firm could also be hired as an <em>adviser</em> on redesign without taking over the process. <span class="mark">✓1</span> <span class="ps">PS: scepticism</span></li>
+      </ul>
+      <p><strong>Recommendation:</strong> reject full outsourcing. Redesign the discharge process in-house, piloting at the hospital with the worst waiting times, with clear KPIs (discharge before 13:00, A&amp;E 4-hour performance) measured against today's baseline.</p>
+    </div>
+  </div>
+
+  <h4>Requirement 3 (8 marks)</h4>
+  <p class="prose">Assess the weaknesses in the current project arrangements shown in Exhibit C and recommend improvements.</p>
+  <div class="answer">
+    <div class="a-head"><span>Model answer</span><span>8 marks</span></div>
+    <div class="a-body">
+      <ul>
+        <li><strong>Inappropriate project manager.</strong> A seconded finance analyst is unlikely to have the authority with clinicians or the change-programme experience this needs. <em>Recommend</em> appointing an experienced programme manager, with the analyst supporting on budget and benefits tracking. <span class="mark">✓2</span></li>
+        <li><strong>Sponsor fit.</strong> The CFO can champion value for money but may lack credibility with clinicians on a clinical-flow programme. <em>Recommend</em> the CFO remains sponsor but a senior consultant joins as senior user on a steering committee. <span class="mark">✓2</span></li>
+        <li><strong>Big-bang go-live at all three hospitals with no testing.</strong> This creates unacceptable patient-safety and operational risk and leaves no chance to learn. <em>Recommend</em> a pilot at one hospital, a formal testing and training phase, then phased rollout. <span class="mark">✓2</span></li>
+        <li><strong>"Green" status is not credible</strong> given that the plan lacks testing and IT is unavailable until March. Reporting may suffer from optimism bias. <em>Recommend</em> independent project assurance (PMO or internal audit), RAG reporting against milestones, and a re-baselined plan. <span class="mark">✓2</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="box exam"><span class="lbl">Why these answers score well</span>Each point uses a <strong>fact from the exhibit</strong>, explains the <strong>consequence</strong>, and gives a <strong>specific action</strong>. Headings mirror the model, so the marker can tick quickly. There is a clear <strong>conclusion</strong>, and the advisor challenges management's claims politely but firmly. That is what "thinking like a senior business leader" looks like on paper.</div>
+</section>
+
+<!-- 19 SKILLS -->
+<section id="skills">
+  <div class="sec-head"><div class="num">19</div><div><h2>Earning the professional skills marks in this chapter</h2><div class="ref">20 of 100 marks · I1–I5</div></div></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Skill</th><th>What the marker wants in change and project tasks</th><th>Phrase that signals it</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Communication</strong></td><td>Correct document format (briefing note, business case, slides, email); clear headings; right tone for the audience (board vs staff)</td><td>"To: Board… Subject:…"; short paragraphs; action-oriented recommendations</td></tr>
+      <tr><td><strong>Commercial acumen</strong></td><td>Realistic, practical actions that reflect the organisation's constraints (budget, regulation, culture); awareness of wider implications</td><td>"Given the IT team is committed until March, the e-discharge module should be scheduled for phase 2."</td></tr>
+      <tr><td><strong>Analysis</strong></td><td>Using exhibit data: calculations, trends, root causes; linking causes to effects</td><td>"Performance must rise from 71% to 95%, a 24-point improvement in 18 months."</td></tr>
+      <tr><td><strong>Scepticism</strong></td><td>Challenging claims, assumptions, optimistic estimates and "green" reports; asking for evidence</td><td>"The COO offers no evidence that outsourcing would be quicker…"</td></tr>
+      <tr><td><strong>Evaluation</strong></td><td>Weighing pros and cons, reaching a justified conclusion, prioritising</td><td>"On balance… The greatest barrier is readiness, so the first priority is…"</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box exam"><span class="lbl">Time plan for a typical 20-mark change/project task</span>About 39 minutes: <strong>8 minutes</strong> reading the requirement and exhibits and listing points; <strong>27 minutes</strong> writing (about 1.5 minutes per point); <strong>4 minutes</strong> on conclusion and format check. Write your headings first, then fill them.</div>
+</section>
+
+<!-- 20 CHEAT -->
+<section id="cheat">
+  <div class="sec-head"><div class="num">20</div><div><h2>Cheat sheet &amp; mnemonics</h2><div class="ref">Revise this the night before</div></div></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Topic</th><th>Key content</th><th>Mnemonic</th></tr></thead>
+    <tbody>
+      <tr><td>Types of change</td><td>Adaptation, Evolution, Revolution, Reconstruction (scope × nature)</td><td>A-E-R-R</td></tr>
+      <tr><td>Contextual features</td><td>Time, Scope, Preservation, Diversity, Capability, Capacity, Readiness, Power</td><td>"The Smart Planner Doesn't Change Course Rashly, Promptly"</td></tr>
+      <tr><td>Lewin</td><td>Unfreeze, Change, Refreeze + force field (drivers vs restrainers)</td><td>Ice cube; remove brakes first</td></tr>
+      <tr><td>Overcoming resistance</td><td>Education, Participation, Facilitation, Negotiation, Manipulation, Coercion</td><td>"Every Person Feels Nervous, Manage Carefully"</td></tr>
+      <tr><td>Four views</td><td>People, Organisation, Processes, IT</td><td>POPIT: pop the balloon</td></tr>
+      <tr><td>Harmon matrix</td><td>Importance × complexity: automate, human expertise, minimal effort, outsource</td><td>Booking robot, surgeon, payroll clerk, outside lawyer</td></tr>
+      <tr><td>Redesign patterns</td><td>Re-engineering, Simplification, Value-added analysis, Gaps &amp; disconnects</td><td>"Really Simple Value Gains"</td></tr>
+      <tr><td>Redesign method</td><td>Understand, Analyse, Design, Develop, Implement, Review</td><td>"U Are Designing, Developing, Implementing, Reviewing"</td></tr>
+      <tr><td>Triple constraint</td><td>Scope/quality, time, cost</td><td>"Good, fast, cheap: pick two"</td></tr>
+      <tr><td>Business case vs PID</td><td>Why (sponsor) vs How (project manager)</td><td>WHY vs HOW</td></tr>
+      <tr><td>Benefits</td><td>Financial, Quantifiable, Measurable, Observable</td><td>F-Q-M-O; Quantifiable = before, Measurable = after</td></tr>
+      <tr><td>Costs</td><td>One-off, recurring, intangible</td><td>Start, keep, hidden</td></tr>
+      <tr><td>Slippage fixes</td><td>Add resources, fast-track, reduce scope, accept delay</td><td>MORE, FASTER, LESS, LATER</td></tr>
+      <tr><td>Reviews</td><td>PPR = project process; PIR = benefits of outcome</td><td>How we Ran it / What it Returned</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box memory"><span class="lbl">The universal SBL point formula</span><strong>Model term → case fact → consequence → recommendation.</strong> Example: "<em>Capability</em> is weak (term) because the PM is a seconded finance analyst (fact), so clinicians may ignore him and risks will be missed (consequence); appoint an experienced programme manager (recommendation)."</div>
+</section>
+
+<!-- 21 QUIZ -->
+<section id="quiz">
+  <div class="sec-head"><div class="num">21</div><div><h2>Self-test</h2><div class="ref">Answer in your head, then open each one to check</div></div></div>
+  <details><summary>1. A retailer closes 40% of its stores within 6 months but keeps the same business model. Which type of change is this?</summary><div><p><strong>Reconstruction</strong>: big bang (fast) and realignment (same paradigm).</p></div></details>
+  <details><summary>2. What is the difference between capability and capacity in Balogun &amp; Hope Hailey?</summary><div><p><strong>Capability</strong> = skills and experience of managing change. <strong>Capacity</strong> = resources available (money, people, time, IT).</p></div></details>
+  <details><summary>3. Which Lewin stage is most often neglected, and what does it involve?</summary><div><p><strong>Refreeze</strong>: embedding the change through new policies, KPIs, rewards, procedures and removing old systems so people don't revert.</p></div></details>
+  <details><summary>4. A process is simple and rule-based but strategically important. What does Harmon recommend?</summary><div><p><strong>Automate / systematise</strong> it (e.g. ERP, workflow, RPA) to achieve speed, consistency and low cost.</p></div></details>
+  <details><summary>5. Name Harmon's four redesign patterns.</summary><div><p>Re-engineering, simplification, value-added analysis, gaps and disconnects.</p></div></details>
+  <details><summary>6. "Staff morale will improve after the new system." Which benefit class is this?</summary><div><p><strong>Observable</strong>: it can only be judged by opinion or observation.</p></div></details>
+  <details><summary>7. "Average processing time will fall from 5 days to 2 days." Which benefit class?</summary><div><p><strong>Quantifiable</strong>: it can be estimated in numbers in advance, but not directly in money.</p></div></details>
+  <details><summary>8. Who owns the business case, and who owns the PID?</summary><div><p>Business case: <strong>project sponsor</strong>. PID: <strong>project manager</strong> (approved by the sponsor/board).</p></div></details>
+  <details><summary>9. Activities: A (4 wks), B (6 wks, after A), C (3 wks, after A), D (2 wks, after B and C). What is the critical path and how much float does C have?</summary><div><p>Critical path <strong>A–B–D = 12 weeks</strong>. C has <strong>3 weeks' float</strong> (6 − 3).</p></div></details>
+  <details><summary>10. Distinguish a post-project review from a post-implementation review.</summary><div><p><strong>PPR</strong> reviews how the project was managed (time, cost, scope, lessons) shortly after closure. <strong>PIR</strong> reviews whether the outcome delivered the business case benefits, some months after go-live.</p></div></details>
+  <details><summary>11. When is coercion an appropriate way to overcome resistance, and what is its main risk?</summary><div><p>When speed is essential and change initiators have considerable power (e.g. a crisis). Risk: resentment, loss of key staff, long-term damage to trust and culture. Flag the ethical dimension.</p></div></details>
+  <details><summary>12. The board wants the project faster, cheaper and with more features. How should you respond as advisor?</summary><div><p>Use the <strong>triple constraint</strong> to explain that all three cannot improve at once. Ask the board to decide which constraint is fixed (e.g. the regulatory deadline), then flex scope (phase 2) or cost. Done politely, this earns scepticism and commercial acumen marks.</p></div></details>
+</section>
+
+<footer>SBL exam notes · Change, Process Redesign &amp; Projects · Based on the ACCA SBL syllabus and study guide, September 2026 to June 2027. Organisations in examples are illustrative.</footer>
+</main>
+</div>
+
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('#toc a'));
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  if(!('IntersectionObserver' in window)) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        links.forEach(function(l){ l.classList.remove('active'); });
+        var a = map[e.target.id]; if(a) a.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-20% 0px -70% 0px'});
+  document.querySelectorAll('main section').forEach(function(s){ obs.observe(s); });
+})();
+</script>
+</body>
+</html>
