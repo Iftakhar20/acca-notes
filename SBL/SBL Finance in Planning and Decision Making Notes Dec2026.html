@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SBL Notes – G: Finance in Planning &amp; Decision-Making</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,800;1,6..12,400&display=swap" rel="stylesheet">
+<style>
+/* Theme: plum, sky, sage, amber, rose on a soft warm-white page */
+:root{
+  --plum:#5B2A86; --plum-2:#43206A; --plum-soft:#F1EAF8;
+  --sky:#2E86AB;  --sky-soft:#E4F1F7;
+  --sage:#3F8F5C; --sage-soft:#E5F3EA;
+  --amber:#F4A261; --amber-soft:#FDF0E3; --amber-ink:#9A5212;
+  --rose:#D1495B; --rose-soft:#FBE6E9;
+  --teal:#1B998B; --teal-soft:#E0F4F1;
+  --bg:#FAF8F5; --surface:#FFFFFF; --ink:#1F1A2B; --muted:#5D5770; --line:#E6E1EC;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"Nunito Sans","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+  --fs:18px;
+}
+*{box-sizing:border-box}
+html{font-size:var(--fs)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1rem;line-height:1.7}
+a{color:var(--sky)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--amber);outline-offset:2px;border-radius:4px}
+h1,h2,h3,h4{font-family:var(--display);line-height:1.22;margin:0}
+h2{font-size:1.85rem;margin-bottom:.3rem;color:var(--plum-2)}
+h3{font-size:1.3rem;margin:1.7rem 0 .5rem;color:var(--plum-2)}
+h4{font-size:1.05rem;margin:1.1rem 0 .3rem}
+p{margin:.6rem 0}
+ul,ol{margin:.5rem 0;padding-left:1.4rem}
+li{margin:.3rem 0}
+strong{font-weight:800}
+
+/* Hero */
+.hero{background:var(--plum);color:#fff;padding:46px 24px 0}
+.hero-inner{max-width:1240px;margin:0 auto}
+.eyebrow{font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.78rem;color:var(--amber)}
+.hero h1{font-size:clamp(2rem,4.6vw,3.1rem);font-weight:800;margin:.4rem 0 .6rem}
+.hero p{max-width:75ch;color:#E9DEF5;margin:0 0 1.1rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.chip{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.28);padding:3px 12px;border-radius:999px;font-size:.82rem;font-weight:600}
+.stripe{display:grid;grid-template-columns:repeat(5,1fr);height:9px}
+.stripe span:nth-child(1){background:var(--amber)}.stripe span:nth-child(2){background:var(--sky)}.stripe span:nth-child(3){background:var(--rose)}.stripe span:nth-child(4){background:var(--sage)}.stripe span:nth-child(5){background:var(--teal)}
+
+/* Compact top menu */
+.topbar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);box-shadow:0 2px 10px rgba(40,20,60,.05)}
+.topbar-inner{max-width:1240px;margin:0 auto;padding:8px 16px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.topbar a{text-decoration:none;color:var(--ink);font-weight:700;font-size:.8rem;padding:4px 10px;border-radius:999px;white-space:nowrap}
+.topbar a:hover{background:var(--plum-soft);color:var(--plum)}
+.topbar .grp{font-size:.72rem;font-weight:800;color:#fff;background:var(--plum);border-radius:6px;padding:2px 7px;margin-left:6px}
+.topbar .sp{flex:1}
+.fsbtn{border:1px solid var(--line);background:var(--surface);color:var(--plum);font-weight:800;border-radius:8px;padding:2px 10px;cursor:pointer;font-family:var(--display);font-size:.85rem}
+.fsbtn:hover{background:var(--plum-soft)}
+
+/* Layout */
+.wrap{max-width:1240px;margin:0 auto;padding:28px 16px 80px}
+section{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px clamp(18px,3vw,40px);margin-bottom:28px;scroll-margin-top:100px}
+.part{margin:44px 0 18px;display:flex;align-items:center;gap:14px;scroll-margin-top:100px}
+.part .pbadge{background:var(--plum);color:#fff;font-family:var(--display);font-weight:800;border-radius:12px;padding:6px 14px;font-size:1.1rem}
+.part h2{margin:0;font-size:1.6rem}
+.sec-head{display:flex;align-items:flex-start;gap:14px;margin-bottom:.6rem}
+.num{font-family:var(--display);font-weight:800;font-size:1rem;background:var(--amber);color:#3A1D05;border-radius:10px;min-width:46px;height:46px;display:grid;place-items:center;flex-shrink:0}
+.ref{font-size:.8rem;color:var(--muted);font-weight:700;letter-spacing:.02em}
+
+/* 7-step callouts */
+.box{border-radius:12px;padding:14px 20px;margin:1rem 0;border-left:6px solid}
+.box > .lbl{display:block;font-family:var(--display);font-weight:800;font-size:.8rem;text-transform:uppercase;letter-spacing:.07em;margin-bottom:.15rem}
+.simple{background:var(--sky-soft);border-color:var(--sky)} .simple > .lbl{color:var(--sky)}
+.example{background:var(--sage-soft);border-color:var(--sage)} .example > .lbl{color:var(--sage)}
+.exam{background:var(--amber-soft);border-color:var(--amber)} .exam > .lbl{color:var(--amber-ink)}
+.examiner{background:var(--plum-soft);border-color:var(--plum)} .examiner > .lbl{color:var(--plum)}
+.mistake{background:var(--rose-soft);border-color:var(--rose)} .mistake > .lbl{color:var(--rose)}
+.memory{background:var(--teal-soft);border-color:var(--teal)} .memory > .lbl{color:#11766B}
+.scenario{background:#F6F4F9;border:1px dashed #B9AECB;border-radius:12px;padding:14px 20px;margin:1rem 0 .4rem}
+.scenario > .lbl{display:block;font-family:var(--display);font-weight:800;font-size:.8rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:.15rem}
+
+/* Model answer */
+.answer{border:2px solid var(--plum);border-radius:14px;margin:.4rem 0 1.2rem;overflow:hidden}
+.answer .a-head{background:var(--plum);color:#fff;padding:9px 18px;font-family:var(--display);font-weight:600;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.answer .a-head span:last-child{background:var(--amber);color:#3A1D05;border-radius:999px;padding:0 11px;font-size:.85rem;font-weight:800}
+.answer .a-body{padding:14px 22px}
+.answer .a-body h4{color:var(--plum);margin-top:1rem}
+.answer .a-body h4:first-child{margin-top:0}
+.mk{display:inline-block;background:var(--sage);color:#fff;font-weight:800;font-size:.7rem;border-radius:6px;padding:0 6px;margin-left:4px;vertical-align:1px}
+.ps{display:inline-block;background:var(--rose);color:#fff;font-weight:800;font-size:.7rem;border-radius:6px;padding:0 6px;margin-left:4px;vertical-align:1px}
+
+/* Tables */
+.tbl{overflow-x:auto;margin:1rem 0;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;font-size:.93rem;min-width:560px}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+th{background:var(--plum);color:#fff;font-family:var(--display);font-weight:600}
+tr:last-child td{border-bottom:none}
+tbody tr:nth-child(even) td{background:#FBF9FD}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.tot td{font-weight:800;background:var(--plum-soft)!important}
+
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 18px}
+.card h4{margin-top:0;color:var(--plum)}
+.formula{font-family:Consolas,"Courier New",monospace;background:#F3F0F7;border-radius:8px;padding:2px 8px;font-size:.92rem}
+.pill{display:inline-block;padding:1px 10px;border-radius:999px;font-size:.78rem;font-weight:800}
+.p-hi{background:var(--rose);color:#fff}.p-md{background:var(--amber);color:#3A1D05}.p-lo{background:var(--sage);color:#fff}
+.kicker{font-size:1.05rem;color:var(--muted)}
+
+/* Details (answers, quiz) */
+details{border:1px solid var(--line);border-radius:12px;margin:.6rem 0;background:#FCFBFE}
+summary{cursor:pointer;padding:11px 16px;font-weight:800;color:var(--plum-2)}
+summary::marker{color:var(--amber)}
+details > div{padding:2px 18px 14px;border-top:1px dashed var(--line)}
+
+/* Quiz */
+.q{border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin:12px 0;background:#FCFBFE}
+.q p.qt{font-weight:800;margin:0 0 .5rem}
+.opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 12px;margin:6px 0;cursor:pointer;font:inherit;font-size:.95rem;color:var(--ink)}
+.opt:hover{border-color:var(--plum)}
+.opt.right{background:var(--sage-soft);border-color:var(--sage);font-weight:800}
+.opt.wrong{background:var(--rose-soft);border-color:var(--rose)}
+.fb{display:none;font-size:.93rem;margin-top:.4rem;padding:8px 12px;border-radius:8px;background:var(--plum-soft)}
+.score{position:sticky;bottom:12px;display:inline-block;background:var(--plum);color:#fff;font-weight:800;border-radius:999px;padding:6px 16px;margin-top:8px;font-family:var(--display)}
+footer{text-align:center;color:var(--muted);font-size:.85rem;padding:20px}
+@media (max-width:640px){ :root{--fs:17px} .topbar-inner{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin} .topbar a{padding:3px 7px} .topbar .sp{display:none} section{scroll-margin-top:60px} .part{scroll-margin-top:60px} }
+@media print{.topbar{display:none}section{break-inside:avoid-page}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">ACCA Strategic Business Leader · Syllabus area G · Sept 2026 – June 2027</div>
+    <h1>Finance in Planning &amp; Decision-Making</h1>
+    <p>Complete exam notes for section G: finance transformation, investment needs, sources of finance, investment appraisal, risk and uncertainty, reporting and tax effects, performance measurement, cost management, budgeting and variances. Every topic follows the same 7 steps, with a worked scenario above every model answer.</p>
+    <div class="chips">
+      <span class="chip">G1 Finance transformation</span>
+      <span class="chip">G2 Financial analysis &amp; decisions</span>
+      <span class="chip">G3 Cost &amp; management accounting</span>
+      <span class="chip">Mini case: 40 marks</span>
+      <span class="chip">12-question quiz</span>
+    </div>
+  </div>
+  <div class="stripe"><span></span><span></span><span></span><span></span><span></span></div>
+</header>
+
+<nav class="topbar" aria-label="Chapter menu">
+  <div class="topbar-inner">
+    <a href="#start">Start here</a>
+    <span class="grp">G1</span><a href="#t1">Transformation</a><a href="#t2">Structures</a>
+    <span class="grp">G2</span><a href="#t3">Investment needs</a><a href="#t4">Sources</a><a href="#t5">Appraisal</a><a href="#t6">Risk</a><a href="#t7">Reporting &amp; tax</a><a href="#t8">Performance</a>
+    <span class="grp">G3</span><a href="#t9">Cost mgmt</a><a href="#t10">Budgets &amp; variances</a>
+    <span class="grp">Practice</span><a href="#case">Case</a><a href="#mistakes">Mistakes</a><a href="#cheat">Cheat sheet</a><a href="#quiz">Quiz</a>
+    <span class="sp"></span>
+    <button class="fsbtn" id="fsDown" aria-label="Smaller text">A−</button>
+    <button class="fsbtn" id="fsUp" aria-label="Larger text">A+</button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- ================= START HERE ================= -->
+<section id="start">
+  <div class="sec-head"><div class="num">00</div><div><div class="ref">HOW FINANCE IS TESTED IN SBL</div><h2>Start here: finance in SBL is not FM</h2></div></div>
+  <div class="box simple"><span class="lbl">The big idea</span>
+    <p>In SBL you are a <strong>senior adviser</strong>, not a calculator. The numbers are usually simple (a few ratios, a payback, an NPV the exhibit nearly finishes for you). The marks come from <strong>what the numbers mean for strategy</strong>: should the board go ahead, how should it be funded, what could go wrong, and what should it do next.</p>
+  </div>
+  <div class="two">
+    <div class="card"><h4>What you will be asked to do</h4>
+      <ul>
+        <li>Evaluate an investment or project (NPV, payback, plus non-financial factors).</li>
+        <li>Advise on how to finance a strategy (debt vs equity vs leasing vs grants).</li>
+        <li>Analyse performance from extracts (ratios, KPIs, trends) and explain causes.</li>
+        <li>Assess the finance function: outsourcing, shared services, business partnering, automation.</li>
+        <li>Comment on budgets, forecasts and variance reports and whether they help strategy.</li>
+        <li>Spot reporting and tax effects of a decision (leases, goodwill, provisions, tax relief).</li>
+      </ul>
+    </div>
+    <div class="card"><h4>How marks are earned</h4>
+      <ul>
+        <li><strong>1 mark per well-applied point</strong>: a fact from the case + why it matters + the effect.</li>
+        <li><strong>Calculations</strong> earn a few marks; <strong>interpretation</strong> earns most of them.</li>
+        <li><strong>Professional skills</strong> (20 of the 100 marks across the exam): commercial acumen, analysis, scepticism, evaluation, communication.</li>
+        <li>SBL gives <strong>no formula sheet</strong>; discount factors are given in the exhibit when you need them.</li>
+        <li>Always end with a clear <strong>recommendation</strong> and its justification.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="box exam"><span class="lbl">The 4-step finance answer routine (use it every time)</span>
+    <ol>
+      <li><strong>Calculate</strong> only what the requirement needs. Show a small, labelled table.</li>
+      <li><strong>Interpret</strong>: what does each number say? Compare to target, prior year, competitor or cost of capital.</li>
+      <li><strong>Challenge</strong> (scepticism): which assumptions are weak? Who prepared the numbers and why?</li>
+      <li><strong>Recommend</strong>: a decision plus conditions (e.g. “proceed, but only if…”).</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= G1 ================= -->
+<div class="part" id="g1"><span class="pbadge">G1</span><h2>Finance transformation</h2></div>
+
+<section id="t1">
+  <div class="sec-head"><div class="num">01</div><div><div class="ref">G1(a) · Discuss [2]</div><h2>How technology is transforming finance and the finance function</h2></div></div>
+
+  <div class="box simple"><span class="lbl">1 · In simple words</span>
+    <p>For decades, finance teams spent most of their time <strong>processing</strong>: keying invoices, reconciling accounts, building spreadsheets, closing the books. Technology now does much of that work automatically. So the finance function is moving from a <strong>“scorekeeper”</strong> (recording what happened) to a <strong>“business partner”</strong> (helping managers decide what to do next).</p>
+    <p>Think of the finance function as having four jobs:</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Role</th><th>What it means</th><th>Effect of technology</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Transaction processing</strong></td><td>Payables, receivables, payroll, billing</td><td>Heavily automated (RPA, e-invoicing, OCR). Fewer people needed.</td></tr>
+        <tr><td><strong>Stewardship &amp; control</strong></td><td>Protecting assets, compliance, statutory reports</td><td>Continuous controls monitoring, audit trails, faster close.</td></tr>
+        <tr><td><strong>Reporting &amp; analysis</strong></td><td>Management accounts, KPIs, dashboards</td><td>Self-service dashboards, real-time data, data analytics.</td></tr>
+        <tr><td><strong>Business partnering &amp; value creation</strong></td><td>Advising on strategy, pricing, investment</td><td>Grows in importance; uses predictive analytics and scenario models.</td></tr>
+      </tbody></table></div>
+    <h4>The key technologies (know one example of each)</h4>
+    <ul>
+      <li><strong>Cloud ERP</strong>: one system for all entities, accessible anywhere, always updated, cheaper upgrades.</li>
+      <li><strong>Robotic process automation (RPA)</strong>: software “bots” copy rule-based human steps (e.g. matching invoices to purchase orders).</li>
+      <li><strong>AI and machine learning</strong>: forecasting demand, flagging unusual payments (fraud detection), reading contracts.</li>
+      <li><strong>Data analytics and visualisation</strong>: dashboards that let managers explore the numbers themselves.</li>
+      <li><strong>Blockchain / distributed ledgers</strong>: shared, tamper-resistant records, e.g. for supply chain payments or inter-company settlement.</li>
+      <li><strong>Continuous accounting / fast close</strong>: reconciliations done daily rather than all at month end.</li>
+    </ul>
+    <h4>What this means for the finance function</h4>
+    <ul>
+      <li><strong>Structure</strong>: fewer processing staff, more analysts; transactional work moved to shared services or outsourced (see topic 02).</li>
+      <li><strong>Skills</strong>: data skills, systems knowledge, communication and commercial understanding become as important as technical accounting.</li>
+      <li><strong>Speed</strong>: management gets information in days, not weeks, so decisions improve.</li>
+      <li><strong>Risks</strong>: cyber security, data quality (“garbage in, garbage out”), over-reliance on models, job losses and staff resistance, cost of implementation.</li>
+    </ul>
+  </div>
+
+  <div class="box example"><span class="lbl">2 · Real business example</span>
+    <p>A large hospital group used to close its monthly accounts in 12 working days. Each hospital kept its own spreadsheets, and the group finance team spent days reconciling inter-company balances. After moving to one cloud ERP and using bots to match supplier invoices, the close fell to 5 days. Finance staff who used to key invoices were retrained as analysts and assigned to clinical departments, where they now help heads of department understand cost per patient and theatre utilisation.</p>
+    <p>A second, simpler example: a global consumer goods company uses machine-learning forecasts to predict weekly demand by product and region. Finance stopped arguing about the forecast and started discussing <em>what to do</em> about it (pricing, promotions, production).</p>
+  </div>
+
+  <div class="box exam"><span class="lbl">3 · How it appears in the exam</span>
+    <ul>
+      <li>“<em>Discuss how advances in technology could change the role of the finance function at X.</em>”</li>
+      <li>“<em>Evaluate the CFO’s proposal to introduce robotic process automation.</em>”</li>
+      <li>Often combined with section E (technology) or H (change management: staff resistance, Lewin, POPIT).</li>
+    </ul>
+  </div>
+
+  <div class="scenario"><span class="lbl">Scenario used in the model answer</span>
+    <p><strong>Westbrook Public Health Authority</strong> runs 9 clinics. Its finance team of 48 staff spends about 70% of its time on processing (invoices, payroll queries, reconciliations). Month-end close takes 14 working days. Clinic managers say finance reports “arrive too late to act on and only show spend against budget”. The new CFO wants to introduce a cloud ERP with RPA and dashboards. Staff are worried about job losses. The authority suffered a ransomware attack on its patient scheduling system last year.</p>
+  </div>
+  <div class="answer"><div class="a-head"><span>Model answer: Discuss how technology could transform Westbrook’s finance function</span><span>8 marks</span></div><div class="a-body">
+    <h4>From processing to partnering</h4>
+    <p>Westbrook’s finance staff spend around 70% of their time on processing. RPA can take over rule-based tasks such as matching invoices to orders and standard reconciliations, so a large share of that time could be released.<span class="mk">1</span> That capacity should be redeployed as business partners for the 9 clinics, which directly answers managers’ complaint that reports “only show spend against budget”.<span class="mk">1</span></p>
+    <h4>Faster, more useful information</h4>
+    <p>A single cloud ERP removes clinic-by-clinic spreadsheets and should cut the 14-day close significantly. Information that arrives within days is information managers can still act on.<span class="mk">1</span> Dashboards would let clinic managers see cost per patient visit, staff overtime and supply usage themselves, rather than waiting for a monthly pack.<span class="mk">1</span></p>
+    <h4>Risks the CFO must manage</h4>
+    <p><strong>Cyber security</strong>: after last year’s ransomware attack, moving finance data to the cloud needs strong access controls, encryption and a tested recovery plan; the board must not assume the cloud provider handles all of this.<span class="mk">1</span> <strong>People</strong>: staff fear job losses, so the change needs open communication, retraining in analysis and a clear plan for those affected, or resistance could delay the project.<span class="mk">1</span> <strong>Data quality</strong>: bots and dashboards only work if master data (suppliers, cost centres) is cleaned first.<span class="mk">1</span></p>
+    <h4>Conclusion</h4>
+    <p>Technology can turn Westbrook’s finance team from a slow reporting function into a partner that helps clinics manage cost and service. The CFO should proceed in phases: clean data and secure the platform first, automate processing second, and retrain staff as business partners alongside.<span class="mk">1</span><span class="ps">PS: evaluation</span></p>
+  </div></div>
+
+  <div class="box examiner"><span class="lbl">5 · What the examiner wants</span>
+    <ul>
+      <li>Link each technology to a <strong>specific problem in the case</strong> (slow close → cloud ERP; processing time → RPA).</li>
+      <li>Show both <strong>benefits and risks</strong> (cyber, data, people, cost).</li>
+      <li>Explain the <strong>change in the finance role</strong>, not just the technology.</li>
+    </ul>
+  </div>
+  <div class="box mistake"><span class="lbl">6 · Common mistakes</span>
+    <ul>
+      <li>Writing a technology essay (“AI is a branch of computer science…”) with no link to the organisation.</li>
+      <li>Assuming technology is all benefit. Always cover implementation risk and staff impact.</li>
+      <li>Forgetting that the purpose is <strong>better decisions</strong>, not cheaper bookkeeping alone.</li>
+    </ul>
+  </div>
+  <div class="box memory"><span class="lbl">7 · Memory tip</span>
+    <p><strong>“Bots do the doing, people do the thinking.”</strong> Then remember the risks as <strong>C-D-P-C</strong>: <strong>C</strong>yber, <strong>D</strong>ata quality, <strong>P</strong>eople, <strong>C</strong>ost.</p>
+  </div>
+</section>
+
+<section id="t2">
+  <div class="sec-head"><div class="num">02</div><div><div class="ref">G1(b) · Evaluate [3]</div><h2>Structures for the finance function: business partnering, outsourcing, shared services, global business services</h2></div></div>
+
+  <div class="box simple"><span class="lbl">1 · In simple words</span>
+    <p>Where should finance work be done, and by whom? There are four main options. Most large organisations combine them.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Structure</th><th>What it is</th><th>Benefits</th><th>Drawbacks / risks</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Business partnering</strong></td><td>Finance professionals sit with (or are assigned to) operational managers and help them make decisions.</td><td>Better decisions; finance understands the business; challenge and support for managers.</td><td>Partner may lose independence (“goes native”); needs strong commercial and people skills; costly senior staff.</td></tr>
+        <tr><td><strong>Shared services centre (SSC)</strong></td><td>Routine finance work from many divisions is moved into one internal centre (e.g. all payables and payroll in one place).</td><td>Economies of scale; standard processes; easier to automate; still under the organisation’s control.</td><td>Upfront cost of set-up; redundancies; loss of local knowledge; divisions may see it as remote and slow.</td></tr>
+        <tr><td><strong>Outsourcing (BPO)</strong></td><td>An external provider does the finance work under a contract and service level agreement (SLA).</td><td>Lower cost (often offshore); access to expertise and technology; turns fixed cost into variable cost.</td><td>Loss of control; data confidentiality; dependence on the supplier; hard to bring back in-house; hidden costs of managing the contract.</td></tr>
+        <tr><td><strong>Global business services (GBS)</strong></td><td>An evolution of shared services: one integrated, global organisation delivering finance, HR, IT and procurement services across all regions, often with centres of excellence.</td><td>End-to-end processes across functions; global standardisation; strong data and analytics; scale.</td><td>Very complex to set up; cultural and time-zone challenges; needs strong governance; large investment.</td></tr>
+      </tbody></table></div>
+    <p><strong>Rule of thumb:</strong> high-volume, rule-based, low-judgement work (payables, payroll, billing) suits SSC or outsourcing. Judgement-based, strategic work (pricing, investment appraisal, strategy support) stays close to the business through business partners.</p>
+    <h4>How to evaluate the choice (the criteria)</h4>
+    <ul>
+      <li><strong>Cost</strong>: set-up costs vs annual savings; payback.</li>
+      <li><strong>Quality and service</strong>: accuracy, speed, SLAs.</li>
+      <li><strong>Control and risk</strong>: data security, regulation, dependence on supplier.</li>
+      <li><strong>Strategic importance</strong>: is the activity a core competence? (Never outsource what gives you competitive advantage.)</li>
+      <li><strong>People and culture</strong>: redundancies, morale, loss of knowledge, resistance.</li>
+      <li><strong>Flexibility</strong>: can it scale up or down as the organisation grows?</li>
+    </ul>
+  </div>
+
+  <div class="box example"><span class="lbl">2 · Real business example</span>
+    <p>Many multinational groups (consumer goods, pharma, banks) run finance shared services centres in lower-cost cities and moved to global business services models that also include HR and procurement. A typical pattern: country finance teams shrink to a small group of business partners and a controller, while invoice processing, payroll and reporting move to the regional centre. Public sector bodies do the same: several government departments share one payroll and payables centre.</p>
+  </div>
+
+  <div class="box exam"><span class="lbl">3 · How it appears in the exam</span>
+    <ul>
+      <li>“<em>Evaluate the proposal to outsource the finance function / create a shared services centre.</em>”</li>
+      <li>“<em>Advise the CFO on how business partnering could help divisional managers.</em>”</li>
+      <li>Links to H1 (organising: outsourcing, shared services) and to risk (D) and governance (B).</li>
+    </ul>
+  </div>
+
+  <div class="scenario"><span class="lbl">Scenario used in the model answer</span>
+    <p><strong>Kestrel Foods</strong> is an FMCG company with factories in 5 countries. Each country has its own finance team (total 140 staff) using different systems. A consultancy proposes outsourcing all finance work to an offshore provider, claiming savings of 35% of the $9m annual finance staff cost. The finance director prefers creating an in-house shared services centre for transactions and appointing business partners for each factory. Kestrel recently lost market share because its pricing decisions were slow, and a supplier fraud of $0.8m went undetected for a year.</p>
+  </div>
+  <div class="answer"><div class="a-head"><span>Model answer: Evaluate the outsourcing proposal against the shared services + business partnering option</span><span>10 marks</span></div><div class="a-body">
+    <h4>Option 1: outsource all finance work</h4>
+    <p><strong>Cost:</strong> the claimed saving is about $3.2m a year (35% × $9m). This is attractive, but the figure comes from the consultancy proposing the deal, so it should be challenged. Contract management, transition costs and redundancy payments will reduce it.<span class="mk">1</span><span class="ps">PS: scepticism</span></p>
+    <p><strong>Control:</strong> Kestrel has just suffered an undetected $0.8m supplier fraud. Handing payables to a third party without first fixing controls could make this worse, because Kestrel would have less visibility of payments.<span class="mk">1</span></p>
+    <p><strong>Strategy:</strong> outsourcing <em>all</em> finance includes pricing and decision support. Slow pricing decisions have already cost market share; an offshore provider with no knowledge of local markets is unlikely to improve this, and may make it worse.<span class="mk">1</span> Outsourcing is also hard to reverse once in-house expertise has gone.<span class="mk">1</span></p>
+    <h4>Option 2: shared services centre plus business partners</h4>
+    <p>Moving transactions for 5 countries into one in-house centre on one system creates economies of scale and standard processes, while Kestrel keeps control of data and payments.<span class="mk">1</span> Standard processes make it easier to introduce segregation of duties and automated payment checks, directly addressing the fraud weakness.<span class="mk">1</span></p>
+    <p>Business partners at each factory would support faster, better-informed pricing, which tackles the main strategic problem.<span class="mk">1</span> Savings will be lower and slower than outsourcing, and the set-up needs investment in one ERP, so Kestrel should prepare a business case with realistic costs.<span class="mk">1</span></p>
+    <h4>Recommendation</h4>
+    <p>Kestrel should reject full outsourcing and adopt Option 2. Once the shared services centre is stable and controls are proven, it could later outsource selected high-volume tasks (e.g. invoice scanning) under strict SLAs.<span class="mk">1</span> This balances cost saving with control and puts finance where it adds most value: pricing and decisions.<span class="mk">1</span><span class="ps">PS: commercial acumen</span></p>
+  </div></div>
+
+  <div class="box examiner"><span class="lbl">5 · What the examiner wants</span>
+    <ul>
+      <li><strong>Evaluate</strong> means benefits <em>and</em> drawbacks, then a judgement.</li>
+      <li>Use the numbers in the case (savings claims) and <strong>question who produced them</strong>.</li>
+      <li>Separate <strong>transactional</strong> work from <strong>value-adding</strong> work; they need different solutions.</li>
+    </ul>
+  </div>
+  <div class="box mistake"><span class="lbl">6 · Common mistakes</span>
+    <ul>
+      <li>Treating shared services and outsourcing as the same thing. SSC is <strong>internal</strong>; outsourcing is <strong>external</strong>.</li>
+      <li>Listing generic pros and cons without linking to the case facts.</li>
+      <li>Not giving a recommendation, or recommending without conditions.</li>
+    </ul>
+  </div>
+  <div class="box memory"><span class="lbl">7 · Memory tip</span>
+    <p><strong>“Routine goes to the centre, judgement stays with the business.”</strong> Evaluate using <strong>C-Q-C-S-P-F</strong>: <strong>C</strong>ost, <strong>Q</strong>uality, <strong>C</strong>ontrol, <strong>S</strong>trategic importance, <strong>P</strong>eople, <strong>F</strong>lexibility.</p>
+  </div>
+</section>
+
+<!-- ================= G2 ================= -->
+<div class="part" id="g2"><span class="pbadge">G2</span><h2>Financial analysis and decision-making techniques</h2></div>
+
+<section id="t3">
+  <div class="sec-head"><div class="num">03</div><div><div class="ref">G2(a) · Determine [2]</div><h2>Overall investment requirements of the organisation</h2></div></div>
+
+  <div class="box simple"><span class="lbl">1 · In simple words</span>
+    <p>Before deciding <em>how</em> to raise money, the board must know <strong>how much money the strategy needs and when</strong>. A strategy needs cash for more than the obvious new building.</p>
+    <div class="two">
+      <div class="card"><h4>What needs funding</h4>
+        <ul>
+          <li><strong>Growth capital expenditure</strong>: new sites, machines, systems, acquisitions.</li>
+          <li><strong>Maintenance (replacement) capex</strong>: keeping existing assets working.</li>
+          <li><strong>Working capital</strong>: more sales usually means more inventory and receivables tied up.</li>
+          <li><strong>Start-up and launch costs</strong>: recruitment, training, marketing, IT.</li>
+          <li><strong>Contingency</strong>: projects overrun (see projects, H6).</li>
+          <li><strong>Debt repayments and dividends</strong> due in the same period.</li>
+        </ul>
+      </div>
+      <div class="card"><h4>How to work out the funding gap</h4>
+        <p class="formula">Total investment needed − internally generated funds = external finance required</p>
+        <p>Internally generated funds = operating cash flow after tax, interest and dividends (retained cash).</p>
+        <p>Also check <strong>timing</strong>: money may be needed in year 1 even if profits arrive in year 3. A cash flow forecast shows the peak funding need.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="box example"><span class="lbl">2 · Real business example</span>
+    <p>When a supermarket chain opens new stores, it needs the building and fit-out, but also stock to fill the shelves before a single sale is made. Fast-growing businesses often fail not because they are unprofitable but because growth absorbs cash faster than it is generated (<strong>overtrading</strong>). Airlines ordering new aircraft plan funding years ahead because deliveries and pre-delivery payments follow a fixed schedule.</p>
+  </div>
+
+  <div class="box exam"><span class="lbl">3 · How it appears in the exam</span>
+    <p>An exhibit lists project costs, working capital estimates and forecast cash flows. You are asked to “<em>determine the total funding required</em>” or this is the first step before “<em>advise on sources of finance</em>”. Watch for items the case writer has hidden: working capital, maintenance capex, a loan falling due.</p>
+  </div>
+
+  <div class="scenario"><span class="lbl">Scenario used in the model answer</span>
+    <p><strong>Lakeside Hospital Group</strong> plans a 3-year expansion. Exhibit figures ($m): new surgical wing 40; medical equipment 15; patient-records IT upgrade 6; extra working capital (drugs inventory and insurer receivables) 3; maintenance capex on existing hospitals over the period 5. Forecast operating cash flow after tax, interest and dividends over the 3 years is 24. The CEO’s board paper says “we need to borrow $55m for the new wing and equipment”.</p>
+  </div>
+  <div class="answer"><div class="a-head"><span>Model answer: Determine Lakeside’s external funding requirement</span><span>5 marks</span></div><div class="a-body">
+    <div class="tbl"><table>
+      <thead><tr><th>Funding need</th><th class="n">$m</th></tr></thead>
+      <tbody>
+        <tr><td>New surgical wing</td><td class="n">40</td></tr>
+        <tr><td>Medical equipment</td><td class="n">15</td></tr>
+        <tr><td>Patient-records IT upgrade</td><td class="n">6</td></tr>
+        <tr><td>Extra working capital</td><td class="n">3</td></tr>
+        <tr><td>Maintenance capex (existing hospitals)</td><td class="n">5</td></tr>
+        <tr class="tot"><td>Total investment required</td><td class="n">69</td></tr>
+        <tr><td>Less: internally generated funds</td><td class="n">(24)</td></tr>
+        <tr class="tot"><td>External finance required</td><td class="n">45</td></tr>
+      </tbody></table></div>
+    <p>The total need is $69m, not the $55m in the CEO’s paper, because the paper ignores IT, working capital and maintenance spending.<span class="mk">1</span><span class="mk">1</span> However, $24m can be funded internally, so the external requirement is $45m.<span class="mk">1</span></p>
+    <p>The board should not rely on the $24m: it is a forecast and depends on patient volumes and insurer payments. A contingency (e.g. 10% of capital costs) and a monthly cash flow forecast would show the peak borrowing need, which may arise in year 1 before internal cash builds up.<span class="mk">1</span><span class="ps">PS: scepticism</span> I recommend the board revises the paper to show a $45m external requirement plus contingency before choosing a source of finance.<span class="mk">1</span></p>
+  </div></div>
+
+  <div class="box examiner"><span class="lbl">5 · What the examiner wants</span>
+    <ul><li>A clear, labelled calculation.</li><li>Spotting <strong>omitted items</strong> (working capital is the classic).</li><li>Comments on <strong>timing</strong> and <strong>reliability</strong> of internal funds.</li></ul>
+  </div>
+  <div class="box mistake"><span class="lbl">6 · Common mistakes</span>
+    <ul><li>Adding only the capital items and forgetting working capital.</li><li>Treating forecast internal cash as certain.</li><li>Jumping straight to sources of finance before quantifying the need.</li></ul>
+  </div>
+  <div class="box memory"><span class="lbl">7 · Memory tip</span>
+    <p><strong>“G-M-W-S-C”</strong>: <strong>G</strong>rowth capex, <strong>M</strong>aintenance capex, <strong>W</strong>orking capital, <strong>S</strong>tart-up costs, <strong>C</strong>ontingency. Then subtract what you generate yourself.</p>
+  </div>
+</section>
+
+<section id="t4">
+  <div class="sec-head"><div class="num">04</div><div><div class="ref">G2(b) · Assess and advise [3]</div><h2>Sources of short-term and long-term finance</h2></div></div>
+
+  <div class="box simple"><span class="lbl">1 · In simple words</span>
+    <p>Money comes from two places: <strong>owners (equity)</strong> or <strong>lenders (debt)</strong>, plus a few special sources like leases and grants. The golden rule is <strong>matching</strong>: fund long-term assets with long-term finance, and short-term needs with short-term finance.</p>
+    <h4>Short-term sources (under 1 year)</h4>
+    <div class="tbl"><table>
+      <thead><tr><th>Source</th><th>Good for</th><th>Watch out for</th></tr></thead>
+      <tbody>
+        <tr><td>Bank overdraft</td><td>Fluctuating day-to-day needs; flexible</td><td>Repayable on demand; variable interest</td></tr>
+        <tr><td>Short-term bank loan</td><td>A known, temporary need</td><td>Fixed repayment schedule</td></tr>
+        <tr><td>Trade credit (paying suppliers later)</td><td>Free finance if within terms</td><td>Lose early-payment discounts; damages supplier relationships</td></tr>
+        <tr><td>Factoring / invoice discounting</td><td>Turning receivables into cash quickly</td><td>Costly; with factoring, customers see a third party collecting</td></tr>
+        <tr><td>Supply chain finance</td><td>Lets suppliers be paid early via a bank</td><td>Can hide true level of debt</td></tr>
+      </tbody></table></div>
+    <h4>Long-term sources</h4>
+    <div class="tbl"><table>
+      <thead><tr><th>Source</th><th>Advantages</th><th>Disadvantages</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Retained earnings</strong></td><td>No issue costs; no loss of control; quick</td><td>Limited amount; shareholders may want dividends instead</td></tr>
+        <tr><td><strong>Rights issue</strong> (new shares to existing owners)</td><td>No interest; no repayment; existing control kept if taken up</td><td>Expensive (cost of equity &gt; cost of debt); EPS dilution; shareholders may not have cash</td></tr>
+        <tr><td><strong>New share issue / IPO</strong></td><td>Raises large sums; brings new investors</td><td>Dilutes control; high issue costs; more disclosure and scrutiny</td></tr>
+        <tr><td><strong>Bank loan / bonds (debt)</strong></td><td>Cheaper than equity; interest is tax-deductible; owners keep control</td><td>Must be repaid; increases gearing and financial risk; covenants; security needed</td></tr>
+        <tr><td><strong>Leasing</strong></td><td>Use the asset without large upfront cash; may include maintenance</td><td>Lease is still a liability on the balance sheet (IFRS 16); total cost may be higher</td></tr>
+        <tr><td><strong>Venture capital / private equity</strong></td><td>Money plus expertise for high-growth or restructuring firms</td><td>Demands high returns, board seats, an exit plan; loss of control</td></tr>
+        <tr><td><strong>Government grants</strong></td><td>Cheap or free money for public-interest projects</td><td>Conditions; may need to be repaid if conditions are broken</td></tr>
+        <tr><td><strong>Sale and leaseback</strong></td><td>Releases cash tied up in property</td><td>Lose ownership and future gains; long lease commitment</td></tr>
+        <tr><td><strong>Green / sustainability-linked bonds</strong></td><td>Attract ESG investors; may be cheaper</td><td>Must prove funds are used for green purposes; reputational risk if not</td></tr>
+        <tr><td><strong>Islamic finance (e.g. sukuk, ijara)</strong></td><td>Access to Sharia-compliant investors; asset-backed</td><td>More complex structures; asset must be identifiable</td></tr>
+      </tbody></table></div>
+    <h4>Public sector and not-for-profit funding</h4>
+    <p>Central government funding, grants, public–private partnerships (a private company builds and operates, the state pays over many years), donations, and user charges. Key issues: <strong>value for money</strong>, political approval and long-term commitments.</p>
+    <h4>The criteria for choosing (use these as headings)</h4>
+    <ul>
+      <li><strong>Cost</strong>: interest rate vs cost of equity; issue costs; tax relief on interest.</li>
+      <li><strong>Gearing and risk</strong>: can the business afford fixed interest if profits fall? Check interest cover.</li>
+      <li><strong>Control</strong>: will new shareholders or lenders gain influence?</li>
+      <li><strong>Matching</strong>: does the term of finance match the life of the asset?</li>
+      <li><strong>Security and covenants</strong>: what assets are pledged; what limits are imposed?</li>
+      <li><strong>Availability and timing</strong>: can it be raised in time? Is the market open?</li>
+      <li><strong>Effect on EPS and dividends</strong>: what do shareholders get?</li>
+    </ul>
+    <p class="formula">Gearing = Debt ÷ (Debt + Equity) &nbsp;·&nbsp; Interest cover = Operating profit ÷ Interest</p>
+  </div>
+
+  <div class="box example"><span class="lbl">2 · Real business example</span>
+    <p>Retailers and hotel groups have often used <strong>sale and leaseback</strong> of their stores and hotels to release cash. It helped in the short term, but when trading fell, the long rental commitments made them more vulnerable. This is why the exam expects you to look at the <strong>long-term risk</strong>, not just the cash raised. By contrast, many technology start-ups fund growth with venture capital because they have no profits to support interest payments.</p>
+  </div>
+
+  <div class="box exam"><span class="lbl">3 · How it appears in the exam</span>
+    <p>“<em>Assess the financing options available to fund the expansion and advise the board which to choose.</em>” Usually 2–4 options are given in an exhibit. You may need simple calculations: interest cover, gearing, EPS.</p>
+  </div>
+
+  <div class="scenario"><span class="lbl">Scenario used in the model answer</span>
+    <p><strong>Sunleaf Beverages</strong> needs $50m to build a new bottling plant. Current figures: operating profit $30m; interest $4m; debt $60m; equity $140m; 100m shares; tax rate 20%. The plant should add $6m operating profit a year. Loan covenant: interest cover must stay at or above 4.0x. The founding family owns 55% of shares and does not want to invest more.</p>
+    <p>Option A: bank loan of $50m at 7%. Option B: rights issue at $2.50 per share (20m new shares).</p>
+  </div>
+  <div class="answer"><div class="a-head"><span>Model answer: Assess options A and B and advise the board</span><span>12 marks</span></div><div class="a-body">
+    <div class="tbl"><table>
+      <thead><tr><th>Measure</th><th class="n">Today</th><th class="n">A: Loan</th><th class="n">B: Rights issue</th></tr></thead>
+      <tbody>
+        <tr><td>Operating profit ($m)</td><td class="n">30.0</td><td class="n">36.0</td><td class="n">36.0</td></tr>
+        <tr><td>Interest ($m)</td><td class="n">4.0</td><td class="n">7.5</td><td class="n">4.0</td></tr>
+        <tr><td>Interest cover (x)</td><td class="n">7.5</td><td class="n">4.8</td><td class="n">9.0</td></tr>
+        <tr><td>Interest cover year 1, before plant profits (x)</td><td class="n">–</td><td class="n">4.0</td><td class="n">7.5</td></tr>
+        <tr><td>Gearing D/(D+E)</td><td class="n">30%</td><td class="n">44%</td><td class="n">24%</td></tr>
+        <tr><td>Profit after tax ($m)</td><td class="n">20.8</td><td class="n">22.8</td><td class="n">25.6</td></tr>
+        <tr><td>Shares (m)</td><td class="n">100</td><td class="n">100</td><td class="n">120</td></tr>
+        <tr><td>EPS (cents)</td><td class="n">20.8</td><td class="n">22.8</td><td class="n">21.3</td></tr>
+      </tbody></table></div>
+    <p class="kicker">Workings: A interest = 4 + (50 × 7%) = 7.5. Gearing (book values): A = 110 ÷ (110 + 140) = 44%; B = 60 ÷ (60 + 190) = 24%. PAT = (operating profit − interest) × 80%. Year 1 cover uses today’s $30m profit because the plant earns nothing while it is built.</p>
+    <h4>Option A: bank loan</h4>
+    <p>The loan gives the higher EPS (22.8c) because debt is cheaper than equity and interest is tax-deductible.<span class="mk">1</span> The family keeps its 55% control.<span class="mk">1</span> But interest cover falls to exactly the 4.0x covenant in year 1 while the plant is being built and earns nothing; any fall in current profits would breach it, giving the bank the right to demand repayment.<span class="mk">1</span><span class="mk">1</span> Gearing rises from 30% to 44%, increasing financial risk in a market where beverage demand can fall with weather and consumer trends.<span class="mk">1</span></p>
+    <h4>Option B: rights issue</h4>
+    <p>No new fixed charges, gearing falls and interest cover improves, giving Sunleaf headroom.<span class="mk">1</span> EPS still rises slightly to 21.3c.<span class="mk">1</span> However, the family does not want to invest more. If it does not take up its rights, its holding falls below 50% and it loses outright control; it could sell its rights to recover value.<span class="mk">1</span> Equity is also more expensive and has issue costs.<span class="mk">1</span></p>
+    <h4>Advice</h4>
+    <p>The loan sits exactly at the covenant limit, which is too risky. The board should either (1) use a rights issue, accepting the control issue after discussing it with the family, or (2) reduce the risk of the loan by negotiating a covenant holiday during construction or by combining a smaller loan with retained earnings or equipment leasing.<span class="mk">1</span><span class="mk">1</span> On balance I recommend the mixed approach, if the bank agrees covenant terms, because it protects the family’s control while keeping interest cover safely above 4.0x.<span class="mk">1</span><span class="ps">PS: evaluation</span></p>
+  </div></div>
+  <div class="box exam"><span class="lbl">Exam tip on workings</span>
+    <p>State your formula and basis (e.g. “gearing at book values”) in one line under the table. Markers give credit for any sensible, stated method, and it stops you losing marks for a different but valid approach.</p>
+  </div>
+
+  <div class="box examiner"><span class="lbl">5 · What the examiner wants</span>
+    <ul>
+      <li>Short, relevant calculations, then <strong>judgement</strong> about risk, control and cost.</li>
+      <li>Reference to the <strong>stakeholders</strong> who care (family owners, bank, investors).</li>
+      <li>A recommendation that may be a <strong>combination</strong> of sources.</li>
+    </ul>
+  </div>
+  <div class="box mistake"><span class="lbl">6 · Common mistakes</span>
+    <ul>
+      <li>Saying “debt is cheaper so choose debt” without checking covenants and interest cover.</li>
+      <li>Forgetting the <strong>matching</strong> principle (financing a 20-year building with an overdraft).</li>
+      <li>Ignoring the owners’ wishes about control.</li>
+      <li>Writing a list of every possible source instead of assessing the options given.</li>
+    </ul>
+  </div>
+  <div class="box memory"><span class="lbl">7 · Memory tip</span>
+    <p><strong>“Can Good Companies Make Safe, Available Earnings?”</strong> = <strong>C</strong>ost, <strong>G</strong>earing, <strong>C</strong>ontrol, <strong>M</strong>atching, <strong>S</strong>ecurity/covenants, <strong>A</strong>vailability, <strong>E</strong>PS.</p>
+  </div>
+</section>
+
+<section id="t5">
+  <div class="sec-head"><div class="num">05</div><div><div class="ref">G2(c) · Review and justify [3]</div><h2>Investment appraisal: selecting or abandoning competing investments</h2></div></div>
+
+  <div class="box simple"><span class="lbl">1 · In simple words</span>
+    <p>Investment appraisal answers one question: <strong>will this project earn back more than it costs, allowing for the time value of money?</strong> A dollar today is worth more than a dollar in 5 years, because it could be invested in the meantime.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Method</th><th>How it works</th><th>Decision rule</th><th>Strength / weakness</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Payback</strong></td><td>Years until cumulative cash inflows equal the investment</td><td>Accept if within target (e.g. 4 years)</td><td>Simple, focuses on liquidity and risk / ignores cash after payback and time value</td></tr>
+        <tr><td><strong>Discounted payback</strong></td><td>Payback using discounted cash flows</td><td>As payback</td><td>Allows for time value / still ignores later cash</td></tr>
+        <tr><td><strong>ARR / ROCE</strong></td><td>Average annual profit ÷ average (or initial) investment</td><td>Accept if above target %</td><td>Uses profit managers understand / ignores time value; profit not cash</td></tr>
+        <tr><td><strong>NPV</strong></td><td>PV of all inflows − PV of outflows, at the cost of capital</td><td>Accept if NPV &gt; 0; choose highest NPV</td><td>Best method: measures increase in shareholder wealth / depends on forecast and discount rate</td></tr>
+        <tr><td><strong>IRR</strong></td><td>The discount rate at which NPV = 0</td><td>Accept if IRR &gt; cost of capital</td><td>Easy to communicate as % / can mislead when ranking projects of different size</td></tr>
+      </tbody></table></div>
+    <p class="formula">NPV = Σ (cash flow × discount factor) − initial investment &nbsp;·&nbsp; IRR ≈ L + [NPV<sub>L</sub> ÷ (NPV<sub>L</sub> − NPV<sub>H</sub>)] × (H − L)</p>
+    <h4>Relevant cash flows only</h4>
+    <ul>
+      <li><strong>Include</strong>: future, incremental cash flows caused by the decision (extra revenue, extra costs, tax, working capital, scrap value, opportunity costs).</li>
+      <li><strong>Exclude</strong>: <strong>sunk costs</strong> (already spent, e.g. a feasibility study), non-cash items (depreciation), allocated overheads that do not change, finance costs (they are in the discount rate).</li>
+    </ul>
+    <h4>Abandoning an investment</h4>
+    <p>Ask: <em>from today</em>, is the PV of future cash flows from continuing greater than the cash released by stopping (e.g. resale value) plus any costs avoided? Money already spent is <strong>sunk</strong> and irrelevant. Managers often continue failing projects because they “have already spent so much” (<strong>escalation of commitment</strong>). The examiner loves this.</p>
+    <h4>Non-financial factors (always add some)</h4>
+    <p>Fit with strategy and mission, stakeholder impact, ESG and sustainability, reputation, staff and skills, risk, regulatory approval, flexibility (real options: the right to expand or abandon later).</p>
+  </div>
+
+  <div class="box example"><span class="lbl">2 · Real business example</span>
+    <p>Large infrastructure projects (rail lines, airports, hospital buildings) often see cost estimates rise sharply during construction. Governments then face a real abandonment decision: past spending is sunk, so the only relevant question is whether the <em>remaining</em> cost is justified by the <em>remaining</em> benefits. Politically, though, cancelling feels like admitting failure, which is why bias and stakeholder pressure matter as much as the NPV.</p>
+  </div>
+
+  <div class="box exam"><span class="lbl">3 · How it appears in the exam</span>
+    <ul>
+      <li>An exhibit with forecast cash flows and discount factors; you finish or check the NPV and payback.</li>
+      <li>An exhibit where the junior analyst has made errors (sunk costs included, depreciation included, wrong rate) and you must correct them.</li>
+      <li>“<em>Evaluate whether the board should continue with project X</em>” (abandonment).</li>
+    </ul>
+  </div>
+
+  <div class="scenario"><span class="lbl">Scenario used in the model answer</span>
+    <p><strong>Westbrook Public Health Authority</strong> (see topic 01) is considering a new diagnostic imaging centre. Cost $10m today. Net cash savings and income: $3.2m a year for 5 years. Equipment resale value at end of year 5: $1m. Cost of capital 10%. The finance team has already spent $0.4m on a feasibility study and has included it in the cost. Discount factors at 10%: years 1–5: 0.909, 0.826, 0.751, 0.683, 0.621 (5-year annuity factor 3.791). At 20%: annuity factor 2.991; year 5 factor 0.402. The authority’s target payback is 4 years. A private provider has offered to run imaging under contract instead.</p>
+  </div>
+  <div class="answer"><div class="a-head"><span>Model answer: Evaluate the imaging centre investment</span><span>12 marks</span></div><div class="a-body">
+    <h4>Correcting the appraisal</h4>
+    <p>The $0.4m feasibility study has already been spent; it is a sunk cost and must be excluded. The relevant investment is $10m.<span class="mk">1</span></p>
+    <div class="tbl"><table>
+      <thead><tr><th>Item</th><th class="n">Cash $m</th><th class="n">Factor 10%</th><th class="n">PV $m</th></tr></thead>
+      <tbody>
+        <tr><td>Investment (year 0)</td><td class="n">(10.0)</td><td class="n">1.000</td><td class="n">(10.000)</td></tr>
+        <tr><td>Annual inflows (years 1–5)</td><td class="n">3.2</td><td class="n">3.791</td><td class="n">12.131</td></tr>
+        <tr><td>Resale value (year 5)</td><td class="n">1.0</td><td class="n">0.621</td><td class="n">0.621</td></tr>
+        <tr class="tot"><td>NPV</td><td></td><td></td><td class="n">2.752</td></tr>
+      </tbody></table></div>
+    <p><strong>NPV is +$2.75m</strong>, so the centre adds value at the authority’s 10% cost of capital.<span class="mk">1</span> At 20%, NPV = (3.2 × 2.991) + (1 × 0.402) − 10 = −$0.03m, so <strong>IRR ≈ 10% + [2.752 ÷ (2.752 + 0.027)] × 10% ≈ 19.9%</strong>, well above 10%.<span class="mk">1</span> <strong>Payback</strong> = 10 ÷ 3.2 = 3.1 years (about 3 years 2 months), inside the 4-year target.<span class="mk">1</span></p>
+    <h4>How safe is the result?</h4>
+    <p>Annual inflows could fall by 22.7% (2.752 ÷ 12.131) before NPV becomes zero; the cost could rise by 27.5% (2.752 ÷ 10). This is a reasonable margin of safety.<span class="mk">1</span> The result is also not sensitive to the discount rate: NPV stays positive at any rate up to about 19.9%.<span class="mk">1</span> But inflows of $3.2m depend on patient volumes and staffing; radiographers are hard to recruit, and an under-staffed centre would not reach forecast throughput.<span class="mk">1</span><span class="ps">PS: scepticism</span></p>
+    <h4>Non-financial factors</h4>
+    <p>Local imaging would cut waiting times and improve diagnosis, which supports the authority’s public health mission.<span class="mk">1</span> Owning the centre gives control over quality and data, compared with the private provider’s contract.<span class="mk">1</span> However, the contract option avoids the $10m outlay and staffing risk, so the authority should compare its cost against the in-house NPV before deciding.<span class="mk">1</span></p>
+    <h4>Recommendation</h4>
+    <p>The centre is financially attractive (positive NPV, IRR about 20%, payback within target) and supports service quality. I recommend proceeding, subject to (1) a recruitment plan for radiographers and (2) a costed comparison with the private provider’s offer.<span class="mk">1</span><span class="mk">1</span><span class="ps">PS: evaluation</span></p>
+  </div></div>
+
+  <div class="box examiner"><span class="lbl">5 · What the examiner wants</span>
+    <ul>
+      <li>Correct treatment of <strong>relevant costs</strong> (sunk, depreciation, overheads).</li>
+      <li>At least <strong>two methods</strong>, then interpretation; NPV is the main decision tool.</li>
+      <li><strong>Sensitivity or risk comment</strong> plus <strong>non-financial factors</strong>.</li>
+      <li>A clear recommendation, often with conditions.</li>
+    </ul>
+  </div>
+  <div class="box mistake"><span class="lbl">6 · Common mistakes</span>
+    <ul>
+      <li>Including sunk costs or depreciation in cash flows.</li>
+      <li>Spending 20 minutes on a perfect calculation and 2 minutes on interpretation (the reverse of the mark split).</li>
+      <li>Stating “NPV is positive, accept” with no comment on how reliable the forecasts are.</li>
+      <li>Defending a failing project because of money already spent.</li>
+    </ul>
+  </div>
+  <div class="box memory"><span class="lbl">7 · Memory tip</span>
+    <p><strong>“Future, Incremental, Cash.”</strong> If a flow is not all three, leave it out. And <strong>“sunk is sunk”</strong>: yesterday’s spending never changes today’s decision.</p>
+  </div>
+</section>
+
+<section id="t6">
+  <div class="sec-head"><div class="num">06</div><div><div class="ref">G2(d) · Justify [3]</div><h2>Decisions under risk and uncertainty</h2></div></div>
+
+  <div class="box simple"><span class="lbl">1 · In simple words</span>
+    <p><strong>Risk</strong>: we can estimate the possible outcomes and their probabilities (e.g. past data says demand is high 3 years in 10). <strong>Uncertainty</strong>: we cannot sensibly put probabilities on outcomes (e.g. a brand-new technology). Every forecast in an NPV is a guess, so the board must know <strong>how wrong it could be and what happens then</strong>.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Technique</th><th>What it does</th><th>Best used when</th><th>Limitation</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Sensitivity analysis</strong></td><td>How much can one variable change before NPV = 0? <span class="formula">NPV ÷ PV of the variable</span></td><td>Finding the critical assumptions to check</td><td>Changes one variable at a time; no probabilities</td></tr>
+        <tr><td><strong>Scenario analysis</strong></td><td>Recalculate under best / base / worst sets of assumptions</td><td>Several variables move together (e.g. recession)</td><td>Only a few scenarios; no probabilities</td></tr>
+        <tr><td><strong>Expected value (EV)</strong></td><td>Σ (outcome × probability): the long-run average</td><td>Risk with reliable probabilities; repeated decisions</td><td>Hides the spread; one-off decisions may never give the EV</td></tr>
+        <tr><td><strong>Decision trees</strong></td><td>Diagram of choices and chance events, solved by EV from right to left</td><td>Decisions in stages (e.g. test market first)</td><td>Needs probabilities; becomes complex</td></tr>
+        <tr><td><strong>Maximax</strong></td><td>Choose the option with the best possible outcome</td><td>Risk-seeking decision makers</td><td>Ignores downside</td></tr>
+        <tr><td><strong>Maximin</strong></td><td>Choose the option whose worst outcome is least bad</td><td>Risk-averse (e.g. public sector, weak balance sheet)</td><td>May miss big opportunities</td></tr>
+        <tr><td><strong>Minimax regret</strong></td><td>Choose the option that minimises the maximum “I wish I had chosen differently”</td><td>Managers who fear missing out or being blamed</td><td>Ignores probabilities</td></tr>
+        <tr><td><strong>Simulation (Monte Carlo)</strong></td><td>Runs thousands of random combinations to give a distribution of NPVs</td><td>Large projects with many uncertain variables</td><td>Needs software and good data</td></tr>
+        <tr><td><strong>Other</strong></td><td>Shorter payback target, higher (risk-adjusted) discount rate, real options (option to delay, expand or abandon)</td><td>Quick ways to reflect risk</td><td>Can be arbitrary</td></tr>
+      </tbody></table></div>
+    <p>Link to section D: the choice of technique reflects the board’s <strong>risk appetite</strong>.</p>
+  </div>
+
+  <div class="box example"><span class="lbl">2 · Real business example</span>
+    <p>Oil and mining companies test projects at several commodity price scenarios (low, central, high) before approving them, because prices are highly volatile. Pharmaceutical firms use decision trees for drug development: each clinical trial stage has a probability of success, and the firm can abandon after each stage, limiting losses.</p>
+  </div>
+
+  <div class="box exam"><span class="lbl">3 · How it appears in the exam</span>
+    <p>“<em>Justify which option the board should choose, taking into account risk and uncertainty.</em>” An exhibit gives a payoff table or probabilities. You calculate EV (and perhaps maximin/maximax), then discuss the board’s risk attitude and the quality of the estimates.</p>
+  </div>
+
+  <div class="scenario"><span class="lbl">Scenario used in the model answer</span>
+    <p><strong>Sunleaf Beverages</strong> (topic 04) must choose how to supply a new energy drink. The marketing director estimates 5-year NPVs ($m) under three demand levels:</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Option</th><th class="n">High demand (p 0.3)</th><th class="n">Medium (p 0.5)</th><th class="n">Low (p 0.2)</th></tr></thead>
+      <tbody>
+        <tr><td>Large new plant</td><td class="n">14</td><td class="n">6</td><td class="n">(8)</td></tr>
+        <tr><td>Small new plant</td><td class="n">7</td><td class="n">5</td><td class="n">1</td></tr>
+        <tr><td>Outsource to co-packer</td><td class="n">4</td><td class="n">3</td><td class="n">2</td></tr>
+      </tbody></table></div>
+    <p>The probabilities are the marketing director’s judgement. The drink is new to the market. Sunleaf’s interest cover is already close to its covenant limit.</p>
+  </div>
+  <div class="answer"><div class="a-head"><span>Model answer: Justify the choice of supply option</span><span>10 marks</span></div><div class="a-body">
+    <div class="tbl"><table>
+      <thead><tr><th>Option</th><th class="n">Expected value</th><th class="n">Best case</th><th class="n">Worst case</th><th class="n">Max regret</th></tr></thead>
+      <tbody>
+        <tr><td>Large plant</td><td class="n">(14×0.3)+(6×0.5)+(−8×0.2) = <strong>5.6</strong></td><td class="n">14</td><td class="n">(8)</td><td class="n">10</td></tr>
+        <tr><td>Small plant</td><td class="n">2.1+2.5+0.2 = <strong>4.8</strong></td><td class="n">7</td><td class="n">1</td><td class="n">7</td></tr>
+        <tr><td>Outsource</td><td class="n">1.2+1.5+0.4 = <strong>3.1</strong></td><td class="n">4</td><td class="n">2</td><td class="n">10</td></tr>
+      </tbody></table></div>
+    <p class="kicker">Regret = best NPV in that demand state minus this option’s NPV. High: best 14 → regrets 0 / 7 / 10. Medium: best 6 → 0 / 1 / 3. Low: best 2 → 10 / 1 / 0.</p>
+    <p><strong>EV</strong> favours the large plant (5.6).<span class="mk">1</span> <strong>Maximax</strong> also picks the large plant (14); <strong>maximin</strong> picks outsourcing (worst case +2); <strong>minimax regret</strong> picks the small plant (maximum regret 7).<span class="mk">1</span><span class="mk">1</span></p>
+    <h4>Why EV alone is not enough</h4>
+    <p>This is a one-off decision, so Sunleaf will get one of the outcomes, not the average.<span class="mk">1</span> The large plant has a 20% chance of losing $8m; with interest cover already close to the covenant, that loss could trigger a breach, which is a much bigger problem than the $8m itself.<span class="mk">1</span> The probabilities are one director’s judgement for a product new to the market, so this is closer to uncertainty than measurable risk and the EV is unreliable.<span class="mk">1</span><span class="ps">PS: scepticism</span></p>
+    <h4>Recommendation</h4>
+    <p>The small plant gives an EV only $0.8m below the large plant, never makes a loss, and minimises regret.<span class="mk">1</span> It suits Sunleaf’s limited financial headroom and a cautious risk appetite.<span class="mk">1</span> I recommend the small plant, designed so it can be expanded later if demand proves high (an option to expand), and that the board asks marketing to support its probabilities with test-market data.<span class="mk">1</span><span class="mk">1</span><span class="ps">PS: evaluation</span></p>
+  </div></div>
+
+  <div class="box examiner"><span class="lbl">5 · What the examiner wants</span>
+    <ul><li>Correct EV calculation, then <strong>criticism of EV</strong> for one-off decisions.</li><li>Link the choice to the organisation’s <strong>risk appetite and financial position</strong>.</li><li>Question <strong>where the probabilities came from</strong>.</li></ul>
+  </div>
+  <div class="box mistake"><span class="lbl">6 · Common mistakes</span>
+    <ul><li>Picking the highest EV automatically.</li><li>Confusing maximin (best of the worst) with maximax (best of the best).</li><li>Not explaining what a sensitivity percentage means in plain business terms.</li></ul>
+  </div>
+  <div class="box memory"><span class="lbl">7 · Memory tip</span>
+    <p><strong>Optimist = maximax, Pessimist = maximin, Worrier = minimax regret, Average-lover = EV.</strong> Then ask: “Can we survive the worst case?”</p>
+  </div>
+</section>
+
+<section id="t7">
+  <div class="sec-head"><div class="num">07</div><div><div class="ref">G2(e) · Assess [2]</div><h2>Financial reporting and tax implications of strategic decisions</h2></div></div>
+
+  <div class="box simple"><span class="lbl">1 · In simple words</span>
+    <p>A strategic decision does not only change cash. It changes <strong>how the results look in the published accounts</strong> and <strong>how much tax is paid</strong>. Investors, lenders (covenants) and managers (bonuses) all react to the reported numbers. You need broad awareness, not detailed accounting.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Decision</th><th>Financial reporting effect</th><th>Tax effect (broad)</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Acquire a company</strong></td><td>Consolidate it; goodwill = price paid − fair value of net assets; goodwill tested for impairment every year (a write-down hits profit)</td><td>Due diligence on target’s tax liabilities; structure (shares vs assets) affects tax</td></tr>
+        <tr><td><strong>Lease vs buy an asset</strong></td><td>Under IFRS 16 most leases go on the balance sheet (right-of-use asset + lease liability), so gearing rises either way</td><td>Lease payments or depreciation / capital allowances give tax relief</td></tr>
+        <tr><td><strong>Borrow vs issue shares</strong></td><td>Debt increases liabilities and finance costs; equity increases share capital and may dilute EPS</td><td>Interest is usually tax-deductible (tax shield); dividends are not</td></tr>
+        <tr><td><strong>Spend on development</strong></td><td>Research is expensed; development is capitalised once IAS 38 criteria are met (feasible, intention, resources, probable benefit, measurable), then amortised</td><td>Many countries give R&amp;D tax credits</td></tr>
+        <tr><td><strong>Restructure / close a division</strong></td><td>Provision for restructuring only when there is a detailed formal plan and those affected have been told (IAS 37). A closed major line may be shown as a discontinued operation (IFRS 5). Assets may be impaired</td><td>Redundancy costs usually deductible; losses may be relieved against other profits</td></tr>
+        <tr><td><strong>Sell and lease back property</strong></td><td>Gain only partly recognised; lease liability recognised</td><td>Possible tax on the gain</td></tr>
+        <tr><td><strong>Expand overseas</strong></td><td>Foreign currency translation differences; local reporting rules</td><td>Transfer pricing rules on intra-group trade; withholding taxes; double tax treaties</td></tr>
+        <tr><td><strong>Receive a government grant</strong></td><td>Recognised in profit over the life of the related asset (IAS 20)</td><td>May or may not be taxable</td></tr>
+      </tbody></table></div>
+    <p><strong>Ethics link:</strong> choosing a structure <em>only</em> to make the accounts look better (e.g. timing a restructuring to hit a bonus) or to avoid tax aggressively raises ethical and reputational issues. Tax <strong>avoidance</strong> is legal but can damage reputation; tax <strong>evasion</strong> is illegal.</p>
+  </div>
+
+  <div class="box example"><span class="lbl">2 · Real business example</span>
+    <p>When IFRS 16 came into force in 2019, airlines and retailers with large lease portfolios saw billions of dollars of lease liabilities added to their balance sheets overnight. Nothing about their cash had changed, but reported gearing rose, which affected covenants and credit ratings. Several multinationals have also faced public criticism for routing profits through low-tax jurisdictions, even where this was legal.</p>
+  </div>
+
+  <div class="box exam"><span class="lbl">3 · How it appears in the exam</span>
+    <p>Usually a few marks inside a bigger requirement: “<em>…including the financial reporting and tax implications</em>”. Or the CEO suggests a way to “make the results look better” and you must advise, linking to ethics and governance.</p>
+  </div>
+
+  <div class="scenario"><span class="lbl">Scenario used in the model answer</span>
+    <p><strong>Kestrel Foods</strong> (topic 02) is considering: (1) buying Crunchwell, a snack brand, for $100m; the fair value of Crunchwell’s net assets is $70m. (2) Closing its loss-making operations in one country, which would mean 300 redundancies; the board has not yet announced anything. (3) Financing the purchase with a bank loan whose covenant limits gearing to 50%. The CEO wants the closure costs “booked this year, so next year looks like a big turnaround”.</p>
+  </div>
+  <div class="answer"><div class="a-head"><span>Model answer: Assess the reporting and tax implications</span><span>8 marks</span></div><div class="a-body">
+    <h4>Acquisition of Crunchwell</h4>
+    <p>Kestrel will consolidate Crunchwell and recognise goodwill of $30m ($100m − $70m).<span class="mk">1</span> Goodwill is not amortised but is tested for impairment every year; if the brand underperforms, a write-down will reduce reported profit and equity, which could also push gearing towards the 50% covenant.<span class="mk">1</span> Due diligence should check Crunchwell for hidden tax liabilities, which Kestrel would inherit if it buys the shares.<span class="mk">1</span></p>
+    <h4>Financing with debt</h4>
+    <p>The loan increases liabilities and gearing, so the board should model gearing after the deal against the 50% covenant.<span class="mk">1</span> Interest on the loan is normally tax-deductible, reducing its after-tax cost.<span class="mk">1</span></p>
+    <h4>Closure and the CEO’s request</h4>
+    <p>Under IAS 37 a restructuring provision can only be recognised when there is a detailed formal plan and a valid expectation among those affected (e.g. an announcement). As nothing has been announced, the costs cannot simply be “booked this year” to suit the CEO.<span class="mk">1</span> If the operation is a major line of business, it may be shown as a discontinued operation, which gives investors a clearer view of continuing results.<span class="mk">1</span></p>
+    <p>The CEO’s aim of creating an artificial turnaround is earnings management. It would mislead investors and break the finance team’s duty of integrity; the board and audit committee should reject it.<span class="mk">1</span><span class="ps">PS: scepticism</span></p>
+  </div></div>
+
+  <div class="box examiner"><span class="lbl">5 · What the examiner wants</span>
+    <ul><li>Broad, correct principles linked to the decision, not detailed standards.</li><li>Effects on <strong>key users</strong>: covenants, EPS, investors.</li><li>An <strong>ethical stance</strong> if the case hints at manipulation.</li></ul>
+  </div>
+  <div class="box mistake"><span class="lbl">6 · Common mistakes</span>
+    <ul><li>Writing pages of IFRS detail (this is SBL, not SBR).</li><li>Saying leasing keeps debt “off balance sheet” (no longer true under IFRS 16 for most leases).</li><li>Missing the ethics angle when the CEO wants to “manage” profits.</li></ul>
+  </div>
+  <div class="box memory"><span class="lbl">7 · Memory tip</span>
+    <p>For any decision ask <strong>“B-P-T-E”</strong>: what happens to the <strong>B</strong>alance sheet, the <strong>P</strong>rofit, the <strong>T</strong>ax bill, and is it <strong>E</strong>thical?</p>
+  </div>
+</section>
+
+<section id="t8">
+  <div class="sec-head"><div class="num">08</div><div><div class="ref">G2(f) · Assess [3]</div><h2>Assessing performance and position: KPIs, ratios and performance management techniques</h2></div></div>
+
+  <div class="box simple"><span class="lbl">1 · In simple words</span>
+    <p>Ratios turn raw numbers into a story: <strong>Is the business profitable? Is it using its assets well? Can it pay its bills? Is it taking on too much debt?</strong> One ratio on its own means little; you need a <strong>comparison</strong> (last year, budget, competitor, industry) and a <strong>reason</strong> from the case.</p>
+    <div class="two">
+      <div class="card"><h4>Profitability</h4>
+        <ul><li>Gross margin = Gross profit ÷ Revenue</li><li>Operating margin = Operating profit ÷ Revenue</li><li>ROCE = Operating profit ÷ Capital employed</li><li>Asset turnover = Revenue ÷ Capital employed</li></ul>
+        <p class="kicker">ROCE = margin × asset turnover. Use this to explain <em>why</em> ROCE changed.</p>
+      </div>
+      <div class="card"><h4>Liquidity and efficiency</h4>
+        <ul><li>Current ratio = Current assets ÷ Current liabilities</li><li>Quick ratio = (Current assets − Inventory) ÷ Current liabilities</li><li>Receivable days = Receivables ÷ Revenue × 365</li><li>Inventory days = Inventory ÷ Cost of sales × 365</li><li>Payable days = Payables ÷ Cost of sales (or purchases) × 365</li></ul>
+      </div>
+      <div class="card"><h4>Gearing and investor</h4>
+        <ul><li>Gearing = Debt ÷ (Debt + Equity)</li><li>Interest cover = Operating profit ÷ Interest</li><li>EPS = Profit after tax ÷ Number of shares</li><li>P/E = Share price ÷ EPS</li><li>Dividend cover = EPS ÷ Dividend per share</li></ul>
+      </div>
+      <div class="card"><h4>Beyond ratios: frameworks</h4>
+        <ul>
+          <li><strong>Balanced scorecard</strong> (Kaplan &amp; Norton): Financial, Customer, Internal process, Learning &amp; growth. Links KPIs to strategy.</li>
+          <li><strong>Building blocks</strong> (Fitzgerald &amp; Moon, for service businesses): dimensions (results and determinants), standards, rewards.</li>
+          <li><strong>Value for money</strong> (public sector): Economy, Efficiency, Effectiveness (3Es).</li>
+          <li><strong>Non-financial KPIs</strong>: customer satisfaction, quality, waiting times, staff turnover, emissions.</li>
+        </ul>
+      </div>
+    </div>
+    <h4>Good KPIs are SMART and linked to critical success factors</h4>
+    <p>Critical success factor (CSF) = what the organisation must get right. KPI = how we measure it. Example: CSF “fast emergency care” → KPI “% of patients seen within 4 hours”. Watch for <strong>dysfunctional behaviour</strong> (managers hitting the target while harming the real goal) and <strong>too many KPIs</strong>.</p>
+  </div>
+
+  <div class="box example"><span class="lbl">2 · Real business example</span>
+    <p>Hospitals measured only on waiting-time targets have sometimes kept patients in ambulances outside the emergency department so the “clock” did not start: the KPI improved while care did not. This is classic dysfunctional behaviour, and it is why SBL expects a balanced set of financial and non-financial measures.</p>
+  </div>
+
+  <div class="box exam"><span class="lbl">3 · How it appears in the exam</span>
+    <p>An exhibit with two years of financial data. “<em>Assess the financial performance and position of X</em>” or “<em>Evaluate the KPIs currently used and recommend improvements</em>”. Marks are mostly for explaining causes and consequences, not the arithmetic.</p>
+  </div>
+
+  <div class="scenario"><span class="lbl">Scenario used in the model answer</span>
+    <p><strong>Orbit Snacks</strong> (FMCG) extracts, $m:</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Item</th><th class="n">20X5</th><th class="n">20X6</th></tr></thead>
+      <tbody>
+        <tr><td>Revenue</td><td class="n">120.0</td><td class="n">138.0</td></tr>
+        <tr><td>Cost of sales</td><td class="n">78.0</td><td class="n">93.8</td></tr>
+        <tr><td>Gross profit</td><td class="n">42.0</td><td class="n">44.2</td></tr>
+        <tr><td>Operating profit</td><td class="n">18.0</td><td class="n">16.6</td></tr>
+        <tr><td>Interest</td><td class="n">2.4</td><td class="n">4.6</td></tr>
+        <tr><td>Capital employed (debt + equity)</td><td class="n">100.0</td><td class="n">120.0</td></tr>
+        <tr><td>Debt</td><td class="n">30.0</td><td class="n">55.0</td></tr>
+        <tr><td>Receivables</td><td class="n">15.0</td><td class="n">23.0</td></tr>
+        <tr><td>Inventory</td><td class="n">13.0</td><td class="n">18.0</td></tr>
+      </tbody></table></div>
+    <p>In 20X6 Orbit cut prices to win two large supermarket contracts, giving those customers 75-day payment terms (others pay in 45 days). It borrowed $25m for a new production line. The sales director’s bonus is based on revenue growth only.</p>
+  </div>
+  <div class="answer"><div class="a-head"><span>Model answer: Assess Orbit Snacks’ performance and position</span><span>12 marks</span></div><div class="a-body">
+    <div class="tbl"><table>
+      <thead><tr><th>Ratio</th><th class="n">20X5</th><th class="n">20X6</th></tr></thead>
+      <tbody>
+        <tr><td>Revenue growth</td><td class="n">–</td><td class="n">+15.0%</td></tr>
+        <tr><td>Gross margin</td><td class="n">35.0%</td><td class="n">32.0%</td></tr>
+        <tr><td>Operating margin</td><td class="n">15.0%</td><td class="n">12.0%</td></tr>
+        <tr><td>ROCE</td><td class="n">18.0%</td><td class="n">13.8%</td></tr>
+        <tr><td>Asset turnover</td><td class="n">1.20x</td><td class="n">1.15x</td></tr>
+        <tr><td>Receivable days</td><td class="n">46</td><td class="n">61</td></tr>
+        <tr><td>Inventory days</td><td class="n">61</td><td class="n">70</td></tr>
+        <tr><td>Gearing D/(D+E)</td><td class="n">30.0%</td><td class="n">45.8%</td></tr>
+        <tr><td>Interest cover</td><td class="n">7.5x</td><td class="n">3.6x</td></tr>
+      </tbody></table></div>
+    <h4>Profitability: growth bought with price cuts</h4>
+    <p>Revenue grew 15%, but gross margin fell from 35% to 32% because of the price cuts for the supermarket contracts.<span class="mk">1</span> Operating profit actually fell by $1.4m despite $18m more revenue: Orbit is selling more and earning less.<span class="mk">1</span> ROCE dropped from 18.0% to 13.8%, driven mainly by the lower margin, with a small fall in asset turnover as the new production line is not yet fully used.<span class="mk">1</span><span class="mk">1</span></p>
+    <h4>Working capital: cash is being absorbed</h4>
+    <p>Receivable days rose from 46 to 61, consistent with the 75-day terms given to the supermarkets.<span class="mk">1</span> Inventory days rose from 61 to 70, perhaps stock built for the new contracts.<span class="mk">1</span> Together, about $13m more is tied up in receivables and inventory, which helps explain the extra borrowing.<span class="mk">1</span></p>
+    <h4>Financial position: risk has risen sharply</h4>
+    <p>Gearing rose from 30% to 45.8% and interest cover more than halved to 3.6x.<span class="mk">1</span> If a supermarket demands further discounts or one contract is lost, Orbit has much less headroom to absorb a profit fall.<span class="mk">1</span> Dependence on two powerful buyers is also a strategic risk (strong buyer power).<span class="mk">1</span></p>
+    <h4>KPIs and incentives</h4>
+    <p>The sales director is rewarded for revenue only, which encourages exactly this behaviour: winning volume at any margin.<span class="mk">1</span> I recommend changing the bonus to gross profit and cash collection targets, and adding customer profitability and receivable days to the board’s KPIs.<span class="mk">1</span><span class="ps">PS: commercial acumen</span></p>
+  </div></div>
+
+  <div class="box examiner"><span class="lbl">5 · What the examiner wants</span>
+    <ul>
+      <li>A short ratio table (a few well-chosen ratios), then <strong>causes from the case</strong> and <strong>consequences</strong>.</li>
+      <li>Link performance to <strong>strategy</strong> and <strong>incentives</strong>.</li>
+      <li>Balanced view: financial and non-financial measures.</li>
+    </ul>
+  </div>
+  <div class="box mistake"><span class="lbl">6 · Common mistakes</span>
+    <ul>
+      <li>“Gross margin decreased from 35% to 32%.” Full stop. That is description, not analysis (zero or half a mark).</li>
+      <li>Calculating 20 ratios and explaining none.</li>
+      <li>Ignoring the balance sheet (working capital and gearing) and only looking at profit.</li>
+    </ul>
+  </div>
+  <div class="box memory"><span class="lbl">7 · Memory tip</span>
+    <p><strong>“What → Why → So what → Now what.”</strong> What changed (ratio), why (case fact), so what (consequence), now what (recommendation). Each full chain ≈ 1–2 marks.</p>
+  </div>
+</section>
+
+<!-- ================= G3 ================= -->
+<div class="part" id="g3"><span class="pbadge">G3</span><h2>Cost and management accounting</h2></div>
+
+<section id="t9">
+  <div class="sec-head"><div class="num">09</div><div><div class="ref">G3(a) · Discuss [3]</div><h2>The continuing strategic need for cost management and control</h2></div></div>
+
+  <div class="box simple"><span class="lbl">1 · In simple words</span>
+    <p>Even in a digital, data-rich world, organisations still need to <strong>know what things really cost</strong> and <strong>keep costs under control</strong>. Why? Because cost decides price, profit and survival. A cost leader (Porter) cannot exist without excellent cost control. A public hospital with a fixed budget can only treat more patients if each treatment costs less.</p>
+    <h4>Why cost management matters strategically</h4>
+    <ul>
+      <li><strong>Competitive strategy</strong>: cost leadership needs the lowest cost; differentiation still needs costs below the premium customers pay.</li>
+      <li><strong>Pricing</strong>: you cannot price profitably if you do not know the cost per product, customer or service.</li>
+      <li><strong>Public sector</strong>: fixed funding and value-for-money duties (economy, efficiency, effectiveness).</li>
+      <li><strong>Pressure on margins</strong>: inflation, powerful buyers (supermarkets, insurers), new low-cost entrants.</li>
+      <li><strong>Sustainability</strong>: energy, waste and carbon are costs too, and increasingly regulated and taxed.</li>
+      <li><strong>Control and accountability</strong>: managers need cost responsibility and feedback.</li>
+    </ul>
+    <h4>Modern cost management techniques (know what each is for)</h4>
+    <div class="tbl"><table>
+      <thead><tr><th>Technique</th><th>Simple idea</th><th>Strategic use</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Target costing</strong></td><td>Start with the market price, deduct the required profit → target cost; then design the product to meet it</td><td>New products in competitive markets</td></tr>
+        <tr><td><strong>Life cycle costing</strong></td><td>Count all costs over the product’s life: design, launch, running, maintenance, disposal</td><td>Choosing equipment or products where most cost comes later</td></tr>
+        <tr><td><strong>Activity-based costing (ABC)</strong></td><td>Charge overheads to products by the activities that cause them (cost drivers)</td><td>Accurate product, service and customer profitability</td></tr>
+        <tr><td><strong>Cost of quality</strong></td><td>Prevention + Appraisal (cost of conformance) vs Internal failure + External failure (cost of non-conformance)</td><td>Spending on prevention to cut expensive failures</td></tr>
+        <tr><td><strong>Kaizen costing</strong></td><td>Small, continuous cost reductions during production</td><td>Mature products, lean operations</td></tr>
+        <tr><td><strong>Value analysis</strong></td><td>Remove features that add cost but no customer value</td><td>Redesign, procurement</td></tr>
+        <tr><td><strong>Environmental management accounting</strong></td><td>Identify and manage energy, waste, water and carbon costs</td><td>Sustainability strategy and reporting</td></tr>
+        <tr><td><strong>Benchmarking</strong></td><td>Compare cost per unit with peers or best practice</td><td>Finding where you are inefficient</td></tr>
+      </tbody></table></div>
+    <p class="formula">Target cost = Target price − Required profit &nbsp;·&nbsp; Cost gap = Estimated cost − Target cost</p>
+    <p><strong>Quick example:</strong> a home health monitor will sell for $50 in a crowded market. The company needs a 30% margin, so target cost = $50 − $15 = $35. The current design costs $41: a <strong>cost gap of $6</strong> to close through redesign, cheaper components or supplier negotiation, before launch.</p>
+  </div>
+
+  <div class="box example"><span class="lbl">2 · Real business example</span>
+    <p>Japanese car makers made target costing famous: the selling price of a new model is set from market research first, and engineers must design the car to hit the target cost. Low-cost airlines are another example: everything from seat pitch to turnaround time is managed to keep cost per seat-kilometre below competitors’.</p>
+  </div>
+
+  <div class="box exam"><span class="lbl">3 · How it appears in the exam</span>
+    <ul><li>“<em>Discuss, from a strategic perspective, why X needs effective cost management.</em>”</li><li>A case where the current costing system (one overhead rate) gives misleading product or service costs and leads to bad pricing decisions.</li><li>Public sector: budget cuts and a need to show value for money.</li></ul>
+  </div>
+
+  <div class="scenario"><span class="lbl">Scenario used in the model answer</span>
+    <p><strong>Lakeside Hospital Group</strong> (topic 03) charges overheads of $6m to its services using one rate per patient-day ($6m ÷ 20,000 days = $300/day). Two services: <strong>Day surgery</strong> (2,000 operations, 2,000 patient-days) and <strong>Elderly care</strong> (500 admissions, 18,000 patient-days). The overheads are $3.6m theatre-related (driven by number of operations: day surgery 2,000, elderly care 400) and $2.4m ward-related (driven by patient-days). Lakeside prices day surgery for insurers at cost plus 20% and is winning a lot of this work. 8% of elderly care patients are readmitted within 30 days, each costing about $4,000.</p>
+  </div>
+  <div class="answer"><div class="a-head"><span>Model answer: Discuss why Lakeside needs better cost management</span><span>10 marks</span></div><div class="a-body">
+    <h4>Current costs are misleading</h4>
+    <p>The single patient-day rate charges day surgery only $0.6m of overheads (2,000 × $300) and elderly care $5.4m. But day surgery causes most theatre activity.<span class="mk">1</span></p>
+    <div class="tbl"><table>
+      <thead><tr><th>Overhead ($m)</th><th class="n">Driver rate</th><th class="n">Day surgery</th><th class="n">Elderly care</th></tr></thead>
+      <tbody>
+        <tr><td>Theatre (3.6 ÷ 2,400 operations)</td><td class="n">$1,500 / op</td><td class="n">3.00</td><td class="n">0.60</td></tr>
+        <tr><td>Ward (2.4 ÷ 20,000 days)</td><td class="n">$120 / day</td><td class="n">0.24</td><td class="n">2.16</td></tr>
+        <tr class="tot"><td>ABC overhead</td><td></td><td class="n">3.24</td><td class="n">2.76</td></tr>
+        <tr><td>Current (patient-day) overhead</td><td></td><td class="n">0.60</td><td class="n">5.40</td></tr>
+        <tr><td>Overhead per operation / admission (ABC)</td><td></td><td class="n">$1,620</td><td class="n">$5,520</td></tr>
+        <tr><td>Overhead per operation / admission (current)</td><td></td><td class="n">$300</td><td class="n">$10,800</td></tr>
+      </tbody></table></div>
+    <p>Using activity-based costing, day surgery absorbs $3.24m, more than five times the current $0.6m.<span class="mk">1</span><span class="mk">1</span> So Lakeside is under-pricing day surgery: it “wins a lot of work” because insurers are paying cost-plus on a cost that is far too low. It may be losing money on every operation without knowing.<span class="mk">1</span><span class="ps">PS: commercial acumen</span> Elderly care looks far more expensive than it really is, which could lead the board to cut a service that is actually closer to break-even.<span class="mk">1</span></p>
+    <h4>Strategic importance</h4>
+    <p>Insurers have strong buyer power and negotiate hard on price, so accurate costs are essential to know which contracts to accept and at what price.<span class="mk">1</span> As the group expands (topic 03), it needs reliable service costs to decide which services to grow.<span class="mk">1</span></p>
+    <h4>Cost of quality</h4>
+    <p>Readmissions cost around $160,000 a year (500 × 8% × $4,000). These are failure costs. Spending on prevention, such as discharge planning and follow-up calls, is likely to be cheaper and improves patient outcomes.<span class="mk">1</span><span class="mk">1</span></p>
+    <h4>Recommendation</h4>
+    <p>Lakeside should adopt ABC for pricing and service decisions, renegotiate day-surgery contracts at the new cost, and track the cost of quality as a board KPI.<span class="mk">1</span><span class="ps">PS: evaluation</span></p>
+  </div></div>
+
+  <div class="box examiner"><span class="lbl">5 · What the examiner wants</span>
+    <ul><li>Link cost management to <strong>strategy</strong> (pricing, competitive position, public value), not only to “saving money”.</li><li>Show how poor costing leads to <strong>bad decisions</strong>.</li><li>Choose the technique that fits the problem.</li></ul>
+  </div>
+  <div class="box mistake"><span class="lbl">6 · Common mistakes</span>
+    <ul><li>Listing every costing technique with no link to the case.</li><li>Saying “cut costs” without considering quality, staff and patient or customer impact.</li><li>Forgetting that ABC is costly to set up and run; mention when it is worth it (diverse products, high overheads).</li></ul>
+  </div>
+  <div class="box memory"><span class="lbl">7 · Memory tip</span>
+    <p><strong>“Price first (target), whole life (life cycle), real cause (ABC), right first time (quality).”</strong></p>
+  </div>
+</section>
+
+<section id="t10">
+  <div class="sec-head"><div class="num">10</div><div><div class="ref">G3(b) · Evaluate [3]</div><h2>Forecasting, budgeting, standard costing and variance analysis</h2></div></div>
+
+  <div class="box simple"><span class="lbl">1 · In simple words</span>
+    <p>A <strong>forecast</strong> is what we think will happen. A <strong>budget</strong> is the plan we commit to (and hold managers accountable for). A <strong>standard cost</strong> is what one unit <em>should</em> cost. A <strong>variance</strong> is the difference between what should have happened and what did. In SBL the question is always: <strong>do these tools still help strategy, or do they get in the way?</strong></p>
+    <h4>Forecasting methods</h4>
+    <ul>
+      <li><strong>Time series / trend analysis</strong>: project past patterns (trend + seasonal variation).</li>
+      <li><strong>Regression and the high-low method</strong>: link cost to activity. Example: 8,000 visits cost $520k; 12,000 cost $680k → variable cost = $160k ÷ 4,000 = <strong>$40 per visit</strong>; fixed = $520k − $320k = <strong>$200k</strong>. Forecast for 15,000 visits: $200k + $600k = <strong>$800k</strong>.</li>
+      <li><strong>Predictive analytics / machine learning</strong>: many variables, large data sets (links to E).</li>
+      <li><strong>Judgement / Delphi / scenario planning</strong>: where there is no history.</li>
+    </ul>
+    <h4>Budgeting approaches</h4>
+    <div class="tbl"><table>
+      <thead><tr><th>Approach</th><th>How it works</th><th>Advantages</th><th>Disadvantages</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Incremental</strong></td><td>Last year + or − a percentage</td><td>Quick, simple, stable</td><td>Builds in past waste; “spend it or lose it”; no link to strategy</td></tr>
+        <tr><td><strong>Zero-based (ZBB)</strong></td><td>Every activity justified from zero each period; ranked by priority</td><td>Removes waste; links spend to objectives; good for public sector and support functions</td><td>Time-consuming; needs skills; managers may resist</td></tr>
+        <tr><td><strong>Rolling budgets / forecasts</strong></td><td>Updated regularly (e.g. each quarter adds a new quarter)</td><td>Always current; good in fast-changing markets</td><td>Effort; targets keep moving</td></tr>
+        <tr><td><strong>Activity-based budgeting</strong></td><td>Budget by activities and cost drivers</td><td>Better understanding of what causes cost</td><td>Complex</td></tr>
+        <tr><td><strong>Flexible budgets</strong></td><td>Budget is adjusted to actual activity level before comparison</td><td>Fair comparison; better variances</td><td>Needs fixed/variable split</td></tr>
+        <tr><td><strong>Beyond budgeting</strong></td><td>Replace fixed annual budgets with relative targets, rolling forecasts and devolved decisions</td><td>Agile; reduces gaming</td><td>Big cultural change; loss of traditional control</td></tr>
+      </tbody></table></div>
+    <h4>Behavioural side of budgets</h4>
+    <p>Participation (bottom-up) improves motivation but invites <strong>budgetary slack</strong> (padding). Imposed (top-down) budgets are quicker but may demotivate. Targets should be challenging but achievable.</p>
+    <h4>Standard costing and variances</h4>
+    <ul>
+      <li><strong>Material</strong>: price variance = (standard price − actual price) × actual quantity; usage variance = (standard qty for actual output − actual qty) × standard price.</li>
+      <li><strong>Labour</strong>: rate variance = (standard rate − actual rate) × actual hours; efficiency variance = (standard hours for actual output − actual hours) × standard rate.</li>
+      <li><strong>Sales</strong>: price and volume variances.</li>
+      <li>F = favourable (better than standard), A = adverse.</li>
+    </ul>
+    <p><strong>Is standard costing still useful?</strong> Yes for repetitive, standardised work (manufacturing, lab tests, call centres). Less useful where products are customised, life cycles are short, or the focus is quality and continuous improvement (a fixed standard can encourage “good enough”). Variances also need <strong>investigating for causes</strong>, and variances are often <strong>linked</strong> (cheap material → more waste).</p>
+  </div>
+
+  <div class="box example"><span class="lbl">2 · Real business example</span>
+    <p>Some large organisations have moved from annual budgets to rolling quarterly forecasts because markets change faster than a 12-month plan can follow. Many governments have applied zero-based reviews to departmental spending during periods of austerity, forcing each programme to justify its existence. Fast-food chains still use standard costs heavily: each item has a standard recipe and cost, and food waste variances are tracked daily.</p>
+  </div>
+
+  <div class="box exam"><span class="lbl">3 · How it appears in the exam</span>
+    <ul><li>“<em>Evaluate the current budgeting process at X and recommend improvements.</em>”</li><li>An exhibit with a variance report; “<em>assess what the report tells the board and whether the standard costing system is appropriate</em>”.</li><li>Links to governance (accountability), people (motivation) and technology (forecasting with analytics).</li></ul>
+  </div>
+
+  <div class="scenario"><span class="lbl">Scenario used in model answer A</span>
+    <p><strong>Westbrook Public Health Authority</strong>’s central laboratory has a standard cost per blood test of: reagent 2 ml at $15/ml ($30) and technician time 0.5 hours at $40/hour ($20). Budget: 10,000 tests. Actual for the quarter: 11,000 tests; reagent used 23,000 ml costing $322,000; technician hours 6,000 costing $252,000. The procurement manager switched to a cheaper reagent supplier this quarter. Several technicians left, and agency staff were used to cover.</p>
+  </div>
+  <div class="answer"><div class="a-head"><span>Model answer A: Calculate and interpret the lab variances</span><span>8 marks</span></div><div class="a-body">
+    <div class="tbl"><table>
+      <thead><tr><th>Variance</th><th>Working</th><th class="n">$</th></tr></thead>
+      <tbody>
+        <tr><td>Reagent price</td><td>($15 − $14) × 23,000 ml</td><td class="n">23,000 F</td></tr>
+        <tr><td>Reagent usage</td><td>(22,000 − 23,000) ml × $15</td><td class="n">15,000 A</td></tr>
+        <tr class="tot"><td>Total reagent</td><td>Std 11,000 × $30 = 330,000 vs actual 322,000</td><td class="n">8,000 F</td></tr>
+        <tr><td>Labour rate</td><td>($40 − $42) × 6,000 hours</td><td class="n">12,000 A</td></tr>
+        <tr><td>Labour efficiency</td><td>(5,500 − 6,000) hours × $40</td><td class="n">20,000 A</td></tr>
+        <tr class="tot"><td>Total labour</td><td>Std 11,000 × $20 = 220,000 vs actual 252,000</td><td class="n">32,000 A</td></tr>
+      </tbody></table></div>
+    <p class="kicker">Actual reagent price = $322,000 ÷ 23,000 = $14/ml. Actual rate = $252,000 ÷ 6,000 = $42/hour. Standard for actual output: 11,000 × 2 ml = 22,000 ml; 11,000 × 0.5 h = 5,500 h.</p>
+    <p>The comparison is made against a <strong>flexed</strong> budget for 11,000 tests; comparing with the original 10,000-test budget would wrongly show every cost as overspent.<span class="mk">1</span><span class="mk">1</span></p>
+    <p>The cheaper reagent saved $23,000 on price but usage was 1,000 ml over standard ($15,000 adverse). These are probably <strong>linked</strong>: lower-quality reagent may lead to failed tests that must be repeated. The net saving is only $8,000, and repeat tests delay results for patients.<span class="mk">1</span><span class="mk">1</span><span class="ps">PS: analysis</span></p>
+    <p>The labour rate variance ($12,000 A) is explained by expensive agency staff.<span class="mk">1</span> The efficiency variance ($20,000 A) may also be linked to agency staff who do not know the lab’s systems, and to repeat tests from poor reagent.<span class="mk">1</span></p>
+    <p>Overall, a decision that looked like a procurement success has contributed to a $24,000 net adverse variance and slower service. I recommend the authority reviews reagent quality with clinicians, tracks repeat-test rates, and addresses technician retention rather than relying on agency staff.<span class="mk">1</span><span class="mk">1</span></p>
+  </div></div>
+
+  <div class="scenario"><span class="lbl">Scenario used in model answer B</span>
+    <p>Westbrook sets each clinic’s budget as last year’s spend plus 3%. Clinic managers often spend heavily in the last month “so the budget isn’t cut next year”. The government has told Westbrook to save 5% while increasing vaccination coverage. Budgets are prepared once a year and never updated, even though patient demand changed sharply during a recent flu outbreak.</p>
+  </div>
+  <div class="answer"><div class="a-head"><span>Model answer B: Evaluate Westbrook’s budgeting and recommend improvements</span><span>8 marks</span></div><div class="a-body">
+    <p><strong>Weaknesses.</strong> Incremental budgeting (last year + 3%) carries forward past inefficiency and has no link to the authority’s priorities such as vaccination coverage.<span class="mk">1</span> It causes “spend it or lose it” behaviour, which is exactly the year-end spending seen at the clinics and wastes public money.<span class="mk">1</span> It cannot deliver a 5% saving, because it assumes spending should grow.<span class="mk">1</span> An annual budget that is never updated becomes irrelevant when demand changes, as it did in the flu outbreak.<span class="mk">1</span></p>
+    <p><strong>Zero-based budgeting</strong> would require each clinic to justify activities from zero and rank them, so low-value spending can be cut and money moved to vaccination.<span class="mk">1</span> It is time-consuming, so it could be applied first to support costs, or on a rolling cycle with each clinic reviewed every few years.<span class="mk">1</span></p>
+    <p><strong>Rolling quarterly forecasts</strong> would let Westbrook reallocate resources when demand changes, while the annual budget still sets the spending limit required by government.<span class="mk">1</span></p>
+    <p><strong>Recommendation.</strong> Move to priority-based (ZBB-style) budgeting phased over two years, add quarterly reforecasts, and remove the incentive to spend at year end by allowing clinics to carry forward a share of genuine savings.<span class="mk">1</span><span class="ps">PS: evaluation</span></p>
+  </div></div>
+
+  <div class="box examiner"><span class="lbl">5 · What the examiner wants</span>
+    <ul><li>Evaluate the <strong>method</strong> in the context of the organisation (stable or dynamic? public or private?).</li><li>Explain <strong>causes</strong> and <strong>links</strong> between variances, not just numbers.</li><li>Cover <strong>behaviour</strong>: slack, gaming, motivation.</li></ul>
+  </div>
+  <div class="box mistake"><span class="lbl">6 · Common mistakes</span>
+    <ul><li>Comparing actual results with the original (unflexed) budget.</li><li>Calling a favourable variance “good” automatically.</li><li>Recommending ZBB everywhere without mentioning its cost and effort.</li><li>Forgetting the strategic question: does this budget help us deliver the strategy?</li></ul>
+  </div>
+  <div class="box memory"><span class="lbl">7 · Memory tip</span>
+    <p><strong>“Flex first, then find the cause, then look for the link.”</strong> For budgets: <strong>Incremental = lazy, ZBB = justify, Rolling = refresh, Beyond = free.</strong></p>
+  </div>
+</section>
+
+<!-- ================= CASE ================= -->
+<div class="part" id="practice"><span class="pbadge">Practice</span><h2>Mini case, mistakes, cheat sheet and quiz</h2></div>
+
+<section id="case">
+  <div class="sec-head"><div class="num">C</div><div><div class="ref">INTEGRATED MINI CASE · 40 MARKS · ABOUT 72 MINUTES</div><h2>Harbourline Hospitals: the oncology centre decision</h2></div></div>
+  <div class="box exam"><span class="lbl">How to use this case</span>
+    <p>Read the four exhibits (10 minutes), plan (8 minutes), then write for about 54 minutes. Only then open the model answers. Compare your points with the marked points, not with the wording.</p>
+  </div>
+
+  <div class="scenario"><span class="lbl">Exhibit 1 · About Harbourline</span>
+    <p>Harbourline Hospitals is a private hospital group with 6 hospitals. Most income comes from insurance companies. Latest year: revenue $480m, operating profit $30m, interest $3m, debt $40m, equity $110m. The founding family owns 60% of the shares and values its control. The CEO wants Harbourline to become “the region’s leading cancer care provider”. The CFO is more cautious. Loan covenants: interest cover at least 4.0x and gearing (debt ÷ (debt + equity)) no more than 40%.</p>
+  </div>
+  <div class="scenario"><span class="lbl">Exhibit 2 · Oncology centre appraisal (prepared by the business development director, who would run the centre)</span>
+    <div class="tbl"><table>
+      <thead><tr><th>Year</th><th class="n">0</th><th class="n">1</th><th class="n">2</th><th class="n">3</th><th class="n">4</th><th class="n">5</th></tr></thead>
+      <tbody>
+        <tr><td>Investment ($m)</td><td class="n">(24.0)</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Net cash inflows ($m)</td><td></td><td class="n">4.0</td><td class="n">6.0</td><td class="n">7.0</td><td class="n">7.0</td><td class="n">7.0</td></tr>
+        <tr><td>Residual value ($m)</td><td></td><td></td><td></td><td></td><td></td><td class="n">3.0</td></tr>
+        <tr><td>Discount factor 10%</td><td class="n">1.000</td><td class="n">0.909</td><td class="n">0.826</td><td class="n">0.751</td><td class="n">0.683</td><td class="n">0.621</td></tr>
+      </tbody></table></div>
+    <p>Cost of capital 10%. The inflows assume the centre’s equipment is used at 95% of capacity from year 1. An industry study shows new cancer centres average 80% utilisation in their first three years. Two insurers have said they “are interested” in referring patients but have signed nothing. Harbourline’s target payback is 4 years.</p>
+  </div>
+  <div class="scenario"><span class="lbl">Exhibit 3 · Funding options for the $24m</span>
+    <ul>
+      <li><strong>A. Bank loan</strong> of $24m at 8% a year, repayable over 10 years.</li>
+      <li><strong>B. Sale and leaseback</strong> of the head office building for $15m (15-year lease at $1.1m a year) plus a $9m loan at 8%. The finance team estimates that, including the lease liability, gearing would be about 35% and interest cover about 6.5x.</li>
+      <li><strong>C. Private equity</strong>: a fund invests $24m for 25% of Harbourline’s enlarged share capital and two board seats. It expects to sell its stake within 5 years.</li>
+    </ul>
+  </div>
+  <div class="scenario"><span class="lbl">Exhibit 4 · The finance function</span>
+    <p>Each hospital has its own finance team (110 staff in total) using different spreadsheets. The month-end close takes 11 working days. 9% of insurance claims are rejected first time because of billing errors, delaying cash. Clinical directors say they cannot see which services make or lose money. The CFO proposes a shared services centre for billing, payables and payroll, plus a business partner for each major service line. Set-up cost $3m; expected savings $2m a year. Staff representatives have raised concerns about redundancies.</p>
+  </div>
+
+  <h3>Requirements</h3>
+  <ol type="a">
+    <li>Evaluate the financial case for the oncology centre, including the risks in the appraisal. <strong>(14 marks, including 2 professional skills marks)</strong></li>
+    <li>Advise the board which funding option it should choose. <strong>(13 marks, including 2 professional skills marks)</strong></li>
+    <li>Evaluate the CFO’s proposal for the finance function. <strong>(13 marks, including 2 professional skills marks)</strong></li>
+  </ol>
+
+  <details><summary>Model answer (a): financial case for the oncology centre (14 marks)</summary><div>
+    <div class="tbl"><table>
+      <thead><tr><th>Year</th><th class="n">Cash $m</th><th class="n">DF 10%</th><th class="n">PV $m</th><th class="n">Cumulative cash $m</th></tr></thead>
+      <tbody>
+        <tr><td>0</td><td class="n">(24.0)</td><td class="n">1.000</td><td class="n">(24.000)</td><td class="n">(24.0)</td></tr>
+        <tr><td>1</td><td class="n">4.0</td><td class="n">0.909</td><td class="n">3.636</td><td class="n">(20.0)</td></tr>
+        <tr><td>2</td><td class="n">6.0</td><td class="n">0.826</td><td class="n">4.956</td><td class="n">(14.0)</td></tr>
+        <tr><td>3</td><td class="n">7.0</td><td class="n">0.751</td><td class="n">5.257</td><td class="n">(7.0)</td></tr>
+        <tr><td>4</td><td class="n">7.0</td><td class="n">0.683</td><td class="n">4.781</td><td class="n">0.0</td></tr>
+        <tr><td>5</td><td class="n">7.0 + 3.0</td><td class="n">0.621</td><td class="n">6.210</td><td class="n">10.0</td></tr>
+        <tr class="tot"><td>NPV</td><td></td><td></td><td class="n">0.840</td><td></td></tr>
+      </tbody></table></div>
+    <p><strong>Result.</strong> NPV is +$0.84m and payback is exactly 4 years, so on the director’s figures the centre just meets both targets.<span class="mk">1</span><span class="mk">1</span><span class="mk">1</span></p>
+    <p><strong>Margin of safety.</strong> The NPV is very small relative to the investment. Operating inflows (PV $22.977m) need to fall by only 3.7% (0.84 ÷ 22.977) for NPV to become zero.<span class="mk">1</span><span class="mk">1</span></p>
+    <p><strong>Utilisation assumption.</strong> The forecast assumes 95% utilisation from year 1, but new centres average 80%. If inflows fall in proportion (80 ÷ 95 = 84%), PV of operating inflows ≈ $19.35m and NPV ≈ −$2.8m. Payback would move beyond 4 years.<span class="mk">1</span><span class="mk">1</span></p>
+    <p><strong>Bias.</strong> The appraisal was prepared by the director who would run the centre, which creates a risk of optimism bias. It should be independently reviewed by finance.<span class="mk">1</span><span class="ps">PS: scepticism</span></p>
+    <p><strong>Demand risk.</strong> No insurer has signed a contract; “interest” is not a commitment. Insurers hold strong buyer power and could negotiate prices below those assumed.<span class="mk">1</span></p>
+    <p><strong>Strategic and non-financial factors.</strong> The centre fits the CEO’s vision and could strengthen Harbourline’s reputation and referrals to other services.<span class="mk">1</span> It also needs scarce specialist staff (oncologists, radiographers), which could delay opening.<span class="mk">1</span></p>
+    <p><strong>Conclusion.</strong> The financial case is marginal and rests on an optimistic assumption. The board should not approve it yet. It should require (1) a revised appraisal at realistic utilisation, (2) signed letters of intent from insurers, and (3) consider a phased opening to reduce the initial investment.<span class="mk">1</span><span class="ps">PS: evaluation</span></p>
+  </div></details>
+
+  <details><summary>Model answer (b): funding option (13 marks)</summary><div>
+    <div class="tbl"><table>
+      <thead><tr><th>Measure</th><th class="n">Today</th><th class="n">A: Loan</th><th class="n">B: S&amp;LB + loan</th><th class="n">C: Private equity</th></tr></thead>
+      <tbody>
+        <tr><td>Debt ($m)</td><td class="n">40</td><td class="n">64</td><td class="n">49 + lease</td><td class="n">40</td></tr>
+        <tr><td>Interest ($m)</td><td class="n">3.00</td><td class="n">4.92</td><td class="n">3.72 + lease interest</td><td class="n">3.00</td></tr>
+        <tr><td>Interest cover (on $30m)</td><td class="n">10.0x</td><td class="n">6.1x</td><td class="n">≈ 6.5x</td><td class="n">10.0x</td></tr>
+        <tr><td>Gearing</td><td class="n">26.7%</td><td class="n">36.8%</td><td class="n">≈ 35%</td><td class="n">23.0%</td></tr>
+        <tr><td>Family holding</td><td class="n">60%</td><td class="n">60%</td><td class="n">60%</td><td class="n">45%</td></tr>
+      </tbody></table></div>
+    <p class="kicker">A: interest 3 + (24 × 8%) = 4.92; gearing 64 ÷ (64 + 110). C: gearing 40 ÷ (40 + 134); family 60% × 75% = 45%.</p>
+    <p><strong>Option A</strong> keeps family control and debt is the cheapest source, with tax-deductible interest.<span class="mk">1</span> Both covenants are met today (6.1x and 36.8%), but gearing headroom is only about 3 percentage points below the 40% limit.<span class="mk">1</span> If the centre underperforms (as part (a) suggests is possible), Harbourline is committed to fixed repayments from a project that may not generate the cash.<span class="mk">1</span></p>
+    <p><strong>Option B</strong> releases cash from an asset that is not used for patient care, and keeps control.<span class="mk">1</span> But it is not “off balance sheet”: under IFRS 16 the lease liability is recognised, so gearing is still about 35%.<span class="mk">1</span> It commits Harbourline to 15 years of rent ($16.5m in total) and it loses any future gain in the building’s value.<span class="mk">1</span></p>
+    <p><strong>Option C</strong> adds no fixed payments and strengthens the balance sheet, which suits a risky project.<span class="mk">1</span> But the family falls from 60% to 45% and loses outright control, which it values, and the fund gains two board seats.<span class="mk">1</span> A 5-year exit target may push for short-term profit, which could conflict with patient care and long-term strategy.<span class="mk">1</span></p>
+    <p><strong>Advice.</strong> Given the weak appraisal, the board should first resolve part (a). If the centre is approved on realistic figures, I recommend <strong>option B</strong>: it keeps control, keeps both covenants with more headroom than A, and uses an asset that does not support patient care. If the project is phased, the loan in B could be reduced further.<span class="mk">1</span><span class="mk">1</span><span class="ps">PS: commercial acumen</span><span class="ps">PS: evaluation</span></p>
+  </div></details>
+
+  <details><summary>Model answer (c): finance function proposal (13 marks)</summary><div>
+    <p><strong>Benefits of shared services.</strong> Bringing billing, payables and payroll for 6 hospitals into one centre on one system gives economies of scale and standard processes.<span class="mk">1</span> Standard billing with automated claim checks should cut the 9% first-time rejection rate, speeding up cash from insurers. This is cash the group needs for its expansion.<span class="mk">1</span> Replacing six sets of spreadsheets with one system should shorten the 11-day close.<span class="mk">1</span></p>
+    <p><strong>Benefits of business partners.</strong> Clinical directors cannot see which services make money. Business partners for each service line can produce service-line profitability (ideally using activity-based costing) and support pricing negotiations with insurers.<span class="mk">1</span> This directly supports the oncology decision in part (a), where the quality of financial advice is the problem.<span class="mk">1</span></p>
+    <p><strong>Financial case.</strong> Set-up $3m and savings $2m a year give a simple payback of 1.5 years, which is attractive. But the savings estimate should be checked; redundancy and system costs are often underestimated.<span class="mk">1</span><span class="ps">PS: scepticism</span></p>
+    <p><strong>Risks.</strong> Staff representatives are already concerned. Poor handling could lower morale and cause errors during transition; Harbourline should consult early, offer retraining for business-partner roles and manage the change carefully (e.g. Lewin: unfreeze, change, refreeze).<span class="mk">1</span><span class="mk">1</span> Hospitals may lose local knowledge of their insurers, so service levels between the centre and the hospitals should be agreed.<span class="mk">1</span> The migration should not happen during the oncology project’s busiest period.<span class="mk">1</span></p>
+    <p><strong>Conclusion.</strong> The proposal addresses Harbourline’s real problems (rejected claims, slow information, no service-line profitability). I recommend approval, with a phased roll-out starting with billing, where the cash benefit is greatest.<span class="mk">1</span><span class="ps">PS: evaluation</span></p>
+  </div></details>
+</section>
+
+<!-- ================= MISTAKES ================= -->
+<section id="mistakes">
+  <div class="sec-head"><div class="num">M</div><div><div class="ref">FIX THESE BEFORE THE EXAM</div><h2>Top 12 finance mistakes in SBL (and the fix)</h2></div></div>
+  <div class="tbl"><table>
+    <thead><tr><th>#</th><th>Mistake</th><th>Fix</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Long calculations, short interpretation</td><td>Calculate in 5 minutes, interpret for the rest. Most marks are for meaning.</td></tr>
+      <tr><td>2</td><td>Describing ratio changes (“fell from 35% to 32%”)</td><td>Always add why (case fact) and so what (consequence).</td></tr>
+      <tr><td>3</td><td>Including sunk costs or depreciation in NPV</td><td>Future, incremental, cash only.</td></tr>
+      <tr><td>4</td><td>Accepting the exhibit’s numbers at face value</td><td>Ask who prepared them and what they assumed (scepticism marks).</td></tr>
+      <tr><td>5</td><td>Choosing debt because it is cheaper, full stop</td><td>Check covenants, interest cover, gearing and business risk.</td></tr>
+      <tr><td>6</td><td>Forgetting working capital in investment needs</td><td>G-M-W-S-C checklist.</td></tr>
+      <tr><td>7</td><td>Choosing the highest EV automatically</td><td>One-off decision? Can we survive the worst case? Where do the probabilities come from?</td></tr>
+      <tr><td>8</td><td>Saying leases are off balance sheet</td><td>IFRS 16 puts most leases on balance sheet.</td></tr>
+      <tr><td>9</td><td>Treating shared services and outsourcing as the same</td><td>SSC is internal; outsourcing is external.</td></tr>
+      <tr><td>10</td><td>Comparing actual with an unflexed budget</td><td>Flex to actual activity first.</td></tr>
+      <tr><td>11</td><td>Generic textbook lists</td><td>Every point needs a case fact. No fact, no mark.</td></tr>
+      <tr><td>12</td><td>No recommendation</td><td>End every answer with a decision, a reason and conditions.</td></tr>
+    </tbody></table></div>
+</section>
+
+<!-- ================= CHEAT SHEET ================= -->
+<section id="cheat">
+  <div class="sec-head"><div class="num">★</div><div><div class="ref">ONE-PAGE REVISION</div><h2>Finance cheat sheet</h2></div></div>
+  <div class="two">
+    <div class="card"><h4>G1 Finance transformation</h4>
+      <ul><li>Scorekeeper → business partner.</li><li>Tech: cloud ERP, RPA, AI/ML, analytics, blockchain, fast close.</li><li>Risks C-D-P-C: Cyber, Data, People, Cost.</li><li>Structures: business partnering, SSC (internal), outsourcing (external), GBS (global, multi-function).</li><li>Evaluate: C-Q-C-S-P-F.</li></ul>
+    </div>
+    <div class="card"><h4>Investment needs and finance</h4>
+      <ul><li>Need: G-M-W-S-C minus internal funds = external need.</li><li>Match term of finance to life of asset.</li><li>Choose: Cost, Gearing, Control, Matching, Security, Availability, EPS.</li><li>Gearing = D ÷ (D + E). Interest cover = OP ÷ Interest.</li><li>Leases are on balance sheet (IFRS 16).</li></ul>
+    </div>
+    <div class="card"><h4>Investment appraisal and risk</h4>
+      <ul><li>NPV &gt; 0 → accept; highest NPV wins.</li><li>IRR ≈ L + [NPV<sub>L</sub> ÷ (NPV<sub>L</sub> − NPV<sub>H</sub>)] × (H − L).</li><li>Sensitivity = NPV ÷ PV of the variable.</li><li>EV = Σ outcome × probability (long-run average).</li><li>Maximax optimist · Maximin pessimist · Minimax regret worrier.</li><li>Sunk is sunk. Abandon if future PV &lt; cash from stopping.</li></ul>
+    </div>
+    <div class="card"><h4>Reporting, tax, performance</h4>
+      <ul><li>B-P-T-E: Balance sheet, Profit, Tax, Ethics.</li><li>Goodwill = price − FV net assets; annual impairment test.</li><li>Restructuring provision needs formal plan + announcement.</li><li>Interest is tax-deductible; dividends are not.</li><li>ROCE = margin × asset turnover.</li><li>What → Why → So what → Now what.</li><li>BSC 4 perspectives; 3Es for public sector.</li></ul>
+    </div>
+    <div class="card"><h4>Cost management</h4>
+      <ul><li>Target cost = price − required profit.</li><li>Life cycle = whole-life cost.</li><li>ABC = overhead by cost driver.</li><li>Quality: prevention + appraisal vs internal + external failure.</li><li>Link to strategy: cost leadership, pricing, VFM.</li></ul>
+    </div>
+    <div class="card"><h4>Budgets and variances</h4>
+      <ul><li>Incremental = lazy · ZBB = justify · Rolling = refresh · Beyond = free.</li><li>Flex first, then variances.</li><li>Price/rate × actual quantity; usage/efficiency × standard price.</li><li>Look for linked variances.</li><li>Watch slack and “spend it or lose it”.</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= QUIZ ================= -->
+<section id="quiz">
+  <div class="sec-head"><div class="num">Q</div><div><div class="ref">TEST YOURSELF</div><h2>12-question quiz</h2></div></div>
+  <p class="kicker">Click an answer. You get instant feedback and a running score.</p>
+  <div id="quizBox"></div>
+  <div class="score" id="score">Score: 0 / 0</div>
+  <p><button class="fsbtn" id="resetQuiz" style="margin-top:10px">Reset quiz</button></p>
+</section>
+
+</main>
+<footer>SBL study notes · Section G: Finance in planning and decision-making · Syllabus Sept 2026 – June 2027 · All organisations in this page are fictional.</footer>
+
+<script>
+(function(){
+  // Font size controls
+  var root=document.documentElement, size=18;
+  try{var s=parseInt(localStorage.getItem('sblFinanceFs'),10); if(s>=14&&s<=26){size=s;}}catch(e){}
+  function apply(){root.style.setProperty('--fs',size+'px'); try{localStorage.setItem('sblFinanceFs',String(size));}catch(e){}}
+  apply();
+  document.getElementById('fsUp').addEventListener('click',function(){if(size<26){size++;apply();}});
+  document.getElementById('fsDown').addEventListener('click',function(){if(size>14){size--;apply();}});
+
+  // Quiz
+  var Q=[
+    {q:"A feasibility study costing $0.4m has already been paid. How should it be treated in the NPV?",o:["Include it at year 0","Include it spread over the project life","Exclude it: it is a sunk cost","Include it only if the project is accepted"],a:2,e:"Past spending does not change with the decision, so it is irrelevant."},
+    {q:"Which structure moves routine finance work into an internal centre serving many divisions?",o:["Outsourcing","Shared services centre","Business partnering","Franchising"],a:1,e:"A shared services centre stays inside the organisation; outsourcing uses an external provider."},
+    {q:"Sensitivity of an NPV to annual inflows is calculated as:",o:["PV of inflows ÷ NPV","NPV ÷ PV of inflows","NPV ÷ initial investment always","IRR − cost of capital"],a:1,e:"NPV ÷ PV of the variable gives the % change that makes NPV zero."},
+    {q:"A risk-averse board choosing the option with the best worst-case outcome is using:",o:["Maximax","Maximin","Minimax regret","Expected value"],a:1,e:"Maximin = maximise the minimum (best of the worst outcomes)."},
+    {q:"Under IFRS 16, leasing a fleet instead of borrowing to buy it will usually:",o:["Keep the liability off the balance sheet","Still create a lease liability on the balance sheet","Remove the need for depreciation","Have no effect on gearing"],a:1,e:"Most leases create a right-of-use asset and a lease liability."},
+    {q:"Revenue up 15%, gross margin down from 35% to 32% after price cuts. The best analysis is:",o:["Gross margin fell 3 percentage points","Revenue growth is excellent","Growth was bought with price cuts, so profit per sale fell; review contract pricing and incentives","Margin is irrelevant if revenue grows"],a:2,e:"What → Why → So what → Now what."},
+    {q:"Which budgeting method best removes past inefficiency and links spending to priorities?",o:["Incremental","Zero-based","Fixed annual","Imposed"],a:1,e:"ZBB justifies every activity from zero."},
+    {q:"Standard: 2 ml at $15. 11,000 tests used 23,000 ml. The usage variance is:",o:["$15,000 adverse","$15,000 favourable","$23,000 favourable","$30,000 adverse"],a:0,e:"(22,000 − 23,000) × $15 = $15,000 A."},
+    {q:"Market price $50, required margin 30%, current estimated cost $41. The cost gap is:",o:["$9","$6","$15","$35"],a:1,e:"Target cost = $35; gap = $41 − $35 = $6."},
+    {q:"Which is the strongest reason NOT to rely only on expected value for a one-off decision?",o:["EV is hard to calculate","The organisation will get one actual outcome, not the average","EV ignores probabilities","EV always picks the riskiest option"],a:1,e:"EV is a long-run average; one-off decisions can still produce the bad outcome."},
+    {q:"A company pays $100m for a business whose net assets have a fair value of $70m. Goodwill is:",o:["$170m","$70m","$30m, tested annually for impairment","$30m, amortised over 5 years"],a:2,e:"Goodwill = price − fair value of net assets; tested for impairment each year."},
+    {q:"Total investment needed $69m; internally generated funds $24m. External finance needed:",o:["$69m","$45m","$93m","$24m"],a:1,e:"$69m − $24m = $45m (plus a sensible contingency)."}
+  ];
+  var box=document.getElementById('quizBox'), scoreEl=document.getElementById('score'), right=0, done=0;
+  function render(){
+    box.innerHTML=''; right=0; done=0; upd();
+    Q.forEach(function(item,i){
+      var d=document.createElement('div'); d.className='q';
+      var p=document.createElement('p'); p.className='qt'; p.textContent=(i+1)+'. '+item.q; d.appendChild(p);
+      var fb=document.createElement('div'); fb.className='fb';
+      item.o.forEach(function(t,j){
+        var b=document.createElement('button'); b.className='opt'; b.type='button'; b.textContent=String.fromCharCode(65+j)+'. '+t;
+        b.addEventListener('click',function(){
+          if(d.getAttribute('data-done')) return;
+          d.setAttribute('data-done','1'); done++;
+          var btns=d.querySelectorAll('.opt');
+          btns[item.a].classList.add('right');
+          if(j===item.a){right++; fb.textContent='Correct. '+item.e;} else {b.classList.add('wrong'); fb.textContent='Not quite. '+item.e;}
+          fb.style.display='block'; upd();
+        });
+        d.appendChild(b);
+      });
+      d.appendChild(fb); box.appendChild(d);
+    });
+  }
+  function upd(){scoreEl.textContent='Score: '+right+' / '+done+(done===Q.length?'  ·  '+Math.round(right/Q.length*100)+'%':'');}
+  document.getElementById('resetQuiz').addEventListener('click',render);
+  render();
+})();
+</script>
+</body>
+</html>
