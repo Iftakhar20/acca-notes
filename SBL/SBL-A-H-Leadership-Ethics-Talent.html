@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leadership, Culture &amp; Ethics + Talent &amp; Performance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Palette: Funky Dealer — lime #7DD823 · olive #D9D126 · amber #FFB611 · orange #FF6000 · forest #0F5940 */
+:root{
+  --lime:#7DD823; --olive:#D9D126; --amber:#FFB611; --orange:#FF6000; --forest:#0F5940;
+  --lime-soft:#EEF8E2; --olive-soft:#F8F6DA; --amber-soft:#FFF5DA; --orange-soft:#FFEDE1; --forest-soft:#E4EFEA;
+  --lime-deep:#3F7A0C; --olive-deep:#736D0C; --amber-deep:#946500; --orange-deep:#B84600;
+  --bg:#F6F7F2; --surface:#FFFFFF; --ink:#1B2621; --muted:#5A6862; --line:#DFE5DD;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"Nunito Sans","Segoe UI",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65}
+a{color:var(--forest)}
+h1,h2,h3,h4{font-family:var(--display);line-height:1.2;margin:0;color:var(--forest)}
+h2{font-size:1.6rem}
+h3{font-size:1.25rem;margin:1.6rem 0 .5rem}
+h4{font-size:1.05rem;margin:1.1rem 0 .3rem}
+p{margin:.6rem 0}
+ul,ol{margin:.5rem 0;padding-left:1.3rem}
+li{margin:.25rem 0}
+strong{font-weight:800}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+/* Hero */
+.hero{background:var(--forest);color:#fff;padding:40px 0 34px}
+.hero .tag{display:inline-block;font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--lime)}
+.hero h1{color:#fff;font-size:2.2rem;margin:.5rem 0 .6rem}
+.hero h1 span{color:var(--amber)}
+.hero p{color:#D5E6DE;max-width:72ch;margin:0;font-size:1.02rem}
+.strip{display:flex;height:6px}
+.strip i{flex:1}
+
+/* Top menu bar */
+.menubar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.menubar .wrap{display:flex;align-items:center;gap:14px;height:50px}
+.menubar .brand{font-family:var(--display);font-weight:800;color:var(--forest);white-space:nowrap;font-size:.95rem}
+.menubar nav{display:flex;gap:4px;flex:1;align-items:center;flex-wrap:wrap}
+.dd{position:relative}
+.dd>button{font:inherit;font-size:.88rem;font-weight:700;color:var(--muted);background:none;border:0;padding:6px 12px;border-radius:999px;cursor:pointer}
+.dd>button .car{font-size:.7rem;opacity:.7}
+.dd:hover>button,.dd:focus-within>button{background:var(--lime-soft);color:var(--forest)}
+.dd.on>button{background:var(--forest);color:#fff}
+.dd .panel{display:none;position:absolute;left:0;top:100%;padding-top:6px;min-width:250px}
+.dd .panel::before{content:"";display:block}
+.dd:hover .panel,.dd:focus-within .panel{display:block}
+.dd .panel{filter:drop-shadow(0 6px 16px rgba(15,89,64,.14))}
+.dd .panel a{display:block;background:#fff;padding:8px 14px;text-decoration:none;color:var(--ink);font-size:.9rem;border-left:1px solid var(--line);border-right:1px solid var(--line)}
+.dd .panel a:first-child{border-top:1px solid var(--line);border-radius:10px 10px 0 0}
+.dd .panel a:last-child{border-bottom:1px solid var(--line);border-radius:0 0 10px 10px}
+.dd .panel a:only-child{border-radius:10px}
+.dd .panel a:hover{background:var(--lime-soft);color:var(--forest)}
+.dd .panel a.on{color:var(--forest);font-weight:800;box-shadow:inset 4px 0 0 var(--amber)}
+@media(max-width:860px){.menubar .brand{display:none}.menubar .wrap{height:auto;padding-top:4px;padding-bottom:4px}}
+section[id]{scroll-margin-top:66px}
+
+/* Sections */
+main{padding:28px 0 10px}
+section{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:26px 30px 22px;margin:0 0 24px}
+.part{margin:40px 0 18px;padding:4px 0 4px 16px;border-left:6px solid var(--lime)}
+.part h2{font-size:1.35rem}
+.part p{margin:2px 0 0;color:var(--muted);font-size:.92rem}
+.part.h{border-left-color:var(--amber)} .part.p{border-left-color:var(--orange)}
+.sec-head{display:flex;gap:14px;align-items:center;margin-bottom:.8rem;padding-bottom:.8rem;border-bottom:1px solid var(--line)}
+.num{flex:0 0 auto;font-family:var(--display);font-weight:800;font-size:1rem;background:var(--amber);color:var(--ink);border-radius:10px;min-width:44px;height:44px;display:grid;place-items:center}
+.ref{font-size:.8rem;color:var(--muted);font-weight:600;margin-top:2px}
+
+/* Callouts */
+.box{border-radius:12px;padding:14px 18px;margin:1rem 0;border-left:6px solid}
+.box .lbl{display:block;font-family:var(--display);font-weight:800;font-size:.78rem;text-transform:uppercase;letter-spacing:.07em;margin-bottom:.2rem}
+.simple{background:var(--forest-soft);border-color:var(--forest)} .simple .lbl{color:var(--forest)}
+.example{background:var(--lime-soft);border-color:var(--lime)} .example .lbl{color:var(--lime-deep)}
+.exam{background:var(--amber-soft);border-color:var(--amber)} .exam .lbl{color:var(--amber-deep)}
+.examiner{background:var(--olive-soft);border-color:var(--olive)} .examiner .lbl{color:var(--olive-deep)}
+.mistake{background:var(--orange-soft);border-color:var(--orange)} .mistake .lbl{color:var(--orange-deep)}
+.memory{background:#fff;border:1px solid var(--line);border-left:6px solid var(--forest)} .memory .lbl{color:var(--forest)}
+.memory strong{color:var(--forest)}
+.scenario{background:#FAFBF8;border:1px dashed #B9C6BF;border-left:6px solid var(--muted)} .scenario .lbl{color:var(--muted)}
+.model{background:#fff;border:2px solid var(--forest);border-left-width:6px} .model .lbl{color:var(--forest)}
+.model h4:first-of-type{margin-top:.4rem}
+.mark{display:inline-block;background:var(--lime);color:#14300A;font-weight:800;font-size:.72rem;border-radius:6px;padding:0 6px;margin-left:4px;vertical-align:1px;white-space:nowrap}
+.skill{display:inline-block;background:var(--orange);color:#fff;font-weight:800;font-size:.72rem;border-radius:6px;padding:0 6px;margin-left:4px;vertical-align:1px;white-space:nowrap}
+
+/* Tables */
+.tbl{overflow-x:auto;margin:1rem 0;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;font-size:.95rem;min-width:560px}
+th,td{padding:10px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+th{background:var(--forest);color:#fff;font-family:var(--display);font-weight:600}
+tr:last-child td{border-bottom:none}
+tbody tr:nth-child(even) td{background:#F7FAF5}
+td:first-child{font-weight:700;color:var(--forest)}
+
+/* Cards and grids */
+.grid{display:grid;gap:14px;margin:1rem 0}
+.g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)}
+.card{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:#fff;border-top:4px solid var(--lime)}
+.card h4{margin:0 0 4px;font-size:1rem}
+.card p,.card ul{font-size:.94rem;margin:.3rem 0}
+.card.y{border-top-color:var(--amber)} .card.r{border-top-color:var(--orange)} .card.v{border-top-color:var(--forest)} .card.l{border-top-color:var(--olive)}
+.tri{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:1rem 0}
+@media(max-width:860px){.g2,.g3,.g4,.tri{grid-template-columns:1fr}.wrap{padding:0 14px}section{padding:20px 16px}.hero h1{font-size:1.7rem}}
+
+/* Cultural web diagram */
+.web{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:1rem 0;max-width:900px}
+.web .c{background:var(--lime-soft);border:1px solid #C9E8A6;border-radius:12px;padding:10px 12px;text-align:center;font-size:.9rem}
+.web .c b{display:block;color:var(--forest);font-family:var(--display)}
+.web .core{grid-column:2;grid-row:2;background:var(--forest);color:#E4EFEA;border-color:var(--forest)}
+.web .core b{color:var(--amber)}
+
+/* Flow steps */
+.flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px;margin:1rem 0}
+.flow .s{flex:1 1 140px;background:var(--amber-soft);border:1px solid #F5D98A;border-radius:10px;padding:10px;text-align:center;font-size:.9rem}
+.flow .s b{display:block;color:var(--forest);font-family:var(--display)}
+.flow .arr{align-self:center;color:var(--orange);font-weight:800}
+
+/* Self-test */
+details{border:1px solid var(--line);border-radius:12px;margin:.6rem 0;background:var(--bg)}
+summary{cursor:pointer;padding:12px 16px;font-weight:700}
+summary::marker{color:var(--orange)}
+details[open] summary{color:var(--forest)}
+details .ans{padding:4px 16px 14px;border-top:1px dashed var(--line)}
+
+.top{position:fixed;right:18px;bottom:18px;background:var(--forest);color:#fff;text-decoration:none;font-weight:700;padding:8px 14px;border-radius:999px;font-size:.85rem;box-shadow:0 3px 10px rgba(0,0,0,.15)}
+footer{text-align:center;color:var(--muted);font-size:.85rem;padding:20px 0 50px}
+@media print{.top,.menubar{display:none}}
+</style>
+</head>
+<body id="home">
+
+<header class="hero">
+  <div class="wrap">
+    <span class="tag">ACCA Strategic Business Leader · Syllabus areas A1–A3, H3–H4</span>
+    <h1>Leadership, Culture &amp; Ethics <span>+</span> Talent &amp; Performance Excellence</h1>
+    <p>Complete exam notes for the September 2026 to June 2027 syllabus. Every topic follows the same steps: simple explanation, real example, how it's examined, model answer, examiner expectations, common mistakes and a memory tip. Ends with an integrated hospital case, a cheat sheet and a self-test.</p>
+  </div>
+</header>
+<div class="strip"><i style="background:#7DD823"></i><i style="background:#D9D126"></i><i style="background:#FFB611"></i><i style="background:#FF6000"></i><i style="background:#0F5940"></i></div>
+
+<div class="menubar">
+  <div class="wrap">
+    <span class="brand">SBL · A + H3–H4</span>
+    <nav>
+      <div class="dd"><button type="button">Overview <span class="car">▾</span></button><div class="panel"><a href="#map">Chapter map</a></div></div>
+      <div class="dd"><button type="button">A1 Leadership <span class="car">▾</span></button><div class="panel"><a href="#leaders">Role &amp; traits</a><a href="#theories">Leadership theories</a><a href="#intra">Entrepreneurship &amp; intrapreneurship</a><a href="#values">Ethical values in governance</a></div></div>
+      <div class="dd"><button type="button">A2 Culture <span class="car">▾</span></button><div class="panel"><a href="#culture">Leaders &amp; culture</a><a href="#web">Cultural web</a><a href="#impact">Culture &amp; strategy</a><a href="#style">Leadership style for change</a></div></div>
+      <div class="dd"><button type="button">A3 Ethics <span class="car">▾</span></button><div class="panel"><a href="#public">Public interest &amp; public value</a><a href="#iesba">IESBA code</a><a href="#threats">Threats &amp; safeguards</a><a href="#conflicts">Conflicts &amp; dilemmas</a><a href="#fraud">Fraud, bribery &amp; corruption</a></div></div>
+      <div class="dd"><button type="button">H3–H4 Talent <span class="car">▾</span></button><div class="panel"><a href="#talent">Talent management</a><a href="#popit">POPIT</a><a href="#baldrige">Baldrige model</a><a href="#csf">CSFs &amp; KPIs</a></div></div>
+      <div class="dd"><button type="button">Practice <span class="car">▾</span></button><div class="panel"><a href="#case">Integrated case</a><a href="#skills">Professional skills</a><a href="#cheat">Cheat sheet</a><a href="#test">Self-test</a></div></div>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap"><main>
+<!-- 01 MAP -->
+<section id="map">
+  <div class="sec-head"><div class="num">01</div><div><h2>Chapter map: what this chapter is really about</h2><div class="ref">Syllabus A1–A3, H3–H4 · Main capabilities A and H</div></div></div>
+  <div class="box simple"><span class="lbl">In simple words</span>An organisation is only as good as <strong>the people who lead it</strong>, <strong>the culture they create</strong>, <strong>the ethics they live by</strong> and <strong>the talent they attract and grow</strong>. This chapter is the "people side" of strategy. Strategy is the plan; leadership, culture, ethics and talent decide whether the plan actually happens.</div>
+  <p>ACCA's own description of capability A says candidates must <em>"set the tone from the top and promote a positive culture"</em>. Capability H says they must manage <em>"talent and other business resources"</em>. So the examiner wants you to think like a <strong>CEO or senior adviser</strong>, not a textbook.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Typical task wording</th><th>Model or idea to use</th><th>Usual marks</th></tr></thead>
+    <tbody>
+      <tr><td>"Assess the leadership qualities needed to implement the strategy"</td><td>Leadership traits, transformational vs transactional, Kotter's leader vs manager</td><td>6–10</td></tr>
+      <tr><td>"Analyse the culture of X using the cultural web and recommend changes"</td><td>Johnson, Scholes &amp; Whittington's cultural web (current web → desired web)</td><td>12–18</td></tr>
+      <tr><td>"Discuss how the culture will affect the proposed strategy"</td><td>Strategic drift, culture as enabler or blocker</td><td>6–10</td></tr>
+      <tr><td>"Evaluate whether the CEO's behaviour is ethical / acted in the public interest"</td><td>IESBA fundamental principles, public value, responsible leadership</td><td>8–12</td></tr>
+      <tr><td>"Identify the ethical threats facing the finance director and recommend safeguards"</td><td>IESBA threats (self-interest, self-review, advocacy, familiarity, intimidation) + safeguards</td><td>8–12</td></tr>
+      <tr><td>"Recommend how the company should reduce the risk of fraud and bribery"</td><td>Fraud triangle, prevention / detection / response, UK Bribery Act six principles</td><td>8–12</td></tr>
+      <tr><td>"Discuss how talent management could support the strategy"</td><td>Talent cycle: attract, identify, develop, deploy, engage, retain</td><td>8–12</td></tr>
+      <tr><td>"Analyse opportunities for improvement using POPIT"</td><td>People, Organisation, Processes, IT</td><td>8–12</td></tr>
+      <tr><td>"Advise how the Baldrige model could help achieve performance excellence"</td><td>Baldrige 7 categories + core values</td><td>10–15</td></tr>
+      <tr><td>"Identify CSFs for the strategy and suggest KPIs to measure them"</td><td>CSF → KPI → target table</td><td>8–12</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box exam"><span class="lbl">Exam reality</span>SBL is one integrated case: 100 marks (80 technical + 20 professional skills), 3 hours 15 minutes, usually 4–5 tasks. Ethics and culture appear in <strong>almost every sitting</strong>, often as a smaller task (8–12 marks) where professional skills marks go to <strong>scepticism</strong> (challenging a director's behaviour) or <strong>commercial acumen</strong> (practical, affordable fixes). A safe rule: <strong>about 1 mark per well-explained, case-applied point</strong>.</div>
+  <div class="box memory"><span class="lbl">One-line chapter summary</span><strong>Leaders set the tone → tone becomes culture → culture drives behaviour (ethical or not) → talent delivers strategy → Baldrige and CSFs measure whether it worked.</strong></div>
+</section>
+
+<!-- ================= PART A ================= -->
+<div class="part a"><h2>Part A · Leadership (A1–A3)</h2><p>Qualities of leadership · leadership and culture · professionalism, ethical codes and the public interest</p></div>
+
+<!-- 02 LEADERS -->
+<section id="leaders">
+  <div class="sec-head"><div class="num">02</div><div><h2>The role of effective leadership &amp; key leadership traits</h2><div class="ref">A1a · Leadership in formulating and implementing strategy and change</div></div></div>
+  <div class="box simple"><span class="lbl">Step 1 · In simple words</span><strong>Leadership</strong> is getting people to <em>want</em> to move in a direction. <strong>Management</strong> is making sure the work gets done efficiently once that direction is set. A good organisation needs both, but strategy and change need leadership most, because people have to let go of the old way.</div>
+
+  <h3>Leadership vs management (Kotter)</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Leaders…</th><th>Managers…</th></tr></thead>
+    <tbody>
+      <tr><td>Set direction: create a vision and strategy</td><td>Plan and budget: set targets, timetables and allocate resources</td></tr>
+      <tr><td>Align people: communicate the vision so people understand and commit</td><td>Organise and staff: create structures, assign jobs, delegate</td></tr>
+      <tr><td>Motivate and inspire: energise people to overcome barriers</td><td>Control and problem-solve: monitor results against plan, correct deviations</td></tr>
+      <tr><td>Produce <strong>change</strong></td><td>Produce <strong>order and consistency</strong></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>The role of the leader in strategy</h3>
+  <div class="grid g4">
+    <div class="card"><h4>Formulate</h4><p>Set mission and vision, scan the environment, choose where to compete. Leaders must be open to bad news and challenge.</p></div>
+    <div class="card y"><h4>Communicate</h4><p>Translate strategy into a simple story every employee understands ("why", "what", "what it means for me").</p></div>
+    <div class="card r"><h4>Implement</h4><p>Allocate resources, pick the right people, remove blockers, model the new behaviours.</p></div>
+    <div class="card v"><h4>Sustain</h4><p>Set the tone from the top, embed culture and ethics, hold people accountable, review and adapt.</p></div>
+  </div>
+
+  <h3>Key leadership traits effective in strategy and change</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Trait</th><th>Why it matters for strategy / change</th><th>What it looks like in practice</th></tr></thead>
+    <tbody>
+      <tr><td>Vision</td><td>People follow a clear picture of the future, not a spreadsheet</td><td>"In three years every patient can book online and be seen within 7 days"</td></tr>
+      <tr><td>Integrity &amp; honesty</td><td>Trust is the currency of change; staff won't take risks for a leader they don't trust</td><td>Admits mistakes; same message to board, staff and regulators</td></tr>
+      <tr><td>Communication</td><td>Resistance grows in silence and rumour</td><td>Town halls, two-way Q&amp;A, consistent messages</td></tr>
+      <tr><td>Decisiveness</td><td>Strategy means choosing what <em>not</em> to do</td><td>Closes a loss-making unit rather than hoping it improves</td></tr>
+      <tr><td>Emotional intelligence</td><td>Change creates fear and loss; leaders must read and manage emotions</td><td>Recognises anxiety, listens, shows empathy, stays calm under pressure</td></tr>
+      <tr><td>Resilience &amp; courage</td><td>Change programmes hit setbacks; boards and unions push back</td><td>Holds the line on a needed change while adapting the "how"</td></tr>
+      <tr><td>Adaptability</td><td>The environment moves; rigid leaders cause strategic drift</td><td>Changes plan when evidence changes (management by fact)</td></tr>
+      <tr><td>Empowering others</td><td>One person cannot implement strategy</td><td>Delegates authority, builds a guiding coalition, develops successors</td></tr>
+      <tr><td>Commercial / strategic awareness</td><td>Must link decisions to value creation and stakeholders</td><td>Understands funding, competitors, regulation, technology</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="box example"><span class="lbl">Step 2 · Real business example</span><strong>Microsoft (2014 onwards).</strong> The new CEO changed the culture from "know-it-all" to "learn-it-all", moved the strategy from Windows to cloud, and partnered with former rivals. His traits were vision (cloud-first), empathy (a calmer, more collaborative tone), and decisiveness (writing off the phone business). The strategy only worked because the leadership changed the culture first.<br><br><strong>Healthcare example.</strong> A hospital CEO launching a new electronic medical record shadows nurses on night shifts, explains <em>why</em> (patient safety, fewer duplicate tests), and empowers "super-users" on each ward. Same system, very different adoption rate from a CEO who just emails a go-live date.</div>
+
+  <div class="box exam"><span class="lbl">Step 3 · How it appears in the exam</span>Usually through a <strong>weak leader</strong> in the case: a founder-CEO who dominates the board, ignores advice, or a new CEO who announces change by email. The task asks you to <em>"assess the leadership"</em> or <em>"advise on the qualities required"</em> to implement a strategy.</div>
+
+  <div class="box scenario"><span class="lbl">Scenario for the model answer</span>MedLine Clinics is a private chain of 14 clinics. The board has approved a move to telemedicine. The CEO, Mr Hart, founded the business 20 years ago. He announced the change in a two-line email, has not met clinic staff since, and told the board "doctors will do what they're told". Three senior doctors have resigned this month.</div>
+  <div class="box model"><span class="lbl">Step 4 · Model answer extract (assess the CEO's leadership, 6 marks)</span>
+    <p><strong>Lack of communication of the vision.</strong> A two-line email does not explain why telemedicine matters to patients or how doctors' work will change. Without a clear vision, staff fill the gap with fear, which is likely to explain the three resignations. Mr Hart should hold face-to-face sessions in each clinic explaining the patient benefits and timetable. <span class="mark">1–2</span></p>
+    <p><strong>Low emotional intelligence.</strong> Telling the board that "doctors will do what they're told" shows he does not recognise doctors' professional autonomy. Doctors are a high-power group whose co-operation is essential. A coercive approach risks further resignations of scarce clinical staff. <span class="mark">1–2</span></p>
+    <p><strong>No guiding coalition.</strong> He is acting alone. He should appoint a respected clinical lead to champion telemedicine and involve doctors in designing the new consultation process, which increases ownership. <span class="mark">1–2</span></p>
+  </div>
+
+  <div class="box examiner"><span class="lbl">Step 5 · Examiner expectations</span><ul><li>Use the <strong>case evidence</strong> as your headings (email, resignations, quote), not a list of textbook traits.</li><li>For each point: <strong>trait → evidence → consequence → recommendation</strong>.</li><li>Show scepticism: question whether the CEO is the right person to lead the change, politely.</li></ul></div>
+  <div class="box mistake"><span class="lbl">Step 6 · Common mistakes</span><ul><li>Listing 10 traits with definitions and no case link (scores almost nothing).</li><li>Confusing leadership with management: "the CEO should set a budget" is a management answer.</li><li>Being rude about a director: say "the CEO's approach appears to…", not "the CEO is incompetent".</li></ul></div>
+  <div class="box memory"><span class="lbl">Step 7 · Memory tip</span><strong>Leaders: Direction, Alignment, Motivation (DAM the river of change).</strong> Managers: Plan, Organise, Control. Traits for change: <strong>"VICE-DREAM"</strong>: Vision, Integrity, Communication, Emotional intelligence, Decisiveness, Resilience, Empowerment, Adaptability, Market awareness.</div>
+</section>
+
+<!-- 03 THEORIES -->
+<section id="theories">
+  <div class="sec-head"><div class="num">03</div><div><h2>Leadership theories you can use as tools</h2><div class="ref">A1a / A2b · Trait, style, contingency, transactional vs transformational</div></div></div>
+  <div class="box simple"><span class="lbl">Step 1 · In simple words</span>Theories try to answer "what makes a good leader?" Early theories said <strong>born with traits</strong>. Then <strong>behaviour/style</strong> (what leaders do). Then <strong>it depends on the situation</strong>. Modern thinking says strategic change needs <strong>transformational</strong> leaders who inspire, backed up by <strong>transactional</strong> discipline.</div>
+  <div class="tbl"><table>
+    <thead><tr><th>Approach</th><th>Key idea</th><th>Use in SBL</th></tr></thead>
+    <tbody>
+      <tr><td>Trait theory</td><td>Leaders share personal qualities (intelligence, confidence, drive, integrity)</td><td>Assessing a CEO candidate or a weak leader. Limitation: traits alone don't predict success.</td></tr>
+      <tr><td>Style theory (e.g. autocratic, democratic, laissez-faire)</td><td>Leaders can choose a style: tell, sell, consult, join</td><td>Autocratic fits a crisis; democratic suits knowledge workers (doctors, engineers); laissez-faire suits experts but risks drift</td></tr>
+      <tr><td>Contingency / situational</td><td>Best style depends on the task, the team's maturity and the leader's power</td><td>Justify why a different style is needed now (e.g. turnaround vs steady growth)</td></tr>
+      <tr><td>Transactional leadership</td><td>Exchange: rewards for performance, punishment for failure; focus on targets and control</td><td>Good for stable operations, compliance, cost control</td></tr>
+      <tr><td>Transformational leadership</td><td>Inspires people to go beyond self-interest for a shared vision</td><td>Best for strategic change, innovation, culture change</td></tr>
+    </tbody>
+  </table></div>
+  <h3>The four "I"s of transformational leadership (Bass)</h3>
+  <div class="grid g4">
+    <div class="card"><h4>Idealised influence</h4><p>Role model; "walks the talk"; earns trust and respect.</p></div>
+    <div class="card y"><h4>Inspirational motivation</h4><p>Clear, exciting vision; optimism; high expectations.</p></div>
+    <div class="card r"><h4>Intellectual stimulation</h4><p>Encourages questioning, new ideas, innovation.</p></div>
+    <div class="card v"><h4>Individualised consideration</h4><p>Coaches and supports each person's development.</p></div>
+  </div>
+  <div class="box example"><span class="lbl">Step 2 · Real business example</span>A government health authority facing a cyber-attack needs a <strong>directive, transactional</strong> style for the first 72 hours (clear orders, checklists). Six months later, rebuilding its digital strategy needs a <strong>transformational</strong> style to get clinicians and IT co-designing new systems. Same organisation, different situation, different style: that is contingency thinking.</div>
+  <div class="box exam"><span class="lbl">Step 3 · How it appears in the exam</span>Rarely asked by name. Instead: <em>"Advise the board on the leadership style most appropriate to manage the proposed change."</em> Use the theories as <strong>language</strong> inside an applied answer.</div>
+  <div class="box scenario"><span class="lbl">Scenario for the model answer</span>A family-owned FMCG company wants to launch a range of healthy snacks to reverse falling sales. The managing director runs the business through weekly sales targets and bonuses. Product ideas from staff are rarely heard because "the MD decides".</div>
+  <div class="box model"><span class="lbl">Step 4 · Model answer extract (4 marks)</span><p>The MD's style is <strong>transactional</strong>: weekly targets and bonuses drive short-term sales of existing products, which has worked in a stable market. However, launching a new healthy range requires creativity and risk-taking. Because "the MD decides", staff with market insight are unlikely to share ideas, so the company may miss consumer trends. <span class="mark">2</span></p><p>The MD should adopt a more <strong>transformational</strong> style: set an inspiring vision (e.g. "the healthiest snack brand in the region"), stimulate ideas through cross-functional innovation teams, and recognise innovation, not just sales volume. Transactional controls should remain for cost and quality. <span class="mark">2</span></p></div>
+  <div class="box examiner"><span class="lbl">Step 5 · Examiner expectations</span>Match the style to the <strong>situation in the case</strong> and justify it. Recognise that a blend is often best.</div>
+  <div class="box mistake"><span class="lbl">Step 6 · Common mistakes</span><ul><li>Saying "transformational is always best": in a crisis or for safety compliance, directive is often right.</li><li>Describing theories historically (who wrote what in which year). No marks.</li></ul></div>
+  <div class="box memory"><span class="lbl">Step 7 · Memory tip</span><strong>Transactional = deal ("do X, get Y"). Transformational = dream (4 I's: Influence, Inspire, Intellect, Individual).</strong></div>
+</section>
+
+<!-- 04 ENTREPRENEURSHIP -->
+<section id="intra">
+  <div class="sec-head"><div class="num">04</div><div><h2>Entrepreneurship &amp; intrapreneurship</h2><div class="ref">A1b · Exploit strategic opportunities and innovate successfully</div></div></div>
+  <div class="box simple"><span class="lbl">Step 1 · In simple words</span><strong>Entrepreneurship</strong>: someone spots an opportunity, takes a personal risk and starts a new business. <strong>Intrapreneurship</strong>: an employee behaves like an entrepreneur <em>inside</em> an existing organisation, using its resources to create a new product, service or process. The company carries the financial risk; the employee brings the energy and idea.</div>
+  <div class="tbl"><table>
+    <thead><tr><th></th><th>Entrepreneur</th><th>Intrapreneur</th></tr></thead>
+    <tbody>
+      <tr><td>Where</td><td>Own new venture</td><td>Inside an existing organisation</td></tr>
+      <tr><td>Risk borne by</td><td>The individual (own money, reputation)</td><td>Mainly the organisation</td></tr>
+      <tr><td>Resources</td><td>Must raise them</td><td>Uses company brand, cash, customers, data</td></tr>
+      <tr><td>Main obstacle</td><td>Finance, market access</td><td>Bureaucracy, risk-averse culture, "not invented here"</td></tr>
+      <tr><td>Reward</td><td>Ownership, profit</td><td>Recognition, bonus, career, sometimes equity in a spin-off</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Typical entrepreneurial traits</h3>
+  <p>Opportunity spotting, risk tolerance, self-belief, persistence, creativity, comfort with uncertainty, ability to sell an idea and acquire resources.</p>
+  <h3>How leaders encourage intrapreneurship</h3>
+  <ul>
+    <li><strong>Time and space:</strong> e.g. dedicated innovation time, hackathons, internal "Dragon's Den" pitches.</li>
+    <li><strong>Seed funding</strong> with light approval for small experiments.</li>
+    <li><strong>Tolerate failure:</strong> treat failed pilots as learning, not as grounds for punishment.</li>
+    <li><strong>Flatter, faster decisions:</strong> fewer sign-offs; a sponsor with authority.</li>
+    <li><strong>Rewards and recognition</strong> linked to innovation, not just meeting budget.</li>
+    <li><strong>Governance and risk limits:</strong> clear boundaries so innovation doesn't create compliance or patient-safety risk.</li>
+  </ul>
+  <div class="box example"><span class="lbl">Step 2 · Real business examples</span><ul><li><strong>3M Post-it notes</strong> came from an employee using "15% time" to solve a personal problem (bookmarks falling out of a hymn book).</li><li><strong>Sony PlayStation</strong> began as an internal engineer's project that senior managers initially resisted.</li><li><strong>Healthcare:</strong> a nurse proposes a "virtual ward" where stable patients are monitored at home with wearable devices, freeing beds. The hospital funds a 3-month pilot on one ward; it scales after showing a fall in bed-days.</li></ul></div>
+  <div class="box exam"><span class="lbl">Step 3 · How it appears in the exam</span>A case where a mature organisation is losing to nimble start-ups, or a staff member has an innovative idea that management ignores. Task: <em>"Discuss how the company could encourage intrapreneurship"</em> or <em>"Evaluate the CEO's entrepreneurial qualities"</em>.</div>
+  <div class="box scenario"><span class="lbl">Scenario for the model answer</span>CityBank is a 60-year-old bank losing younger customers to mobile-only fintechs. A junior IT analyst built a budgeting app prototype at home; her manager rejected it because "it is not in this year's IT plan". Any new project above $10,000 requires five levels of approval.</div>
+  <div class="box model"><span class="lbl">Step 4 · Model answer extract (6 marks)</span>
+  <p><strong>Remove approval barriers for small experiments.</strong> Five approval levels for $10,000 means ideas die before they are tested, while fintechs can launch features in weeks. CityBank should create an innovation fund where small pilots (e.g. under $50,000) are approved by one sponsor within two weeks. <span class="mark">2</span></p>
+  <p><strong>Create channels for ideas.</strong> The analyst's prototype was rejected purely because it was not in the plan, so the bank is losing exactly the digital creativity it needs to win younger customers. A quarterly pitch event judged by the digital director would let ideas reach decision makers. <span class="mark">2</span></p>
+  <p><strong>Reward and protect intrapreneurs.</strong> If the analyst sees no recognition, she may join a fintech. CityBank should give successful intrapreneurs visible recognition and bonuses, and treat failed pilots as learning. Risk and compliance should review pilots early so innovation stays within regulatory limits. <span class="mark">2</span></p></div>
+  <div class="box examiner"><span class="lbl">Step 5 · Examiner expectations</span>Practical mechanisms (fund, process, reward, culture) linked to the specific barrier in the case. Balance innovation with control.</div>
+  <div class="box mistake"><span class="lbl">Step 6 · Common mistakes</span><ul><li>Defining entrepreneurship at length and not recommending anything.</li><li>Ignoring risk: in banks and hospitals, "move fast and break things" is not acceptable.</li></ul></div>
+  <div class="box memory"><span class="lbl">Step 7 · Memory tip</span><strong>Intrapreneur = "entrepreneur with a company credit card".</strong> To unlock them: <strong>T-F-R-E-E</strong>: Time, Funding, Reward, Error tolerance, Easy approval.</div>
+</section>
+
+<!-- 05 VALUES -->
+<section id="values">
+  <div class="sec-head"><div class="num">05</div><div><h2>Ethical &amp; professional values underpinning governance</h2><div class="ref">A1c · Applying ethical values in the context of governance and leadership</div></div></div>
+  <div class="box simple"><span class="lbl">Step 1 · In simple words</span>Rules can never cover every situation. Good governance therefore rests on a set of <strong>values</strong> that leaders should live by. When a case describes a director's behaviour, test it against these values. Each one is a ready-made heading.</div>
+  <div class="tbl"><table>
+    <thead><tr><th>Value</th><th>Meaning</th><th>Breach looks like…</th></tr></thead>
+    <tbody>
+      <tr><td>Fairness</td><td>Treat all stakeholders (including minority shareholders, staff, patients) even-handedly</td><td>Directors awarding themselves bonuses while freezing staff pay</td></tr>
+      <tr><td>Openness / transparency</td><td>Disclose information freely unless there is a good reason not to</td><td>Hiding a product safety issue or a major contract loss from shareholders</td></tr>
+      <tr><td>Independence</td><td>Freedom from conflicts that could bias judgement (key for NEDs and auditors)</td><td>A "NED" who is the CEO's brother-in-law or former audit partner</td></tr>
+      <tr><td>Probity / honesty</td><td>Telling the truth; not misleading</td><td>Inflating revenue forecasts in a funding bid</td></tr>
+      <tr><td>Responsibility</td><td>Accepting your duties and the consequences of your decisions</td><td>Blaming junior staff for a failure the board ignored</td></tr>
+      <tr><td>Accountability</td><td>Being answerable to stakeholders and accepting scrutiny</td><td>CEO refusing to explain decisions to the audit committee</td></tr>
+      <tr><td>Reputation</td><td>Protecting the organisation's standing; it follows from the other values</td><td>Being linked to bribery or unsafe working conditions in suppliers</td></tr>
+      <tr><td>Judgement</td><td>Making balanced, informed decisions in the organisation's best interest</td><td>Rushing an acquisition without due diligence</td></tr>
+      <tr><td>Integrity</td><td>Straightforward, honest, consistent in word and action (the "umbrella" value)</td><td>Saying one thing to regulators and another to staff</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box example"><span class="lbl">Step 2 · Real business example</span><strong>Volkswagen emissions scandal (2015).</strong> Software was used to cheat emissions tests. This breached probity (deceiving regulators), openness (concealment), responsibility (engineers blamed) and caused huge reputation damage and billions in fines. A culture of fear of missing targets made it possible, which shows how values, culture and leadership connect.</div>
+  <div class="box exam"><span class="lbl">Step 3 · How it appears in the exam</span><em>"Evaluate the behaviour of the chairman against the ethical values expected of a director."</em> Use 4–5 of the values as headings that fit the evidence.</div>
+  <div class="box scenario"><span class="lbl">Scenario for the model answer</span>The chairman of a listed hospital group appointed his close friend as a non-executive director without a nomination committee process. He also delayed announcing that a regulator had suspended surgery at one hospital until after he had sold 30% of his own shares.</div>
+  <div class="box model"><span class="lbl">Step 4 · Model answer extract (6 marks)</span>
+  <p><strong>Independence and fairness.</strong> Appointing a close friend without a nomination committee means the new NED is unlikely to challenge the chairman. This weakens board scrutiny and is unfair to shareholders who rely on independent oversight. The appointment should be reviewed by the nomination committee. <span class="mark">2</span></p>
+  <p><strong>Openness and probity.</strong> Delaying disclosure of the surgery suspension kept price-sensitive information from the market. <span class="mark">1</span> <strong>Integrity and fairness.</strong> Selling 30% of his shares before the announcement suggests he used inside information for personal gain at other shareholders' expense, which may be illegal insider dealing. <span class="mark">1–2</span> The board should obtain legal advice, report to the regulator and consider whether he can remain as chairman. <span class="mark">1</span></p></div>
+  <div class="box examiner"><span class="lbl">Step 5 · Examiner expectations</span>Name the value, show the evidence, say why it matters (to which stakeholder), recommend action. Scepticism marks for spotting the <em>timing</em> of the share sale.</div>
+  <div class="box mistake"><span class="lbl">Step 6 · Common mistakes</span><ul><li>Using every value for every fact: choose the best-fitting 1–2.</li><li>Moralising ("this is very bad") instead of analysing consequences.</li></ul></div>
+  <div class="box memory"><span class="lbl">Step 7 · Memory tip</span><strong>"FOIP RARJI"</strong>: Fairness, Openness, Independence, Probity, Responsibility, Accountability, Reputation, Judgement, Integrity. Or picture a judge saying: <em>"Fair, Open, Independent, Honest… and Responsible, Accountable, Reputable, Judicious, with Integrity."</em></div>
+</section>
+
+<!-- 06 CULTURE -->
+<section id="culture">
+  <div class="sec-head"><div class="num">06</div><div><h2>Leadership in defining and managing organisational culture</h2><div class="ref">A2a · Tone from the top, Schein's three levels, Handy's cultures</div></div></div>
+  <div class="box simple"><span class="lbl">Step 1 · In simple words</span><strong>Culture is "the way we do things around here"</strong>: the shared beliefs, habits and unwritten rules that guide what people do when no one is watching. Leaders shape culture more than anyone, because staff copy what leaders <em>do</em>, <em>reward</em> and <em>tolerate</em>, not what they say.</div>
+  <h3>Schein's three levels of culture</h3>
+  <div class="grid g3">
+    <div class="card"><h4>1. Artefacts (visible)</h4><p>What you can see and hear: dress code, office layout, logos, language, ceremonies, how meetings run.</p></div>
+    <div class="card y"><h4>2. Espoused values (stated)</h4><p>What the organisation says it believes: mission statement, code of conduct, "patients first".</p></div>
+    <div class="card r"><h4>3. Basic assumptions (hidden)</h4><p>Deep, taken-for-granted beliefs that really drive behaviour: "senior doctors are never questioned", "hitting the number is all that matters".</p></div>
+  </div>
+  <div class="box exam" style="margin-top:0"><span class="lbl">Why this matters</span>If espoused values ("we value safety") differ from basic assumptions ("never stop the production line"), staff follow the <strong>assumptions</strong>. In the exam, spot this <strong>gap</strong>: it is a classic scepticism point.</div>
+  <h3>How leaders shape culture (the "tone from the top")</h3>
+  <ul>
+    <li><strong>What leaders pay attention to</strong> and measure: if the board only discusses revenue, staff learn only revenue matters.</li>
+    <li><strong>How leaders react to crises and mistakes:</strong> blame culture vs learning culture.</li>
+    <li><strong>Role modelling:</strong> a CEO who flies first class while cutting staff travel sends a stronger message than any memo.</li>
+    <li><strong>Reward and promotion criteria:</strong> who gets promoted tells everyone what is really valued.</li>
+    <li><strong>Recruitment and exit:</strong> hiring for values, removing toxic high performers.</li>
+    <li><strong>Stories, symbols and rituals</strong> leaders create (see the cultural web).</li>
+  </ul>
+  <h3>Handy's four cultures (useful vocabulary)</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Culture</th><th>Picture</th><th>Features</th><th>Typical example</th></tr></thead>
+    <tbody>
+      <tr><td>Power (Zeus)</td><td>Spider's web</td><td>Power at the centre; fast decisions; depends on one person</td><td>Founder-led family business</td></tr>
+      <tr><td>Role (Apollo)</td><td>Greek temple</td><td>Rules, procedures, job descriptions; stable but slow</td><td>Government department, large bank</td></tr>
+      <tr><td>Task (Athena)</td><td>Net / matrix</td><td>Teams form around projects; expertise valued; flexible</td><td>Consultancy, tech product teams</td></tr>
+      <tr><td>Person (Dionysus)</td><td>Cluster of stars</td><td>Organisation exists to serve the individuals' expertise</td><td>Barristers' chambers, partnership of surgeons</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box example"><span class="lbl">Step 2 · Real business example</span><strong>Boeing 737 MAX.</strong> Investigations described a shift from an engineering-led culture to one dominated by cost and schedule pressure, where safety concerns were not escalated effectively. The espoused value was safety; the lived assumption was "deliver on time and on cost". Two fatal crashes followed.<br><br><strong>Positive example:</strong> hospitals that adopt a "just culture" (no blame for honest errors, accountability for reckless behaviour) see more incident reporting, which lets them fix problems before patients are harmed.</div>
+  <div class="box exam"><span class="lbl">Step 3 · How it appears in the exam</span><em>"Discuss the importance of the leadership in shaping the culture at X"</em> or a case where staff behaviour (e.g. hiding errors) is clearly caused by leaders' behaviour.</div>
+  <div class="box scenario"><span class="lbl">Scenario for the model answer</span>At Northgate Hospital, the code of conduct says "patient safety is our first priority". In the last year, two nurses who reported medication errors were disciplined, and the CEO's monthly staff email focuses only on waiting-time targets and budget. Incident reports have fallen by 40% although patient complaints have risen.</div>
+  <div class="box model"><span class="lbl">Step 4 · Model answer extract (5 marks)</span><p>There is a gap between Northgate's <strong>espoused value</strong> ("patient safety first") and its <strong>actual assumptions</strong>. Disciplining nurses who reported errors teaches staff that reporting is dangerous. <span class="mark">1</span> The 40% fall in incident reports, while complaints rise, is therefore unlikely to mean fewer errors. It more likely means errors are being hidden, which increases the risk of serious patient harm. <span class="mark">1–2</span></p><p>The CEO's emails focus only on targets and budget, so leadership attention signals that safety is secondary. <span class="mark">1</span> The CEO should introduce a just-culture policy, publicly thank staff who report incidents, and add safety indicators to every board and staff communication. <span class="mark">1</span></p></div>
+  <div class="box examiner"><span class="lbl">Step 5 · Examiner expectations</span>Link <strong>leader behaviour → staff behaviour → business risk</strong>. Interpret numbers sceptically (fewer reports ≠ fewer errors).</div>
+  <div class="box mistake"><span class="lbl">Step 6 · Common mistakes</span><ul><li>Recommending "change the culture" without saying <em>how</em>.</li><li>Recommending only a new code of conduct: codes change espoused values, not assumptions.</li></ul></div>
+  <div class="box memory"><span class="lbl">Step 7 · Memory tip</span><strong>Schein = an iceberg: Artefacts above water, Values at the waterline, Assumptions deep below (and they sink ships).</strong> Staff follow what leaders <strong>Do, Reward and Tolerate</strong>, not what they say.</div>
+</section>
+
+<!-- 07 CULTURAL WEB -->
+<section id="web">
+  <div class="sec-head"><div class="num">07</div><div><h2>The cultural web: analysing culture and recommending change</h2><div class="ref">A2c · Johnson, Scholes &amp; Whittington · A very high-frequency exam model</div></div></div>
+  <div class="box simple"><span class="lbl">Step 1 · In simple words</span>The cultural web breaks culture into <strong>six visible elements</strong> that together hold in place the <strong>paradigm</strong>: the core set of assumptions at the centre. To change culture, you must change the six elements; otherwise they keep pulling the paradigm back.</div>
+  <div class="web">
+    <div class="c"><b>Stories</b>What people tell each other: heroes, villains, legends, past successes and failures</div>
+    <div class="c"><b>Symbols</b>Logos, offices, titles, cars, language, dress: signs of status and identity</div>
+    <div class="c"><b>Power structures</b>Who really has influence (may not match the org chart)</div>
+    <div class="c"><b>Rituals &amp; routines</b>"The way we do things": meetings, ceremonies, habits, unwritten rules</div>
+    <div class="c core"><b>PARADIGM</b>The core assumptions everyone takes for granted</div>
+    <div class="c"><b>Organisational structure</b>Formal reporting lines, hierarchy, centralisation</div>
+    <div class="c" style="grid-column:1/4"><b>Control systems</b>What is measured, rewarded and punished: budgets, KPIs, bonuses, appraisals</div>
+  </div>
+  <h3>How to use it in the exam (the three-step method)</h3>
+  <div class="flow">
+    <div class="s"><b>1. Current web</b>Use case facts to describe each element today</div><div class="arr">→</div>
+    <div class="s"><b>2. Problem</b>Explain why each element blocks the new strategy</div><div class="arr">→</div>
+    <div class="s"><b>3. Desired web</b>Recommend specific changes to each element</div>
+  </div>
+  <div class="box example"><span class="lbl">Step 2 · Worked example: a government hospital moving to patient-centred, digital care</span>
+  <div class="tbl"><table>
+    <thead><tr><th>Element</th><th>Current (from case)</th><th>Why it blocks strategy</th><th>Recommended change</th></tr></thead>
+    <tbody>
+      <tr><td>Stories</td><td>Staff retell how a consultant "saved" the hospital by refusing a new IT system in 2015</td><td>Celebrates resistance to technology</td><td>Publicise stories of clinicians whose patients benefited from digital tools</td></tr>
+      <tr><td>Symbols</td><td>Consultants have reserved parking and a separate dining room; patients are called "beds"</td><td>Reinforces hierarchy and depersonalises patients</td><td>Remove status symbols; adopt patient-centred language ("Mrs Ali", not "bed 12")</td></tr>
+      <tr><td>Power</td><td>Senior consultants veto changes informally, regardless of management</td><td>Strategy fails without their support</td><td>Make respected consultants clinical champions with real roles in the programme</td></tr>
+      <tr><td>Structure</td><td>Rigid departmental silos; each specialty has its own budget</td><td>Patient journeys cross departments; nobody owns the whole pathway</td><td>Create cross-department pathway teams (e.g. a diabetes pathway lead)</td></tr>
+      <tr><td>Control systems</td><td>Departments judged only on staying within budget</td><td>No incentive to improve patient experience</td><td>Balanced KPIs: patient satisfaction, waiting time, readmissions, plus budget</td></tr>
+      <tr><td>Rituals &amp; routines</td><td>Ward rounds at fixed times for doctors' convenience; paper forms "because we always have"</td><td>Patients wait; digital records ignored</td><td>Redesign routines around patients; celebrate "paper-free ward" milestones</td></tr>
+      <tr><td>Paradigm</td><td>"Doctors know best; the hospital serves clinicians"</td><td>Opposes patient-centred care</td><td>"We design care around the patient, using data"</td></tr>
+    </tbody>
+  </table></div></div>
+  <div class="box exam"><span class="lbl">Step 3 · How it appears in the exam</span><em>"Using the cultural web, analyse the culture of X and recommend changes needed to support the new strategy"</em> (12–18 marks). Facts are scattered across exhibits: a CEO interview, staff survey, email, newspaper article. Hunt for them.</div>
+  <div class="box scenario"><span class="lbl">Scenario for the model answer</span>
+  <p><strong>SwiftPost</strong> is a former state postal service, now partly privatised. The board wants to become an e-commerce parcel delivery company. Facts from the case:</p>
+  <ul>
+    <li>Long-serving staff talk proudly about the "golden age" when SwiftPost had a legal monopoly on letters.</li>
+    <li>Senior managers have large private offices on the top floor of head office; they are addressed as "Sir".</li>
+    <li>The postal workers' union must approve any change to shift patterns, and has blocked weekend deliveries twice.</li>
+    <li>There are nine layers of management between a delivery driver and the CEO.</li>
+    <li>Managers' bonuses are based on the number of letters delivered on time; parcels are not measured.</li>
+    <li>Every delivery route has been the same for 15 years; staff finish at 2pm.</li>
+  </ul></div>
+  <div class="box model"><span class="lbl">Step 4 · Model answer (cultural web, 12 marks; extract shows 5 elements)</span>
+  <h4>Stories</h4><p>Staff speak proudly of the "golden age" of the letter monopoly. This shows an identity built on protected letters, not competitive parcels. Staff may not believe e-commerce is "real postal work". <strong>Recommendation:</strong> leaders should create new stories by celebrating early parcel successes, e.g. a team that achieved record same-day deliveries. <span class="mark">2</span></p>
+  <h4>Symbols</h4><p>Top-floor private offices and the title "Sir" signal hierarchy and distance from front-line drivers, who are the people e-commerce customers actually see. <strong>Recommendation:</strong> open-plan management areas, first-name culture and senior managers spending days on delivery rounds. <span class="mark">2</span></p>
+  <h4>Power structures</h4><p>The union has real power: it has blocked weekend deliveries twice, and weekend delivery is essential for online shoppers. <strong>Recommendation:</strong> involve the union early, negotiate a partnership deal (e.g. premium pay for weekend shifts, job security commitments) rather than imposing change. <span class="mark">2–3</span></p>
+  <h4>Organisational structure</h4><p>Nine layers of management slow decisions; e-commerce clients like online retailers expect quick responses. <strong>Recommendation:</strong> delayer to around five levels and create a dedicated parcels business unit with its own leader. <span class="mark">2</span></p>
+  <h4>Control systems</h4><p>Bonuses reward letters delivered on time, so managers rationally ignore parcels, the very growth area. <strong>Recommendation:</strong> introduce parcel KPIs (delivery within promised slot, first-time delivery rate, customer rating) and link bonuses to them. <span class="mark">2</span></p>
+  <h4>Paradigm (conclusion)</h4><p>Overall the paradigm is <em>"we are a protected public letter service"</em>. It must shift to <em>"we are a competitive, customer-focused delivery business"</em>. Changing control systems and union agreements first will give the quickest results, because they change daily behaviour. <span class="mark">1–2</span> <span class="skill">Evaluation</span></p></div>
+  <div class="box examiner"><span class="lbl">Step 5 · Examiner expectations</span><ul><li>Every element must be <strong>fed by a case fact</strong>. If the case has no evidence for one element, say so briefly or skip it.</li><li>Examiners repeatedly say weak candidates only <strong>describe</strong> the current culture. Marks come from <strong>implications for the strategy</strong> and <strong>specific changes</strong>.</li><li>Finish with the paradigm shift and priorities: that's where evaluation marks sit.</li></ul></div>
+  <div class="box mistake"><span class="lbl">Step 6 · Common mistakes</span><ul><li>Putting the same fact under two elements.</li><li>Confusing <em>rituals</em> (habits/ceremonies) with <em>control systems</em> (measurement and reward).</li><li>Confusing <em>structure</em> (formal chart) with <em>power</em> (who really influences).</li><li>Forgetting the "desired web" when the requirement says "recommend".</li></ul></div>
+  <div class="box memory"><span class="lbl">Step 7 · Memory tip</span><strong>"Silly Sheep Pick Odd Coloured Rugs"</strong>: Stories, Symbols, Power, Organisational structure, Control systems, Rituals &amp; routines → all around the <strong>Paradigm</strong>. Method: <strong>Now → Problem → Future</strong>.</div>
+</section>
+
+<!-- 08 CULTURE & STRATEGY -->
+<section id="impact">
+  <div class="sec-head"><div class="num">08</div><div><h2>Impact of culture on purpose and strategy</h2><div class="ref">A2d · Culture as enabler or blocker, strategic drift, national culture</div></div></div>
+  <div class="box simple"><span class="lbl">Step 1 · In simple words</span>"Culture eats strategy for breakfast." A strategy that fits the culture is implemented almost automatically. A strategy that fights the culture will be quietly resisted, delayed or diluted, even if it is brilliant on paper. Culture also shapes <strong>which</strong> strategies leaders even consider.</div>
+  <h3>Four ways culture affects strategy</h3>
+  <div class="grid g2">
+    <div class="card"><h4>1. Filters what leaders see</h4><p>The paradigm decides which environmental signals are noticed. A bank proud of its branches may dismiss mobile banking as "a fad".</p></div>
+    <div class="card y"><h4>2. Shapes strategic choice</h4><p>A risk-averse culture favours market penetration over diversification; an innovative culture favours new products.</p></div>
+    <div class="card r"><h4>3. Determines implementation speed</h4><p>Aligned culture = fast execution; misaligned = resistance, delays, cost overruns.</p></div>
+    <div class="card v"><h4>4. Defines purpose and ethics</h4><p>Culture decides whether purpose statements ("patients first") are lived or just posters. It drives ethical behaviour and reputation.</p></div>
+  </div>
+  <h3>Strategic drift</h3>
+  <p><strong>Strategic drift</strong> happens when an organisation's strategy gradually moves away from the needs of its changing environment because the culture keeps repeating what worked before. It has four phases:</p>
+  <div class="flow">
+    <div class="s"><b>1. Incremental change</b>Small tweaks; strategy still fits</div><div class="arr">→</div>
+    <div class="s"><b>2. Drift</b>Environment moves faster; culture resists</div><div class="arr">→</div>
+    <div class="s"><b>3. Flux</b>Results fall; confusion; internal arguments</div><div class="arr">→</div>
+    <div class="s"><b>4. Transformation or death</b>Radical change or failure</div>
+  </div>
+  <div class="box example"><span class="lbl">Step 2 · Real business examples</span><ul><li><strong>Kodak</strong> invented the digital camera but a culture built on film profits and chemical expertise kept it focused on film. Classic strategic drift → bankruptcy (2012).</li><li><strong>Nokia</strong>: a culture of internal fear and over-confidence in hardware meant smartphones' software threat was underestimated.</li><li><strong>Healthcare</strong>: a health authority wants to shift spending from hospitals to preventive community care, but its culture (and status) is built around hospital specialists. Without changing the culture, money keeps flowing to hospitals.</li></ul></div>
+  <h3>National culture: Hofstede (useful for cross-border cases)</h3>
+  <p>Not named in the syllabus, but helpful when a case involves overseas expansion, a multinational merger or a foreign workforce.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Dimension</th><th>Meaning</th><th>Strategic implication</th></tr></thead>
+    <tbody>
+      <tr><td>Power distance</td><td>How far people accept unequal power</td><td>High: staff expect direction; participative change is harder</td></tr>
+      <tr><td>Individualism vs collectivism</td><td>Self vs group loyalty</td><td>Collectivist: team rewards work better than individual bonuses</td></tr>
+      <tr><td>Uncertainty avoidance</td><td>Comfort with ambiguity</td><td>High: need detailed plans and rules before change</td></tr>
+      <tr><td>Masculinity vs femininity</td><td>Competition/achievement vs care/quality of life</td><td>Affects motivation and reward design</td></tr>
+      <tr><td>Long- vs short-term orientation</td><td>Future focus vs tradition</td><td>Long-term: patient investment accepted</td></tr>
+      <tr><td>Indulgence vs restraint</td><td>Freedom to enjoy life vs strict norms</td><td>Affects marketing and workplace policies</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box exam"><span class="lbl">Step 3 · How it appears in the exam</span><em>"Assess how the culture of X could affect the implementation of the proposed acquisition / digital strategy"</em>. Post-merger cultural clash is a favourite.</div>
+  <div class="box scenario"><span class="lbl">Scenario for the model answer</span>GreenLeaf, a 120-year-old, highly bureaucratic tea company (decisions take months; strict procedures; long-serving staff), plans to acquire QuickBrew, a five-year-old ready-to-drink tea start-up with 40 young staff, flexible hours and decisions made in daily stand-up meetings. QuickBrew's founders and staff are the main source of its value.</div>
+  <div class="box model"><span class="lbl">Step 4 · Model answer extract (6 marks)</span>
+  <p><strong>Risk of losing the value being bought.</strong> QuickBrew's value lies in its people and speed. If GreenLeaf imposes its role culture (months-long approvals, strict procedures), QuickBrew's staff may become frustrated and leave. GreenLeaf would then have paid for a brand without the capability that created it. <span class="mark">2</span></p>
+  <p><strong>Cultural clash slows integration.</strong> Daily stand-ups vs months-long approvals means the two teams will disagree on how fast to launch products, delaying the synergies in the business case. <span class="mark">2</span></p>
+  <p><strong>Recommendation.</strong> Keep QuickBrew as a separate unit with its own culture for at least two years (a "preservation" approach), give its founders retention bonuses linked to growth targets, and use QuickBrew as a source of innovation for GreenLeaf rather than absorbing it. <span class="mark">2</span> <span class="skill">Commercial acumen</span></p></div>
+  <div class="box examiner"><span class="lbl">Step 5 · Examiner expectations</span>Show the business consequence of culture in money or risk terms (lost talent, delayed synergies, reputation), then give a practical integration recommendation.</div>
+  <div class="box mistake"><span class="lbl">Step 6 · Common mistakes</span><ul><li>Saying "the cultures are different" without saying <em>so what</em>.</li><li>Assuming the bigger company's culture is "right" and should be imposed.</li></ul></div>
+  <div class="box memory"><span class="lbl">Step 7 · Memory tip</span><strong>Kodak = drift.</strong> Strategic drift phases: <strong>"I Don't Feel Transformed"</strong> → Incremental, Drift, Flux, Transformation (or death).</div>
+</section>
+
+<!-- 09 STYLE FOR CHANGE -->
+<section id="style">
+  <div class="sec-head"><div class="num">09</div><div><h2>Leadership style appropriate to manage strategic change</h2><div class="ref">A2b · Balogun &amp; Hope Hailey styles · links to your Change chapter</div></div></div>
+  <div class="box simple"><span class="lbl">Step 1 · In simple words</span>There is no single "right" change style. Choose based on <strong>how much time you have</strong>, <strong>how ready staff are</strong>, and <strong>how much power the leader holds</strong>. The more urgent the crisis, the more directive you can be; the more you need commitment from experts, the more participative you should be.</div>
+  <div class="tbl"><table>
+    <thead><tr><th>Style</th><th>What it means</th><th>Best when…</th><th>Risk</th></tr></thead>
+    <tbody>
+      <tr><td>Education &amp; communication</td><td>Explain the reasons for change; persuade with facts</td><td>Change is incremental, there's time, resistance comes from misunderstanding</td><td>Slow; explaining ≠ agreeing</td></tr>
+      <tr><td>Collaboration / participation</td><td>Involve staff in deciding what changes and how</td><td>Expert staff (doctors, engineers) whose commitment is essential; time available</td><td>Slow; may dilute the change</td></tr>
+      <tr><td>Intervention</td><td>Leader keeps control but delegates parts of the process to teams</td><td>Leader knows the destination but needs staff ideas for implementation</td><td>Partial ownership only</td></tr>
+      <tr><td>Direction</td><td>Leader decides and tells; uses authority</td><td>Fast, transformational change; crisis; clear vision needed</td><td>Resentment; low commitment</td></tr>
+      <tr><td>Coercion</td><td>Imposes change by explicit use of power (threats, dismissals)</td><td>Genuine crisis, survival at stake, no time</td><td>Loss of good staff, damaged trust, may fail long-term</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box example"><span class="lbl">Step 2 · Real business example</span>During COVID-19, many hospitals moved outpatients to video consultations in days through <strong>direction</strong>. There was no time for consultation and survival of services was at stake. Afterwards, deciding which clinics stay virtual permanently was done through <strong>collaboration</strong> with clinicians and patient groups, because long-term adoption needs commitment.</div>
+  <div class="box exam"><span class="lbl">Step 3 · How it appears in the exam</span><em>"Advise the CEO on an appropriate style of leadership to manage the change"</em>. Link to the <strong>contextual features</strong> (time, readiness, power) you learned in the Change chapter.</div>
+  <div class="box scenario"><span class="lbl">Scenario for the model answer</span>A regional ambulance service must cut average response times by 20% within 18 months to keep its government funding. Paramedics are highly skilled and respected; a previous restructure two years ago was imposed and led to a strike. The new chief executive has strong support from the health ministry.</div>
+  <div class="box model"><span class="lbl">Step 4 · Model answer extract (5 marks)</span><p>A <strong>coercive</strong> style should be avoided: the last imposed restructure caused a strike, and paramedics are a scarce, high-power group. Losing them would make response times worse, not better. <span class="mark">1–2</span></p><p>However, 18 months with funding at risk is not enough time for pure collaboration. An <strong>intervention</strong> style fits best. The chief executive sets the non-negotiable goal (20% faster) and uses her ministry backing to secure resources, but delegates the redesign of shift patterns and dispatch routines to paramedic-led teams. <span class="mark">2</span> Early, visible quick wins (e.g. new rapid-response vehicles) will build credibility before harder changes. <span class="mark">1</span></p></div>
+  <div class="box examiner"><span class="lbl">Step 5 · Examiner expectations</span>Justify the chosen style <strong>and</strong> say why the alternatives are less suitable. That comparison earns evaluation marks.</div>
+  <div class="box mistake"><span class="lbl">Step 6 · Common mistakes</span><ul><li>Recommending "collaboration" in every answer even when the case shows a crisis and tight deadline.</li><li>Not using the case's history (a past strike is a gift: use it).</li></ul></div>
+  <div class="box memory"><span class="lbl">Step 7 · Memory tip</span><strong>"Every Clever Idea Drives Change"</strong>: Education, Collaboration, Intervention, Direction, Coercion. From slow and soft → fast and hard.</div>
+</section>
+
+<!-- 10 PUBLIC INTEREST -->
+<section id="public">
+  <div class="sec-head"><div class="num">10</div><div><h2>Responsible leadership, the public interest &amp; public value</h2><div class="ref">A3a · Critically evaluate responsible leadership and creating public value</div></div></div>
+  <div class="box simple"><span class="lbl">Step 1 · In simple words</span><strong>Responsible leadership</strong> means leading in a way that creates value not only for owners but for <em>society</em>: staff, customers, communities and the environment, today and in the future. Accountants have a special duty to act in the <strong>public interest</strong>: the collective well-being of the community that relies on trustworthy financial information and fair organisations.</div>
+  <h3>Features of responsible leadership</h3>
+  <ul>
+    <li>Considers <strong>all stakeholders</strong>, not just shareholders (links to Mendelow and CSR from Governance).</li>
+    <li>Takes a <strong>long-term</strong> view (sustainability, not just this year's bonus).</li>
+    <li>Acts <strong>ethically</strong> even when no law requires it.</li>
+    <li>Is <strong>transparent and accountable</strong> for impacts on society and the environment.</li>
+    <li>Builds <strong>trust</strong>, which lowers the cost of capital, attracts talent and protects the licence to operate.</li>
+  </ul>
+  <h3>Public value (Mark Moore's strategic triangle)</h3>
+  <p>Public sector leaders don't maximise profit; they create <strong>public value</strong>: outcomes citizens value (health, safety, education) delivered efficiently and fairly. A public sector strategy succeeds only if it satisfies all three corners:</p>
+  <div class="tri">
+    <div class="card"><h4>Public value</h4><p>Does it deliver outcomes citizens really value? (e.g. fewer deaths from heart disease)</p></div>
+    <div class="card y"><h4>Legitimacy &amp; support</h4><p>Does it have political, legal and public support (the "authorising environment": ministers, regulators, citizens, media)?</p></div>
+    <div class="card r"><h4>Operational capacity</h4><p>Does the organisation have the money, staff, skills and systems to deliver it?</p></div>
+  </div>
+  <h3>Critical evaluation (the exam says "critically evaluate")</h3>
+  <div class="grid g2">
+    <div class="card"><h4>Arguments for responsible leadership</h4><ul><li>Protects reputation and licence to operate</li><li>Attracts talent and ethical investors (ESG funds)</li><li>Reduces regulatory and litigation risk</li><li>Long-term value creation (shared value)</li></ul></div>
+    <div class="card r"><h4>Challenges / criticisms</h4><ul><li>Stakeholder interests conflict: whose interest wins?</li><li>"Public interest" is vague and hard to measure</li><li>Short-term shareholder pressure and bonus schemes</li><li>Risk of greenwashing: talking responsibility without acting</li></ul></div>
+  </div>
+  <div class="box example"><span class="lbl">Step 2 · Real business example</span><strong>Public value:</strong> a city launches free bowel-cancer screening. Public value = earlier diagnosis, lives saved. Legitimacy = backed by the health ministry and public campaigns. Operational capacity = enough labs and specialists. If labs are short-staffed, results take months: public value falls and public support erodes, even though the policy is "right".<br><br><strong>Public interest failure:</strong> the collapse of <strong>Carillion</strong> (UK, 2018) hit public services, suppliers, pensioners and jobs. Investigations criticised aggressive accounting, dividend payments while pension deficits grew, and weak challenge by advisers. Leaders served short-term shareholder returns, not the public interest.</div>
+  <div class="box exam"><span class="lbl">Step 3 · How it appears in the exam</span>Public sector cases (hospitals, government agencies) or a private company providing public services. <em>"Evaluate whether the CEO has acted in the public interest"</em> or <em>"Discuss how the new strategy creates public value"</em>.</div>
+  <div class="box scenario"><span class="lbl">Scenario for the model answer</span>A government health department plans to close three small rural clinics and build one large "super clinic" in the regional city. The plan saves $6m a year and the new clinic will offer specialist scans. Rural residents (many elderly, without cars) would travel up to 70km. Local politicians and the media oppose the plan. The department has not yet hired the 30 extra staff the super clinic needs.</div>
+  <div class="box model"><span class="lbl">Step 4 · Model answer extract (Moore's triangle, 8 marks)</span>
+  <p><strong>Public value.</strong> The super clinic offers specialist scans not currently available locally, which could improve early diagnosis. The $6m annual saving could be reinvested in services. <span class="mark">1</span> However, elderly residents without cars may stop attending appointments when travel rises to 70km, so health outcomes for the most vulnerable could get worse. Public value is therefore uncertain unless transport is provided. <span class="mark">2</span></p>
+  <p><strong>Legitimacy and support.</strong> Opposition from local politicians and the media threatens the authorising environment. Ministers may reverse the plan under pressure, wasting money already spent. <span class="mark">1–2</span> The department should consult residents and present evidence on clinical outcomes. <span class="mark">1</span></p>
+  <p><strong>Operational capacity.</strong> 30 extra staff are not yet hired. In a period of health-worker shortages, opening without them would create long waits, destroying the value the project promised. <span class="mark">1</span></p>
+  <p><strong>Conclusion.</strong> The plan is not yet ready. The department should keep one rural clinic open as a satellite or fund a free shuttle service, and recruit staff before closing any clinic. <span class="mark">1–2</span> <span class="skill">Evaluation</span></p></div>
+  <div class="box examiner"><span class="lbl">Step 5 · Examiner expectations</span>Balanced argument (benefits <em>and</em> drawbacks), consideration of vulnerable stakeholders, a clear conclusion with conditions.</div>
+  <div class="box mistake"><span class="lbl">Step 6 · Common mistakes</span><ul><li>Judging a public body only on cost savings.</li><li>Not reaching a conclusion when asked to "evaluate".</li></ul></div>
+  <div class="box memory"><span class="lbl">Step 7 · Memory tip</span><strong>Moore's triangle = "VLC"</strong>: Value, Legitimacy, Capacity. Like a three-legged stool: remove any leg and the strategy falls over.</div>
+</section>
+
+<!-- 11 IESBA -->
+<section id="iesba">
+  <div class="sec-head"><div class="num">11</div><div><h2>Codes of ethics: IESBA fundamental principles &amp; the conceptual framework</h2><div class="ref">A3b · Assess management behaviour against IESBA (IFAC) / ACCA codes</div></div></div>
+  <div class="box simple"><span class="lbl">Step 1 · In simple words</span>The IESBA Code (which ACCA's Code follows) gives every professional accountant <strong>five fundamental principles</strong>. It is <strong>principles-based</strong>: instead of listing every forbidden act, it asks you to <em>identify</em> threats to the principles, <em>evaluate</em> how serious they are, and <em>address</em> them. It applies to accountants in practice <strong>and</strong> in business (finance directors, analysts, budget managers).</div>
+  <div class="tbl"><table>
+    <thead><tr><th>Principle</th><th>Meaning</th><th>Example of a breach (accountant in business)</th></tr></thead>
+    <tbody>
+      <tr><td>Integrity</td><td>Be straightforward and honest in all professional and business relationships</td><td>Knowingly approving a budget report that hides an overspend</td></tr>
+      <tr><td>Objectivity</td><td>No bias, conflict of interest or undue influence of others</td><td>Choosing a supplier because the owner is your cousin</td></tr>
+      <tr><td>Professional competence &amp; due care</td><td>Maintain knowledge and skill; act diligently and in line with standards</td><td>Signing off a complex lease accounting entry you don't understand without seeking help</td></tr>
+      <tr><td>Confidentiality</td><td>Don't disclose information without proper authority or legal duty; don't use it for personal advantage</td><td>Telling a friend about an unannounced takeover so they can buy shares</td></tr>
+      <tr><td>Professional behaviour</td><td>Comply with laws; avoid actions that discredit the profession</td><td>Exaggerating qualifications on LinkedIn; posting confidential client gossip</td></tr>
+    </tbody>
+  </table></div>
+  <h3>The conceptual framework (three steps)</h3>
+  <div class="flow">
+    <div class="s"><b>1. Identify</b>threats to compliance with the principles</div><div class="arr">→</div>
+    <div class="s"><b>2. Evaluate</b>are threats at an acceptable level? (reasonable and informed third party test)</div><div class="arr">→</div>
+    <div class="s"><b>3. Address</b>eliminate the circumstances, apply safeguards, or decline / end the activity</div>
+  </div>
+  <div class="box exam" style="margin-top:0"><span class="lbl">Key phrase</span><strong>"Reasonable and informed third party test"</strong>: would a sensible outsider, knowing all the facts, conclude that the accountant complied with the principles? Use this phrase in answers. It signals professional judgement.</div>
+  <h3>Rules-based vs principles-based codes</h3>
+  <div class="grid g2">
+    <div class="card"><h4>Principles-based (IESBA / ACCA)</h4><ul><li>Flexible, covers new situations</li><li>Requires judgement</li><li>Harder to "loophole"</li><li>But: less certainty; inconsistent application</li></ul></div>
+    <div class="card y"><h4>Rules-based (e.g. some legal regimes)</h4><ul><li>Clear, easy to check compliance</li><li>But: can't foresee everything</li><li>Encourages "box-ticking" and searching for loopholes</li></ul></div>
+  </div>
+  <div class="box example"><span class="lbl">Step 2 · Real business example</span>A management accountant in a hospital group is asked by the COO to reclassify $2m of maintenance spending as "capital improvements" so the operating budget appears on target. Integrity (misleading figures), objectivity (pressure from a senior manager), and professional competence (misapplying accounting standards) are all at risk.</div>
+  <div class="box exam"><span class="lbl">Step 3 · How it appears in the exam</span><em>"Assess the behaviour of the finance director against the fundamental principles of the ACCA Code of Ethics"</em>. You must apply them to a <strong>person in the case</strong>, often the finance director, internal auditor or an adviser.</div>
+  <div class="box scenario"><span class="lbl">Scenario for the model answer</span>Ms Reyes is the finance director of a listed retailer. Exhibit facts: (1) she owns 15% of a logistics company that has just been awarded the retailer's warehousing contract; she did not declare this; (2) she asked the reporting team to delay recording a large supplier rebate reversal until after the year-end results; (3) at a dinner she told a journalist that a competitor "is about to go bust", using information from a confidential credit check.</div>
+  <div class="box model"><span class="lbl">Step 4 · Model answer extract (8 marks)</span>
+  <p><strong>Objectivity.</strong> Ms Reyes owns 15% of the logistics company that won the contract. This creates a clear conflict of interest: a reasonable and informed third party would doubt that the award was made purely on merit. Failing to declare it also breaches integrity. She should have declared the interest and withdrawn from the decision. The contract award should now be reviewed independently by the audit committee. <span class="mark">2–3</span></p>
+  <p><strong>Integrity and professional competence.</strong> Delaying the rebate reversal would overstate profit in the year-end results. This is deliberately misleading financial reporting and may breach IFRS and listing rules. Shareholders may buy or hold shares on false information. The transaction must be recorded in the correct period, and the audit committee should investigate. <span class="mark">2–3</span></p>
+  <p><strong>Confidentiality and professional behaviour.</strong> Telling a journalist about a competitor's credit check misuses confidential information and could be defamatory. It discredits her and the profession. <span class="mark">2</span></p>
+  <p><strong>Conclusion.</strong> Together these breaches suggest a serious lack of integrity at board level. The chair should consider her suspension pending investigation and whether to report to ACCA. <span class="mark">1</span> <span class="skill">Scepticism</span></p></div>
+  <div class="box examiner"><span class="lbl">Step 5 · Examiner expectations</span>Principle → evidence → why it's a breach (who is harmed) → what should happen. Avoid listing all five principles with definitions first.</div>
+  <div class="box mistake"><span class="lbl">Step 6 · Common mistakes</span><ul><li>Mixing up <strong>principles</strong> (integrity, objectivity…) with <strong>threats</strong> (self-interest, intimidation…). Principles are what you protect; threats are what endanger them.</li><li>Using the external audit independence rules when the case is about an accountant in business.</li></ul></div>
+  <div class="box memory"><span class="lbl">Step 7 · Memory tip</span><strong>"I Owe Professional Courtesy, Please"</strong>: Integrity, Objectivity, Professional competence &amp; due care, Confidentiality, Professional behaviour. Framework: <strong>I-E-A</strong> (Identify, Evaluate, Address).</div>
+</section>
+
+<!-- 12 THREATS -->
+<section id="threats">
+  <div class="sec-head"><div class="num">12</div><div><h2>Ethical threats &amp; safeguards</h2><div class="ref">A3d · Assess the nature and impact of threats; recommend safeguards</div></div></div>
+  <div class="box simple"><span class="lbl">Step 1 · In simple words</span>A <strong>threat</strong> is a situation that tempts or pressures you to break a fundamental principle. A <strong>safeguard</strong> is an action that reduces the threat to an acceptable level. If no safeguard is enough, you must <strong>remove yourself</strong> from the situation.</div>
+  <div class="tbl"><table>
+    <thead><tr><th>Threat</th><th>Meaning</th><th>Accountant in business example</th><th>Accountant in practice / audit example</th><th>Typical safeguard</th></tr></thead>
+    <tbody>
+      <tr><td>Self-interest</td><td>Financial or other interest inappropriately influences judgement</td><td>Bonus depends on reported profit; owns shares in a supplier</td><td>Fee dependence on one big client; loan from client</td><td>Disclose interests; remove from decision; bonus based on balanced measures; independent review</td></tr>
+      <tr><td>Self-review</td><td>Evaluating your own previous work</td><td>Internal auditor reviews a control system she designed</td><td>Audit firm audits figures it prepared</td><td>Different person reviews; separate teams; rotation</td></tr>
+      <tr><td>Advocacy</td><td>Promoting a client's or employer's position so far that objectivity is compromised</td><td>FD presenting misleadingly optimistic forecasts to a bank to win a loan</td><td>Firm acting for a client in a legal dispute</td><td>Ensure facts are balanced; independent verification; refuse to mislead</td></tr>
+      <tr><td>Familiarity</td><td>Long or close relationship makes you too sympathetic or trusting</td><td>Finance manager doesn't question expense claims of a close friend</td><td>Audit partner on same client for 12 years</td><td>Rotation; second-person review; declare relationships</td></tr>
+      <tr><td>Intimidation</td><td>Actual or perceived pressure deters objective action</td><td>CEO threatens dismissal unless figures are changed</td><td>Client threatens to switch auditors over a qualified opinion</td><td>Escalate to audit committee / board; whistleblowing; legal advice; resign if necessary</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Types of safeguards</h3>
+  <div class="grid g3">
+    <div class="card"><h4>Created by profession, law or regulation</h4><p>Education and CPD requirements, codes of ethics, disciplinary procedures, external review, corporate governance codes, whistleblowing laws.</p></div>
+    <div class="card y"><h4>In the work environment</h4><p>Strong board and audit committee oversight, ethics policies, internal controls, segregation of duties, rotation, ethics helplines, ethical tone from the top.</p></div>
+    <div class="card r"><h4>Individual actions</h4><p>Consult a colleague or ACCA ethics helpline, document discussions, refuse to act, escalate, and ultimately resign.</p></div>
+  </div>
+  <div class="box example"><span class="lbl">Step 2 · Real business example</span><strong>Toshiba (2015)</strong>: profits were overstated by about $1.2bn over several years. Investigators found top management set "challenges" (aggressive profit targets) that subordinates felt unable to refuse: an <strong>intimidation</strong> threat combined with a culture of obedience. Divisional accountants' <strong>self-interest</strong> (job security) meant they complied.</div>
+  <div class="box exam"><span class="lbl">Step 3 · How it appears in the exam</span><em>"Identify and assess the ethical threats faced by the newly appointed financial controller and recommend appropriate safeguards"</em>. Often 2–3 threats are embedded in an email or meeting note.</div>
+  <div class="box scenario"><span class="lbl">Scenario for the model answer</span>Omar, a newly qualified ACCA member, is financial controller at a medical-device company. Exhibit facts: (1) the CEO emailed him: "Q4 revenue must show 10% growth or the bank covenant is breached – find a way, or I will find someone who can"; (2) Omar's bonus is 30% of salary if the revenue target is met; (3) Omar is asked to review the revenue-recognition policy that he himself wrote last year; (4) the head of sales, who is Omar's former university flatmate, has booked several large orders on the last day of the quarter.</div>
+  <div class="box model"><span class="lbl">Step 4 · Model answer (10 marks)</span>
+  <h4>Intimidation threat</h4><p>The CEO's email ("I will find someone who can") is an explicit threat to Omar's job. As a newly qualified accountant he may feel unable to resist. The pressure to "find a way" suggests manipulating revenue, which would breach integrity and mislead the bank. <strong>Safeguard:</strong> Omar should keep the email, refuse to make unjustified adjustments, and raise the matter with the audit committee chair. If this fails, he should use the company's whistleblowing procedure or take legal advice; resignation is the last resort. <span class="mark">3</span></p>
+  <h4>Self-interest threat</h4><p>A bonus of 30% of salary depends on the same target, so Omar personally benefits if revenue is overstated. This could unconsciously bias his judgement about borderline sales. <strong>Safeguard:</strong> disclose the conflict to the audit committee; the remuneration committee should change finance staff bonuses so they are not based on reported revenue. <span class="mark">2</span></p>
+  <h4>Self-review threat</h4><p>Reviewing his own policy, Omar is unlikely to spot its weaknesses. <strong>Safeguard:</strong> internal audit or an external adviser should review the policy. <span class="mark">2</span></p>
+  <h4>Familiarity threat</h4><p>Large orders booked on the last day of the quarter are a classic sign of "channel stuffing". Omar's friendship with the head of sales may make him less sceptical. <strong>Safeguard:</strong> declare the relationship and have another senior accountant test these orders for delivery and customer acceptance before revenue is recognised. <span class="mark">2</span></p>
+  <p><strong>Overall:</strong> the threats reinforce each other, so in combination they are significant. The key safeguard is escalation to the independent audit committee. <span class="mark">1</span> <span class="skill">Scepticism</span></p></div>
+  <div class="box examiner"><span class="lbl">Step 5 · Examiner expectations</span><ul><li>Name the threat correctly <strong>and</strong> explain why the facts create it.</li><li>Assess significance (how serious? which principle?).</li><li>Safeguards must be <strong>specific and practical</strong>, in a sensible escalation order.</li></ul></div>
+  <div class="box mistake"><span class="lbl">Step 6 · Common mistakes</span><ul><li>Jumping straight to "resign": examiners want escalation first.</li><li>Calling everything "self-interest".</li><li>Missing the hidden red flag (last-day orders) that a sceptical accountant would spot.</li></ul></div>
+  <div class="box memory"><span class="lbl">Step 7 · Memory tip</span><strong>"SSAFI"</strong>: Self-interest, Self-review, Advocacy, Familiarity, Intimidation. Escalation ladder: <strong>Refuse → Record → Report up → Whistleblow → Resign</strong>.</div>
+</section>
+
+<!-- 13 CONFLICTS -->
+<section id="conflicts">
+  <div class="sec-head"><div class="num">13</div><div><h2>Conflicts of interest, ethical conflicts &amp; how to resolve them</h2><div class="ref">A3c · Reasons for conflicts; recommend resolutions · Kohlberg, Tucker, AAA model, whistleblowing</div></div></div>
+  <div class="box simple"><span class="lbl">Step 1 · In simple words</span>A <strong>conflict of interest</strong> exists when a person's private interest (money, family, friendship, career) could influence a decision they make for the organisation. An <strong>ethical conflict / dilemma</strong> is when two duties or values pull in opposite directions (e.g. loyalty to employer vs duty to the public). The skill is to resolve them through a <strong>structured, transparent process</strong>.</div>
+  <h3>Why conflicts arise in organisations</h3>
+  <div class="grid g3">
+    <div class="card"><h4>Personal interests</h4><p>Shareholdings, family members in suppliers, gifts, side businesses, job offers from contractors.</p></div>
+    <div class="card y"><h4>Incentives &amp; targets</h4><p>Bonuses tied to short-term profit; unrealistic budgets; career pressure.</p></div>
+    <div class="card r"><h4>Competing stakeholder claims</h4><p>Cost savings vs patient safety; shareholders vs employees; profit vs environment.</p></div>
+    <div class="card v"><h4>Dual roles</h4><p>A director sitting on two boards; a government official who is also a business owner.</p></div>
+    <div class="card l"><h4>Culture</h4><p>"Everyone does it" norms; obedience to authority; gift-giving customs.</p></div>
+    <div class="card"><h4>Unclear policies</h4><p>No register of interests, no gifts policy, no guidance on what to do.</p></div>
+  </div>
+  <h3>A practical resolution process (the one examiners like)</h3>
+  <div class="flow">
+    <div class="s"><b>1. Facts</b>Gather relevant facts</div><div class="arr">→</div>
+    <div class="s"><b>2. Issues</b>Identify the ethical issues and affected parties</div><div class="arr">→</div>
+    <div class="s"><b>3. Principles</b>Which fundamental principles are at stake?</div><div class="arr">→</div>
+    <div class="s"><b>4. Procedures</b>Follow internal policies (register, gifts policy)</div><div class="arr">→</div>
+    <div class="s"><b>5. Options</b>Consider alternatives and consequences</div><div class="arr">→</div>
+    <div class="s"><b>6. Escalate</b>Line manager → audit committee → external</div>
+  </div>
+  <h3>Practical resolutions for conflicts of interest</h3>
+  <ul>
+    <li><strong>Declare</strong> the interest in a register of interests; update it regularly.</li>
+    <li><strong>Recuse</strong>: step out of the decision and leave the room for that agenda item.</li>
+    <li><strong>Independent decision</strong> by others (e.g. NEDs, procurement panel).</li>
+    <li><strong>Divest</strong> the interest (sell the shares) if it is ongoing.</li>
+    <li><strong>Policies</strong>: gifts and hospitality limits, procurement rules, related-party approval.</li>
+  </ul>
+  <h3>Ethical decision tools</h3>
+  <h4>Tucker's five questions: is the decision…</h4>
+  <div class="grid g4">
+    <div class="card"><h4>Profitable?</h4></div><div class="card y"><h4>Legal?</h4></div><div class="card r"><h4>Fair?</h4></div><div class="card v"><h4>Right?</h4></div>
+  </div>
+  <div class="card l" style="margin-bottom:12px"><h4>…and Sustainable / environmentally sound?</h4><p>A decision should pass all five. Profitable but unfair or unsustainable = reject or modify.</p></div>
+  <h4>American Accounting Association (AAA) seven-step model</h4>
+  <ol>
+    <li>What are the facts of the case?</li>
+    <li>What are the ethical issues?</li>
+    <li>What are the norms, principles and values related to the case?</li>
+    <li>What are the alternative courses of action?</li>
+    <li>What is the best course of action consistent with the norms, principles and values?</li>
+    <li>What are the consequences of each possible course of action?</li>
+    <li>What is the decision?</li>
+  </ol>
+  <h4>Kohlberg's levels of moral development (to "assess" someone's behaviour)</h4>
+  <div class="tbl"><table>
+    <thead><tr><th>Level</th><th>Reasoning</th><th>Sounds like…</th></tr></thead>
+    <tbody>
+      <tr><td>Pre-conventional</td><td>Self-interest: avoid punishment, gain reward</td><td>"I'll do it if I won't get caught" / "What's in it for me?"</td></tr>
+      <tr><td>Conventional</td><td>Conform to group norms, laws and expectations</td><td>"Everyone in the industry does it" / "It's legal, so it's fine"</td></tr>
+      <tr><td>Post-conventional</td><td>Universal ethical principles, even beyond the law</td><td>"It's legal, but it would harm patients, so we won't do it"</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Whistleblowing</h3>
+  <p>Reporting wrongdoing, ideally <strong>internally first</strong> (line manager → ethics officer → audit committee chair), then <strong>externally</strong> (regulator, professional body) if internal routes fail or are compromised. Good organisations provide confidential hotlines, protect whistleblowers from retaliation and investigate every report.</p>
+  <div class="box example"><span class="lbl">Step 2 · Real business example</span>A hospital procurement manager's brother owns a company bidding to supply surgical gloves at the lowest price. Even if the price is best, the public could suspect favouritism. <strong>Resolution:</strong> the manager declares the relationship, leaves the evaluation panel, and an independent panel scores the bids using pre-set criteria; the decision and declaration are documented. Fair outcome, and visibly fair.</div>
+  <div class="box exam"><span class="lbl">Step 3 · How it appears in the exam</span><em>"Analyse the reasons for the conflict of interest and recommend how it should be resolved"</em> or <em>"Advise the internal auditor how to deal with the ethical dilemma"</em>.</div>
+  <div class="box scenario"><span class="lbl">Scenario for the model answer</span>Dr Lim is chief medical officer of a public hospital and sits on the committee choosing a new $8m imaging system. Last year, one bidder (ScanTech) paid for her business-class trip to a conference in Paris where she spoke at a ScanTech-sponsored session. She says this "won't affect my judgement" and that "everyone in the profession attends these events". The hospital has no gifts and hospitality policy.</div>
+  <div class="box model"><span class="lbl">Step 4 · Model answer extract (6 marks)</span>
+  <p><strong>Reasons for the conflict.</strong> Dr Lim received a significant personal benefit from ScanTech, creating a self-interest and familiarity threat: she may feel obliged to favour them. <span class="mark">1</span> Her comment that "everyone attends" reflects conventional-level moral reasoning: she judges by peer norms rather than by how it looks to the public, who are funding an $8m purchase. <span class="mark">1</span> The absence of a gifts policy means there was no rule to prompt her to declare it, so the root cause is partly organisational. <span class="mark">1</span></p>
+  <p><strong>Resolution.</strong> Dr Lim should formally declare the trip and step aside from scoring the bids, though she may give technical input that is minuted. <span class="mark">1</span> The committee should score bids on pre-published criteria, with an independent member from finance or procurement. <span class="mark">1</span> The board should introduce a gifts and hospitality policy with a value limit and a register, applied to all clinical and procurement staff. <span class="mark">1</span></p></div>
+  <div class="box examiner"><span class="lbl">Step 5 · Examiner expectations</span>Explain the <strong>reasons</strong> (personal, cultural, organisational) and give <strong>resolutions at each level</strong> (individual, process, policy). Perception matters: "seen to be fair".</div>
+  <div class="box mistake"><span class="lbl">Step 6 · Common mistakes</span><ul><li>Accepting the director's assurance ("won't affect my judgement") at face value: show scepticism.</li><li>Recommending dismissal immediately: be proportionate.</li></ul></div>
+  <div class="box memory"><span class="lbl">Step 7 · Memory tip</span>Conflict fix = <strong>"DRIP"</strong>: Declare, Recuse, Independent decision, Policy. Tucker = <strong>"PLFRS"</strong>: "Please Let's Find the Right Solution" (Profitable, Legal, Fair, Right, Sustainable). Kohlberg = <strong>Me → We → Principle</strong>.</div>
+</section>
+
+<!-- 14 FRAUD -->
+<section id="fraud">
+  <div class="sec-head"><div class="num">14</div><div><h2>Reducing and combating fraud, bribery &amp; corruption</h2><div class="ref">A3e · Best practice to increase public confidence and trust</div></div></div>
+  <div class="box simple"><span class="lbl">Step 1 · In simple words</span><strong>Fraud</strong> = dishonestly deceiving someone to gain an advantage or cause a loss (e.g. fake invoices, manipulated accounts). <strong>Bribery</strong> = offering, giving, requesting or accepting something of value to improperly influence a decision. <strong>Corruption</strong> = abuse of entrusted power for private gain (wider; includes bribery, nepotism, embezzlement). All three destroy trust, so leaders must <strong>prevent, detect and respond</strong>.</div>
+  <h3>The fraud triangle: why people commit fraud</h3>
+  <div class="tri">
+    <div class="card r"><h4>Pressure / motive</h4><p>Personal debt, unrealistic targets, bonus pressure, fear of job loss.</p></div>
+    <div class="card y"><h4>Opportunity</h4><p>Weak controls, no segregation of duties, poor oversight, override by senior managers.</p></div>
+    <div class="card v"><h4>Rationalisation</h4><p>"I'm underpaid", "I'll pay it back", "everyone does it", "it's for the good of the company".</p></div>
+  </div>
+  <p><strong>The organisation controls mostly the opportunity</strong>, and it can influence pressure (realistic targets) and rationalisation (ethical culture).</p>
+  <h3>Types of fraud to recognise</h3>
+  <ul>
+    <li><strong>Misappropriation of assets:</strong> theft of cash or stock, payroll "ghost employees", fake suppliers, expense claim fraud.</li>
+    <li><strong>Financial statement fraud:</strong> overstated revenue, hidden liabilities, manipulated provisions (often by senior management).</li>
+    <li><strong>Procurement fraud:</strong> bid-rigging, kickbacks, inflated invoices.</li>
+    <li><strong>Cyber-enabled fraud:</strong> fake supplier bank-detail changes, CEO impersonation emails.</li>
+  </ul>
+  <h3>Best practice framework</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Stage</th><th>Actions</th></tr></thead>
+    <tbody>
+      <tr><td>Prevent</td><td>Ethical tone from the top; anti-fraud and anti-bribery policy; code of conduct; segregation of duties; authorisation limits; vetting of staff and suppliers; realistic targets; training; gifts and hospitality register</td></tr>
+      <tr><td>Detect</td><td>Internal audit; data analytics (duplicate payments, suppliers sharing bank accounts with staff); surprise checks; reconciliations; whistleblowing hotline; monitoring red flags (lifestyle beyond salary, staff never taking leave)</td></tr>
+      <tr><td>Respond</td><td>Fraud response plan; investigate promptly and independently; preserve evidence; disciplinary and legal action; recover losses; report to authorities; fix the control weakness; communicate lessons learned</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Anti-bribery: the UK Bribery Act "adequate procedures" (six principles)</h3>
+  <p>The UK Bribery Act 2010 is widely used as best practice and has wide reach: a company can be guilty of <strong>failing to prevent bribery</strong> by anyone acting for it (employees, agents, subsidiaries), anywhere. The only defence is having <strong>adequate procedures</strong>, guided by six principles:</p>
+  <div class="grid g3">
+    <div class="card"><h4>1. Proportionate procedures</h4><p>Controls proportionate to the bribery risks and the size and complexity of the business.</p></div>
+    <div class="card y"><h4>2. Top-level commitment</h4><p>Board and senior management lead a culture where bribery is never acceptable.</p></div>
+    <div class="card r"><h4>3. Risk assessment</h4><p>Regularly assess exposure: countries, sectors, transactions, business partners.</p></div>
+    <div class="card v"><h4>4. Due diligence</h4><p>Check agents, intermediaries, joint-venture partners and suppliers.</p></div>
+    <div class="card l"><h4>5. Communication (incl. training)</h4><p>Policies explained and training given to staff and partners.</p></div>
+    <div class="card"><h4>6. Monitoring and review</h4><p>Review and improve procedures over time.</p></div>
+  </div>
+  <p><strong>Facilitation payments</strong> (small "grease" payments to speed up routine government actions, e.g. customs clearance) are illegal under the UK Act. <strong>Reasonable, proportionate hospitality</strong> is allowed, but lavish gifts intended to influence decisions are bribes.</p>
+  <div class="box example"><span class="lbl">Step 2 · Real business examples</span><ul><li><strong>Rolls-Royce</strong> paid around £671m (2017) to settle bribery investigations involving intermediaries in several countries: an example of the "agents" risk that due diligence is meant to address.</li><li><strong>Public sector:</strong> a government hospital found two "suppliers" registered at the home address of a procurement clerk. Data analytics matching supplier and employee addresses and bank accounts detected it, a cheap and powerful control.</li></ul></div>
+  <div class="box exam"><span class="lbl">Step 3 · How it appears in the exam</span><em>"Recommend best practice the company should adopt to reduce the risk of bribery in its overseas expansion"</em> or <em>"Discuss how the board can restore public confidence following the fraud"</em>.</div>
+  <div class="box scenario"><span class="lbl">Scenario for the model answer</span>BuildRight, a construction company, is bidding for its first government hospital contract in a new overseas market. It plans to use a local agent, recommended by a contact, who will be paid a 6% "success fee" if the contract is won. The agent has asked for $50,000 upfront for "licences and introductions". BuildRight has no anti-bribery policy; last month a site manager in its home country was found to have approved $200,000 of invoices from a supplier owned by his wife.</div>
+  <div class="box model"><span class="lbl">Step 4 · Model answer extract (10 marks)</span>
+  <h4>Top-level commitment and policy</h4><p>BuildRight has no anti-bribery policy, and its board is entering a higher-risk market. The board should approve a zero-tolerance anti-bribery and corruption policy, communicated by the CEO, banning facilitation payments and setting gifts and hospitality limits. Without this, BuildRight cannot show "adequate procedures" if an agent pays a bribe. <span class="mark">2</span></p>
+  <h4>Risk assessment and due diligence on the agent</h4><p>The 6% success fee and the unexplained $50,000 upfront request for "introductions" are major red flags: these funds could be passed to officials to influence the award. <span class="mark">1</span> Before any payment, BuildRight should carry out due diligence: identify the agent's owners, check links to government officials, obtain references and check sanctions lists. <span class="mark">1</span> Payments should be made only against itemised invoices for genuine, documented services, into a bank account in the agent's own name and country. The contract should include anti-bribery clauses and audit rights. <span class="mark">1–2</span></p>
+  <h4>Controls to prevent fraud (the home-country case)</h4><p>The site manager approved invoices from his wife's company, showing that the same person could both choose suppliers and approve payments, with no conflict-of-interest declarations. <span class="mark">1</span> BuildRight should segregate supplier approval from payment approval, require annual declarations of interest, and run data analytics matching supplier and employee details. <span class="mark">2</span></p>
+  <h4>Training, whistleblowing and monitoring</h4><p>Staff and agents should be trained on the policy. A confidential hotline would let staff report concerns, and internal audit should review high-risk contracts annually. <span class="mark">1–2</span> These steps protect BuildRight's eligibility for government contracts, which are often closed to firms linked to bribery. <span class="mark">1</span> <span class="skill">Commercial acumen</span></p></div>
+  <div class="box examiner"><span class="lbl">Step 5 · Examiner expectations</span>Spot the <strong>red flags</strong> (upfront cash, vague services, percentage fees, related-party supplier). Give controls that are specific and link them back to <strong>trust and reputation</strong>, the wording of the learning outcome.</div>
+  <div class="box mistake"><span class="lbl">Step 6 · Common mistakes</span><ul><li>Saying "it's normal business practice in that country": local custom is no defence.</li><li>Recommending generic "improve internal controls" without naming the control.</li><li>Forgetting the <strong>response</strong> stage (what to do with the dishonest site manager and the lost money).</li></ul></div>
+  <div class="box memory"><span class="lbl">Step 7 · Memory tip</span>Fraud triangle = <strong>"POR"</strong>: Pressure, Opportunity, Rationalisation (fraud is "POR" behaviour). Bribery Act = <strong>"Please Take Real Due Care, Mate"</strong>: Proportionate, Top-level, Risk assessment, Due diligence, Communication, Monitoring. Framework: <strong>Prevent → Detect → Respond</strong>.</div>
+</section>
+
+<!-- ================= PART H ================= -->
+<div class="part h"><h2>Part H · Enabling success: talent &amp; performance excellence (H3–H4)</h2><p>Talent management · POPIT · Baldrige · critical success factors</p></div>
+
+<!-- 15 TALENT -->
+<section id="talent">
+  <div class="sec-head"><div class="num">15</div><div><h2>Talent management and how it supports strategy</h2><div class="ref">H3a · Discuss how talent management can contribute to supporting organisational strategy</div></div></div>
+  <div class="box simple"><span class="lbl">Step 1 · In simple words</span><strong>Talent management</strong> is the planned way an organisation <strong>attracts, identifies, develops, deploys, engages and retains</strong> the people it needs to deliver its strategy, especially those in critical roles. It is not just "HR admin": it asks <em>"what people and skills will our strategy need in 3–5 years, and how do we make sure we have them?"</em></div>
+  <h3>The talent management cycle</h3>
+  <div class="flow">
+    <div class="s"><b>Plan</b>Workforce plan from the strategy: roles, skills, numbers</div><div class="arr">→</div>
+    <div class="s"><b>Attract</b>Employer brand, recruitment, sourcing</div><div class="arr">→</div>
+    <div class="s"><b>Identify</b>Spot high-potential staff (talent pools, 9-box grid)</div><div class="arr">→</div>
+    <div class="s"><b>Develop</b>Training, coaching, mentoring, job rotation</div><div class="arr">→</div>
+    <div class="s"><b>Deploy</b>Right person in the right critical role</div><div class="arr">→</div>
+    <div class="s"><b>Engage &amp; retain</b>Reward, recognition, career paths, culture</div>
+  </div>
+  <h3>How talent management supports strategy</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Contribution</th><th>Explanation</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>Builds core competences</td><td>Unique, hard-to-copy capabilities often sit in people (links to resource-based view / VRIO)</td><td>A hospital's reputation in cardiac surgery depends on its surgical team</td></tr>
+      <tr><td>Closes skills gaps for new strategies</td><td>New strategies need new skills (digital, data, commercial)</td><td>A bank moving online needs data scientists and UX designers</td></tr>
+      <tr><td>Succession planning</td><td>Reduces key-person risk and keeps strategy continuous when leaders leave</td><td>Each senior role has two "ready" internal successors</td></tr>
+      <tr><td>Supports change and innovation</td><td>Engaged, developed staff adapt faster and generate ideas</td><td>Intrapreneurship programmes</td></tr>
+      <tr><td>Reduces cost</td><td>Lower turnover means lower recruitment, agency and training costs</td><td>Fewer agency nurses at premium rates</td></tr>
+      <tr><td>Improves performance and customer outcomes</td><td>Skilled, motivated staff give better service and quality</td><td>Better patient experience scores</td></tr>
+      <tr><td>Employer brand</td><td>Organisations known for developing people attract better applicants</td><td>Graduate programmes of the big accounting firms</td></tr>
+      <tr><td>Diversity and inclusion</td><td>Wider talent pools, better decisions, reflects customers</td><td>Leadership programmes for under-represented groups</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Key concepts to use in answers</h3>
+  <ul>
+    <li><strong>Inclusive vs exclusive approach:</strong> develop everyone's talent vs focus on a small group of high-potential staff and critical roles. Exclusive is cheaper and focused, but can demotivate those left out.</li>
+    <li><strong>Talent pool:</strong> a group of people being prepared for a family of roles (e.g. future ward managers), rather than one named successor per job.</li>
+    <li><strong>9-box grid:</strong> plots staff on performance (low–high) vs potential (low–high) to decide who to develop, retain, or manage out.</li>
+    <li><strong>Build, buy or borrow:</strong> develop internally, recruit externally, or use contractors and partners.</li>
+    <li><strong>Engagement drivers:</strong> meaningful work, good line managers, recognition, fair pay, development, flexibility, wellbeing.</li>
+  </ul>
+  <h3>Barriers and risks</h3>
+  <ul>
+    <li>Talent management seen as an HR project, not owned by line leaders.</li>
+    <li>Short-term budget cuts to training (the first thing cut, the last thing to recover).</li>
+    <li>Developed staff poached by competitors (so retention must go with development).</li>
+    <li>Favouritism in identifying "high potentials" damages trust.</li>
+    <li>Public sector pay scales limit ability to compete for scarce skills, so non-pay benefits matter.</li>
+  </ul>
+  <div class="box example"><span class="lbl">Step 2 · Real business example</span><strong>Healthcare nurse shortage.</strong> Many health systems have struggled with nurse vacancies and high reliance on expensive agency staff. A talent-management response: (1) workforce plan linked to new services; (2) international recruitment with proper onboarding (attract); (3) clinical career ladders so nurses can progress without leaving bedside care (develop/retain); (4) flexible rostering apps (engage); (5) "stay interviews" asking nurses what would keep them. Result: lower agency spend and better continuity of care, which directly supports the strategy of improving quality within budget.</div>
+  <div class="box exam"><span class="lbl">Step 3 · How it appears in the exam</span><em>"Discuss how effective talent management could support the company's new strategy"</em>. The case usually shows high staff turnover, a skills gap for a new strategy, a key person about to retire, or exit-interview comments.</div>
+  <div class="box scenario"><span class="lbl">Scenario for the model answer</span>
+  <p><strong>CloudServe</strong> is an IT services company that plans to grow its cybersecurity consultancy from 10% to 35% of revenue within three years. Facts:</p>
+  <ul>
+    <li>Staff turnover among cybersecurity specialists is 28% a year; exit interviews mention "no career path" and "no training budget for certifications".</li>
+    <li>It currently employs 40 cybersecurity specialists; the strategy needs about 120 within three years.</li>
+    <li>The head of cybersecurity, who holds all major client relationships, retires in 18 months; there is no identified successor.</li>
+    <li>CloudServe has 300 general IT support staff, many with networking skills.</li>
+    <li>Training budgets were cut by 50% last year to protect profit.</li>
+  </ul></div>
+  <div class="box model"><span class="lbl">Step 4 · Model answer (10 marks)</span>
+  <h4>Workforce planning: the scale of the gap</h4><p>CloudServe needs 80 additional specialists in three years. At 28% turnover it will also lose around 11 of its current 40 each year, so it must find well over 100 people in a market where these skills are scarce. Without a talent plan the growth strategy is not achievable. <span class="mark">2</span> <span class="skill">Analysis</span></p>
+  <h4>Build: develop internal talent</h4><p>300 general IT staff with networking skills are a valuable internal talent pool. A funded "cyber academy" giving selected staff industry certifications and mentoring by current specialists could convert, say, 30–40 people over three years. This is cheaper than external hiring, keeps knowledge of CloudServe's clients, and improves morale. <span class="mark">2</span></p>
+  <h4>Retain: fix the reasons people leave</h4><p>Exit interviews clearly show "no career path" and "no training budget". CloudServe should introduce a cybersecurity career ladder (analyst → consultant → senior consultant → principal) with defined pay bands, and restore a ring-fenced certification budget. Cutting training by 50% to protect profit is a false economy: each departure costs recruitment fees and lost client billing. <span class="mark">2</span> <span class="skill">Commercial acumen</span></p>
+  <h4>Succession planning for the head of cybersecurity</h4><p>All major client relationships sit with one person who leaves in 18 months: a serious key-person risk to the revenue the strategy depends on. CloudServe should identify two potential successors now, involve them in client meetings and agree a handover plan. A retention bonus for the current head to stay through the transition could be justified. <span class="mark">2</span></p>
+  <h4>Buy: targeted recruitment and employer brand</h4><p>Some senior specialists must still be hired externally. CloudServe should build an employer brand around development (e.g. "we pay for your certifications"), partner with universities, and offer flexible and remote working to widen the pool. <span class="mark">1–2</span></p>
+  <p><strong>Conclusion:</strong> talent is the main constraint on this strategy. The board should treat restoring the training budget as a strategic investment and monitor KPIs such as specialist headcount, turnover and internal promotions quarterly. <span class="mark">1</span> <span class="skill">Evaluation</span></p></div>
+  <div class="box examiner"><span class="lbl">Step 5 · Examiner expectations</span><ul><li>Link every talent action to the <strong>strategy</strong> ("so that the company can…").</li><li>Use numbers in the case to show the scale of the problem.</li><li>Commercial awareness: talent spending as investment; cost of turnover.</li></ul></div>
+  <div class="box mistake"><span class="lbl">Step 6 · Common mistakes</span><ul><li>Writing a generic HR essay on recruitment and selection.</li><li>Recommending only higher pay, which ignores development, career paths and culture, and may be unaffordable (especially in the public sector).</li><li>Ignoring succession and key-person risk when the case clearly flags it.</li></ul></div>
+  <div class="box memory"><span class="lbl">Step 7 · Memory tip</span><strong>Talent cycle: "Please Always Identify, Develop, Deploy &amp; Engage" (PAIDDE)</strong>: Plan, Attract, Identify, Develop, Deploy, Engage/retain. Sourcing: <strong>Build, Buy, Borrow</strong>.</div>
+</section>
+
+<!-- 16 POPIT -->
+<section id="popit">
+  <div class="sec-head"><div class="num">16</div><div><h2>POPIT: the four-view model for organisational improvement</h2><div class="ref">H3b · People, Organisation, Processes, Information Technology · also used in your Change chapter</div></div></div>
+  <div class="box simple"><span class="lbl">Step 1 · In simple words</span>Most change projects fail because they fix <strong>only one thing</strong>, usually technology. POPIT says any improvement must look at <strong>four views together</strong>: the <strong>People</strong> (skills, motivation), the <strong>Organisation</strong> (structure, culture, roles), the <strong>Processes</strong> (how work flows), and the <strong>IT</strong> (systems and data). Change one without the others and the benefit is lost.</div>
+  <div class="grid g4">
+    <div class="card"><h4>People</h4><ul><li>Skills and competences</li><li>Motivation and engagement</li><li>Training needs</li><li>Recruitment, reward</li><li>Attitudes to change</li></ul></div>
+    <div class="card y"><h4>Organisation</h4><ul><li>Structure, reporting lines</li><li>Roles and responsibilities</li><li>Culture and management style</li><li>Communication between departments</li></ul></div>
+    <div class="card r"><h4>Processes</h4><ul><li>How work flows end-to-end</li><li>Duplication, delays, bottlenecks</li><li>Hand-offs between teams</li><li>Controls</li></ul></div>
+    <div class="card v"><h4>IT</h4><ul><li>Systems supporting processes</li><li>Integration and data quality</li><li>Automation opportunities</li><li>Access, usability</li></ul></div>
+  </div>
+  <h3>How to use POPIT for talent and improvement questions</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>View</th><th>Diagnostic questions to ask of the case</th></tr></thead>
+    <tbody>
+      <tr><td>People</td><td>Do staff have the skills for the new strategy? Are they motivated? Is turnover high? Do they resist change?</td></tr>
+      <tr><td>Organisation</td><td>Does the structure create silos? Is anyone accountable for the whole customer journey? Does the culture support the change?</td></tr>
+      <tr><td>Processes</td><td>Where are the delays, duplications and errors? Which steps add no value for the customer?</td></tr>
+      <tr><td>IT</td><td>Are systems integrated or do staff re-key data? Could automation, self-service or analytics help?</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box example"><span class="lbl">Step 2 · Real business example</span>A hospital installs a new e-prescribing system (IT) but sees no fall in medication errors. A POPIT review finds: <strong>People</strong>: junior doctors were never trained and bypass it; <strong>Organisation</strong>: pharmacy and wards report to different directors who don't co-ordinate; <strong>Processes</strong>: paper charts are still used in parallel "just in case". Fixing the other three views is what finally delivers the IT benefit.</div>
+  <div class="box exam"><span class="lbl">Step 3 · How it appears in the exam</span><em>"Using the POPIT model, analyse the opportunities for improving the customer complaints process"</em> (8–12 marks). The case shows a failing process with symptoms in all four views.</div>
+  <div class="box scenario"><span class="lbl">Scenario for the model answer</span>A government licensing agency takes an average of 45 days to issue business licences (target: 10). Facts: staff have not been trained since a new case-management system was introduced two years ago; three departments (intake, inspection, approval) each check the same documents; nobody owns the end-to-end licence process; applicants submit paper forms, which are scanned and re-typed into the system; the inspection team's system does not connect to the approval team's system, so files are emailed.</div>
+  <div class="box model"><span class="lbl">Step 4 · Model answer (POPIT, 8 marks)</span>
+  <p><strong>People.</strong> Staff have had no training on the new system in two years, so they are unlikely to use its features, causing slow, manual workarounds. A training programme with "super-users" in each team would increase productivity quickly and cheaply. <span class="mark">2</span></p>
+  <p><strong>Organisation.</strong> No one owns the end-to-end process, so each department optimises its own step and nobody is accountable for the 45-day total. The agency should appoint a licence process owner with a 10-day target and authority across all three departments. <span class="mark">2</span></p>
+  <p><strong>Processes.</strong> The same documents are checked three times, which adds days but little value. A single, risk-based document check at intake, with inspection only where risk is high, would remove duplication. <span class="mark">2</span></p>
+  <p><strong>IT.</strong> Paper forms are re-typed and the inspection and approval systems are not connected, so files are emailed. An online application portal feeding directly into one integrated case-management system would eliminate re-keying errors and allow applicants to track progress, improving public satisfaction. <span class="mark">2</span></p></div>
+  <div class="box examiner"><span class="lbl">Step 5 · Examiner expectations</span>Use <strong>all four views</strong>, each with case facts and a recommendation. Show that they are <strong>interrelated</strong>: IT alone won't fix it.</div>
+  <div class="box mistake"><span class="lbl">Step 6 · Common mistakes</span><ul><li>Putting structure issues under "People" (structure is <strong>Organisation</strong>).</li><li>Turning every answer into "buy a new system".</li></ul></div>
+  <div class="box memory"><span class="lbl">Step 7 · Memory tip</span><strong>POPIT: "Pop the balloon": if one of the four sides is weak, the whole improvement bursts.</strong> People = who, Organisation = structure, Processes = how, IT = with what.</div>
+</section>
+
+<!-- 17 BALDRIGE -->
+<section id="baldrige">
+  <div class="sec-head"><div class="num">17</div><div><h2>The Baldrige model for performance excellence</h2><div class="ref">H4a · Apply the Baldrige model for world-class organisations</div></div></div>
+  <div class="box simple"><span class="lbl">Step 1 · In simple words</span>The <strong>Baldrige Excellence Framework</strong> (from the US Malcolm Baldrige National Quality Award) is a "health check" for the whole organisation. It asks: is our <strong>leadership</strong> driving the right <strong>strategy</strong>, focused on <strong>customers</strong>, using <strong>data</strong>, with an engaged <strong>workforce</strong> and efficient <strong>operations</strong>, and are we getting <strong>results</strong>? It has versions for business, education and <strong>healthcare</strong>, and is used by organisations of every size.</div>
+  <h3>Structure of the framework</h3>
+  <p><strong>Organisational profile</strong> (the starting point: environment, relationships, strategic situation) → <strong>six process categories</strong> → <strong>results</strong>, all linked by a systems view.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>#</th><th>Category</th><th>Key questions</th><th>Hospital example</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Leadership</td><td>How do senior leaders set vision and values, communicate, and govern the organisation ethically and in line with societal responsibilities?</td><td>CEO and board publish a patient-safety vision; board reviews safety data monthly</td></tr>
+      <tr><td>2</td><td>Strategy</td><td>How do you develop strategic objectives and action plans, deploy them and measure progress?</td><td>3-year plan to cut waiting times; each department has action plans</td></tr>
+      <tr><td>3</td><td>Customers (patients in healthcare)</td><td>How do you listen to customers, build relationships and use their voice to improve?</td><td>Patient feedback kiosks; patient advisory panel on service redesign</td></tr>
+      <tr><td>4</td><td>Measurement, analysis &amp; knowledge management</td><td>How do you select, gather, analyse and use data and knowledge to improve performance?</td><td>Real-time dashboard of bed occupancy, infection rates, readmissions</td></tr>
+      <tr><td>5</td><td>Workforce</td><td>How do you build an effective, supportive environment, and engage and develop staff?</td><td>Staff engagement survey, wellbeing programme, career ladders</td></tr>
+      <tr><td>6</td><td>Operations</td><td>How do you design, manage and improve key work processes and ensure operational effectiveness?</td><td>Lean redesign of the discharge process; supply chain resilience</td></tr>
+      <tr><td>7</td><td>Results</td><td>What are your results for products/services, customers, workforce, leadership &amp; governance, and finance &amp; market?</td><td>Mortality, patient satisfaction, staff turnover, compliance, budget results</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box exam" style="margin-top:0"><span class="lbl">How the categories link</span>Categories 1–3 are the <strong>leadership triad</strong> (leadership, strategy, customers). Categories 5–7 are the <strong>results triad</strong> (workforce, operations, results). Category 4 (measurement, analysis, knowledge) is the <strong>foundation</strong> under all of them. Mentioning this linkage shows a systems perspective.</div>
+  <h3>Core values and concepts (underpin the framework)</h3>
+  <div class="grid g3">
+    <div class="card"><h4>Systems perspective</h4><p>Manage the organisation as a whole, with linked parts.</p></div>
+    <div class="card y"><h4>Visionary leadership</h4><p>Leaders set direction and model values.</p></div>
+    <div class="card r"><h4>Customer-focused excellence</h4><p>Customers judge performance and quality.</p></div>
+    <div class="card v"><h4>Valuing people</h4><p>Engage, develop and respect the workforce and partners.</p></div>
+    <div class="card l"><h4>Agility, resilience &amp; organisational learning</h4><p>Respond quickly to change; continuously learn and improve.</p></div>
+    <div class="card"><h4>Focus on success &amp; innovation</h4><p>Short- and long-term success; take intelligent risks.</p></div>
+    <div class="card y"><h4>Management by fact</h4><p>Decisions based on data and analysis, not opinion.</p></div>
+    <div class="card r"><h4>Societal contributions</h4><p>Public health, environment, community well-being.</p></div>
+    <div class="card v"><h4>Ethics, transparency &amp; delivering value</h4><p>Ethical behaviour; balanced value for all stakeholders; results.</p></div>
+  </div>
+  <h3>How Baldrige helps an organisation (benefits for exam answers)</h3>
+  <ul>
+    <li><strong>Holistic self-assessment:</strong> identifies strengths and gaps across the whole organisation, not just finance.</li>
+    <li><strong>Alignment:</strong> links leadership, strategy, people and processes to results.</li>
+    <li><strong>Benchmarking:</strong> compares the organisation with world-class performers.</li>
+    <li><strong>Focus on results balanced across stakeholders</strong> (patients, staff, community, finances).</li>
+    <li><strong>Continuous improvement culture</strong> through regular reassessment.</li>
+  </ul>
+  <p><strong>Limitations:</strong> time- and resource-intensive; risk of becoming a paperwork exercise; needs genuine leadership commitment; benefits take years to show.</p>
+  <div class="box example"><span class="lbl">Step 2 · Real business example</span>Many US hospitals and health systems have won the Baldrige Award (healthcare category). A typical winner's story: the CEO made the framework the organisation's management system; every department tracked a small set of linked measures; staff engagement and patient-safety results improved together. The lesson for SBL: <strong>excellence comes from linking leadership, people, processes and data</strong>, not from one initiative.</div>
+  <div class="box exam"><span class="lbl">Step 3 · How it appears in the exam</span><em>"Advise the board how the Baldrige model could be used to improve the performance of the hospital"</em> or <em>"Using the Baldrige categories, evaluate the organisation's current approach"</em> (10–15 marks). Pick the categories with the strongest case evidence.</div>
+  <div class="box scenario"><span class="lbl">Scenario for the model answer</span>
+  <p><strong>Riverside Health</strong> is a government-funded hospital with poor results. Facts:</p>
+  <ul>
+    <li>The board meets quarterly and discusses only the financial report.</li>
+    <li>The hospital has a 5-year strategy document, but department heads say they have never seen it.</li>
+    <li>Patient complaints have doubled in two years; there is no process to analyse them.</li>
+    <li>Data on infections, waiting times and readmissions are held in separate spreadsheets and take weeks to compile.</li>
+    <li>Nurse turnover is 22%; the staff survey shows only 31% feel "listened to".</li>
+    <li>Theatre (operating room) utilisation is 58% because of late starts and cancellations.</li>
+  </ul></div>
+  <div class="box model"><span class="lbl">Step 4 · Model answer (Baldrige, 12 marks; extract)</span>
+  <h4>Leadership</h4><p>The board discusses only finance, so it has no oversight of clinical quality or patient safety, the hospital's core purpose. Baldrige would require leaders to set a clear vision and review balanced performance. The board should add a quality and safety report to every meeting and meet monthly. <span class="mark">2</span></p>
+  <h4>Strategy</h4><p>A strategy that department heads have never seen cannot be deployed. Each department should translate the 5-year strategy into annual action plans with measurable objectives, reviewed quarterly. <span class="mark">2</span></p>
+  <h4>Customers (patients)</h4><p>Complaints have doubled with no analysis, so the hospital is ignoring its best source of improvement ideas. It should categorise complaints, identify root causes and involve a patient panel in redesigning the worst services. <span class="mark">2</span></p>
+  <h4>Measurement, analysis and knowledge management</h4><p>Key data take weeks to compile from separate spreadsheets, so decisions are based on out-of-date information. An integrated dashboard would support "management by fact" and underpin every other category. <span class="mark">2</span></p>
+  <h4>Workforce</h4><p>22% nurse turnover and only 31% feeling listened to suggests low engagement, which increases agency costs and risks to care. Regular listening forums, career development and recognition schemes are needed. <span class="mark">2</span></p>
+  <h4>Operations</h4><p>58% theatre utilisation is a major waste of an expensive resource and lengthens waiting lists. Analysing the causes of late starts (e.g. patient preparation, staff availability) and redesigning the theatre process could raise utilisation significantly. <span class="mark">1</span></p>
+  <h4>Results</h4><p>Riverside should track balanced results (clinical outcomes, patient satisfaction, staff engagement, financial) and benchmark them against top-performing hospitals, repeating the Baldrige self-assessment annually. <span class="mark">1</span> <span class="skill">Evaluation</span></p></div>
+  <div class="box examiner"><span class="lbl">Step 5 · Examiner expectations</span>Apply the categories to <strong>case facts</strong>; do not list the core values unless asked. Show links (e.g. poor data → poor leadership oversight → poor results).</div>
+  <div class="box mistake"><span class="lbl">Step 6 · Common mistakes</span><ul><li>Reciting the seven categories with definitions and no application.</li><li>Confusing Baldrige with the balanced scorecard: Baldrige is a whole-organisation <em>excellence framework</em> including leadership and processes; the BSC is a <em>performance measurement</em> tool.</li></ul></div>
+  <div class="box memory"><span class="lbl">Step 7 · Memory tip</span><strong>"Lazy Students Can't Memorise When Overwhelmed, Really"</strong>: Leadership, Strategy, Customers, Measurement/analysis/knowledge, Workforce, Operations, Results. Picture: a house with Measurement as the <strong>foundation</strong>, Leadership triad on the left, Results triad on the right.</div>
+</section>
+
+<!-- 18 CSF -->
+<section id="csf">
+  <div class="sec-head"><div class="num">18</div><div><h2>Critical success factors (CSFs), KPIs &amp; empowering the organisation</h2><div class="ref">H4b · Empower an organisation to reach its goals by focusing on its CSFs</div></div></div>
+  <div class="box simple"><span class="lbl">Step 1 · In simple words</span><strong>Critical success factors</strong> are the few things an organisation <em>must</em> get right to succeed with its strategy. If any CSF fails, the strategy fails. <strong>KPIs</strong> are the measures that tell you whether you are getting each CSF right. Focusing everyone on a small number of CSFs <strong>empowers</strong> them: staff know what matters most and can make decisions without being told.</div>
+  <div class="flow">
+    <div class="s"><b>Mission / strategy</b>What we want to achieve</div><div class="arr">→</div>
+    <div class="s"><b>CSFs</b>The few things we must do well</div><div class="arr">→</div>
+    <div class="s"><b>KPIs</b>How we measure each CSF</div><div class="arr">→</div>
+    <div class="s"><b>Targets</b>The level we aim for</div><div class="arr">→</div>
+    <div class="s"><b>Actions &amp; review</b>Who does what; monitor and correct</div>
+  </div>
+  <h3>Where CSFs come from (Rockart's five sources)</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Source</th><th>Meaning</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>Industry</td><td>Factors every firm in the industry must get right</td><td>Airlines: safety and aircraft utilisation</td></tr>
+      <tr><td>Competitive strategy &amp; position</td><td>Factors arising from the chosen strategy</td><td>Cost leader: lowest unit cost; differentiator: brand and innovation</td></tr>
+      <tr><td>Environmental</td><td>External factors (economy, regulation, technology)</td><td>Regulatory accreditation for hospitals</td></tr>
+      <tr><td>Temporal</td><td>Short-term issues needing focus now</td><td>Recovering from a cyber-attack; filling a staffing crisis</td></tr>
+      <tr><td>Managerial position</td><td>Specific to a manager's role</td><td>Finance director: accurate, timely reporting</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Threshold vs critical (useful distinction)</h3>
+  <p><strong>Threshold</strong> resources and competences are needed just to compete (a hospital must be licensed). <strong>Critical / distinctive</strong> factors make you better than rivals (a hospital known for the lowest surgical infection rate). CSFs should focus on what drives <em>success</em>, not just survival.</p>
+  <h3>Good KPIs are SMART</h3>
+  <p><strong>S</strong>pecific, <strong>M</strong>easurable, <strong>A</strong>chievable, <strong>R</strong>elevant (to the CSF), <strong>T</strong>ime-bound. Use a mix of <strong>leading</strong> indicators (predict future results, e.g. staff training hours) and <strong>lagging</strong> indicators (show past results, e.g. profit).</p>
+  <h3>How CSFs empower an organisation</h3>
+  <ul>
+    <li><strong>Focus:</strong> scarce resources go to the few things that matter most.</li>
+    <li><strong>Clarity and alignment:</strong> every team can see how its work contributes.</li>
+    <li><strong>Delegated decisions:</strong> staff can act within clear priorities without escalating.</li>
+    <li><strong>Accountability:</strong> each CSF has an owner and KPIs.</li>
+    <li><strong>Early warning:</strong> KPIs reveal problems before results fail.</li>
+    <li><strong>Competitiveness:</strong> resources concentrate on what customers value most.</li>
+  </ul>
+  <div class="box example"><span class="lbl">Step 2 · Real business example</span><strong>A low-cost airline.</strong> CSFs: quick aircraft turnaround, high seat occupancy, low cost per seat, on-time performance. KPIs: average turnaround time (target 25 min), load factor (target 90%+), cost per available seat-km, % flights on time. Ground staff are empowered to make decisions that protect the 25-minute turnaround, because everyone knows it is critical.</div>
+  <div class="box exam"><span class="lbl">Step 3 · How it appears in the exam</span><em>"Identify three critical success factors for the new strategy and recommend a KPI for each"</em> (6–12 marks). Present as a <strong>table</strong>: CSF | why critical (case link) | KPI | target. Tables save time and earn communication marks.</div>
+  <div class="box scenario"><span class="lbl">Scenario for the model answer</span>A government-owned diagnostic laboratory network has been told by the health ministry that it must become self-funding within four years by selling testing services to private clinics, while maintaining its public health role. Private clinics currently use a competitor that returns results within 24 hours; the network's average is 72 hours. Accreditation by the national regulator is required to test for private clients. Courier costs are the network's second-largest expense.</div>
+  <div class="box model"><span class="lbl">Step 4 · Model answer (CSFs and KPIs, 9 marks)</span>
+  <div class="tbl"><table>
+    <thead><tr><th>CSF</th><th>Why it is critical (case link)</th><th>KPI</th><th>Target</th></tr></thead>
+    <tbody>
+      <tr><td>Fast turnaround of results</td><td>Clinics currently use a competitor that delivers in 24 hours; at 72 hours the network will not win business</td><td>% of results returned within 24 hours</td><td>90% within 2 years</td></tr>
+      <tr><td>Maintain regulatory accreditation and quality</td><td>Accreditation is required to serve private clients; any lapse ends the commercial strategy and damages public trust</td><td>Accreditation status; external quality-assurance error rate</td><td>Full accreditation; error rate below 0.1%</td></tr>
+      <tr><td>Win and retain private clinic customers</td><td>Self-funding in 4 years depends on commercial revenue</td><td>Number of contracted clinics; % commercial revenue; customer retention</td><td>Commercial revenue covers costs by year 4</td></tr>
+      <tr><td>Control cost per test</td><td>To compete on price while self-funding; courier costs are the 2nd-largest expense</td><td>Cost per test; courier cost per sample</td><td>Reduce courier cost per sample by 20% in year 1</td></tr>
+    </tbody>
+  </table></div>
+  <p>Each CSF should have a named owner at senior level, and KPIs should be reviewed monthly on a single dashboard. Public health testing KPIs (e.g. turnaround for outbreak tests) must also be retained so that the commercial focus does not undermine the network's public role. <span class="mark">1–2</span> <span class="skill">Commercial acumen</span> <span class="skill">Scepticism</span></p></div>
+  <div class="box examiner"><span class="lbl">Step 5 · Examiner expectations</span><ul><li>CSFs must be <strong>specific to the strategy</strong> in the case, not generic ("good management").</li><li>KPIs must be <strong>measurable</strong> and clearly linked to the CSF.</li><li>Distinguish CSF (what must go right) from KPI (how you measure it).</li></ul></div>
+  <div class="box mistake"><span class="lbl">Step 6 · Common mistakes</span><ul><li>Writing a KPI as a CSF ("CSF: profit margin of 10%").</li><li>Too many CSFs: critical means few (3–6).</li><li>Only financial KPIs: include customer, quality, people and process measures.</li></ul></div>
+  <div class="box memory"><span class="lbl">Step 7 · Memory tip</span><strong>CSF = WHAT must go right. KPI = HOW we know it went right.</strong> Rockart's sources: <strong>"I Can Eat Tasty Mangoes"</strong>: Industry, Competitive strategy, Environment, Temporal, Managerial position.</div>
+</section>
+
+<!-- ================= PRACTICE ================= -->
+<div class="part p"><h2>Practice · Integrated case, skills, cheat sheet &amp; self-test</h2><p>Attempt the requirements yourself first, then compare with the model answers</p></div>
+
+<!-- 19 CASE -->
+<section id="case">
+  <div class="sec-head"><div class="num">19</div><div><h2>Integrated case: Al Waha Community Health Services</h2><div class="ref">Covers A2, A3, H3, H4 · 34 marks + professional skills · suggested time 66 minutes</div></div></div>
+  <div class="box scenario"><span class="lbl">Exhibit 1 · Background</span>
+  <p><strong>Al Waha Community Health Services (AWCHS)</strong> is a government-owned provider of primary care, with 22 clinics serving 900,000 residents. It is funded by the regional health authority. The authority has set a new 3-year strategy, "Care Closer to Home":</p>
+  <ul>
+    <li>40% of routine consultations to be delivered by video or phone within 3 years;</li>
+    <li>a new chronic-disease programme (diabetes and heart disease) run by nurse specialists;</li>
+    <li>the operating budget to stay flat in real terms.</li>
+  </ul>
+  <p>AWCHS currently delivers 5% of consultations remotely.</p></div>
+  <div class="box scenario"><span class="lbl">Exhibit 2 · Notes from a staff focus group (prepared by an external consultant)</span>
+  <ul>
+    <li>"The CEO comes to clinics once a year for the long-service awards. We only hear about strategy from the newspaper."</li>
+    <li>"Doctors run each clinic. Nurses need a doctor's signature even to order a routine blood test."</li>
+    <li>"Everyone talks about Dr Saeed, who refused to use the online booking system in 2019 and 'won'. It was switched off."</li>
+    <li>"Clinic managers get a bonus for staying within budget. Nothing else is measured."</li>
+    <li>"Each clinic has its own appointment system. Patients who move clinics have to re-register."</li>
+    <li>"Nurse turnover is 25% a year. Many nurses leave for private hospitals that pay for specialist training."</li>
+    <li>"Only 3 of our 210 nurses have a diabetes specialist qualification."</li>
+  </ul></div>
+  <div class="box scenario"><span class="lbl">Exhibit 3 · Email from the Director of Finance to the Head of Procurement</span>
+  <p><em>"The authority's year-end review is next month. We are $1.4m over budget. Please ask TeleMedix (our preferred video-consultation bidder) to invoice us now for the first year's licences, but date the invoice next year so it doesn't hit this year's figures. Their account manager is my nephew, so he'll sort it. Also, TeleMedix have invited the evaluation panel to their product launch in Singapore, flights and hotel paid. Let's accept – it'll help us understand the product. – K."</em></p>
+  <p>The Head of Procurement, Ms Haddad, is a member of ACCA. She has not yet replied.</p></div>
+  <div class="box exam"><span class="lbl">Requirements</span>
+  <p>You are an adviser to the AWCHS board. Prepare a <strong>briefing paper</strong> for the board which:</p>
+  <ol>
+    <li>Analyses the current culture of AWCHS using the cultural web, and recommends changes required to support "Care Closer to Home". <span class="mark">14 marks</span></li>
+    <li>Assesses the ethical issues raised in Exhibit 3 and recommends the actions Ms Haddad should take. <span class="mark">10 marks</span></li>
+    <li>Discusses how talent management could support the new chronic-disease programme. <span class="mark">10 marks</span></li>
+  </ol>
+  <p>Professional skills marks are available for <strong>analysis</strong> (part 1), <strong>scepticism</strong> (part 2) and <strong>commercial acumen</strong> (part 3). <span class="skill">+ skills marks</span></p></div>
+
+  <details><summary>▶ Model answer, Requirement 1: Cultural web (14 marks). Click to reveal after your attempt</summary><div class="ans">
+  <p><strong>Briefing paper. To: AWCHS Board. From: Adviser. Subject: Culture, ethics and talent for "Care Closer to Home"</strong></p>
+  <h4>1. Cultural web analysis</h4>
+  <p><strong>Paradigm.</strong> The core assumption at AWCHS appears to be <em>"care is delivered face-to-face, in our clinic, under doctors' control"</em>. This is the opposite of a strategy based on remote care and nurse-led programmes, so the culture is a major barrier. With only 5% remote consultations today, reaching 40% in three years is a transformational change. <span class="mark">2</span></p>
+  <p><strong>Stories.</strong> Staff celebrate Dr Saeed "winning" against online booking in 2019. The story teaches that resisting technology works and is admired. Unless replaced, it will encourage resistance to video consultations. <strong>Change:</strong> share stories of clinicians and patients benefiting from remote care, e.g. an elderly diabetic patient avoiding travel, through internal newsletters and the CEO's visits. <span class="mark">2</span></p>
+  <p><strong>Symbols.</strong> The CEO's only visit is for long-service awards, which symbolises loyalty and tenure rather than innovation. Learning strategy "from the newspaper" signals distance between leadership and staff. <strong>Change:</strong> the CEO should visit clinics regularly, and recognition awards should celebrate innovation and patient outcomes. <span class="mark">2</span></p>
+  <p><strong>Power structures.</strong> Doctors hold power in each clinic and nurses cannot even order routine tests. The chronic-disease programme relies on nurse specialists working independently, so doctor control will block it. <strong>Change:</strong> give nurse specialists defined clinical authority under agreed protocols, and involve respected doctors as champions so they are not threatened. <span class="mark">2</span></p>
+  <p><strong>Organisational structure.</strong> Each clinic runs separately with its own appointment system, so patients re-register when they move. This is incompatible with a network-wide video service. <strong>Change:</strong> create a central virtual-care hub and a network-wide chronic-disease service led by a nurse consultant. <span class="mark">2</span></p>
+  <p><strong>Control systems.</strong> Clinic managers' bonuses depend only on budget. Investment in remote care or nurse training may look like overspending, so managers will avoid it. <strong>Change:</strong> balanced KPIs (% remote consultations, chronic-disease outcomes such as HbA1c control, patient satisfaction) plus budget. <span class="mark">2</span></p>
+  <p><strong>Rituals and routines.</strong> Separate appointment systems and long-service ceremonies reinforce the clinic-centred, tenure-based way of working. <strong>Change:</strong> a single booking system with a "remote-first" default for routine appointments, and team huddles reviewing remote-care progress. <span class="mark">1</span></p>
+  <p><strong>Priority.</strong> Changing control systems and nurse authority will have the fastest effect on behaviour. Stories and symbols will follow as leaders visibly role-model the change. <span class="mark">1</span> <span class="skill">Analysis</span></p>
+  </div></details>
+
+  <details><summary>▶ Model answer, Requirement 2: Ethical issues and Ms Haddad's actions (10 marks)</summary><div class="ans">
+  <h4>2. Ethical issues in Exhibit 3</h4>
+  <p><strong>Misstatement of results (integrity).</strong> Dating the invoice next year to hide part of a $1.4m overspend would deliberately mislead the regional health authority, AWCHS's funder, at its year-end review. This breaches integrity and professional behaviour and may breach public financial regulations. If Ms Haddad complies, she is part of the deception. <span class="mark">2</span></p>
+  <p><strong>Conflict of interest (objectivity).</strong> The Director of Finance's nephew is TeleMedix's account manager, and TeleMedix is the "preferred" bidder. This raises doubt over whether the procurement is fair; a reasonable and informed third party would question it. The relationship should have been declared and the director should not influence the decision. <span class="mark">2</span></p>
+  <p><strong>Hospitality as a potential bribe.</strong> Free flights and hotels to Singapore for the evaluation panel <em>during</em> a live tender is significant hospitality from a bidder. It could improperly influence the award, creating a self-interest threat and possible breach of anti-bribery law. Public sector staff are held to particularly high standards because they spend public money. <span class="mark">2</span></p>
+  <p><strong>Intimidation threat to Ms Haddad.</strong> The request comes from a more senior director, so she may fear consequences if she refuses. <span class="mark">1</span></p>
+  <h4>Recommended actions for Ms Haddad</h4>
+  <ul>
+    <li>Refuse to request a misdated invoice, and decline the Singapore hospitality on behalf of the panel. <span class="mark">1</span></li>
+    <li>Keep the email and a written record of her response. <span class="mark">½</span></li>
+    <li>Raise the issues with the CEO and the chair of the audit and risk committee, recommending an independent review of the TeleMedix procurement, the director's removal from it, and a check that other bids are evaluated fairly. <span class="mark">1</span></li>
+    <li>If internal escalation fails, use the whistleblowing procedure or report to the regional health authority. She can seek confidential advice from ACCA's ethics helpline. <span class="mark">½</span></li>
+  </ul>
+  <p><span class="skill">Scepticism</span> Marks are earned for spotting that the hospitality and the family link together suggest the "preferred bidder" status itself may be compromised, not just this invoice.</p>
+  </div></details>
+
+  <details><summary>▶ Model answer, Requirement 3: Talent management for the chronic-disease programme (10 marks)</summary><div class="ans">
+  <h4>3. Talent management</h4>
+  <p><strong>Scale of the capability gap.</strong> Only 3 of 210 nurses (about 1.4%) hold a diabetes specialist qualification, yet the programme is to be nurse-led across 22 clinics. Even one specialist per clinic means at least 19 more are needed, before allowing for heart disease and 25% turnover. Talent is the critical constraint on the strategy. <span class="mark">2</span> <span class="skill">Commercial acumen</span></p>
+  <p><strong>Develop internally (build).</strong> AWCHS should create a funded specialist pathway: select nurses with interest and potential, sponsor accredited diabetes and cardiac courses, and pair them with the 3 existing specialists as mentors. Growing its own specialists is likely cheaper than recruiting from a scarce market, and it builds loyalty. <span class="mark">2</span></p>
+  <p><strong>Retain.</strong> Nurses leave for private hospitals that fund specialist training, so offering this training directly removes the main stated reason for leaving. A modest retention agreement (e.g. two years' service after a sponsored qualification) protects the investment. Cutting 25% turnover also reduces recruitment and agency costs, helping keep the budget flat. <span class="mark">2</span></p>
+  <p><strong>Deploy and empower.</strong> Specialists will only stay if they can use their skills. AWCHS must change the rule requiring a doctor's signature for routine tests, giving specialists protocol-based authority (links to the cultural web). A clinical career ladder (nurse → specialist nurse → nurse consultant) gives progression without leaving patient care. <span class="mark">2</span></p>
+  <p><strong>Attract and plan.</strong> A workforce plan should set annual targets for specialist numbers. AWCHS's employer brand ("we invest in your specialist career", work–life balance from remote clinics) can attract nurses from outside. <span class="mark">1</span></p>
+  <p><strong>Measure.</strong> KPIs: number of qualified specialists, nurse turnover, internal promotions, chronic-disease patient outcomes. Review them quarterly at board level. <span class="mark">1</span></p>
+  </div></details>
+  <div class="box examiner"><span class="lbl">Marker's notes on this case</span><ul><li><strong>Format marks:</strong> a briefing paper needs a title, To/From/Subject, headings matching each requirement, and short paragraphs.</li><li><strong>Links between requirements:</strong> nurse authority appears in the cultural web <em>and</em> talent answers. Cross-referencing shows integrated thinking.</li><li><strong>Public sector awareness:</strong> funder, public money and anti-bribery standards: commercial acumen in a non-commercial setting.</li></ul></div>
+</section>
+
+<!-- 20 SKILLS -->
+<section id="skills">
+  <div class="sec-head"><div class="num">20</div><div><h2>Earning professional skills marks in this chapter</h2><div class="ref">Section I · 20 marks per exam across communication, commercial acumen, analysis, scepticism, evaluation</div></div></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Skill</th><th>How it is tested in leadership, ethics and talent questions</th><th>What earns the mark</th></tr></thead>
+    <tbody>
+      <tr><td>Communication</td><td>Briefing paper to the board, email to a director, speech to staff on culture change, press release after a fraud</td><td>Right format; tone suited to audience (firm but respectful to a director); clear headings; concise</td></tr>
+      <tr><td>Commercial acumen</td><td>Talent and CSF questions; fraud controls</td><td>Practical, affordable recommendations; cost of turnover; awareness of public sector constraints; use of numbers</td></tr>
+      <tr><td>Analysis</td><td>Cultural web, POPIT, Baldrige</td><td>Using case facts to explain causes; calculations (turnover, utilisation, skills gap)</td></tr>
+      <tr><td>Scepticism</td><td>Ethics: a director's justification, a falling incident rate, a "preferred" supplier</td><td>Questioning assertions; spotting red flags; challenging politely in the public interest</td></tr>
+      <tr><td>Evaluation</td><td>Leadership style for change; responsible leadership; Baldrige benefits</td><td>Weighing pros and cons; prioritising; a clear, justified conclusion</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box examiner"><span class="lbl">Phrases that signal professional skills</span><ul>
+    <li><em>Scepticism:</em> "Although the CEO states that…, the evidence in the staff survey suggests…" · "The fall in reported incidents should not be taken at face value because…"</li>
+    <li><em>Evaluation:</em> "On balance, the most appropriate approach is… because…" · "This should be prioritised as it has the greatest impact on…"</li>
+    <li><em>Commercial acumen:</em> "Although this requires investment of…, it is likely to save… by reducing agency costs."</li>
+    <li><em>Communication (to a director):</em> "I would respectfully advise that…" · "The board may wish to consider…"</li>
+  </ul></div>
+  <div class="box mistake"><span class="lbl">Biggest skills-mark killers</span><ul><li>Accusatory tone in ethics answers ("the FD is a criminal").</li><li>No conclusion on "evaluate" or "advise" tasks.</li><li>Ignoring the stated audience (writing to a board as if to a tutor).</li></ul></div>
+</section>
+
+<!-- 21 CHEAT -->
+<section id="cheat">
+  <div class="sec-head"><div class="num">21</div><div><h2>Cheat sheet &amp; mnemonics</h2><div class="ref">Revise this the night before</div></div></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Topic</th><th>Key content</th><th>Mnemonic</th></tr></thead>
+    <tbody>
+      <tr><td>Leader vs manager</td><td>Leaders: direction, alignment, motivation → change. Managers: plan, organise, control → order</td><td>DAM vs POC</td></tr>
+      <tr><td>Leadership traits</td><td>Vision, Integrity, Communication, Emotional intelligence, Decisiveness, Resilience, Empowerment, Adaptability, Market awareness</td><td>VICE-DREAM</td></tr>
+      <tr><td>Transformational</td><td>Idealised influence, Inspirational motivation, Intellectual stimulation, Individualised consideration</td><td>4 I's (dream) vs transactional (deal)</td></tr>
+      <tr><td>Intrapreneurship enablers</td><td>Time, Funding, Reward, Error tolerance, Easy approval</td><td>T-FREE</td></tr>
+      <tr><td>Governance values</td><td>Fairness, Openness, Independence, Probity, Responsibility, Accountability, Reputation, Judgement, Integrity</td><td>FOIP RARJI</td></tr>
+      <tr><td>Schein</td><td>Artefacts, Espoused values, Basic assumptions</td><td>Iceberg</td></tr>
+      <tr><td>Handy</td><td>Power (Zeus), Role (Apollo), Task (Athena), Person (Dionysus)</td><td>Web, temple, net, stars</td></tr>
+      <tr><td>Cultural web</td><td>Stories, Symbols, Power, Organisational structure, Control systems, Rituals &amp; routines → Paradigm</td><td>Silly Sheep Pick Odd Coloured Rugs</td></tr>
+      <tr><td>Strategic drift</td><td>Incremental, Drift, Flux, Transformation or death</td><td>I Don't Feel Transformed</td></tr>
+      <tr><td>Change styles</td><td>Education, Collaboration, Intervention, Direction, Coercion</td><td>Every Clever Idea Drives Change</td></tr>
+      <tr><td>Public value (Moore)</td><td>Public value, Legitimacy &amp; support, Operational capacity</td><td>VLC stool</td></tr>
+      <tr><td>IESBA principles</td><td>Integrity, Objectivity, Professional competence &amp; due care, Confidentiality, Professional behaviour</td><td>I Owe Professional Courtesy, Please</td></tr>
+      <tr><td>Conceptual framework</td><td>Identify, Evaluate, Address (eliminate / safeguard / decline)</td><td>I-E-A</td></tr>
+      <tr><td>Threats</td><td>Self-interest, Self-review, Advocacy, Familiarity, Intimidation</td><td>SSAFI</td></tr>
+      <tr><td>Escalation</td><td>Refuse → Record → Report up → Whistleblow → Resign</td><td>5 R's</td></tr>
+      <tr><td>Conflict of interest fixes</td><td>Declare, Recuse, Independent decision, Policy</td><td>DRIP</td></tr>
+      <tr><td>Tucker</td><td>Profitable, Legal, Fair, Right, Sustainable</td><td>Please Let's Find the Right Solution</td></tr>
+      <tr><td>Kohlberg</td><td>Pre-conventional, Conventional, Post-conventional</td><td>Me → We → Principle</td></tr>
+      <tr><td>Fraud triangle</td><td>Pressure, Opportunity, Rationalisation</td><td>POR</td></tr>
+      <tr><td>Bribery Act principles</td><td>Proportionate, Top-level commitment, Risk assessment, Due diligence, Communication, Monitoring</td><td>Please Take Real Due Care, Mate</td></tr>
+      <tr><td>Talent cycle</td><td>Plan, Attract, Identify, Develop, Deploy, Engage/retain</td><td>PAIDDE · Build, Buy, Borrow</td></tr>
+      <tr><td>POPIT</td><td>People, Organisation, Processes, IT</td><td>Pop the balloon</td></tr>
+      <tr><td>Baldrige</td><td>Leadership, Strategy, Customers, Measurement/analysis/KM, Workforce, Operations, Results</td><td>Lazy Students Can't Memorise When Overwhelmed, Really</td></tr>
+      <tr><td>CSF sources (Rockart)</td><td>Industry, Competitive strategy, Environment, Temporal, Managerial position</td><td>I Can Eat Tasty Mangoes</td></tr>
+      <tr><td>CSF vs KPI</td><td>CSF = what must go right; KPI = how we measure it (SMART, leading + lagging)</td><td>WHAT vs HOW</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box memory"><span class="lbl">The universal SBL point formula</span><strong>Model term → case fact → consequence → recommendation.</strong> Example: "<em>Control systems</em> (term): clinic managers are rewarded only for budget (fact), so they will avoid investing in nurse training (consequence). Add patient-outcome KPIs to the bonus scheme (recommendation)."</div>
+</section>
+
+<!-- 22 SELF TEST -->
+<section id="test">
+  <div class="sec-head"><div class="num">22</div><div><h2>Self-test: 15 questions</h2><div class="ref">Answer in your head first, then click to reveal</div></div></div>
+  <details><summary>1. State three differences between leadership and management (Kotter).</summary><div class="ans">Leaders set direction, managers plan and budget; leaders align people, managers organise and staff; leaders motivate and inspire, managers control and problem-solve. Leadership produces change; management produces order.</div></details>
+  <details><summary>2. Why is a strongly transactional style weak for launching a new product range?</summary><div class="ans">It rewards hitting existing targets, so staff avoid risk and don't share ideas. Innovation needs inspiration and intellectual stimulation (transformational), with transactional controls kept for cost and quality.</div></details>
+  <details><summary>3. Give two practical ways to encourage intrapreneurship in a bureaucratic organisation.</summary><div class="ans">Any two of: an innovation fund with fast single-sponsor approval for small pilots; pitch events or innovation time; rewards and recognition for innovation; tolerating failed pilots as learning; early risk and compliance review so pilots stay within limits.</div></details>
+  <details><summary>4. A chairman sells shares just before bad news is announced. Which governance values are breached?</summary><div class="ans">Integrity, probity/honesty, fairness (to other shareholders) and openness (delayed disclosure). It may also be illegal insider dealing. Reputation is damaged as a consequence.</div></details>
+  <details><summary>5. What are Schein's three levels and which one really drives behaviour?</summary><div class="ans">Artefacts, espoused values, basic assumptions. Basic assumptions drive behaviour. If they conflict with espoused values, staff follow the assumptions.</div></details>
+  <details><summary>6. Name the six elements of the cultural web and what sits in the middle.</summary><div class="ans">Stories, symbols, power structures, organisational structure, control systems, rituals and routines. The paradigm sits in the middle.</div></details>
+  <details><summary>7. What is the difference between "power structures" and "organisational structure" in the cultural web?</summary><div class="ans">Organisational structure is the formal chart and reporting lines. Power structures are who really has influence, e.g. senior consultants or a union who can block change regardless of the chart.</div></details>
+  <details><summary>8. What is strategic drift, and give a real example.</summary><div class="ans">When strategy gradually falls out of line with a changing environment because the culture keeps repeating past success. Phases: incremental, drift, flux, transformation or death. Example: Kodak and digital photography.</div></details>
+  <details><summary>9. When is a directive or coercive change style appropriate, and what is the risk?</summary><div class="ans">In a genuine crisis with little time, where survival is at stake and the leader has power. Risk: low commitment, resentment, loss of skilled staff, and the change may not stick.</div></details>
+  <details><summary>10. State the three corners of Moore's strategic triangle.</summary><div class="ans">Public value; legitimacy and support (the authorising environment); operational capacity.</div></details>
+  <details><summary>11. List the five IESBA fundamental principles and the five threats.</summary><div class="ans">Principles: integrity, objectivity, professional competence and due care, confidentiality, professional behaviour. Threats: self-interest, self-review, advocacy, familiarity, intimidation.</div></details>
+  <details><summary>12. A CEO tells the financial controller "change the numbers or you're fired". Which threat, and what is the correct escalation?</summary><div class="ans">Intimidation, plus self-interest (job security). Refuse and record; raise with the audit committee chair or board; use whistleblowing or external advice (ACCA helpline, legal) if internal routes fail; resign as a last resort.</div></details>
+  <details><summary>13. What are the six principles of "adequate procedures" under the UK Bribery Act?</summary><div class="ans">Proportionate procedures, top-level commitment, risk assessment, due diligence, communication (including training), monitoring and review.</div></details>
+  <details><summary>14. Name the seven Baldrige categories. Which one is the foundation?</summary><div class="ans">Leadership; strategy; customers; measurement, analysis and knowledge management; workforce; operations; results. Measurement, analysis and knowledge management is the foundation.</div></details>
+  <details><summary>15. For a hospital whose strategy is "fastest emergency care in the region", give one CSF and a matching KPI.</summary><div class="ans">CSF: rapid triage and treatment in the emergency department. KPI: % of patients seen by a clinician within 15 minutes of arrival (or % admitted or discharged within 4 hours), with a target such as 95%.</div></details>
+</section>
+
+</main>
+<footer>SBL study notes · Leadership, culture &amp; ethics (A) + Talent &amp; performance excellence (H3–H4) · Prepared for the December 2026 sitting<br>Models and examples are for exam practice; case organisations are fictional.</footer>
+</div>
+<a class="top" href="#home">↑ Top</a>
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.menubar .panel a'));
+  var map={};links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a;});
+  links.forEach(function(a){a.addEventListener('click',function(){if(document.activeElement)document.activeElement.blur();});});
+  if(!('IntersectionObserver' in window))return;
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(!e.isIntersecting)return;
+    links.forEach(function(l){l.classList.remove('on');});
+    [].forEach.call(document.querySelectorAll('.dd'),function(d){d.classList.remove('on');});
+    var a=map[e.target.id];if(a){a.classList.add('on');a.closest('.dd').classList.add('on');}
+  });},{rootMargin:'-70px 0px -70% 0px'});
+  Object.keys(map).forEach(function(id){var s=document.getElementById(id);if(s)io.observe(s);});
+})();
+</script>
+</body>
+</html>
