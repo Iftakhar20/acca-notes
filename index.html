@@ -301,10 +301,20 @@ var CURRENT_FOCUS = 'sbl';   // exam code shown in the "Current focus" stat
    ════════════════════════════════════════════════════════════════════ */
 var EXAMS = [
 
+  /* ── SBL — ordered by syllabus area (A → H) ── */
   { code: 'sbl', name: 'Strategic Business Leader', sub: 'Strategic Professional · December 2026',
     notes: [
       { file: 'SBL/SBL Exam Technique and Professional Skills Notes Dec2026.html', title: 'Exam Technique & Professional Skills', icon: '🧭', featured: true,
         desc: 'How SBL is marked · the 5 professional skills · answer formats · time management · worked mini-case' },
+      // A — Leadership (+ H3–H4 talent & performance)
+      { file: 'SBL/SBL-A-H-Leadership-Ethics-Talent.html', title: 'Leadership, Culture, Ethics & Talent', icon: '👑', tag: 'A1–A3, H3–H4',
+        desc: 'Leadership traits · transformational vs transactional · intrapreneurship · cultural web · strategic drift · public value · IESBA principles & threats · fraud & bribery · talent management · POPIT · Baldrige · CSFs & KPIs' },
+      // B — Governance
+      { file: 'SBL/Governance 1 agency, stakeholders, CSR, governance approaches.html', title: 'Governance 1 — Agency, Stakeholders, CSR & Approaches', icon: '🤝', tag: 'B1–B3',
+        desc: 'Agency theory · Mendelow · CSR & Carroll · rules vs principles · institutional investors · family vs joint stock · ICGN' },
+      { file: 'SBL/Governance 2 board, committees, integrated reporting, public sector.html', title: 'Governance 2 — Board, Committees, <IR> & Public Sector', icon: '🪑', tag: 'B4–B6',
+        desc: 'Board & NEDs · committees · remuneration · six capitals · ISO 14001 vs EMAS · 3Es & public value' },
+      // C — Strategy
       { file: 'SBL/SBL Strategy Concepts and External Environment Notes Dec2026.html', title: 'Strategy Concepts & External Environment', icon: '🌍', tag: 'C1–C2',
         desc: "JSW & SAF · PESTEL · key drivers · strategic drift · Porter's Diamond · scenarios" },
       { file: 'SBL/SBL Competitive Forces and Value Chain Notes Dec2026.html', title: 'Competitive Forces & Value Chain', icon: '⚔️', tag: 'C3',
@@ -312,19 +322,15 @@ var EXAMS = [
       { file: 'SBL/SBL Internal Capability and SWOT Notes Dec2026.html', title: 'Internal Capability & SWOT', icon: '⚙️', tag: 'C4' },
       { file: 'SBL/SBL Strategic Choices Notes Dec2026.html', title: 'Strategic Choices', icon: '♟️', tag: 'C5',
         desc: 'Porter · strategy clock · Ansoff · BCG · public sector matrix · M&A & alliances · SAF' },
-      { file: 'SBL/Governance 1 agency, stakeholders, CSR, governance approaches.html', title: 'Governance 1 — Agency, Stakeholders, CSR & Approaches', icon: '🤝', tag: 'B1–B3',
-        desc: 'Agency theory · Mendelow · CSR & Carroll · rules vs principles · institutional investors · family vs joint stock · ICGN' },
-      { file: 'SBL/Governance 2 board, committees, integrated reporting, public sector.html', title: 'Governance 2 — Board, Committees, <IR> & Public Sector', icon: '🪑', tag: 'B4–B6',
-        desc: 'Board & NEDs · committees · remuneration · six capitals · ISO 14001 vs EMAS · 3Es & public value' },
+      // D — Risk
       { file: 'SBL/SBL - Risk Identify, Assess, Manage & Monitor.html', title: 'Risk — Identify, Assess, Manage & Monitor', icon: '⚠️', tag: 'D1–D2',
         desc: 'ERM · strategic vs operational risk · risk appetite · heat maps · TARA · ALARP · four lines of defence' },
+      // E — Technology & data analytics
       { file: 'SBL/SBL - Technology and Data Analytics.html', title: 'Technology & Data Analytics', icon: '💻', tag: 'E1–E5',
         desc: "Cloud & smart tech · big data · AI & machine learning · e-business & the 6 I's · cyber security" },
+      // H — Enabling success & change
       { file: 'SBL/SBL - Change Process Redesign & Projects.html', title: 'Change, Process Redesign & Projects', icon: '🔄', tag: 'H5–H6',
         desc: 'Balogun & Hope Hailey · Lewin · resistance · POPIT · Harmon matrix · redesign · business case & PID · costs/benefits · CPA · PIR' },
-
-           { file: 'SBL/SBL-A-H-Leadership-Ethics-Talent.html', title: 'Leadership, Culture, Ethics & Talent', icon: '🧭', tag: 'A1–A3, H3–H4',
-        desc: 'Leadership traits · transformational vs transactional · intrapreneurship · cultural web · strategic drift · public value · IESBA principles & threats · fraud & bribery · talent management · POPIT · Baldrige · CSFs & KPIs' },
     ]
   },
 
@@ -334,42 +340,44 @@ var EXAMS = [
     ]
   },
 
+  /* ── FM — ordered by syllabus (A function → C working capital → D investment appraisal → E finance → F valuations → G risk) ── */
   { code: 'fm', name: 'Financial Management', sub: 'Corporate Finance · June 2026',
     notes: [
-      { file: 'FM/FM Financial Management Function.html', title: 'Financial Management Function', icon: '🎯' },
-      { file: 'FM/FM Investment Appraisal Notes.html', title: 'Investment Appraisal', icon: '💹' },
-      { file: 'FM/Investment Appraisal _ DeepSeek Notes.html', title: 'Investment Appraisal', icon: '🔭', ai: 'DeepSeek' },
-      { file: 'FM/Investment Appraisal _ Kimi Notes.html', title: 'Investment Appraisal', icon: '🧮', ai: 'Kimi' },
-      { file: 'FM/FM_NPV_Complete_Notes.html', title: 'NPV — Complete Notes', icon: '📐' },
+      { file: 'FM/FM Financial Management Function.html', title: 'Financial Management Function', icon: '🎯', tag: 'A' },
+      { file: 'FM/FM_Working_Capital_Management.html', title: 'Working Capital Management', icon: '💰', tag: 'C' },
+      { file: 'FM/FM_Working_Capital_Management_Kimi_Notes.html', title: 'Working Capital Management', icon: '🔄', tag: 'C', ai: 'Kimi' },
+      { file: 'FM/FM_Working_Capital_Management_DeepSeek_Notes.html', title: 'Working Capital Management', icon: '🌊', tag: 'C', ai: 'DeepSeek' },
+      { file: 'FM/FM Investment Appraisal Notes.html', title: 'Investment Appraisal', icon: '💹', tag: 'D' },
+      { file: 'FM/Investment Appraisal _ DeepSeek Notes.html', title: 'Investment Appraisal', icon: '🔭', tag: 'D', ai: 'DeepSeek' },
+      { file: 'FM/Investment Appraisal _ Kimi Notes.html', title: 'Investment Appraisal', icon: '🧮', tag: 'D', ai: 'Kimi' },
+      { file: 'FM/FM_NPV_Complete_Notes.html', title: 'NPV — Complete Notes', icon: '📐', tag: 'D' },
       { file: 'FM/FM Investment Appraisal Cheatsheet.html', title: 'Investment Appraisal Cheatsheet', icon: '🗒️', tag: 'Cheatsheet' },
-      { file: 'FM/FM_Working_Capital_Management.html', title: 'Working Capital Management', icon: '💰' },
-      { file: 'FM/FM_Working_Capital_Management_Kimi_Notes.html', title: 'Working Capital Management', icon: '🔄', ai: 'Kimi' },
-      { file: 'FM/FM_Working_Capital_Management_DeepSeek_Notes.html', title: 'Working Capital Management', icon: '🌊', ai: 'DeepSeek' },
-      { file: 'FM/FM_Business_Finance_WACC.html', title: 'Business Finance & WACC', icon: '🏦' },
-      { file: 'FM/FM_Business_Valuations.html', title: 'Business Valuations', icon: '💎' },
-      { file: 'FM/FM_Risk_Management_Notes.html', title: 'Risk Management', icon: '🛡️' },
-      { file: 'FM/ACCA FM Risk Management Grok Notes.html', title: 'Risk Management', icon: '🌪️', ai: 'Grok' },
-      { file: 'FM/ACCA FM - Risk Management Perplxity Notes.html', title: 'Risk Management', icon: '🧩', ai: 'Perplexity' },
-      { file: 'FM/ACCA FM - Risk Management DeepSeek Notes.html', title: 'Risk Management', icon: '🎲', ai: 'DeepSeek' },
-      { file: 'FM/ACCA FM - Risk Management Copilot Notes.html', title: 'Risk Management', icon: '⚓', ai: 'Copilot' },
+      { file: 'FM/FM_Business_Finance_WACC.html', title: 'Business Finance & WACC', icon: '🏦', tag: 'E' },
+      { file: 'FM/FM_Business_Valuations.html', title: 'Business Valuations', icon: '💎', tag: 'F' },
+      { file: 'FM/FM_Risk_Management_Notes.html', title: 'Risk Management', icon: '🛡️', tag: 'G' },
+      { file: 'FM/ACCA FM Risk Management Grok Notes.html', title: 'Risk Management', icon: '🌪️', tag: 'G', ai: 'Grok' },
+      { file: 'FM/ACCA FM - Risk Management Perplxity Notes.html', title: 'Risk Management', icon: '🧩', tag: 'G', ai: 'Perplexity' },
+      { file: 'FM/ACCA FM - Risk Management DeepSeek Notes.html', title: 'Risk Management', icon: '🎲', tag: 'G', ai: 'DeepSeek' },
+      { file: 'FM/ACCA FM - Risk Management Copilot Notes.html', title: 'Risk Management', icon: '⚓', tag: 'G', ai: 'Copilot' },
     ]
   },
 
+  /* ── TX — income tax & NIC → CGT → IHT → corporation tax → VAT → revision ── */
   { code: 'tx', name: 'Taxation', sub: 'Finance Act 2025 · June 2026',
     notes: [
-      { file: 'TX/CGT Notes ACCA TX June2026.html', title: 'Capital Gains Tax', icon: '🏠' },
-      { file: 'TX/TX Corporation Tax Notes.html', title: 'Corporation Tax', icon: '🏢' },
-      { file: 'TX/TX Employment Benefits.html, title: 'Employment Benefits', icon: '👔' },
+      { file: 'TX/TX Employment Benefits.html', title: 'Employment Benefits', icon: '👔' },
       { file: 'TX/TX Trading Income Notes.html', title: 'Trading Income', icon: '📈' },
-      { file: 'TX/TX Inheretence Tax Notes.html', title: 'Inheritance Tax', icon: '🏛️' },
-      { file: 'TX/TX VAT Notes.html', title: 'VAT', icon: '🧾' },
       { file: 'TX/TX Pension & NIC.html', title: 'Pensions & NIC', icon: '🏖️' },
-      { file: 'TX/TX Key Dates Notes.html', title: 'Key Dates', icon: '📅' },
+      { file: 'TX/CGT Notes ACCA TX June2026.html', title: 'Capital Gains Tax', icon: '🏠' },
+      { file: 'TX/TX Inheretence Tax Notes.html', title: 'Inheritance Tax', icon: '🏛️' },   // filename spelling kept as in repo
+      { file: 'TX/TX Corporation Tax Notes.html', title: 'Corporation Tax', icon: '🏢' },
+      { file: 'TX/TX VAT Notes.html', title: 'VAT', icon: '🧾' },
+      { file: 'TX/TX Key Dates Notes.html', title: 'Key Dates', icon: '📅', tag: 'Revision' },
       { file: 'TX/TX Refresher Notes.html', title: 'Refresher Notes', icon: '🔁', tag: 'Refresher' },
-      { file: 'AA/AA Revision Cheatsheet.html', title: 'Revision Cheatsheet', icon: '⚡', tag: 'Cheatsheet' },
     ]
   },
 
+  /* ── AA — framework & ethics → controls → evidence → reporting → revision ── */
   { code: 'aa', name: 'Audit & Assurance', sub: 'External Audit · June 2026',
     notes: [
       { file: 'AA/AA Ethics and Acceptance.html', title: 'Ethics & Acceptance', icon: '⚖️' },
@@ -381,7 +389,8 @@ var EXAMS = [
       { file: 'AA/AA Audit Reports.html', title: 'Audit Reports', icon: '📋' },
       { file: 'AA/AA_Auditors_Report_TCWG_Chapter12.html', title: "Auditor's Report & TCWG (Ch. 12)", icon: '🗣️' },
       { file: 'AA/AA_Audit_Reports_Quiz.html', title: 'Audit Reports Quiz', icon: '❓', tag: 'Quiz' },
-      { file: 'AA/AA Revision Cheatsheet______.html', title: 'Revision Cheatsheet', icon: '🚀', tag: 'Cheatsheet' },
+      { file: 'AA/AA Revision Cheatsheet.html', title: 'Revision Cheatsheet', icon: '⚡', tag: 'Cheatsheet' },
+      { file: 'AA/AA Revision Cheatsheet______.html', title: 'Revision Cheatsheet (v2)', icon: '🚀', tag: 'Cheatsheet' },
     ]
   },
 
