@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SBL Revision Cheat Sheet – All Models, Acronyms &amp; Mnemonics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fbfaf6; --card:#ffffff; --ink:#22252b; --muted:#5d6470; --line:#e6e2d8;
+  --saffron:#e9a820; --dusk:#3e5c8a; --razz:#d81f63; --mint:#1f9e6e; --tomato:#e8553f;
+  --plum:#7b4fa0; --teal:#1a8a96; --olive:#7a8a1f; --slate:#4a5568;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:17px;line-height:1.55}
+h1,h2,h3{font-family:"Bricolage Grotesque",Inter,system-ui,sans-serif;line-height:1.2}
+/* top bar */
+.bar{position:sticky;top:0;z-index:50;background:#fffdf8ee;backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.bar-in{max-width:1500px;margin:0 auto;padding:8px 20px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.brand{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:18px;margin-right:6px;white-space:nowrap}
+.brand span{color:var(--razz)}
+.nav{display:flex;gap:4px;flex-wrap:wrap}
+.nav a{text-decoration:none;color:var(--ink);font-weight:600;font-size:14px;padding:5px 9px;border-radius:7px;border:1px solid transparent}
+.nav a:hover{background:#f1ede3;border-color:var(--line)}
+.tools{margin-left:auto;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.tools input{font:inherit;font-size:14px;padding:6px 10px;border:1px solid var(--line);border-radius:8px;width:190px;background:#fff}
+.btn{font:inherit;font-size:14px;font-weight:600;padding:6px 11px;border-radius:8px;border:1px solid var(--line);background:#fff;cursor:pointer;color:var(--ink)}
+.btn.on{background:var(--dusk);color:#fff;border-color:var(--dusk)}
+.btn.on2{background:var(--tomato);color:#fff;border-color:var(--tomato)}
+/* page */
+main{max-width:1500px;margin:0 auto;padding:18px 20px 60px}
+.hero{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:22px}
+.hero h1{margin:0 0 6px;font-size:28px}
+.hero p{margin:6px 0;color:var(--muted)}
+.how{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin-top:12px}
+.how div{background:#faf7ef;border-radius:10px;padding:10px 13px;font-size:15.5px}
+.how b{color:var(--dusk)}
+section{margin-top:30px}
+.sec-h{display:flex;align-items:baseline;gap:12px;border-bottom:3px solid var(--c);padding-bottom:6px;margin-bottom:14px}
+.sec-h .tag{background:var(--c);color:#fff;font-weight:800;font-family:"Bricolage Grotesque",sans-serif;border-radius:8px;padding:2px 10px;font-size:18px}
+.sec-h h2{margin:0;font-size:23px}
+.sec-h small{color:var(--muted);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(400px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--c);border-radius:12px;padding:13px 16px 12px;position:relative}
+.card h3{margin:0 26px 4px 0;font-size:18px}
+.mn{display:inline-block;background:color-mix(in srgb,var(--c) 13%,#fff);color:color-mix(in srgb,var(--c) 75%,#000);font-weight:700;font-size:14px;border-radius:6px;padding:1px 8px;margin:2px 0 6px}
+.card ul{margin:4px 0 6px;padding-left:0;list-style:none}
+.card li{padding:3px 0;border-bottom:1px dashed #eee;font-size:15.5px}
+.card li:last-child{border-bottom:none}
+.card li b{color:var(--ink)}
+.use{font-size:14.5px;color:#3f4651;background:#f7f5ef;border-radius:7px;padding:6px 9px;margin-top:6px}
+.use::before{content:"Exam trigger: ";font-weight:700;color:var(--c)}
+.star{position:absolute;top:9px;right:10px;border:none;background:none;font-size:19px;cursor:pointer;color:#c9c3b4;line-height:1}
+.card.shaky .star{color:var(--tomato)}
+.card.shaky{box-shadow:0 0 0 2px color-mix(in srgb,var(--tomato) 40%,transparent)}
+/* recall mode */
+body.recall .card .body{filter:blur(7px);user-select:none;transition:filter .15s}
+body.recall .card{cursor:pointer}
+body.recall .card.open .body{filter:none;user-select:auto}
+body.recall .card::after{content:"click to reveal";position:absolute;bottom:8px;right:12px;font-size:12px;color:var(--muted)}
+body.recall .card.open::after{content:""}
+body.shakyonly .card:not(.shaky){display:none}
+.hide{display:none!important}
+/* tables */
+.tbl{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:15.5px}
+.tbl th{background:var(--c);color:#fff;text-align:left;padding:8px 12px;font-weight:600}
+.tbl td{padding:7px 12px;border-top:1px solid #eee;vertical-align:top}
+.tbl tr:nth-child(even) td{background:#fbf9f4}
+.tbl td:first-child{font-weight:600;width:42%}
+footer{max-width:1500px;margin:0 auto;padding:20px;color:var(--muted);font-size:14px;text-align:center}
+@media (max-width:700px){.grid{grid-template-columns:1fr}.tools{margin-left:0}.tools input{width:140px}}
+</style>
+</head>
+<body>
+
+<div class="bar"><div class="bar-in">
+  <div class="brand">SBL <span>Revision</span></div>
+  <nav class="nav">
+    <a href="#exam">Exam</a><a href="#A">A</a><a href="#B">B</a><a href="#C">C</a><a href="#D">D</a><a href="#E">E</a><a href="#F">F</a><a href="#G">G</a><a href="#H">H</a><a href="#I">I Skills</a><a href="#which">Which model?</a>
+  </nav>
+  <div class="tools">
+    <input id="q" type="search" placeholder="Search (e.g. TARA, Kotter)">
+    <button class="btn" id="recallBtn" title="Blur the answers so you test yourself">Recall mode</button>
+    <button class="btn" id="shakyBtn" title="Show only cards you starred">★ Shaky only</button>
+  </div>
+</div></div>
+
+<main>
+<div class="hero">
+  <h1>SBL one-stop revision sheet</h1>
+  <p>Every core model, acronym and mnemonic for the Sept 2026 – June 2027 syllabus (A–I), on one page. Each card ends with an <b>exam trigger</b>, which tells you what in a case should make you reach for that model.</p>
+  <div class="how">
+    <div><b>1. Read once (≈60 min).</b> Skim every card. Star ★ any card you couldn't have explained without looking.</div>
+    <div><b>2. Recall mode daily (15 min).</b> Turn on <i>Recall mode</i>. Look at the title and mnemonic, say the elements out loud, then click to check.</div>
+    <div><b>3. Shaky only.</b> Turn on <i>★ Shaky only</i> to drill just your weak cards. Un-star a card once you get it right twice.</div>
+    <div><b>4. Remember:</b> knowing a model scores almost nothing. Marks come from <b>applying</b> it: point → case fact → so-what.</div>
+  </div>
+</div>
+
+<!-- EXAM FORMAT -->
+<section id="exam" style="--c:var(--razz)">
+  <div class="sec-h"><span class="tag">★</span><h2>The exam &amp; how marks are earned</h2></div>
+  <div class="grid" id="g-exam"></div>
+</section>
+
+<section id="A" style="--c:var(--saffron)"><div class="sec-h"><span class="tag">A</span><h2>Leadership</h2><small>leadership, culture, ethics, professionalism</small></div><div class="grid" id="g-A"></div></section>
+<section id="B" style="--c:var(--dusk)"><div class="sec-h"><span class="tag">B</span><h2>Governance</h2><small>agency, stakeholders, CSR, board, &lt;IR&gt;, public sector</small></div><div class="grid" id="g-B"></div></section>
+<section id="C" style="--c:var(--mint)"><div class="sec-h"><span class="tag">C</span><h2>Strategy</h2><small>environment, capability, choices, performance</small></div><div class="grid" id="g-C"></div></section>
+<section id="D" style="--c:var(--tomato)"><div class="sec-h"><span class="tag">D</span><h2>Risk</h2><small>identification, assessment, response, ERM</small></div><div class="grid" id="g-D"></div></section>
+<section id="E" style="--c:var(--teal)"><div class="sec-h"><span class="tag">E</span><h2>Technology &amp; data analytics</h2><small>cloud, big data, cyber, e-business</small></div><div class="grid" id="g-E"></div></section>
+<section id="F" style="--c:var(--plum)"><div class="sec-h"><span class="tag">F</span><h2>Organisational control &amp; audit</h2><small>internal control, internal audit, information</small></div><div class="grid" id="g-F"></div></section>
+<section id="G" style="--c:var(--olive)"><div class="sec-h"><span class="tag">G</span><h2>Finance in planning &amp; decision making</h2><small>finance function, appraisal, ratios, budgeting</small></div><div class="grid" id="g-G"></div></section>
+<section id="H" style="--c:var(--razz)"><div class="sec-h"><span class="tag">H</span><h2>Enabling success &amp; change</h2><small>talent, change, process redesign, projects</small></div><div class="grid" id="g-H"></div></section>
+<section id="I" style="--c:var(--slate)"><div class="sec-h"><span class="tag">I</span><h2>Professional skills (20 marks)</h2><small>what each skill looks like on the page</small></div><div class="grid" id="g-I"></div></section>
+
+<section id="which" style="--c:var(--dusk)">
+  <div class="sec-h"><span class="tag">?</span><h2>Which model when? If the case says this, use that</h2></div>
+  <table class="tbl" id="whichTbl"><tr><th>If the exhibit / task mentions…</th><th>Reach for…</th></tr></table>
+</section>
+</main>
+
+<footer>SBL revision sheet · Sept 2026 – June 2027 syllabus · Use alongside the full chapter notes</footer>
+
+<script>
+/* Each card: [section, title, mnemonic, [[term, meaning],...], exam trigger] */
+const C = [
+/* ---------- EXAM ---------- */
+["exam","Exam format","3h15 · 3 tasks · 80 + 20",[
+ ["Length","3 hours 15 minutes, computer-based"],
+ ["Tasks","3 compulsory tasks, broken into sub-tasks"],
+ ["Marks","80 technical + 20 professional skills; pass = 50"],
+ ["Pre-seen","Released ~2 weeks before the exam. Know it well, but answer from the exam-day exhibits"],
+ ["Time","≈1.9 min per mark. A 20-mark sub-task gets ≈38 min including planning"]],
+ "Plan your time for every sub-task before you start writing."],
+["exam","Earning a technical mark","P-A-C: Point → Apply → Consequence",[
+ ["Point","Name the issue or model element in a heading or the opening phrase"],
+ ["Apply","Tie it to a specific case fact, name, number or exhibit detail"],
+ ["Consequence","So what? The impact on the organisation or stakeholders, and what to do about it"],
+ ["≈1 mark","for each well-explained, applied point. Generic textbook lines score 0"]],
+ "Every paragraph should contain a case fact."],
+["exam","Answer process per task","R-P-W-R",[
+ ["Read","Read the requirement first: the verb, the format, who it's for, the marks"],
+ ["Plan","≈20% of the time. Headings, then 1 case fact per point"],
+ ["Write","Short paragraphs, one point each, headings that match the requirement"],
+ ["Review","Last 2 min: is there a conclusion or recommendation? Is the format right?"]],
+ "Never overrun one task. Two half-finished tasks score more than one perfect one."],
+["exam","Answer formats","Format = communication marks",[
+ ["Report","Title, To/From/Date, intro, headed sections, conclusion"],
+ ["Briefing notes","Heading, purpose, concise headed points for a reader who's short on time"],
+ ["Slides + notes","Short bullet slides, with the explanation in the speaker notes"],
+ ["Email / memo / letter","Right salutation and tone for the reader (board, staff, regulator)"],
+ ["Press release","Third person, public tone, no confidential detail"]],
+ "Copy the exact format and audience named in the requirement."],
+["exam","Command verbs","What each verb wants",[
+ ["Assess / Evaluate","Weigh both sides, then give a judgement or conclusion"],
+ ["Analyse","Break it into parts, use the data, explain causes and effects"],
+ ["Advise / Recommend","A clear course of action with justification"],
+ ["Discuss","Arguments for and against, then a view"],
+ ["Explain","Make the reasons clear, applied to the case"],
+ ["Justify","Give reasons why your choice is right"]],
+ "Underline the verb. It decides the structure of your answer."],
+
+/* ---------- A LEADERSHIP ---------- */
+["A","Leadership theories","T-S-C-T (Trait, Style, Contingency, Transformational)",[
+ ["Trait","Leaders are born with certain qualities. Weakness: the list never ends"],
+ ["Style","Autocratic, democratic or laissez-faire (Tannenbaum & Schmidt continuum)"],
+ ["Contingency","The best style depends on the situation (Fiedler, Adair)"],
+ ["Transactional vs transformational","Rewards and punishment vs vision and inspiration (Bass)"]],
+ "A new CEO, a turnaround, a weak or autocratic leader, a culture change."],
+["A","Blake & Mouton managerial grid","People vs Task, 1–9",[
+ ["1,1 Impoverished","Low concern for both"],
+ ["1,9 Country club","High concern for people, low for the task"],
+ ["9,1 Task / authority-compliance","High task, low people"],
+ ["5,5 Middle of the road","Compromise"],
+ ["9,9 Team","High on both. The ideal"]],
+ "A manager who is too focused on targets, or too 'nice' and misses them."],
+["A","Bass – transformational leadership","4 Is",[
+ ["Idealised influence","Acts as a role model"],
+ ["Inspirational motivation","Communicates a compelling vision"],
+ ["Intellectual stimulation","Challenges assumptions and encourages new ideas"],
+ ["Individualised consideration","Coaches and supports each person"]],
+ "Transformation, a new strategy, low morale, digital change."],
+["A","Adair – action-centred leadership","T-T-I (Task, Team, Individual)",[
+ ["Task","Achieve the objective"],
+ ["Team","Build and maintain the team"],
+ ["Individual","Develop and motivate each member"]],
+ "A leader neglecting one of the three circles."],
+["A","Mintzberg – managerial roles","I-I-D: 3-3-4 = 10 roles",[
+ ["Interpersonal","Figurehead, Leader, Liaison"],
+ ["Informational","Monitor, Disseminator, Spokesperson"],
+ ["Decisional","Entrepreneur, Disturbance handler, Resource allocator, Negotiator"]],
+ "Evaluate what a CEO or director actually does, or should be doing."],
+["A","Cultural web (Johnson & Scholes)","\"SS-PORC\" around the Paradigm",[
+ ["Stories","What people tell newcomers about the organisation"],
+ ["Symbols","Logos, offices, titles, cars, dress"],
+ ["Power structures","Who really holds influence"],
+ ["Organisational structures","Formal hierarchy and reporting lines"],
+ ["Rituals & routines","'The way we do things here'"],
+ ["Control systems","What gets measured and rewarded"],
+ ["Paradigm (centre)","The core taken-for-granted assumptions"]],
+ "Culture blocking a strategy or change. Map the current web against the desired one."],
+["A","Handy – four cultures","Greek gods: Z-A-A-D",[
+ ["Power (Zeus)","One strong central figure, like a spider's web"],
+ ["Role (Apollo)","Bureaucracy and rules, typical of the public sector"],
+ ["Task (Athena)","Project teams, expertise matters most"],
+ ["Person (Dionysus)","Exists to serve individuals, e.g. barristers, consultants"]],
+ "Classify a culture and explain why it clashes with the proposed change."],
+["A","Hofstede – national culture","PIUMLI",[
+ ["Power distance","Acceptance of unequal power"],
+ ["Individualism vs collectivism",""],
+ ["Uncertainty avoidance","Need for rules and certainty"],
+ ["Masculinity vs femininity","Achievement vs caring"],
+ ["Long-term orientation",""],
+ ["Indulgence vs restraint",""]],
+ "Overseas expansion, a cross-border merger, international staff."],
+["A","Schein – levels of culture","A-E-B (iceberg)",[
+ ["Artefacts","Visible: dress, layout, ceremonies"],
+ ["Espoused values","What the organisation says it believes"],
+ ["Basic assumptions","Unconscious beliefs, the hardest to change"]],
+ "Values on the website don't match the behaviour seen in the case."],
+["A","ACCA Code – fundamental principles","\"I-O-P-C-P\" (I Obey Professional Codes Properly)",[
+ ["Integrity","Straightforward and honest"],
+ ["Objectivity","No bias, conflicts of interest or undue influence"],
+ ["Professional competence & due care","Keep skills current, act diligently"],
+ ["Confidentiality","Don't disclose without authority or a legal duty"],
+ ["Professional behaviour","Comply with laws, don't discredit the profession"]],
+ "An accountant being pressured to manipulate figures, hide information or leak data."],
+["A","Threats to the principles","\"SSAFI\"",[
+ ["Self-interest","Financial or other personal gain"],
+ ["Self-review","Reviewing your own work"],
+ ["Advocacy","Promoting a client's or employer's position"],
+ ["Familiarity","Too close or too sympathetic"],
+ ["Intimidation","Actual or perceived pressure or threats"]],
+ "A bonus tied to results, a CFO bullied by the CEO, a long-standing relationship."],
+["A","Tucker's 5 questions","\"PLFRS\" (Please Let Fair Rules Stay)",[
+ ["Profitable?",""],["Legal?",""],["Fair?","To all stakeholders"],["Right?","Morally"],["Sustainable / environmentally sound?",""]],
+ "'Evaluate whether this decision is ethical.' Answer each question in turn."],
+["A","Kohlberg – moral development","Pre → Conventional → Post",[
+ ["Pre-conventional","Avoid punishment, self-interest"],
+ ["Conventional","Follow rules, the law and what others expect"],
+ ["Post-conventional","Own ethical principles, even above the law"]],
+ "Assess the ethical reasoning of a named director."],
+["A","Ethical decision approaches","Deon vs Teleo",[
+ ["Deontological","Duty and rules. An act is right or wrong in itself (Kant)"],
+ ["Teleological / consequentialist","Judged by outcomes (utilitarianism, egoism)"],
+ ["Absolutism vs relativism","One universal rule vs it depends on the context"]],
+ "A director justifying a wrong act by its good results."],
+
+/* ---------- B GOVERNANCE ---------- */
+["B","Agency theory","Principal → Agent → Agency costs",[
+ ["Principal","Shareholders or owners (in the public sector, taxpayers and government)"],
+ ["Agent","Directors or management"],
+ ["Agency problem","Agents pursue their own interests (bonuses, empire building, short-termism)"],
+ ["Agency costs","Monitoring, bonding, residual loss"],
+ ["Solutions","Independent NEDs, aligned pay (LTIPs), audit, disclosure"]],
+ "Directors acting in their own interest, related-party deals, excessive pay."],
+["B","Governance theories","A-T-S",[
+ ["Agency","As above"],
+ ["Transaction cost (Williamson)","Bounded rationality and opportunism. Firms bring activities in-house to control them"],
+ ["Stakeholder theory","Directors are accountable to a wider group. Instrumental (it pays) vs normative (it's right)"]],
+ "'Discuss whose interests the board should serve.'"],
+["B","Rules vs principles","Comply or explain",[
+ ["Rules-based","Legal compulsion, e.g. Sarbanes-Oxley (USA). Clear, but box-ticking"],
+ ["Principles-based","Comply or explain, e.g. UK Corporate Governance Code. Flexible, but can be abused"],
+ ["Insider systems","Family or bank owned (Asia, Europe). Fewer agency issues, but minority shareholders suffer"],
+ ["Outsider systems","Dispersed shareholders (UK, US). Agency issues dominate"]],
+ "Listing overseas, a family business, a weak explanation for non-compliance."],
+["B","Mendelow's matrix","Power × Interest",[
+ ["Low P / Low I","Minimal effort"],
+ ["Low P / High I","Keep informed"],
+ ["High P / Low I","Keep satisfied"],
+ ["High P / High I","Key players: involve and consult"],
+ ["Dynamic","Stakeholders move between quadrants, e.g. a union becomes a key player during a strike"]],
+ "Any change, closure, merger or new project with affected groups."],
+["B","Stakeholder classifications","Ways to classify",[
+ ["Internal / connected / external","Staff / shareholders, customers, suppliers / government, community"],
+ ["Narrow vs wide","Most affected vs less affected"],
+ ["Primary vs secondary","Contractual relationship vs none"],
+ ["Active vs passive","Want to participate vs don't"],
+ ["Voluntary vs involuntary","Chose to engage vs affected without choice"],
+ ["Legitimate vs illegitimate","Valid claim vs not"]],
+ "'Discuss the claims of the stakeholders in the exhibit.'"],
+["B","Carroll's CSR pyramid","\"ELEP\" bottom up",[
+ ["Economic","Be profitable (required)"],["Legal","Obey the law (required)"],["Ethical","Do what is right and fair (expected)"],["Philanthropic","Be a good corporate citizen (desired)"]],
+ "Cost-cutting that hurts the community, donation decisions, CSR claims."],
+["B","Gray, Owen & Adams – CSR positions","7 positions, least → most radical",[
+ ["Pristine capitalists","Only shareholders matter"],["Expedients","CSR only when it helps profit"],["Social contract","A licence to operate from society"],["Social ecologists","Duty to reduce environmental harm"],["Socialists","Business should serve wider society"],["Radical feminists","Masculine values need challenging"],["Deep ecologists","Nature has rights; humans have no right to harm it"]],
+ "Place a director's or company's attitude to CSR."],
+["B","Board composition & NEDs","NED roles: \"SSRP\"",[
+ ["Strategy","Contribute to and challenge strategy"],
+ ["Scrutiny","Hold executives to account on performance"],
+ ["Risk","Make sure controls and risk management are robust"],
+ ["People","Appoint, remove and set pay for executives"],
+ ["Chair ≠ CEO","Split the roles. At least half the board (excluding the chair) should be independent NEDs"]],
+ "A dominant CEO who is also chair, a board of friends, no independent challenge."],
+["B","NED independence threats","Red flags",[
+ ["","Employee in the last 5 years"],
+ ["","Material business relationship in the last 3 years"],
+ ["","Performance-related pay or share options"],
+ ["","Close family ties with directors"],
+ ["","Cross-directorships"],
+ ["","Represents a major shareholder"],
+ ["","Served more than 9 years"]],
+ "A named NED with links to the CEO, a former employee or a supplier."],
+["B","Board committees","\"A-R-N-R\"",[
+ ["Audit","Financial reporting, internal and external audit, internal control. Independent NEDs, at least one with financial expertise"],
+ ["Remuneration","Executive pay. Independent NEDs; no director sets their own pay"],
+ ["Nomination","Board appointments, succession, diversity, balance of skills"],
+ ["Risk","Risk appetite, risk framework, oversight of key risks"]],
+ "Weak oversight, a failed audit, pay scandals, no succession plan."],
+["B","Director remuneration","Components",[
+ ["Basic salary","Market rate"],
+ ["Short-term bonus","Annual targets. Risk: short-termism"],
+ ["LTIPs / share options","Align with shareholders over 3+ years"],
+ ["Benefits & pension",""],
+ ["Good practice","Clawback, malus, a mix of financial and non-financial targets, disclosure"]],
+ "A bonus based only on revenue, causing risky or unethical behaviour."],
+["B","<IR> – the six capitals","\"FMIHSN\" (Fat Men In Hats Sing Nicely)",[
+ ["Financial","Funds"],["Manufactured","Buildings, equipment"],["Intellectual","Patents, systems, brand"],["Human","Staff skills, experience, motivation"],["Social & relationship","Trust, stakeholder relationships, licence to operate"],["Natural","Air, water, land, biodiversity"]],
+ "'Explain how integrated reporting would benefit…' Link each capital to the case."],
+["B","<IR> – guiding principles & content","7 principles · 8 content elements",[
+ ["Principles","Strategic focus & future orientation, connectivity, stakeholder relationships, materiality, conciseness, reliability & completeness, consistency & comparability"],
+ ["Content","Organisational overview & external environment, governance, business model, risks & opportunities, strategy & resource allocation, performance, outlook, basis of preparation"]],
+ "Shareholders want more than the financials; investors find the reports too long."],
+["B","Sustainability reporting","ESG · TBL · ISSB",[
+ ["Triple bottom line","People, Planet, Profit (Elkington)"],
+ ["Brundtland","Meet present needs without compromising future generations"],
+ ["ISSB","IFRS S1 (general sustainability) and S2 (climate)"],
+ ["TCFD pillars","Governance, Strategy, Risk management, Metrics & targets"],
+ ["Greenwashing","Overstated green claims. A risk to reputation"]],
+ "Investor pressure on climate, emissions targets, ESG claims to verify."],
+["B","Public sector governance","3Es + VFM",[
+ ["Economy","Spend less: get the right inputs at the lowest cost"],
+ ["Efficiency","Spend well: maximise outputs from the inputs"],
+ ["Effectiveness","Spend wisely: achieve the intended outcomes"],
+ ["(Equity)","Fair access to the service"],
+ ["Differences from private","Multiple objectives, political influence, accountability to the public, no profit motive"]],
+ "Hospitals, government entities, any 'value for money' question."],
+
+/* ---------- C STRATEGY ---------- */
+["C","Strategy model (JSW)","Position → Choices → Action",[
+ ["Strategic position","Environment, capability, culture, stakeholders"],
+ ["Strategic choices","Business-level, corporate-level, international, methods"],
+ ["Strategy in action","Structure, resourcing, change management"]],
+ "Organise any strategy answer with this."],
+["C","Approaches to strategy","Rational · Emergent · Incremental",[
+ ["Rational (planned)","Analyse → choose → implement. Formal and top-down"],
+ ["Emergent (Mintzberg)","A pattern forms from actions over time"],
+ ["Logical incrementalism (Quinn)","Small, continuous adjustments"],
+ ["Mintzberg 5Ps","Plan, Ploy, Pattern, Position, Perspective"]],
+ "A rigid five-year plan in a fast-moving market, or no plan at all."],
+["C","PESTEL","Macro environment",[
+ ["Political","Government policy, funding, stability"],["Economic","Inflation, rates, FX, growth"],["Social","Demographics, ageing, lifestyle"],["Technological","AI, digital, automation"],["Environmental","Climate, waste, emissions"],["Legal","Regulation, data protection, employment law"]],
+ "'Analyse the external environment.' Pick the 4–5 most relevant factors with case facts, not all six."],
+["C","Porter's Five Forces","Industry attractiveness",[
+ ["Threat of new entrants","Barriers: capital, regulation, scale, brand"],
+ ["Supplier power","Few suppliers, unique inputs, high switching costs"],
+ ["Buyer power","Few big buyers, price-sensitive, easy to switch"],
+ ["Threat of substitutes","Other ways to meet the same need"],
+ ["Competitive rivalry","Many rivals, slow growth, high fixed costs"]],
+ "Entering a new market, why profits are falling, industry analysis."],
+["C","Porter's Diamond","Why some nations win",[
+ ["Factor conditions","Skills, infrastructure, resources"],
+ ["Demand conditions","Sophisticated home buyers"],
+ ["Related & supporting industries","Clusters"],
+ ["Firm strategy, structure & rivalry","Strong domestic competition"],
+ ["+ Government & chance",""]],
+ "Choosing which country to expand into or locate in."],
+["C","Industry & market tools","",[
+ ["Industry life cycle","Introduction, growth, shake-out, maturity, decline"],
+ ["Strategic groups","Firms following similar strategies"],
+ ["Market segmentation","Identify the target customers"],
+ ["Scenario planning","Build plausible futures from key uncertainties"],
+ ["Blue ocean","Create uncontested market space"]],
+ "A maturing market, high uncertainty, crowded competition."],
+["C","Resources & capabilities","VRIN",[
+ ["Valuable","Exploits opportunities or reduces threats"],
+ ["Rare","Few competitors have it"],
+ ["Inimitable","Hard to copy"],
+ ["Non-substitutable",""],
+ ["Threshold vs distinctive","Needed just to compete vs the source of competitive advantage"]],
+ "'Does X have a sustainable competitive advantage?'"],
+["C","Value chain (Porter)","Primary \"IOOMS\" · Support \"FHTP\"",[
+ ["Primary","Inbound logistics, Operations, Outbound logistics, Marketing & sales, Service"],
+ ["Support","Firm infrastructure, HRM, Technology development, Procurement"],
+ ["Margin","Value created minus cost"],
+ ["Value network","Links to suppliers' and customers' value chains"]],
+ "Where value is added or lost, cost reduction, IT investment, outsourcing."],
+["C","SWOT / TOWS","Internal S-W · External O-T",[
+ ["SO strategies","Use strengths to seize opportunities"],
+ ["ST","Use strengths to counter threats"],
+ ["WO","Fix weaknesses by exploiting opportunities"],
+ ["WT","Defensive: minimise weaknesses, avoid threats"]],
+ "'Prepare a SWOT' — always prioritise it and turn it into actions."],
+["C","Benchmarking","Types",[
+ ["Internal","Between departments or sites"],
+ ["Competitive","Against rivals"],
+ ["Functional / generic","Best-in-class in any industry"],
+ ["Risk","Copying is not leading; data may not be comparable"]],
+ "Comparing hospital sites, KPIs against peers."],
+["C","BCG matrix","Market share × growth",[
+ ["Star","High share, high growth. Invest"],["Cash cow","High share, low growth. Milk for cash"],["Question mark","Low share, high growth. Invest or divest"],["Dog","Low share, low growth. Divest or hold"]],
+ "A portfolio of products or divisions, cash allocation."],
+["C","Public sector portfolio (Montanari & Bracker)","Ability to serve × public support/need",[
+ ["Public sector star","High ability, high support"],
+ ["Golden fleece","High ability, low need. Target for cuts"],
+ ["Political hot box","High need, low ability. Must be done, done poorly"],
+ ["Back drawer issue","Low both. Candidate to drop"]],
+ "Government or health services competing for limited funding."],
+["C","Ashridge portfolio (parenting fit)","H-E-B-A-V",[
+ ["Heartland","Parent adds value, no harm. Core"],
+ ["Edge of heartland","Some fit, some misfit"],
+ ["Ballast","Fits but adds little value. Possibly sell"],
+ ["Value trap","Looks attractive but the parent harms it"],
+ ["Alien territory","No fit. Divest"],
+ ["Parent roles","Portfolio manager, synergy manager, parental developer"]],
+ "A group HQ adding cost, divisional autonomy, divest or keep."],
+["C","Porter's generic strategies","C-D-F",[
+ ["Cost leadership","Lowest cost in the industry"],
+ ["Differentiation","Unique value that commands a premium"],
+ ["Focus","Cost focus or differentiation focus on a niche"],
+ ["Stuck in the middle","No clear advantage"]],
+ "A company trying to be everything to everyone."],
+["C","Bowman's strategy clock","8 routes",[
+ ["1 No frills","Low price, low value"],["2 Low price","Low price, standard value"],["3 Hybrid","Low price, high value"],["4 Differentiation","Higher value"],["5 Focused differentiation","Premium price, high value"],["6–8 Failure","Higher price for the same or lower value, or lower value at the same price"]],
+ "Pricing and positioning decisions, a discount competitor."],
+["C","Ansoff matrix","Products × markets",[
+ ["Market penetration","Existing products, existing markets. Lowest risk"],
+ ["Product development","New products, existing markets"],
+ ["Market development","Existing products, new markets"],
+ ["Diversification","New products, new markets. Highest risk (related or unrelated)"]],
+ "'Evaluate the growth options.'"],
+["C","Methods of growth","O-A-A",[
+ ["Organic","Slower and controlled, keeps the culture"],
+ ["Acquisition / merger","Fast, buys capability. Risks: overpaying, culture clash, integration"],
+ ["Alliances","JV, franchising, licensing, outsourcing. Shared risk, less control"]],
+ "Should we buy X, build it ourselves or partner?"],
+["C","SAF – evaluating options (JSW)","Suitability · Acceptability · Feasibility",[
+ ["Suitable","Fits the strategic position: uses strengths, addresses threats"],
+ ["Acceptable","\"RRR\": Return, Risk, stakeholder Reactions"],
+ ["Feasible","Resources: money, people, skills, time, technology"]],
+ "THE model for 'evaluate this option / acquisition / project'. Finish with a recommendation."],
+["C","Mission & objectives","Ashridge mission model",[
+ ["Purpose","Why we exist"],["Strategy","Commercial logic"],["Values","What we believe"],["Standards & behaviours","How we act"],
+ ["SMART","Specific, Measurable, Achievable, Relevant, Time-bound"],
+ ["CSF → KPI","What must go right → how we measure it"]],
+ "A vague mission, no measurable targets."],
+["C","Balanced scorecard (Kaplan & Norton)","F-C-I-L",[
+ ["Financial","How do shareholders or funders see us?"],
+ ["Customer","How do customers or patients see us?"],
+ ["Internal business process","What must we excel at?"],
+ ["Learning & growth","Can we keep improving?"]],
+ "Too much focus on financial KPIs. Suggest 1–2 KPIs per perspective."],
+["C","Building Block model (Fitzgerald & Moon)","Dimensions · Standards · Rewards",[
+ ["Dimensions – results","Competitiveness, financial performance"],
+ ["Dimensions – determinants","Quality, flexibility, resource utilisation, innovation"],
+ ["Standards","Ownership, achievability, equity"],
+ ["Rewards","Clarity, motivation, controllability"]],
+ "Service organisations (hospitals, consultancies) and performance measurement design."],
+
+/* ---------- D RISK ---------- */
+["D","Risk vocabulary","Appetite · Tolerance · Capacity",[
+ ["Risk appetite","How much risk we are willing to take"],
+ ["Risk tolerance","Acceptable variation around the objectives"],
+ ["Risk capacity","Maximum risk we could survive"],
+ ["Attitudes","Averse, neutral, seeking"],
+ ["Gross vs net (residual)","Before vs after controls"]],
+ "The board taking more risk than the shareholders want."],
+["D","Types of risk","Categories",[
+ ["Strategic","Wrong strategy, competition, disruption"],
+ ["Operational","Processes, people, systems failing"],
+ ["Financial","Liquidity, credit, FX, interest rate"],
+ ["Compliance / legal","Breaking a law or regulation"],
+ ["Reputational","Usually a consequence of the others"],
+ ["Cyber / IT, ESG / climate, political, health & safety",""]],
+ "'Identify and assess the risks.' Use a case fact for each."],
+["D","Risk management process","I-A-P-M (Identify, Assess, Plan, Monitor)",[
+ ["Identify","Brainstorming, risk register, PESTEL, SWOT"],
+ ["Assess","Likelihood × impact"],
+ ["Plan / respond","TARA"],
+ ["Monitor & report","KRIs, risk committee, review"]],
+ "'Advise the board on improving risk management.'"],
+["D","TARA – risk responses","Likelihood × Impact",[
+ ["Transfer","Low likelihood, high impact: insurance, outsourcing, hedging"],
+ ["Avoid","High likelihood, high impact: stop the activity"],
+ ["Reduce","High likelihood, low impact: controls, training"],
+ ["Accept","Low likelihood, low impact: monitor"],
+ ["ALARP","Reduce risk 'as low as reasonably practicable'"]],
+ "'Recommend responses to the risks identified.' Show the quadrant reasoning."],
+["D","COSO ERM (2017)","5 components",[
+ ["Governance & culture","Tone at the top, risk oversight"],
+ ["Strategy & objective-setting","Risk appetite linked to strategy"],
+ ["Performance","Identify, assess, prioritise, respond"],
+ ["Review & revision","Adapt to change"],
+ ["Information, communication & reporting",""]],
+ "Embedding enterprise-wide risk management."],
+["D","Embedding risk awareness","Culture",[
+ ["Tone from the top","The board models risk-aware behaviour"],
+ ["Risk champions","In each department"],
+ ["Training & communication",""],
+ ["Incentives","Reward risk-aware behaviour, not just results"],
+ ["Risk register owners","Named accountability"]],
+ "Risk treated as box-ticking, staff not reporting incidents."],
+
+/* ---------- E TECH ---------- */
+["E","Cloud computing","IaaS · PaaS · SaaS",[
+ ["SaaS","Software as a Service, e.g. email, CRM"],
+ ["PaaS","Platform as a Service: developers build on it"],
+ ["IaaS","Infrastructure as a Service: servers and storage"],
+ ["Deployment","Public, private, hybrid, community"],
+ ["Pros / cons","Scalable, lower capex, remote access / security, data location, vendor lock-in"]],
+ "Old on-premises systems, cost pressure, remote working."],
+["E","Big data","5 Vs",[
+ ["Volume","Huge amount"],["Velocity","Speed of generation"],["Variety","Structured and unstructured"],["Veracity","Accuracy and trustworthiness"],["Value","Insight that is actually useful"]],
+ "Large customer or patient datasets that aren't being used."],
+["E","Data analytics","4 types",[
+ ["Descriptive","What happened?"],["Diagnostic","Why did it happen?"],["Predictive","What will happen?"],["Prescriptive","What should we do?"]],
+ "Using data to forecast demand or personalise services."],
+["E","Cyber security","CIA triad",[
+ ["Confidentiality","Only authorised access"],
+ ["Integrity","Data is accurate, not tampered with"],
+ ["Availability","Systems are up when needed"],
+ ["Threats","Phishing, ransomware, malware, DoS, insiders"],
+ ["Controls","Firewalls, encryption, MFA, patching, backups, training, incident response plan"]],
+ "A breach, ransomware attack or patient data leak."],
+["E","E-business (McDonald & Wilson)","6 Is",[
+ ["Interactivity","Two-way dialogue"],["Intelligence","Customer data and insight"],["Individualisation","Personalised offers"],["Integration","Linked systems and channels"],["Industry restructuring","Disintermediation"],["Independence of location","Serve anyone, anywhere"]],
+ "Moving online, a digital channel strategy."],
+["E","Digital marketing mix","7Ps",[
+ ["Product, Price, Place, Promotion",""],["People, Process, Physical evidence","Services"]],
+ "Launching a service or app, customer experience."],
+["E","Emerging technologies","Know the 1-line benefit + risk",[
+ ["AI / machine learning","Prediction and automation / bias, explainability"],
+ ["RPA","Bots doing rule-based tasks / brittle, job fears"],
+ ["Blockchain","Tamper-proof shared ledger / scalability, energy use"],
+ ["IoT","Connected sensors / security"],
+ ["Automation & digital twins",""]],
+ "'Evaluate the proposed technology.' Use benefit, cost, risk, people."],
+["E","Data governance & GDPR","Principles",[
+ ["","Lawful, fair, transparent"],["","Purpose limitation"],["","Data minimisation"],["","Accuracy"],["","Storage limitation"],["","Integrity & confidentiality"],["","Accountability"]],
+ "Sharing patient or customer data, a new analytics project."],
+
+/* ---------- F CONTROL & AUDIT ---------- */
+["F","COSO internal control","\"CRIME\"",[
+ ["Control environment","Tone, ethics, structure"],
+ ["Risk assessment",""],
+ ["Information & communication",""],
+ ["Monitoring","Ongoing review, internal audit"],
+ ["Existing control activities","See SPAMSOAP"]],
+ "'Evaluate the internal control system.'"],
+["F","Control activities","\"SPAMSOAP\"",[
+ ["Segregation of duties",""],["Physical","Locks, access"],["Authorisation & approval",""],["Management","Reviews and variance analysis"],["Supervision",""],["Organisation","Structure and reporting lines"],["Arithmetic & accounting","Reconciliations"],["Personnel","Recruitment, training, rotation"]],
+ "Fraud, errors, one person doing everything."],
+["F","Types of controls","",[
+ ["Preventive","Stop it happening"],["Detective","Find it after it happens"],["Corrective","Fix it"],["Directive","Policies and procedures"],
+ ["IT general vs application","Whole IT environment vs specific system inputs, processing and outputs"]],
+ "Recommend a mix of controls for a weakness."],
+["F","Three lines model (IIA 2020)","1-2-3 + board",[
+ ["1st line","Operational management owns the risks"],
+ ["2nd line","Risk management and compliance functions"],
+ ["3rd line","Internal audit: independent assurance"],
+ ["Governing body","Oversight. Plus external auditors and regulators"]],
+ "Unclear risk ownership, internal audit doing management's job."],
+["F","Internal audit","Types & independence",[
+ ["Types","Financial, operational (value for money), compliance, IT, fraud, ESG"],
+ ["Independence","Reports to the audit committee, not the CFO"],
+ ["Head of IA","Appointed or removed by the audit committee"],
+ ["Outsource?","Expertise and objectivity vs cost and less business knowledge"]],
+ "IA reports to the CFO, IA reviews its own system, setting up an IA function."],
+["F","Fraud triangle","P-O-R",[
+ ["Pressure / motive","Debt, targets, bonuses"],["Opportunity","Weak controls"],["Rationalisation","'Everyone does it', 'I'll pay it back'"]],
+ "A fraud has occurred. Explain how and prevent a repeat."],
+["F","Good information","\"ACCURATE\"",[
+ ["Accurate, Complete, Cost-effective",""],["Understandable, Relevant",""],["Authoritative, Timely, Easy to use",""],
+ ["Levels","Strategic, tactical, operational"]],
+ "The board getting poor-quality, late MI."],
+["F","Audit committee role","Key duties",[
+ ["","Review the financial statements"],["","Oversee internal and external audit"],["","Review internal controls and risk"],["","Whistleblowing arrangements"],["","Recommend the external auditor and their fees"]],
+ "Weak oversight, a failed audit."],
+
+/* ---------- G FINANCE ---------- */
+["G","Role of the finance function","Partnering & transformation",[
+ ["Business partnering","Finance advising operations, not just reporting"],
+ ["Shared service centre","Centralised and standardised in-house"],
+ ["Outsourcing / offshoring","Third party or another country. Cost vs control"],
+ ["Automation","RPA, cloud ERP, analytics"]],
+ "Finance seen as a back office; a restructuring of finance."],
+["G","Investment appraisal","NPV · IRR · Payback · ARR",[
+ ["NPV","Positive = accept. Best method: uses cash flows and the time value of money"],
+ ["IRR","Discount rate where NPV = 0. Compare with the cost of capital"],
+ ["Payback","Time to recover the investment. Liquidity and risk focus"],
+ ["ARR","Profit based, ignores the time value of money"],
+ ["Scepticism","Question the forecasts, discount rate, timescale and missing costs"]],
+ "Evaluating a project or acquisition. Always challenge the assumptions."],
+["G","Ratio families","P-L-G-E-I",[
+ ["Profitability","Gross and operating margin, ROCE"],
+ ["Liquidity","Current ratio, quick ratio"],
+ ["Gearing","Debt / equity, interest cover"],
+ ["Efficiency","Receivable, payable and inventory days"],
+ ["Investor","EPS, P/E, dividend yield"]],
+ "'Analyse financial performance.' Calculate, then explain WHY and the impact."],
+["G","Sources of finance","",[
+ ["Equity","Rights issue, new shares. No fixed cost, dilutes control"],
+ ["Debt","Loans, bonds. Cheaper and tax-deductible, but raises gearing"],
+ ["Retained earnings","No cost of issue"],
+ ["Leasing, grants, PPP","Public sector"],
+ ["WACC","Weighted cost of all sources. Used as the discount rate"]],
+ "Funding an expansion. Discuss cost, risk and control."],
+["G","Budgeting approaches","",[
+ ["Incremental","Last year + %. Simple, but builds in waste"],
+ ["Zero-based","Justify everything from zero. Thorough, but time-consuming"],
+ ["Rolling","Continuously add a new period"],
+ ["Activity-based","Cost driven by activities"],
+ ["Beyond budgeting","Relative targets, flexible resources"]],
+ "Public sector overspending, a budget that doesn't reflect reality."],
+["G","Financial decision factors","Beyond the numbers",[
+ ["Cost-benefit","Tangible vs intangible benefits"],
+ ["Relevant costs","Future, incremental cash flows only. Ignore sunk costs"],
+ ["Non-financial","Quality, reputation, staff, strategic fit, ESG"],
+ ["Sensitivity","Which assumption breaks the decision?"]],
+ "A decision justified on numbers alone."],
+
+/* ---------- H CHANGE ---------- */
+["H","Talent management","Attract → Develop → Retain",[
+ ["Attract","Employer brand, recruitment, selection"],
+ ["Develop","Training, coaching, career paths"],
+ ["Retain","Reward, recognition, engagement"],
+ ["Performance management","Objectives → appraisal → feedback → development"],
+ ["Herzberg","Hygiene factors (pay, conditions) vs motivators (achievement, recognition)"]],
+ "Staff shortages, high turnover, skills gaps, low morale."],
+["H","Balogun & Hope Hailey – types of change","Scope × Nature",[
+ ["Adaptation","Incremental + realignment"],
+ ["Reconstruction","Big bang + realignment"],
+ ["Evolution","Incremental + transformation"],
+ ["Revolution","Big bang + transformation"]],
+ "'Describe the type of change the organisation faces.'"],
+["H","Change kaleidoscope – contextual features","\"TSP-DCCRP\" (8)",[
+ ["Time","How urgent?"],["Scope","How much is changing?"],["Preservation","What must be kept?"],["Diversity","How varied are the groups and cultures?"],
+ ["Capability","Can people manage change?"],["Capacity","Resources: money, people"],["Readiness","Are staff ready and aware?"],["Power","Does the leader have the authority?"]],
+ "'Assess the contextual factors affecting the change.'"],
+["H","Lewin","Unfreeze → Change → Refreeze",[
+ ["Unfreeze","Create the need for change, reduce resistance"],
+ ["Change (move)","Implement, train, support"],
+ ["Refreeze","Embed through rewards, policies, culture"],
+ ["Force field analysis","Driving forces vs restraining forces. Strengthen the drivers, weaken the restraints"]],
+ "Plan the implementation of any change."],
+["H","Kotter's 8 steps","\"Use Good Vision, Communicate, Empower Short Wins, Consolidate, Anchor\"",[
+ ["1","Create urgency"],["2","Build a guiding coalition"],["3","Form a vision"],["4","Communicate the vision"],
+ ["5","Remove obstacles / empower"],["6","Create short-term wins"],["7","Consolidate gains"],["8","Anchor in the culture"]],
+ "A failed change programme. Show which steps were missed."],
+["H","Kotter & Schlesinger – overcoming resistance","\"EPF-NMC\"",[
+ ["Education & communication","When resistance comes from a lack of information"],
+ ["Participation & involvement","Builds commitment"],
+ ["Facilitation & support","Training, counselling"],
+ ["Negotiation & agreement","When there's a powerful loser, e.g. a union"],
+ ["Manipulation & co-optation","Risky, can backfire"],
+ ["Explicit & implicit coercion","Fast, but builds resentment. Last resort"]],
+ "Staff, doctors or unions resisting the change."],
+["H","POPIT","4 lenses for process change",[
+ ["People","Skills, training, roles, motivation"],["Organisation","Structure, culture, reporting"],["Process","Workflows and procedures"],["IT","Systems and data"]],
+ "A new system or redesign where only the IT was considered."],
+["H","Harmon's process-strategy matrix","Complexity × strategic importance",[
+ ["Low complexity, low importance","Automate or outsource"],
+ ["High complexity, low importance","Outsource"],
+ ["Low complexity, high importance","Automate / standardise"],
+ ["High complexity, high importance","Improve in-house: redesign, skilled people (core)"]],
+ "Which processes to outsource, automate or invest in."],
+["H","Process redesign","Patterns",[
+ ["Re-engineering (BPR)","Radical redesign from scratch (Hammer)"],
+ ["Simplification","Remove unnecessary steps"],
+ ["Value-added analysis","Remove non-value-adding activities"],
+ ["Gaps & disconnects","Fix the hand-offs between departments"],
+ ["Process maps / swim lanes","Show who does what"]],
+ "Delays, duplication, patient waiting times, hand-off errors."],
+["H","Projects – key ideas","Triple constraint",[
+ ["Time · Cost · Quality/scope","Trade-offs between the three"],
+ ["Life cycle","Initiation → Planning → Execution → Control → Closure"],
+ ["Business case","WHY: costs, benefits, risks, options"],
+ ["PID","HOW: scope, objectives, roles, plan, constraints, success criteria"],
+ ["Roles","Sponsor, project board, project manager, users, champion"]],
+ "A failing project: overrun, scope creep, unclear sponsor."],
+["H","Project planning & control","",[
+ ["WBS","Break the work into tasks"],["Critical path","The longest path. Delays here delay the project"],["Gantt chart","Timeline view"],
+ ["Risk & slippage","Risk log, contingency, change control"],["Benefits realisation","Track that the planned benefits actually arrive"]],
+ "Recommend how to bring a project back on track."],
+["H","Post-project vs post-implementation review","PPR ≠ PIR",[
+ ["Post-project review","Shortly after closure: how was the PROJECT managed? Lessons learned"],
+ ["Post-implementation review","Months later: did the system or change deliver the BENEFITS?"]],
+ "'Explain the purpose of reviews after the new system goes live.'"],
+
+/* ---------- I PROFESSIONAL SKILLS ---------- */
+["I","Communication","Inform · Persuade · Clarify",[
+ ["Do","Use the requested format, audience-appropriate tone, clear headings, concise points"],
+ ["Persuade","Strong opening, benefits for the reader, clear call to action"],
+ ["Lose marks","Wrong format, jargon for a lay audience, waffle"]],
+ "Every task. Slides, emails and press releases especially."],
+["I","Commercial acumen","Awareness · Judgement · Insight",[
+ ["Do","Practical, realistic actions. Mention cost, timing, who does it, quick wins"],
+ ["Show insight","Spot the bigger implication or the opportunity in the data"],
+ ["Lose marks","Idealistic advice that ignores budget or politics"]],
+ "Recommendations, strategy options."],
+["I","Analysis","Investigate · Enquire · Consider",[
+ ["Do","Use the numbers: calculate trends and ratios and EXPLAIN the causes"],
+ ["Do","Link exhibits together"],
+ ["Lose marks","Repeating the data without interpreting it"]],
+ "Financial data, KPIs, survey results."],
+["I","Scepticism","Probe · Question · Challenge",[
+ ["Do","Who prepared the data? Is it biased, out of date or incomplete?"],
+ ["Do","Challenge optimistic assumptions and directors' claims"],
+ ["Do","Identify missing information you would need"],
+ ["Lose marks","Accepting everything a director says at face value"]],
+ "Forecasts, a director's proposal, a consultant's report."],
+["I","Evaluation","Assess · Estimate · Appraise",[
+ ["Do","Weigh pros AND cons, then give a clear, justified conclusion"],
+ ["Do","Prioritise: which risk or option matters most and why"],
+ ["Lose marks","Sitting on the fence, or no conclusion"]],
+ "'Evaluate', 'assess', 'recommend' tasks."]
+];
+
+const WHICH = [
+["External environment / new country / industry trends","PESTEL, Porter's Five Forces, Porter's Diamond"],
+["Internal strengths, what we're good at","Value chain, VRIN, SWOT / TOWS, benchmarking"],
+["Growth options","Ansoff → methods (organic / acquisition / alliance) → SAF"],
+["Evaluate an option, acquisition or investment","SAF (Suitability, Acceptability – RRR, Feasibility) + NPV with scepticism"],
+["Portfolio of divisions / services","BCG, Ashridge parenting, public sector matrix"],
+["Competitive positioning, pricing","Porter's generic strategies, Bowman's strategy clock"],
+["Performance measurement, KPIs","Balanced scorecard, Building Block, 3Es / VFM"],
+["Stakeholders affected or resisting","Mendelow → Kotter & Schlesinger"],
+["Ethical dilemma","Tucker's 5 questions, ACCA Code + SSAFI threats, Kohlberg"],
+["CSR, community, environment","Carroll's pyramid, Gray Owen & Adams, triple bottom line, ESG"],
+["Weak board, dominant CEO, pay scandal","Agency theory, NED roles (SSRP), independence, committees, remuneration"],
+["Reporting to investors beyond the financials","<IR> six capitals + guiding principles, ISSB / TCFD"],
+["Risks in the case","Risk categories → likelihood × impact → TARA, COSO ERM, risk appetite"],
+["Fraud or control failure","Fraud triangle, COSO CRIME, SPAMSOAP, three lines, internal audit independence"],
+["New IT system, cloud, data, AI","Cloud models, big data 5Vs, analytics types, CIA triad, GDPR, POPIT"],
+["Going online, digital channels","6 Is, 7Ps"],
+["Culture blocking strategy","Cultural web, Handy, Schein, Hofstede (international)"],
+["Leadership problems","Trait / style / contingency, Blake & Mouton, transformational 4 Is, Mintzberg roles"],
+["Implementing change","Balogun & Hope Hailey type → kaleidoscope → Lewin / Kotter 8 → resistance"],
+["Process inefficiency, outsourcing decision","Harmon's matrix, process redesign, value chain, POPIT"],
+["Project going wrong","Triple constraint, business case vs PID, roles, critical path, PPR / PIR"],
+["Staff shortages, turnover","Talent management, performance management, Herzberg"],
+["Finance department change","Business partnering, shared services, outsourcing, automation"]
+];
+
+const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+let starred = {};
+try{ starred = JSON.parse(localStorage.getItem("sblShaky")||"{}"); }catch(e){ starred = {}; }
+function save(){ try{ localStorage.setItem("sblShaky", JSON.stringify(starred)); }catch(e){} }
+
+C.forEach(([sec,title,mn,items,use],i)=>{
+  const g = document.getElementById("g-"+sec);
+  const d = document.createElement("div");
+  d.className = "card"; d.dataset.id = sec+"-"+title;
+  if(starred[d.dataset.id]) d.classList.add("shaky");
+  const lis = items.map(([t,m])=> t ? `<li><b>${esc(t)}</b>${m?" – "+esc(m):""}</li>` : `<li>${esc(m)}</li>`).join("");
+  d.innerHTML = `<button class="star" title="Mark as shaky">★</button><h3>${esc(title)}</h3>${mn?`<div class="mn">${esc(mn)}</div>`:""}<div class="body"><ul>${lis}</ul><div class="use">${esc(use)}</div></div>`;
+  d.dataset.text = (title+" "+mn+" "+items.flat().join(" ")+" "+use).toLowerCase();
+  g.appendChild(d);
+});
+const tbl = document.getElementById("whichTbl");
+WHICH.forEach(([a,b])=>{ const r=tbl.insertRow(); r.insertCell().textContent=a; r.insertCell().textContent=b; });
+
+document.addEventListener("click",e=>{
+  const st = e.target.closest(".star");
+  if(st){ const c=st.closest(".card"); c.classList.toggle("shaky");
+    if(c.classList.contains("shaky")) starred[c.dataset.id]=1; else delete starred[c.dataset.id]; save(); e.stopPropagation(); return; }
+  const c = e.target.closest(".card");
+  if(c && document.body.classList.contains("recall")) c.classList.toggle("open");
+});
+document.getElementById("recallBtn").onclick = function(){
+  document.body.classList.toggle("recall"); this.classList.toggle("on");
+  document.querySelectorAll(".card.open").forEach(c=>c.classList.remove("open"));
+};
+document.getElementById("shakyBtn").onclick = function(){
+  document.body.classList.toggle("shakyonly"); this.classList.toggle("on2");
+};
+document.getElementById("q").addEventListener("input",function(){
+  const q=this.value.trim().toLowerCase();
+  document.querySelectorAll(".card").forEach(c=>c.classList.toggle("hide", q && !c.dataset.text.includes(q)));
+  document.querySelectorAll("main section").forEach(s=>{
+    if(s.id==="which") return;
+    const any=[...s.querySelectorAll(".card")].some(c=>!c.classList.contains("hide"));
+    s.classList.toggle("hide", !!q && !any);
+  });
+});
+</script>
+</body>
+</html>
