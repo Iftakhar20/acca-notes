@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Organisational Control &amp; Audit – ACCA SBL | Dec 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --fs:18px;
+  --bg:#faf9f6; --paper:#ffffff; --ink:#1e2433; --muted:#5a6275; --line:#e6e2d9;
+  --navy:#27365f; --navy-soft:#eceff7;
+  --copper:#b85c25; --copper-soft:#fbefe6;
+  --sky:#2f7fb5; --sky-soft:#eaf4fb;
+  --sage:#3d7f5c; --sage-soft:#eaf5ee;
+  --rose:#b33a48; --rose-soft:#fbecee;
+  --gold:#9a7413; --gold-soft:#fbf5e1;
+  --plum:#6b4c9a; --plum-soft:#f2edf9;
+}
+*{box-sizing:border-box}
+html{font-size:var(--fs);scroll-behavior:auto}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Source Sans 3","Segoe UI",Arial,sans-serif;font-size:1rem;line-height:1.7}
+h1,h2,h3,h4{font-family:"Bricolage Grotesque","Segoe UI",Arial,sans-serif;color:var(--navy);line-height:1.25}
+h1{font-size:2.3rem;margin:.4rem 0 .5rem}
+h2{font-size:1.55rem;margin:0 0 .3rem}
+h3{font-size:1.2rem;margin:1.4rem 0 .4rem}
+h4{font-size:1.05rem;margin:1rem 0 .3rem}
+p{margin:0 0 .8rem}
+ul,ol{margin:0 0 .8rem;padding-left:1.4rem}
+li{margin-bottom:.3rem}
+strong{color:#141a28}
+a{color:var(--sky)}
+
+/* top bar */
+.bar{position:sticky;top:0;z-index:20;background:#ffffff;border-bottom:1px solid var(--line);box-shadow:0 1px 6px rgba(0,0,0,.04)}
+.bar .in{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:6px;padding:8px 18px;flex-wrap:wrap}
+.bar .brand{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;color:var(--navy);margin-right:8px;font-size:.95rem}
+.bar a{text-decoration:none;color:var(--muted);font-size:.85rem;font-weight:600;padding:5px 11px;border-radius:999px}
+.bar a:hover{background:var(--navy-soft);color:var(--navy)}
+.bar .sz{margin-left:auto;display:flex;gap:4px}
+.bar button{font:inherit;font-size:.8rem;font-weight:700;border:1px solid var(--line);background:#fff;color:var(--navy);border-radius:8px;padding:3px 10px;cursor:pointer}
+.bar button:hover{background:var(--navy-soft)}
+
+.wrap{max-width:1120px;margin:0 auto;padding:0 18px 70px}
+header.hero{padding:34px 0 18px}
+.kicker{display:inline-block;font-weight:700;font-size:.8rem;letter-spacing:.04em;color:var(--copper);background:var(--copper-soft);border-radius:999px;padding:3px 12px}
+.lead{font-size:1.12rem;color:var(--muted);max-width:860px}
+
+.part{margin:34px 0 8px;padding:14px 20px;border-radius:14px;background:var(--navy);color:#fff}
+.part h2{color:#fff;margin:0}
+.part p{margin:.2rem 0 0;color:#d6dcef;font-size:.95rem}
+
+section.topic{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:24px 26px 14px;margin:18px 0;scroll-margin-top:70px}
+.thead{display:flex;gap:14px;align-items:flex-start;margin-bottom:10px}
+.num{flex:0 0 auto;width:40px;height:40px;border-radius:12px;background:var(--copper);color:#fff;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;display:flex;align-items:center;justify-content:center}
+.ref{font-size:.85rem;color:var(--muted);font-style:italic}
+
+.box{border-radius:12px;padding:13px 17px;margin:12px 0;border:1px solid}
+.box .lbl{display:block;font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:.9rem;margin-bottom:4px}
+.box p:last-child,.box ul:last-child,.box ol:last-child{margin-bottom:0}
+.simple{background:var(--navy-soft);border-color:#d3d9ea}.simple .lbl{color:var(--navy)}
+.ex{background:var(--sky-soft);border-color:#cde3f2}.ex .lbl{color:var(--sky)}
+.scen{background:var(--gold-soft);border-color:#eedfae}.scen .lbl{color:var(--gold)}
+.exam{background:var(--plum-soft);border-color:#ddd2ef}.exam .lbl{color:var(--plum)}
+.tips{background:var(--sage-soft);border-color:#cbe5d5}.tips .lbl{color:var(--sage)}
+.trap{background:var(--rose-soft);border-color:#f1cdd2}.trap .lbl{color:var(--rose)}
+.mem{background:var(--copper-soft);border-color:#f1d5c1}.mem .lbl{color:var(--copper)}
+.answer{background:#fff;border:1.5px dashed #b9c3da;border-radius:12px;padding:14px 18px;margin:10px 0}
+.answer .lbl{display:block;font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:.9rem;color:var(--navy);margin-bottom:4px}
+.mk{display:inline-block;font-size:.75rem;font-weight:700;color:var(--sage);background:var(--sage-soft);border-radius:6px;padding:0 7px;margin-left:4px;white-space:nowrap}
+.sk{display:inline-block;font-size:.75rem;font-weight:700;color:var(--plum);background:var(--plum-soft);border-radius:6px;padding:0 7px;margin-left:4px;white-space:nowrap}
+
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;margin:8px 0 14px;font-size:.95rem;background:#fff}
+th,td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+th{background:#f1f3f8;font-family:"Bricolage Grotesque",sans-serif;font-weight:600;color:var(--navy)}
+tr:nth-child(even) td{background:#fcfbf9}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:10px 0}
+.card{background:#fff;border:1px solid var(--line);border-top:4px solid var(--copper);border-radius:10px;padding:10px 13px}
+.card b{font-family:"Bricolage Grotesque",sans-serif;color:var(--navy)}
+.card.c2{border-top-color:var(--sky)}.card.c3{border-top-color:var(--sage)}.card.c4{border-top-color:var(--plum)}.card.c5{border-top-color:var(--rose)}
+
+details{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 16px;margin:10px 0}
+summary{cursor:pointer;font-weight:700;font-family:"Bricolage Grotesque",sans-serif;color:var(--navy)}
+details[open] summary{margin-bottom:8px}
+
+.note{font-size:.9rem;color:var(--muted)}
+footer{margin-top:36px;padding-top:16px;border-top:1px solid var(--line);text-align:center;font-size:.85rem;color:var(--muted)}
+
+@media (max-width:700px){
+  :root{--fs:17px}
+  h1{font-size:1.8rem}
+  section.topic{padding:18px 15px 8px}
+  .bar .brand{display:none}
+  .bar .in{flex-wrap:nowrap;overflow-x:auto;padding:6px 10px}
+  .bar a{white-space:nowrap;padding:5px 8px}
+}
+@media print{.bar{display:none}section.topic{break-inside:avoid-page}}
+</style>
+</head>
+<body>
+
+<nav class="bar"><div class="in">
+  <span class="brand">SBL · F</span>
+  <a href="#start">Start</a>
+  <a href="#f1">F1 Internal control</a>
+  <a href="#f2">F2 Audit</a>
+  <a href="#f3">F3 Reporting</a>
+  <a href="#case">Practice task</a>
+  <a href="#cheat">Cheat sheet</a>
+  <a href="#quiz">Quiz</a>
+  <span class="sz"><button type="button" id="dn" aria-label="Smaller text">A−</button><button type="button" id="up" aria-label="Larger text">A+</button></span>
+</div></nav>
+
+<div class="wrap">
+
+<header class="hero" id="start">
+  <span class="kicker">ACCA SBL · Syllabus Section F · Sep 2026 – Jun 2027 · Compact edition</span>
+  <h1>Organisational Control &amp; Audit</h1>
+  <p class="lead">This page covers all 12 learning outcomes in Section F (F1a–e, F2a–d and F3a–c), kept short so you can study it in about 2 hours. Every model answer has a <strong>Scenario box</strong> directly above it containing all the facts it uses.</p>
+</header>
+
+<section class="topic">
+  <h2>How to use this page</h2>
+  <div class="tw"><table>
+    <tr><th>Already covered in your other notes</th><th>Where</th><th>Here</th></tr>
+    <tr><td>Audit committee composition (NEDs, independence)</td><td>Governance 2</td><td>Only its role overseeing internal audit (topic 8)</td></tr>
+    <tr><td>COSO <em>ERM</em>, risk appetite, lines of defence</td><td>Risk (D)</td><td>COSO <em>internal control</em>, which is a different framework (topic 1)</td></tr>
+    <tr><td>IT general and application controls, cyber security</td><td>Technology (E)</td><td>Used inside control recommendations (topic 5)</td></tr>
+    <tr><td>Fraud triangle, anti-bribery</td><td>Leadership (A)</td><td>Brief reminder inside topic 5</td></tr>
+  </table></div>
+  <div class="box tips"><span class="lbl">⏱ Plan for this page (about 2 hours)</span>
+    <ol>
+      <li>Read topics 1–12 (about 70 minutes).</li>
+      <li>Do the practice task in section 13 under timed conditions: 39 minutes, no notes.</li>
+      <li>Compare your answer with the model answer, then send it to me for marking.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= F1 ================= -->
+<div class="part" id="f1"><h2>F1 · Management and internal control systems</h2><p>Topics 1–5 · COSO · information flows · weaknesses and limitations · consequences of poor control · recommending controls</p></div>
+
+<!-- 1 COSO -->
+<section class="topic" id="t1">
+  <div class="thead"><div class="num">1</div><div><h2>Key features of an effective internal control system: COSO</h2><div class="ref">F1a · Evaluate the key features of effective internal control systems such as those included in the COSO framework</div></div></div>
+
+  <div class="box simple"><span class="lbl">In simple words</span>
+    <p><strong>Internal control</strong> is everything an organisation does to make sure that (1) its <strong>operations</strong> run efficiently and effectively, (2) its <strong>reporting</strong> is reliable, and (3) it <strong>complies</strong> with laws and regulations. Controls are not just checks and signatures. They include culture, people, systems and monitoring.</p>
+    <p>The best-known framework is <strong>COSO's Internal Control – Integrated Framework (2013)</strong>. It has <strong>5 components</strong>, and all five must be present and working together for the system to be effective.</p>
+  </div>
+
+  <div class="grid">
+    <div class="card"><b>1. Control environment</b><br>The "tone at the top": integrity and ethical values, board oversight, structure, authority, competence and accountability. <em>It is the foundation of everything else.</em></div>
+    <div class="card c2"><b>2. Risk assessment</b><br>Identifying and analysing the risks to achieving objectives, including fraud risk and risks from change (new systems, new markets).</div>
+    <div class="card c3"><b>3. Control activities</b><br>The actual controls: authorisation, segregation of duties, reconciliations, physical controls, IT controls, reviews of performance.</div>
+    <div class="card c4"><b>4. Information &amp; communication</b><br>Getting the right, good-quality information to the right people at the right time, including a way to report concerns (whistleblowing).</div>
+    <div class="card c5"><b>5. Monitoring activities</b><br>Ongoing checks and separate evaluations (e.g. internal audit) to confirm controls work, with weaknesses reported and fixed promptly.</div>
+  </div>
+
+  <p>COSO also sets out <strong>17 principles</strong> under these components. <strong>You do not need to memorise them.</strong> Learn the 5 components and what "good" looks like in each.</p>
+
+  <div class="box ex"><span class="lbl">Example: one component failing breaks the system</span>
+    <p>A retailer has excellent written procedures and up-to-date IT (control activities). But the CEO publicly praises managers who "find a way" to hit targets, and nobody is disciplined for overriding procedures (weak control environment). Staff learn that rules can be bent, so the good procedures are routinely bypassed. <strong>Strong controls on paper do not make up for a weak culture.</strong></p>
+  </div>
+
+  <div class="box exam"><span class="lbl">How it is examined</span>
+    <p>"Evaluate the internal control system of X" or "Using the COSO framework, assess…". Use the 5 components as headings. For each one: case evidence → strength or weakness → consequence → fix.</p>
+  </div>
+
+  <div class="box scen"><span class="lbl">📄 Scenario: Meadowfield Care Homes (a fictional private operator of 22 care homes)</span>
+    <ul>
+      <li>The founder-CEO often tells managers that "paperwork can wait, residents come first". Two managers who skipped medication records last year were promoted.</li>
+      <li>There is no risk register. The board last discussed risk three years ago.</li>
+      <li>Each home manager orders supplies, approves the invoices and signs the payments, up to $20,000.</li>
+      <li>Head office receives a single monthly profit figure for each home, three weeks after month-end.</li>
+      <li>There is no internal audit function. The external auditor visits head office only.</li>
+    </ul>
+  </div>
+  <div class="answer"><span class="lbl">Model answer extract · "Evaluate Meadowfield's internal control system using the COSO framework" (10 marks)</span>
+    <p><strong>Control environment.</strong> The CEO's message that "paperwork can wait", together with the promotion of managers who skipped medication records, signals that controls are optional. In a care setting, medication records are a patient-safety and regulatory control, so this weak tone puts residents at risk and exposes Meadowfield to regulatory sanctions. The board should issue a clear statement that compliance with care records is non-negotiable and link managers' appraisals to compliance. <span class="mk">2</span></p>
+    <p><strong>Risk assessment.</strong> With no risk register and no board discussion of risk for three years, Meadowfield cannot know whether its controls address its most serious risks, such as resident safety, staffing and fraud. A risk register reviewed quarterly by the board should be introduced. <span class="mk">2</span></p>
+    <p><strong>Control activities.</strong> Each manager orders, approves and pays invoices up to $20,000, so there is no segregation of duties. A manager could create fictitious purchases and pay them without detection. Payments should be approved by head office, and payment authority separated from ordering. <span class="mk">2</span></p>
+    <p><strong>Information and communication.</strong> One profit figure, received three weeks late, will not reveal problems such as missed medication records or unusual spending. Head office needs timely non-financial KPIs (incidents, staffing levels, record compliance) as well as costs by category. <span class="mk">2</span></p>
+    <p><strong>Monitoring.</strong> No internal audit and no external audit visits to the homes means nobody independently checks that controls work across the 22 sites. A small internal audit function, or an outsourced one, visiting each home on a risk-based rotation would close this gap. <span class="mk">2</span></p>
+  </div>
+
+  <div class="box tips"><span class="lbl">Examiner expectations</span><ul><li>Cover all 5 components when COSO is named, but give more depth to the most serious weakness.</li><li>Every weakness needs a consequence <em>for this organisation</em> and a specific fix.</li></ul></div>
+  <div class="box trap"><span class="lbl">Common mistakes</span><ul><li>Confusing COSO <strong>internal control</strong> (these 5) with COSO <strong>ERM</strong> from the Risk notes (Governance &amp; culture, Strategy &amp; objectives, Performance, Review &amp; revision, Information &amp; reporting).</li><li>Listing only control activities. Culture, risk assessment and monitoring are where the big marks usually are.</li></ul></div>
+  <div class="box mem"><span class="lbl">Memory hook</span><p><strong>"CRIME"</strong>: <strong>C</strong>ontrol environment · <strong>R</strong>isk assessment · <strong>I</strong>nformation &amp; communication · <strong>M</strong>onitoring · <strong>E</strong>xisting control activities. Strong internal control stops <em>crime</em>.</p></div>
+</section>
+
+<!-- 2 Information flows -->
+<section class="topic" id="t2">
+  <div class="thead"><div class="num">2</div><div><h2>Are information flows to management adequate?</h2><div class="ref">F1b · Assess whether information flows to management are adequate for the purpose of managing internal control and risk</div></div></div>
+
+  <div class="box simple"><span class="lbl">In simple words</span>
+    <p>Managers can only control what they can see. <strong>Information flows</strong> are the reports, dashboards, alerts and conversations that tell management how the organisation is performing and whether risks and controls are under control. If the information is late, wrong, incomplete or goes to the wrong person, problems grow unnoticed.</p>
+  </div>
+
+  <h3>Qualities of good information: "ACCURATE"</h3>
+  <div class="tw"><table>
+    <tr><th>Quality</th><th>Question to ask in the case</th></tr>
+    <tr><td><strong>A</strong>ccurate</td><td>Is it correct and reliable? Is it reconciled to the source?</td></tr>
+    <tr><td><strong>C</strong>omplete</td><td>Does it cover all sites, risks and non-financial measures?</td></tr>
+    <tr><td><strong>C</strong>ost-effective</td><td>Is the benefit worth the cost of producing it?</td></tr>
+    <tr><td><strong>U</strong>nderstandable</td><td>Can the reader interpret it quickly, or is it 80 pages of raw data?</td></tr>
+    <tr><td><strong>R</strong>elevant</td><td>Does it match the reader's decisions and level?</td></tr>
+    <tr><td><strong>A</strong>uthoritative</td><td>Does it come from a trusted, controlled source rather than a personal spreadsheet?</td></tr>
+    <tr><td><strong>T</strong>imely</td><td>Does it arrive soon enough to act on?</td></tr>
+    <tr><td><strong>E</strong>asy to use</td><td>Is it in a usable format and reaching the right person?</td></tr>
+  </table></div>
+
+  <h3>What management needs for control and risk</h3>
+  <ul>
+    <li><strong>Board (strategic level):</strong> key risks and their trend, major control failures, compliance breaches, a summary of internal audit findings, and KPIs against strategy.</li>
+    <li><strong>Middle managers (tactical level):</strong> budget variances, exception reports, overdue actions, departmental KPIs.</li>
+    <li><strong>Supervisors (operational level):</strong> daily volumes, error rates, reconciliations, alerts.</li>
+    <li><strong>Upward and bottom-up channels:</strong> whistleblowing, incident reporting, staff concerns. Bad news must be able to travel <em>up</em>.</li>
+  </ul>
+
+  <div class="box scen"><span class="lbl">📄 Scenario: Harbour Logistics (fictional freight company)</span>
+    <ul>
+      <li>The board receives a 70-page financial pack each quarter. It contains no information on safety incidents, customer complaints or IT outages.</li>
+      <li>The pack is produced 6 weeks after quarter-end by manually combining spreadsheets from 9 depots.</li>
+      <li>Last year a depot manager hid 14 vehicle accidents. Staff said they "had no way to report it except to the manager himself".</li>
+    </ul>
+  </div>
+  <div class="answer"><span class="lbl">Model answer extract · "Assess whether information flows to Harbour's board are adequate for managing risk and control" (6 marks)</span>
+    <p><strong>Not complete or relevant.</strong> The board pack is purely financial, yet Harbour's major risks are operational: safety, service and IT. Without incident or outage data, the board cannot oversee its most serious risks. It should receive a one-page risk dashboard of key non-financial indicators each month. <span class="mk">2</span></p>
+    <p><strong>Not timely, accurate or understandable.</strong> A 70-page pack produced six weeks late, from manually combined spreadsheets, is slow, error-prone and hard to digest. Problems may be months old before the board sees them. Depot data should feed directly into a single reporting system, with exception reporting so the board sees what needs action. <span class="mk">2</span></p>
+    <p><strong>No upward channel for bad news.</strong> Fourteen accidents were hidden because staff could only report to the manager involved. Harbour needs an independent, confidential whistleblowing route that reports to the audit committee, so that concerns cannot be filtered by the people they concern. <span class="mk">2</span></p>
+  </div>
+
+  <div class="box trap"><span class="lbl">Common mistakes</span><ul><li>Saying "information should be timely and accurate" without showing <em>which</em> information is late or wrong in the case.</li><li>Recommending "more information". The answer is usually <em>better, more focused</em> information, not more pages.</li></ul></div>
+  <div class="box mem"><span class="lbl">Memory hook</span><p>Good information is <strong>ACCURATE</strong>. And bad news must have a road <strong>up</strong>.</p></div>
+</section>
+
+<!-- 3 Weaknesses & limitations -->
+<section class="topic" id="t3">
+  <div class="thead"><div class="num">3</div><div><h2>Effectiveness, weaknesses and limitations of internal control</h2><div class="ref">F1c · Evaluate the effectiveness and potential weaknesses of internal control systems</div></div></div>
+
+  <div class="box simple"><span class="lbl">In simple words</span>
+    <p>An effective system gives <strong>reasonable assurance</strong>, not absolute assurance, that objectives will be met. Even well-designed controls have <strong>built-in limitations</strong>, and many systems also have <strong>weaknesses</strong> that can be fixed.</p>
+  </div>
+
+  <div class="grid">
+    <div class="card c5"><b>Inherent limitations (cannot be fully removed)</b>
+      <ul>
+        <li><strong>Human error:</strong> fatigue, carelessness, misunderstanding.</li>
+        <li><strong>Collusion:</strong> two or more people working together defeat segregation of duties.</li>
+        <li><strong>Management override:</strong> senior people bypass controls.</li>
+        <li><strong>Cost vs benefit:</strong> some controls cost more than the risk they address.</li>
+        <li><strong>Designed for routine work:</strong> unusual or new transactions slip through.</li>
+        <li><strong>Controls become outdated</strong> as the business changes.</li>
+      </ul></div>
+    <div class="card c2"><b>Signs of an <em>effective</em> system</b>
+      <ul>
+        <li>Controls linked to the <strong>key risks</strong>, not just habits.</li>
+        <li>A <strong>mix</strong> of preventive and detective controls.</li>
+        <li>Clear <strong>ownership</strong> of each control.</li>
+        <li>Regularly <strong>tested</strong> and reported on.</li>
+        <li>Weaknesses <strong>fixed promptly</strong>, with follow-up.</li>
+        <li><strong>Embedded</strong> in culture and daily processes, not a separate box-ticking exercise.</li>
+      </ul></div>
+  </div>
+
+  <h3>Typical weaknesses to spot in an SBL case</h3>
+  <div class="tw"><table>
+    <tr><th>Red flag in the case</th><th>Weakness</th></tr>
+    <tr><td>One person orders, approves and pays</td><td>No segregation of duties</td></tr>
+    <tr><td>"The CEO approves his own expenses"</td><td>Management override / no independent review</td></tr>
+    <tr><td>Reconciliations "done when time permits"</td><td>Detective controls not operating</td></tr>
+    <tr><td>Shared passwords, no access reviews</td><td>Weak IT general controls</td></tr>
+    <tr><td>New system or new country, but the "same controls as before"</td><td>Controls not updated for change</td></tr>
+    <tr><td>Audit findings repeated year after year</td><td>Weak monitoring and follow-up</td></tr>
+    <tr><td>Rapid growth, staff turnover, cost-cutting in finance</td><td>Controls likely to be breaking down</td></tr>
+  </table></div>
+
+  <div class="box scen"><span class="lbl">📄 Scenario: FreshPak Foods (fictional snack manufacturer)</span>
+    <ul>
+      <li>The finance director says: "We have segregation of duties on payments, so fraud is impossible."</li>
+      <li>The two people who set up suppliers and release payments are married to each other.</li>
+      <li>FreshPak opened a factory abroad six months ago, using the head-office procedures manual unchanged.</li>
+    </ul>
+  </div>
+  <div class="answer"><span class="lbl">Model answer extract · "Evaluate the finance director's claim" (4 marks + scepticism)</span>
+    <p>The claim that fraud is "impossible" overstates what any control can achieve. Internal control gives only reasonable assurance. <span class="sk">Scepticism</span> In particular, segregation of duties is defeated by <strong>collusion</strong>, and the two people who set up suppliers and release payments are married. The risk of them acting together is much higher than between unrelated staff, so one of them should move to another role, or a third person should independently approve new suppliers. <span class="mk">2</span></p>
+    <p>The overseas factory also uses procedures written for head office. Local suppliers, currency, tax rules and staff practices are likely to differ, so the controls may not address the new risks. A risk assessment of the new site and an early internal audit visit are needed. <span class="mk">2</span></p>
+  </div>
+  <div class="box mem"><span class="lbl">Memory hook</span><p>Limitations: <strong>"HOCCR"</strong>, pronounced "hocker": <strong>H</strong>uman error, <strong>O</strong>verride, <strong>C</strong>ollusion, <strong>C</strong>ost, <strong>R</strong>outine-only.</p></div>
+</section>
+
+<!-- 4 Importance & consequences -->
+<section class="topic" id="t4">
+  <div class="thead"><div class="num">4</div><div><h2>Why sound control and compliance matter, and the consequences of failure</h2><div class="ref">F1d · Discuss and advise on the importance of sound internal control and legal and regulatory compliance, and the consequences to an organisation of poor control and non-compliance</div></div></div>
+
+  <div class="box simple"><span class="lbl">In simple words</span>
+    <p>Good control protects the organisation's <strong>assets, reputation, licence to operate and ability to achieve its strategy</strong>. Poor control and non-compliance cost far more than the controls would have.</p>
+  </div>
+
+  <div class="tw"><table>
+    <tr><th>Why sound control matters</th><th>Consequences of poor control and non-compliance</th></tr>
+    <tr><td>
+      <ul>
+        <li>Safeguards assets (cash, stock, data)</li>
+        <li>Reliable information for decisions</li>
+        <li>Prevents and detects fraud and error</li>
+        <li>Efficient operations, less waste</li>
+        <li>Meets legal and regulatory duties</li>
+        <li>Builds trust with investors, lenders, regulators, the public</li>
+        <li>Helps directors meet their duty of care and governance-code requirements</li>
+      </ul></td>
+    <td>
+      <ul>
+        <li><strong>Financial:</strong> fines, penalties, compensation, fraud losses, higher insurance and cost of borrowing</li>
+        <li><strong>Legal:</strong> prosecution of the company and, in some cases, its directors; disqualification of directors</li>
+        <li><strong>Regulatory:</strong> loss of licence, special measures, being barred from public contracts</li>
+        <li><strong>Reputational:</strong> loss of customers, donors or public trust, falling share price</li>
+        <li><strong>Operational:</strong> disruption, poor service, harm to patients, customers or the environment</li>
+        <li><strong>Strategic:</strong> management distracted, growth plans delayed, possible takeover or collapse</li>
+      </ul></td></tr>
+  </table></div>
+
+  <div class="box ex"><span class="lbl">Real examples (public information)</span>
+    <ul>
+      <li><strong>Wirecard (2020):</strong> the German payments company collapsed after €1.9 billion of cash it reported could not be shown to exist, which exposed severe control and oversight failures.</li>
+      <li><strong>Volkswagen emissions (from 2015):</strong> software designed to cheat emissions tests led to tens of billions of dollars in fines, settlements and recall costs, and lasting reputational damage.</li>
+    </ul>
+    <p class="note">You don't need to quote real cases in the exam. They just show how large the consequences can be.</p>
+  </div>
+
+  <div class="box scen"><span class="lbl">📄 Scenario: CityLink Clinics (fictional private clinic group)</span>
+    <ul>
+      <li>To save $120,000 a year, the board cut the compliance team from 4 people to 1.</li>
+      <li>CityLink earns 60% of its revenue from a government insurance scheme, which requires accurate patient records and billing.</li>
+      <li>The regulator can fine providers up to 10% of annual revenue ($48m) and suspend them from the scheme.</li>
+    </ul>
+  </div>
+  <div class="answer"><span class="lbl">Model answer extract · "Advise the board on the consequences of reducing compliance resources" (6 marks + commercial acumen)</span>
+    <p><strong>Financial exposure far exceeds the saving.</strong> CityLink's revenue is $480m (a $48m maximum fine is 10% of revenue). A single maximum fine would wipe out 400 years of the $120,000 saving, so the cut is a false economy. <span class="mk">2</span> <span class="sk">Commercial acumen</span></p>
+    <p><strong>Risk to the core business model.</strong> With 60% of revenue (about $288m) from the government scheme, suspension would threaten CityLink's survival, not just its profit. One compliance officer is unlikely to monitor billing and record-keeping across the group effectively. <span class="mk">2</span></p>
+    <p><strong>Reputation and patient safety.</strong> Inaccurate records are also a patient-safety risk. Any incident would damage public trust and could lead to legal claims. <strong>Recommendation:</strong> restore compliance capacity, perhaps partly through automated billing checks to contain costs, and have the audit committee review compliance quarterly. <span class="mk">2</span></p>
+  </div>
+  <div class="box trap"><span class="lbl">Common mistakes</span><ul><li>Listing consequences generically ("fines, reputation"). <strong>Quantify</strong> them using the case figures, and link them to what the organisation depends on.</li></ul></div>
+  <div class="box mem"><span class="lbl">Memory hook</span><p>Consequences = <strong>"FLRROS"</strong>: Financial, Legal, Regulatory, Reputational, Operational, Strategic. "Floors" fall in when control fails.</p></div>
+</section>
+
+<!-- 5 Recommending controls -->
+<section class="topic" id="t5">
+  <div class="thead"><div class="num">5</div><div><h2>Recommending controls to prevent fraud, error, waste and environmental harm</h2><div class="ref">F1e · Recommend new internal control systems or changes to the components of existing systems to help prevent fraud, error, waste or harmful environmental impacts</div></div></div>
+
+  <div class="box simple"><span class="lbl">In simple words</span>
+    <p>This is where most practical control marks come from. You spot a weakness, then recommend a <strong>specific</strong> control that fits the organisation. A good recommendation names <strong>what</strong> the control is, <strong>who</strong> does it, <strong>how often</strong>, and <strong>what risk</strong> it reduces.</p>
+  </div>
+
+  <h3>Types of control</h3>
+  <div class="tw"><table>
+    <tr><th>Type</th><th>Purpose</th><th>Examples</th></tr>
+    <tr><td><strong>Preventive</strong></td><td>Stop the problem happening</td><td>Authorisation limits, segregation of duties, system access rights, mandatory fields</td></tr>
+    <tr><td><strong>Detective</strong></td><td>Find it after it happens</td><td>Reconciliations, exception reports, stock counts, data analytics, internal audit</td></tr>
+    <tr><td><strong>Corrective</strong></td><td>Fix it and stop it recurring</td><td>Backup and recovery, disciplinary action, process redesign</td></tr>
+    <tr><td><strong>Directive</strong></td><td>Guide behaviour</td><td>Policies, codes of conduct, training, procedure manuals</td></tr>
+  </table></div>
+
+  <h3>Matching the control to the problem</h3>
+  <div class="tw"><table>
+    <tr><th>Problem</th><th>Example controls</th></tr>
+    <tr><td><strong>Fraud</strong> (remove the <em>opportunity</em> in the fraud triangle)</td><td>Segregation of duties; independent approval of new suppliers and bank-detail changes; job rotation and mandatory leave; data analytics (duplicate payments, staff bank accounts matching supplier accounts); whistleblowing hotline</td></tr>
+    <tr><td><strong>Error</strong></td><td>System validation checks; automated calculations; second-person review of high-value items; reconciliations; training</td></tr>
+    <tr><td><strong>Waste</strong></td><td>Budgets with variance reporting; purchase approval against need; stock-level monitoring and expiry tracking; value-for-money reviews</td></tr>
+    <tr><td><strong>Environmental harm</strong></td><td>Emissions and waste monitoring with targets; ISO 14001 environmental management system; supplier environmental standards; spill and incident procedures; environmental audits (topic 11)</td></tr>
+  </table></div>
+
+  <div class="box scen"><span class="lbl">📄 Scenario: Westvale Regional Hospital (fictional public hospital)</span>
+    <ul>
+      <li>The pharmacy threw away $1.4m of expired medicines last year, 7% of its $20m medicine spend.</li>
+      <li>Ward staff take stock from the pharmacy store without recording it. Stock is counted once a year.</li>
+      <li>Clinical waste from three wards was found in general waste bins twice this year, breaching environmental permits.</li>
+    </ul>
+  </div>
+  <div class="answer"><span class="lbl">Model answer extract · "Recommend controls to reduce waste and environmental harm at Westvale" (6 marks)</span>
+    <p><strong>Expiry tracking (preventive).</strong> The pharmacy should hold medicines in a system that records expiry dates and flags items within 90 days of expiry, so they can be used first or moved to wards with higher usage. With $1.4m wasted (7% of spend), even halving waste would save about $0.7m a year. <span class="mk">2</span></p>
+    <p><strong>Controlled issue and regular counts (preventive and detective).</strong> Every issue to wards should be scanned against a ward code, and high-value items counted monthly rather than annually. This shows actual usage, so order quantities can be reduced, and it deters theft. <span class="mk">2</span></p>
+    <p><strong>Clinical waste segregation (directive and detective).</strong> Colour-coded bins with clear signage, mandatory training for ward staff, and monthly spot checks by the facilities manager, with results reported to the hospital's risk committee, would reduce permit breaches and the risk of regulatory action. <span class="mk">2</span></p>
+  </div>
+  <div class="box trap"><span class="lbl">Common mistakes</span><ul><li>"Improve controls" or "train staff" with no detail. Name the control, its owner and its frequency.</li><li>Only preventive controls. Show a <strong>mix</strong>, because no preventive control is perfect.</li><li>Recommending expensive controls for small risks. Mention cost against benefit.</li></ul></div>
+  <div class="box mem"><span class="lbl">Memory hook</span><p>Control types: <strong>"PDCD"</strong>, Please Don't Cause Damage: <strong>P</strong>reventive, <strong>D</strong>etective, <strong>C</strong>orrective, <strong>D</strong>irective. Every recommendation answers <strong>What · Who · How often · Which risk</strong>.</p></div>
+</section>
+
+<!-- ================= F2 ================= -->
+<div class="part" id="f2"><h2>F2 · Audit and compliance</h2><p>Topics 6–9 · need for internal audit · independence · audit committee oversight · responding to recommendations</p></div>
+
+<!-- 6 Need for IA -->
+<section class="topic" id="t6">
+  <div class="thead"><div class="num">6</div><div><h2>Does the organisation need an internal audit function?</h2><div class="ref">F2a · Examine the need for an internal audit function in the light of regulatory and organisational requirements</div></div></div>
+
+  <div class="box simple"><span class="lbl">In simple words</span>
+    <p><strong>Internal audit (IA)</strong> is an independent, objective function <em>inside</em> the organisation that checks whether risk management, controls and governance are working, and recommends improvements. It works for the <strong>board and audit committee</strong>, not for management.</p>
+    <p><strong>External audit</strong> is different. It is performed by an outside firm and gives an opinion to the <em>shareholders</em> on whether the financial statements are true and fair.</p>
+  </div>
+
+  <div class="tw"><table>
+    <tr><th></th><th>Internal audit</th><th>External audit</th></tr>
+    <tr><td>Who for</td><td>Board / audit committee</td><td>Shareholders</td></tr>
+    <tr><td>Required?</td><td>Depends on regulation and the organisation's needs</td><td>Required by law for most companies</td></tr>
+    <tr><td>Scope</td><td>Anything: operations, controls, compliance, IT, value for money, sustainability</td><td>Financial statements</td></tr>
+    <tr><td>Staff</td><td>Employees or an outsourced provider</td><td>Independent external firm</td></tr>
+  </table></div>
+
+  <h3>Factors that increase the need for internal audit</h3>
+  <ul>
+    <li><strong>Regulation:</strong> some sectors, and many listed-company governance codes, require or expect it. Codes typically expect the board to review the need for internal audit regularly if none exists.</li>
+    <li><strong>Size, complexity and spread:</strong> many sites, countries or business lines that the board cannot see directly.</li>
+    <li><strong>Number of employees and volume of transactions.</strong></li>
+    <li><strong>Problems with controls:</strong> frauds, errors, unexplained losses, repeated external-audit findings.</li>
+    <li><strong>Change:</strong> new systems, acquisitions, rapid growth or restructuring.</li>
+    <li><strong>Stakeholder expectations:</strong> public money, donors, regulators, lenders.</li>
+    <li><strong>Cost vs benefit:</strong> the expected reduction in losses and risk must justify the cost.</li>
+  </ul>
+
+  <h3>In-house vs outsourced internal audit</h3>
+  <div class="tw"><table>
+    <tr><th></th><th>In-house</th><th>Outsourced</th></tr>
+    <tr><td>Advantages</td><td>Knows the business and culture; builds relationships; available all year; develops talent for management roles</td><td>Specialist skills (IT, fraud, sustainability) on demand; more independent; flexible cost; quick to start</td></tr>
+    <tr><td>Disadvantages</td><td>Fixed cost; may lack specialist skills; familiarity threat over time</td><td>Less business knowledge; can be costly per day; independence threatened if the same firm is the external auditor or provides other services</td></tr>
+  </table></div>
+
+  <div class="box scen"><span class="lbl">📄 Scenario: Brightwater Housing Trust (fictional charity running 6,000 social homes)</span>
+    <ul>
+      <li>Annual income is $95m, 70% from government housing grants.</li>
+      <li>Repairs are done by 40 contractors. Last year a repairs supervisor approved $600,000 of invoices for work that was never done.</li>
+      <li>A new housing-management IT system goes live next year.</li>
+      <li>The finance director says internal audit is "an unnecessary overhead, because the external auditor already checks us".</li>
+    </ul>
+  </div>
+  <div class="answer"><span class="lbl">Model answer extract · "Examine whether Brightwater needs an internal audit function" (8 marks + scepticism)</span>
+    <p><strong>Accountability for public money.</strong> 70% of income, about $66.5m, comes from government grants. Funders will expect strong assurance that it is used properly, and a fraud could put future grants at risk. <span class="mk">2</span></p>
+    <p><strong>Evidence of control failure.</strong> The $600,000 repairs fraud shows that controls over contractors are not working. With 40 contractors and 6,000 homes, the board cannot check work directly. Internal audit could test whether invoiced work was actually done, for example through sample inspections and data analytics on contractor payments. <span class="mk">2</span></p>
+    <p><strong>Major change.</strong> The new IT system introduces risks of data errors and weak access controls. Internal audit should review the system's controls before go-live, when fixing problems is cheapest. <span class="mk">2</span></p>
+    <p><strong>The finance director's view is mistaken.</strong> External audit gives an opinion on whether the financial statements are fairly presented. It is not designed to detect every fraud or to review operational controls such as repairs. It also missed this fraud. The finance director also oversees the areas internal audit would review, which may explain the reluctance. <span class="sk">Scepticism</span> <span class="mk">1</span></p>
+    <p><strong>Conclusion.</strong> Brightwater needs internal audit. Given its size, a small in-house team supported by outsourced IT specialists for the system review would balance cost and expertise, reporting to the audit committee. <span class="mk">1</span></p>
+  </div>
+  <div class="box mem"><span class="lbl">Memory hook</span><p>Need for IA = <strong>"RSPCC"</strong>: <strong>R</strong>egulation, <strong>S</strong>ize and complexity, <strong>P</strong>roblems, <strong>C</strong>hange, <strong>C</strong>ost vs benefit.</p></div>
+</section>
+
+<!-- 7 Independence -->
+<section class="topic" id="t7">
+  <div class="thead"><div class="num">7</div><div><h2>Auditor independence, and internal audit's role in compliance</h2><div class="ref">F2b · Justify the importance of auditor independence in all client-auditor situations (including internal audit) and the role of internal audit in compliance</div></div></div>
+
+  <div class="box simple"><span class="lbl">In simple words</span>
+    <p>An audit is only worth something if the auditor is <strong>free to tell the truth</strong>. If the auditor depends on, fears, or is too close to the people being audited, the findings can't be trusted, and the audit gives false comfort.</p>
+    <p>Independence has two sides: <strong>independence of mind</strong> (actually being objective) and <strong>independence in appearance</strong> (a reasonable outsider would also believe the auditor is objective).</p>
+  </div>
+
+  <h3>Threats to independence (the same five apply to internal and external auditors)</h3>
+  <div class="tw"><table>
+    <tr><th>Threat</th><th>Meaning</th><th>Internal audit example</th><th>Safeguard</th></tr>
+    <tr><td><strong>Self-interest</strong></td><td>The auditor benefits from a particular outcome</td><td>Head of IA's bonus is set by the CFO whose area is audited</td><td>Audit committee sets IA pay and appraisal</td></tr>
+    <tr><td><strong>Self-review</strong></td><td>Auditing your own work</td><td>IA designed the new purchasing system and now audits it</td><td>Use different staff or an outsourced reviewer; IA advises but doesn't design</td></tr>
+    <tr><td><strong>Familiarity</strong></td><td>Too close or too trusting</td><td>Same auditor has audited the same department for 8 years; a friend of its manager</td><td>Rotate staff across areas</td></tr>
+    <tr><td><strong>Intimidation</strong></td><td>Pressure or threats</td><td>CEO tells IA to "tone down" a report or face budget cuts</td><td>Direct access to the audit committee chair; the committee approves the IA budget</td></tr>
+    <tr><td><strong>Advocacy</strong></td><td>Promoting the client's position</td><td>IA staff asked to defend management's figures to a regulator</td><td>Refuse such roles; clear IA charter</td></tr>
+  </table></div>
+
+  <h3>What makes internal audit independent</h3>
+  <ul>
+    <li><strong>Reporting line:</strong> functionally to the <strong>audit committee</strong> (scope, plan, findings); administratively to a senior executive (often the CEO) for day-to-day matters. Not to the CFO alone.</li>
+    <li>The audit committee approves the <strong>appointment, removal, pay and budget</strong> of the head of IA.</li>
+    <li>An <strong>IA charter</strong> giving unrestricted access to records, people and premises.</li>
+    <li>IA has <strong>no operational responsibilities</strong>: it doesn't run what it audits.</li>
+    <li>Staff <strong>rotation</strong> and an independent <strong>external quality review</strong> periodically.</li>
+  </ul>
+
+  <h3>Internal audit's role in compliance</h3>
+  <p>IA checks that the organisation follows <strong>laws, regulations, contracts and internal policies</strong>: for example data protection, health and safety, anti-bribery, licence conditions and grant conditions. It tests compliance, reports breaches, identifies their root causes, and follows up on fixes. Management remains <strong>responsible</strong> for compliance. IA provides <strong>assurance</strong> that it is happening. (This fits the three lines model in your Risk notes: management is the first line, compliance teams the second, IA the third.)</p>
+
+  <div class="box scen"><span class="lbl">📄 Scenario: Sterling Components (fictional listed engineering company)</span>
+    <ul>
+      <li>The head of internal audit reports to the CFO, who also sets her annual bonus.</li>
+      <li>Last year IA helped design the new inventory system, and this year IA is auditing that system.</li>
+      <li>The external audit firm also earns consulting fees that are three times its audit fee.</li>
+    </ul>
+  </div>
+  <div class="answer"><span class="lbl">Model answer extract · "Justify why the independence issues at Sterling should be addressed" (6 marks)</span>
+    <p><strong>Self-interest and intimidation (internal audit).</strong> Because the CFO sets the head of IA's bonus, she may soften findings about finance, the area most likely to contain material control weaknesses. The board would then receive false assurance. Her reporting line and pay should move to the audit committee. <span class="mk">2</span></p>
+    <p><strong>Self-review (internal audit).</strong> IA is auditing a system it helped design, so it may overlook flaws in its own work. The review should be carried out by IA staff who weren't involved, or by an outsourced specialist. <span class="mk">2</span></p>
+    <p><strong>Self-interest (external audit).</strong> Consulting fees three times the audit fee make the firm financially dependent on keeping management happy, which may make it reluctant to challenge the accounts. Shareholders could lose confidence in the audit opinion. The audit committee should cap non-audit fees and approve any non-audit work in advance. <span class="mk">2</span></p>
+  </div>
+  <div class="box trap"><span class="lbl">Common mistakes</span><ul><li>Naming the threat without explaining the <strong>consequence</strong> (false assurance, loss of trust).</li><li>Forgetting that independence applies to <strong>internal</strong> auditors too. The syllabus says "all client-auditor situations".</li></ul></div>
+  <div class="box mem"><span class="lbl">Memory hook</span><p>Threats = <strong>"SSFIA"</strong>, Some Staff Fear Independent Auditors: <strong>S</strong>elf-interest, <strong>S</strong>elf-review, <strong>F</strong>amiliarity, <strong>I</strong>ntimidation, <strong>A</strong>dvocacy.</p></div>
+</section>
+
+<!-- 8 Audit committee oversight -->
+<section class="topic" id="t8">
+  <div class="thead"><div class="num">8</div><div><h2>The audit committee's role in overseeing internal audit</h2><div class="ref">F2c · Justify the importance of having an effective internal audit committee overseeing the internal audit function</div></div></div>
+
+  <div class="box simple"><span class="lbl">In simple words</span>
+    <p>The audit committee (independent NEDs, covered in Governance 2) is internal audit's <strong>protector and its boss</strong>. It protects IA's independence from management, and it makes sure IA is doing useful work and that its findings are acted on.</p>
+  </div>
+  <div class="tw"><table>
+    <tr><th>What the audit committee does for IA</th><th>Why it matters</th></tr>
+    <tr><td>Approves the IA <strong>charter</strong>, risk-based <strong>audit plan</strong> and <strong>budget</strong></td><td>IA covers the real risks, not only what management is comfortable with</td></tr>
+    <tr><td>Appoints, appraises and removes the <strong>head of IA</strong>; sets their pay</td><td>Protects against self-interest and intimidation threats</td></tr>
+    <tr><td>Meets the head of IA <strong>privately, without management</strong>, at least once a year</td><td>Concerns can be raised freely</td></tr>
+    <tr><td>Reviews IA <strong>reports</strong> and management's <strong>responses</strong></td><td>Findings reach the board and can't be buried</td></tr>
+    <tr><td>Tracks <strong>implementation</strong> of agreed actions</td><td>Recommendations actually lead to change</td></tr>
+    <tr><td>Reviews IA's <strong>effectiveness</strong> and arranges external quality reviews</td><td>IA stays competent and relevant</td></tr>
+    <tr><td>Coordinates IA with <strong>external audit</strong></td><td>Avoids gaps and duplication</td></tr>
+  </table></div>
+
+  <div class="box scen"><span class="lbl">📄 Scenario: Northshore Water Authority (fictional public body)</span>
+    <ul>
+      <li>The audit committee meets once a year for one hour and "notes" the internal audit report.</li>
+      <li>Twelve high-priority IA recommendations from the past two years remain unimplemented. Four relate to water-quality testing.</li>
+      <li>The chief executive decides the internal audit plan.</li>
+    </ul>
+  </div>
+  <div class="answer"><span class="lbl">Model answer extract · "Justify why Northshore needs a more effective audit committee" (6 marks)</span>
+    <p><strong>IA's plan is controlled by management.</strong> The chief executive deciding what IA audits allows sensitive areas to be avoided, which undermines independence. The audit committee should approve a risk-based plan that includes the areas management finds uncomfortable. <span class="mk">2</span></p>
+    <p><strong>No follow-up means no improvement.</strong> Twelve high-priority recommendations are outstanding, four on water-quality testing. For a water authority, failed testing is a public-health risk. Simply "noting" reports allows serious weaknesses to persist. The committee should keep an action tracker and require managers to explain overdue actions in person. <span class="mk">2</span></p>
+    <p><strong>Insufficient time and challenge.</strong> One hour a year cannot oversee the controls of a public utility. The committee should meet at least quarterly and hold a private session with the head of IA. <span class="mk">2</span></p>
+  </div>
+  <div class="box mem"><span class="lbl">Memory hook</span><p>The audit committee is IA's <strong>"PAPA"</strong>: <strong>P</strong>rotects independence, <strong>A</strong>pproves plan and budget, <strong>P</strong>ursues actions, <strong>A</strong>ssesses effectiveness.</p></div>
+</section>
+
+<!-- 9 Responses to recommendations -->
+<section class="topic" id="t9">
+  <div class="thead"><div class="num">9</div><div><h2>Appropriate responses to auditors' recommendations</h2><div class="ref">F2d · Assess the appropriate responses to auditors' recommendations</div></div></div>
+
+  <div class="box simple"><span class="lbl">In simple words</span>
+    <p>An auditor's recommendation is <strong>advice, not an order</strong>. Management must decide how to respond, but every response must be <strong>reasoned, documented, owned and followed up</strong>. Ignoring recommendations is a governance failure.</p>
+  </div>
+
+  <div class="tw"><table>
+    <tr><th>Response</th><th>When it is appropriate</th></tr>
+    <tr><td><strong>Accept and implement in full</strong></td><td>The risk is significant and the fix is cost-effective. This is the usual response for high-priority findings.</td></tr>
+    <tr><td><strong>Accept in part / use an alternative control</strong></td><td>The weakness is real but another control would be cheaper or fit better. Explain why it gives equal protection.</td></tr>
+    <tr><td><strong>Accept but defer</strong></td><td>It will be fixed later (e.g. with the new system), with an interim control in the meantime.</td></tr>
+    <tr><td><strong>Reject (accept the risk)</strong></td><td>Cost clearly exceeds benefit, or the risk is within appetite. Must be justified in writing and reported to the audit committee.</td></tr>
+  </table></div>
+
+  <h3>A good response process</h3>
+  <ol>
+    <li><strong>Prioritise</strong> by risk (high, medium, low).</li>
+    <li>Give a written <strong>management response</strong> to each recommendation.</li>
+    <li>Agree an <strong>action plan</strong>: owner, deadline, resources.</li>
+    <li>Record it in an <strong>action tracker</strong> reported to the audit committee.</li>
+    <li>IA carries out <strong>follow-up</strong> testing to confirm the fix works.</li>
+    <li><strong>Escalate</strong> overdue or rejected high-risk items to the board.</li>
+  </ol>
+
+  <div class="box scen"><span class="lbl">📄 Scenario: Ridgeway Retail (fictional chain of 80 stores)</span>
+    <ul>
+      <li>IA recommends (1) CCTV in all 80 stockrooms at $4,000 each ($320,000), because stock losses are $90,000 a year across the chain; (2) removing shared tills logins, which IA says allow refund fraud, at almost no cost.</li>
+      <li>The operations director wants to reject both, saying "audit always wants more cost".</li>
+    </ul>
+  </div>
+  <div class="answer"><span class="lbl">Model answer extract · "Assess how Ridgeway should respond to the two recommendations" (6 marks)</span>
+    <p><strong>CCTV: accept in part.</strong> $320,000 to address $90,000 of annual losses would take over three years to pay back, assuming it removed every loss, which is unlikely. A better response is to install CCTV only in the stores with the highest losses and use stock-count analytics elsewhere. The reasoning should be documented for the audit committee. <span class="mk">2</span></p>
+    <p><strong>Shared logins: accept and implement immediately.</strong> The cost is almost nil, and individual logins create an audit trail that deters and detects refund fraud. Rejecting it has no cost justification. <span class="mk">2</span></p>
+    <p><strong>The operations director's approach is not appropriate.</strong> Rejecting recommendations because of "cost" without analysis ignores the risk. Rejections should be justified, approved by the audit committee, and both actions tracked with owners and deadlines, with IA following up within six months. <span class="mk">2</span></p>
+  </div>
+  <div class="box mem"><span class="lbl">Memory hook</span><p>Responses = <strong>"Accept, Adapt, Delay, Decline"</strong>, and every one must be <strong>Written, Owned, Tracked</strong>.</p></div>
+</section>
+
+<!-- ================= F3 ================= -->
+<div class="part" id="f3"><h2>F3 · Internal control and management reporting</h2><p>Topics 10–12 · reports to shareholders · report contents incl. environmental and sustainability audits · controls behind reliable reporting</p></div>
+
+<!-- 10 Reports to shareholders -->
+<section class="topic" id="t10">
+  <div class="thead"><div class="num">10</div><div><h2>Why shareholders need reports on internal control</h2><div class="ref">F3a · Justify the need for reports on internal controls to shareholders</div></div></div>
+
+  <div class="box simple"><span class="lbl">In simple words</span>
+    <p>Shareholders own the company but can't see inside it (the <strong>agency problem</strong> from Governance 1). A report on internal control tells them <strong>how the directors manage risk and control</strong>, and whether the system works. It reduces the information gap and holds directors accountable.</p>
+  </div>
+  <h3>Reasons to justify it</h3>
+  <ul>
+    <li><strong>Accountability:</strong> directors are stewards of shareholders' assets and should explain how they protect them.</li>
+    <li><strong>Reduces agency costs:</strong> shareholders need less costly monitoring if directors disclose reliably.</li>
+    <li><strong>Investor confidence:</strong> it supports the share price and lowers the cost of capital.</li>
+    <li><strong>Discipline on directors:</strong> having to report publicly makes the board review controls properly.</li>
+    <li><strong>Regulatory requirement:</strong> many regimes require it. For example, the US Sarbanes-Oxley Act (section 404) requires a management report on internal control over financial reporting. The UK Corporate Governance Code (2024) asks boards to declare whether their material controls are effective.</li>
+    <li><strong>Wider stakeholders:</strong> lenders, regulators and, for public bodies, citizens also rely on it.</li>
+  </ul>
+  <div class="box trap"><span class="lbl">Arguments against (useful for balance)</span><ul><li>Cost and time of preparing and auditing it.</li><li>The risk of "boilerplate" statements that say little.</li><li>Possible legal liability that makes directors cautious and vague.</li><li>Disclosing weaknesses may help competitors or fraudsters.</li></ul></div>
+  <div class="box mem"><span class="lbl">Memory hook</span><p>"Owners can't see inside. The report is their <strong>window</strong>." Window = Accountability, Agency, Assurance (confidence), Action (board discipline).</p></div>
+</section>
+
+<!-- 11 Report contents incl environmental audits -->
+<section class="topic" id="t11">
+  <div class="thead"><div class="num">11</div><div><h2>What a report on internal control and internal audit contains, including environmental and sustainability audits</h2><div class="ref">F3b · Discuss the typical contents of a report on internal control and internal audit including environmental and sustainability audits</div></div></div>
+
+  <h3>A. Directors' report on internal control (to shareholders, in the annual report)</h3>
+  <ul>
+    <li>A statement that the <strong>board is responsible</strong> for the system of risk management and internal control.</li>
+    <li>That the system manages, rather than eliminates, risk and gives <strong>reasonable, not absolute, assurance</strong>.</li>
+    <li>The <strong>process</strong> the board used to review effectiveness: committees, internal audit, management reports, frequency.</li>
+    <li>The board's <strong>conclusion</strong> on effectiveness (e.g. whether material controls were effective at year-end).</li>
+    <li>Any <strong>significant failings or weaknesses</strong> found, and the <strong>action</strong> taken or planned.</li>
+    <li>Whether there is an <strong>internal audit function</strong>, or why not.</li>
+  </ul>
+
+  <h3>B. An internal audit report (to management and the audit committee)</h3>
+  <div class="tw"><table>
+    <tr><th>Section</th><th>Contents</th></tr>
+    <tr><td>Executive summary</td><td>Overall opinion or rating (e.g. "limited assurance"), key findings</td></tr>
+    <tr><td>Objectives and scope</td><td>What was audited, the period, and anything excluded</td></tr>
+    <tr><td>Findings</td><td>For each: the condition found, the criteria (what should happen), the cause, and the risk or impact</td></tr>
+    <tr><td>Recommendations</td><td>Ranked by priority</td></tr>
+    <tr><td>Management responses</td><td>Agreed actions, owners and deadlines</td></tr>
+    <tr><td>Follow-up</td><td>Status of previous recommendations</td></tr>
+  </table></div>
+
+  <h3>C. Environmental and sustainability audits</h3>
+  <div class="box simple"><span class="lbl">In simple words</span>
+    <p>An <strong>environmental audit</strong> checks an organisation's environmental performance and compliance: emissions, waste, energy, water, pollution, permits. A <strong>sustainability audit</strong> is wider, covering social and governance matters too, such as labour standards, community impact, diversity and supply-chain ethics.</p>
+  </div>
+  <p><strong>Three key stages of an environmental audit:</strong></p>
+  <ol>
+    <li><strong>Agree the metrics:</strong> decide what will be measured (e.g. tonnes of CO₂, litres of water, % waste recycled, number of permit breaches) and the targets or standards.</li>
+    <li><strong>Measure performance</strong> against those metrics: collect and test the data.</li>
+    <li><strong>Report</strong> the results, including compliance with targets or regulations and any variances, with recommendations.</li>
+  </ol>
+  <p><strong>Typical contents of an environmental or sustainability audit report:</strong> scope and standards used (e.g. ISO 14001, EMAS from your Governance 2 notes); performance against each metric and target; compliance with permits and law; significant incidents; data-reliability findings; recommendations; and, if published, the assurance provider's conclusion.</p>
+
+  <div class="box scen"><span class="lbl">📄 Scenario: Greenway Packaging (fictional manufacturer)</span>
+    <ul>
+      <li>Greenway's annual report claims it "cut emissions by 30%". The figure comes from one site manager's spreadsheet and includes only 2 of its 5 factories.</li>
+      <li>There are no agreed metrics or targets, and the data has never been checked by internal audit or any outside party.</li>
+    </ul>
+  </div>
+  <div class="answer"><span class="lbl">Model answer extract · "Discuss how an environmental audit would improve Greenway's sustainability reporting" (6 marks + scepticism)</span>
+    <p><strong>The 30% claim is unreliable.</strong> It covers only 2 of 5 factories and comes from an unchecked personal spreadsheet. The group-wide figure could be very different, and if challenged, Greenway risks accusations of greenwashing and loss of customer trust. <span class="sk">Scepticism</span> <span class="mk">2</span></p>
+    <p><strong>Agree metrics.</strong> An audit would start by setting clear, group-wide metrics, such as emissions per tonne of output at all five factories, with a baseline and targets. Year-on-year comparisons would then be meaningful. <span class="mk">1</span></p>
+    <p><strong>Measure and test.</strong> Internal audit, or a specialist, would test data at source (meter readings, fuel invoices) and check that every site is included, so reported figures can be relied on. <span class="mk">2</span></p>
+    <p><strong>Report.</strong> The report would show performance against targets, explain variances and recommend improvements. Greenway could then publish verified figures, ideally with external assurance. <span class="mk">1</span></p>
+  </div>
+  <div class="box mem"><span class="lbl">Memory hook</span><p>Environmental audit = <strong>"Agree · Measure · Report"</strong> (AMR, "a mirror": it shows you as you really are).</p></div>
+</section>
+
+<!-- 12 Controls underpin reliable reporting -->
+<section class="topic" id="t12">
+  <div class="thead"><div class="num">12</div><div><h2>How internal controls underpin reliable financial and sustainability reporting</h2><div class="ref">F3c · Assess how internal controls underpin and provide information for reliable financial and sustainable reporting</div></div></div>
+
+  <div class="box simple"><span class="lbl">In simple words</span>
+    <p>Every number in a published report, whether profit or carbon emissions, starts as a transaction or a reading somewhere in the business. <strong>Controls make sure that data is complete, accurate, recorded in the right period and not manipulated</strong> on its way into the report. Weak controls mean unreliable reports, whatever the accounting rules say.</p>
+  </div>
+  <div class="tw"><table>
+    <tr><th>Control</th><th>Financial reporting</th><th>Sustainability reporting</th></tr>
+    <tr><td>Completeness checks</td><td>All sales invoices recorded (sequence checks)</td><td>All sites and suppliers included in emissions data</td></tr>
+    <tr><td>Accuracy and validation</td><td>System checks, three-way matching</td><td>Meter readings checked against invoices; calculation tools locked</td></tr>
+    <tr><td>Reconciliations</td><td>Bank, payables, receivables</td><td>Energy data reconciled to utility bills</td></tr>
+    <tr><td>Authorisation and review</td><td>Journals over a limit approved by a second person</td><td>Changes to emission factors approved and documented</td></tr>
+    <tr><td>IT and access controls</td><td>Only authorised users can post or change entries</td><td>Sustainability data held in a controlled system, not personal spreadsheets</td></tr>
+    <tr><td>Independent assurance</td><td>Internal and external audit</td><td>Internal audit and external assurance of key metrics</td></tr>
+  </table></div>
+  <div class="box ex"><span class="lbl">Example</span>
+    <p>A hospital group reports a 98% "patients seen within 4 hours" figure, a key performance number for its funders. Internal audit finds that clock start times can be edited by ward staff without any record. The figure may be accurate, but nobody can <em>prove</em> it. One control, a locked timestamp with an audit trail, turns an unverifiable number into a reliable one.</p>
+  </div>
+  <div class="box trap"><span class="lbl">Common mistake</span><p>Treating sustainability data as "softer" than financial data. Investors and regulators increasingly expect it to have the <strong>same quality of controls</strong> and assurance as the financial figures.</p></div>
+  <div class="box mem"><span class="lbl">Memory hook</span><p><strong>"Garbage in, garbage out."</strong> Controls make sure what goes in is complete, accurate, authorised and traceable.</p></div>
+</section>
+
+<!-- ================= PRACTICE ================= -->
+<div class="part" id="case"><h2>13 · Timed practice task: 20 marks, 39 minutes</h2><p>Do this before opening the model answer. No notes.</p></div>
+
+<section class="topic">
+  <div class="box scen"><span class="lbl">📄 Exhibit 1: Background</span>
+    <p><strong>Lakeside Health Group</strong> (fictional) runs 4 private hospitals with annual revenue of $310m. Its board has 7 members: the chair, CEO, CFO, medical director and 3 independent NEDs. The audit committee is the 3 NEDs, chaired by a retired surgeon. None of them has a finance background.</p>
+  </div>
+  <div class="box scen"><span class="lbl">📄 Exhibit 2: Email from the CFO to the board</span>
+    <p>"Our two-person internal audit team reports to me. To save $180,000 a year, I propose we close it. External audit already gives us a clean opinion every year, and our procurement controls are excellent. I'd like this approved at next week's meeting."</p>
+  </div>
+  <div class="box scen"><span class="lbl">📄 Exhibit 3: Findings from the internal audit team's last report (8 months ago)</span>
+    <ul>
+      <li>The procurement manager can set up new suppliers and approve payments to them.</li>
+      <li>$2.3m of medical consumables were bought last year from a supplier owned by the procurement manager's brother-in-law. No conflict of interest was declared.</li>
+      <li>Theatre stock is counted once a year. Last count showed $410,000 of stock "unaccounted for".</li>
+      <li>None of the report's 9 recommendations has been implemented. The report was sent to the CFO only.</li>
+    </ul>
+  </div>
+  <div class="box exam"><span class="lbl">Requirement</span>
+    <p>You are an independent governance advisor. Prepare a <strong>briefing note for the audit committee</strong> which:</p>
+    <p>(a) evaluates the weaknesses in Lakeside's internal control over procurement and stock, and recommends improvements. <strong>(8 marks)</strong></p>
+    <p>(b) assesses whether Lakeside should close its internal audit function, and recommends how internal audit should be organised. <strong>(10 marks)</strong></p>
+    <p>Professional skills marks are available for demonstrating <strong>scepticism</strong>. <strong>(2 marks)</strong></p>
+  </div>
+
+  <details>
+    <summary>✅ Open the model answer (only after you've written yours)</summary>
+    <div class="answer">
+      <p><strong>BRIEFING NOTE</strong><br><strong>To:</strong> Audit Committee, Lakeside Health Group<br><strong>From:</strong> Independent Governance Advisor<br><strong>Subject:</strong> Procurement and stock controls, and the future of internal audit</p>
+
+      <p><strong>1. Purpose</strong><br>This note evaluates control weaknesses identified by internal audit and assesses the CFO's proposal to close the internal audit function.</p>
+
+      <p><strong>2. (a) Control weaknesses and improvements</strong></p>
+      <p><strong>No segregation of duties in procurement.</strong> The procurement manager can both create suppliers and approve payments to them, so one person could set up a fictitious supplier and pay it. Supplier set-up should be done by finance, separately from procurement, with every new supplier and bank-detail change independently approved. <span class="mk">2</span></p>
+      <p><strong>Undeclared conflict of interest.</strong> $2.3m was paid to a supplier owned by the procurement manager's brother-in-law. Even if the prices were fair, this creates a serious risk of fraud and of overpaying. Lakeside should require annual conflict-of-interest declarations, check supplier ownership against staff records, and commission an immediate independent review of the $2.3m of purchases. <span class="mk">2</span></p>
+      <p><strong>Weak stock control.</strong> With only an annual count, $410,000 of theatre stock is unaccounted for. Losses could be theft, waste or recording errors, and they can't be investigated a year later. High-value theatre items should be counted monthly, issued by scanning against a patient or procedure, and variances investigated promptly. <span class="mk">2</span></p>
+      <p><strong>Weak monitoring and follow-up.</strong> None of the 9 recommendations has been implemented in 8 months, and the report reached only the CFO. Findings were not escalated, so known weaknesses persisted. All internal audit reports should go to the audit committee, with an action tracker reviewed at every meeting. <span class="mk">2</span></p>
+
+      <p><strong>3. (b) Should internal audit be closed?</strong></p>
+      <p><strong>The case for closure is weak.</strong> The $180,000 saving is small compared with the risks: $410,000 of unexplained stock losses in one year and $2.3m of conflicted purchases. One year's stock losses alone are more than twice the annual cost of the team. <span class="mk">2</span></p>
+      <p><strong>External audit is not a substitute.</strong> A clean audit opinion says the financial statements are fairly presented overall. It doesn't test operational controls such as theatre stock or procurement conflicts, and the external audit did not report these problems. <span class="mk">1</span></p>
+      <p><strong>Lakeside's size and risks justify internal audit.</strong> A $310m group across four hospitals, handling patient-related stock and large procurement spend, needs independent assurance the board cannot get directly. Patient safety also depends on reliable theatre stock. <span class="mk">2</span></p>
+      <p><strong>Independence is currently compromised.</strong> Internal audit reports to the CFO, whose area includes procurement and stock, the areas with the weaknesses. That is a self-interest and intimidation threat, and probably why the report went no further. <span class="mk">1</span></p>
+      <p><strong>Recommendations on organisation.</strong> Keep internal audit, but have it report functionally to the audit committee chair, which approves its plan, budget and the head of IA's appointment and pay. Consider strengthening the two-person team with outsourced specialists (e.g. IT and fraud) for specific reviews. The audit committee should also appoint a member with recent financial experience, since none currently has a finance background. <span class="mk">2</span> <span class="mk">2</span></p>
+
+      <p><strong>4. Scepticism points</strong> <span class="sk">Scepticism 2/2</span></p>
+      <ul>
+        <li>The CFO's claim that procurement controls are "excellent" contradicts internal audit's own findings.</li>
+        <li>The CFO proposes closing the function that criticised his area and that reports only to him. There is a clear conflict of interest.</li>
+        <li>Asking for approval "next week" leaves no time for proper consideration. The committee should not decide until it has reviewed the full report.</li>
+      </ul>
+      <p><strong>5. Conclusion</strong><br>The audit committee should reject the proposal to close internal audit, change its reporting line immediately, and require an action plan for all 9 outstanding recommendations within one month.</p>
+    </div>
+    <p class="note">Marking note: 8 marks are available for (a) and 10 for (b). The model answer contains more creditable points than the maximum, as real marking guides do. A pass needs about 50% of available marks, so around 10/20 here.</p>
+  </details>
+  <div class="box tips"><span class="lbl">After you finish</span><p>Paste your answer in our chat with <strong>"Mark this: Chapter F task"</strong>. I'll mark it out of 20 as an ACCA marker would and rewrite your weakest paragraph.</p></div>
+</section>
+
+<!-- ================= CHEAT SHEET ================= -->
+<div class="part" id="cheat"><h2>14 · One-page cheat sheet</h2><p>Read this the night before the exam.</p></div>
+<section class="topic">
+  <div class="tw"><table>
+    <tr><th>Topic</th><th>Key content</th><th>Hook</th></tr>
+    <tr><td>COSO internal control (F1a)</td><td>Control environment · Risk assessment · Control activities · Information &amp; communication · Monitoring. All 5 needed; culture is the foundation</td><td>CRIME</td></tr>
+    <tr><td>Information flows (F1b)</td><td>Accurate, Complete, Cost-effective, Understandable, Relevant, Authoritative, Timely, Easy to use; plus an upward channel for bad news</td><td>ACCURATE</td></tr>
+    <tr><td>Limitations (F1c)</td><td>Human error · Override · Collusion · Cost vs benefit · Routine transactions only. Reasonable, not absolute, assurance</td><td>HOCCR</td></tr>
+    <tr><td>Consequences (F1d)</td><td>Financial · Legal · Regulatory · Reputational · Operational · Strategic. Quantify with case numbers</td><td>FLRROS</td></tr>
+    <tr><td>Control types (F1e)</td><td>Preventive · Detective · Corrective · Directive. Each recommendation: what, who, how often, which risk</td><td>PDCD</td></tr>
+    <tr><td>Need for IA (F2a)</td><td>Regulation · Size/complexity · Problems · Change · Cost vs benefit. External audit ≠ internal audit</td><td>RSPCC</td></tr>
+    <tr><td>Independence (F2b)</td><td>Self-interest · Self-review · Familiarity · Intimidation · Advocacy. IA reports functionally to the audit committee</td><td>SSFIA</td></tr>
+    <tr><td>Audit committee &amp; IA (F2c)</td><td>Protects independence · Approves plan and budget · Pursues actions · Assesses effectiveness · private meetings</td><td>PAPA</td></tr>
+    <tr><td>Responses (F2d)</td><td>Accept · Adapt · Delay · Decline (justified). Written, owned, tracked, followed up</td><td>WOT</td></tr>
+    <tr><td>Reports to shareholders (F3a)</td><td>Accountability · reduces agency gap · investor confidence · board discipline · regulation. Against: cost, boilerplate</td><td>Window</td></tr>
+    <tr><td>Report contents (F3b)</td><td>Board responsibility · reasonable assurance · review process · conclusion · weaknesses and actions. Environmental audit: Agree metrics → Measure → Report</td><td>AMR</td></tr>
+    <tr><td>Reliable reporting (F3c)</td><td>Completeness, accuracy, reconciliation, authorisation, IT access, assurance, for financial <em>and</em> sustainability data</td><td>Garbage in, garbage out</td></tr>
+  </table></div>
+</section>
+
+<!-- ================= QUIZ ================= -->
+<div class="part" id="quiz"><h2>15 · Quick self-test (10 questions)</h2><p>Answer in your head, then open.</p></div>
+<section class="topic">
+  <details><summary>Q1. Name the 5 COSO internal control components.</summary><p>Control environment, risk assessment, control activities, information and communication, monitoring activities.</p></details>
+  <details><summary>Q2. Which COSO component is the foundation, and why?</summary><p>The control environment (tone at the top, integrity, accountability). If culture accepts bypassing controls, even well-designed control activities fail.</p></details>
+  <details><summary>Q3. Give three inherent limitations of internal control.</summary><p>Any three of: human error, collusion, management override, cost vs benefit, controls designed for routine transactions, controls becoming outdated.</p></details>
+  <details><summary>Q4. Two employees responsible for different stages of payments collude. Which control has failed, and what helps?</summary><p>Segregation of duties is defeated by collusion. Helpful measures: independent approval of new suppliers and bank-detail changes, job rotation, mandatory leave, data analytics, and checking relationships between staff and suppliers.</p></details>
+  <details><summary>Q5. Why isn't a clean external audit opinion a reason to close internal audit?</summary><p>External audit gives an opinion on the financial statements for shareholders. It does not provide ongoing assurance over operational controls, compliance or value for money, and it is not designed to find all fraud.</p></details>
+  <details><summary>Q6. Internal audit designed a system and now audits it. Which threat is this?</summary><p>Self-review. Use staff who weren't involved, or an outsourced reviewer.</p></details>
+  <details><summary>Q7. To whom should the head of internal audit report functionally?</summary><p>The audit committee (or its chair), which also approves the IA plan, budget, and the head of IA's appointment, pay and removal.</p></details>
+  <details><summary>Q8. When is it acceptable for management to reject an audit recommendation?</summary><p>When the cost clearly exceeds the benefit or the risk is within appetite, and only with written justification reported to and accepted by the audit committee.</p></details>
+  <details><summary>Q9. What are the three stages of an environmental audit?</summary><p>Agree the metrics, measure performance against them, and report on compliance and variances.</p></details>
+  <details><summary>Q10. Give two reasons shareholders need a report on internal control, and one argument against.</summary><p>For: accountability and stewardship; reducing the agency information gap; investor confidence and cost of capital; discipline on the board; regulatory requirements. Against: cost, generic "boilerplate" wording, legal liability, or revealing weaknesses to competitors or fraudsters.</p></details>
+</section>
+
+<footer>
+  ACCA Strategic Business Leader (SBL) · Section F: Organisational Control &amp; Audit · Compact edition · Syllabus Sep 2026 – Jun 2027 (December 2026 sitting)<br>
+  Based on the ACCA SBL Syllabus and Study Guide (Sep 2026 – Jun 2027). Organisations in scenarios are fictional; real-world cases are described from public information. Study notes for educational purposes.
+</footer>
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement,min=14,max=26,cur=18;
+  try{var s=parseInt(localStorage.getItem('sblF_fs'),10);if(s>=min&&s<=max)cur=s;}catch(e){}
+  function set(v){cur=Math.max(min,Math.min(max,v));root.style.setProperty('--fs',cur+'px');try{localStorage.setItem('sblF_fs',cur);}catch(e){}}
+  if(window.matchMedia('(min-width:701px)').matches||cur!==18)set(cur);
+  document.getElementById('up').addEventListener('click',function(){set(cur+1);this.blur();});
+  document.getElementById('dn').addEventListener('click',function(){set(cur-1);this.blur();});
+})();
+</script>
+</body>
+</html>
